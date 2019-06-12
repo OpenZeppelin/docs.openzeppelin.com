@@ -1,0 +1,13 @@
+{
+  "name": "openzeppelin-docs",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "build": "antora site.yml"
+  },
+  "dependencies": {
+    "@antora/cli": "^2.0.0",
+    "generator": "file:generator"
+  },
+  "license": "MIT"
+}

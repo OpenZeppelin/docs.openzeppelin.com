@@ -1,0 +1,1 @@
+image::activity-diagram.svg[,500]

@@ -1,0 +1,13 @@
+= Antora Default Site Generator
+
+This is the default site generator pipeline for Antora.
+This pipeline is invoked by the `generate` command of Antora's CLI to produce and publish static documentation sites.
+
+https://antora.org[Antora] is a modular static site generator designed for creating documentation sites from AsciiDoc documents.
+Its site generator pipeline aggregates documents from versioned content repositories and processes them using https://asciidoctor.org[Asciidoctor].
+
+== Copyright and License
+
+Copyright (C) 2017-2018 https://opendevise.com[OpenDevise Inc.] and the https://antora.org[Antora Project].
+
+Use of this software is granted under the terms of the https://www.mozilla.org/en-US/MPL/2.0/[Mozilla Public License Version 2.0] (MPL-2.0).

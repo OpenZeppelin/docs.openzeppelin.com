@@ -1,0 +1,30 @@
+{
+  "name": "content-aggregator",
+  "version": "2.0.0",
+  "license": "MPL-2.0",
+  "private": true,
+  "main": "lib/index.js",
+  "dependencies": {
+    "@antora/expand-path-helper": "~1.0",
+    "cache-directory": "~2.0",
+    "fs-extra": "~7.0",
+    "isomorphic-git": "0.47.0",
+    "js-yaml": "~3.12",
+    "lodash": "~4.17",
+    "matcher": "~1.1",
+    "mime-types": "~2.1",
+    "multi-progress": "~2.0",
+    "through2": "~3.0",
+    "vinyl": "~2.2",
+    "vinyl-fs": "~3.0"
+  },
+  "devDependencies": {
+    "deep-freeze-node": "~1.1"
+  },
+  "engines": {
+    "node": ">=8.11.0"
+  },
+  "files": [
+    "lib/"
+  ]
+}

@@ -1,0 +1,16 @@
+= The Page
+:page-aliases: the-alias.adoc
+
+Content.
+
+== Section A
+
+Section A content.
+
+== Section B
+
+Section B content.
+
+== Legalese
+
+&copy; now to infinity, ACME, Inc.

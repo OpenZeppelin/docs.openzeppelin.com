@@ -1,0 +1,29 @@
+{
+  "name": "generator",
+  "version": "2.0.0",
+  "license": "MPL-2.0",
+  "private": true,
+  "main": "lib/index.js",
+  "dependencies": {
+    "@antora/asciidoc-loader": "2.0.0",
+    "@antora/content-classifier": "2.0.0",
+    "@antora/document-converter": "2.0.0",
+    "@antora/navigation-builder": "2.0.0",
+    "@antora/page-composer": "2.0.0",
+    "@antora/playbook-builder": "2.0.0",
+    "@antora/redirect-producer": "2.0.0",
+    "@antora/site-mapper": "2.0.0",
+    "@antora/site-publisher": "2.0.0",
+    "@antora/ui-loader": "2.0.0",
+    "content-aggregator": "file:content-aggregator"
+  },
+  "devDependencies": {
+    "fs-extra": "~7.0"
+  },
+  "engines": {
+    "node": ">=8.11.0"
+  },
+  "files": [
+    "lib/"
+  ]
+}

@@ -1,0 +1,8 @@
+= Index Page
+:description: The almighty index page
+
+Content.
+
+See xref:the-page.adoc[the page].
+
+include::{partialsdir}/diagrams.adoc[]

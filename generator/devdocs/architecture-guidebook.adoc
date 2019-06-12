@@ -1,0 +1,86 @@
+= Default Site Generator Guidebook
+
+== Context
+
+The generation of a typical documentation site depends on a default arrangement of available Antora components.
+The components need to be assembled into an execution pipeline by connecting component inputs and outputs.
+The component that orchestrates this functionality should delegate all work to the functions it imports from other components.
+
+== Functional Overview
+
+Each component in Antora focuses on accomplishing a well-defined task.
+The default site generator assembles these tasks into a pipeline so they come together to generate a site in a standard way.
+The main purpose of the site generator is to arrange the tasks in a logical sequence and connect the output of one task to the input of a subsequent task.
+It should start with the provided user input and end when the site is published to the configured destination(s).
+
+The site generator should also handle cross-cutting infrastructure concerns.
+For instance, it should be responsible for configuring the logger and handling uncaught errors.
+It should also dynamically load extensions or register additional integrations as requested.
+
+The site generator is the interface between the CLI and Antora's components.
+It should provide the API the `generate` command will execute.
+
+In the future, this component may be able to dynamically load extensions or register additional integrations.
+
+== Software Architecture
+
+The default site generator is provided by the site-generator-default module.
+The qualifier goes at the end of the name so alternate implementations get listed together alphabetically (e.g., site-generator-acme).
+
+The generator should delegate to the following functions imported from the specified module:
+
+* buildPlaybook (playbook-builder)
+* aggregateContent (content-aggregator)
+* loadUi (ui-loader)
+* classifyContent (content-classifier)
+* convertDocument (document-converter)
+* buildNavigation (navigation-builder)
+* createPageComposer (page-composer)
+* mapSite (site-mapper)
+* produceRedirects (redirect-producer)
+* publishSite (site-publisher)
+
+The generator should do as little work as possible.
+If it looks like it's doing too much work, then the component to which it's delegating should be improved.
+
+The pipeline should execute asynchronous behavior, such as loading the UI, as early as possible, then await the result as soon as it's needed.
+This ensures background processes can make the best use of the execution time.
+
+.Inputs
+* An an array of arguments in the form `--name=value` or `--name`
+* A map of environment variables
+
+.Output
+* Nothing (or perhaps a success code)
+
+== Code
+
+The default site generator is implemented as a dedicated node package (i.e., module).
+The default site generator API exports the asynchronous function `generateSite()`, which accepts an array of command-line arguments (in the form `--name=value`), a map of environment variables, and an output directory (though this parameter will be eliminated once the site publisher is available).
+The `generateSite()` function does not return a value.
+
+The API for the default site generator should be used as follows:
+
+[source,js]
+----
+const generateSite = require('@antora/default-site-generator')
+
+//...
+
+await generateSite(args, env, 'build/site')
+----
+
+== Data
+
+Aside from user input in the form of arguments and environment variables, all data is handled internally and defined by the other components.
+
+== Consequences
+
+Each component in Antora performs a well-defined task.
+But those components need to be assembled into a logical pipeline in order to generate a functional documentation site.
+That's the default site generator's job.
+The default site generator provides a composite function that uses all the other components to generate a site.
+
+The default site generator also provides an off-the-shelf experience to satisfy the typical use case and to demonstrate Antora's capabilities.
+However, it is just one way to arrange Antora's components.
+Due to Antora's open architecture, users will be able to assemble their own pipelines to meet additional requirements and custom use cases.
