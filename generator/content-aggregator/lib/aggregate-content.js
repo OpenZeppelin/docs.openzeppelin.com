@@ -1,5 +1,7 @@
 'use strict'
 
+const execa = require('execa');
+
 const _ = require('lodash')
 const { createHash } = require('crypto')
 const EventEmitter = require('events')
@@ -320,7 +322,7 @@ async function populateComponentVersion (source, repo, remoteName, authStatus, r
   let componentVersion
   try {
     files = worktreePath
-      ? await readFilesFromWorktree(worktreePath, startPath)
+      ? await readFilesFromWorktree(worktreePath, startPath, repo.dir)
       : await readFilesFromGitTree(repo, ref, startPath)
     componentVersion = loadComponentDescriptor(files, startPath)
   } catch (err) {
@@ -332,23 +334,34 @@ async function populateComponentVersion (source, repo, remoteName, authStatus, r
   return componentVersion
 }
 
-function readFilesFromWorktree (base, startPath) {
-  return fs
-    .stat(base)
-    .catch(() => {
-      throw new Error(`the start path '${startPath}' does not exist`)
-    })
-    .then((stat) => {
-      if (!stat.isDirectory()) throw new Error(`the start path '${startPath}' is not a directory`)
-      return new Promise((resolve, reject) => {
-        const opts = { base, cwd: base, removeBOM: false }
-        vfs
-          .src(CONTENT_GLOB, opts)
-          .on('error', reject)
-          .pipe(relativizeFiles())
-          .pipe(collectFiles(resolve))
-      })
-    })
+async function readFilesFromWorktree (base, startPath, repoDir) {
+  let stat;
+  try {
+    stat = await fs.stat(base);
+  } catch {
+    throw new Error(`the start path '${startPath}' does not exist`)
+  }
+
+  if (!stat.isDirectory()) throw new Error(`the start path '${startPath}' is not a directory`)
+
+  const pkgJson = await fs.read(path.join(repoDir, 'package.json'))
+    .then(JSON.parse).catch(() => undefined);
+
+  if (pkgJson && pkgJson.scripts.antora) {
+    await execa('npm', ['run', 'antora'], {
+      stdio: 'inherit',
+      cwd: repoDir,
+    });
+  }
+
+  return new Promise((resolve, reject) => {
+    const opts = { base, cwd: base, removeBOM: false }
+    vfs
+      .src(CONTENT_GLOB, opts)
+      .on('error', reject)
+      .pipe(relativizeFiles())
+      .pipe(collectFiles(resolve))
+  })
 }
 
 /**
@@ -382,85 +395,16 @@ function collectFiles (done) {
   return map((file, enc, next) => accum.push(file) && next(), () => done(accum))
 }
 
-function readFilesFromGitTree (repo, ref, startPath) {
-  return getGitTree(repo, ref, startPath).then((tree) => srcGitTree(repo, tree))
-}
-
-function getGitTree (repo, { qname: ref }, startPath) {
-  // NOTE sometimes isomorphic-git takes two attempts resolve an annotated tag; perhaps something to address upstream
-  return git
-    .resolveRef(Object.assign({ ref }, repo))
-    .then((oid) => git.readObject(Object.assign({ oid }, repo)))
-    .then((entry) => (entry.type === 'tag' ? git.readObject(Object.assign({ oid: entry.object.object }, repo)) : entry))
-    .then(({ object: commit }) =>
-      git
-        .readObject(Object.assign({ oid: commit.tree, filepath: startPath }, repo))
-        .catch(() => {
-          throw new Error(`the start path '${startPath}' does not exist`)
-        })
-        .then((entry) => {
-          if (entry.type !== 'tree') throw new Error(`the start path '${startPath}' is not a directory`)
-          return entry.object
-        })
-    )
-}
-
-function srcGitTree (repo, tree) {
-  return new Promise((resolve, reject) => {
-    const files = []
-    walkGitTree(repo, tree, filterGitEntry)
-      .on('entry', (entry) => files.push(entryToFile(entry)))
-      .on('error', reject)
-      .on('end', () => resolve(Promise.all(files)))
-      .start()
-  })
-}
-
-function walkGitTree (repo, root, filter) {
-  const emitter = new EventEmitter()
-  let depth = 1
-  function visit (tree, dirname = '') {
-    depth--
-    for (let entry of tree.entries) {
-      if (filter(entry)) {
-        const type = entry.type
-        if (type === 'blob') {
-          const mode = FILE_MODES[entry.mode]
-          if (mode) {
-            emitter.emit(
-              'entry',
-              Object.assign({}, repo, { mode, oid: entry.oid, path: path.join(dirname, entry.path) })
-            )
-          }
-        } else if (type === 'tree') {
-          depth++
-          git
-            .readObject(Object.assign({ oid: entry.oid }, repo))
-            .then(({ object: subtree }) => visit(subtree, path.join(dirname, entry.path)))
-            .catch((err) => emitter.emit('error', err))
-        }
-      }
-    }
-    if (depth === 0) emitter.emit('end')
-  }
-  emitter.start = () => visit(root)
-  return emitter
-}
-
-/**
- * Returns true if the entry should be processed or false if it should be skipped.
- */
-function filterGitEntry (entry) {
-  return !entry.path.startsWith('.') && (entry.type !== 'blob' || ~entry.path.indexOf('.'))
-}
-
-function entryToFile (entry) {
-  return git.readObject(entry).then(({ object: contents }) => {
-    const stat = new fs.Stats()
-    stat.mode = entry.mode
-    stat.size = contents.length
-    return new File({ path: entry.path, contents, stat })
-  })
+async function readFilesFromGitTree (repo, ref, startPath) {
+  const checkoutDir = repo.gitdir.replace(/\.git$/, '') + '-' + ref.name;
+  const checkoutArgs = Object.assign({}, repo, {
+    ref: ref.qname,
+    dir: checkoutDir,
+    noCheckout: false,
+  });
+  await git.checkout(checkoutArgs);
+  const worktreeDir = ospath.join(checkoutDir, startPath);
+  return readFilesFromWorktree(worktreeDir, startPath, checkoutDir);
 }
 
 function loadComponentDescriptor (files, startPath) {
