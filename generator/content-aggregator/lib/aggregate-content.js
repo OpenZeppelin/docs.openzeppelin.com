@@ -348,6 +348,10 @@ async function readFilesFromWorktree (base, startPath, repoDir) {
     .then(JSON.parse).catch(() => undefined);
 
   if (pkgJson && pkgJson.scripts.antora) {
+    await execa('npm', ['install'], {
+      stdio: 'inherit',
+      cwd: repoDir,
+    });
     await execa('npm', ['run', 'antora'], {
       stdio: 'inherit',
       cwd: repoDir,
