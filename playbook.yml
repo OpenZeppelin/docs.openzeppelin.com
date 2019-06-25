@@ -1,0 +1,16 @@
+site:
+  title: OpenZeppelin Docs
+  url: https://docs.openzeppelin.org
+  start_page: openzeppelin::index.adoc
+content:
+  sources:
+    - url: .
+      branches: HEAD
+    - url: https://github.com/frangio/openzeppelin-solidity
+      branches: antora
+      start_path: docs
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+
