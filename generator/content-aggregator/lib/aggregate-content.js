@@ -344,15 +344,16 @@ async function readFilesFromWorktree (base, startPath, repoDir) {
 
   if (!stat.isDirectory()) throw new Error(`the start path '${startPath}' is not a directory`)
 
-  const pkgJson = await fs.read(path.join(repoDir, 'package.json'))
+
+  const pkgJson = await fs.readFile(path.join(repoDir, 'package.json'))
     .then(JSON.parse).catch(() => undefined);
 
-  if (pkgJson && pkgJson.scripts.antora) {
-    await execa('npm', ['install'], {
+  if (pkgJson && pkgJson.scripts['prepare-docs']) {
+    await execa('npm', ['ci'], {
       stdio: 'inherit',
       cwd: repoDir,
     });
-    await execa('npm', ['run', 'antora'], {
+    await execa('npm', ['run', 'prepare-docs'], {
       stdio: 'inherit',
       cwd: repoDir,
     });
