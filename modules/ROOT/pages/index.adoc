@@ -1,1 +1,11 @@
-= Welcome
+= Welcome to OpenZeppelin Documentation!
+
+Learn about developing, upgrading and deploying your smart contract applications
+
+We have three different components to help you solve all your smart contract needs. Each one builds on top of the previous one. Our contracts library is our cornerstone product, a secure foundation for your solidity needs. Our SDK gives you a tool suite to interact with your smart contracts and the starter kits help you tie it all together with a consumer-ready frontend.
+
+== Why use OpenZeppelin tools?
+
+OpenZeppelin has been the bedrock of smart contract development in Ethereum for the last few years. Our libraries have been used by more than 100K developers to create tokens, protect digital assets and power decentralized applications. It has helped developers secure more than $4.5 billion in digital assets.
+
+As the ecosystem matures, we are taking all the lessons we have learned during this journey to help you create professional applications that are ready for consumer adoption.
