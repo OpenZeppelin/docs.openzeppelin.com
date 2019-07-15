@@ -3,7 +3,8 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "build": "antora --fetch --generator generator playbook.yml"
+    "build": "antora --generator generator playbook.yml",
+    "build:fetch": "antora --fetch --generator generator playbook.yml"
   },
   "dependencies": {
     "@antora/cli": "^2.0.0",
