@@ -8,8 +8,7 @@
   },
   "dependencies": {
     "@antora/cli": "^2.0.0",
-    "generator": "file:generator",
-    "pkg-dir": "^4.2.0"
+    "generator": "file:generator"
   },
   "license": "MIT"
 }
