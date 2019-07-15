@@ -11,6 +11,9 @@ const playbook = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'playbook.ym
 const gitDir = path.dirname(findUp.sync('.git', { type: 'directory' }));
 
 playbook.content.sources = [{
+  url: __dirname,
+  branches: 'HEAD',
+}, {
   url: gitDir,
   branches: 'HEAD',
   start_path: path.relative(gitDir, '.'),
