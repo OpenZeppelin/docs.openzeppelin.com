@@ -19,8 +19,9 @@ playbook.content.sources = [{
   start_path: path.relative(gitDir, '.'),
 }];
 
-fs.writeFileSync('local-playbook.yml', yaml.safeDump(playbook));
+const localPlaybookFile = path.resolve(__dirname, 'local-playbook.yml');
+fs.writeFileSync(localPlaybookFile, yaml.safeDump(playbook));
 
-proc.execFileSync('./node_modules/.bin/antora', ['--generator', 'generator', path.resolve('local-playbook.yml')], {
+proc.execFileSync('./node_modules/.bin/antora', ['--generator', 'generator', localPlaybookFile], {
   cwd: __dirname,
 })
