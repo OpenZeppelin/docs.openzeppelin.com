@@ -25,4 +25,6 @@ fs.writeFileSync(localPlaybookFile, yaml.safeDump(playbook));
 proc.execFileSync('./node_modules/.bin/antora', ['--generator', 'generator', localPlaybookFile], {
   cwd: __dirname,
   stdio: 'inherit',
-})
+});
+
+console.log('Successfully built site!');
