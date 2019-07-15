@@ -2,13 +2,18 @@
   "name": "openzeppelin-docs",
   "private": true,
   "main": "index.js",
+  "bin": {
+    "openzeppelin-docs": "build-local.js"
+  },
   "scripts": {
     "build": "antora --generator generator playbook.yml",
     "build:fetch": "antora --fetch --generator generator playbook.yml"
   },
   "dependencies": {
     "@antora/cli": "^2.0.0",
-    "generator": "file:generator"
+    "find-up": "^4.1.0",
+    "generator": "file:generator",
+    "js-yaml": "^3.13.1"
   },
   "license": "MIT"
 }
