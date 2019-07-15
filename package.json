@@ -1,11 +1,7 @@
 {
   "name": "openzeppelin-docs",
-  "version": "0.1.0",
   "private": true,
   "main": "index.js",
-  "bin": {
-    "openzeppelin-docs": "build-local.js"
-  },
   "scripts": {
     "build": "antora --generator generator playbook.yml",
     "build:fetch": "antora --fetch --generator generator playbook.yml"
