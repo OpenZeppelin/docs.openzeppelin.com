@@ -20,6 +20,7 @@ const { posix: path } = ospath
 const posixify = ospath.sep === '\\' ? (p) => p.replace(/\\/g, '/') : undefined
 const vfs = require('vinyl-fs')
 const yaml = require('js-yaml')
+const pkgDir = require('pkg-dir')
 
 const {
   COMPONENT_DESC_FILENAME,
@@ -338,25 +339,27 @@ async function readFilesFromWorktree (base, startPath, repoDir) {
   let stat;
   try {
     stat = await fs.stat(base);
-  } catch {
+  } catch (e) {
     throw new Error(`the start path '${startPath}' does not exist`)
   }
 
   if (!stat.isDirectory()) throw new Error(`the start path '${startPath}' is not a directory`)
 
+  const disablePrepare = 'DISABLE_PREPARE_DOCS' in process.env;
+  const pkg = await pkgDir(base);
 
-  const pkgJson = await fs.readFile(path.join(repoDir, 'package.json'))
-    .then(JSON.parse).catch(() => undefined);
-
-  if (pkgJson && pkgJson.scripts['prepare-docs']) {
-    await execa('npm', ['ci'], {
-      stdio: 'inherit',
-      cwd: repoDir,
-    });
-    await execa('npm', ['run', 'prepare-docs'], {
-      stdio: 'inherit',
-      cwd: repoDir,
-    });
+  if (!disablePrepare && pkg && pkg.startsWith(repoDir)) {
+    const pkgJson = JSON.parse(await fs.readFile(path.join(repoDir, 'package.json')))
+    if (pkgJson.scripts && pkgJson.scripts['prepare-docs']) {
+      await execa('npm', ['ci'], {
+        stdio: 'inherit',
+        cwd: repoDir,
+      });
+      await execa('npm', ['run', 'prepare-docs'], {
+        stdio: 'inherit',
+        cwd: repoDir,
+      });
+    }
   }
 
   return new Promise((resolve, reject) => {
