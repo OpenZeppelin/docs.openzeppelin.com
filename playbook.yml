@@ -9,6 +9,9 @@ content:
     - url: https://github.com/frangio/openzeppelin-solidity
       branches: antora
       start_path: docs
+    - url: https://github.com/frangio/zos
+      branches: antora
+      start_path: packages/docs
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
