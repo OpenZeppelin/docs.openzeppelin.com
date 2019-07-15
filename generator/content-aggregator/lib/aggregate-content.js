@@ -349,15 +349,15 @@ async function readFilesFromWorktree (base, startPath, repoDir) {
   const pkg = await pkgDir(base);
 
   if (!disablePrepare && pkg && pkg.startsWith(repoDir)) {
-    const pkgJson = JSON.parse(await fs.readFile(path.join(repoDir, 'package.json')))
+    const pkgJson = JSON.parse(await fs.readFile(path.join(pkg, 'package.json')))
     if (pkgJson.scripts && pkgJson.scripts['prepare-docs']) {
       await execa('npm', ['ci'], {
         stdio: 'inherit',
-        cwd: repoDir,
+        cwd: pkg,
       });
       await execa('npm', ['run', 'prepare-docs'], {
         stdio: 'inherit',
-        cwd: repoDir,
+        cwd: pkg,
       });
     }
   }
