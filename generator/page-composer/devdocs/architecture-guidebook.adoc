@@ -1,0 +1,133 @@
+= Page Composer Guidebook
+
+== Context
+
+The pages in the site should have a consistent user interface (UI) the site owner can easily customize.
+The foundation of a page's user interface is the page template, which provides the shell of the page and sets the main content in place.
+These page templates are provided by the UI bundle.
+The pipeline should pass the embeddable HTML contents for each page to the page template, along with other page data collectively known as the template model, so the page template can produce a complete, assembled page.
+This page becomes a page in the generated site.
+
+== Functional Overview
+
+At this point in the pipeline, the files in the `page` family from the content catalog (i.e., text documents taken from the pages directory) are embeddable HTML.
+The page composer component needs to transform the contents of these files to complete HTML.
+
+The main purpose of the page composer component is to a apply a page template to the embeddable HTML produced by the document converter.
+The page template wraps the main content in a UI shell that provides the foundation structure of an HTML page, adds common navigation in the header and footer areas, populates a navigation tree for navigating to other pages in the site, and includes a toolbar for performing actions such as switching between versions of the current page.
+Since each site's UI needs to fit the unique requirements of the site owner, the page templates need to be customizable.
+That's why the page templates are managed as a separate project and provided as input to the Antora pipeline.
+//It also allows the site owner to supply different page templates for different pages.
+
+In fact, the page templates are what are used to make the pages in the site.
+The pipeline feeds the embeddable HTML to the page template.
+It does so by passing a model to the template for each page.
+That model includes the embeddable HTML for the main content as well as other information such as the page's component, version, navigation, and so forth.
+The template decides where to place that embeddable HTML in the page.
+This strategy gives the site owner full control over the layout of the pages.
+
+Thus, this component should:
+
+* iterate over each file from the content catalog in the `page` family
+* determine which page template the page is requesting (falling back to a global default)
+* populate a template model that includes the embeddable HTML contents of the current page and other information about the page and its context
+* apply the model to the template
+* replace the contents of the current file with the template result
+
+== Software Architecture
+
+The page composer component functionality is provided by the page-composer module.
+
+At a high level, this component is a template renderer.
+It applies a page template for each file in the `page` family from the content catalog.
+All the details of applying the template to produce component HTML, which includes populating the template model and using it to run the template, should be encapsulated in this component.
+
+Page templates are assumed to be written in Handlebars.
+Therefore, this component should use a Handlebars library to apply the template.
+
+For each file in the `page` family, the page composer should:
+
+* Populate a template model that includes the contents of the current file (embeddable HTML) as well as information about the page's context such as the component, version, and navigation model
+ ** The links in navigation model and breadcrumbs should be converted to be relative to the URL of the current page
+* Determine which template to use for the current page
+ ** The name of the template can be specified using the `page-layout` attribute in the AsciiDoc header
+ ** If no template is specified for the current page, the template specified in the playbook should be used
+ ** If no template is specified in the playbook, the template with the name `default` should be used
+* Apply the template by passing the model to the template
+* Assign the converted result to the `contents` property on the current file
+
+.Inputs
+* Playbook (`ui.defaultLayout`)
+* Content catalog (`catalog`)
+* UI catalog (`uiCatalog`)
+* Navigation model (TBD)
+
+.Output
+* _none_ (mutates the value of the `contents` property for the current file)
+
+== Code
+
+The page composer is implemented as a dedicated node package (i.e., module).
+The page composer API exports the `composePages()` function, which takes a playbook, content catalog, UI catalog, and navigation model and converts all files in the `page` family from the content catalog.
+It also exports the `composePage()` function, which can be used to operate on a single file.
+
+The API for the page composer should be used as follows:
+
+[source,js]
+----
+const composePages = require('@antora/page-composer')
+
+//...
+
+composePages(playbook, catalog, uiCatalog)
+----
+
+== Data
+
+The document converter mutates the files in the `page` family from the content catalog, which can be retrieved by invoking `findBy({ family: 'page' })` on the content catalog.
+Specifically, this component updates the value of the `contents` property for each file by replacing the embeddable HTML with the HTML produced by the template.
+The previous value is still accessible via the `history` property on the file.
+
+The page composer must populate a template model for each page to pass to the template.
+The model should have the following properties:
+
+* title - the title of the page, retrieved from the `asciidoc.attributes['page-title']` property of the file
+* contents - the contents of the page, retrieved from the `contents` property of the file
+* description - the description of the page, retrieved from the `asciidoc.attributes['description']` property of the file
+* keywords - the keywords for the page, retrieved from the `asciidoc.attributes['keywords']` property of the file
+* versions - all the versions of the page
+* canonicalUrl - the canonical URL for the page
+* editUrl - the URL to edit the page
+* uiRootPath - the relative path to the root of the UI assets
+* siteRootUrl - the relative path to the root of the site
+* home - whether the current page is the site's home page
+* site - information about the site
+ ** url - the main URL for the site, retrieved from the `site.url` of the playbook
+ ** title - the title of the site, retrieved from the `site.title` of the playbook
+ ** domains - a list of the domains in the site
+* domain - information about the page's domain
+ ** name - the name of the page's domain, retrieved from the `src.component` property of the file
+ ** versioned - whether this is a versioned page, true if the page's version `src.version` is not "master"
+ ** url - the start URL for the page's domain
+ ** root - whether the current domain is the root domain
+ ** version - information about the page's version
+  *** string - the version of the page, retrieved from the `src.version` property of the file
+  *** url - the start URL of the page's version
+ ** versions - all the versions for the current domain
+
+These properties are available to the Handlbars template.
+For example, to access the site title in the template, you can use:
+
+----
+{{ site.title }}
+----
+
+== Consequences
+
+Each page is composed using the specified page template, which is supplied by the UI bundle.
+Relying on a page template to produce the pages gives the site owner complete control over the construction of the pages, and thus complete control over the UI.
+The template model that is passed to the UI gives the author of the template enough information to create a wide variety of layouts that are influenced by the content.
+This ensures that the site can meet the requirements of the site owner.
+It's also possible to use different layouts for different pages by defining the layout at the page or component level.
+
+Once the page composer runs, the pages in the site are ready to be published.

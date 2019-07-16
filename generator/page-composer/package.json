@@ -1,0 +1,37 @@
+{
+  "name": "page-composer",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Wraps the embeddable HTML contents of each page file from the content catalog in a page layout to yield standalone pages in an Antora documentation pipeline.",
+  "license": "MPL-2.0",
+  "author": "OpenDevise Inc. (https://opendevise.com)",
+  "contributors": [
+    "Dan Allen <dan@opendevise.com>",
+    "Sarah White <sarah@opendevise.com>"
+  ],
+  "homepage": "https://antora.org",
+  "repository": "gitlab:antora/antora",
+  "bugs": {
+    "url": "https://gitlab.com/antora/antora/issues"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "handlebars": "~4.0",
+    "require-from-string": "~2.0"
+  },
+  "engines": {
+    "node": ">=8.11.0"
+  },
+  "files": [
+    "lib/"
+  ],
+  "keywords": [
+    "antora",
+    "antora-component",
+    "handlebars",
+    "html",
+    "documentation",
+    "static site",
+    "web publishing"
+  ]
+}
