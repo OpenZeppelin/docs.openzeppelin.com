@@ -8,7 +8,7 @@
     "url": "https://github.com/openzeppelin/docs-site-theme.git"
   },
   "scripts": {
-    "build": "gulp preview:build",
+    "build-preview": "gulp preview:build",
     "dev": "gulp preview",
     "bundle": "gulp bundle"
   },
