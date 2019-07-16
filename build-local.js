@@ -22,7 +22,7 @@ playbook.content.sources = [{
 const localPlaybookFile = path.resolve(__dirname, 'local-playbook.yml');
 fs.writeFileSync(localPlaybookFile, yaml.safeDump(playbook));
 
-proc.execFileSync('./node_modules/.bin/antora', ['--generator', 'generator', localPlaybookFile], {
+proc.execFileSync('bash', ['./build.sh', localPlaybookFile], {
   cwd: __dirname,
   stdio: 'inherit',
 });
