@@ -1,0 +1,10 @@
+.main__wrapper {
+  display: flex;
+  margin-top: var(--header-height);
+  position: relative;
+}
+
+.main {
+  flex: 1 1 0;
+  min-width: 0;
+}

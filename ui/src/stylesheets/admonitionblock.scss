@@ -1,0 +1,144 @@
+.alert {
+  p {
+    font-family: Silka;
+    color: inherit;
+    font-size: 1rem;
+  }
+}
+
+.admonitionblock,
+.alert {
+  border: 1px solid rgb(196, 196, 196);
+  border-radius: var(--border-radius);
+  font-family: Silka;
+  color: rgb(36, 36, 36);
+  line-height: 100%;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 20px;
+  font-weight: 500;
+  padding: 1.3rem 1rem;
+  display: block;
+  background-color: white;
+  margin: 1.5rem 0;
+  background-repeat: no-repeat;
+  background-size: 35px;
+  background-origin: border-box;
+  background-position: 1.5rem center;
+  line-height: 1.6;
+  padding-right: 20px;
+
+  table {
+    padding: 0;
+    margin: 0;
+    th,
+    td {
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .content {
+    padding-left: 60px;
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  &.note {
+    border: 1px solid #a134d1;
+    color: #a134d1;
+    color: #a134d1;
+    background-image: url(../images/icons/unicorn.png);
+  }
+
+  &.tip {
+    border: 1px solid #4e5ee4;
+    color: #4e5ee4;
+    color: #4e5ee4;
+    background-image: url(../images/icons/book.png);
+  }
+
+  &.warning {
+    border: 1px solid #ff7539;
+    color: #ff7539;
+    color: #ff7539;
+    background-image: url(../images/icons/warning.png);
+  }
+}
+
+.alert {
+  position: relative;
+
+  p {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    margin-left: 60px;
+  }
+
+  &.note--secondary {
+    color: white;
+    background-image: linear-gradient(45deg, #a134d1 0%, #6746d6 100%);
+    background-size: 100%;
+    background-position: 0;
+
+    &::after {
+      content: "";
+      background-image: url(../images/icons/unicorn.png);
+      width: 65px;
+      height: 65px;
+      background-size: 100%;
+      position: absolute;
+      top: 18%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.tip--secondary {
+    color: white;
+    background-image: linear-gradient(-135deg, #3f62ff 0%, #2ba3ff 100%);
+    background-size: 100%;
+    background-position: 0;
+    &::after {
+      content: "";
+      background-image: url(../images/icons/book.png);
+      width: 65px;
+      height: 65px;
+      background-size: 100%;
+      position: absolute;
+      top: 18%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.warning--secondary {
+    color: white;
+    background-image: linear-gradient(-135deg, #ff8f3f 0%, #ff5533 100%);
+    background-size: 100%;
+    background-position: 0;
+    &::after {
+      content: "";
+      background-image: url(../images/icons/rocket_1f680.png);
+      width: 65px;
+      height: 65px;
+      background-size: 100%;
+      position: absolute;
+      top: 18%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.note--secondary,
+  &.tip--secondary,
+  &.warning--secondary {
+    padding: 1.5rem;
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

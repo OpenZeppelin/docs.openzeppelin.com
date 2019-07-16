@@ -1,0 +1,13 @@
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+		@@include('public/_theme/images/icons/home.svg')
+    {{#unless (eq page.component.name 'home')}}
+    {{#unless (eq page.breadcrumbs.0.content page.componentVersion.title)}}
+    <li class="crumb"><a href="{{relativize page.componentVersion.url}}">{{{page.componentVersion.title}}}</a></li>
+    {{/unless}}
+    {{/unless}}
+    {{#each page.breadcrumbs}}
+    <li class="crumb">{{#if (eq ./urlType 'internal')}}<a href="{{relativize ./url}}">{{{./content}}}</a>{{else}}{{{./content}}}{{/if}}</li>
+    {{/each}}
+  </ul>
+</nav>

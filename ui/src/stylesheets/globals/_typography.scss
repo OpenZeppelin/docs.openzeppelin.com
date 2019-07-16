@@ -1,0 +1,112 @@
+@font-face {
+  font-family: "Silka";
+  src: url("../fonts/silka-regular-webfont.eot");
+  src: url("../fonts/silka-regular-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/silka-regular-webfont.woff2") format("woff2"),
+    url("../fonts/silka-regular-webfont.woff") format("woff"),
+    url("../fonts/silka-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Silka";
+  src: url("../fonts/silka-medium-webfont.eot");
+  src: url("../fonts/silka-medium-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/silka-medium-webfont.woff2") format("woff2"), url("../fonts/silka-medium-webfont.woff") format("woff"),
+    url("../fonts/silka-medium-webfont.ttf") format("truetype");
+  font-weight: 500;
+  font-style: 500;
+}
+
+@font-face {
+  font-family: "Silka";
+  src: url("../fonts/silka-semibold-webfont.eot");
+  src: url("../fonts/silka-semibold-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/silka-semibold-webfont.woff2") format("woff2"),
+    url("../fonts/silka-semibold-webfont.woff") format("woff"),
+    url("../fonts/silka-semibold-webfont.ttf") format("truetype");
+  font-weight: 600;
+  font-style: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading);
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 30px;
+  color: #282846;
+  letter-spacing: 0;
+  line-height: 32px;
+  padding-bottom: 15px;
+  border-bottom: solid 1.2px #d4d4da;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  margin-top: 15px;
+  font-size: 28px;
+  color: #282846;
+  letter-spacing: 0;
+  line-height: 32px;
+  padding-bottom: 15px;
+  border-bottom: solid 1.2px #d4d4da;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+.small {
+  font-size: 13px;
+  font-weight: var(--weight-normal); /* reset if within header tags */
+}
+
+.strong {
+  font-weight: var(--weight-medium);
+}
+
+.monospace {
+  font-family: var(--monospace);
+  font-size: 14px;
+  font-weight: var(--weight-normal);
+  white-space: pre;
+  word-wrap: normal;
+}
+
+.link {
+  color: var(--steel-2);
+
+  &:hover {
+    color: var(--violet-2);
+  }
+
+  &:focus,
+  &:active {
+    color: var(--core-violet-3);
+  }
+}

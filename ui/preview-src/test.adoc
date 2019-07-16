@@ -1,0 +1,738 @@
+= openzeppelin Docs: Default Theme
+// Settings:
+:page-toc:
+:toc-title: Contents
+:idprefix:
+:idseparator: -
+:experimental:
+:hide-uri-scheme:
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:important-caption: :exclamation:
+endif::[]
+// URIs:
+:uri-repo: https://github.com/opendevise/openzeppelin-docs-theme-default
+:uri-ci: https://openzeppelin-docs.ci.cloudbees.com/job/docs-theme-publisher
+:uri-node: https://nodejs.org
+:uri-gulp: http://gulpjs.com
+:uri-yarn: https://yarnpkg.com
+:uri-nvm: https://github.com/creationix/nvm
+:uri-nvm-install: {uri-nvm}#installation
+:uri-hbs: http://handlebarsjs.com
+:uri-git: https://git-scm.com
+:uri-git-dl: {uri-git}/downloads
+:uri-npm: https://npmjs.com
+
+The project in this repository is used to compile and package the default theme for the openzeppelin documentation site.
+It contains the theme artifacts (page templates, CSS, JavaScript, etc.) and a build.
+The build can be used to preview the theme locally (featuring live updates) or package and publish it to GitHub releases for consumption by the site generator.
+
+This guide explains how to develop and use the theme.
+After reading this guide, you'll be able to:
+
+* [x] Understand how the theme project is structured.
+* [x] Set up your environment to work on the theme project.
+* [x] Launch a preview server to visually inspect the theme.
+* [x] Adopt a development workflow to share and accept changes to the theme.
+* [x] Package and publish the theme for the site generator to use.
+
+== Theme Overview
+
+A theme consists of the following types of files used to structure and style the pages of the documentation site:
+
+* Handlebars "`page`" templates (layouts and partials)
+* CSS (enhanced using PostCSS)
+* JavaScript (UI scripts)
+* Images / Graphics (specific to the theme)
+* Fonts
+* HTML (sample content for previewing the theme)
+
+To understand how the theme works, let's begin by surveying some the technologies used by the theme.
+
+=== Technology Brief
+
+Handlebars (file extension: `.hbs`)::
+{uri-hbs}[Handlebars] is a "`logic-less`" templating engine used to create HTML from template files.
+Templates contain placeholders (i.e., mustache expressions) into which content is injected from a model.
+They also accommodate simple logic expressions for repeating content or including it conditionally.
+
+Gulp (script file: [.path]_gulpfile.js_)::
+{uri-gulp}[Gulp] is a build tool for JavaScript projects.
+It configures a collection of tasks that can be used to perform automated tasks such as compiling files, running a preview server, or publishing a release.
+
+Yarn (command: `yarn`)::
+{uri-yarn}[Yarn] manages software packages (i.e., software dependencies) that it downloads from {uri-npm}.
+The software this project uses includes libraries that handle compilation as well as shared assets such as font files that are distributed as npm packages.
+(While npm itself is often used to install Yarn, we do not use npm for any other purpose).
+
+package.json:::
+This file keeps track of the dependencies (described using fuzzy versions) that Yarn should fetch.
+
+yarn.lock:::
+This file contains a report of which dependencies Yarn resolved.
+This information ensures that the dependency resolution is reproducible.
+
+node_modules/:::
+A local cache of resolved dependencies that Yarn (or npm) fetches.
+
+PostCSS::
+This project does not use a CSS preprocessor such as Sass or LESS.
+Instead, it relies on normal CSS which is enhanced by a series of postprocessors.
+The most common postprocessor backports newer CSS features to older browsers by injecting properties with vendor prefixes.
+
+=== Theme Compilation
+
+Although the theme assets are served statically in the production site, they live in a source form in this project to accommodate development and simplify maintenance.
+When handed off to the site generator, the theme is in an interim, pre-compiled state.
+Specifically, the master branch of the git repository contains the files in source form while releases are used to distribute the files in pre-compiled form.
+These two states (source and pre-compiled) are explained in more detail in the next two sections.
+
+The responsibility of compiling the theme is shared between this project and the site generator.
+The theme project uses a local build to pre-compile (interpret, consolidate, and/or minimize) the assets.
+The pre-compiled files are those which are agnostic to the content model, relieving the site generator from having to deal with this part.
+It also allows the theme to be reused.
+
+The theme build then publishes the pre-compiled theme as a bundle, which the site generator consumes.
+The site generator grabs the bundle, extracts it, and takes compilation to completion by weaving the content model into the Handlebars templates to make the pages and auxiliary data files.
+It then copies the remaining theme assets to the site output.
+
+Thus, the purpose of the theme project is to get the theme files into a state that the site generator can use and to make it reusable.
+
+=== Repository Structure (master branch)
+
+You should think of the master branch as the theme workspace.
+It contains the recipe and raw materials for creating a theme.
+It includes a build, source files, project files, and dependency information.
+
+Here's how the files are structured within this project:
+
+[.output]
+....
+README.adoc
+config.js
+gulpfile.js
+package.json
+theme.yml
+yarn.lock
+helpers/
+  equals.js
+  has-multiple-versions.js
+  page-versions.js
+  version-label.js
+images/
+  chevron.svg
+  chevron-white.svg
+  github-logo.svg
+  header_footer_sprite.svg
+  home-hovered.svg
+  home.svg
+  openzeppelin-dev-logo.svg
+  openzeppelin-logo.svg
+  triangle.svg
+layouts/
+  default.hbs
+partials/
+  article.hbs
+  breadcrumbs.hbs
+  domain-selector.hbs
+  footer.hbs
+  footer-scripts.hbs
+  footer-shared.hbs
+  header.hbs
+  header-shared.hbs
+  head.hbs
+  main.hbs
+  navigation.hbs
+  navigation-tree.hbs
+  page-version-selector.hbs
+  toolbar.hbs
+preview-site/
+  index.html
+  sample-ui-model.json
+scripts/
+  domain-selector.js
+  highlight.pack.js
+  navigation.js
+  page-version-selector.js
+stylesheets/
+  article.css
+  domain-selector.css
+  footer.css
+  footer-terms-condition-menu.css
+  header.css
+  header-links.css
+  header-menu.css
+  hljs-theme-github.css
+  main.css
+  navigation.css
+  page-version-selector.css
+  root.css
+  scrollbars.css
+  index.css
+  toolbar.css
+tasks/
+  build.js
+  build-preview.js
+  pack.js
+  preview.js
+  release.js
+  update.js
+....
+
+IMPORTANT: The [.path]_partials/header-shared.hbs_ and [.path]_partials/footer-shared.hbs_ files are automatically generated and therefore should not be modified directly.
+These areas of the page are not owned by the documentation team.
+Instead, the files are retrieved from the page header and footer endpoints provided by marketing.
+See <<Shared Partials>>.
+
+A Gulp build is used to compile and assemble these files to produce a (distributable) theme bundle, described in the next section.
+When the files are built, they are assembled under the [.path]_build/_theme_ directory.
+Since the [.path]_build_ directory is generated, it is safe to remove.
+
+The benefit of building the theme files is that the files can be optimized for static inclusion in the site without that optimization getting in the way of theme development.
+For example, the theme build can optimize SVGs or add vendor prefixes to the CSS.
+Since this optimization is only applied to the pre-compiled files, it does not interfere with the designer's workflow.
+
+=== Theme Bundle Structure (releases)
+
+The theme bundle--a distributable archive--gets attached to every tag in the git repository on GitHub.
+The tag is created automatically by the release build, described in <<Publishing a Release>>.
+The theme bundle provides files which are ready to be used by the site generator.
+
+The contents of the bundle resembles the contents of the master branch, except it doesn't contain any files other than the ones that make up the theme.
+This is the content that is used by the site generator.
+
+[.output]
+....
+fonts/
+  ...
+helpers/
+  equals.js
+  has-multiple-versions.js
+  page-versions.js
+  version-label.js
+images/
+  chevron.svg
+  chevron-white.svg
+  github-logo.svg
+  header_footer_sprite.svg
+  home-hovered.svg
+  home.svg
+  openzeppelin-dev-logo.svg
+  openzeppelin-logo.svg
+  triangle.svg
+layouts/
+  default.hbs
+partials/
+  article.hbs
+  breadcrumbs.hbs
+  domain-selector.hbs
+  footer.hbs
+  footer-scripts.hbs
+  footer-shared.hbs
+  header.hbs
+  header-shared.hbs
+  head.hbs
+  main.hbs
+  navigation.hbs
+  navigation-tree.hbs
+  page-version-selector.hbs
+  toolbar.hbs
+scripts/
+  domain-selector.js
+  highlight.pack.js
+  navigation.js
+  page-version-selector.js
+stylesheets/
+  index.css
+....
+
+Some of the files have been compiled or aggregated, such as the stylesheets.
+
+Now that you have a general idea of the files that make up the theme and how it gets assembled, let's go over how to set up the project, build the theme, and preview it.
+
+== Prerequisites
+
+This project is based on tools built atop Node.js (herein Node), namely:
+
+* {uri-node}[Node] (command: `node`)
+* {uri-yarn}[Yarn] (command: `yarn`)
+* {uri-gulp}[Gulp] (command: `gulp`)
+
+You also need {uri-git}[git] (command: `git`) to pull down the project and push updates to it.
+
+First, make sure you have git installed.
+
+ $ git --version
+
+If not, {uri-git-dl}[download and install] the git package for your system.
+
+Next, make sure that you have Node 7.8.0 or better installed.
+While you can install Node from the official packages, we strongly recommend that you use {uri-nvm}[nvm] (Node Version Manager) to install and manage Node.
+Follow the {uri-nvm-install}[nvm installation instructions] to set up nvm on your machine.
+
+Once you've installed nvm, open a new terminal and install the stable version of Node using the following command:
+
+ $ nvm install node
+
+You can switch to this version of Node at any time using the following command:
+
+ $ nvm use node
+
+Check the version to verify you're on Node 7.8.0 or better.
+
+ $ node --version
+
+Next, you'll need the Gulp CLI (aka wrapper).
+This package provides the `gulp` command which executes the version of Gulp declared by the project.
+You should install the Gulp CLI globally (which resolves to a location in your user directory if you're using nvm) using the following command:
+
+ $ npm install -g gulp-cli
+
+Finally, you will need Yarn, which is the preferred package manager for the Node ecosystem.
+You'll need to use the `npm` command to install Yarn, though this is the last time you'll use the `npm` command.
+You should install Yarn globally (which resolves to a location in your user directory if you're using nvm) using the following command:
+
+ $ npm install -g yarn
+
+Verify Yarn is installed by checking the version:
+
+ $ yarn --version
+
+Now that you have Node, Yarn, and Gulp installed, you're ready to set up the project.
+
+== Setting Up the Project
+
+Before you can start working on the theme, you need to grab the sources and initialize the project.
+
+To start, clone the theme project using git:
+
+[subs=attributes+]
+ $ git clone --single-branch {uri-repo} &&
+   cd "`basename $_`"
+
+Next, you'll need to initialize the project.
+Initializing the project essentially means downloading and installing the dependencies into the project.
+That's the job of Yarn.
+
+In your terminal, execute the following command (while inside the project folder):
+
+ $ yarn install
+
+This command installs the dependencies listed in [.path]_package.json_ into the [.path]_node_modules_ folder inside the project.
+This folder does not get included in the theme bundle.
+The folder is safe to delete, though Yarn does a great job of managing it.
+
+You'll notice another file which seems to be relevant here, [.path]_yarn.lock_.
+Yarn uses this file to determine which specific version of a dependency to use, since versions in [.path]_package.json_ are typically just a range.
+The information in this file makes the build reproducible across different machines and runs.
+
+If a new dependency must be resolved that isn't yet listed in [.path]_yarn.lock_, Yarn will update this file with the new information when you run `yarn install`.
+Therefore, you're advised to commit this file into the repository whenever it changes.
+
+Now that the dependencies are installed, you should be able to run the `gulp` command to find out what tasks the build supports:
+
+ $ gulp --tasks-simple
+
+You should see:
+
+[.output]
+....
+build
+build-preview
+preview
+pack
+release
+update
+....
+
+The next several sections explain what each of these tasks are for and when to use them.
+
+== Building for Preview
+
+The first thing you'll want to do is check out how the theme looks.
+That's what the files in the [.path]_preview-site_ folder are for.
+This folder contains HTML file fragments that provide a representative sample of content from the site (saving you from having to generate the whole site just to test the theme).
+These files should give you an idea of how the theme will look when applied to the actual site.
+
+The pages in the preview site are assembled using the Handlebars templates and link to the pre-compiled asset files (emulating the behavior of the site generator).
+Thus, to look at then, you need to run them through the theme build.
+
+There are two preview modes available.
+You can run the build once and examine the result or you can run the build continuously so you can see changes as you make them.
+The next two sections explain how to use these modes.
+
+=== Build Once
+
+To build the theme once for preview, then stop, execute the `build-preview` task using the following command:
+
+ $ gulp build-preview
+
+This task pre-compiles the theme files into the [.path]_build/_theme_ directory.
+To view the preview pages, navigate to the HTML pages in the [.path]_build_ directory using your browser (e.g., [.path]_build/index.html_).
+
+=== Build Continuously
+
+To avoid the need to run the `build-preview` task over and over, you can use the `preview` command instead to have it run continuously.
+This task also launches a local HTTP server so updates get synchronized with the browser (i.e., "`live reload`").
+
+To launch the preview server, execute the following command:
+
+ $ gulp preview
+
+You'll see two URLs listed in the output of this command:
+
+....
+[BS] Access URLs:
+ ----------------------------------
+    Local: http://localhost:5252
+ External: http://192.168.1.7:5252
+ ----------------------------------
+[BS] Serving files from: build
+[BS] Watching files...
+....
+
+Navigate to the first one to see the preview site.
+While this command is running, any changes you make to the source files will be instantly reflected in the browser.
+This works by monitoring the project for changes, running the `build` task if a change is detected, and sending the updates to the browser.
+
+Press kbd:[Ctrl+C] to stop the preview server and end the continuous build.
+
+==== Using a Custom Port
+
+The HTTP port used for the preview is configured in `theme.yml`:
+
+[source,yaml]
+----
+# ...
+port: 5252
+----
+
+You can override this value using the command line flag `--port` like this:
+
+ $ gulp preview --port 1337
+
+=== Package
+
+If you need to package the theme to use it with the site generator in order to preview the theme on the real site in local development, run the following command:
+
+ $ gulp pack
+
+The theme bundle will be available at [.path]_build/openzeppelin-docs-theme-default-latest.zip_.
+You can then point the site generator at this bundle using the `--theme-archive` flag.
+
+== Working on the Theme
+
+This section provides information about some of the theme files you'll be modifying and how to prepare and submit those changes.
+
+=== Development Workflow
+
+As described later in <<Publishing a Release>>, all changes pushed to the master branch trigger a new release.
+Therefore, you want to make your changes to a development branch and submit it as a pull request (PR) to be approved.
+(Even better would be to issue the PR from a fork).
+Only when the PR is approved and merged will the new release be triggered.
+
+Use the following command to create a local development branch named `name-me`:
+
+ $ git checkout -b name-me -t origin/master
+
+You'll then apply your changes to the theme files.
+Once you're done making changes, commit those changes to the local branch:
+
+ $ git commit -a -m "describe your change"
+
+Then, push your branch to the remote repository:
+
+ $ git push origin name-me
+
+Finally, navigate to {uri-repo} in your browser and create a new pull request from this branch.
+
+The maintainer of the theme should review the changes.
+If the changes are acceptable, the maintainer will merge the pull request.
+As soon as the pull request is merged into master, an automated process will take over to publish a new release for the site generator to use.
+
+Now that you've got the process down, let's review some of the files you'll be working with in more detail.
+
+=== Handlebars Templates
+
+The handlebars templates are combined with the converted AsciiDoc content to make the pages in the site.
+These "`logic-less`" templates are mostly HTML with some special mustache tags sprinkled in where content is to be inserted.
+
+The layouts provide the main page structure.
+The partials fill in the different regions of the page.
+
+The templates read from a model that's populated by the site generator.
+Places in the template where the model is read are enclosed in `{{` and `}}` markers, aka mustaches (e.g., `+{{title}}+`).
+When the `{{` is immediately followed by `>`, that's where the result of a partial is inserted (e.g., `+{{> head }}+`.
+
+Here's an overview of the available model:
+
+.Variables available to the Handlebars templates
+[#template-variables,cols="1m,3"]
+|===
+| Name | Description
+
+| site
+| Information about the site.
+Properties include url, title, buildNumber, components, aspect, aspectNav, and swiftypeKey.
+
+| title
+| The page title (also used as the primary heading).
+
+| contents
+| The main article content in HTML format.
+Sourced from AsciiDoc and converted to HTML by the Asciidoctor processor.
+
+| description
+| The text of the description attribute in the AsciiDoc header, if specified.
+
+| keywords
+| A comma-separated list of keywords defined in the AsciiDoc header, if specified.
+
+| domain
+| Information about the navigation domain of the current page.
+Properties include name, title, type, versioned, version, versions, url, root, and siteAspect.
+
+| versions
+| All versions of the current page, including this page.
+Each entry has the properties url, string, and missing.
+
+| breadcrumbs
+| An Array of breadcrumb items that represent the current selection in the navigation tree.
+
+| themeRootPath
+| The path to the root directory of the theme.
+
+| canonicalUrl
+| The canonical URL for the current page.
+If there are older versions of the page, the canonical URL is the URL of the latest version.
+If this is an aspect page, the canonical URL is the URL of the primary (non-aspect) page.
+
+| editUrl
+| The URL to edit the current page, typically on GitHub.
+
+| siteRootUrl
+| The URL of the site root relative to the current page.
+If the site does not have a root component, this value is null.
+
+| home
+| Indicates whether the current page is the home page of the site.
+
+| navigation
+| A collection of navigation links for the current page.
+Each navigation item contains the property `text` as well as the optional properties `href` and (child) `items`.
+|===
+
+This model is likely to grow over time.
+
+=== Stylesheets
+
+The stylesheets are written in CSS.
+These stylesheets utilize CSS variables to keep the CSS DRY and easy to customize.
+
+Within this project, the files are separated into modules to help organize the rules and make them easier to find.
+These files get combined (and minified) into a single file by the theme build, named [.path]_index.css_.
+
+=== Shared Partials
+
+The content in the header and footer of each page (i.e., the site branding) is managed externally.
+The [.path]_partials/header-shared.hbs_ and [.path]_partials/footer-shared.hbs_ files, which contain the header and footer content common to all the openzeppelin developer properties, are generated from a shared endpoint.
+The theme incorporates this content into the theme bundle.
+By doing so, it insulates the site generator from how this content is retrieved.
+It also provides a way to test how the header and footer will interact with the design for the rest of the page, namely to ensure there are no unwanted side effects.
+
+The question remains, how do the shared partials get updated?
+That's the job of the `update` Gulp task.
+
+ $ gulp update
+
+The `update` task retrieves the shared header and footer content from the https://developer.openzeppelin.com/markup/get/header[header] and https://developer.openzeppelin.com/markup/get/footer[footer] endpoints, respectively.
+It then applies a little massaging to the content to make it compatible with the documentation site design.
+Finally, it writes the content to the [.path]_partials/header-shared.hbs_ and [.path]_partials/footer-shared.hbs_ files.
+
+If there were any changes to the upstream content, git will report the local files as changed.
+You can use the <<building-for-preview,theme preview>> to verify the changes are acceptable.
+If everything looks good, you should commit these changes to the git repository.
+
+You'll need to run the update task periodically to keep the theme in sync with upstream changes.
+You could have a CI job handle this task.
+
+//FIXME: This section feels out of place
+=== Theme Configuration
+
+You'll notice there are a few other files in the root of the project.
+Those will be covered in later sections.
+Let's focus on the [.path]_theme.yml_ file.
+This is the main configuration file for the build.
+It defines the path where the files are assembled when built, which defaults to the [.path]_build_ folder.
+It also defines the path where the theme assets will reside in the production site, which defaults to [.path]__theme_.
+
+Now let's look at some specific use cases to help you understand how to update the theme.
+
+=== Use Case 1: Add a new CSS rule
+
+Let's consider the case when you want to modify the font size of a section title.
+
+First, make sure you have set up the project and created a development branch.
+Next, open the file [.path]_stylesheets/article.css_ and modify the rule for the section title.
+
+[source,css]
+----
+.doc h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem
+}
+----
+
+Save the file, commit it to git, push the branch, and allow the approval workflow to play out.
+
+=== Use Case 2: Modify a template
+
+Let's consider the case when you want to add a new meta tag inside the HTML head.
+
+First, make sure you have set up the project and created a development branch.
+Next, open the file [.path]_templates/partials/head.hbs_ and add your tag.
+
+[source,html]
+----
+<meta class="swiftype" name="title" data-type="string" content="{{title}}">
+----
+
+Each template file has access to the template model, which exposes information about the current page through variable names.
+The variables currently available are listed in <<template-variables>>.
+
+Save the file, commit it to git, push the branch, and allow the approval workflow to play out.
+
+== Publishing a Release
+
+Once you're done making changes to the theme and would like to roll out an update, you'll need to publish a release.
+Releases are stored in the GitHub project, adjacent to the git repository.
+You can see all past releases on the {uri-repo}/releases[releases page].
+
+To create a release, you first tag the git repository, then create a GitHub release from that tag.
+Finally, you attach the theme bundle in zip format to that release, which makes it available for download.
+
+Fortunately, you don't have to do any of these steps yourself.
+The process is fully automated.
+When a commit is pushed to the master branch of the git repository, the {uri-ci}[CI job] is takes over and executes the `release` task.
+The release task creates the git tag{blank}footnote:[Tag names are sequential, so each tag uses a number that is one greater than the previous one (e.g., from v9 to v10).] and corresponding GitHub release, pre-compiles the theme, bundles the theme as a zip file, and attaches the bundle to the GitHub release.
+
+The {uri-ci}[CI job] is already configured, so there's nothing you need to do to make the automated release work.
+All you have to do is commit files and push the commit to the master branch of the git repository.
+
+The next two sections document how the release task and CI job are configured.
+
+=== Release Task Configuration
+
+The release task relies on the following configuration settings:
+
+repository.owner:: The GitHub organization where the main repository (not a fork) is hosted.
+repository.name:: The name of the repository on GitHub.
+GITHUB_TOKEN:: The authentication token of the release user, which grants write access to the CI job.
+
+The first two settings, `repository.owner` and `repository.name`, are defined in the [.path]_theme.yml_ file, as you can see here:
+
+.theme.yml (excerpt)
+[source,yaml]
+----
+repository:
+  owner: openzeppelin
+  name: openzeppelin-docs-theme-default
+----
+
+The last setting, `GITHUB_TOKEN`, is an environment variable that must be supplied by the CI server.
+
+=== CI Job Configuration
+
+Jenkins is used to execute the CI job that performs the releases.
+The job is named _docs-theme-publisher_ and can be found in the Jenkins instance that's managed by the openzeppelin docs team.
+This section describes in detail how that job has been configured.
+
+The release is performed by the openzeppelin-docs-agent GitHub account, which interacts with GitHub using the GitHub API.
+The release script authenticates with the GitHub API as the openzeppelin-docs-agent user using a personal access token.
+Therefore, the first step is to create a personal access token for the openzeppelin-docs-agent user on GitHub.
+The token must have the public_repo scope.
+No other scopes are required.
+Copy the token that is generated.
+
+The next step is to store this token in a Jenkins credential.
+The credential is defined as follows:
+
+[unstyled]
+* _Kind:_ Secret text
+* _Scope:_ System (Jenkins and nodes only)
+* _Secret:_ <hidden>
+* _ID:_ openzeppelin-docs-agent-github-token
+* _Description:_ Personal access token for the openzeppelin-docs-agent GitHub account (scopes: public_repo)
+
+The CI job itself is defined as a freestyle project.
+On the configuration screen, the following settings have been selected or populated:
+
+[unstyled]
+* _Project name:_ docs-theme-publisher
+* _Description:_ This job publishes a new theme bundle each time a non-ignored change is made to the master branch.
+* {blank}[x] GitHub project
+ ** _Project url:_ `pass:a[{uri-repo}]`
+* {blank} [x] Restrict where this project can be run
+ ** _Label Expression:_ lxc-fedora25
+* *Source Code Management*
+ ** {blank}[x] Git
+ ** _Repository URL:_ `pass:a[{uri-repo}]`
+ ** _Branches to build | Branch Specifier:_ */master
+ ** Additional Behaviours
+  *** *Polling ignores commits with certain messages*
+   **** _Excluded Messages:_ `+(?s).*\[skip ci\].*+`
++
+IMPORTANT: The expression _must_ begin with `(?s)` or else it won't work.
+  *** *Advanced clone behaviours*
+   **** Do not fetch tags: [x]
+   **** Honor refspec on initial clone: [x]
+* *Build Triggers*
+ ** {blank}[x] Poll SCM
+  *** _Schedule:_ _(leave blank)_
+* *Build Environment*
+ ** {blank}[x] Provide Node & npm bin/ folder to PATH
+  *** _NodeJS Installation:_ node7
+ ** {blank}[x] Use secret text(s) or file(s)
+  *** *Secret text*
+   **** _Variable:_ GITHUB_TOKEN
+   **** {blank}[x] Specific credentials
+   **** _Credentials:_ some text (Personal access token for the openzeppelin-docs-agent GitHub account (scopes: public_repo))
+
+The *Use secret text(s) or file(s)* setting reads the personal access token from the Jenkins credential and uses it to populate the GITHUB_TOKEN environment varaible.
+This environment variable is used by the release task to authenticate the client (acting as the openzeppelin-docs-agent user) against the GitHub API.
+
+The *Poll SCM* setting enables polling, but does not define a schedule.
+In order to trigger the polling action, you need to configure the GitHub repository to ping the CI server when a commit is pushed to master.
+
+To set up this ping (i.e., webhook), go to the Settings > Webhooks page of the GitHub repository.
+Click btn:[Add webhook], enter the following URL in the Payload URL field, then click btn:[Add webhook].
+
+[subs=attributes+]
+ https://openzeppelin-docs.ci.cloudbees.com/git/notifyCommit?url={uri-repo}&branches=master
+
+No secret is required (as this URL does not require authentication).
+
+The last part of the job configuration is the script.
+Under the Build section, an *Add build step* entry of type *Execute Shell* is defined to bootstrap the project and invoke the release task.
+
+[source,bash]
+----
+rm -rf build
+yarn && ./node_modules/.bin/gulp release
+----
+
+Since Jenkins retains the workspace between runs, it's necessary to start by removing the build folder from the previous build.
+Next, the dependencies are installed or updated.
+Finally, the Gulp release task is invoked.
+
+Now, whenever a commit is pushed to the master branch of the git repository on GitHub, the Jenkins job is triggered and cuts a new release of the theme bundle.
+
+=== Publishing a Release Manually
+
+If you want to publish a release manually, you'll have to pass your GitHub token using the CLI flag `--github-token`.
+For example:
+
+ $ gulp release --github-token xyz
+
+However, you should prefer having the CI server perform the release to avoid mistakes.

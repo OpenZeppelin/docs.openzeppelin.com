@@ -1,0 +1,70 @@
+.toolbar {
+  width: 100%;
+
+  .container {
+    padding: var(--lg) var(--lg);
+    margin: 0;
+  }
+}
+
+.breadcrumbs {
+  padding: 0 var(--lg);
+
+  .link {
+    font-size: 12px;
+    height: var(--lg);
+    opacity: 0.75;
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  .link-home {
+    &:active svg,
+    &:focus svg {
+      filter: grayscale(0);
+    }
+
+    svg {
+      filter: grayscale(1);
+      height: var(--lg);
+      transform: translateY(-1px);
+      width: var(--lg);
+    }
+  }
+
+  .li + .li::before {
+    background-image: url(../images/icons/chevron.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: var(--md);
+    content: '';
+    display: inline-block;
+    height: var(--md);
+    margin: 0 var(--xs);
+    opacity: 0.4;
+    pointer-events: none;
+    transform: rotate(-90deg);
+    width: var(--md);
+  }
+}
+
+.version-select + .link-edit {
+  margin-left: var(--lg);
+}
+
+.link-edit {
+  font-size: 12px;
+  height: var(--lg);
+  text-decoration: none;
+
+  svg {
+    height: var(--md);
+    margin-right: var(--xs);
+    width: var(--md);
+  }
+}

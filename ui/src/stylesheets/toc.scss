@@ -1,0 +1,116 @@
+.toc-sidebar {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  max-height: 100vh;
+  max-width: 250px;
+  overflow-y: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+  min-width: 200px;
+  flex-basis: 200px;
+
+  .toc-menu {
+    margin-top: 3px;
+    border-width: 0 0 0 0.25rem;
+    margin-bottom: 1.5rem;
+    position: fixed; /* for IE */
+    width: inherit; /* for position: fixed */
+    position: sticky; /* stylelint-disable-line declaration-block-no-duplicate-properties */
+    top: 0;
+    max-height: var(--height-nav);
+    overflow-y: auto;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+    h3 {
+      font-size: inherit;
+      margin: 0;
+      line-height: 1;
+      opacity: 0.4;
+      font-family: Silka;
+      font-size: 12px;
+      color: #282846;
+      letter-spacing: 0.8px;
+      line-height: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      line-height: 1.2;
+    }
+
+    .subheading-list {
+      margin-left: 0.5rem;
+      display: flex;
+      flex-direction: column;
+
+      .subheading-item {
+        a {
+          font-size: 0.8rem;
+          color: var(--core-violet-2);
+          text-align: center;
+          padding: 2px 0.5rem;
+          background-color: var(--aluminum-0);
+          border-radius: var(--border-radius);
+          display: inline-block;
+          font-weight: normal;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 200px;
+
+          &.is-active {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+.toc .toc-menu li {
+  margin: 0.5rem 0 0;
+}
+
+.toc a {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+
+  color: var(--color-text);
+  display: block;
+  font-size: 0.8rem;
+  padding: var(--xs) var(--sm);
+  padding-left: 0;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.toc a:hover {
+  color: var(--core-violet-3);
+}
+
+.toc a.is-active {
+  font-weight: 600;
+  color: var(--steel-2);
+  font-size: 0.81rem;
+}
+
+.toc a.is-active:focus,
+.toc a.is-active:hover {
+  color: inherit;
+  color: var(--core-violet-1);
+}
+
+.toc code {
+  line-height: 1.125;
+}

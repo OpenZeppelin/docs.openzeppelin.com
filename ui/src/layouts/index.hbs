@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{#if keywords}}
+  <meta name="keywords" content="{{keywords}}">
+  {{/if}}
+  {{#each customTags}}
+  <meta name="{{@key}}" content="{{.}}">
+  {{/each}}
+  {{#if description}}
+  <meta name="description" content="{{description}}">
+  {{/if}}
+  <link rel="canonical" href="{{canonicalUrl}}">
+  <link rel="stylesheet" href="{{themeRootPath}}/stylesheets/index.css">
+  <title>{{title}}{{#if site.title}} // {{site.title}}{{/if}}</title>
+  <link rel="shortcut icon" href="{{themeRootPath}}/images/favicon.ico">
+  {{> head }}
+<body class="flex col">
+  {{> header }}
+  {{> main }}

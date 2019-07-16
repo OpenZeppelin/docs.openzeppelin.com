@@ -1,0 +1,19 @@
+#st-open .st-default-search-input {
+  display: none;
+}
+
+.st-open-btn {
+  background: url(../images/icon/search.svg) no-repeat center center;
+  background-size: 60%;
+  border: none;
+  cursor: pointer;
+  display: block;
+  height: 2.5rem;
+  padding: 0;
+  width: 2.5rem;
+  outline: none;
+}
+
+.st-open-btn::-moz-focus-inner {
+  border: none;
+}
