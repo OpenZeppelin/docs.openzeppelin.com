@@ -26,5 +26,3 @@ proc.execFileSync('bash', ['./build.sh', localPlaybookFile], {
   cwd: __dirname,
   stdio: 'inherit',
 });
-
-console.log('Successfully built site!');
