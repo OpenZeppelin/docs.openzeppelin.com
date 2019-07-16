@@ -14,6 +14,7 @@
 		<ol class="nav-list {{#if ./selected}}active{{/if}} js-nav-list">
 			<li class="flex align-center justify-justified nav-li">
 				<a class="flex grow align-center strong link nav-link nav-heading"
+					href="{{{./url}}}"
 					tabindex="0">
 					<img class="icon" src="/{{@root.uiRootPath}}/images/icons/{{{this.name}}}.svg">
 					<span class="flex grow">{{{./title}}}</span>
