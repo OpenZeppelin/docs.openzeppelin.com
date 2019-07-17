@@ -3,6 +3,12 @@
 const path = require('path');
 const fs = require('fs');
 const proc = require('child_process');
+
+proc.execFileSync('npm', ['install', '--no-package-lock', '--no-audit'], {
+  cwd: __dirname,
+  stdio: 'inherit',
+});
+
 const yaml = require('js-yaml');
 const findUp = require('find-up');
 
