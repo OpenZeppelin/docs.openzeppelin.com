@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
+npm install --no-package-lock --no-audit
+
 export PATH="$(npm bin):$PATH"
 
 log() {
   echo "$*" >&2
 }
 
-if ! [ -f ui/build/oz-docs-ui.zip ]; then
-  log "Building UI bundle..."
-  cd ui
-  npm ci
-  npm run bundle
-  cd ..
-  log "✓ Done"
-fi
+log "Building UI bundle..."
+cd ui
+npm install --no-package-lock --no-audit
+npm run bundle
+cd ..
+log "✓ Done"
 
 log "Building site..."
 antora --generator generator "$@"
