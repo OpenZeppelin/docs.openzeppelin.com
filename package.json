@@ -3,8 +3,8 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "build": "bash build.sh playbook.yml",
-    "build:fetch": "bash build.sh --fetch playbook.yml"
+    "build": "bash build.sh --fetch playbook.yml",
+    "build:no-fetch": "bash build.sh playbook.yml"
   },
   "dependencies": {
     "@antora/cli": "^2.0.0",
