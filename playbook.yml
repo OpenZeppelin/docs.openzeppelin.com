@@ -6,8 +6,8 @@ content:
   sources:
     - url: .
       branches: HEAD
-    - url: https://github.com/frangio/openzeppelin-solidity
-      branches: antora
+    - url: https://github.com/OpenZeppelin/openzeppelin-solidity
+      branches: docs-v2.x
       start_path: docs
     - url: https://github.com/frangio/zos
       branches: antora
@@ -15,3 +15,5 @@ content:
 ui:
   bundle:
     url: ./ui/build/oz-docs-ui.zip
+    # url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
+    # snapshot: true
