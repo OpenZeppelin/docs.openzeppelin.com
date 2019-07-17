@@ -3,7 +3,7 @@
 export PATH="$(npm bin):$PATH"
 
 log() {
-  echo "$*" > /dev/stderr
+  echo "$*" >&2
 }
 
 if ! [ -f ui/build/oz-docs-ui.zip ]; then
