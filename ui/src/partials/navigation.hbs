@@ -11,7 +11,7 @@
 
 	<div class="nav-components">
 		{{#each site.components}}
-		<ol class="nav-list {{#if ./selected}}active{{/if}} js-nav-list">
+		<ol class="nav-list {{#if (eq this @root.page.component)}}active{{/if}} js-nav-list">
 			<li class="flex align-center justify-justified nav-li">
 				<a class="flex grow align-center strong link nav-link nav-heading"
 					href="{{{./url}}}"
@@ -54,7 +54,9 @@
 							</button>
 							{{/unless}}
 							{{/if}}
-							{{> navigation-tree items=items}}
+                                                        {{#if (eq this @root.page.component)}}
+                                                          {{> navigation-tree items=@root.page.navigation}}
+                                                        {{/if}}
 						</ol>
 						{{/each}}
 					</div>
