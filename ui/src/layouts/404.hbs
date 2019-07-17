@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="{{@root.uiRootPath}}/stylesheets/index.css">
-		<title>{{title}}{{#if site.title}} // {{site.title}}{{/if}}</title>
-		<link rel="shortcut icon" href="{{@root.uiRootPath}}/images/favicon.ico">
-		{{> head }}
-		<body>
-			{{> header }}
-			<main role="main" class="main">
-				<article class="doc container">
-					404
-				</article>
-			</main>
-			{{> footer }}
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{@root.uiRootPath}}/stylesheets/index.css">
+    <title>{{#if page.title}}{{page.title}} - {{/if}}{{site.title}}</title>
+    <link rel="shortcut icon" href="{{@root.uiRootPath}}/images/favicon.ico">
+    {{> head }}
+  </head>
+  <body>
+    {{> header }}
+    <main role="main" class="main">
+      <article class="doc container">
+        404
+      </article>
+    </main>
+    {{> footer }}
+  </body>
+</html>
