@@ -12,6 +12,9 @@ content:
     - url: https://github.com/frangio/zos
       branches: antora
       start_path: packages/docs
+    - url: https://github.com/OpenZeppelin/starter-kit
+      branches: master
+      start_path: docs
 ui:
   bundle:
     url: ./ui/build/oz-docs-ui.zip
