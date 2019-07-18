@@ -10,7 +10,7 @@ content:
       branches: docs-v2.x
       start_path: docs
     - url: https://github.com/zeppelinos/zos
-      branches: master
+      branches: docs/2.5
       start_path: packages/docs
     - url: https://github.com/OpenZeppelin/starter-kit
       branches: master
