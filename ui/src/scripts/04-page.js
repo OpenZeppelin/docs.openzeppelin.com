@@ -22,37 +22,30 @@
   var links = {};
   var menu;
 
-  function findSubheadings(node) {
-    var subheadings = find('h3', node);
-    if (!subheadings.length) {
-      return;
-    }
-    console.log(subheadings);
-  }
-
   var list = headings.reduce(function(accum, heading) {
     var shds = toArray(find('h3', heading.parentNode));
     var $shdsList = document.createElement('ul');
     $shdsList.classList.add('subheading-list');
 
+    function createLink(heading) {
+      const link = toArray(heading.childNodes).reduce(function(target, child) {
+        if (child.nodeName !== 'A') target.appendChild(child.cloneNode(true));
+        return target;
+      }, document.createElement('a'));
+
+      links[(link.href = '#' + heading.id)] = link;
+      return link;
+    }
+
     shds.map((n) => {
       var $shdItem = document.createElement('li');
       $shdItem.classList.add('subheading-item');
-      var $shdLink = document.createElement('a');
-      $shdLink.innerText = n.innerText;
-      $shdLink.href = '#' + n.id;
+      var $shdLink = createLink(n);
       $shdItem.appendChild($shdLink);
       $shdsList.appendChild($shdItem);
-
-      links[($shdLink.href = '#' + n.id)] = $shdLink;
     });
 
-    var link = toArray(heading.childNodes).reduce(function(target, child) {
-      if (child.nodeName !== 'A') target.appendChild(child.cloneNode(true));
-      return target;
-    }, document.createElement('a'));
-
-    links[(link.href = '#' + heading.id)] = link;
+    var link = createLink(heading);
 
     var listItem = document.createElement('li');
     listItem.appendChild(link);

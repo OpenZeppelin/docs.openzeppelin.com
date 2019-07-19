@@ -52,27 +52,6 @@
       margin-left: 0.5rem;
       display: flex;
       flex-direction: column;
-
-      .subheading-item {
-        a {
-          font-size: 0.8rem;
-          color: var(--core-violet-2);
-          text-align: center;
-          padding: 2px 0.5rem;
-          background-color: var(--aluminum-0);
-          border-radius: var(--border-radius);
-          display: inline-block;
-          font-weight: normal;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          max-width: 200px;
-
-          &.is-active {
-            font-weight: bold;
-          }
-        }
-      }
     }
   }
 }
