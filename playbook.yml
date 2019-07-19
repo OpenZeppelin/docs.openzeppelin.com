@@ -1,6 +1,6 @@
 site:
   title: OpenZeppelin Docs
-  url: https://docs.openzeppelin.org
+  url: https://docs.openzeppelin.com
   start_page: openzeppelin::index.adoc
 content:
   sources:
