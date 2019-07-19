@@ -9,7 +9,7 @@ content:
     - url: https://github.com/OpenZeppelin/openzeppelin-solidity
       branches: docs-v2.x
       start_path: docs
-    - url: https://github.com/zeppelinos/zos
+    - url: https://github.com/frangio/zos
       branches: docs/2.5
       start_path: packages/docs
     - url: https://github.com/OpenZeppelin/starter-kit
