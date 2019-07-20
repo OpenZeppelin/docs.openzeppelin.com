@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -o errexit
+
 npm install --no-package-lock --no-audit
 
 export PATH="$(npm bin):$PATH"
