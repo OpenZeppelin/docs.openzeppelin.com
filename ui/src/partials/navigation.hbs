@@ -10,7 +10,7 @@
 	</div>
 
 	<div class="nav-components">
-		{{#each site.components}}
+		{{#sorted site.components "openzeppelin, contracts, sdk, starter-kit"}}
 		<ol class="nav-list {{#if (eq this @root.page.component)}}active{{/if}} js-nav-list">
 			<li class="flex align-center justify-justified nav-li">
 				<a class="flex grow align-center strong link nav-link nav-heading"
@@ -58,6 +58,6 @@
                                                           {{> navigation-tree items=@root.page.navigation}}
                                                         {{/if}}
 						</ol>
-						{{/each}}
+						{{/sorted}}
 					</div>
 				</nav>
