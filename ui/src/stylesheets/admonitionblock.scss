@@ -59,7 +59,7 @@
     background-image: url(../images/icons/book.png);
   }
 
-  &.warning {
+  &.warning, &.caution, &.important {
     border: 1px solid #ff7539;
     color: #ff7539;
     color: #ff7539;
