@@ -10,6 +10,7 @@
     "@antora/cli": "^2.0.0",
     "find-up": "^4.1.0",
     "generator": "file:generator",
+    "glob": "^7.1.4",
     "js-yaml": "^3.13.1"
   },
   "license": "MIT"

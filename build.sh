@@ -18,3 +18,5 @@ log "✓ Done"
 log "Building site..."
 antora --generator generator "$@"
 log "✓ Done"
+
+node latest-redirects.js
