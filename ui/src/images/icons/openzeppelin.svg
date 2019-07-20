@@ -1,10 +1,9 @@
-
-<svg viewBox="0 0 12 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.8">
-        <g id="Page-example" transform="translate(-360.000000, -95.000000)" fill="#282846">
-            <g id="Group-9" transform="translate(360.000000, 72.000000)">
-                <polygon id="Rectangle" points="0 28 6 23 12 28 12 37 7.5 37 7.5 33 4.5 33 4.5 37 0 37"></polygon>
-            </g>
-        </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="200px" viewBox="0 0 180 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>OZ_icon_monochrome</title>
+    <desc>Created with Sketch.</desc>
+    <g id="presentación" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M179.670444,199.932333 L67.5860074,199.932333 L85.8704806,169.214333 C93.7259335,156.016333 107.93329,147.932333 123.270887,147.932333 L179.670444,147.932333 L179.670444,199.932333 Z M0.166292052,0.1667 L179.670543,0.1667 L148.717863,52.1667 L0.166292052,52.1667 L0.166292052,0.1667 Z M71.2615009,81.4347667 C79.8768799,67.0024333 95.4274159,58.1667667 112.212665,58.1667667 L145.583534,58.1667667 L60.7619445,199.932433 L0.329855823,199.932433 L71.2615009,81.4347667 Z" id="OZ_icon_monochrome" fill="#282846"/>
     </g>
 </svg>
