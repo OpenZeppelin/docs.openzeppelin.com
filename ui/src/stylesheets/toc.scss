@@ -80,14 +80,8 @@
 
 .toc a.is-active {
   font-weight: 600;
-  color: var(--steel-2);
-  font-size: 0.81rem;
-}
-
-.toc a.is-active:focus,
-.toc a.is-active:hover {
-  color: inherit;
   color: var(--core-violet-1);
+  font-size: 0.81rem;
 }
 
 .toc code {
