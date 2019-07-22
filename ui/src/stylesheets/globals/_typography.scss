@@ -89,7 +89,7 @@ h6 {
 
 code {
   background-color: #f5f6fe;
-  color: #5766e5;
+  color: var(--core-violet-4);
   border-radius: .3em;
   padding: .2em .4em;
 }
@@ -112,7 +112,7 @@ aside {
 }
 
 a {
-  color: var(--core-violet-3);
+  color: var(--core-violet-4);
 
   &:focus,
   &:hover {
