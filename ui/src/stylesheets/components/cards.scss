@@ -38,16 +38,21 @@
     font-weight: bold;
     font-size: 1.2em;
 
-    &::before {
-      content: "";
-      background-image: var(--card-icon);
-      background-repeat: no-repeat;
-      background-size: contain;
-      width: 1.5em;
-      height: 1.5em;
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: .5em;
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &::before {
+        content: "";
+        background-image: var(--card-icon);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 1.5em;
+        height: 1.5em;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: .5em;
+      }
     }
   }
 

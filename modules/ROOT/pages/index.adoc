@@ -11,7 +11,7 @@ OpenZeppelin has been the bedrock of smart contract development in Ethereum for 
 As the ecosystem matures, we are taking all the lessons we have learned during this journey to help you create professional applications that are ready for consumer adoption.
 
 [.card.card-contracts]
-.Contracts
+.xref:contracts::index.adoc[Contracts]
 --
 A library of modular, reusable, secure smart contracts, written in Solidity.
 
@@ -19,7 +19,7 @@ A library of modular, reusable, secure smart contracts, written in Solidity.
 --
 
 [.card.card-sdk]
-.SDK
+.xref:sdk::index.adoc[SDK]
 --
 A suite of tools to help you develop, test, upgrade and deploy smart contracts.
 
@@ -27,7 +27,7 @@ A suite of tools to help you develop, test, upgrade and deploy smart contracts.
 --
 
 [.card.card-starter-kits]
-.Starter Kits
+.xref:starter-kits::index.adoc[Starter Kits]
 --
 Bundles to kickstart your decentralized web application.
 
