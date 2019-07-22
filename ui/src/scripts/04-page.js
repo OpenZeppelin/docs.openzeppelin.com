@@ -64,6 +64,7 @@
   }
 
   var title = document.createElement('h3');
+  title.classList.add('toc-title');
   // title.textContent = 'On This Page';
   var elTitle = document.querySelector('main .article-wrapper h1');
   title.textContent = elTitle.textContent;
@@ -107,10 +108,10 @@
     if (activeFragment) {
       if (activeFragment !== lastActiveFragment) {
         if (lastActiveFragment) {
-          links[lastActiveFragment].classList.remove('is-active');
+          links[lastActiveFragment].classList.remove('toc-active');
         }
         var activeLink = links[activeFragment];
-        activeLink.classList.add('is-active');
+        activeLink.classList.add('toc-active');
         if (menu.scrollHeight > menu.offsetHeight) {
           menu.scrollTop = Math.max(
             0,
@@ -120,7 +121,7 @@
         lastActiveFragment = activeFragment;
       }
     } else if (lastActiveFragment) {
-      links[lastActiveFragment].classList.remove('is-active');
+      links[lastActiveFragment].classList.remove('toc-active');
       lastActiveFragment = undefined;
     }
   }

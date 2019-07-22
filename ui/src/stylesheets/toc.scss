@@ -1,59 +1,38 @@
 .toc-sidebar {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  max-height: 100vh;
-  max-width: 250px;
-  overflow-y: auto;
-  position: -webkit-sticky;
   position: sticky;
-  top: 100px;
-  min-width: 200px;
+  top: 10vh;
+  max-height: 80vh;
+  overflow-y: auto;
   flex-basis: 200px;
+  font-size: .8em;
+}
 
-  .toc-menu {
-    margin-top: 3px;
-    border-width: 0 0 0 0.25rem;
-    margin-bottom: 1.5rem;
-    position: fixed; /* for IE */
-    width: inherit; /* for position: fixed */
-    position: sticky; /* stylelint-disable-line declaration-block-no-duplicate-properties */
-    top: 0;
-    max-height: var(--height-nav);
-    overflow-y: auto;
-    -ms-overflow-style: none;
+.toc-menu {
+  border-width: 0 0 0 0.25rem;
+  margin-bottom: 1.5rem;
 
-    &::-webkit-scrollbar {
-      width: 0;
-    }
-
-    h3 {
-      font-size: inherit;
-      margin: 0;
-      line-height: 1;
-      opacity: 0.4;
-      font-family: Silka;
-      font-size: 12px;
-      color: #282846;
-      letter-spacing: 0.8px;
-      line-height: 20px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      line-height: 1.2;
-    }
-
-    .subheading-list {
-      margin-left: 0.5rem;
-      display: flex;
-      flex-direction: column;
-    }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
   }
+
+  .subheading-list {
+    margin-left: 0.5em;
+  }
+}
+
+.toc-title {
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+  font-family: Silka;
+  color: var(--aluminum-5);
+  letter-spacing: .05em;
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
 }
 
 .toc .toc-menu li {
@@ -65,25 +44,12 @@
   display: block;
   text-decoration: none;
 
-  color: var(--color-text);
   display: block;
-  font-size: 0.8rem;
   padding: var(--xs) var(--sm);
   padding-left: 0;
-  text-decoration: none;
-  font-weight: normal;
 }
 
-.toc a:hover {
-  color: var(--core-violet-3);
-}
-
-.toc a.is-active {
+.toc a.toc-active {
   font-weight: 600;
-  color: var(--core-violet-1);
-  font-size: 0.81rem;
-}
-
-.toc code {
-  line-height: 1.125;
+  color: var(--core-violet-2);
 }
