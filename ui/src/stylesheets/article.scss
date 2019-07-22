@@ -53,19 +53,8 @@
     }
   }
 
-  pre {
-    background: var(--aluminum-1);
-    border: 1px solid var(--aluminum-3);
-    border-radius: 2px;
-    padding: var(--md);
-    overflow: auto;
-
-    code {
-      background: none;
-      border: 0;
-      border-radius: 0;
-      top: 0;
-    }
+  pre code {
+    border-radius: var(--border-radius);
   }
 
   img {
@@ -96,11 +85,6 @@
   }
 
   code {
-    border: none;
-    background-color: #f5f6fe;
-    border-radius: var(--border-radius);
-    color: #5766e5;
-
     &.primary {
       color: #4e4e67;
     }

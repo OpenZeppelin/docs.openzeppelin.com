@@ -6,6 +6,7 @@ const replace = require('gulp-replace');
 const autoprefixer = require('autoprefixer');
 const browserify = require('browserify');
 const buffer = require('vinyl-buffer');
+const source = require('vinyl-source-stream');
 const concat = require('gulp-concat');
 const cssnano = require('cssnano');
 const fs = require('fs-extra');
@@ -68,7 +69,13 @@ module.exports = (src, dest, preview) => {
       .src('scripts/+([0-9])-*.js', { ...opts, sourcemaps })
       // .pipe(uglify())
       .pipe(concat('scripts/site.js')),
-    vfs.src('scripts/*.pack.js', opts),
+    browserify({
+      entries: './scripts/vendor/highlight.js',
+      basedir: 'src',
+    }).bundle()
+      .pipe(source('scripts/highlight.js'))
+      .pipe(buffer())
+      .pipe(uglify()),
     vfs.src('fonts/*.{woff,woff2}', opts),
     // vfs
     //   .src('stylesheets/index.scss')
