@@ -11,7 +11,7 @@ npm run dev
 === Build
 Builds the UI into `/public` (to deploy to static sites)
 ```
-npm run build
+npm run build-preview
 ```
 
 === Bundle Antora Theme
