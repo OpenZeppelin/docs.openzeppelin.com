@@ -1,14 +1,26 @@
-{{#each items}}
-<li class="nav-li fade {{#if ./currentPath}}active{{/if}} {{#if ./currentPage}}active{{/if}}" data-depth="{{#if ../level}}{{../level}}{{else}}0{{/if}}"{{#if ./currentPath}} data-state="expanded"{{/if}}>
-  {{#if ./url}}
-  <a class="flex shrink align-center link nav-link" href="{{{./url}}}">{{{./content}}}</a>
-  {{else}}
-  <span class="flex shrink align-center nav-heading">{{{./content}}}</span>
-  {{/if}}
-  {{!-- Nesting --}}
-  {{#if ./items}}
-  <ol class="nested-list">
-    {{> navigation-tree navigation=./items level=(increment ../level) }}
+{{#if items}}
+  <ol class="nav-list">
+    {{#each items}}
+      <li class="nav-li"
+          data-depth="{{#if ../level}}{{../level}}{{else}}0{{/if}}"
+          {{#if currentPath}}data-state="expanded"{{/if}}>
+        {{#if url}}
+          <a class="flex shrink align-center link nav-link {{#if (eq url @root.page.url)}}nav-link-active{{/if}}"
+             href="{{{./url}}}">
+            {{{./content}}}
+          </a>
+        {{else}}
+          {{#if content}}
+            <span class="flex shrink align-center nav-heading">{{{./content}}}</span>
+          {{/if}}
+        {{/if}}
+        {{!-- Nesting --}}
+        {{#if items}}
+          <ol class="nav-list">
+            {{> navigation-tree navigation=./items level=(increment ../level) }}
+          </ol>
+        {{/if}}
+      </li>
+    {{/each}}
   </ol>
-  {{/if}}
-{{/each}}
+{{/if}}

@@ -1,63 +1,69 @@
 <nav
-	class="nav js-nav"
-	data-component="{{component.name}}"
-	data-is-home="{{home}}"
-	data-is-site-aspect="{{component.siteAspect}}"
-	data-version="{{component.version.string}}"
-	role="navigation">
-	<div class="flex align-center search">
-		<input class="input" placeholder="Search" type="search">
-	</div>
+    class="nav"
+    data-component="{{component.name}}"
+    data-is-home="{{home}}"
+    data-is-site-aspect="{{component.siteAspect}}"
+    data-version="{{component.version.string}}"
+    role="navigation">
+  <div class="flex align-center search">
+    <input class="input" placeholder="Search" type="search">
+  </div>
 
-	<div class="nav-components">
-		{{#sorted site.components "openzeppelin, contracts, sdk, starter-kit"}}
-		<ol class="nav-list {{#if (eq this @root.page.component)}}active{{/if}} js-nav-list">
-			<li class="flex align-center justify-justified nav-li">
-				<a class="flex grow align-center strong link nav-link nav-heading"
-					href="{{{./url}}}"
-					tabindex="0">
-					<img class="icon" src="/{{@root.uiRootPath}}/images/icons/{{{this.name}}}.svg">
-					<span class="flex grow">{{{./title}}}</span>
-				</a>
-				{{#if this.versions}}
-				{{#unless (eq this.versions.length 1)}}
-				<button class="flex align-center shrink btn btn-version">
-					3.8
-					{{!-- @@include('public/_theme/images/icons/chevron.svg')--}}
-					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000"
-						viewBox="0 0 30 30">
-						<path d="M15.003 21.284L6.563 9.232l1.928-.516 6.512 9.299 6.506-9.299
-							1.928.516-8.434 12.052z" />
-						</svg>
+  <div class="nav-components">
+    {{#sorted site.components "openzeppelin, contracts, sdk, starter-kit"}}
+      <div class="nav-component">
+        <div class="flex align-center justify-justified nav-heading nav-component-heading">
+          <a class="flex grow align-center link {{#if (eq this @root.page.component)}}nav-link-active{{/if}}"
+             href="{{{./url}}}"
+             tabindex="0">
+            <img class="nav-icon" src="/{{@root.uiRootPath}}/images/icons/{{{this.name}}}.svg">
+            <span class="flex grow">{{{./title}}}</span>
+          </a>
+          {{#if this.versions}}
+            {{#unless (eq this.versions.length 1)}}
+              <button class="flex align-center shrink btn btn-version">
+                3.8
+                {{!-- @@include('public/_theme/images/icons/chevron.svg')--}}
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000"
+                                                                               viewBox="0 0 30 30">
+                  <path d="M15.003 21.284L6.563 9.232l1.928-.516 6.512 9.299 6.506-9.299
+                  1.928.516-8.434 12.052z" />
+                </svg>
 
-						<div class="popover">
-							<span class="popover__heading">Current version</span>
-							<ol class="ol current">
-								{{#each this.versions}}
-								{{#if ./latest}}
-								<li class="flex align-center justify-justified li" {{#if
-									./selected}}selected{{/if}} value="{{{./url}}}">{{./string}}
-									{{/if}}
-									{{/each}}
-								</ol>
-								<span class="popover__heading">Previous versions</span>
-								<ol class="ol">
-									{{#each this.versions}}
-									{{#unless ./latest}}
-									<li class="flex align-center justify-justified li" {{#if
-										./selected}}selected{{/if}} value="{{{./url}}}">
-										{{./string}}
-										{{/unless}}
-										{{/each}}
-									</ol>
-								</div>
-							</button>
-							{{/unless}}
-							{{/if}}
-                                                        {{#if (eq this @root.page.component)}}
-                                                          {{> navigation-tree items=@root.page.navigation}}
-                                                        {{/if}}
-						</ol>
-						{{/sorted}}
-					</div>
-				</nav>
+                <div class="popover">
+                  <span class="popover__heading">Current version</span>
+                  <ol class="ol current">
+                    {{#each this.versions}}
+                      {{#if ./latest}}
+                        <li class="flex align-center justify-justified li"
+                            {{#if selected}}selected{{/if}}
+                            value="{{{url}}}">
+                          {{string}}
+                        </li>
+                      {{/if}}
+                    {{/each}}
+                  </ol>
+                  <span class="popover__heading">Previous versions</span>
+                  <ol class="ol">
+                    {{#each this.versions}}
+                      {{#unless ./latest}}
+                        <li class="flex align-center justify-justified li"
+                            {{#if selected}}selected{{/if}}
+                            value="{{{url}}}">
+                          {{string}}
+                        </li>
+                      {{/unless}}
+                    {{/each}}
+                  </ol>
+                </div>
+              </button>
+            {{/unless}}
+          {{/if}}
+        </div>
+        {{#if (eq this @root.page.component)}}
+          {{> navigation-tree items=@root.page.navigation}}
+        {{/if}}
+      </div>
+    {{/sorted}}
+  </div>
+</nav>
