@@ -1,15 +1,62 @@
-.article .sidebarblock.card,
 .card {
+  margin-top: 2em;
   background: var(--core-violet-3);
   border-radius: var(--border-radius);
   width: 230px;
-  height: 268px;
+  min-height: 280px;
   display: inline-flex;
+  flex-direction: column;
   color: white;
   box-shadow: rgba(203, 203, 203, 0.81) 0px 4px 5px 0px;
   position: relative;
-  padding: 1.2rem;
-  overflow: hidden;
+  padding: 1.2em;
+
+  &.card-contracts {
+    --card-icon: url(../images/contracts_white.svg);
+    background-image: linear-gradient(45deg, #6746d6 0%, #a134d1 100%);
+    box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.09);
+    border-radius: var(--border-radius);
+  }
+
+  &.card-sdk {
+    --card-icon: url(../images/sdk_white.svg);
+    background-image: linear-gradient(-134deg, #3677ff 0%, #1ecff7 100%);
+    box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.09);
+    border-radius: var(--border-radius);
+  }
+
+  &.card-starter-kits {
+    --card-icon: url(../images/kit_white.svg);
+    background-image: linear-gradient(-135deg, #00e1d4 0%, #00c7f2 100%);
+    box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.09);
+    border-radius: var(--border-radius);
+  }
+
+  .title {
+    margin-top: 1.2em;
+    font-family: var(--heading);
+    font-weight: bold;
+    font-size: 1.2em;
+
+    &::before {
+      content: "";
+      background-image: var(--card-icon);
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 1.5em;
+      height: 1.5em;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: .5em;
+    }
+  }
+
+  .content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   &::after {
     content: "";
@@ -23,91 +70,26 @@
     right: -20px;
   }
 
-  &:not(:last-child) {
-    margin-right: 20px;
-  }
-
-  p {
-    color: white;
+  & + & {
+    margin-left: 20px;
   }
 
   .content {
-    margin-top: 70px;
-    height: auto;
-    font-size: 0.9rem;
-    font-family: var(--sans-serif);
+    margin-top: 2em;
+    font-size: 0.9em;
     width: 88%;
   }
 
-  .link {
+  .card-cta {
     font-family: Silka;
-    font-size: 12px;
-    color: #fbfbfc;
-    letter-spacing: 0.64px;
+    font-size: .8em;
+    letter-spacing: .05em;
     text-transform: uppercase;
     font-weight: bold;
-    position: absolute;
-    bottom: 22px;
-    left: 1.2rem;
-  }
 
-  &#contracts {
-    &::before {
-      content: "";
-      background-image: url(../images/contracts_white.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      width: 100%;
-      height: 30px;
-      position: absolute;
-      top: 40px;
-      left: 1.2rem;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-  }
-
-  &#sdk {
-    &::before {
-      content: "";
-      background-image: url(../images/sdk_white.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      width: 100%;
-      height: 30px;
-      position: absolute;
-      top: 40px;
-      left: 1.2rem;
-    }
-  }
-
-  &#kit {
-    &::before {
-      content: "";
-      background-image: url(../images/kit_white.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      width: 100%;
-      height: 30px;
-      position: absolute;
-      top: 40px;
-      left: 1.2rem;
-    }
-  }
-
-  &.violet {
-    background-image: linear-gradient(45deg, #6746d6 0%, #a134d1 100%);
-    box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.09);
-    border-radius: var(--border-radius);
-  }
-
-  &.hellblue {
-    background-image: linear-gradient(-135deg, #00e1d4 0%, #00c7f2 100%);
-    box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.09);
-    border-radius: var(--border-radius);
-  }
-
-  &.blue {
-    background-image: linear-gradient(-134deg, #3677ff 0%, #1ecff7 100%);
-    box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.09);
-    border-radius: var(--border-radius);
   }
 }

@@ -9,3 +9,27 @@ We have three different components to help you solve all your smart contract nee
 OpenZeppelin has been the bedrock of smart contract development in Ethereum for the last few years. Our libraries have been used by more than 100K developers to create tokens, protect digital assets and power decentralized applications. It has helped developers secure more than $4.5 billion in digital assets.
 
 As the ecosystem matures, we are taking all the lessons we have learned during this journey to help you create professional applications that are ready for consumer adoption.
+
+[.card.card-contracts]
+.Contracts
+--
+A library of modular, reusable, secure smart contracts, written in Solidity.
+
+[.card-cta]#xref:contracts::index.adoc[Get started >]#
+--
+
+[.card.card-sdk]
+.SDK
+--
+A suite of tools to help you develop, test, upgrade and deploy smart contracts.
+
+[.card-cta]#xref:sdk::index.adoc[Get started >]#
+--
+
+[.card.card-starter-kits]
+.Starter Kits
+--
+Bundles to kickstart your decentralized web application.
+
+[.card-cta]#xref:starter-kits::index.adoc[Get started >]#
+--
