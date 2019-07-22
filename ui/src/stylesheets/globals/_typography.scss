@@ -169,6 +169,31 @@ ul {
   list-style-type: circle;
 }
 
+dl {
+  border: 1px solid var(--aluminum-3);
+  border-radius: 2px;
+  display: inline-block;
+  padding: var(--md);
+}
+
+dt {
+  font-weight: var(--weight-medium);
+
+  &::after {
+    content: ":";
+  }
+}
+
+dd {
+  margin-left: 0;
+
+  + dt {
+    border-top: 1px solid var(--aluminum-3);
+    margin-top: var(--sm);
+    padding-top: var(--sm);
+  }
+}
+
 .strong {
   font-weight: var(--weight-medium);
 }
