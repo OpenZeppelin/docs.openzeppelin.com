@@ -6,7 +6,7 @@
   top: 0;
   width: var(--nav-width);
   background: #f8f8fa;
-  color: rgb(40, 40, 70);
+  color: var(--steel-2);
   padding-top: 70px;
 
   a {
@@ -25,7 +25,7 @@
 }
 
 .nav-component {
-  margin-bottom: var(--md);
+  margin-bottom: var(--lg);
   padding-left: 30px;
 }
 
@@ -35,12 +35,12 @@
 }
 
 .nav-heading {
-  font-weight: bold;
-  color: var(--steel-2);
+  color: var(--steel-3);
 }
 
 .nav-component-heading {
   font-family: "Silka";
+  font-weight: var(--weight-medium);
   position: relative;
   margin-top: var(--md);
 }
