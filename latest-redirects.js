@@ -24,7 +24,7 @@ for (const comp of components) {
 
   if (versions.length > 0) {
     const latest = versions[0];
-    redirects += `/${comp} /${comp}/${latest} 302\n`;
+    redirects += `/${comp}/* /${comp}/${latest}/:splat 302\n`;
   }
 }
 
