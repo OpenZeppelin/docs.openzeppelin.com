@@ -50,7 +50,7 @@
   height: var(--lg);
   width: var(--lg);
   left: calc(-1 * var(--lg) - var(--sm));
-  position: absolute;
+  position: relative;
 }
 
 .search > .input {
