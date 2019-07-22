@@ -16,7 +16,7 @@
           <a class="flex grow align-center link {{#if (eq this @root.page.component)}}nav-link-active{{/if}}"
              href="{{{./url}}}"
              tabindex="0">
-            <img class="nav-icon" src="/{{@root.uiRootPath}}/images/icons/{{{this.name}}}.svg">
+            <img class="nav-icon" src="{{@root.uiRootPath}}/images/icons/{{{this.name}}}.svg">
             <span class="flex grow">{{{./title}}}</span>
           </a>
           {{#if this.versions}}
