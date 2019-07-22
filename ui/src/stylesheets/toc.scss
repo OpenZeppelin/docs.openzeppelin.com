@@ -37,16 +37,14 @@
 
 .toc .toc-menu li {
   margin: 0.5rem 0 0;
+  padding: var(--xs) var(--sm);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .toc a {
   color: inherit;
-  display: block;
   text-decoration: none;
-
-  display: block;
-  padding: var(--xs) var(--sm);
-  padding-left: 0;
 }
 
 .toc a.toc-active {
