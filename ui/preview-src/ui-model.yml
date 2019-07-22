@@ -6,35 +6,22 @@ site:
   components:
   - name: openzeppelin
     title: OpenZeppelin
-    url: '#'
+    url: /openzeppelin/index.html
     versions:
     - &latest_version_abc
       url: '#' 
-      version: '1.1'
-      displayVersion: '1.1'
-    - url: '#' 
-      version: '1.0'
-      displayVersion: '1.0'
+      version: 'master'
+      displayVersion: 'master'
     latestVersion: *latest_version_abc
-  - &component
+  - &component_contracts
     name: contracts
     title: Contracts
-    url: /contracts/6.0/index.html
+    url: /contracts/2.x/index.html
     versions:
     - &latest_version_contracts
-      url: /contracts/6.0/index.html
-      version: '6.0'
-      displayVersion: '6.0'
-    - &component_version
-      url: '#' 
-      version: '5.2'
-      displayVersion: '5.2'
-    - url: '#' 
-      version: '5.1'
-      displayVersion: '5.1'
-    - url: '#' 
-      version: '5.0'
-      displayVersion: '5.0'
+      url: /contracts/2.x/index.html
+      version: '2.x'
+      displayVersion: '2.x'
     latestVersion: *latest_version_contracts
   - name: sdk
     title: SDK
@@ -42,14 +29,11 @@ site:
     versions:
     - &latest_version_sdk
       url: '#' 
-      version: '2.2'
-      displayVersion: '2.2'
+      version: '2.5'
+      displayVersion: '2.5'
     - url: '#' 
-      version: '2.1'
-      displayVersion: '2.1'
-    - url: '#' 
-      version: '2.0'
-      displayVersion: '2.0'
+      version: '2.4'
+      displayVersion: '2.3'
     latestVersion: *latest_version_sdk
   - name: starter-kits
     title: Starter Kits
@@ -57,72 +41,59 @@ site:
     versions:
     - &latest_version_starter-kits
       url: '#' 
-      version: '2.2'
-      displayVersion: '2.2'
+      version: '2.3'
+      displayVersion: '2.3'
     - url: '#' 
-      version: '2.1'
-      displayVersion: '2.1'
-    - url: '#' 
-      version: '2.0'
-      displayVersion: '2.0'
+      version: '1.9'
+      displayVersion: '1.9'
     latestVersion: *latest_version_starter-kits
 page:
-  title: Brand&#8217;s Hardware &amp; Software Requirements
-  url: /contracts/5.2/index.html
-  component: *component
-  componentVersion: *component_version
-  version: '5.2'
-  displayVersion: '5.2'
+  title: Welcome to OpenZeppelin Documentation!
+  url: /contracts/2.x/index.html
+  component: *component_contracts
+  componentVersion: *latest_version_contracts
+  version: '2.x'
+  displayVersion: '2.x'
   module: ROOT
   home: false
-  editUrl: http://example.com/project-contracts/blob/master/index.adoc
+  # editUrl: http://example.com/project-contracts/blob/master/index.adoc
   origin:
     private: false
-  breadcrumbs:
-  - content: Quickstart
-    url: '#'
-    urlType: fragment
-  - content: Brand&#8217;s Hardware &amp; Software Requirements
-    url: /contracts/5.2/index.html
-    urlType: internal
   versions:
-  - version: '6.0'
-    displayVersion: '6.0'
-    url: '#'
-  - version: '5.2'
-    displayVersion: '5.2'
-    url: '#'
-  - version: '5.1'
-    displayVersion: '5.1'
-    url: '#'
-  - version: '5.0'
-    displayVersion: '5.0'
-    missing: true
-    url: '#'
+  - *latest_version_contracts
   navigation:
-  - root: true
-    content: Project Starter Kits
-    url: '#'
-    urlType: fragment
+  - content: Overview
+    # root: true
     items:
-    - content: Quickstart
+    - content: Getting Started
+      url: /contracts/2.x/index.html
+      urlType: internal
+  - content: Basics
+    items:
+    - &item
+      content: Access Control
       url: '#'
       urlType: fragment
-      items:
-      - content: Brand&#8217;s Hardware &amp; Software Requirements
-        url: /contracts/5.2/index.html
-        urlType: internal
-      - title: IDE Integration
-        url: '#'
-        urlType: fragment
-    - content: Liber Recusabo
-      url: '#liber-recusabo'
-      urlType: fragment
-    - content: Reference
-      items:
-      - content: Keyboard Shortcuts
-        url: '#'
-        urlType: fragment
-      - content: Importing and Exporting
-        url: '#'
-        urlType: fragment
+    - <<: *item
+      content: Tokens
+    - <<: *item
+      content: Crowdsales
+    - <<: *item
+      content: Utilities
+  - content: API
+    items:
+    - <<: *item
+      content: Utils
+    - <<: *item
+      content: Payment
+    - <<: *item
+      content: Math
+    - <<: *item
+      content: Cryptography
+    - <<: *item
+      content: Access
+    - content: ERC 20
+      url: /contracts/2.x/api.html
+      urlType: internal
+    - <<: *item
+      content: ERC 721

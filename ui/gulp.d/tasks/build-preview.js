@@ -54,6 +54,7 @@ module.exports = async (src, dest, destTheme, previewSrcDir) => {
           uiModel.page.contents = Buffer.from(doc.convert());
         }
         file.extname = '.html';
+        uiModel.page.url = '/' + file.relative;
         file.contents = Buffer.from(layoutsIndex[uiModel.page.layout](uiModel));
         next(null, file);
       })

@@ -1,0 +1,2136 @@
+:Roles: pass:normal[xref:access.adoc#Roles[`Roles`]]
+:Roles-add: pass:normal[xref:access.adoc#Roles-add-struct-Roles-Role-address-[`Roles.add`]]
+:Roles-remove: pass:normal[xref:access.adoc#Roles-remove-struct-Roles-Role-address-[`Roles.remove`]]
+:Roles-has: pass:normal[xref:access.adoc#Roles-has-struct-Roles-Role-address-[`Roles.has`]]
+:CapperRole: pass:normal[xref:access.adoc#CapperRole[`CapperRole`]]
+:CapperRole-onlyCapper: pass:normal[xref:access.adoc#CapperRole-onlyCapper--[`CapperRole.onlyCapper`]]
+:CapperRole-constructor: pass:normal[xref:access.adoc#CapperRole-constructor--[`CapperRole.constructor`]]
+:CapperRole-isCapper: pass:normal[xref:access.adoc#CapperRole-isCapper-address-[`CapperRole.isCapper`]]
+:CapperRole-addCapper: pass:normal[xref:access.adoc#CapperRole-addCapper-address-[`CapperRole.addCapper`]]
+:CapperRole-renounceCapper: pass:normal[xref:access.adoc#CapperRole-renounceCapper--[`CapperRole.renounceCapper`]]
+:CapperRole-_addCapper: pass:normal[xref:access.adoc#CapperRole-_addCapper-address-[`CapperRole._addCapper`]]
+:CapperRole-_removeCapper: pass:normal[xref:access.adoc#CapperRole-_removeCapper-address-[`CapperRole._removeCapper`]]
+:CapperRole-CapperAdded: pass:normal[xref:access.adoc#CapperRole-CapperAdded-address-[`CapperRole.CapperAdded`]]
+:CapperRole-CapperRemoved: pass:normal[xref:access.adoc#CapperRole-CapperRemoved-address-[`CapperRole.CapperRemoved`]]
+:MinterRole: pass:normal[xref:access.adoc#MinterRole[`MinterRole`]]
+:MinterRole-onlyMinter: pass:normal[xref:access.adoc#MinterRole-onlyMinter--[`MinterRole.onlyMinter`]]
+:MinterRole-constructor: pass:normal[xref:access.adoc#MinterRole-constructor--[`MinterRole.constructor`]]
+:MinterRole-isMinter: pass:normal[xref:access.adoc#MinterRole-isMinter-address-[`MinterRole.isMinter`]]
+:MinterRole-addMinter: pass:normal[xref:access.adoc#MinterRole-addMinter-address-[`MinterRole.addMinter`]]
+:MinterRole-renounceMinter: pass:normal[xref:access.adoc#MinterRole-renounceMinter--[`MinterRole.renounceMinter`]]
+:MinterRole-_addMinter: pass:normal[xref:access.adoc#MinterRole-_addMinter-address-[`MinterRole._addMinter`]]
+:MinterRole-_removeMinter: pass:normal[xref:access.adoc#MinterRole-_removeMinter-address-[`MinterRole._removeMinter`]]
+:MinterRole-MinterAdded: pass:normal[xref:access.adoc#MinterRole-MinterAdded-address-[`MinterRole.MinterAdded`]]
+:MinterRole-MinterRemoved: pass:normal[xref:access.adoc#MinterRole-MinterRemoved-address-[`MinterRole.MinterRemoved`]]
+:PauserRole: pass:normal[xref:access.adoc#PauserRole[`PauserRole`]]
+:PauserRole-onlyPauser: pass:normal[xref:access.adoc#PauserRole-onlyPauser--[`PauserRole.onlyPauser`]]
+:PauserRole-constructor: pass:normal[xref:access.adoc#PauserRole-constructor--[`PauserRole.constructor`]]
+:PauserRole-isPauser: pass:normal[xref:access.adoc#PauserRole-isPauser-address-[`PauserRole.isPauser`]]
+:PauserRole-addPauser: pass:normal[xref:access.adoc#PauserRole-addPauser-address-[`PauserRole.addPauser`]]
+:PauserRole-renouncePauser: pass:normal[xref:access.adoc#PauserRole-renouncePauser--[`PauserRole.renouncePauser`]]
+:PauserRole-_addPauser: pass:normal[xref:access.adoc#PauserRole-_addPauser-address-[`PauserRole._addPauser`]]
+:PauserRole-_removePauser: pass:normal[xref:access.adoc#PauserRole-_removePauser-address-[`PauserRole._removePauser`]]
+:PauserRole-PauserAdded: pass:normal[xref:access.adoc#PauserRole-PauserAdded-address-[`PauserRole.PauserAdded`]]
+:PauserRole-PauserRemoved: pass:normal[xref:access.adoc#PauserRole-PauserRemoved-address-[`PauserRole.PauserRemoved`]]
+:SignerRole: pass:normal[xref:access.adoc#SignerRole[`SignerRole`]]
+:SignerRole-onlySigner: pass:normal[xref:access.adoc#SignerRole-onlySigner--[`SignerRole.onlySigner`]]
+:SignerRole-constructor: pass:normal[xref:access.adoc#SignerRole-constructor--[`SignerRole.constructor`]]
+:SignerRole-isSigner: pass:normal[xref:access.adoc#SignerRole-isSigner-address-[`SignerRole.isSigner`]]
+:SignerRole-addSigner: pass:normal[xref:access.adoc#SignerRole-addSigner-address-[`SignerRole.addSigner`]]
+:SignerRole-renounceSigner: pass:normal[xref:access.adoc#SignerRole-renounceSigner--[`SignerRole.renounceSigner`]]
+:SignerRole-_addSigner: pass:normal[xref:access.adoc#SignerRole-_addSigner-address-[`SignerRole._addSigner`]]
+:SignerRole-_removeSigner: pass:normal[xref:access.adoc#SignerRole-_removeSigner-address-[`SignerRole._removeSigner`]]
+:SignerRole-SignerAdded: pass:normal[xref:access.adoc#SignerRole-SignerAdded-address-[`SignerRole.SignerAdded`]]
+:SignerRole-SignerRemoved: pass:normal[xref:access.adoc#SignerRole-SignerRemoved-address-[`SignerRole.SignerRemoved`]]
+:WhitelistAdminRole: pass:normal[xref:access.adoc#WhitelistAdminRole[`WhitelistAdminRole`]]
+:WhitelistAdminRole-onlyWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-onlyWhitelistAdmin--[`WhitelistAdminRole.onlyWhitelistAdmin`]]
+:WhitelistAdminRole-constructor: pass:normal[xref:access.adoc#WhitelistAdminRole-constructor--[`WhitelistAdminRole.constructor`]]
+:WhitelistAdminRole-isWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-isWhitelistAdmin-address-[`WhitelistAdminRole.isWhitelistAdmin`]]
+:WhitelistAdminRole-addWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-addWhitelistAdmin-address-[`WhitelistAdminRole.addWhitelistAdmin`]]
+:WhitelistAdminRole-renounceWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-renounceWhitelistAdmin--[`WhitelistAdminRole.renounceWhitelistAdmin`]]
+:WhitelistAdminRole-_addWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-_addWhitelistAdmin-address-[`WhitelistAdminRole._addWhitelistAdmin`]]
+:WhitelistAdminRole-_removeWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-_removeWhitelistAdmin-address-[`WhitelistAdminRole._removeWhitelistAdmin`]]
+:WhitelistAdminRole-WhitelistAdminAdded: pass:normal[xref:access.adoc#WhitelistAdminRole-WhitelistAdminAdded-address-[`WhitelistAdminRole.WhitelistAdminAdded`]]
+:WhitelistAdminRole-WhitelistAdminRemoved: pass:normal[xref:access.adoc#WhitelistAdminRole-WhitelistAdminRemoved-address-[`WhitelistAdminRole.WhitelistAdminRemoved`]]
+:WhitelistedRole: pass:normal[xref:access.adoc#WhitelistedRole[`WhitelistedRole`]]
+:WhitelistedRole-onlyWhitelisted: pass:normal[xref:access.adoc#WhitelistedRole-onlyWhitelisted--[`WhitelistedRole.onlyWhitelisted`]]
+:WhitelistAdminRole-onlyWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-onlyWhitelistAdmin--[`WhitelistAdminRole.onlyWhitelistAdmin`]]
+:WhitelistedRole-isWhitelisted: pass:normal[xref:access.adoc#WhitelistedRole-isWhitelisted-address-[`WhitelistedRole.isWhitelisted`]]
+:WhitelistedRole-addWhitelisted: pass:normal[xref:access.adoc#WhitelistedRole-addWhitelisted-address-[`WhitelistedRole.addWhitelisted`]]
+:WhitelistedRole-removeWhitelisted: pass:normal[xref:access.adoc#WhitelistedRole-removeWhitelisted-address-[`WhitelistedRole.removeWhitelisted`]]
+:WhitelistedRole-renounceWhitelisted: pass:normal[xref:access.adoc#WhitelistedRole-renounceWhitelisted--[`WhitelistedRole.renounceWhitelisted`]]
+:WhitelistedRole-_addWhitelisted: pass:normal[xref:access.adoc#WhitelistedRole-_addWhitelisted-address-[`WhitelistedRole._addWhitelisted`]]
+:WhitelistedRole-_removeWhitelisted: pass:normal[xref:access.adoc#WhitelistedRole-_removeWhitelisted-address-[`WhitelistedRole._removeWhitelisted`]]
+:WhitelistAdminRole-constructor: pass:normal[xref:access.adoc#WhitelistAdminRole-constructor--[`WhitelistAdminRole.constructor`]]
+:WhitelistAdminRole-isWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-isWhitelistAdmin-address-[`WhitelistAdminRole.isWhitelistAdmin`]]
+:WhitelistAdminRole-addWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-addWhitelistAdmin-address-[`WhitelistAdminRole.addWhitelistAdmin`]]
+:WhitelistAdminRole-renounceWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-renounceWhitelistAdmin--[`WhitelistAdminRole.renounceWhitelistAdmin`]]
+:WhitelistAdminRole-_addWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-_addWhitelistAdmin-address-[`WhitelistAdminRole._addWhitelistAdmin`]]
+:WhitelistAdminRole-_removeWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-_removeWhitelistAdmin-address-[`WhitelistAdminRole._removeWhitelistAdmin`]]
+:WhitelistedRole-WhitelistedAdded: pass:normal[xref:access.adoc#WhitelistedRole-WhitelistedAdded-address-[`WhitelistedRole.WhitelistedAdded`]]
+:WhitelistedRole-WhitelistedRemoved: pass:normal[xref:access.adoc#WhitelistedRole-WhitelistedRemoved-address-[`WhitelistedRole.WhitelistedRemoved`]]
+:WhitelistAdminRole-WhitelistAdminAdded: pass:normal[xref:access.adoc#WhitelistAdminRole-WhitelistAdminAdded-address-[`WhitelistAdminRole.WhitelistAdminAdded`]]
+:WhitelistAdminRole-WhitelistAdminRemoved: pass:normal[xref:access.adoc#WhitelistAdminRole-WhitelistAdminRemoved-address-[`WhitelistAdminRole.WhitelistAdminRemoved`]]
+:Crowdsale: pass:normal[xref:crowdsale.adoc#Crowdsale[`Crowdsale`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:Crowdsale-constructor: pass:normal[xref:crowdsale.adoc#Crowdsale-constructor-uint256-address-payable-contract-IERC20-[`Crowdsale.constructor`]]
+:Crowdsale-fallback: pass:normal[xref:crowdsale.adoc#Crowdsale-fallback--[`Crowdsale.fallback`]]
+:Crowdsale-token: pass:normal[xref:crowdsale.adoc#Crowdsale-token--[`Crowdsale.token`]]
+:Crowdsale-wallet: pass:normal[xref:crowdsale.adoc#Crowdsale-wallet--[`Crowdsale.wallet`]]
+:Crowdsale-rate: pass:normal[xref:crowdsale.adoc#Crowdsale-rate--[`Crowdsale.rate`]]
+:Crowdsale-weiRaised: pass:normal[xref:crowdsale.adoc#Crowdsale-weiRaised--[`Crowdsale.weiRaised`]]
+:Crowdsale-buyTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-buyTokens-address-[`Crowdsale.buyTokens`]]
+:Crowdsale-_preValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_preValidatePurchase-address-uint256-[`Crowdsale._preValidatePurchase`]]
+:Crowdsale-_postValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_postValidatePurchase-address-uint256-[`Crowdsale._postValidatePurchase`]]
+:Crowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-_deliverTokens-address-uint256-[`Crowdsale._deliverTokens`]]
+:Crowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_processPurchase-address-uint256-[`Crowdsale._processPurchase`]]
+:Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
+:Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:ReentrancyGuard-constructor: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
+:FinalizableCrowdsale: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale[`FinalizableCrowdsale`]]
+:TimedCrowdsale-onlyWhileOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-onlyWhileOpen--[`TimedCrowdsale.onlyWhileOpen`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:FinalizableCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-constructor--[`FinalizableCrowdsale.constructor`]]
+:FinalizableCrowdsale-finalized: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-finalized--[`FinalizableCrowdsale.finalized`]]
+:FinalizableCrowdsale-finalize: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-finalize--[`FinalizableCrowdsale.finalize`]]
+:FinalizableCrowdsale-_finalization: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-_finalization--[`FinalizableCrowdsale._finalization`]]
+:TimedCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-constructor-uint256-uint256-[`TimedCrowdsale.constructor`]]
+:TimedCrowdsale-openingTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-openingTime--[`TimedCrowdsale.openingTime`]]
+:TimedCrowdsale-closingTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-closingTime--[`TimedCrowdsale.closingTime`]]
+:TimedCrowdsale-isOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-isOpen--[`TimedCrowdsale.isOpen`]]
+:TimedCrowdsale-hasClosed: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-hasClosed--[`TimedCrowdsale.hasClosed`]]
+:TimedCrowdsale-_preValidatePurchase: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-_preValidatePurchase-address-uint256-[`TimedCrowdsale._preValidatePurchase`]]
+:TimedCrowdsale-_extendTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-_extendTime-uint256-[`TimedCrowdsale._extendTime`]]
+:Crowdsale-constructor: pass:normal[xref:crowdsale.adoc#Crowdsale-constructor-uint256-address-payable-contract-IERC20-[`Crowdsale.constructor`]]
+:Crowdsale-fallback: pass:normal[xref:crowdsale.adoc#Crowdsale-fallback--[`Crowdsale.fallback`]]
+:Crowdsale-token: pass:normal[xref:crowdsale.adoc#Crowdsale-token--[`Crowdsale.token`]]
+:Crowdsale-wallet: pass:normal[xref:crowdsale.adoc#Crowdsale-wallet--[`Crowdsale.wallet`]]
+:Crowdsale-rate: pass:normal[xref:crowdsale.adoc#Crowdsale-rate--[`Crowdsale.rate`]]
+:Crowdsale-weiRaised: pass:normal[xref:crowdsale.adoc#Crowdsale-weiRaised--[`Crowdsale.weiRaised`]]
+:Crowdsale-buyTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-buyTokens-address-[`Crowdsale.buyTokens`]]
+:Crowdsale-_postValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_postValidatePurchase-address-uint256-[`Crowdsale._postValidatePurchase`]]
+:Crowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-_deliverTokens-address-uint256-[`Crowdsale._deliverTokens`]]
+:Crowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_processPurchase-address-uint256-[`Crowdsale._processPurchase`]]
+:Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
+:Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:FinalizableCrowdsale-CrowdsaleFinalized: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-CrowdsaleFinalized--[`FinalizableCrowdsale.CrowdsaleFinalized`]]
+:TimedCrowdsale-TimedCrowdsaleExtended: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-TimedCrowdsaleExtended-uint256-uint256-[`TimedCrowdsale.TimedCrowdsaleExtended`]]
+:Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
+:PostDeliveryCrowdsale: pass:normal[xref:crowdsale.adoc#PostDeliveryCrowdsale[`PostDeliveryCrowdsale`]]
+:TimedCrowdsale-onlyWhileOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-onlyWhileOpen--[`TimedCrowdsale.onlyWhileOpen`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:PostDeliveryCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#PostDeliveryCrowdsale-constructor--[`PostDeliveryCrowdsale.constructor`]]
+:PostDeliveryCrowdsale-withdrawTokens: pass:normal[xref:crowdsale.adoc#PostDeliveryCrowdsale-withdrawTokens-address-[`PostDeliveryCrowdsale.withdrawTokens`]]
+:PostDeliveryCrowdsale-balanceOf: pass:normal[xref:crowdsale.adoc#PostDeliveryCrowdsale-balanceOf-address-[`PostDeliveryCrowdsale.balanceOf`]]
+:PostDeliveryCrowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#PostDeliveryCrowdsale-_processPurchase-address-uint256-[`PostDeliveryCrowdsale._processPurchase`]]
+:TimedCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-constructor-uint256-uint256-[`TimedCrowdsale.constructor`]]
+:TimedCrowdsale-openingTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-openingTime--[`TimedCrowdsale.openingTime`]]
+:TimedCrowdsale-closingTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-closingTime--[`TimedCrowdsale.closingTime`]]
+:TimedCrowdsale-isOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-isOpen--[`TimedCrowdsale.isOpen`]]
+:TimedCrowdsale-hasClosed: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-hasClosed--[`TimedCrowdsale.hasClosed`]]
+:TimedCrowdsale-_preValidatePurchase: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-_preValidatePurchase-address-uint256-[`TimedCrowdsale._preValidatePurchase`]]
+:TimedCrowdsale-_extendTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-_extendTime-uint256-[`TimedCrowdsale._extendTime`]]
+:Crowdsale-constructor: pass:normal[xref:crowdsale.adoc#Crowdsale-constructor-uint256-address-payable-contract-IERC20-[`Crowdsale.constructor`]]
+:Crowdsale-fallback: pass:normal[xref:crowdsale.adoc#Crowdsale-fallback--[`Crowdsale.fallback`]]
+:Crowdsale-token: pass:normal[xref:crowdsale.adoc#Crowdsale-token--[`Crowdsale.token`]]
+:Crowdsale-wallet: pass:normal[xref:crowdsale.adoc#Crowdsale-wallet--[`Crowdsale.wallet`]]
+:Crowdsale-rate: pass:normal[xref:crowdsale.adoc#Crowdsale-rate--[`Crowdsale.rate`]]
+:Crowdsale-weiRaised: pass:normal[xref:crowdsale.adoc#Crowdsale-weiRaised--[`Crowdsale.weiRaised`]]
+:Crowdsale-buyTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-buyTokens-address-[`Crowdsale.buyTokens`]]
+:Crowdsale-_postValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_postValidatePurchase-address-uint256-[`Crowdsale._postValidatePurchase`]]
+:Crowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-_deliverTokens-address-uint256-[`Crowdsale._deliverTokens`]]
+:Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
+:Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:TimedCrowdsale-TimedCrowdsaleExtended: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-TimedCrowdsaleExtended-uint256-uint256-[`TimedCrowdsale.TimedCrowdsaleExtended`]]
+:Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
+:__unstable__TokenVault: pass:normal[xref:crowdsale.adoc#__unstable__TokenVault[`__unstable__TokenVault`]]
+:Secondary-onlyPrimary: pass:normal[xref:crowdsale.adoc#Secondary-onlyPrimary--[`Secondary.onlyPrimary`]]
+:__unstable__TokenVault-transfer: pass:normal[xref:crowdsale.adoc#__unstable__TokenVault-transfer-contract-IERC20-address-uint256-[`__unstable__TokenVault.transfer`]]
+:Secondary-constructor: pass:normal[xref:crowdsale.adoc#Secondary-constructor--[`Secondary.constructor`]]
+:Secondary-primary: pass:normal[xref:crowdsale.adoc#Secondary-primary--[`Secondary.primary`]]
+:Secondary-transferPrimary: pass:normal[xref:crowdsale.adoc#Secondary-transferPrimary-address-[`Secondary.transferPrimary`]]
+:Secondary-PrimaryTransferred: pass:normal[xref:crowdsale.adoc#Secondary-PrimaryTransferred-address-[`Secondary.PrimaryTransferred`]]
+:RefundableCrowdsale: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale[`RefundableCrowdsale`]]
+:TimedCrowdsale-onlyWhileOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-onlyWhileOpen--[`TimedCrowdsale.onlyWhileOpen`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:RefundableCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale-constructor-uint256-[`RefundableCrowdsale.constructor`]]
+:RefundableCrowdsale-goal: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale-goal--[`RefundableCrowdsale.goal`]]
+:RefundableCrowdsale-claimRefund: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale-claimRefund-address-payable-[`RefundableCrowdsale.claimRefund`]]
+:RefundableCrowdsale-goalReached: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale-goalReached--[`RefundableCrowdsale.goalReached`]]
+:RefundableCrowdsale-_finalization: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale-_finalization--[`RefundableCrowdsale._finalization`]]
+:RefundableCrowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale-_forwardFunds--[`RefundableCrowdsale._forwardFunds`]]
+:FinalizableCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-constructor--[`FinalizableCrowdsale.constructor`]]
+:FinalizableCrowdsale-finalized: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-finalized--[`FinalizableCrowdsale.finalized`]]
+:FinalizableCrowdsale-finalize: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-finalize--[`FinalizableCrowdsale.finalize`]]
+:TimedCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-constructor-uint256-uint256-[`TimedCrowdsale.constructor`]]
+:TimedCrowdsale-openingTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-openingTime--[`TimedCrowdsale.openingTime`]]
+:TimedCrowdsale-closingTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-closingTime--[`TimedCrowdsale.closingTime`]]
+:TimedCrowdsale-isOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-isOpen--[`TimedCrowdsale.isOpen`]]
+:TimedCrowdsale-hasClosed: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-hasClosed--[`TimedCrowdsale.hasClosed`]]
+:TimedCrowdsale-_preValidatePurchase: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-_preValidatePurchase-address-uint256-[`TimedCrowdsale._preValidatePurchase`]]
+:TimedCrowdsale-_extendTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-_extendTime-uint256-[`TimedCrowdsale._extendTime`]]
+:Crowdsale-constructor: pass:normal[xref:crowdsale.adoc#Crowdsale-constructor-uint256-address-payable-contract-IERC20-[`Crowdsale.constructor`]]
+:Crowdsale-fallback: pass:normal[xref:crowdsale.adoc#Crowdsale-fallback--[`Crowdsale.fallback`]]
+:Crowdsale-token: pass:normal[xref:crowdsale.adoc#Crowdsale-token--[`Crowdsale.token`]]
+:Crowdsale-wallet: pass:normal[xref:crowdsale.adoc#Crowdsale-wallet--[`Crowdsale.wallet`]]
+:Crowdsale-rate: pass:normal[xref:crowdsale.adoc#Crowdsale-rate--[`Crowdsale.rate`]]
+:Crowdsale-weiRaised: pass:normal[xref:crowdsale.adoc#Crowdsale-weiRaised--[`Crowdsale.weiRaised`]]
+:Crowdsale-buyTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-buyTokens-address-[`Crowdsale.buyTokens`]]
+:Crowdsale-_postValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_postValidatePurchase-address-uint256-[`Crowdsale._postValidatePurchase`]]
+:Crowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-_deliverTokens-address-uint256-[`Crowdsale._deliverTokens`]]
+:Crowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_processPurchase-address-uint256-[`Crowdsale._processPurchase`]]
+:Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
+:Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:FinalizableCrowdsale-CrowdsaleFinalized: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-CrowdsaleFinalized--[`FinalizableCrowdsale.CrowdsaleFinalized`]]
+:TimedCrowdsale-TimedCrowdsaleExtended: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-TimedCrowdsaleExtended-uint256-uint256-[`TimedCrowdsale.TimedCrowdsaleExtended`]]
+:Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
+:RefundablePostDeliveryCrowdsale: pass:normal[xref:crowdsale.adoc#RefundablePostDeliveryCrowdsale[`RefundablePostDeliveryCrowdsale`]]
+:TimedCrowdsale-onlyWhileOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-onlyWhileOpen--[`TimedCrowdsale.onlyWhileOpen`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:RefundablePostDeliveryCrowdsale-withdrawTokens: pass:normal[xref:crowdsale.adoc#RefundablePostDeliveryCrowdsale-withdrawTokens-address-[`RefundablePostDeliveryCrowdsale.withdrawTokens`]]
+:PostDeliveryCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#PostDeliveryCrowdsale-constructor--[`PostDeliveryCrowdsale.constructor`]]
+:PostDeliveryCrowdsale-balanceOf: pass:normal[xref:crowdsale.adoc#PostDeliveryCrowdsale-balanceOf-address-[`PostDeliveryCrowdsale.balanceOf`]]
+:PostDeliveryCrowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#PostDeliveryCrowdsale-_processPurchase-address-uint256-[`PostDeliveryCrowdsale._processPurchase`]]
+:RefundableCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale-constructor-uint256-[`RefundableCrowdsale.constructor`]]
+:RefundableCrowdsale-goal: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale-goal--[`RefundableCrowdsale.goal`]]
+:RefundableCrowdsale-claimRefund: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale-claimRefund-address-payable-[`RefundableCrowdsale.claimRefund`]]
+:RefundableCrowdsale-goalReached: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale-goalReached--[`RefundableCrowdsale.goalReached`]]
+:RefundableCrowdsale-_finalization: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale-_finalization--[`RefundableCrowdsale._finalization`]]
+:RefundableCrowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale-_forwardFunds--[`RefundableCrowdsale._forwardFunds`]]
+:FinalizableCrowdsale-finalized: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-finalized--[`FinalizableCrowdsale.finalized`]]
+:FinalizableCrowdsale-finalize: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-finalize--[`FinalizableCrowdsale.finalize`]]
+:TimedCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-constructor-uint256-uint256-[`TimedCrowdsale.constructor`]]
+:TimedCrowdsale-openingTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-openingTime--[`TimedCrowdsale.openingTime`]]
+:TimedCrowdsale-closingTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-closingTime--[`TimedCrowdsale.closingTime`]]
+:TimedCrowdsale-isOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-isOpen--[`TimedCrowdsale.isOpen`]]
+:TimedCrowdsale-hasClosed: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-hasClosed--[`TimedCrowdsale.hasClosed`]]
+:TimedCrowdsale-_preValidatePurchase: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-_preValidatePurchase-address-uint256-[`TimedCrowdsale._preValidatePurchase`]]
+:TimedCrowdsale-_extendTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-_extendTime-uint256-[`TimedCrowdsale._extendTime`]]
+:Crowdsale-constructor: pass:normal[xref:crowdsale.adoc#Crowdsale-constructor-uint256-address-payable-contract-IERC20-[`Crowdsale.constructor`]]
+:Crowdsale-fallback: pass:normal[xref:crowdsale.adoc#Crowdsale-fallback--[`Crowdsale.fallback`]]
+:Crowdsale-token: pass:normal[xref:crowdsale.adoc#Crowdsale-token--[`Crowdsale.token`]]
+:Crowdsale-wallet: pass:normal[xref:crowdsale.adoc#Crowdsale-wallet--[`Crowdsale.wallet`]]
+:Crowdsale-rate: pass:normal[xref:crowdsale.adoc#Crowdsale-rate--[`Crowdsale.rate`]]
+:Crowdsale-weiRaised: pass:normal[xref:crowdsale.adoc#Crowdsale-weiRaised--[`Crowdsale.weiRaised`]]
+:Crowdsale-buyTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-buyTokens-address-[`Crowdsale.buyTokens`]]
+:Crowdsale-_postValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_postValidatePurchase-address-uint256-[`Crowdsale._postValidatePurchase`]]
+:Crowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-_deliverTokens-address-uint256-[`Crowdsale._deliverTokens`]]
+:Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
+:Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:FinalizableCrowdsale-CrowdsaleFinalized: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-CrowdsaleFinalized--[`FinalizableCrowdsale.CrowdsaleFinalized`]]
+:TimedCrowdsale-TimedCrowdsaleExtended: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-TimedCrowdsaleExtended-uint256-uint256-[`TimedCrowdsale.TimedCrowdsaleExtended`]]
+:Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
+:AllowanceCrowdsale: pass:normal[xref:crowdsale.adoc#AllowanceCrowdsale[`AllowanceCrowdsale`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:AllowanceCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#AllowanceCrowdsale-constructor-address-[`AllowanceCrowdsale.constructor`]]
+:AllowanceCrowdsale-tokenWallet: pass:normal[xref:crowdsale.adoc#AllowanceCrowdsale-tokenWallet--[`AllowanceCrowdsale.tokenWallet`]]
+:AllowanceCrowdsale-remainingTokens: pass:normal[xref:crowdsale.adoc#AllowanceCrowdsale-remainingTokens--[`AllowanceCrowdsale.remainingTokens`]]
+:AllowanceCrowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#AllowanceCrowdsale-_deliverTokens-address-uint256-[`AllowanceCrowdsale._deliverTokens`]]
+:Crowdsale-constructor: pass:normal[xref:crowdsale.adoc#Crowdsale-constructor-uint256-address-payable-contract-IERC20-[`Crowdsale.constructor`]]
+:Crowdsale-fallback: pass:normal[xref:crowdsale.adoc#Crowdsale-fallback--[`Crowdsale.fallback`]]
+:Crowdsale-token: pass:normal[xref:crowdsale.adoc#Crowdsale-token--[`Crowdsale.token`]]
+:Crowdsale-wallet: pass:normal[xref:crowdsale.adoc#Crowdsale-wallet--[`Crowdsale.wallet`]]
+:Crowdsale-rate: pass:normal[xref:crowdsale.adoc#Crowdsale-rate--[`Crowdsale.rate`]]
+:Crowdsale-weiRaised: pass:normal[xref:crowdsale.adoc#Crowdsale-weiRaised--[`Crowdsale.weiRaised`]]
+:Crowdsale-buyTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-buyTokens-address-[`Crowdsale.buyTokens`]]
+:Crowdsale-_preValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_preValidatePurchase-address-uint256-[`Crowdsale._preValidatePurchase`]]
+:Crowdsale-_postValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_postValidatePurchase-address-uint256-[`Crowdsale._postValidatePurchase`]]
+:Crowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_processPurchase-address-uint256-[`Crowdsale._processPurchase`]]
+:Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
+:Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:ReentrancyGuard-constructor: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
+:MintedCrowdsale: pass:normal[xref:crowdsale.adoc#MintedCrowdsale[`MintedCrowdsale`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:MintedCrowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#MintedCrowdsale-_deliverTokens-address-uint256-[`MintedCrowdsale._deliverTokens`]]
+:Crowdsale-constructor: pass:normal[xref:crowdsale.adoc#Crowdsale-constructor-uint256-address-payable-contract-IERC20-[`Crowdsale.constructor`]]
+:Crowdsale-fallback: pass:normal[xref:crowdsale.adoc#Crowdsale-fallback--[`Crowdsale.fallback`]]
+:Crowdsale-token: pass:normal[xref:crowdsale.adoc#Crowdsale-token--[`Crowdsale.token`]]
+:Crowdsale-wallet: pass:normal[xref:crowdsale.adoc#Crowdsale-wallet--[`Crowdsale.wallet`]]
+:Crowdsale-rate: pass:normal[xref:crowdsale.adoc#Crowdsale-rate--[`Crowdsale.rate`]]
+:Crowdsale-weiRaised: pass:normal[xref:crowdsale.adoc#Crowdsale-weiRaised--[`Crowdsale.weiRaised`]]
+:Crowdsale-buyTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-buyTokens-address-[`Crowdsale.buyTokens`]]
+:Crowdsale-_preValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_preValidatePurchase-address-uint256-[`Crowdsale._preValidatePurchase`]]
+:Crowdsale-_postValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_postValidatePurchase-address-uint256-[`Crowdsale._postValidatePurchase`]]
+:Crowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_processPurchase-address-uint256-[`Crowdsale._processPurchase`]]
+:Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
+:Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:ReentrancyGuard-constructor: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
+:IncreasingPriceCrowdsale: pass:normal[xref:crowdsale.adoc#IncreasingPriceCrowdsale[`IncreasingPriceCrowdsale`]]
+:TimedCrowdsale-onlyWhileOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-onlyWhileOpen--[`TimedCrowdsale.onlyWhileOpen`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:IncreasingPriceCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#IncreasingPriceCrowdsale-constructor-uint256-uint256-[`IncreasingPriceCrowdsale.constructor`]]
+:IncreasingPriceCrowdsale-rate: pass:normal[xref:crowdsale.adoc#IncreasingPriceCrowdsale-rate--[`IncreasingPriceCrowdsale.rate`]]
+:IncreasingPriceCrowdsale-initialRate: pass:normal[xref:crowdsale.adoc#IncreasingPriceCrowdsale-initialRate--[`IncreasingPriceCrowdsale.initialRate`]]
+:IncreasingPriceCrowdsale-finalRate: pass:normal[xref:crowdsale.adoc#IncreasingPriceCrowdsale-finalRate--[`IncreasingPriceCrowdsale.finalRate`]]
+:IncreasingPriceCrowdsale-getCurrentRate: pass:normal[xref:crowdsale.adoc#IncreasingPriceCrowdsale-getCurrentRate--[`IncreasingPriceCrowdsale.getCurrentRate`]]
+:IncreasingPriceCrowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#IncreasingPriceCrowdsale-_getTokenAmount-uint256-[`IncreasingPriceCrowdsale._getTokenAmount`]]
+:TimedCrowdsale-openingTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-openingTime--[`TimedCrowdsale.openingTime`]]
+:TimedCrowdsale-closingTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-closingTime--[`TimedCrowdsale.closingTime`]]
+:TimedCrowdsale-isOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-isOpen--[`TimedCrowdsale.isOpen`]]
+:TimedCrowdsale-hasClosed: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-hasClosed--[`TimedCrowdsale.hasClosed`]]
+:TimedCrowdsale-_preValidatePurchase: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-_preValidatePurchase-address-uint256-[`TimedCrowdsale._preValidatePurchase`]]
+:TimedCrowdsale-_extendTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-_extendTime-uint256-[`TimedCrowdsale._extendTime`]]
+:Crowdsale-constructor: pass:normal[xref:crowdsale.adoc#Crowdsale-constructor-uint256-address-payable-contract-IERC20-[`Crowdsale.constructor`]]
+:Crowdsale-fallback: pass:normal[xref:crowdsale.adoc#Crowdsale-fallback--[`Crowdsale.fallback`]]
+:Crowdsale-token: pass:normal[xref:crowdsale.adoc#Crowdsale-token--[`Crowdsale.token`]]
+:Crowdsale-wallet: pass:normal[xref:crowdsale.adoc#Crowdsale-wallet--[`Crowdsale.wallet`]]
+:Crowdsale-weiRaised: pass:normal[xref:crowdsale.adoc#Crowdsale-weiRaised--[`Crowdsale.weiRaised`]]
+:Crowdsale-buyTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-buyTokens-address-[`Crowdsale.buyTokens`]]
+:Crowdsale-_postValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_postValidatePurchase-address-uint256-[`Crowdsale._postValidatePurchase`]]
+:Crowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-_deliverTokens-address-uint256-[`Crowdsale._deliverTokens`]]
+:Crowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_processPurchase-address-uint256-[`Crowdsale._processPurchase`]]
+:Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
+:Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:ReentrancyGuard-constructor: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:TimedCrowdsale-TimedCrowdsaleExtended: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-TimedCrowdsaleExtended-uint256-uint256-[`TimedCrowdsale.TimedCrowdsaleExtended`]]
+:Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
+:CappedCrowdsale: pass:normal[xref:crowdsale.adoc#CappedCrowdsale[`CappedCrowdsale`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:CappedCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#CappedCrowdsale-constructor-uint256-[`CappedCrowdsale.constructor`]]
+:CappedCrowdsale-cap: pass:normal[xref:crowdsale.adoc#CappedCrowdsale-cap--[`CappedCrowdsale.cap`]]
+:CappedCrowdsale-capReached: pass:normal[xref:crowdsale.adoc#CappedCrowdsale-capReached--[`CappedCrowdsale.capReached`]]
+:CappedCrowdsale-_preValidatePurchase: pass:normal[xref:crowdsale.adoc#CappedCrowdsale-_preValidatePurchase-address-uint256-[`CappedCrowdsale._preValidatePurchase`]]
+:Crowdsale-constructor: pass:normal[xref:crowdsale.adoc#Crowdsale-constructor-uint256-address-payable-contract-IERC20-[`Crowdsale.constructor`]]
+:Crowdsale-fallback: pass:normal[xref:crowdsale.adoc#Crowdsale-fallback--[`Crowdsale.fallback`]]
+:Crowdsale-token: pass:normal[xref:crowdsale.adoc#Crowdsale-token--[`Crowdsale.token`]]
+:Crowdsale-wallet: pass:normal[xref:crowdsale.adoc#Crowdsale-wallet--[`Crowdsale.wallet`]]
+:Crowdsale-rate: pass:normal[xref:crowdsale.adoc#Crowdsale-rate--[`Crowdsale.rate`]]
+:Crowdsale-weiRaised: pass:normal[xref:crowdsale.adoc#Crowdsale-weiRaised--[`Crowdsale.weiRaised`]]
+:Crowdsale-buyTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-buyTokens-address-[`Crowdsale.buyTokens`]]
+:Crowdsale-_postValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_postValidatePurchase-address-uint256-[`Crowdsale._postValidatePurchase`]]
+:Crowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-_deliverTokens-address-uint256-[`Crowdsale._deliverTokens`]]
+:Crowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_processPurchase-address-uint256-[`Crowdsale._processPurchase`]]
+:Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
+:Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:ReentrancyGuard-constructor: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
+:IndividuallyCappedCrowdsale: pass:normal[xref:crowdsale.adoc#IndividuallyCappedCrowdsale[`IndividuallyCappedCrowdsale`]]
+:CapperRole-onlyCapper: pass:normal[xref:crowdsale.adoc#CapperRole-onlyCapper--[`CapperRole.onlyCapper`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:IndividuallyCappedCrowdsale-setCap: pass:normal[xref:crowdsale.adoc#IndividuallyCappedCrowdsale-setCap-address-uint256-[`IndividuallyCappedCrowdsale.setCap`]]
+:IndividuallyCappedCrowdsale-getCap: pass:normal[xref:crowdsale.adoc#IndividuallyCappedCrowdsale-getCap-address-[`IndividuallyCappedCrowdsale.getCap`]]
+:IndividuallyCappedCrowdsale-getContribution: pass:normal[xref:crowdsale.adoc#IndividuallyCappedCrowdsale-getContribution-address-[`IndividuallyCappedCrowdsale.getContribution`]]
+:IndividuallyCappedCrowdsale-_preValidatePurchase: pass:normal[xref:crowdsale.adoc#IndividuallyCappedCrowdsale-_preValidatePurchase-address-uint256-[`IndividuallyCappedCrowdsale._preValidatePurchase`]]
+:IndividuallyCappedCrowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#IndividuallyCappedCrowdsale-_updatePurchasingState-address-uint256-[`IndividuallyCappedCrowdsale._updatePurchasingState`]]
+:CapperRole-constructor: pass:normal[xref:crowdsale.adoc#CapperRole-constructor--[`CapperRole.constructor`]]
+:CapperRole-isCapper: pass:normal[xref:crowdsale.adoc#CapperRole-isCapper-address-[`CapperRole.isCapper`]]
+:CapperRole-addCapper: pass:normal[xref:crowdsale.adoc#CapperRole-addCapper-address-[`CapperRole.addCapper`]]
+:CapperRole-renounceCapper: pass:normal[xref:crowdsale.adoc#CapperRole-renounceCapper--[`CapperRole.renounceCapper`]]
+:CapperRole-_addCapper: pass:normal[xref:crowdsale.adoc#CapperRole-_addCapper-address-[`CapperRole._addCapper`]]
+:CapperRole-_removeCapper: pass:normal[xref:crowdsale.adoc#CapperRole-_removeCapper-address-[`CapperRole._removeCapper`]]
+:Crowdsale-constructor: pass:normal[xref:crowdsale.adoc#Crowdsale-constructor-uint256-address-payable-contract-IERC20-[`Crowdsale.constructor`]]
+:Crowdsale-fallback: pass:normal[xref:crowdsale.adoc#Crowdsale-fallback--[`Crowdsale.fallback`]]
+:Crowdsale-token: pass:normal[xref:crowdsale.adoc#Crowdsale-token--[`Crowdsale.token`]]
+:Crowdsale-wallet: pass:normal[xref:crowdsale.adoc#Crowdsale-wallet--[`Crowdsale.wallet`]]
+:Crowdsale-rate: pass:normal[xref:crowdsale.adoc#Crowdsale-rate--[`Crowdsale.rate`]]
+:Crowdsale-weiRaised: pass:normal[xref:crowdsale.adoc#Crowdsale-weiRaised--[`Crowdsale.weiRaised`]]
+:Crowdsale-buyTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-buyTokens-address-[`Crowdsale.buyTokens`]]
+:Crowdsale-_postValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_postValidatePurchase-address-uint256-[`Crowdsale._postValidatePurchase`]]
+:Crowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-_deliverTokens-address-uint256-[`Crowdsale._deliverTokens`]]
+:Crowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_processPurchase-address-uint256-[`Crowdsale._processPurchase`]]
+:Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:CapperRole-CapperAdded: pass:normal[xref:crowdsale.adoc#CapperRole-CapperAdded-address-[`CapperRole.CapperAdded`]]
+:CapperRole-CapperRemoved: pass:normal[xref:crowdsale.adoc#CapperRole-CapperRemoved-address-[`CapperRole.CapperRemoved`]]
+:Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
+:PausableCrowdsale: pass:normal[xref:crowdsale.adoc#PausableCrowdsale[`PausableCrowdsale`]]
+:Pausable-whenNotPaused: pass:normal[xref:crowdsale.adoc#Pausable-whenNotPaused--[`Pausable.whenNotPaused`]]
+:Pausable-whenPaused: pass:normal[xref:crowdsale.adoc#Pausable-whenPaused--[`Pausable.whenPaused`]]
+:PauserRole-onlyPauser: pass:normal[xref:crowdsale.adoc#PauserRole-onlyPauser--[`PauserRole.onlyPauser`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:PausableCrowdsale-_preValidatePurchase: pass:normal[xref:crowdsale.adoc#PausableCrowdsale-_preValidatePurchase-address-uint256-[`PausableCrowdsale._preValidatePurchase`]]
+:Pausable-constructor: pass:normal[xref:crowdsale.adoc#Pausable-constructor--[`Pausable.constructor`]]
+:Pausable-paused: pass:normal[xref:crowdsale.adoc#Pausable-paused--[`Pausable.paused`]]
+:Pausable-pause: pass:normal[xref:crowdsale.adoc#Pausable-pause--[`Pausable.pause`]]
+:Pausable-unpause: pass:normal[xref:crowdsale.adoc#Pausable-unpause--[`Pausable.unpause`]]
+:PauserRole-isPauser: pass:normal[xref:crowdsale.adoc#PauserRole-isPauser-address-[`PauserRole.isPauser`]]
+:PauserRole-addPauser: pass:normal[xref:crowdsale.adoc#PauserRole-addPauser-address-[`PauserRole.addPauser`]]
+:PauserRole-renouncePauser: pass:normal[xref:crowdsale.adoc#PauserRole-renouncePauser--[`PauserRole.renouncePauser`]]
+:PauserRole-_addPauser: pass:normal[xref:crowdsale.adoc#PauserRole-_addPauser-address-[`PauserRole._addPauser`]]
+:PauserRole-_removePauser: pass:normal[xref:crowdsale.adoc#PauserRole-_removePauser-address-[`PauserRole._removePauser`]]
+:Crowdsale-constructor: pass:normal[xref:crowdsale.adoc#Crowdsale-constructor-uint256-address-payable-contract-IERC20-[`Crowdsale.constructor`]]
+:Crowdsale-fallback: pass:normal[xref:crowdsale.adoc#Crowdsale-fallback--[`Crowdsale.fallback`]]
+:Crowdsale-token: pass:normal[xref:crowdsale.adoc#Crowdsale-token--[`Crowdsale.token`]]
+:Crowdsale-wallet: pass:normal[xref:crowdsale.adoc#Crowdsale-wallet--[`Crowdsale.wallet`]]
+:Crowdsale-rate: pass:normal[xref:crowdsale.adoc#Crowdsale-rate--[`Crowdsale.rate`]]
+:Crowdsale-weiRaised: pass:normal[xref:crowdsale.adoc#Crowdsale-weiRaised--[`Crowdsale.weiRaised`]]
+:Crowdsale-buyTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-buyTokens-address-[`Crowdsale.buyTokens`]]
+:Crowdsale-_postValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_postValidatePurchase-address-uint256-[`Crowdsale._postValidatePurchase`]]
+:Crowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-_deliverTokens-address-uint256-[`Crowdsale._deliverTokens`]]
+:Crowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_processPurchase-address-uint256-[`Crowdsale._processPurchase`]]
+:Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
+:Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:Pausable-Paused: pass:normal[xref:crowdsale.adoc#Pausable-Paused-address-[`Pausable.Paused`]]
+:Pausable-Unpaused: pass:normal[xref:crowdsale.adoc#Pausable-Unpaused-address-[`Pausable.Unpaused`]]
+:PauserRole-PauserAdded: pass:normal[xref:crowdsale.adoc#PauserRole-PauserAdded-address-[`PauserRole.PauserAdded`]]
+:PauserRole-PauserRemoved: pass:normal[xref:crowdsale.adoc#PauserRole-PauserRemoved-address-[`PauserRole.PauserRemoved`]]
+:Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
+:TimedCrowdsale: pass:normal[xref:crowdsale.adoc#TimedCrowdsale[`TimedCrowdsale`]]
+:TimedCrowdsale-onlyWhileOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-onlyWhileOpen--[`TimedCrowdsale.onlyWhileOpen`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:TimedCrowdsale-constructor: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-constructor-uint256-uint256-[`TimedCrowdsale.constructor`]]
+:TimedCrowdsale-openingTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-openingTime--[`TimedCrowdsale.openingTime`]]
+:TimedCrowdsale-closingTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-closingTime--[`TimedCrowdsale.closingTime`]]
+:TimedCrowdsale-isOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-isOpen--[`TimedCrowdsale.isOpen`]]
+:TimedCrowdsale-hasClosed: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-hasClosed--[`TimedCrowdsale.hasClosed`]]
+:TimedCrowdsale-_preValidatePurchase: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-_preValidatePurchase-address-uint256-[`TimedCrowdsale._preValidatePurchase`]]
+:TimedCrowdsale-_extendTime: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-_extendTime-uint256-[`TimedCrowdsale._extendTime`]]
+:Crowdsale-constructor: pass:normal[xref:crowdsale.adoc#Crowdsale-constructor-uint256-address-payable-contract-IERC20-[`Crowdsale.constructor`]]
+:Crowdsale-fallback: pass:normal[xref:crowdsale.adoc#Crowdsale-fallback--[`Crowdsale.fallback`]]
+:Crowdsale-token: pass:normal[xref:crowdsale.adoc#Crowdsale-token--[`Crowdsale.token`]]
+:Crowdsale-wallet: pass:normal[xref:crowdsale.adoc#Crowdsale-wallet--[`Crowdsale.wallet`]]
+:Crowdsale-rate: pass:normal[xref:crowdsale.adoc#Crowdsale-rate--[`Crowdsale.rate`]]
+:Crowdsale-weiRaised: pass:normal[xref:crowdsale.adoc#Crowdsale-weiRaised--[`Crowdsale.weiRaised`]]
+:Crowdsale-buyTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-buyTokens-address-[`Crowdsale.buyTokens`]]
+:Crowdsale-_postValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_postValidatePurchase-address-uint256-[`Crowdsale._postValidatePurchase`]]
+:Crowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-_deliverTokens-address-uint256-[`Crowdsale._deliverTokens`]]
+:Crowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_processPurchase-address-uint256-[`Crowdsale._processPurchase`]]
+:Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
+:Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:ReentrancyGuard-constructor: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:TimedCrowdsale-TimedCrowdsaleExtended: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-TimedCrowdsaleExtended-uint256-uint256-[`TimedCrowdsale.TimedCrowdsaleExtended`]]
+:Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
+:WhitelistCrowdsale: pass:normal[xref:crowdsale.adoc#WhitelistCrowdsale[`WhitelistCrowdsale`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:WhitelistedRole-onlyWhitelisted: pass:normal[xref:crowdsale.adoc#WhitelistedRole-onlyWhitelisted--[`WhitelistedRole.onlyWhitelisted`]]
+:WhitelistAdminRole-onlyWhitelistAdmin: pass:normal[xref:crowdsale.adoc#WhitelistAdminRole-onlyWhitelistAdmin--[`WhitelistAdminRole.onlyWhitelistAdmin`]]
+:WhitelistCrowdsale-_preValidatePurchase: pass:normal[xref:crowdsale.adoc#WhitelistCrowdsale-_preValidatePurchase-address-uint256-[`WhitelistCrowdsale._preValidatePurchase`]]
+:Crowdsale-constructor: pass:normal[xref:crowdsale.adoc#Crowdsale-constructor-uint256-address-payable-contract-IERC20-[`Crowdsale.constructor`]]
+:Crowdsale-fallback: pass:normal[xref:crowdsale.adoc#Crowdsale-fallback--[`Crowdsale.fallback`]]
+:Crowdsale-token: pass:normal[xref:crowdsale.adoc#Crowdsale-token--[`Crowdsale.token`]]
+:Crowdsale-wallet: pass:normal[xref:crowdsale.adoc#Crowdsale-wallet--[`Crowdsale.wallet`]]
+:Crowdsale-rate: pass:normal[xref:crowdsale.adoc#Crowdsale-rate--[`Crowdsale.rate`]]
+:Crowdsale-weiRaised: pass:normal[xref:crowdsale.adoc#Crowdsale-weiRaised--[`Crowdsale.weiRaised`]]
+:Crowdsale-buyTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-buyTokens-address-[`Crowdsale.buyTokens`]]
+:Crowdsale-_postValidatePurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_postValidatePurchase-address-uint256-[`Crowdsale._postValidatePurchase`]]
+:Crowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-_deliverTokens-address-uint256-[`Crowdsale._deliverTokens`]]
+:Crowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_processPurchase-address-uint256-[`Crowdsale._processPurchase`]]
+:Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
+:Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:ReentrancyGuard-constructor: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:WhitelistedRole-isWhitelisted: pass:normal[xref:crowdsale.adoc#WhitelistedRole-isWhitelisted-address-[`WhitelistedRole.isWhitelisted`]]
+:WhitelistedRole-addWhitelisted: pass:normal[xref:crowdsale.adoc#WhitelistedRole-addWhitelisted-address-[`WhitelistedRole.addWhitelisted`]]
+:WhitelistedRole-removeWhitelisted: pass:normal[xref:crowdsale.adoc#WhitelistedRole-removeWhitelisted-address-[`WhitelistedRole.removeWhitelisted`]]
+:WhitelistedRole-renounceWhitelisted: pass:normal[xref:crowdsale.adoc#WhitelistedRole-renounceWhitelisted--[`WhitelistedRole.renounceWhitelisted`]]
+:WhitelistedRole-_addWhitelisted: pass:normal[xref:crowdsale.adoc#WhitelistedRole-_addWhitelisted-address-[`WhitelistedRole._addWhitelisted`]]
+:WhitelistedRole-_removeWhitelisted: pass:normal[xref:crowdsale.adoc#WhitelistedRole-_removeWhitelisted-address-[`WhitelistedRole._removeWhitelisted`]]
+:WhitelistAdminRole-isWhitelistAdmin: pass:normal[xref:crowdsale.adoc#WhitelistAdminRole-isWhitelistAdmin-address-[`WhitelistAdminRole.isWhitelistAdmin`]]
+:WhitelistAdminRole-addWhitelistAdmin: pass:normal[xref:crowdsale.adoc#WhitelistAdminRole-addWhitelistAdmin-address-[`WhitelistAdminRole.addWhitelistAdmin`]]
+:WhitelistAdminRole-renounceWhitelistAdmin: pass:normal[xref:crowdsale.adoc#WhitelistAdminRole-renounceWhitelistAdmin--[`WhitelistAdminRole.renounceWhitelistAdmin`]]
+:WhitelistAdminRole-_addWhitelistAdmin: pass:normal[xref:crowdsale.adoc#WhitelistAdminRole-_addWhitelistAdmin-address-[`WhitelistAdminRole._addWhitelistAdmin`]]
+:WhitelistAdminRole-_removeWhitelistAdmin: pass:normal[xref:crowdsale.adoc#WhitelistAdminRole-_removeWhitelistAdmin-address-[`WhitelistAdminRole._removeWhitelistAdmin`]]
+:Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
+:WhitelistedRole-WhitelistedAdded: pass:normal[xref:crowdsale.adoc#WhitelistedRole-WhitelistedAdded-address-[`WhitelistedRole.WhitelistedAdded`]]
+:WhitelistedRole-WhitelistedRemoved: pass:normal[xref:crowdsale.adoc#WhitelistedRole-WhitelistedRemoved-address-[`WhitelistedRole.WhitelistedRemoved`]]
+:WhitelistAdminRole-WhitelistAdminAdded: pass:normal[xref:crowdsale.adoc#WhitelistAdminRole-WhitelistAdminAdded-address-[`WhitelistAdminRole.WhitelistAdminAdded`]]
+:WhitelistAdminRole-WhitelistAdminRemoved: pass:normal[xref:crowdsale.adoc#WhitelistAdminRole-WhitelistAdminRemoved-address-[`WhitelistAdminRole.WhitelistAdminRemoved`]]
+:ECDSA: pass:normal[xref:cryptography.adoc#ECDSA[`ECDSA`]]
+:ECDSA-recover: pass:normal[xref:cryptography.adoc#ECDSA-recover-bytes32-bytes-[`ECDSA.recover`]]
+:ECDSA-toEthSignedMessageHash: pass:normal[xref:cryptography.adoc#ECDSA-toEthSignedMessageHash-bytes32-[`ECDSA.toEthSignedMessageHash`]]
+:MerkleProof: pass:normal[xref:cryptography.adoc#MerkleProof[`MerkleProof`]]
+:MerkleProof-verify: pass:normal[xref:cryptography.adoc#MerkleProof-verify-bytes32---bytes32-bytes32-[`MerkleProof.verify`]]
+:Counters: pass:normal[xref:drafts.adoc#Counters[`Counters`]]
+:Counters-current: pass:normal[xref:drafts.adoc#Counters-current-struct-Counters-Counter-[`Counters.current`]]
+:Counters-increment: pass:normal[xref:drafts.adoc#Counters-increment-struct-Counters-Counter-[`Counters.increment`]]
+:Counters-decrement: pass:normal[xref:drafts.adoc#Counters-decrement-struct-Counters-Counter-[`Counters.decrement`]]
+:ERC20Metadata: pass:normal[xref:drafts.adoc#ERC20Metadata[`ERC20Metadata`]]
+:ERC20Metadata-constructor: pass:normal[xref:drafts.adoc#ERC20Metadata-constructor-string-[`ERC20Metadata.constructor`]]
+:ERC20Metadata-tokenURI: pass:normal[xref:drafts.adoc#ERC20Metadata-tokenURI--[`ERC20Metadata.tokenURI`]]
+:ERC20Metadata-_setTokenURI: pass:normal[xref:drafts.adoc#ERC20Metadata-_setTokenURI-string-[`ERC20Metadata._setTokenURI`]]
+:ERC20Migrator: pass:normal[xref:drafts.adoc#ERC20Migrator[`ERC20Migrator`]]
+:ERC20Migrator-constructor: pass:normal[xref:drafts.adoc#ERC20Migrator-constructor-contract-IERC20-[`ERC20Migrator.constructor`]]
+:ERC20Migrator-legacyToken: pass:normal[xref:drafts.adoc#ERC20Migrator-legacyToken--[`ERC20Migrator.legacyToken`]]
+:ERC20Migrator-newToken: pass:normal[xref:drafts.adoc#ERC20Migrator-newToken--[`ERC20Migrator.newToken`]]
+:ERC20Migrator-beginMigration: pass:normal[xref:drafts.adoc#ERC20Migrator-beginMigration-contract-ERC20Mintable-[`ERC20Migrator.beginMigration`]]
+:ERC20Migrator-migrate: pass:normal[xref:drafts.adoc#ERC20Migrator-migrate-address-uint256-[`ERC20Migrator.migrate`]]
+:ERC20Migrator-migrateAll: pass:normal[xref:drafts.adoc#ERC20Migrator-migrateAll-address-[`ERC20Migrator.migrateAll`]]
+:ERC20Snapshot: pass:normal[xref:drafts.adoc#ERC20Snapshot[`ERC20Snapshot`]]
+:ERC20Snapshot-snapshot: pass:normal[xref:drafts.adoc#ERC20Snapshot-snapshot--[`ERC20Snapshot.snapshot`]]
+:ERC20Snapshot-balanceOfAt: pass:normal[xref:drafts.adoc#ERC20Snapshot-balanceOfAt-address-uint256-[`ERC20Snapshot.balanceOfAt`]]
+:ERC20Snapshot-totalSupplyAt: pass:normal[xref:drafts.adoc#ERC20Snapshot-totalSupplyAt-uint256-[`ERC20Snapshot.totalSupplyAt`]]
+:ERC20Snapshot-_transfer: pass:normal[xref:drafts.adoc#ERC20Snapshot-_transfer-address-address-uint256-[`ERC20Snapshot._transfer`]]
+:ERC20Snapshot-_mint: pass:normal[xref:drafts.adoc#ERC20Snapshot-_mint-address-uint256-[`ERC20Snapshot._mint`]]
+:ERC20Snapshot-_burn: pass:normal[xref:drafts.adoc#ERC20Snapshot-_burn-address-uint256-[`ERC20Snapshot._burn`]]
+:ERC20-totalSupply: pass:normal[xref:drafts.adoc#ERC20-totalSupply--[`ERC20.totalSupply`]]
+:ERC20-balanceOf: pass:normal[xref:drafts.adoc#ERC20-balanceOf-address-[`ERC20.balanceOf`]]
+:ERC20-transfer: pass:normal[xref:drafts.adoc#ERC20-transfer-address-uint256-[`ERC20.transfer`]]
+:ERC20-allowance: pass:normal[xref:drafts.adoc#ERC20-allowance-address-address-[`ERC20.allowance`]]
+:ERC20-approve: pass:normal[xref:drafts.adoc#ERC20-approve-address-uint256-[`ERC20.approve`]]
+:ERC20-transferFrom: pass:normal[xref:drafts.adoc#ERC20-transferFrom-address-address-uint256-[`ERC20.transferFrom`]]
+:ERC20-increaseAllowance: pass:normal[xref:drafts.adoc#ERC20-increaseAllowance-address-uint256-[`ERC20.increaseAllowance`]]
+:ERC20-decreaseAllowance: pass:normal[xref:drafts.adoc#ERC20-decreaseAllowance-address-uint256-[`ERC20.decreaseAllowance`]]
+:ERC20-_approve: pass:normal[xref:drafts.adoc#ERC20-_approve-address-address-uint256-[`ERC20._approve`]]
+:ERC20-_burnFrom: pass:normal[xref:drafts.adoc#ERC20-_burnFrom-address-uint256-[`ERC20._burnFrom`]]
+:ERC20Snapshot-Snapshot: pass:normal[xref:drafts.adoc#ERC20Snapshot-Snapshot-uint256-[`ERC20Snapshot.Snapshot`]]
+:IERC20-Transfer: pass:normal[xref:drafts.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
+:IERC20-Approval: pass:normal[xref:drafts.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
+:SignatureBouncer: pass:normal[xref:drafts.adoc#SignatureBouncer[`SignatureBouncer`]]
+:SignatureBouncer-onlyValidSignature: pass:normal[xref:drafts.adoc#SignatureBouncer-onlyValidSignature-bytes-[`SignatureBouncer.onlyValidSignature`]]
+:SignatureBouncer-onlyValidSignatureAndMethod: pass:normal[xref:drafts.adoc#SignatureBouncer-onlyValidSignatureAndMethod-bytes-[`SignatureBouncer.onlyValidSignatureAndMethod`]]
+:SignatureBouncer-onlyValidSignatureAndData: pass:normal[xref:drafts.adoc#SignatureBouncer-onlyValidSignatureAndData-bytes-[`SignatureBouncer.onlyValidSignatureAndData`]]
+:SignerRole-onlySigner: pass:normal[xref:drafts.adoc#SignerRole-onlySigner--[`SignerRole.onlySigner`]]
+:SignatureBouncer-constructor: pass:normal[xref:drafts.adoc#SignatureBouncer-constructor--[`SignatureBouncer.constructor`]]
+:SignatureBouncer-_isValidSignature: pass:normal[xref:drafts.adoc#SignatureBouncer-_isValidSignature-address-bytes-[`SignatureBouncer._isValidSignature`]]
+:SignatureBouncer-_isValidSignatureAndMethod: pass:normal[xref:drafts.adoc#SignatureBouncer-_isValidSignatureAndMethod-address-bytes-[`SignatureBouncer._isValidSignatureAndMethod`]]
+:SignatureBouncer-_isValidSignatureAndData: pass:normal[xref:drafts.adoc#SignatureBouncer-_isValidSignatureAndData-address-bytes-[`SignatureBouncer._isValidSignatureAndData`]]
+:SignatureBouncer-_isValidDataHash: pass:normal[xref:drafts.adoc#SignatureBouncer-_isValidDataHash-bytes32-bytes-[`SignatureBouncer._isValidDataHash`]]
+:SignerRole-isSigner: pass:normal[xref:drafts.adoc#SignerRole-isSigner-address-[`SignerRole.isSigner`]]
+:SignerRole-addSigner: pass:normal[xref:drafts.adoc#SignerRole-addSigner-address-[`SignerRole.addSigner`]]
+:SignerRole-renounceSigner: pass:normal[xref:drafts.adoc#SignerRole-renounceSigner--[`SignerRole.renounceSigner`]]
+:SignerRole-_addSigner: pass:normal[xref:drafts.adoc#SignerRole-_addSigner-address-[`SignerRole._addSigner`]]
+:SignerRole-_removeSigner: pass:normal[xref:drafts.adoc#SignerRole-_removeSigner-address-[`SignerRole._removeSigner`]]
+:SignerRole-SignerAdded: pass:normal[xref:drafts.adoc#SignerRole-SignerAdded-address-[`SignerRole.SignerAdded`]]
+:SignerRole-SignerRemoved: pass:normal[xref:drafts.adoc#SignerRole-SignerRemoved-address-[`SignerRole.SignerRemoved`]]
+:SignedSafeMath: pass:normal[xref:drafts.adoc#SignedSafeMath[`SignedSafeMath`]]
+:SignedSafeMath-mul: pass:normal[xref:drafts.adoc#SignedSafeMath-mul-int256-int256-[`SignedSafeMath.mul`]]
+:SignedSafeMath-div: pass:normal[xref:drafts.adoc#SignedSafeMath-div-int256-int256-[`SignedSafeMath.div`]]
+:SignedSafeMath-sub: pass:normal[xref:drafts.adoc#SignedSafeMath-sub-int256-int256-[`SignedSafeMath.sub`]]
+:SignedSafeMath-add: pass:normal[xref:drafts.adoc#SignedSafeMath-add-int256-int256-[`SignedSafeMath.add`]]
+:TokenVesting: pass:normal[xref:drafts.adoc#TokenVesting[`TokenVesting`]]
+:Ownable-onlyOwner: pass:normal[xref:drafts.adoc#Ownable-onlyOwner--[`Ownable.onlyOwner`]]
+:TokenVesting-constructor: pass:normal[xref:drafts.adoc#TokenVesting-constructor-address-uint256-uint256-uint256-bool-[`TokenVesting.constructor`]]
+:TokenVesting-beneficiary: pass:normal[xref:drafts.adoc#TokenVesting-beneficiary--[`TokenVesting.beneficiary`]]
+:TokenVesting-cliff: pass:normal[xref:drafts.adoc#TokenVesting-cliff--[`TokenVesting.cliff`]]
+:TokenVesting-start: pass:normal[xref:drafts.adoc#TokenVesting-start--[`TokenVesting.start`]]
+:TokenVesting-duration: pass:normal[xref:drafts.adoc#TokenVesting-duration--[`TokenVesting.duration`]]
+:TokenVesting-revocable: pass:normal[xref:drafts.adoc#TokenVesting-revocable--[`TokenVesting.revocable`]]
+:TokenVesting-released: pass:normal[xref:drafts.adoc#TokenVesting-released-address-[`TokenVesting.released`]]
+:TokenVesting-revoked: pass:normal[xref:drafts.adoc#TokenVesting-revoked-address-[`TokenVesting.revoked`]]
+:TokenVesting-release: pass:normal[xref:drafts.adoc#TokenVesting-release-contract-IERC20-[`TokenVesting.release`]]
+:TokenVesting-revoke: pass:normal[xref:drafts.adoc#TokenVesting-revoke-contract-IERC20-[`TokenVesting.revoke`]]
+:Ownable-constructor: pass:normal[xref:drafts.adoc#Ownable-constructor--[`Ownable.constructor`]]
+:Ownable-owner: pass:normal[xref:drafts.adoc#Ownable-owner--[`Ownable.owner`]]
+:Ownable-isOwner: pass:normal[xref:drafts.adoc#Ownable-isOwner--[`Ownable.isOwner`]]
+:Ownable-renounceOwnership: pass:normal[xref:drafts.adoc#Ownable-renounceOwnership--[`Ownable.renounceOwnership`]]
+:Ownable-transferOwnership: pass:normal[xref:drafts.adoc#Ownable-transferOwnership-address-[`Ownable.transferOwnership`]]
+:Ownable-_transferOwnership: pass:normal[xref:drafts.adoc#Ownable-_transferOwnership-address-[`Ownable._transferOwnership`]]
+:TokenVesting-TokensReleased: pass:normal[xref:drafts.adoc#TokenVesting-TokensReleased-address-uint256-[`TokenVesting.TokensReleased`]]
+:TokenVesting-TokenVestingRevoked: pass:normal[xref:drafts.adoc#TokenVesting-TokenVestingRevoked-address-[`TokenVesting.TokenVestingRevoked`]]
+:Ownable-OwnershipTransferred: pass:normal[xref:drafts.adoc#Ownable-OwnershipTransferred-address-address-[`Ownable.OwnershipTransferred`]]
+:ERC165: pass:normal[xref:introspection.adoc#ERC165[`ERC165`]]
+:ERC165-constructor: pass:normal[xref:introspection.adoc#ERC165-constructor--[`ERC165.constructor`]]
+:ERC165-supportsInterface: pass:normal[xref:introspection.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
+:ERC165-_registerInterface: pass:normal[xref:introspection.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:ERC165Checker: pass:normal[xref:introspection.adoc#ERC165Checker[`ERC165Checker`]]
+:ERC165Checker-_supportsERC165: pass:normal[xref:introspection.adoc#ERC165Checker-_supportsERC165-address-[`ERC165Checker._supportsERC165`]]
+:ERC165Checker-_supportsInterface: pass:normal[xref:introspection.adoc#ERC165Checker-_supportsInterface-address-bytes4-[`ERC165Checker._supportsInterface`]]
+:ERC165Checker-_supportsAllInterfaces: pass:normal[xref:introspection.adoc#ERC165Checker-_supportsAllInterfaces-address-bytes4---[`ERC165Checker._supportsAllInterfaces`]]
+:ERC1820Implementer: pass:normal[xref:introspection.adoc#ERC1820Implementer[`ERC1820Implementer`]]
+:ERC1820Implementer-canImplementInterfaceForAddress: pass:normal[xref:introspection.adoc#ERC1820Implementer-canImplementInterfaceForAddress-bytes32-address-[`ERC1820Implementer.canImplementInterfaceForAddress`]]
+:ERC1820Implementer-_registerInterfaceForAddress: pass:normal[xref:introspection.adoc#ERC1820Implementer-_registerInterfaceForAddress-bytes32-address-[`ERC1820Implementer._registerInterfaceForAddress`]]
+:IERC165: pass:normal[xref:introspection.adoc#IERC165[`IERC165`]]
+:IERC165-supportsInterface: pass:normal[xref:introspection.adoc#IERC165-supportsInterface-bytes4-[`IERC165.supportsInterface`]]
+:IERC1820Implementer: pass:normal[xref:introspection.adoc#IERC1820Implementer[`IERC1820Implementer`]]
+:IERC1820Implementer-canImplementInterfaceForAddress: pass:normal[xref:introspection.adoc#IERC1820Implementer-canImplementInterfaceForAddress-bytes32-address-[`IERC1820Implementer.canImplementInterfaceForAddress`]]
+:IERC1820Registry: pass:normal[xref:introspection.adoc#IERC1820Registry[`IERC1820Registry`]]
+:IERC1820Registry-setManager: pass:normal[xref:introspection.adoc#IERC1820Registry-setManager-address-address-[`IERC1820Registry.setManager`]]
+:IERC1820Registry-getManager: pass:normal[xref:introspection.adoc#IERC1820Registry-getManager-address-[`IERC1820Registry.getManager`]]
+:IERC1820Registry-setInterfaceImplementer: pass:normal[xref:introspection.adoc#IERC1820Registry-setInterfaceImplementer-address-bytes32-address-[`IERC1820Registry.setInterfaceImplementer`]]
+:IERC1820Registry-getInterfaceImplementer: pass:normal[xref:introspection.adoc#IERC1820Registry-getInterfaceImplementer-address-bytes32-[`IERC1820Registry.getInterfaceImplementer`]]
+:IERC1820Registry-interfaceHash: pass:normal[xref:introspection.adoc#IERC1820Registry-interfaceHash-string-[`IERC1820Registry.interfaceHash`]]
+:IERC1820Registry-updateERC165Cache: pass:normal[xref:introspection.adoc#IERC1820Registry-updateERC165Cache-address-bytes4-[`IERC1820Registry.updateERC165Cache`]]
+:IERC1820Registry-implementsERC165Interface: pass:normal[xref:introspection.adoc#IERC1820Registry-implementsERC165Interface-address-bytes4-[`IERC1820Registry.implementsERC165Interface`]]
+:IERC1820Registry-implementsERC165InterfaceNoCache: pass:normal[xref:introspection.adoc#IERC1820Registry-implementsERC165InterfaceNoCache-address-bytes4-[`IERC1820Registry.implementsERC165InterfaceNoCache`]]
+:IERC1820Registry-InterfaceImplementerSet: pass:normal[xref:introspection.adoc#IERC1820Registry-InterfaceImplementerSet-address-bytes32-address-[`IERC1820Registry.InterfaceImplementerSet`]]
+:IERC1820Registry-ManagerChanged: pass:normal[xref:introspection.adoc#IERC1820Registry-ManagerChanged-address-address-[`IERC1820Registry.ManagerChanged`]]
+:Math: pass:normal[xref:math.adoc#Math[`Math`]]
+:Math-max: pass:normal[xref:math.adoc#Math-max-uint256-uint256-[`Math.max`]]
+:Math-min: pass:normal[xref:math.adoc#Math-min-uint256-uint256-[`Math.min`]]
+:Math-average: pass:normal[xref:math.adoc#Math-average-uint256-uint256-[`Math.average`]]
+:SafeMath: pass:normal[xref:math.adoc#SafeMath[`SafeMath`]]
+:SafeMath-add: pass:normal[xref:math.adoc#SafeMath-add-uint256-uint256-[`SafeMath.add`]]
+:SafeMath-sub: pass:normal[xref:math.adoc#SafeMath-sub-uint256-uint256-[`SafeMath.sub`]]
+:SafeMath-mul: pass:normal[xref:math.adoc#SafeMath-mul-uint256-uint256-[`SafeMath.mul`]]
+:SafeMath-div: pass:normal[xref:math.adoc#SafeMath-div-uint256-uint256-[`SafeMath.div`]]
+:SafeMath-mod: pass:normal[xref:math.adoc#SafeMath-mod-uint256-uint256-[`SafeMath.mod`]]
+:Ownable: pass:normal[xref:ownership.adoc#Ownable[`Ownable`]]
+:Ownable-onlyOwner: pass:normal[xref:ownership.adoc#Ownable-onlyOwner--[`Ownable.onlyOwner`]]
+:Ownable-constructor: pass:normal[xref:ownership.adoc#Ownable-constructor--[`Ownable.constructor`]]
+:Ownable-owner: pass:normal[xref:ownership.adoc#Ownable-owner--[`Ownable.owner`]]
+:Ownable-isOwner: pass:normal[xref:ownership.adoc#Ownable-isOwner--[`Ownable.isOwner`]]
+:Ownable-renounceOwnership: pass:normal[xref:ownership.adoc#Ownable-renounceOwnership--[`Ownable.renounceOwnership`]]
+:Ownable-transferOwnership: pass:normal[xref:ownership.adoc#Ownable-transferOwnership-address-[`Ownable.transferOwnership`]]
+:Ownable-_transferOwnership: pass:normal[xref:ownership.adoc#Ownable-_transferOwnership-address-[`Ownable._transferOwnership`]]
+:Ownable-OwnershipTransferred: pass:normal[xref:ownership.adoc#Ownable-OwnershipTransferred-address-address-[`Ownable.OwnershipTransferred`]]
+:Secondary: pass:normal[xref:ownership.adoc#Secondary[`Secondary`]]
+:Secondary-onlyPrimary: pass:normal[xref:ownership.adoc#Secondary-onlyPrimary--[`Secondary.onlyPrimary`]]
+:Secondary-constructor: pass:normal[xref:ownership.adoc#Secondary-constructor--[`Secondary.constructor`]]
+:Secondary-primary: pass:normal[xref:ownership.adoc#Secondary-primary--[`Secondary.primary`]]
+:Secondary-transferPrimary: pass:normal[xref:ownership.adoc#Secondary-transferPrimary-address-[`Secondary.transferPrimary`]]
+:Secondary-PrimaryTransferred: pass:normal[xref:ownership.adoc#Secondary-PrimaryTransferred-address-[`Secondary.PrimaryTransferred`]]
+:PaymentSplitter: pass:normal[xref:payment.adoc#PaymentSplitter[`PaymentSplitter`]]
+:PaymentSplitter-constructor: pass:normal[xref:payment.adoc#PaymentSplitter-constructor-address---uint256---[`PaymentSplitter.constructor`]]
+:PaymentSplitter-fallback: pass:normal[xref:payment.adoc#PaymentSplitter-fallback--[`PaymentSplitter.fallback`]]
+:PaymentSplitter-totalShares: pass:normal[xref:payment.adoc#PaymentSplitter-totalShares--[`PaymentSplitter.totalShares`]]
+:PaymentSplitter-totalReleased: pass:normal[xref:payment.adoc#PaymentSplitter-totalReleased--[`PaymentSplitter.totalReleased`]]
+:PaymentSplitter-shares: pass:normal[xref:payment.adoc#PaymentSplitter-shares-address-[`PaymentSplitter.shares`]]
+:PaymentSplitter-released: pass:normal[xref:payment.adoc#PaymentSplitter-released-address-[`PaymentSplitter.released`]]
+:PaymentSplitter-payee: pass:normal[xref:payment.adoc#PaymentSplitter-payee-uint256-[`PaymentSplitter.payee`]]
+:PaymentSplitter-release: pass:normal[xref:payment.adoc#PaymentSplitter-release-address-payable-[`PaymentSplitter.release`]]
+:PaymentSplitter-PayeeAdded: pass:normal[xref:payment.adoc#PaymentSplitter-PayeeAdded-address-uint256-[`PaymentSplitter.PayeeAdded`]]
+:PaymentSplitter-PaymentReleased: pass:normal[xref:payment.adoc#PaymentSplitter-PaymentReleased-address-uint256-[`PaymentSplitter.PaymentReleased`]]
+:PaymentSplitter-PaymentReceived: pass:normal[xref:payment.adoc#PaymentSplitter-PaymentReceived-address-uint256-[`PaymentSplitter.PaymentReceived`]]
+:PullPayment: pass:normal[xref:payment.adoc#PullPayment[`PullPayment`]]
+:PullPayment-constructor: pass:normal[xref:payment.adoc#PullPayment-constructor--[`PullPayment.constructor`]]
+:PullPayment-withdrawPayments: pass:normal[xref:payment.adoc#PullPayment-withdrawPayments-address-payable-[`PullPayment.withdrawPayments`]]
+:PullPayment-payments: pass:normal[xref:payment.adoc#PullPayment-payments-address-[`PullPayment.payments`]]
+:PullPayment-_asyncTransfer: pass:normal[xref:payment.adoc#PullPayment-_asyncTransfer-address-uint256-[`PullPayment._asyncTransfer`]]
+:ConditionalEscrow: pass:normal[xref:payment.adoc#ConditionalEscrow[`ConditionalEscrow`]]
+:Secondary-onlyPrimary: pass:normal[xref:payment.adoc#Secondary-onlyPrimary--[`Secondary.onlyPrimary`]]
+:ConditionalEscrow-withdrawalAllowed: pass:normal[xref:payment.adoc#ConditionalEscrow-withdrawalAllowed-address-[`ConditionalEscrow.withdrawalAllowed`]]
+:ConditionalEscrow-withdraw: pass:normal[xref:payment.adoc#ConditionalEscrow-withdraw-address-payable-[`ConditionalEscrow.withdraw`]]
+:Escrow-depositsOf: pass:normal[xref:payment.adoc#Escrow-depositsOf-address-[`Escrow.depositsOf`]]
+:Escrow-deposit: pass:normal[xref:payment.adoc#Escrow-deposit-address-[`Escrow.deposit`]]
+:Secondary-constructor: pass:normal[xref:payment.adoc#Secondary-constructor--[`Secondary.constructor`]]
+:Secondary-primary: pass:normal[xref:payment.adoc#Secondary-primary--[`Secondary.primary`]]
+:Secondary-transferPrimary: pass:normal[xref:payment.adoc#Secondary-transferPrimary-address-[`Secondary.transferPrimary`]]
+:Escrow-Deposited: pass:normal[xref:payment.adoc#Escrow-Deposited-address-uint256-[`Escrow.Deposited`]]
+:Escrow-Withdrawn: pass:normal[xref:payment.adoc#Escrow-Withdrawn-address-uint256-[`Escrow.Withdrawn`]]
+:Secondary-PrimaryTransferred: pass:normal[xref:payment.adoc#Secondary-PrimaryTransferred-address-[`Secondary.PrimaryTransferred`]]
+:Escrow: pass:normal[xref:payment.adoc#Escrow[`Escrow`]]
+:Secondary-onlyPrimary: pass:normal[xref:payment.adoc#Secondary-onlyPrimary--[`Secondary.onlyPrimary`]]
+:Escrow-depositsOf: pass:normal[xref:payment.adoc#Escrow-depositsOf-address-[`Escrow.depositsOf`]]
+:Escrow-deposit: pass:normal[xref:payment.adoc#Escrow-deposit-address-[`Escrow.deposit`]]
+:Escrow-withdraw: pass:normal[xref:payment.adoc#Escrow-withdraw-address-payable-[`Escrow.withdraw`]]
+:Secondary-constructor: pass:normal[xref:payment.adoc#Secondary-constructor--[`Secondary.constructor`]]
+:Secondary-primary: pass:normal[xref:payment.adoc#Secondary-primary--[`Secondary.primary`]]
+:Secondary-transferPrimary: pass:normal[xref:payment.adoc#Secondary-transferPrimary-address-[`Secondary.transferPrimary`]]
+:Escrow-Deposited: pass:normal[xref:payment.adoc#Escrow-Deposited-address-uint256-[`Escrow.Deposited`]]
+:Escrow-Withdrawn: pass:normal[xref:payment.adoc#Escrow-Withdrawn-address-uint256-[`Escrow.Withdrawn`]]
+:Secondary-PrimaryTransferred: pass:normal[xref:payment.adoc#Secondary-PrimaryTransferred-address-[`Secondary.PrimaryTransferred`]]
+:RefundEscrow: pass:normal[xref:payment.adoc#RefundEscrow[`RefundEscrow`]]
+:Secondary-onlyPrimary: pass:normal[xref:payment.adoc#Secondary-onlyPrimary--[`Secondary.onlyPrimary`]]
+:RefundEscrow-constructor: pass:normal[xref:payment.adoc#RefundEscrow-constructor-address-payable-[`RefundEscrow.constructor`]]
+:RefundEscrow-state: pass:normal[xref:payment.adoc#RefundEscrow-state--[`RefundEscrow.state`]]
+:RefundEscrow-beneficiary: pass:normal[xref:payment.adoc#RefundEscrow-beneficiary--[`RefundEscrow.beneficiary`]]
+:RefundEscrow-deposit: pass:normal[xref:payment.adoc#RefundEscrow-deposit-address-[`RefundEscrow.deposit`]]
+:RefundEscrow-close: pass:normal[xref:payment.adoc#RefundEscrow-close--[`RefundEscrow.close`]]
+:RefundEscrow-enableRefunds: pass:normal[xref:payment.adoc#RefundEscrow-enableRefunds--[`RefundEscrow.enableRefunds`]]
+:RefundEscrow-beneficiaryWithdraw: pass:normal[xref:payment.adoc#RefundEscrow-beneficiaryWithdraw--[`RefundEscrow.beneficiaryWithdraw`]]
+:RefundEscrow-withdrawalAllowed: pass:normal[xref:payment.adoc#RefundEscrow-withdrawalAllowed-address-[`RefundEscrow.withdrawalAllowed`]]
+:ConditionalEscrow-withdraw: pass:normal[xref:payment.adoc#ConditionalEscrow-withdraw-address-payable-[`ConditionalEscrow.withdraw`]]
+:Escrow-depositsOf: pass:normal[xref:payment.adoc#Escrow-depositsOf-address-[`Escrow.depositsOf`]]
+:Secondary-constructor: pass:normal[xref:payment.adoc#Secondary-constructor--[`Secondary.constructor`]]
+:Secondary-primary: pass:normal[xref:payment.adoc#Secondary-primary--[`Secondary.primary`]]
+:Secondary-transferPrimary: pass:normal[xref:payment.adoc#Secondary-transferPrimary-address-[`Secondary.transferPrimary`]]
+:RefundEscrow-RefundsClosed: pass:normal[xref:payment.adoc#RefundEscrow-RefundsClosed--[`RefundEscrow.RefundsClosed`]]
+:RefundEscrow-RefundsEnabled: pass:normal[xref:payment.adoc#RefundEscrow-RefundsEnabled--[`RefundEscrow.RefundsEnabled`]]
+:Escrow-Deposited: pass:normal[xref:payment.adoc#Escrow-Deposited-address-uint256-[`Escrow.Deposited`]]
+:Escrow-Withdrawn: pass:normal[xref:payment.adoc#Escrow-Withdrawn-address-uint256-[`Escrow.Withdrawn`]]
+:Secondary-PrimaryTransferred: pass:normal[xref:payment.adoc#Secondary-PrimaryTransferred-address-[`Secondary.PrimaryTransferred`]]
+:Address: pass:normal[xref:utils.adoc#Address[`Address`]]
+:Address-isContract: pass:normal[xref:utils.adoc#Address-isContract-address-[`Address.isContract`]]
+:Arrays: pass:normal[xref:utils.adoc#Arrays[`Arrays`]]
+:Arrays-findUpperBound: pass:normal[xref:utils.adoc#Arrays-findUpperBound-uint256---uint256-[`Arrays.findUpperBound`]]
+:ReentrancyGuard: pass:normal[xref:utils.adoc#ReentrancyGuard[`ReentrancyGuard`]]
+:ReentrancyGuard-nonReentrant: pass:normal[xref:utils.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
+:ReentrancyGuard-constructor: pass:normal[xref:utils.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:ERC20: pass:normal[xref:token/ERC20.adoc#ERC20[`ERC20`]]
+:ERC20-totalSupply: pass:normal[xref:token/ERC20.adoc#ERC20-totalSupply--[`ERC20.totalSupply`]]
+:ERC20-balanceOf: pass:normal[xref:token/ERC20.adoc#ERC20-balanceOf-address-[`ERC20.balanceOf`]]
+:ERC20-transfer: pass:normal[xref:token/ERC20.adoc#ERC20-transfer-address-uint256-[`ERC20.transfer`]]
+:ERC20-allowance: pass:normal[xref:token/ERC20.adoc#ERC20-allowance-address-address-[`ERC20.allowance`]]
+:ERC20-approve: pass:normal[xref:token/ERC20.adoc#ERC20-approve-address-uint256-[`ERC20.approve`]]
+:ERC20-transferFrom: pass:normal[xref:token/ERC20.adoc#ERC20-transferFrom-address-address-uint256-[`ERC20.transferFrom`]]
+:ERC20-increaseAllowance: pass:normal[xref:token/ERC20.adoc#ERC20-increaseAllowance-address-uint256-[`ERC20.increaseAllowance`]]
+:ERC20-decreaseAllowance: pass:normal[xref:token/ERC20.adoc#ERC20-decreaseAllowance-address-uint256-[`ERC20.decreaseAllowance`]]
+:ERC20-_transfer: pass:normal[xref:token/ERC20.adoc#ERC20-_transfer-address-address-uint256-[`ERC20._transfer`]]
+:ERC20-_mint: pass:normal[xref:token/ERC20.adoc#ERC20-_mint-address-uint256-[`ERC20._mint`]]
+:ERC20-_burn: pass:normal[xref:token/ERC20.adoc#ERC20-_burn-address-uint256-[`ERC20._burn`]]
+:ERC20-_approve: pass:normal[xref:token/ERC20.adoc#ERC20-_approve-address-address-uint256-[`ERC20._approve`]]
+:ERC20-_burnFrom: pass:normal[xref:token/ERC20.adoc#ERC20-_burnFrom-address-uint256-[`ERC20._burnFrom`]]
+:IERC20-Transfer: pass:normal[xref:token/ERC20.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
+:IERC20-Approval: pass:normal[xref:token/ERC20.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
+:ERC20Burnable: pass:normal[xref:token/ERC20.adoc#ERC20Burnable[`ERC20Burnable`]]
+:ERC20Burnable-burn: pass:normal[xref:token/ERC20.adoc#ERC20Burnable-burn-uint256-[`ERC20Burnable.burn`]]
+:ERC20Burnable-burnFrom: pass:normal[xref:token/ERC20.adoc#ERC20Burnable-burnFrom-address-uint256-[`ERC20Burnable.burnFrom`]]
+:ERC20-totalSupply: pass:normal[xref:token/ERC20.adoc#ERC20-totalSupply--[`ERC20.totalSupply`]]
+:ERC20-balanceOf: pass:normal[xref:token/ERC20.adoc#ERC20-balanceOf-address-[`ERC20.balanceOf`]]
+:ERC20-transfer: pass:normal[xref:token/ERC20.adoc#ERC20-transfer-address-uint256-[`ERC20.transfer`]]
+:ERC20-allowance: pass:normal[xref:token/ERC20.adoc#ERC20-allowance-address-address-[`ERC20.allowance`]]
+:ERC20-approve: pass:normal[xref:token/ERC20.adoc#ERC20-approve-address-uint256-[`ERC20.approve`]]
+:ERC20-transferFrom: pass:normal[xref:token/ERC20.adoc#ERC20-transferFrom-address-address-uint256-[`ERC20.transferFrom`]]
+:ERC20-increaseAllowance: pass:normal[xref:token/ERC20.adoc#ERC20-increaseAllowance-address-uint256-[`ERC20.increaseAllowance`]]
+:ERC20-decreaseAllowance: pass:normal[xref:token/ERC20.adoc#ERC20-decreaseAllowance-address-uint256-[`ERC20.decreaseAllowance`]]
+:ERC20-_transfer: pass:normal[xref:token/ERC20.adoc#ERC20-_transfer-address-address-uint256-[`ERC20._transfer`]]
+:ERC20-_mint: pass:normal[xref:token/ERC20.adoc#ERC20-_mint-address-uint256-[`ERC20._mint`]]
+:ERC20-_burn: pass:normal[xref:token/ERC20.adoc#ERC20-_burn-address-uint256-[`ERC20._burn`]]
+:ERC20-_approve: pass:normal[xref:token/ERC20.adoc#ERC20-_approve-address-address-uint256-[`ERC20._approve`]]
+:ERC20-_burnFrom: pass:normal[xref:token/ERC20.adoc#ERC20-_burnFrom-address-uint256-[`ERC20._burnFrom`]]
+:IERC20-Transfer: pass:normal[xref:token/ERC20.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
+:IERC20-Approval: pass:normal[xref:token/ERC20.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
+:ERC20Capped: pass:normal[xref:token/ERC20.adoc#ERC20Capped[`ERC20Capped`]]
+:MinterRole-onlyMinter: pass:normal[xref:token/ERC20.adoc#MinterRole-onlyMinter--[`MinterRole.onlyMinter`]]
+:ERC20Capped-constructor: pass:normal[xref:token/ERC20.adoc#ERC20Capped-constructor-uint256-[`ERC20Capped.constructor`]]
+:ERC20Capped-cap: pass:normal[xref:token/ERC20.adoc#ERC20Capped-cap--[`ERC20Capped.cap`]]
+:ERC20Capped-_mint: pass:normal[xref:token/ERC20.adoc#ERC20Capped-_mint-address-uint256-[`ERC20Capped._mint`]]
+:ERC20Mintable-mint: pass:normal[xref:token/ERC20.adoc#ERC20Mintable-mint-address-uint256-[`ERC20Mintable.mint`]]
+:MinterRole-constructor: pass:normal[xref:token/ERC20.adoc#MinterRole-constructor--[`MinterRole.constructor`]]
+:MinterRole-isMinter: pass:normal[xref:token/ERC20.adoc#MinterRole-isMinter-address-[`MinterRole.isMinter`]]
+:MinterRole-addMinter: pass:normal[xref:token/ERC20.adoc#MinterRole-addMinter-address-[`MinterRole.addMinter`]]
+:MinterRole-renounceMinter: pass:normal[xref:token/ERC20.adoc#MinterRole-renounceMinter--[`MinterRole.renounceMinter`]]
+:MinterRole-_addMinter: pass:normal[xref:token/ERC20.adoc#MinterRole-_addMinter-address-[`MinterRole._addMinter`]]
+:MinterRole-_removeMinter: pass:normal[xref:token/ERC20.adoc#MinterRole-_removeMinter-address-[`MinterRole._removeMinter`]]
+:ERC20-totalSupply: pass:normal[xref:token/ERC20.adoc#ERC20-totalSupply--[`ERC20.totalSupply`]]
+:ERC20-balanceOf: pass:normal[xref:token/ERC20.adoc#ERC20-balanceOf-address-[`ERC20.balanceOf`]]
+:ERC20-transfer: pass:normal[xref:token/ERC20.adoc#ERC20-transfer-address-uint256-[`ERC20.transfer`]]
+:ERC20-allowance: pass:normal[xref:token/ERC20.adoc#ERC20-allowance-address-address-[`ERC20.allowance`]]
+:ERC20-approve: pass:normal[xref:token/ERC20.adoc#ERC20-approve-address-uint256-[`ERC20.approve`]]
+:ERC20-transferFrom: pass:normal[xref:token/ERC20.adoc#ERC20-transferFrom-address-address-uint256-[`ERC20.transferFrom`]]
+:ERC20-increaseAllowance: pass:normal[xref:token/ERC20.adoc#ERC20-increaseAllowance-address-uint256-[`ERC20.increaseAllowance`]]
+:ERC20-decreaseAllowance: pass:normal[xref:token/ERC20.adoc#ERC20-decreaseAllowance-address-uint256-[`ERC20.decreaseAllowance`]]
+:ERC20-_transfer: pass:normal[xref:token/ERC20.adoc#ERC20-_transfer-address-address-uint256-[`ERC20._transfer`]]
+:ERC20-_burn: pass:normal[xref:token/ERC20.adoc#ERC20-_burn-address-uint256-[`ERC20._burn`]]
+:ERC20-_approve: pass:normal[xref:token/ERC20.adoc#ERC20-_approve-address-address-uint256-[`ERC20._approve`]]
+:ERC20-_burnFrom: pass:normal[xref:token/ERC20.adoc#ERC20-_burnFrom-address-uint256-[`ERC20._burnFrom`]]
+:MinterRole-MinterAdded: pass:normal[xref:token/ERC20.adoc#MinterRole-MinterAdded-address-[`MinterRole.MinterAdded`]]
+:MinterRole-MinterRemoved: pass:normal[xref:token/ERC20.adoc#MinterRole-MinterRemoved-address-[`MinterRole.MinterRemoved`]]
+:IERC20-Transfer: pass:normal[xref:token/ERC20.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
+:IERC20-Approval: pass:normal[xref:token/ERC20.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
+:ERC20Detailed: pass:normal[xref:token/ERC20.adoc#ERC20Detailed[`ERC20Detailed`]]
+:ERC20Detailed-constructor: pass:normal[xref:token/ERC20.adoc#ERC20Detailed-constructor-string-string-uint8-[`ERC20Detailed.constructor`]]
+:ERC20Detailed-name: pass:normal[xref:token/ERC20.adoc#ERC20Detailed-name--[`ERC20Detailed.name`]]
+:ERC20Detailed-symbol: pass:normal[xref:token/ERC20.adoc#ERC20Detailed-symbol--[`ERC20Detailed.symbol`]]
+:ERC20Detailed-decimals: pass:normal[xref:token/ERC20.adoc#ERC20Detailed-decimals--[`ERC20Detailed.decimals`]]
+:IERC20-totalSupply: pass:normal[xref:token/ERC20.adoc#IERC20-totalSupply--[`IERC20.totalSupply`]]
+:IERC20-balanceOf: pass:normal[xref:token/ERC20.adoc#IERC20-balanceOf-address-[`IERC20.balanceOf`]]
+:IERC20-transfer: pass:normal[xref:token/ERC20.adoc#IERC20-transfer-address-uint256-[`IERC20.transfer`]]
+:IERC20-allowance: pass:normal[xref:token/ERC20.adoc#IERC20-allowance-address-address-[`IERC20.allowance`]]
+:IERC20-approve: pass:normal[xref:token/ERC20.adoc#IERC20-approve-address-uint256-[`IERC20.approve`]]
+:IERC20-transferFrom: pass:normal[xref:token/ERC20.adoc#IERC20-transferFrom-address-address-uint256-[`IERC20.transferFrom`]]
+:IERC20-Transfer: pass:normal[xref:token/ERC20.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
+:IERC20-Approval: pass:normal[xref:token/ERC20.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
+:ERC20Mintable: pass:normal[xref:token/ERC20.adoc#ERC20Mintable[`ERC20Mintable`]]
+:MinterRole-onlyMinter: pass:normal[xref:token/ERC20.adoc#MinterRole-onlyMinter--[`MinterRole.onlyMinter`]]
+:ERC20Mintable-mint: pass:normal[xref:token/ERC20.adoc#ERC20Mintable-mint-address-uint256-[`ERC20Mintable.mint`]]
+:MinterRole-constructor: pass:normal[xref:token/ERC20.adoc#MinterRole-constructor--[`MinterRole.constructor`]]
+:MinterRole-isMinter: pass:normal[xref:token/ERC20.adoc#MinterRole-isMinter-address-[`MinterRole.isMinter`]]
+:MinterRole-addMinter: pass:normal[xref:token/ERC20.adoc#MinterRole-addMinter-address-[`MinterRole.addMinter`]]
+:MinterRole-renounceMinter: pass:normal[xref:token/ERC20.adoc#MinterRole-renounceMinter--[`MinterRole.renounceMinter`]]
+:MinterRole-_addMinter: pass:normal[xref:token/ERC20.adoc#MinterRole-_addMinter-address-[`MinterRole._addMinter`]]
+:MinterRole-_removeMinter: pass:normal[xref:token/ERC20.adoc#MinterRole-_removeMinter-address-[`MinterRole._removeMinter`]]
+:ERC20-totalSupply: pass:normal[xref:token/ERC20.adoc#ERC20-totalSupply--[`ERC20.totalSupply`]]
+:ERC20-balanceOf: pass:normal[xref:token/ERC20.adoc#ERC20-balanceOf-address-[`ERC20.balanceOf`]]
+:ERC20-transfer: pass:normal[xref:token/ERC20.adoc#ERC20-transfer-address-uint256-[`ERC20.transfer`]]
+:ERC20-allowance: pass:normal[xref:token/ERC20.adoc#ERC20-allowance-address-address-[`ERC20.allowance`]]
+:ERC20-approve: pass:normal[xref:token/ERC20.adoc#ERC20-approve-address-uint256-[`ERC20.approve`]]
+:ERC20-transferFrom: pass:normal[xref:token/ERC20.adoc#ERC20-transferFrom-address-address-uint256-[`ERC20.transferFrom`]]
+:ERC20-increaseAllowance: pass:normal[xref:token/ERC20.adoc#ERC20-increaseAllowance-address-uint256-[`ERC20.increaseAllowance`]]
+:ERC20-decreaseAllowance: pass:normal[xref:token/ERC20.adoc#ERC20-decreaseAllowance-address-uint256-[`ERC20.decreaseAllowance`]]
+:ERC20-_transfer: pass:normal[xref:token/ERC20.adoc#ERC20-_transfer-address-address-uint256-[`ERC20._transfer`]]
+:ERC20-_mint: pass:normal[xref:token/ERC20.adoc#ERC20-_mint-address-uint256-[`ERC20._mint`]]
+:ERC20-_burn: pass:normal[xref:token/ERC20.adoc#ERC20-_burn-address-uint256-[`ERC20._burn`]]
+:ERC20-_approve: pass:normal[xref:token/ERC20.adoc#ERC20-_approve-address-address-uint256-[`ERC20._approve`]]
+:ERC20-_burnFrom: pass:normal[xref:token/ERC20.adoc#ERC20-_burnFrom-address-uint256-[`ERC20._burnFrom`]]
+:MinterRole-MinterAdded: pass:normal[xref:token/ERC20.adoc#MinterRole-MinterAdded-address-[`MinterRole.MinterAdded`]]
+:MinterRole-MinterRemoved: pass:normal[xref:token/ERC20.adoc#MinterRole-MinterRemoved-address-[`MinterRole.MinterRemoved`]]
+:IERC20-Transfer: pass:normal[xref:token/ERC20.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
+:IERC20-Approval: pass:normal[xref:token/ERC20.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
+:ERC20Pausable: pass:normal[xref:token/ERC20.adoc#ERC20Pausable[`ERC20Pausable`]]
+:Pausable-whenNotPaused: pass:normal[xref:token/ERC20.adoc#Pausable-whenNotPaused--[`Pausable.whenNotPaused`]]
+:Pausable-whenPaused: pass:normal[xref:token/ERC20.adoc#Pausable-whenPaused--[`Pausable.whenPaused`]]
+:PauserRole-onlyPauser: pass:normal[xref:token/ERC20.adoc#PauserRole-onlyPauser--[`PauserRole.onlyPauser`]]
+:ERC20Pausable-transfer: pass:normal[xref:token/ERC20.adoc#ERC20Pausable-transfer-address-uint256-[`ERC20Pausable.transfer`]]
+:ERC20Pausable-transferFrom: pass:normal[xref:token/ERC20.adoc#ERC20Pausable-transferFrom-address-address-uint256-[`ERC20Pausable.transferFrom`]]
+:ERC20Pausable-approve: pass:normal[xref:token/ERC20.adoc#ERC20Pausable-approve-address-uint256-[`ERC20Pausable.approve`]]
+:ERC20Pausable-increaseAllowance: pass:normal[xref:token/ERC20.adoc#ERC20Pausable-increaseAllowance-address-uint256-[`ERC20Pausable.increaseAllowance`]]
+:ERC20Pausable-decreaseAllowance: pass:normal[xref:token/ERC20.adoc#ERC20Pausable-decreaseAllowance-address-uint256-[`ERC20Pausable.decreaseAllowance`]]
+:Pausable-constructor: pass:normal[xref:token/ERC20.adoc#Pausable-constructor--[`Pausable.constructor`]]
+:Pausable-paused: pass:normal[xref:token/ERC20.adoc#Pausable-paused--[`Pausable.paused`]]
+:Pausable-pause: pass:normal[xref:token/ERC20.adoc#Pausable-pause--[`Pausable.pause`]]
+:Pausable-unpause: pass:normal[xref:token/ERC20.adoc#Pausable-unpause--[`Pausable.unpause`]]
+:PauserRole-isPauser: pass:normal[xref:token/ERC20.adoc#PauserRole-isPauser-address-[`PauserRole.isPauser`]]
+:PauserRole-addPauser: pass:normal[xref:token/ERC20.adoc#PauserRole-addPauser-address-[`PauserRole.addPauser`]]
+:PauserRole-renouncePauser: pass:normal[xref:token/ERC20.adoc#PauserRole-renouncePauser--[`PauserRole.renouncePauser`]]
+:PauserRole-_addPauser: pass:normal[xref:token/ERC20.adoc#PauserRole-_addPauser-address-[`PauserRole._addPauser`]]
+:PauserRole-_removePauser: pass:normal[xref:token/ERC20.adoc#PauserRole-_removePauser-address-[`PauserRole._removePauser`]]
+:ERC20-totalSupply: pass:normal[xref:token/ERC20.adoc#ERC20-totalSupply--[`ERC20.totalSupply`]]
+:ERC20-balanceOf: pass:normal[xref:token/ERC20.adoc#ERC20-balanceOf-address-[`ERC20.balanceOf`]]
+:ERC20-allowance: pass:normal[xref:token/ERC20.adoc#ERC20-allowance-address-address-[`ERC20.allowance`]]
+:ERC20-_transfer: pass:normal[xref:token/ERC20.adoc#ERC20-_transfer-address-address-uint256-[`ERC20._transfer`]]
+:ERC20-_mint: pass:normal[xref:token/ERC20.adoc#ERC20-_mint-address-uint256-[`ERC20._mint`]]
+:ERC20-_burn: pass:normal[xref:token/ERC20.adoc#ERC20-_burn-address-uint256-[`ERC20._burn`]]
+:ERC20-_approve: pass:normal[xref:token/ERC20.adoc#ERC20-_approve-address-address-uint256-[`ERC20._approve`]]
+:ERC20-_burnFrom: pass:normal[xref:token/ERC20.adoc#ERC20-_burnFrom-address-uint256-[`ERC20._burnFrom`]]
+:Pausable-Paused: pass:normal[xref:token/ERC20.adoc#Pausable-Paused-address-[`Pausable.Paused`]]
+:Pausable-Unpaused: pass:normal[xref:token/ERC20.adoc#Pausable-Unpaused-address-[`Pausable.Unpaused`]]
+:PauserRole-PauserAdded: pass:normal[xref:token/ERC20.adoc#PauserRole-PauserAdded-address-[`PauserRole.PauserAdded`]]
+:PauserRole-PauserRemoved: pass:normal[xref:token/ERC20.adoc#PauserRole-PauserRemoved-address-[`PauserRole.PauserRemoved`]]
+:IERC20-Transfer: pass:normal[xref:token/ERC20.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
+:IERC20-Approval: pass:normal[xref:token/ERC20.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
+:IERC20: pass:normal[xref:token/ERC20.adoc#IERC20[`IERC20`]]
+:IERC20-totalSupply: pass:normal[xref:token/ERC20.adoc#IERC20-totalSupply--[`IERC20.totalSupply`]]
+:IERC20-balanceOf: pass:normal[xref:token/ERC20.adoc#IERC20-balanceOf-address-[`IERC20.balanceOf`]]
+:IERC20-transfer: pass:normal[xref:token/ERC20.adoc#IERC20-transfer-address-uint256-[`IERC20.transfer`]]
+:IERC20-allowance: pass:normal[xref:token/ERC20.adoc#IERC20-allowance-address-address-[`IERC20.allowance`]]
+:IERC20-approve: pass:normal[xref:token/ERC20.adoc#IERC20-approve-address-uint256-[`IERC20.approve`]]
+:IERC20-transferFrom: pass:normal[xref:token/ERC20.adoc#IERC20-transferFrom-address-address-uint256-[`IERC20.transferFrom`]]
+:IERC20-Transfer: pass:normal[xref:token/ERC20.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
+:IERC20-Approval: pass:normal[xref:token/ERC20.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
+:SafeERC20: pass:normal[xref:token/ERC20.adoc#SafeERC20[`SafeERC20`]]
+:SafeERC20-safeTransfer: pass:normal[xref:token/ERC20.adoc#SafeERC20-safeTransfer-contract-IERC20-address-uint256-[`SafeERC20.safeTransfer`]]
+:SafeERC20-safeTransferFrom: pass:normal[xref:token/ERC20.adoc#SafeERC20-safeTransferFrom-contract-IERC20-address-address-uint256-[`SafeERC20.safeTransferFrom`]]
+:SafeERC20-safeApprove: pass:normal[xref:token/ERC20.adoc#SafeERC20-safeApprove-contract-IERC20-address-uint256-[`SafeERC20.safeApprove`]]
+:SafeERC20-safeIncreaseAllowance: pass:normal[xref:token/ERC20.adoc#SafeERC20-safeIncreaseAllowance-contract-IERC20-address-uint256-[`SafeERC20.safeIncreaseAllowance`]]
+:SafeERC20-safeDecreaseAllowance: pass:normal[xref:token/ERC20.adoc#SafeERC20-safeDecreaseAllowance-contract-IERC20-address-uint256-[`SafeERC20.safeDecreaseAllowance`]]
+:TokenTimelock: pass:normal[xref:token/ERC20.adoc#TokenTimelock[`TokenTimelock`]]
+:TokenTimelock-constructor: pass:normal[xref:token/ERC20.adoc#TokenTimelock-constructor-contract-IERC20-address-uint256-[`TokenTimelock.constructor`]]
+:TokenTimelock-token: pass:normal[xref:token/ERC20.adoc#TokenTimelock-token--[`TokenTimelock.token`]]
+:TokenTimelock-beneficiary: pass:normal[xref:token/ERC20.adoc#TokenTimelock-beneficiary--[`TokenTimelock.beneficiary`]]
+:TokenTimelock-releaseTime: pass:normal[xref:token/ERC20.adoc#TokenTimelock-releaseTime--[`TokenTimelock.releaseTime`]]
+:TokenTimelock-release: pass:normal[xref:token/ERC20.adoc#TokenTimelock-release--[`TokenTimelock.release`]]
+:ERC721: pass:normal[xref:token/ERC721.adoc#ERC721[`ERC721`]]
+:ERC721-constructor: pass:normal[xref:token/ERC721.adoc#ERC721-constructor--[`ERC721.constructor`]]
+:ERC721-balanceOf: pass:normal[xref:token/ERC721.adoc#ERC721-balanceOf-address-[`ERC721.balanceOf`]]
+:ERC721-ownerOf: pass:normal[xref:token/ERC721.adoc#ERC721-ownerOf-uint256-[`ERC721.ownerOf`]]
+:ERC721-approve: pass:normal[xref:token/ERC721.adoc#ERC721-approve-address-uint256-[`ERC721.approve`]]
+:ERC721-getApproved: pass:normal[xref:token/ERC721.adoc#ERC721-getApproved-uint256-[`ERC721.getApproved`]]
+:ERC721-setApprovalForAll: pass:normal[xref:token/ERC721.adoc#ERC721-setApprovalForAll-address-bool-[`ERC721.setApprovalForAll`]]
+:ERC721-isApprovedForAll: pass:normal[xref:token/ERC721.adoc#ERC721-isApprovedForAll-address-address-[`ERC721.isApprovedForAll`]]
+:ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
+:ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_mint: pass:normal[xref:token/ERC721.adoc#ERC721-_mint-address-uint256-[`ERC721._mint`]]
+:ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-address-uint256-[`ERC721._burn`]]
+:ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
+:ERC721-_transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_transferFrom-address-address-uint256-[`ERC721._transferFrom`]]
+:ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
+:ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
+:ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
+:IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
+:IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
+:ERC721Burnable: pass:normal[xref:token/ERC721.adoc#ERC721Burnable[`ERC721Burnable`]]
+:ERC721Burnable-burn: pass:normal[xref:token/ERC721.adoc#ERC721Burnable-burn-uint256-[`ERC721Burnable.burn`]]
+:ERC721-constructor: pass:normal[xref:token/ERC721.adoc#ERC721-constructor--[`ERC721.constructor`]]
+:ERC721-balanceOf: pass:normal[xref:token/ERC721.adoc#ERC721-balanceOf-address-[`ERC721.balanceOf`]]
+:ERC721-ownerOf: pass:normal[xref:token/ERC721.adoc#ERC721-ownerOf-uint256-[`ERC721.ownerOf`]]
+:ERC721-approve: pass:normal[xref:token/ERC721.adoc#ERC721-approve-address-uint256-[`ERC721.approve`]]
+:ERC721-getApproved: pass:normal[xref:token/ERC721.adoc#ERC721-getApproved-uint256-[`ERC721.getApproved`]]
+:ERC721-setApprovalForAll: pass:normal[xref:token/ERC721.adoc#ERC721-setApprovalForAll-address-bool-[`ERC721.setApprovalForAll`]]
+:ERC721-isApprovedForAll: pass:normal[xref:token/ERC721.adoc#ERC721-isApprovedForAll-address-address-[`ERC721.isApprovedForAll`]]
+:ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
+:ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_mint: pass:normal[xref:token/ERC721.adoc#ERC721-_mint-address-uint256-[`ERC721._mint`]]
+:ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-address-uint256-[`ERC721._burn`]]
+:ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
+:ERC721-_transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_transferFrom-address-address-uint256-[`ERC721._transferFrom`]]
+:ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
+:ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
+:ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
+:IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
+:IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
+:ERC721Enumerable: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable[`ERC721Enumerable`]]
+:ERC721Enumerable-constructor: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-constructor--[`ERC721Enumerable.constructor`]]
+:ERC721Enumerable-tokenOfOwnerByIndex: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-tokenOfOwnerByIndex-address-uint256-[`ERC721Enumerable.tokenOfOwnerByIndex`]]
+:ERC721Enumerable-totalSupply: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-totalSupply--[`ERC721Enumerable.totalSupply`]]
+:ERC721Enumerable-tokenByIndex: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-tokenByIndex-uint256-[`ERC721Enumerable.tokenByIndex`]]
+:ERC721Enumerable-_transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-_transferFrom-address-address-uint256-[`ERC721Enumerable._transferFrom`]]
+:ERC721Enumerable-_mint: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-_mint-address-uint256-[`ERC721Enumerable._mint`]]
+:ERC721Enumerable-_burn: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-_burn-address-uint256-[`ERC721Enumerable._burn`]]
+:ERC721Enumerable-_tokensOfOwner: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-_tokensOfOwner-address-[`ERC721Enumerable._tokensOfOwner`]]
+:ERC721-balanceOf: pass:normal[xref:token/ERC721.adoc#ERC721-balanceOf-address-[`ERC721.balanceOf`]]
+:ERC721-ownerOf: pass:normal[xref:token/ERC721.adoc#ERC721-ownerOf-uint256-[`ERC721.ownerOf`]]
+:ERC721-approve: pass:normal[xref:token/ERC721.adoc#ERC721-approve-address-uint256-[`ERC721.approve`]]
+:ERC721-getApproved: pass:normal[xref:token/ERC721.adoc#ERC721-getApproved-uint256-[`ERC721.getApproved`]]
+:ERC721-setApprovalForAll: pass:normal[xref:token/ERC721.adoc#ERC721-setApprovalForAll-address-bool-[`ERC721.setApprovalForAll`]]
+:ERC721-isApprovedForAll: pass:normal[xref:token/ERC721.adoc#ERC721-isApprovedForAll-address-address-[`ERC721.isApprovedForAll`]]
+:ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
+:ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
+:ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
+:ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
+:ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
+:IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
+:IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
+:ERC721Full: pass:normal[xref:token/ERC721.adoc#ERC721Full[`ERC721Full`]]
+:ERC721Full-constructor: pass:normal[xref:token/ERC721.adoc#ERC721Full-constructor-string-string-[`ERC721Full.constructor`]]
+:ERC721Metadata-name: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-name--[`ERC721Metadata.name`]]
+:ERC721Metadata-symbol: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-symbol--[`ERC721Metadata.symbol`]]
+:ERC721Metadata-tokenURI: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-tokenURI-uint256-[`ERC721Metadata.tokenURI`]]
+:ERC721Metadata-_setTokenURI: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-_setTokenURI-uint256-string-[`ERC721Metadata._setTokenURI`]]
+:ERC721Metadata-_burn: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-_burn-address-uint256-[`ERC721Metadata._burn`]]
+:ERC721Enumerable-constructor: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-constructor--[`ERC721Enumerable.constructor`]]
+:ERC721Enumerable-tokenOfOwnerByIndex: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-tokenOfOwnerByIndex-address-uint256-[`ERC721Enumerable.tokenOfOwnerByIndex`]]
+:ERC721Enumerable-totalSupply: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-totalSupply--[`ERC721Enumerable.totalSupply`]]
+:ERC721Enumerable-tokenByIndex: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-tokenByIndex-uint256-[`ERC721Enumerable.tokenByIndex`]]
+:ERC721Enumerable-_transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-_transferFrom-address-address-uint256-[`ERC721Enumerable._transferFrom`]]
+:ERC721Enumerable-_mint: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-_mint-address-uint256-[`ERC721Enumerable._mint`]]
+:ERC721Enumerable-_tokensOfOwner: pass:normal[xref:token/ERC721.adoc#ERC721Enumerable-_tokensOfOwner-address-[`ERC721Enumerable._tokensOfOwner`]]
+:ERC721-balanceOf: pass:normal[xref:token/ERC721.adoc#ERC721-balanceOf-address-[`ERC721.balanceOf`]]
+:ERC721-ownerOf: pass:normal[xref:token/ERC721.adoc#ERC721-ownerOf-uint256-[`ERC721.ownerOf`]]
+:ERC721-approve: pass:normal[xref:token/ERC721.adoc#ERC721-approve-address-uint256-[`ERC721.approve`]]
+:ERC721-getApproved: pass:normal[xref:token/ERC721.adoc#ERC721-getApproved-uint256-[`ERC721.getApproved`]]
+:ERC721-setApprovalForAll: pass:normal[xref:token/ERC721.adoc#ERC721-setApprovalForAll-address-bool-[`ERC721.setApprovalForAll`]]
+:ERC721-isApprovedForAll: pass:normal[xref:token/ERC721.adoc#ERC721-isApprovedForAll-address-address-[`ERC721.isApprovedForAll`]]
+:ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
+:ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
+:ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
+:ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
+:ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
+:IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
+:IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
+:ERC721Holder: pass:normal[xref:token/ERC721.adoc#ERC721Holder[`ERC721Holder`]]
+:ERC721Holder-onERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721Holder-onERC721Received-address-address-uint256-bytes-[`ERC721Holder.onERC721Received`]]
+:ERC721Metadata: pass:normal[xref:token/ERC721.adoc#ERC721Metadata[`ERC721Metadata`]]
+:ERC721Metadata-constructor: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-constructor-string-string-[`ERC721Metadata.constructor`]]
+:ERC721Metadata-name: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-name--[`ERC721Metadata.name`]]
+:ERC721Metadata-symbol: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-symbol--[`ERC721Metadata.symbol`]]
+:ERC721Metadata-tokenURI: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-tokenURI-uint256-[`ERC721Metadata.tokenURI`]]
+:ERC721Metadata-_setTokenURI: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-_setTokenURI-uint256-string-[`ERC721Metadata._setTokenURI`]]
+:ERC721Metadata-_burn: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-_burn-address-uint256-[`ERC721Metadata._burn`]]
+:ERC721-constructor: pass:normal[xref:token/ERC721.adoc#ERC721-constructor--[`ERC721.constructor`]]
+:ERC721-balanceOf: pass:normal[xref:token/ERC721.adoc#ERC721-balanceOf-address-[`ERC721.balanceOf`]]
+:ERC721-ownerOf: pass:normal[xref:token/ERC721.adoc#ERC721-ownerOf-uint256-[`ERC721.ownerOf`]]
+:ERC721-approve: pass:normal[xref:token/ERC721.adoc#ERC721-approve-address-uint256-[`ERC721.approve`]]
+:ERC721-getApproved: pass:normal[xref:token/ERC721.adoc#ERC721-getApproved-uint256-[`ERC721.getApproved`]]
+:ERC721-setApprovalForAll: pass:normal[xref:token/ERC721.adoc#ERC721-setApprovalForAll-address-bool-[`ERC721.setApprovalForAll`]]
+:ERC721-isApprovedForAll: pass:normal[xref:token/ERC721.adoc#ERC721-isApprovedForAll-address-address-[`ERC721.isApprovedForAll`]]
+:ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
+:ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_mint: pass:normal[xref:token/ERC721.adoc#ERC721-_mint-address-uint256-[`ERC721._mint`]]
+:ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
+:ERC721-_transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_transferFrom-address-address-uint256-[`ERC721._transferFrom`]]
+:ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
+:ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
+:ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
+:IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
+:IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
+:ERC721MetadataMintable: pass:normal[xref:token/ERC721.adoc#ERC721MetadataMintable[`ERC721MetadataMintable`]]
+:MinterRole-onlyMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-onlyMinter--[`MinterRole.onlyMinter`]]
+:ERC721MetadataMintable-mintWithTokenURI: pass:normal[xref:token/ERC721.adoc#ERC721MetadataMintable-mintWithTokenURI-address-uint256-string-[`ERC721MetadataMintable.mintWithTokenURI`]]
+:MinterRole-constructor: pass:normal[xref:token/ERC721.adoc#MinterRole-constructor--[`MinterRole.constructor`]]
+:MinterRole-isMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-isMinter-address-[`MinterRole.isMinter`]]
+:MinterRole-addMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-addMinter-address-[`MinterRole.addMinter`]]
+:MinterRole-renounceMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-renounceMinter--[`MinterRole.renounceMinter`]]
+:MinterRole-_addMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-_addMinter-address-[`MinterRole._addMinter`]]
+:MinterRole-_removeMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-_removeMinter-address-[`MinterRole._removeMinter`]]
+:ERC721Metadata-constructor: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-constructor-string-string-[`ERC721Metadata.constructor`]]
+:ERC721Metadata-name: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-name--[`ERC721Metadata.name`]]
+:ERC721Metadata-symbol: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-symbol--[`ERC721Metadata.symbol`]]
+:ERC721Metadata-tokenURI: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-tokenURI-uint256-[`ERC721Metadata.tokenURI`]]
+:ERC721Metadata-_setTokenURI: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-_setTokenURI-uint256-string-[`ERC721Metadata._setTokenURI`]]
+:ERC721Metadata-_burn: pass:normal[xref:token/ERC721.adoc#ERC721Metadata-_burn-address-uint256-[`ERC721Metadata._burn`]]
+:ERC721-balanceOf: pass:normal[xref:token/ERC721.adoc#ERC721-balanceOf-address-[`ERC721.balanceOf`]]
+:ERC721-ownerOf: pass:normal[xref:token/ERC721.adoc#ERC721-ownerOf-uint256-[`ERC721.ownerOf`]]
+:ERC721-approve: pass:normal[xref:token/ERC721.adoc#ERC721-approve-address-uint256-[`ERC721.approve`]]
+:ERC721-getApproved: pass:normal[xref:token/ERC721.adoc#ERC721-getApproved-uint256-[`ERC721.getApproved`]]
+:ERC721-setApprovalForAll: pass:normal[xref:token/ERC721.adoc#ERC721-setApprovalForAll-address-bool-[`ERC721.setApprovalForAll`]]
+:ERC721-isApprovedForAll: pass:normal[xref:token/ERC721.adoc#ERC721-isApprovedForAll-address-address-[`ERC721.isApprovedForAll`]]
+:ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
+:ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_mint: pass:normal[xref:token/ERC721.adoc#ERC721-_mint-address-uint256-[`ERC721._mint`]]
+:ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
+:ERC721-_transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_transferFrom-address-address-uint256-[`ERC721._transferFrom`]]
+:ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
+:ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
+:ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:MinterRole-MinterAdded: pass:normal[xref:token/ERC721.adoc#MinterRole-MinterAdded-address-[`MinterRole.MinterAdded`]]
+:MinterRole-MinterRemoved: pass:normal[xref:token/ERC721.adoc#MinterRole-MinterRemoved-address-[`MinterRole.MinterRemoved`]]
+:IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
+:IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
+:IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
+:ERC721Mintable: pass:normal[xref:token/ERC721.adoc#ERC721Mintable[`ERC721Mintable`]]
+:MinterRole-onlyMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-onlyMinter--[`MinterRole.onlyMinter`]]
+:ERC721Mintable-mint: pass:normal[xref:token/ERC721.adoc#ERC721Mintable-mint-address-uint256-[`ERC721Mintable.mint`]]
+:MinterRole-constructor: pass:normal[xref:token/ERC721.adoc#MinterRole-constructor--[`MinterRole.constructor`]]
+:MinterRole-isMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-isMinter-address-[`MinterRole.isMinter`]]
+:MinterRole-addMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-addMinter-address-[`MinterRole.addMinter`]]
+:MinterRole-renounceMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-renounceMinter--[`MinterRole.renounceMinter`]]
+:MinterRole-_addMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-_addMinter-address-[`MinterRole._addMinter`]]
+:MinterRole-_removeMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-_removeMinter-address-[`MinterRole._removeMinter`]]
+:ERC721-balanceOf: pass:normal[xref:token/ERC721.adoc#ERC721-balanceOf-address-[`ERC721.balanceOf`]]
+:ERC721-ownerOf: pass:normal[xref:token/ERC721.adoc#ERC721-ownerOf-uint256-[`ERC721.ownerOf`]]
+:ERC721-approve: pass:normal[xref:token/ERC721.adoc#ERC721-approve-address-uint256-[`ERC721.approve`]]
+:ERC721-getApproved: pass:normal[xref:token/ERC721.adoc#ERC721-getApproved-uint256-[`ERC721.getApproved`]]
+:ERC721-setApprovalForAll: pass:normal[xref:token/ERC721.adoc#ERC721-setApprovalForAll-address-bool-[`ERC721.setApprovalForAll`]]
+:ERC721-isApprovedForAll: pass:normal[xref:token/ERC721.adoc#ERC721-isApprovedForAll-address-address-[`ERC721.isApprovedForAll`]]
+:ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
+:ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_mint: pass:normal[xref:token/ERC721.adoc#ERC721-_mint-address-uint256-[`ERC721._mint`]]
+:ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-address-uint256-[`ERC721._burn`]]
+:ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
+:ERC721-_transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_transferFrom-address-address-uint256-[`ERC721._transferFrom`]]
+:ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
+:ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
+:ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:MinterRole-MinterAdded: pass:normal[xref:token/ERC721.adoc#MinterRole-MinterAdded-address-[`MinterRole.MinterAdded`]]
+:MinterRole-MinterRemoved: pass:normal[xref:token/ERC721.adoc#MinterRole-MinterRemoved-address-[`MinterRole.MinterRemoved`]]
+:IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
+:IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
+:IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
+:ERC721Pausable: pass:normal[xref:token/ERC721.adoc#ERC721Pausable[`ERC721Pausable`]]
+:Pausable-whenNotPaused: pass:normal[xref:token/ERC721.adoc#Pausable-whenNotPaused--[`Pausable.whenNotPaused`]]
+:Pausable-whenPaused: pass:normal[xref:token/ERC721.adoc#Pausable-whenPaused--[`Pausable.whenPaused`]]
+:PauserRole-onlyPauser: pass:normal[xref:token/ERC721.adoc#PauserRole-onlyPauser--[`PauserRole.onlyPauser`]]
+:ERC721Pausable-approve: pass:normal[xref:token/ERC721.adoc#ERC721Pausable-approve-address-uint256-[`ERC721Pausable.approve`]]
+:ERC721Pausable-setApprovalForAll: pass:normal[xref:token/ERC721.adoc#ERC721Pausable-setApprovalForAll-address-bool-[`ERC721Pausable.setApprovalForAll`]]
+:ERC721Pausable-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721Pausable-transferFrom-address-address-uint256-[`ERC721Pausable.transferFrom`]]
+:Pausable-constructor: pass:normal[xref:token/ERC721.adoc#Pausable-constructor--[`Pausable.constructor`]]
+:Pausable-paused: pass:normal[xref:token/ERC721.adoc#Pausable-paused--[`Pausable.paused`]]
+:Pausable-pause: pass:normal[xref:token/ERC721.adoc#Pausable-pause--[`Pausable.pause`]]
+:Pausable-unpause: pass:normal[xref:token/ERC721.adoc#Pausable-unpause--[`Pausable.unpause`]]
+:PauserRole-isPauser: pass:normal[xref:token/ERC721.adoc#PauserRole-isPauser-address-[`PauserRole.isPauser`]]
+:PauserRole-addPauser: pass:normal[xref:token/ERC721.adoc#PauserRole-addPauser-address-[`PauserRole.addPauser`]]
+:PauserRole-renouncePauser: pass:normal[xref:token/ERC721.adoc#PauserRole-renouncePauser--[`PauserRole.renouncePauser`]]
+:PauserRole-_addPauser: pass:normal[xref:token/ERC721.adoc#PauserRole-_addPauser-address-[`PauserRole._addPauser`]]
+:PauserRole-_removePauser: pass:normal[xref:token/ERC721.adoc#PauserRole-_removePauser-address-[`PauserRole._removePauser`]]
+:ERC721-balanceOf: pass:normal[xref:token/ERC721.adoc#ERC721-balanceOf-address-[`ERC721.balanceOf`]]
+:ERC721-ownerOf: pass:normal[xref:token/ERC721.adoc#ERC721-ownerOf-uint256-[`ERC721.ownerOf`]]
+:ERC721-getApproved: pass:normal[xref:token/ERC721.adoc#ERC721-getApproved-uint256-[`ERC721.getApproved`]]
+:ERC721-isApprovedForAll: pass:normal[xref:token/ERC721.adoc#ERC721-isApprovedForAll-address-address-[`ERC721.isApprovedForAll`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
+:ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
+:ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_mint: pass:normal[xref:token/ERC721.adoc#ERC721-_mint-address-uint256-[`ERC721._mint`]]
+:ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-address-uint256-[`ERC721._burn`]]
+:ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
+:ERC721-_transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_transferFrom-address-address-uint256-[`ERC721._transferFrom`]]
+:ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
+:ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
+:ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:Pausable-Paused: pass:normal[xref:token/ERC721.adoc#Pausable-Paused-address-[`Pausable.Paused`]]
+:Pausable-Unpaused: pass:normal[xref:token/ERC721.adoc#Pausable-Unpaused-address-[`Pausable.Unpaused`]]
+:PauserRole-PauserAdded: pass:normal[xref:token/ERC721.adoc#PauserRole-PauserAdded-address-[`PauserRole.PauserAdded`]]
+:PauserRole-PauserRemoved: pass:normal[xref:token/ERC721.adoc#PauserRole-PauserRemoved-address-[`PauserRole.PauserRemoved`]]
+:IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
+:IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
+:IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
+:IERC721: pass:normal[xref:token/ERC721.adoc#IERC721[`IERC721`]]
+:IERC721-balanceOf: pass:normal[xref:token/ERC721.adoc#IERC721-balanceOf-address-[`IERC721.balanceOf`]]
+:IERC721-ownerOf: pass:normal[xref:token/ERC721.adoc#IERC721-ownerOf-uint256-[`IERC721.ownerOf`]]
+:IERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#IERC721-safeTransferFrom-address-address-uint256-[`IERC721.safeTransferFrom`]]
+:IERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#IERC721-transferFrom-address-address-uint256-[`IERC721.transferFrom`]]
+:IERC721-approve: pass:normal[xref:token/ERC721.adoc#IERC721-approve-address-uint256-[`IERC721.approve`]]
+:IERC721-getApproved: pass:normal[xref:token/ERC721.adoc#IERC721-getApproved-uint256-[`IERC721.getApproved`]]
+:IERC721-setApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-setApprovalForAll-address-bool-[`IERC721.setApprovalForAll`]]
+:IERC721-isApprovedForAll: pass:normal[xref:token/ERC721.adoc#IERC721-isApprovedForAll-address-address-[`IERC721.isApprovedForAll`]]
+:IERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#IERC721-safeTransferFrom-address-address-uint256-bytes-[`IERC721.safeTransferFrom`]]
+:IERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#IERC165-supportsInterface-bytes4-[`IERC165.supportsInterface`]]
+:IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
+:IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
+:IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
+:IERC721Enumerable: pass:normal[xref:token/ERC721.adoc#IERC721Enumerable[`IERC721Enumerable`]]
+:IERC721Enumerable-totalSupply: pass:normal[xref:token/ERC721.adoc#IERC721Enumerable-totalSupply--[`IERC721Enumerable.totalSupply`]]
+:IERC721Enumerable-tokenOfOwnerByIndex: pass:normal[xref:token/ERC721.adoc#IERC721Enumerable-tokenOfOwnerByIndex-address-uint256-[`IERC721Enumerable.tokenOfOwnerByIndex`]]
+:IERC721Enumerable-tokenByIndex: pass:normal[xref:token/ERC721.adoc#IERC721Enumerable-tokenByIndex-uint256-[`IERC721Enumerable.tokenByIndex`]]
+:IERC721-balanceOf: pass:normal[xref:token/ERC721.adoc#IERC721-balanceOf-address-[`IERC721.balanceOf`]]
+:IERC721-ownerOf: pass:normal[xref:token/ERC721.adoc#IERC721-ownerOf-uint256-[`IERC721.ownerOf`]]
+:IERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#IERC721-safeTransferFrom-address-address-uint256-[`IERC721.safeTransferFrom`]]
+:IERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#IERC721-transferFrom-address-address-uint256-[`IERC721.transferFrom`]]
+:IERC721-approve: pass:normal[xref:token/ERC721.adoc#IERC721-approve-address-uint256-[`IERC721.approve`]]
+:IERC721-getApproved: pass:normal[xref:token/ERC721.adoc#IERC721-getApproved-uint256-[`IERC721.getApproved`]]
+:IERC721-setApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-setApprovalForAll-address-bool-[`IERC721.setApprovalForAll`]]
+:IERC721-isApprovedForAll: pass:normal[xref:token/ERC721.adoc#IERC721-isApprovedForAll-address-address-[`IERC721.isApprovedForAll`]]
+:IERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#IERC721-safeTransferFrom-address-address-uint256-bytes-[`IERC721.safeTransferFrom`]]
+:IERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#IERC165-supportsInterface-bytes4-[`IERC165.supportsInterface`]]
+:IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
+:IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
+:IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
+:IERC721Full: pass:normal[xref:token/ERC721.adoc#IERC721Full[`IERC721Full`]]
+:IERC721Metadata-name: pass:normal[xref:token/ERC721.adoc#IERC721Metadata-name--[`IERC721Metadata.name`]]
+:IERC721Metadata-symbol: pass:normal[xref:token/ERC721.adoc#IERC721Metadata-symbol--[`IERC721Metadata.symbol`]]
+:IERC721Metadata-tokenURI: pass:normal[xref:token/ERC721.adoc#IERC721Metadata-tokenURI-uint256-[`IERC721Metadata.tokenURI`]]
+:IERC721Enumerable-totalSupply: pass:normal[xref:token/ERC721.adoc#IERC721Enumerable-totalSupply--[`IERC721Enumerable.totalSupply`]]
+:IERC721Enumerable-tokenOfOwnerByIndex: pass:normal[xref:token/ERC721.adoc#IERC721Enumerable-tokenOfOwnerByIndex-address-uint256-[`IERC721Enumerable.tokenOfOwnerByIndex`]]
+:IERC721Enumerable-tokenByIndex: pass:normal[xref:token/ERC721.adoc#IERC721Enumerable-tokenByIndex-uint256-[`IERC721Enumerable.tokenByIndex`]]
+:IERC721-balanceOf: pass:normal[xref:token/ERC721.adoc#IERC721-balanceOf-address-[`IERC721.balanceOf`]]
+:IERC721-ownerOf: pass:normal[xref:token/ERC721.adoc#IERC721-ownerOf-uint256-[`IERC721.ownerOf`]]
+:IERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#IERC721-safeTransferFrom-address-address-uint256-[`IERC721.safeTransferFrom`]]
+:IERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#IERC721-transferFrom-address-address-uint256-[`IERC721.transferFrom`]]
+:IERC721-approve: pass:normal[xref:token/ERC721.adoc#IERC721-approve-address-uint256-[`IERC721.approve`]]
+:IERC721-getApproved: pass:normal[xref:token/ERC721.adoc#IERC721-getApproved-uint256-[`IERC721.getApproved`]]
+:IERC721-setApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-setApprovalForAll-address-bool-[`IERC721.setApprovalForAll`]]
+:IERC721-isApprovedForAll: pass:normal[xref:token/ERC721.adoc#IERC721-isApprovedForAll-address-address-[`IERC721.isApprovedForAll`]]
+:IERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#IERC721-safeTransferFrom-address-address-uint256-bytes-[`IERC721.safeTransferFrom`]]
+:IERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#IERC165-supportsInterface-bytes4-[`IERC165.supportsInterface`]]
+:IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
+:IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
+:IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
+:IERC721Metadata: pass:normal[xref:token/ERC721.adoc#IERC721Metadata[`IERC721Metadata`]]
+:IERC721Metadata-name: pass:normal[xref:token/ERC721.adoc#IERC721Metadata-name--[`IERC721Metadata.name`]]
+:IERC721Metadata-symbol: pass:normal[xref:token/ERC721.adoc#IERC721Metadata-symbol--[`IERC721Metadata.symbol`]]
+:IERC721Metadata-tokenURI: pass:normal[xref:token/ERC721.adoc#IERC721Metadata-tokenURI-uint256-[`IERC721Metadata.tokenURI`]]
+:IERC721-balanceOf: pass:normal[xref:token/ERC721.adoc#IERC721-balanceOf-address-[`IERC721.balanceOf`]]
+:IERC721-ownerOf: pass:normal[xref:token/ERC721.adoc#IERC721-ownerOf-uint256-[`IERC721.ownerOf`]]
+:IERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#IERC721-safeTransferFrom-address-address-uint256-[`IERC721.safeTransferFrom`]]
+:IERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#IERC721-transferFrom-address-address-uint256-[`IERC721.transferFrom`]]
+:IERC721-approve: pass:normal[xref:token/ERC721.adoc#IERC721-approve-address-uint256-[`IERC721.approve`]]
+:IERC721-getApproved: pass:normal[xref:token/ERC721.adoc#IERC721-getApproved-uint256-[`IERC721.getApproved`]]
+:IERC721-setApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-setApprovalForAll-address-bool-[`IERC721.setApprovalForAll`]]
+:IERC721-isApprovedForAll: pass:normal[xref:token/ERC721.adoc#IERC721-isApprovedForAll-address-address-[`IERC721.isApprovedForAll`]]
+:IERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#IERC721-safeTransferFrom-address-address-uint256-bytes-[`IERC721.safeTransferFrom`]]
+:IERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#IERC165-supportsInterface-bytes4-[`IERC165.supportsInterface`]]
+:IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
+:IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
+:IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
+:IERC721Receiver: pass:normal[xref:token/ERC721.adoc#IERC721Receiver[`IERC721Receiver`]]
+:IERC721Receiver-onERC721Received: pass:normal[xref:token/ERC721.adoc#IERC721Receiver-onERC721Received-address-address-uint256-bytes-[`IERC721Receiver.onERC721Received`]]
+:ERC777: pass:normal[xref:token/ERC777.adoc#ERC777[`ERC777`]]
+:ERC777-constructor: pass:normal[xref:token/ERC777.adoc#ERC777-constructor-string-string-address---[`ERC777.constructor`]]
+:ERC777-name: pass:normal[xref:token/ERC777.adoc#ERC777-name--[`ERC777.name`]]
+:ERC777-symbol: pass:normal[xref:token/ERC777.adoc#ERC777-symbol--[`ERC777.symbol`]]
+:ERC777-decimals: pass:normal[xref:token/ERC777.adoc#ERC777-decimals--[`ERC777.decimals`]]
+:ERC777-granularity: pass:normal[xref:token/ERC777.adoc#ERC777-granularity--[`ERC777.granularity`]]
+:ERC777-totalSupply: pass:normal[xref:token/ERC777.adoc#ERC777-totalSupply--[`ERC777.totalSupply`]]
+:ERC777-balanceOf: pass:normal[xref:token/ERC777.adoc#ERC777-balanceOf-address-[`ERC777.balanceOf`]]
+:ERC777-send: pass:normal[xref:token/ERC777.adoc#ERC777-send-address-uint256-bytes-[`ERC777.send`]]
+:ERC777-transfer: pass:normal[xref:token/ERC777.adoc#ERC777-transfer-address-uint256-[`ERC777.transfer`]]
+:ERC777-burn: pass:normal[xref:token/ERC777.adoc#ERC777-burn-uint256-bytes-[`ERC777.burn`]]
+:ERC777-isOperatorFor: pass:normal[xref:token/ERC777.adoc#ERC777-isOperatorFor-address-address-[`ERC777.isOperatorFor`]]
+:ERC777-authorizeOperator: pass:normal[xref:token/ERC777.adoc#ERC777-authorizeOperator-address-[`ERC777.authorizeOperator`]]
+:ERC777-revokeOperator: pass:normal[xref:token/ERC777.adoc#ERC777-revokeOperator-address-[`ERC777.revokeOperator`]]
+:ERC777-defaultOperators: pass:normal[xref:token/ERC777.adoc#ERC777-defaultOperators--[`ERC777.defaultOperators`]]
+:ERC777-operatorSend: pass:normal[xref:token/ERC777.adoc#ERC777-operatorSend-address-address-uint256-bytes-bytes-[`ERC777.operatorSend`]]
+:ERC777-operatorBurn: pass:normal[xref:token/ERC777.adoc#ERC777-operatorBurn-address-uint256-bytes-bytes-[`ERC777.operatorBurn`]]
+:ERC777-allowance: pass:normal[xref:token/ERC777.adoc#ERC777-allowance-address-address-[`ERC777.allowance`]]
+:ERC777-approve: pass:normal[xref:token/ERC777.adoc#ERC777-approve-address-uint256-[`ERC777.approve`]]
+:ERC777-transferFrom: pass:normal[xref:token/ERC777.adoc#ERC777-transferFrom-address-address-uint256-[`ERC777.transferFrom`]]
+:ERC777-_mint: pass:normal[xref:token/ERC777.adoc#ERC777-_mint-address-address-uint256-bytes-bytes-[`ERC777._mint`]]
+:IERC20-Transfer: pass:normal[xref:token/ERC777.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
+:IERC20-Approval: pass:normal[xref:token/ERC777.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
+:IERC777-Sent: pass:normal[xref:token/ERC777.adoc#IERC777-Sent-address-address-address-uint256-bytes-bytes-[`IERC777.Sent`]]
+:IERC777-Minted: pass:normal[xref:token/ERC777.adoc#IERC777-Minted-address-address-uint256-bytes-bytes-[`IERC777.Minted`]]
+:IERC777-Burned: pass:normal[xref:token/ERC777.adoc#IERC777-Burned-address-address-uint256-bytes-bytes-[`IERC777.Burned`]]
+:IERC777-AuthorizedOperator: pass:normal[xref:token/ERC777.adoc#IERC777-AuthorizedOperator-address-address-[`IERC777.AuthorizedOperator`]]
+:IERC777-RevokedOperator: pass:normal[xref:token/ERC777.adoc#IERC777-RevokedOperator-address-address-[`IERC777.RevokedOperator`]]
+:IERC777: pass:normal[xref:token/ERC777.adoc#IERC777[`IERC777`]]
+:IERC777-name: pass:normal[xref:token/ERC777.adoc#IERC777-name--[`IERC777.name`]]
+:IERC777-symbol: pass:normal[xref:token/ERC777.adoc#IERC777-symbol--[`IERC777.symbol`]]
+:IERC777-granularity: pass:normal[xref:token/ERC777.adoc#IERC777-granularity--[`IERC777.granularity`]]
+:IERC777-totalSupply: pass:normal[xref:token/ERC777.adoc#IERC777-totalSupply--[`IERC777.totalSupply`]]
+:IERC777-balanceOf: pass:normal[xref:token/ERC777.adoc#IERC777-balanceOf-address-[`IERC777.balanceOf`]]
+:IERC777-send: pass:normal[xref:token/ERC777.adoc#IERC777-send-address-uint256-bytes-[`IERC777.send`]]
+:IERC777-burn: pass:normal[xref:token/ERC777.adoc#IERC777-burn-uint256-bytes-[`IERC777.burn`]]
+:IERC777-isOperatorFor: pass:normal[xref:token/ERC777.adoc#IERC777-isOperatorFor-address-address-[`IERC777.isOperatorFor`]]
+:IERC777-authorizeOperator: pass:normal[xref:token/ERC777.adoc#IERC777-authorizeOperator-address-[`IERC777.authorizeOperator`]]
+:IERC777-revokeOperator: pass:normal[xref:token/ERC777.adoc#IERC777-revokeOperator-address-[`IERC777.revokeOperator`]]
+:IERC777-defaultOperators: pass:normal[xref:token/ERC777.adoc#IERC777-defaultOperators--[`IERC777.defaultOperators`]]
+:IERC777-operatorSend: pass:normal[xref:token/ERC777.adoc#IERC777-operatorSend-address-address-uint256-bytes-bytes-[`IERC777.operatorSend`]]
+:IERC777-operatorBurn: pass:normal[xref:token/ERC777.adoc#IERC777-operatorBurn-address-uint256-bytes-bytes-[`IERC777.operatorBurn`]]
+:IERC777-Sent: pass:normal[xref:token/ERC777.adoc#IERC777-Sent-address-address-address-uint256-bytes-bytes-[`IERC777.Sent`]]
+:IERC777-Minted: pass:normal[xref:token/ERC777.adoc#IERC777-Minted-address-address-uint256-bytes-bytes-[`IERC777.Minted`]]
+:IERC777-Burned: pass:normal[xref:token/ERC777.adoc#IERC777-Burned-address-address-uint256-bytes-bytes-[`IERC777.Burned`]]
+:IERC777-AuthorizedOperator: pass:normal[xref:token/ERC777.adoc#IERC777-AuthorizedOperator-address-address-[`IERC777.AuthorizedOperator`]]
+:IERC777-RevokedOperator: pass:normal[xref:token/ERC777.adoc#IERC777-RevokedOperator-address-address-[`IERC777.RevokedOperator`]]
+:IERC777Recipient: pass:normal[xref:token/ERC777.adoc#IERC777Recipient[`IERC777Recipient`]]
+:IERC777Recipient-tokensReceived: pass:normal[xref:token/ERC777.adoc#IERC777Recipient-tokensReceived-address-address-address-uint256-bytes-bytes-[`IERC777Recipient.tokensReceived`]]
+:IERC777Sender: pass:normal[xref:token/ERC777.adoc#IERC777Sender[`IERC777Sender`]]
+:IERC777Sender-tokensToSend: pass:normal[xref:token/ERC777.adoc#IERC777Sender-tokensToSend-address-address-address-uint256-bytes-bytes-[`IERC777Sender.tokensToSend`]]
+= ERC 20
+
+This set of interfaces, contracts, and utilities are all related to the https://eips.ethereum.org/EIPS/eip-20[ERC20 Token Standard].
+
+TIP: For an overview of ERC20 tokens and a walkthrough on how to create a token contract read our xref:ROOT:tokens.adoc#erc20[ERC20 guide].
+
+There a few core contracts that implement the behavior specified in the EIP:
+
+* {IERC20}: the interface all ERC20 implementations should conform to
+* {ERC20}: the base implementation of the ERC20 interface
+* {ERC20Detailed}: includes the <<ERC20Detailed-name,`name`>>,
+   <<ERC20Detailed-symbol,`symbol`>> and <<ERC20Detailed-decimals,`decimals`>>
+   optional standard extension to the base interface
+
+Additionally there are multiple custom extensions, including:
+
+* designation of addresses that can create token supply ({ERC20Mintable}), with an optional maximum cap ({ERC20Capped})
+* destruction of own tokens ({ERC20Burnable})
+* designation of addresses that can pause token operations for all users ({ERC20Pausable}).
+
+Finally, there are some utilities to interact with ERC20 contracts in various ways.
+
+* {SafeERC20} is a wrapper around the interface that eliminates the need to handle boolean return values.
+* {TokenTimelock} can hold tokens for a beneficiary until a specified time.
+
+NOTE: This page is incomplete. We're working to improve it for the next release. Stay tuned!
+
+== Core
+
+:IERC20: pass:normal[xref:#IERC20[`IERC20`]]
+:totalSupply: pass:normal[xref:#IERC20-totalSupply--[`totalSupply`]]
+:balanceOf: pass:normal[xref:#IERC20-balanceOf-address-[`balanceOf`]]
+:transfer: pass:normal[xref:#IERC20-transfer-address-uint256-[`transfer`]]
+:allowance: pass:normal[xref:#IERC20-allowance-address-address-[`allowance`]]
+:approve: pass:normal[xref:#IERC20-approve-address-uint256-[`approve`]]
+:transferFrom: pass:normal[xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom`]]
+:Transfer: pass:normal[xref:#IERC20-Transfer-address-address-uint256-[`Transfer`]]
+:Approval: pass:normal[xref:#IERC20-Approval-address-address-uint256-[`Approval`]]
+
+[.contract]
+[[IERC20]]
+=== `IERC20`
+
+Interface of the ERC20 standard as defined in the EIP. Does not include
+the optional functions; to access them see {ERC20Detailed}.
+
+
+[.contract-index]
+.Functions
+* xref:#IERC20-totalSupply--[`totalSupply()`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
+* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
+* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+
+[.contract-index]
+.Events
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+
+
+[.contract-item]
+[[IERC20-totalSupply--]]
+==== `totalSupply() → uint256`
+
+Returns the amount of tokens in existence.
+
+[.contract-item]
+[[IERC20-balanceOf-address-]]
+==== `balanceOf(address account) → uint256`
+
+Returns the amount of tokens owned by `account`.
+
+[.contract-item]
+[[IERC20-transfer-address-uint256-]]
+==== `transfer(address recipient, uint256 amount) → bool`
+
+Moves `amount` tokens from the caller's account to `recipient`.
+
+Returns a boolean value indicating whether the operation succeeded.
+
+Emits a {Transfer} event.
+
+[.contract-item]
+[[IERC20-allowance-address-address-]]
+==== `allowance(address owner, address spender) → uint256`
+
+Returns the remaining number of tokens that `spender` will be
+allowed to spend on behalf of `owner` through {transferFrom}. This is
+zero by default.
+
+This value changes when {approve} or {transferFrom} are called.
+
+[.contract-item]
+[[IERC20-approve-address-uint256-]]
+==== `approve(address spender, uint256 amount) → bool`
+
+Sets `amount` as the allowance of `spender` over the caller's tokens.
+
+Returns a boolean value indicating whether the operation succeeded.
+
+IMPORTANT: Beware that changing an allowance with this method brings the risk
+that someone may use both the old and the new allowance by unfortunate
+transaction ordering. One possible solution to mitigate this race
+condition is to first reduce the spender's allowance to 0 and set the
+desired value afterwards:
+https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+
+Emits an {Approval} event.
+
+[.contract-item]
+[[IERC20-transferFrom-address-address-uint256-]]
+==== `transferFrom(address sender, address recipient, uint256 amount) → bool`
+
+Moves `amount` tokens from `sender` to `recipient` using the
+allowance mechanism. `amount` is then deducted from the caller's
+allowance.
+
+Returns a boolean value indicating whether the operation succeeded.
+
+Emits a {Transfer} event.
+
+
+[.contract-item]
+[[IERC20-Transfer-address-address-uint256-]]
+==== `Transfer(address from, address to, uint256 value)`
+
+Emitted when `value` tokens are moved from one account (`from`) to
+another (`to`).
+
+Note that `value` may be zero.
+
+[.contract-item]
+[[IERC20-Approval-address-address-uint256-]]
+==== `Approval(address owner, address spender, uint256 value)`
+
+Emitted when the allowance of a `spender` for an `owner` is set by
+a call to {approve}. `value` is the new allowance.
+
+
+
+:ERC20: pass:normal[xref:#ERC20[`ERC20`]]
+:totalSupply: pass:normal[xref:#ERC20-totalSupply--[`totalSupply`]]
+:balanceOf: pass:normal[xref:#ERC20-balanceOf-address-[`balanceOf`]]
+:transfer: pass:normal[xref:#ERC20-transfer-address-uint256-[`transfer`]]
+:allowance: pass:normal[xref:#ERC20-allowance-address-address-[`allowance`]]
+:approve: pass:normal[xref:#ERC20-approve-address-uint256-[`approve`]]
+:transferFrom: pass:normal[xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom`]]
+:increaseAllowance: pass:normal[xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance`]]
+:decreaseAllowance: pass:normal[xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance`]]
+:_transfer: pass:normal[xref:#ERC20-_transfer-address-address-uint256-[`_transfer`]]
+:_mint: pass:normal[xref:#ERC20-_mint-address-uint256-[`_mint`]]
+:_burn: pass:normal[xref:#ERC20-_burn-address-uint256-[`_burn`]]
+:_approve: pass:normal[xref:#ERC20-_approve-address-address-uint256-[`_approve`]]
+:_burnFrom: pass:normal[xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom`]]
+:Transfer: pass:normal[xref:#IERC20-Transfer-address-address-uint256-[`Transfer`]]
+:Approval: pass:normal[xref:#IERC20-Approval-address-address-uint256-[`Approval`]]
+
+[.contract]
+[[ERC20]]
+=== `ERC20`
+
+Implementation of the {IERC20} interface.
+
+This implementation is agnostic to the way tokens are created. This means
+that a supply mechanism has to be added in a derived contract using {_mint}.
+For a generic mechanism see {ERC20Mintable}.
+
+TIP: For a detailed writeup see our guide
+https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226[How
+to implement supply mechanisms].
+
+We have followed general OpenZeppelin guidelines: functions revert instead
+of returning `false` on failure. This behavior is nonetheless conventional
+and does not conflict with the expectations of ERC20 applications.
+
+Additionally, an {Approval} event is emitted on calls to {transferFrom}.
+This allows applications to reconstruct the allowance for all accounts just
+by listening to said events. Other implementations of the EIP may not emit
+these events, as it isn't required by the specification.
+
+Finally, the non-standard {decreaseAllowance} and {increaseAllowance}
+functions have been added to mitigate the well-known issues around setting
+allowances. See {IERC20-approve}.
+
+
+[.contract-index]
+.Functions
+* xref:#ERC20-totalSupply--[`totalSupply()`]
+* xref:#ERC20-balanceOf-address-[`balanceOf(address)`]
+* xref:#ERC20-transfer-address-uint256-[`transfer(address,uint256)`]
+* xref:#ERC20-allowance-address-address-[`allowance(address,address)`]
+* xref:#ERC20-approve-address-uint256-[`approve(address,uint256)`]
+* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(address,uint256)`]
+* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(address,uint256)`]
+* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(address,address,uint256)`]
+* xref:#ERC20-_mint-address-uint256-[`_mint(address,uint256)`]
+* xref:#ERC20-_burn-address-uint256-[`_burn(address,uint256)`]
+* xref:#ERC20-_approve-address-address-uint256-[`_approve(address,address,uint256)`]
+* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(address,uint256)`]
+* xref:#IERC20-totalSupply--[`totalSupply()`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
+* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
+* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+
+[.contract-index]
+.Events
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+
+
+[.contract-item]
+[[ERC20-totalSupply--]]
+==== `totalSupply() → uint256`
+
+See {IERC20-totalSupply}.
+
+[.contract-item]
+[[ERC20-balanceOf-address-]]
+==== `balanceOf(address account) → uint256`
+
+See {IERC20-balanceOf}.
+
+[.contract-item]
+[[ERC20-transfer-address-uint256-]]
+==== `transfer(address recipient, uint256 amount) → bool`
+
+See {IERC20-transfer}.
+
+Requirements:
+
+- `recipient` cannot be the zero address.
+- the caller must have a balance of at least `amount`.
+
+[.contract-item]
+[[ERC20-allowance-address-address-]]
+==== `allowance(address owner, address spender) → uint256`
+
+See {IERC20-allowance}.
+
+[.contract-item]
+[[ERC20-approve-address-uint256-]]
+==== `approve(address spender, uint256 value) → bool`
+
+See {IERC20-approve}.
+
+Requirements:
+
+- `spender` cannot be the zero address.
+
+[.contract-item]
+[[ERC20-transferFrom-address-address-uint256-]]
+==== `transferFrom(address sender, address recipient, uint256 amount) → bool`
+
+See {IERC20-transferFrom}.
+
+Emits an {Approval} event indicating the updated allowance. This is not
+required by the EIP. See the note at the beginning of {ERC20};
+
+Requirements:
+- `sender` and `recipient` cannot be the zero address.
+- `sender` must have a balance of at least `value`.
+- the caller must have allowance for `sender`'s tokens of at least
+`amount`.
+
+[.contract-item]
+[[ERC20-increaseAllowance-address-uint256-]]
+==== `increaseAllowance(address spender, uint256 addedValue) → bool`
+
+Atomically increases the allowance granted to `spender` by the caller.
+
+This is an alternative to {approve} that can be used as a mitigation for
+problems described in {IERC20-approve}.
+
+Emits an {Approval} event indicating the updated allowance.
+
+Requirements:
+
+- `spender` cannot be the zero address.
+
+[.contract-item]
+[[ERC20-decreaseAllowance-address-uint256-]]
+==== `decreaseAllowance(address spender, uint256 subtractedValue) → bool`
+
+Atomically decreases the allowance granted to `spender` by the caller.
+
+This is an alternative to {approve} that can be used as a mitigation for
+problems described in {IERC20-approve}.
+
+Emits an {Approval} event indicating the updated allowance.
+
+Requirements:
+
+- `spender` cannot be the zero address.
+- `spender` must have allowance for the caller of at least
+`subtractedValue`.
+
+[.contract-item]
+[[ERC20-_transfer-address-address-uint256-]]
+==== `_transfer(address sender, address recipient, uint256 amount)`
+
+Moves tokens `amount` from `sender` to `recipient`.
+
+This is internal function is equivalent to {transfer}, and can be used to
+e.g. implement automatic token fees, slashing mechanisms, etc.
+
+Emits a {Transfer} event.
+
+Requirements:
+
+- `sender` cannot be the zero address.
+- `recipient` cannot be the zero address.
+- `sender` must have a balance of at least `amount`.
+
+[.contract-item]
+[[ERC20-_mint-address-uint256-]]
+==== `_mint(address account, uint256 amount)`
+
+Creates `amount` tokens and assigns them to `account`, increasing
+the total supply.
+
+Emits a {Transfer} event with `from` set to the zero address.
+
+Requirements
+
+- `to` cannot be the zero address.
+
+[.contract-item]
+[[ERC20-_burn-address-uint256-]]
+==== `_burn(address account, uint256 value)`
+
+Destroys `amount` tokens from `account`, reducing the
+total supply.
+
+Emits a {Transfer} event with `to` set to the zero address.
+
+Requirements
+
+- `account` cannot be the zero address.
+- `account` must have at least `amount` tokens.
+
+[.contract-item]
+[[ERC20-_approve-address-address-uint256-]]
+==== `_approve(address owner, address spender, uint256 value)`
+
+Sets `amount` as the allowance of `spender` over the `owner`s tokens.
+
+This is internal function is equivalent to `approve`, and can be used to
+e.g. set automatic allowances for certain subsystems, etc.
+
+Emits an {Approval} event.
+
+Requirements:
+
+- `owner` cannot be the zero address.
+- `spender` cannot be the zero address.
+
+[.contract-item]
+[[ERC20-_burnFrom-address-uint256-]]
+==== `_burnFrom(address account, uint256 amount)`
+
+Destoys `amount` tokens from `account`.`amount` is then deducted
+from the caller's allowance.
+
+See {_burn} and {_approve}.
+
+
+
+
+:ERC20Detailed: pass:normal[xref:#ERC20Detailed[`ERC20Detailed`]]
+:constructor: pass:normal[xref:#ERC20Detailed-constructor-string-string-uint8-[`constructor`]]
+:name: pass:normal[xref:#ERC20Detailed-name--[`name`]]
+:symbol: pass:normal[xref:#ERC20Detailed-symbol--[`symbol`]]
+:decimals: pass:normal[xref:#ERC20Detailed-decimals--[`decimals`]]
+:totalSupply: pass:normal[xref:#IERC20-totalSupply--[`totalSupply`]]
+:balanceOf: pass:normal[xref:#IERC20-balanceOf-address-[`balanceOf`]]
+:transfer: pass:normal[xref:#IERC20-transfer-address-uint256-[`transfer`]]
+:allowance: pass:normal[xref:#IERC20-allowance-address-address-[`allowance`]]
+:approve: pass:normal[xref:#IERC20-approve-address-uint256-[`approve`]]
+:transferFrom: pass:normal[xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom`]]
+:Transfer: pass:normal[xref:#IERC20-Transfer-address-address-uint256-[`Transfer`]]
+:Approval: pass:normal[xref:#IERC20-Approval-address-address-uint256-[`Approval`]]
+
+[.contract]
+[[ERC20Detailed]]
+=== `ERC20Detailed`
+
+Optional functions from the ERC20 standard.
+
+
+[.contract-index]
+.Functions
+* xref:#ERC20Detailed-constructor-string-string-uint8-[`constructor(string,string,uint8)`]
+* xref:#ERC20Detailed-name--[`name()`]
+* xref:#ERC20Detailed-symbol--[`symbol()`]
+* xref:#ERC20Detailed-decimals--[`decimals()`]
+* xref:#IERC20-totalSupply--[`totalSupply()`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
+* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
+* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+
+[.contract-index]
+.Events
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+
+
+[.contract-item]
+[[ERC20Detailed-constructor-string-string-uint8-]]
+==== `constructor(string name, string symbol, uint8 decimals)`
+
+Sets the values for `name`, `symbol`, and `decimals`. All three of
+these values are immutable: they can only be set once during
+construction.
+
+[.contract-item]
+[[ERC20Detailed-name--]]
+==== `name() → string`
+
+Returns the name of the token.
+
+[.contract-item]
+[[ERC20Detailed-symbol--]]
+==== `symbol() → string`
+
+Returns the symbol of the token, usually a shorter version of the
+name.
+
+[.contract-item]
+[[ERC20Detailed-decimals--]]
+==== `decimals() → uint8`
+
+Returns the number of decimals used to get its user representation.
+For example, if `decimals` equals `2`, a balance of `505` tokens should
+be displayed to a user as `5,05` (`505 / 10 ** 2`).
+
+Tokens usually opt for a value of 18, imitating the relationship between
+Ether and Wei.
+
+NOTE: This information is only used for _display_ purposes: it in
+no way affects any of the arithmetic of the contract, including
+{IERC20-balanceOf} and {IERC20-transfer}.
+
+
+
+
+== Extensions
+
+:ERC20Mintable: pass:normal[xref:#ERC20Mintable[`ERC20Mintable`]]
+:onlyMinter: pass:normal[xref:#MinterRole-onlyMinter--[`onlyMinter`]]
+:mint: pass:normal[xref:#ERC20Mintable-mint-address-uint256-[`mint`]]
+:constructor: pass:normal[xref:#MinterRole-constructor--[`constructor`]]
+:isMinter: pass:normal[xref:#MinterRole-isMinter-address-[`isMinter`]]
+:addMinter: pass:normal[xref:#MinterRole-addMinter-address-[`addMinter`]]
+:renounceMinter: pass:normal[xref:#MinterRole-renounceMinter--[`renounceMinter`]]
+:_addMinter: pass:normal[xref:#MinterRole-_addMinter-address-[`_addMinter`]]
+:_removeMinter: pass:normal[xref:#MinterRole-_removeMinter-address-[`_removeMinter`]]
+:totalSupply: pass:normal[xref:#ERC20-totalSupply--[`totalSupply`]]
+:balanceOf: pass:normal[xref:#ERC20-balanceOf-address-[`balanceOf`]]
+:transfer: pass:normal[xref:#ERC20-transfer-address-uint256-[`transfer`]]
+:allowance: pass:normal[xref:#ERC20-allowance-address-address-[`allowance`]]
+:approve: pass:normal[xref:#ERC20-approve-address-uint256-[`approve`]]
+:transferFrom: pass:normal[xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom`]]
+:increaseAllowance: pass:normal[xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance`]]
+:decreaseAllowance: pass:normal[xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance`]]
+:_transfer: pass:normal[xref:#ERC20-_transfer-address-address-uint256-[`_transfer`]]
+:_mint: pass:normal[xref:#ERC20-_mint-address-uint256-[`_mint`]]
+:_burn: pass:normal[xref:#ERC20-_burn-address-uint256-[`_burn`]]
+:_approve: pass:normal[xref:#ERC20-_approve-address-address-uint256-[`_approve`]]
+:_burnFrom: pass:normal[xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom`]]
+:MinterAdded: pass:normal[xref:#MinterRole-MinterAdded-address-[`MinterAdded`]]
+:MinterRemoved: pass:normal[xref:#MinterRole-MinterRemoved-address-[`MinterRemoved`]]
+:Transfer: pass:normal[xref:#IERC20-Transfer-address-address-uint256-[`Transfer`]]
+:Approval: pass:normal[xref:#IERC20-Approval-address-address-uint256-[`Approval`]]
+
+[.contract]
+[[ERC20Mintable]]
+=== `ERC20Mintable`
+
+Extension of {ERC20} that adds a set of accounts with the {MinterRole},
+which have permission to mint (create) new tokens as they see fit.
+
+At construction, the deployer of the contract is the only minter.
+
+[.contract-index]
+.Modifiers
+* xref:#MinterRole-onlyMinter--[`onlyMinter()`]
+
+[.contract-index]
+.Functions
+* xref:#ERC20Mintable-mint-address-uint256-[`mint(address,uint256)`]
+* xref:#MinterRole-constructor--[`constructor()`]
+* xref:#MinterRole-isMinter-address-[`isMinter(address)`]
+* xref:#MinterRole-addMinter-address-[`addMinter(address)`]
+* xref:#MinterRole-renounceMinter--[`renounceMinter()`]
+* xref:#MinterRole-_addMinter-address-[`_addMinter(address)`]
+* xref:#MinterRole-_removeMinter-address-[`_removeMinter(address)`]
+* xref:#ERC20-totalSupply--[`totalSupply()`]
+* xref:#ERC20-balanceOf-address-[`balanceOf(address)`]
+* xref:#ERC20-transfer-address-uint256-[`transfer(address,uint256)`]
+* xref:#ERC20-allowance-address-address-[`allowance(address,address)`]
+* xref:#ERC20-approve-address-uint256-[`approve(address,uint256)`]
+* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(address,uint256)`]
+* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(address,uint256)`]
+* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(address,address,uint256)`]
+* xref:#ERC20-_mint-address-uint256-[`_mint(address,uint256)`]
+* xref:#ERC20-_burn-address-uint256-[`_burn(address,uint256)`]
+* xref:#ERC20-_approve-address-address-uint256-[`_approve(address,address,uint256)`]
+* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(address,uint256)`]
+* xref:#IERC20-totalSupply--[`totalSupply()`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
+* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
+* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+
+[.contract-index]
+.Events
+* xref:#MinterRole-MinterAdded-address-[`MinterAdded(address)`]
+* xref:#MinterRole-MinterRemoved-address-[`MinterRemoved(address)`]
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+
+
+[.contract-item]
+[[ERC20Mintable-mint-address-uint256-]]
+==== `mint(address account, uint256 amount) → bool`
+
+See {ERC20-_mint}.
+
+Requirements:
+
+- the caller must have the {MinterRole}.
+
+
+
+
+:ERC20Burnable: pass:normal[xref:#ERC20Burnable[`ERC20Burnable`]]
+:burn: pass:normal[xref:#ERC20Burnable-burn-uint256-[`burn`]]
+:burnFrom: pass:normal[xref:#ERC20Burnable-burnFrom-address-uint256-[`burnFrom`]]
+:totalSupply: pass:normal[xref:#ERC20-totalSupply--[`totalSupply`]]
+:balanceOf: pass:normal[xref:#ERC20-balanceOf-address-[`balanceOf`]]
+:transfer: pass:normal[xref:#ERC20-transfer-address-uint256-[`transfer`]]
+:allowance: pass:normal[xref:#ERC20-allowance-address-address-[`allowance`]]
+:approve: pass:normal[xref:#ERC20-approve-address-uint256-[`approve`]]
+:transferFrom: pass:normal[xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom`]]
+:increaseAllowance: pass:normal[xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance`]]
+:decreaseAllowance: pass:normal[xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance`]]
+:_transfer: pass:normal[xref:#ERC20-_transfer-address-address-uint256-[`_transfer`]]
+:_mint: pass:normal[xref:#ERC20-_mint-address-uint256-[`_mint`]]
+:_burn: pass:normal[xref:#ERC20-_burn-address-uint256-[`_burn`]]
+:_approve: pass:normal[xref:#ERC20-_approve-address-address-uint256-[`_approve`]]
+:_burnFrom: pass:normal[xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom`]]
+:Transfer: pass:normal[xref:#IERC20-Transfer-address-address-uint256-[`Transfer`]]
+:Approval: pass:normal[xref:#IERC20-Approval-address-address-uint256-[`Approval`]]
+
+[.contract]
+[[ERC20Burnable]]
+=== `ERC20Burnable`
+
+Extension of {ERC20} that allows token holders to destroy both their own
+tokens and those that they have an allowance for, in a way that can be
+recognized off-chain (via event analysis).
+
+
+[.contract-index]
+.Functions
+* xref:#ERC20Burnable-burn-uint256-[`burn(uint256)`]
+* xref:#ERC20Burnable-burnFrom-address-uint256-[`burnFrom(address,uint256)`]
+* xref:#ERC20-totalSupply--[`totalSupply()`]
+* xref:#ERC20-balanceOf-address-[`balanceOf(address)`]
+* xref:#ERC20-transfer-address-uint256-[`transfer(address,uint256)`]
+* xref:#ERC20-allowance-address-address-[`allowance(address,address)`]
+* xref:#ERC20-approve-address-uint256-[`approve(address,uint256)`]
+* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(address,uint256)`]
+* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(address,uint256)`]
+* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(address,address,uint256)`]
+* xref:#ERC20-_mint-address-uint256-[`_mint(address,uint256)`]
+* xref:#ERC20-_burn-address-uint256-[`_burn(address,uint256)`]
+* xref:#ERC20-_approve-address-address-uint256-[`_approve(address,address,uint256)`]
+* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(address,uint256)`]
+* xref:#IERC20-totalSupply--[`totalSupply()`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
+* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
+* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+
+[.contract-index]
+.Events
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+
+
+[.contract-item]
+[[ERC20Burnable-burn-uint256-]]
+==== `burn(uint256 amount)`
+
+Destroys `amount` tokens from the caller.
+
+See {ERC20-_burn}.
+
+[.contract-item]
+[[ERC20Burnable-burnFrom-address-uint256-]]
+==== `burnFrom(address account, uint256 amount)`
+
+See {ERC20-_burnFrom}.
+
+
+
+
+:ERC20Pausable: pass:normal[xref:#ERC20Pausable[`ERC20Pausable`]]
+:whenNotPaused: pass:normal[xref:#Pausable-whenNotPaused--[`whenNotPaused`]]
+:whenPaused: pass:normal[xref:#Pausable-whenPaused--[`whenPaused`]]
+:onlyPauser: pass:normal[xref:#PauserRole-onlyPauser--[`onlyPauser`]]
+:transfer: pass:normal[xref:#ERC20Pausable-transfer-address-uint256-[`transfer`]]
+:transferFrom: pass:normal[xref:#ERC20Pausable-transferFrom-address-address-uint256-[`transferFrom`]]
+:approve: pass:normal[xref:#ERC20Pausable-approve-address-uint256-[`approve`]]
+:increaseAllowance: pass:normal[xref:#ERC20Pausable-increaseAllowance-address-uint256-[`increaseAllowance`]]
+:decreaseAllowance: pass:normal[xref:#ERC20Pausable-decreaseAllowance-address-uint256-[`decreaseAllowance`]]
+:constructor: pass:normal[xref:#Pausable-constructor--[`constructor`]]
+:paused: pass:normal[xref:#Pausable-paused--[`paused`]]
+:pause: pass:normal[xref:#Pausable-pause--[`pause`]]
+:unpause: pass:normal[xref:#Pausable-unpause--[`unpause`]]
+:isPauser: pass:normal[xref:#PauserRole-isPauser-address-[`isPauser`]]
+:addPauser: pass:normal[xref:#PauserRole-addPauser-address-[`addPauser`]]
+:renouncePauser: pass:normal[xref:#PauserRole-renouncePauser--[`renouncePauser`]]
+:_addPauser: pass:normal[xref:#PauserRole-_addPauser-address-[`_addPauser`]]
+:_removePauser: pass:normal[xref:#PauserRole-_removePauser-address-[`_removePauser`]]
+:totalSupply: pass:normal[xref:#ERC20-totalSupply--[`totalSupply`]]
+:balanceOf: pass:normal[xref:#ERC20-balanceOf-address-[`balanceOf`]]
+:allowance: pass:normal[xref:#ERC20-allowance-address-address-[`allowance`]]
+:_transfer: pass:normal[xref:#ERC20-_transfer-address-address-uint256-[`_transfer`]]
+:_mint: pass:normal[xref:#ERC20-_mint-address-uint256-[`_mint`]]
+:_burn: pass:normal[xref:#ERC20-_burn-address-uint256-[`_burn`]]
+:_approve: pass:normal[xref:#ERC20-_approve-address-address-uint256-[`_approve`]]
+:_burnFrom: pass:normal[xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom`]]
+:Paused: pass:normal[xref:#Pausable-Paused-address-[`Paused`]]
+:Unpaused: pass:normal[xref:#Pausable-Unpaused-address-[`Unpaused`]]
+:PauserAdded: pass:normal[xref:#PauserRole-PauserAdded-address-[`PauserAdded`]]
+:PauserRemoved: pass:normal[xref:#PauserRole-PauserRemoved-address-[`PauserRemoved`]]
+:Transfer: pass:normal[xref:#IERC20-Transfer-address-address-uint256-[`Transfer`]]
+:Approval: pass:normal[xref:#IERC20-Approval-address-address-uint256-[`Approval`]]
+
+[.contract]
+[[ERC20Pausable]]
+=== `ERC20Pausable`
+
+ERC20 with pausable transfers and allowances.
+
+Useful if you want to stop trades until the end of a crowdsale, or have
+an emergency switch for freezing all token transfers in the event of a large
+bug.
+
+[.contract-index]
+.Modifiers
+* xref:#Pausable-whenNotPaused--[`whenNotPaused()`]
+* xref:#Pausable-whenPaused--[`whenPaused()`]
+* xref:#PauserRole-onlyPauser--[`onlyPauser()`]
+
+[.contract-index]
+.Functions
+* xref:#ERC20Pausable-transfer-address-uint256-[`transfer(address,uint256)`]
+* xref:#ERC20Pausable-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+* xref:#ERC20Pausable-approve-address-uint256-[`approve(address,uint256)`]
+* xref:#ERC20Pausable-increaseAllowance-address-uint256-[`increaseAllowance(address,uint256)`]
+* xref:#ERC20Pausable-decreaseAllowance-address-uint256-[`decreaseAllowance(address,uint256)`]
+* xref:#Pausable-constructor--[`constructor()`]
+* xref:#Pausable-paused--[`paused()`]
+* xref:#Pausable-pause--[`pause()`]
+* xref:#Pausable-unpause--[`unpause()`]
+* xref:#PauserRole-constructor--[`constructor()`]
+* xref:#PauserRole-isPauser-address-[`isPauser(address)`]
+* xref:#PauserRole-addPauser-address-[`addPauser(address)`]
+* xref:#PauserRole-renouncePauser--[`renouncePauser()`]
+* xref:#PauserRole-_addPauser-address-[`_addPauser(address)`]
+* xref:#PauserRole-_removePauser-address-[`_removePauser(address)`]
+* xref:#ERC20-totalSupply--[`totalSupply()`]
+* xref:#ERC20-balanceOf-address-[`balanceOf(address)`]
+* xref:#ERC20-transfer-address-uint256-[`transfer(address,uint256)`]
+* xref:#ERC20-allowance-address-address-[`allowance(address,address)`]
+* xref:#ERC20-approve-address-uint256-[`approve(address,uint256)`]
+* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(address,uint256)`]
+* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(address,uint256)`]
+* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(address,address,uint256)`]
+* xref:#ERC20-_mint-address-uint256-[`_mint(address,uint256)`]
+* xref:#ERC20-_burn-address-uint256-[`_burn(address,uint256)`]
+* xref:#ERC20-_approve-address-address-uint256-[`_approve(address,address,uint256)`]
+* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(address,uint256)`]
+* xref:#IERC20-totalSupply--[`totalSupply()`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
+* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
+* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+
+[.contract-index]
+.Events
+* xref:#Pausable-Paused-address-[`Paused(address)`]
+* xref:#Pausable-Unpaused-address-[`Unpaused(address)`]
+* xref:#PauserRole-PauserAdded-address-[`PauserAdded(address)`]
+* xref:#PauserRole-PauserRemoved-address-[`PauserRemoved(address)`]
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+
+
+[.contract-item]
+[[ERC20Pausable-transfer-address-uint256-]]
+==== `transfer(address to, uint256 value) → bool`
+
+
+
+[.contract-item]
+[[ERC20Pausable-transferFrom-address-address-uint256-]]
+==== `transferFrom(address from, address to, uint256 value) → bool`
+
+
+
+[.contract-item]
+[[ERC20Pausable-approve-address-uint256-]]
+==== `approve(address spender, uint256 value) → bool`
+
+
+
+[.contract-item]
+[[ERC20Pausable-increaseAllowance-address-uint256-]]
+==== `increaseAllowance(address spender, uint256 addedValue) → bool`
+
+
+
+[.contract-item]
+[[ERC20Pausable-decreaseAllowance-address-uint256-]]
+==== `decreaseAllowance(address spender, uint256 subtractedValue) → bool`
+
+
+
+
+
+
+:ERC20Capped: pass:normal[xref:#ERC20Capped[`ERC20Capped`]]
+:onlyMinter: pass:normal[xref:#MinterRole-onlyMinter--[`onlyMinter`]]
+:constructor: pass:normal[xref:#ERC20Capped-constructor-uint256-[`constructor`]]
+:cap: pass:normal[xref:#ERC20Capped-cap--[`cap`]]
+:_mint: pass:normal[xref:#ERC20Capped-_mint-address-uint256-[`_mint`]]
+:mint: pass:normal[xref:#ERC20Mintable-mint-address-uint256-[`mint`]]
+:constructor: pass:normal[xref:#MinterRole-constructor--[`constructor`]]
+:isMinter: pass:normal[xref:#MinterRole-isMinter-address-[`isMinter`]]
+:addMinter: pass:normal[xref:#MinterRole-addMinter-address-[`addMinter`]]
+:renounceMinter: pass:normal[xref:#MinterRole-renounceMinter--[`renounceMinter`]]
+:_addMinter: pass:normal[xref:#MinterRole-_addMinter-address-[`_addMinter`]]
+:_removeMinter: pass:normal[xref:#MinterRole-_removeMinter-address-[`_removeMinter`]]
+:totalSupply: pass:normal[xref:#ERC20-totalSupply--[`totalSupply`]]
+:balanceOf: pass:normal[xref:#ERC20-balanceOf-address-[`balanceOf`]]
+:transfer: pass:normal[xref:#ERC20-transfer-address-uint256-[`transfer`]]
+:allowance: pass:normal[xref:#ERC20-allowance-address-address-[`allowance`]]
+:approve: pass:normal[xref:#ERC20-approve-address-uint256-[`approve`]]
+:transferFrom: pass:normal[xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom`]]
+:increaseAllowance: pass:normal[xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance`]]
+:decreaseAllowance: pass:normal[xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance`]]
+:_transfer: pass:normal[xref:#ERC20-_transfer-address-address-uint256-[`_transfer`]]
+:_burn: pass:normal[xref:#ERC20-_burn-address-uint256-[`_burn`]]
+:_approve: pass:normal[xref:#ERC20-_approve-address-address-uint256-[`_approve`]]
+:_burnFrom: pass:normal[xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom`]]
+:MinterAdded: pass:normal[xref:#MinterRole-MinterAdded-address-[`MinterAdded`]]
+:MinterRemoved: pass:normal[xref:#MinterRole-MinterRemoved-address-[`MinterRemoved`]]
+:Transfer: pass:normal[xref:#IERC20-Transfer-address-address-uint256-[`Transfer`]]
+:Approval: pass:normal[xref:#IERC20-Approval-address-address-uint256-[`Approval`]]
+
+[.contract]
+[[ERC20Capped]]
+=== `ERC20Capped`
+
+Extension of {ERC20Mintable} that adds a cap to the supply of tokens.
+
+[.contract-index]
+.Modifiers
+* xref:#MinterRole-onlyMinter--[`onlyMinter()`]
+
+[.contract-index]
+.Functions
+* xref:#ERC20Capped-constructor-uint256-[`constructor(uint256)`]
+* xref:#ERC20Capped-cap--[`cap()`]
+* xref:#ERC20Capped-_mint-address-uint256-[`_mint(address,uint256)`]
+* xref:#ERC20Mintable-mint-address-uint256-[`mint(address,uint256)`]
+* xref:#MinterRole-constructor--[`constructor()`]
+* xref:#MinterRole-isMinter-address-[`isMinter(address)`]
+* xref:#MinterRole-addMinter-address-[`addMinter(address)`]
+* xref:#MinterRole-renounceMinter--[`renounceMinter()`]
+* xref:#MinterRole-_addMinter-address-[`_addMinter(address)`]
+* xref:#MinterRole-_removeMinter-address-[`_removeMinter(address)`]
+* xref:#ERC20-totalSupply--[`totalSupply()`]
+* xref:#ERC20-balanceOf-address-[`balanceOf(address)`]
+* xref:#ERC20-transfer-address-uint256-[`transfer(address,uint256)`]
+* xref:#ERC20-allowance-address-address-[`allowance(address,address)`]
+* xref:#ERC20-approve-address-uint256-[`approve(address,uint256)`]
+* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(address,uint256)`]
+* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(address,uint256)`]
+* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(address,address,uint256)`]
+* xref:#ERC20-_mint-address-uint256-[`_mint(address,uint256)`]
+* xref:#ERC20-_burn-address-uint256-[`_burn(address,uint256)`]
+* xref:#ERC20-_approve-address-address-uint256-[`_approve(address,address,uint256)`]
+* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(address,uint256)`]
+* xref:#IERC20-totalSupply--[`totalSupply()`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
+* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
+* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+
+[.contract-index]
+.Events
+* xref:#MinterRole-MinterAdded-address-[`MinterAdded(address)`]
+* xref:#MinterRole-MinterRemoved-address-[`MinterRemoved(address)`]
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+
+
+[.contract-item]
+[[ERC20Capped-constructor-uint256-]]
+==== `constructor(uint256 cap)`
+
+Sets the value of the `cap`. This value is immutable, it can only be
+set once during construction.
+
+[.contract-item]
+[[ERC20Capped-cap--]]
+==== `cap() → uint256`
+
+Returns the cap on the token's total supply.
+
+[.contract-item]
+[[ERC20Capped-_mint-address-uint256-]]
+==== `_mint(address account, uint256 value)`
+
+See {ERC20Mintable-mint}.
+
+Requirements:
+
+- `value` must not cause the total supply to go over the cap.
+
+
+
+
+== Utilities
+
+:SafeERC20: pass:normal[xref:#SafeERC20[`SafeERC20`]]
+:safeTransfer: pass:normal[xref:#SafeERC20-safeTransfer-contract-IERC20-address-uint256-[`safeTransfer`]]
+:safeTransferFrom: pass:normal[xref:#SafeERC20-safeTransferFrom-contract-IERC20-address-address-uint256-[`safeTransferFrom`]]
+:safeApprove: pass:normal[xref:#SafeERC20-safeApprove-contract-IERC20-address-uint256-[`safeApprove`]]
+:safeIncreaseAllowance: pass:normal[xref:#SafeERC20-safeIncreaseAllowance-contract-IERC20-address-uint256-[`safeIncreaseAllowance`]]
+:safeDecreaseAllowance: pass:normal[xref:#SafeERC20-safeDecreaseAllowance-contract-IERC20-address-uint256-[`safeDecreaseAllowance`]]
+
+[.contract]
+[[SafeERC20]]
+=== `SafeERC20`
+
+Wrappers around ERC20 operations that throw on failure (when the token
+contract returns false). Tokens that return no value (and instead revert or
+throw on failure) are also supported, non-reverting calls are assumed to be
+successful.
+To use this library you can add a `using SafeERC20 for ERC20;` statement to your contract,
+which allows you to call the safe operations as `token.safeTransfer(...)`, etc.
+
+
+[.contract-index]
+.Functions
+* xref:#SafeERC20-safeTransfer-contract-IERC20-address-uint256-[`safeTransfer(contract IERC20,address,uint256)`]
+* xref:#SafeERC20-safeTransferFrom-contract-IERC20-address-address-uint256-[`safeTransferFrom(contract IERC20,address,address,uint256)`]
+* xref:#SafeERC20-safeApprove-contract-IERC20-address-uint256-[`safeApprove(contract IERC20,address,uint256)`]
+* xref:#SafeERC20-safeIncreaseAllowance-contract-IERC20-address-uint256-[`safeIncreaseAllowance(contract IERC20,address,uint256)`]
+* xref:#SafeERC20-safeDecreaseAllowance-contract-IERC20-address-uint256-[`safeDecreaseAllowance(contract IERC20,address,uint256)`]
+
+
+
+[.contract-item]
+[[SafeERC20-safeTransfer-contract-IERC20-address-uint256-]]
+==== `safeTransfer(contract IERC20 token, address to, uint256 value)`
+
+
+
+[.contract-item]
+[[SafeERC20-safeTransferFrom-contract-IERC20-address-address-uint256-]]
+==== `safeTransferFrom(contract IERC20 token, address from, address to, uint256 value)`
+
+
+
+[.contract-item]
+[[SafeERC20-safeApprove-contract-IERC20-address-uint256-]]
+==== `safeApprove(contract IERC20 token, address spender, uint256 value)`
+
+
+
+[.contract-item]
+[[SafeERC20-safeIncreaseAllowance-contract-IERC20-address-uint256-]]
+==== `safeIncreaseAllowance(contract IERC20 token, address spender, uint256 value)`
+
+
+
+[.contract-item]
+[[SafeERC20-safeDecreaseAllowance-contract-IERC20-address-uint256-]]
+==== `safeDecreaseAllowance(contract IERC20 token, address spender, uint256 value)`
+
+
+
+
+
+
+:TokenTimelock: pass:normal[xref:#TokenTimelock[`TokenTimelock`]]
+:constructor: pass:normal[xref:#TokenTimelock-constructor-contract-IERC20-address-uint256-[`constructor`]]
+:token: pass:normal[xref:#TokenTimelock-token--[`token`]]
+:beneficiary: pass:normal[xref:#TokenTimelock-beneficiary--[`beneficiary`]]
+:releaseTime: pass:normal[xref:#TokenTimelock-releaseTime--[`releaseTime`]]
+:release: pass:normal[xref:#TokenTimelock-release--[`release`]]
+
+[.contract]
+[[TokenTimelock]]
+=== `TokenTimelock`
+
+A token holder contract that will allow a beneficiary to extract the
+tokens after a given release time.
+
+Useful for simple vesting schedules like "advisors get all of their tokens
+after 1 year".
+
+For a more complete vesting schedule, see {TokenVesting}.
+
+
+[.contract-index]
+.Functions
+* xref:#TokenTimelock-constructor-contract-IERC20-address-uint256-[`constructor(contract IERC20,address,uint256)`]
+* xref:#TokenTimelock-token--[`token()`]
+* xref:#TokenTimelock-beneficiary--[`beneficiary()`]
+* xref:#TokenTimelock-releaseTime--[`releaseTime()`]
+* xref:#TokenTimelock-release--[`release()`]
+
+
+
+[.contract-item]
+[[TokenTimelock-constructor-contract-IERC20-address-uint256-]]
+==== `constructor(contract IERC20 token, address beneficiary, uint256 releaseTime)`
+
+
+
+[.contract-item]
+[[TokenTimelock-token--]]
+==== `token() → contract IERC20`
+
+
+
+[.contract-item]
+[[TokenTimelock-beneficiary--]]
+==== `beneficiary() → address`
+
+
+
+[.contract-item]
+[[TokenTimelock-releaseTime--]]
+==== `releaseTime() → uint256`
+
+
+
+[.contract-item]
+[[TokenTimelock-release--]]
+==== `release()`
+
+
+
+
+
