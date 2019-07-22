@@ -30,46 +30,31 @@ module.exports = async (src, dest, destTheme, previewSrcDir) => {
   ]);
 
   vfs
-    .src(['preview-src/**/*.adoc'])
+    .src([path.join(previewSrcDir, '**/*.adoc')])
     .pipe(
       map((file, next) => {
-        const doc = asciidoctor.load(file.contents, {
-          safe: 'safe',
-          attributes: ASCIIDOC_ATTRIBUTES,
-        });
-        const compiledLayout =
-          layoutsIndex[file.stem === '404' ? '404.hbs' : 'default.hbs'];
-
-        const relativeToRoot = path.relative(file.path, previewSrcDir);
-        sampleUiModel['themeRootPath'] = path.join(relativeToRoot, destTheme);
-        sampleUiModel['siteRootUrl'] = path.join(relativeToRoot, 'index.html');
-        sampleUiModel['contents'] = Buffer.from(doc.convert());
-        sampleUiModel['navigation-link-prefix'] = relativeToRoot;
-        sampleUiModel.title = doc.getDocumentTitle();
-        sampleUiModel.layout = doc.getAttribute('page-layout', 'default');
-        sampleUiModel.attributes = Object.entries(doc.getAttributes())
-          .filter(([name]) => name.startsWith('page-'))
-          .reduce((accum, [name, val]) => {
-            accum[name.substr(5)] = val;
-            return accum;
-          }, {});
-
-        // Readeable by html data attrs
-        sampleUiModel.attrs = Object.entries(doc.getAttributes())
-          .filter(([name]) => name.startsWith('page-'))
-          .reduce((accum, [name, val]) => {
-            const k = name.substr(5);
-            accum = accum.concat(' ui-', k);
-
-            if (val) {
-              accum = accum.concat(' ui-', k, '-', val);
-            }
-
-            return accum;
-          }, '');
-
+        const siteRootPath = path.relative(path.dirname(file.path), path.resolve(previewSrcDir));
+        const uiModel = { ...sampleUiModel };
+        uiModel.page = { ...uiModel.page };
+        uiModel.siteRootPath = siteRootPath;
+        uiModel.siteRootUrl = path.join(siteRootPath, 'index.html');
+        uiModel.uiRootPath = path.join(siteRootPath, destTheme);
+        if (file.stem === '404') {
+          uiModel.page = { layout: '404', title: 'Page Not Found' };
+        } else {
+          const doc = asciidoctor.load(file.contents, { safe: 'safe', attributes: ASCIIDOC_ATTRIBUTES });
+          uiModel.page.attributes = Object.entries(doc.getAttributes())
+            .filter(([name, val]) => name.startsWith('page-'))
+            .reduce((accum, [name, val]) => {
+              accum[name.substr(5)] = val
+              return accum
+            }, {});
+          uiModel.page.layout = doc.getAttribute('page-layout', 'default');
+          uiModel.page.title = doc.getDocumentTitle();
+          uiModel.page.contents = Buffer.from(doc.convert());
+        }
         file.extname = '.html';
-        file.contents = new Buffer(compiledLayout(sampleUiModel));
+        file.contents = Buffer.from(layoutsIndex[uiModel.page.layout](uiModel));
         next(null, file);
       })
     )
@@ -124,7 +109,7 @@ function compileLayouts(src) {
       .src('layouts/*.hbs', { base: src, cwd: src })
       .pipe(
         map((file, next) => {
-          layoutsIndex[file.basename] = handlebars.compile(
+          layoutsIndex[file.stem] = handlebars.compile(
             file.contents.toString(),
             { preventIndent: true }
           );

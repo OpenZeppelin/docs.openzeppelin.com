@@ -1,32 +1,35 @@
-= OpenZeppelin Docs
-Author Name
-:idprefix:
-:idseparator: -
-:!example-caption:
+= Welcome to OpenZeppelin Documentation!
 
-Ah, the "token": the world's most powerful and most misused tool. In this section we'll learn to harness the power of native units of account for good and world peace!
+Learn about developing, upgrading and deploying your smart contract applications
 
-[.card.violet#contracts]
-****
+We have three different components to help you solve all your smart contract needs. Each one builds on top of the previous one. Our contracts library is our cornerstone product, a secure foundation for your solidity needs. Our SDK gives you a tool suite to interact with your smart contracts and the starter kits help you tie it all together with a consumer-ready frontend.
+
+== Why use OpenZeppelin tools?
+
+OpenZeppelin has been the bedrock of smart contract development in Ethereum for the last few years. Our libraries have been used by more than 100K developers to create tokens, protect digital assets and power decentralized applications. It has helped developers secure more than $4.5 billion in digital assets.
+
+As the ecosystem matures, we are taking all the lessons we have learned during this journey to help you create professional applications that are ready for consumer adoption.
+
+[.card.card-contracts]
+.xref:contracts::index.adoc[Contracts]
+--
 A library of modular, reusable, secure smart contracts, written in Solidity.
 
-[.link]#Get started >#
-****
-[.card.blue#sdk]
-****
+[.card-cta]#xref:contracts::index.adoc[Get started >]#
+--
+
+[.card.card-sdk]
+.xref:sdk::index.adoc[SDK]
+--
 A suite of tools to help you develop, test, upgrade and deploy smart contracts.
 
-[.link]#Get started >#
-****
-[.card.hellblue#kit]
-****
+[.card-cta]#xref:sdk::index.adoc[Get started >]#
+--
+
+[.card.card-starter-kits]
+.xref:starter-kits::index.adoc[Starter Kits]
+--
 Bundles to kickstart your decentralized web application.
 
-[.link]#Get started >#
-****
-
-== Getting Started
-=== But First, Coffee a Primer on Tokens
-
-Simply put, a token isn't anything special. In Ethereum, pretty much everything is a contract, and that includes what we call tokens. "Sending a token" is the same as "calling a method on a smart contract that someone wrote and deployed". And, at the end of the day, a token is just a mapping of addresses to balances and some nice methods to add and subtract from those balances.
-
+[.card-cta]#xref:starter-kits::index.adoc[Get started >]#
+--
