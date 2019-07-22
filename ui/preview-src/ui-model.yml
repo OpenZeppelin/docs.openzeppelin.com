@@ -1,268 +1,128 @@
+antoraVersion: '1.0.0'
+uiRootPath: _theme
 site:
   url: http://localhost:5252
-  title: openzeppelin Documentation
+  title: OpenZeppelin
   components:
-  - name: home
-    title: Test
-    items:
-    - name: styleguide
-      title: Styleguide
-      url: "/styleguide.html"
-    - name: test
-      title: Test
-      url: "/test.html"
-    - name: ERC20
-      title: ERC20
-      url: "/contracts/3.8/index.html"
-  - name: contracts
-    title: Contracts
+  - name: openzeppelin
+    title: OpenZeppelin
+    url: '#'
     versions:
-    - string: '3.8'
-      latest: true
-      url: "/contracts/3.8/index.html"
-    - string: '3.7'
-      url: "/contracts/3.7/index.html"
-    - string: '3.6'
-      url: "/contracts/3.6/index.html"
-    - string: '3.2'
-      url: "/contracts/3.2/index.html"
-    items:
-    - title: Overview
-      items:
-      - title: Getting Started
-        url: "/contracts/3.8"
-    - title: Guides
-      items:
-      - title: Access Control
-        url: "/contracts/3.8"
-      - title: Crowdsales
-        url: "/contracts/3.8"
-      - title: Tokens
-        url: "/contracts/3.8"
-      - title: Utilities
-        url: "/contracts/3.8"
-    - title: API Reference
-      items:
-      - title: Access
-        url: "/contracts/3.8"
-      - title: Crowdsales
-        url: "/contracts/3.8"
-      - title: Cryptography
-        url: "/contracts/3.8"
-      - title: Drafts
-        url: "/contracts/3.8"
-      - title: Introspection
-        url: "/contracts/3.8"
-      - title: Lifecycle
-        url: "/contracts/3.8"
-      - title: Math
-        url: "/contracts/3.8"
-      - title: Ownership
-        url: "/contracts/3.8"
-      - title: Payment
-        url: "/contracts/3.8"
-      - title: ERC 20
-        url: "/contracts/3.8"
-      - title: ERC 721
-        url: "/erc-721.html"
-      - title: ERC 777
-        url: "/contracts/3.8"
-      - title: Utilities
-        url: "/contracts/3.8"
+    - &latest_version_abc
+      url: '#' 
+      version: '1.1'
+      displayVersion: '1.1'
+    - url: '#' 
+      version: '1.0'
+      displayVersion: '1.0'
+    latestVersion: *latest_version_abc
+  - &component
+    name: contracts
+    title: Contracts
+    url: /contracts/6.0/index.html
+    versions:
+    - &latest_version_contracts
+      url: /contracts/6.0/index.html
+      version: '6.0'
+      displayVersion: '6.0'
+    - &component_version
+      url: '#' 
+      version: '5.2'
+      displayVersion: '5.2'
+    - url: '#' 
+      version: '5.1'
+      displayVersion: '5.1'
+    - url: '#' 
+      version: '5.0'
+      displayVersion: '5.0'
+    latestVersion: *latest_version_contracts
   - name: sdk
     title: SDK
+    url: '#'
     versions:
-    - string: '3.8'
-      latest: true
-      url: "/contracts/3.8/index.html"
-    - string: '3.7'
-      url: "/contracts/3.7/index.html"
-    - string: '3.6'
-      url: "/contracts/3.6/index.html"
-    - string: '3.2'
-      url: "/contracts/3.2/index.html"
-    items:
-    - title: Overview
-      items:
-      - title: Getting Started
-        url: "/contracts/3.8"
-    - title: Guides
-      items:
-      - title: Access Control
-        url: "/contracts/3.8"
-      - title: Crowdsales
-        url: "/contracts/3.8"
-      - title: Tokens
-        url: "/contracts/3.8"
-      - title: Utilities
-        url: "/contracts/3.8"
-    - title: API Reference
-      items:
-      - title: Access
-        url: "/contracts/3.8"
-      - title: Crowdsales
-        url: "/contracts/3.8"
-      - title: Cryptography
-        url: "/contracts/3.8"
-      - title: Drafts
-        url: "/contracts/3.8"
-      - title: Introspection
-        url: "/contracts/3.8"
-      - title: Lifecycle
-        url: "/contracts/3.8"
-      - title: Math
-        url: "/contracts/3.8"
-      - title: Ownership
-        url: "/contracts/3.8"
-      - title: Payment
-        url: "/contracts/3.8"
-      - title: ERC 20
-        url: "/contracts/3.8"
-      - title: ERC 721
-        url: "/erc-721.html"
-      - title: ERC 777
-        url: "/contracts/3.8"
-      - title: Utilities
-        url: "/contracts/3.8"
-  - name: starter-kit
-    title: Starters Kit
+    - &latest_version_sdk
+      url: '#' 
+      version: '2.2'
+      displayVersion: '2.2'
+    - url: '#' 
+      version: '2.1'
+      displayVersion: '2.1'
+    - url: '#' 
+      version: '2.0'
+      displayVersion: '2.0'
+    latestVersion: *latest_version_sdk
+  - name: starter-kits
+    title: Starter Kits
+    url: '#'
     versions:
-    - string: '3.8'
-      latest: true
-      url: "/contracts/3.8/index.html"
-    - string: '3.7'
-      url: "/contracts/3.7/index.html"
-    - string: '3.6'
-      url: "/contracts/3.6/index.html"
-    - string: '3.2'
-      url: "/contracts/3.2/index.html"
+    - &latest_version_starter-kits
+      url: '#' 
+      version: '2.2'
+      displayVersion: '2.2'
+    - url: '#' 
+      version: '2.1'
+      displayVersion: '2.1'
+    - url: '#' 
+      version: '2.0'
+      displayVersion: '2.0'
+    latestVersion: *latest_version_starter-kits
+page:
+  title: Brand&#8217;s Hardware &amp; Software Requirements
+  url: /contracts/5.2/index.html
+  component: *component
+  componentVersion: *component_version
+  version: '5.2'
+  displayVersion: '5.2'
+  module: ROOT
+  home: false
+  editUrl: http://example.com/project-contracts/blob/master/index.adoc
+  origin:
+    private: false
+  breadcrumbs:
+  - content: Quickstart
+    url: '#'
+    urlType: fragment
+  - content: Brand&#8217;s Hardware &amp; Software Requirements
+    url: /contracts/5.2/index.html
+    urlType: internal
+  versions:
+  - version: '6.0'
+    displayVersion: '6.0'
+    url: '#'
+  - version: '5.2'
+    displayVersion: '5.2'
+    url: '#'
+  - version: '5.1'
+    displayVersion: '5.1'
+    url: '#'
+  - version: '5.0'
+    displayVersion: '5.0'
+    missing: true
+    url: '#'
+  navigation:
+  - root: true
+    content: Project Starter Kits
+    url: '#'
+    urlType: fragment
     items:
-    - title: Overview
+    - content: Quickstart
+      url: '#'
+      urlType: fragment
       items:
-      - title: Getting Started
-        url: "/contracts/3.8"
-    - title: Guides
+      - content: Brand&#8217;s Hardware &amp; Software Requirements
+        url: /contracts/5.2/index.html
+        urlType: internal
+      - title: IDE Integration
+        url: '#'
+        urlType: fragment
+    - content: Liber Recusabo
+      url: '#liber-recusabo'
+      urlType: fragment
+    - content: Reference
       items:
-      - title: Access Control
-        url: "/contracts/3.8"
-      - title: Crowdsales
-        url: "/contracts/3.8"
-      - title: Tokens
-        url: "/contracts/3.8"
-      - title: Utilities
-        url: "/contracts/3.8"
-    - title: API Reference
-      items:
-      - title: Access
-        url: "/contracts/3.8"
-      - title: Crowdsales
-        url: "/contracts/3.8"
-      - title: Cryptography
-        url: "/contracts/3.8"
-      - title: Drafts
-        url: "/contracts/3.8"
-      - title: Introspection
-        url: "/contracts/3.8"
-      - title: Lifecycle
-        url: "/contracts/3.8"
-      - title: Math
-        url: "/contracts/3.8"
-      - title: Ownership
-        url: "/contracts/3.8"
-      - title: Payment
-        url: "/contracts/3.8"
-      - title: ERC 20
-        url: "/contracts/3.8"
-      - title: ERC 721
-        url: "/erc-721.html"
-      - title: ERC 777
-        url: "/contracts/3.8"
-      - title: Utilities
-        url: "/contracts/3.8"
-keywords: key, words, many, of, them
-canonicalUrl: https://example.com/index.html
-editUrl: https://github.com/openzeppelin/contracts/edit/v3.8/modules/ROOT/content/index.adoc
-breadcrumbs:
-- title: API Reference
-  url: level-0-item-0.html
-  currentPath: true
-- title: ERC 20
-  url: index.html
-  currentPage: true
-  items: []
-navigation:
-- title: Level 0 item 0
-  url: level-0-item-0.html
-  currentPath: true
-  items:
-  - title: INDEX
-    url: index.html
-    items: []
-  - title: FOO
-    url: foo/foo-index.html
-    items: []
-  - title: BAR
-    url: foo/bar/bar-index.html
-    items: []
-  - title: Level 1 item 0
-    url: level-1-item-0.html
-    items: []
-  - title: Level 1 item 1
-    url: level-1-item-1.html
-    items:
-    - title: Level 2 item 0
-      url: level-2-item-0.html
-      items: []
-    - title: Level 2 item 1
-      url: level-2-item-1.html
-      items: []
-    - title: Level 2 item 2
-      url: level-2-item-2.html
-      items: []
-  - title: Level 1 item 2
-    url: level-1-item-2.html
-    items: []
-  - title: absolute link
-    url: "/index.html"
-    items: []
-  - title: HTTP link
-    url: http://s.com
-    items: []
-  - title: HTTPS link
-    url: https://s.com
-    currentPage: true
-    items: []
-- title: Level 0 item 1
-  url: level-0-item-1.html
-  items: []
-globalAspectNav:
-- title: Tasks 0
-  url: tasks-0.html
-  items:
-  - title: Tasks 0 0
-    url: tasks-0-0.html
-    items: []
-  - title: Tasks 0 1
-    url: tasks-0-1.html
-    items: []
-- title: Tasks 1
-  url: tasks-1.html
-  items:
-  - title: Tasks 1 0
-    url: tasks-1-0.html
-    items: []
-  - title: Tasks 1 1
-    url: tasks-1-1.html
-    items:
-    - title: Tasks 1 1 0
-      url: tasks-1-1-0.html
-      items: []
-    - title: Tasks 1 1 1
-      url: tasks-1-1-1.html
-      items: []
-    - title: Tasks 1 1 2
-      url: tasks-1-1-2.html
-      items: []
-  - title: Tasks 1 2
-    url: tasks-1-2.html
-    items: []
+      - content: Keyboard Shortcuts
+        url: '#'
+        urlType: fragment
+      - content: Importing and Exporting
+        url: '#'
+        urlType: fragment
