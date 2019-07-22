@@ -4,6 +4,7 @@
 }
 
 .article {
+  flex-grow: 1;
   padding-bottom: var(--lg); /* matches nav padding */
   padding-left: var(--xl);
   padding-right: var(--xl);
