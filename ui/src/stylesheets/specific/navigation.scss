@@ -72,3 +72,11 @@
   top: 0;
   left: 0;
 }
+
+//------------- MOBILE RESPONSIVENESS ---------------------------------------
+
+@media (max-width: $mobile-breakpoint) {
+  .nav {
+    display: none;
+  }
+}

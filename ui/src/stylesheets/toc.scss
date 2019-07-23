@@ -51,3 +51,10 @@
   font-weight: 600;
   color: var(--core-violet-2);
 }
+
+
+@media (max-width: $mobile-breakpoint) {
+  .toc {
+    display: none;
+  }
+}

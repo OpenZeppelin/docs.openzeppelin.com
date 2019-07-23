@@ -65,6 +65,9 @@
   --transition-timing: cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 
+// Minimum screen size for mobile is 320px
+$mobile-breakpoint: 1000px;
+
 $screen-sm: 576px;
 $screen-md: 768px;
 $screen-lg: 992px;
