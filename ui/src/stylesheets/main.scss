@@ -7,4 +7,12 @@
 .main {
   flex: 1 1 0;
   min-width: 0;
+  width: calc(100vw - var(--nav-width));
+}
+
+
+@media (max-width: $mobile-breakpoint) {
+  .main {
+    width: 100vw;
+  }
 }
