@@ -100,3 +100,15 @@
     }
   }
 }
+
+@media (max-width: 1330px) and (min-width: $mobile-breakpoint), (max-width: 780px) {
+  .card {
+    display: block;
+    width: 100%;
+    min-height: 150px;
+    margin: 1rem auto;
+    & + & {
+      margin-left: auto;
+    }
+  }
+}
