@@ -63,6 +63,14 @@
       color: #4f4f68;
     }
   }
+
+  // .ulist a {
+  //   text-decoration: none;
+  //   code {
+  //     text-decoration-line: underline;
+  //     text-decoration-style: dotted;
+  //   }
+  // }
 }
 
 .anchor {
@@ -193,6 +201,11 @@
 
   .anchor {
 
+  }
+
+  .admonitionblock {
+    margin-right: $spacing;
+    margin-left: $spacing;
   }
 }
 
