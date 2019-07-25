@@ -15,7 +15,21 @@
 
     &.nav-link-active {
       color: var(--core-violet-4);
-      font-weight: bold;
+    }
+  }
+  .nav-list {
+    a.nav-link-active {
+      font-weight: var(--weight-medium);
+      &::before {
+        content: '';
+        position: absolute;
+        border-color: var(--core-violet-4);
+        border-style: solid;
+        border-width: 0 0.11em 0 0;
+        height: 0.9em;
+        left: 4.1em;
+        width: 0.1em;
+      }
     }
   }
 }
@@ -30,7 +44,7 @@
 }
 
 .nav-list {
-  padding-left: 5px;
+  padding-left: 0;
   list-style: none;
   line-height: 1.7em;
 }
@@ -71,6 +85,14 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.collapsible {
+  font-weight: var(--weight-medium);
+}
+
+.collapsible-content {
+  padding-left: 10px;
 }
 
 //------------- MOBILE RESPONSIVENESS ---------------------------------------

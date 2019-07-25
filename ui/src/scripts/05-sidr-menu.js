@@ -4,6 +4,8 @@
   var sidrToggle = document.querySelector('.sidr-toggle'),
     sidrPanel = document.querySelector('#sidr')
 
+  var sidrCollapse = document.querySelectorAll('.collapsible')
+
   var toolbar = document.createElement('div')
   toolbar.classList.add('sidr-toolbar')
 
@@ -22,11 +24,11 @@
   sidrPanel.insertBefore(toolbar, sidrPanel.firstChild)
 
   // find(document, '#sidr .menu__link + .menu').forEach(function (menu) {
-  //
+
   //   var submenuOpen = document.createElement('button')
   //   submenuOpen.classList.add('submenu__open')
   //   menu.parentNode.insertBefore(submenuOpen, menu)
-  //
+
   //   submenuOpen.addEventListener('click', function () {
   //     sidrPanel.setAttribute('data-submenu', 'yes')
   //     menu.setAttribute('data-state', 'open')
@@ -36,6 +38,18 @@
   sidrToggle.addEventListener('click', function (e) {
     sidrPanel.setAttribute('data-state', 'enabled')
     e.stopPropagation()
+  })
+
+  sidrCollapse.forEach(function (o) {
+    o.addEventListener('click', function (e) {
+      this.classList.toggle("active")
+      var dropdownContent = this.nextElementSibling
+      if (dropdownContent.style.display === "none") {
+        dropdownContent.style.display = "block";
+      } else {
+        dropdownContent.style.display = "none";
+      }
+    })
   })
 
   closeButton.addEventListener('click', function () {
