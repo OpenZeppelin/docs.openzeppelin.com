@@ -16,7 +16,7 @@ html.is-clipped--navbar {
   width: 100%;
   word-wrap: break-word;
   z-index: var(--z-index-navbar);
-  height: 70px;
+  height: calc(var(--navbar-height) + 2rem);
 }
 
 .navbar a {
@@ -37,7 +37,7 @@ html.is-clipped--navbar {
   align-items: stretch;
   display: flex;
   flex-shrink: 0;
-  height: var(--height-navbar);
+  height: var(--navbar-height);
 }
 
 .navbar-burger {
@@ -48,9 +48,9 @@ html.is-clipped--navbar {
   cursor: pointer;
   display: block;
   width: 15px;
-  height: var(--height-navbar);
+  height: var(--navbar-height);
   position: relative;
-  margin-left: var(--xl);
+  margin-left: var(--lg);
   margin-right: 0.75rem;
   padding: 0;
 }
@@ -100,18 +100,20 @@ html.is-clipped--navbar {
 .navbar-end {
   align-items: stretch;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .navbar-menu {
   flex-grow: 1;
+  flex-flow: row wrap;
   max-width: 1280px;
   background-color: #fff;
+  margin-left: var(--sm);
   padding: 0.5rem 0;
 }
 
 .navbar-end {
-  display: none;
+  height: 2rem;
 }
 
 .navbar-menu.is-active {
@@ -125,22 +127,25 @@ html.is-clipped--navbar {
 .navbar-link {
   color: var(--color-text);
   display: block;
+  flex: none;
   line-height: 1.5;
   padding: 0.5rem 1rem;
-  position: relative;
+  align-self: center;
   font-family: var(--heading);
   font-weight: 500;
   font-size: 0.9rem;
 }
 
-.navbar-item {
-  flex: none;
+.navbar-item:first-of-type {
+  padding-left: 0;
 }
 
 .navbar__logo {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  width: 100%;
+  height: calc(var(--navbar-height) - 1rem);
   padding-right: 2.5rem;
 }
 
@@ -190,6 +195,10 @@ html.is-clipped--navbar {
 //------------- DESKTOP ---------------------------------------
 
 @media screen and (min-width: $mobile-breakpoint) {
+  .navbar {
+    height: var(--navbar-height);
+  }
+
   .navbar,
   .navbar-menu,
   .navbar-end {
@@ -205,6 +214,10 @@ html.is-clipped--navbar {
   .navbar-link {
     align-items: center;
     display: flex;
+  }
+
+  .navbar-item:first-of-type {
+    padding-left: 1rem;
   }
 
   .navbar-item.has-dropdown {
@@ -231,10 +244,12 @@ html.is-clipped--navbar {
   }
 
   .navbar__logo {
+    width: auto;
     padding: 0 2.5rem;
   }
 
   .navbar-end {
+    height: auto;
     justify-content: flex-end;
 		margin-left: auto;
 		padding-right: 2rem;
