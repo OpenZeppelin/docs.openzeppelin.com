@@ -6,7 +6,7 @@
 
 .main {
   flex: 1 1 0;
-  min-width: 0;
+  min-width: 320px;
   width: calc(100vw - var(--nav-width));
 }
 
