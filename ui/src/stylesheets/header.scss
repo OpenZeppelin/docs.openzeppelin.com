@@ -47,6 +47,7 @@ html.is-clipped--navbar {
   outline: none;
   cursor: pointer;
   display: block;
+  width: 15px;
   height: var(--height-navbar);
   position: relative;
   margin-left: var(--xl);
@@ -127,7 +128,7 @@ html.is-clipped--navbar {
   line-height: 1.5;
   padding: 0.5rem 1rem;
   position: relative;
-  font-family: 'Silka';
+  font-family: var(--heading);
   font-weight: 500;
   font-size: 0.9rem;
 }

@@ -135,7 +135,7 @@ code {
 }
 
 thead {
-  font-family: Silka;
+  font-family: var(--heading);
   font-variant: small-caps;
   text-transform: lowercase;
   letter-spacing: .05em;

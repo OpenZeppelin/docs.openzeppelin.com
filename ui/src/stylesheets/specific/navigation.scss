@@ -40,7 +40,7 @@
 }
 
 .nav-component-heading {
-  font-family: "Silka";
+  font-family: var(--heading);
   font-weight: var(--weight-medium);
   position: relative;
   margin-top: var(--md);

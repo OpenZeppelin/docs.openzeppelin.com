@@ -1,6 +1,6 @@
 .alert {
   p {
-    font-family: Silka;
+    font-family: var(--heading);
     color: inherit;
     font-size: 1rem;
   }
@@ -10,7 +10,7 @@
 .alert {
   border: 1px solid rgb(196, 196, 196);
   border-radius: var(--border-radius);
-  font-family: Silka;
+  font-family: var(--heading);
   color: rgb(36, 36, 36);
   line-height: 100%;
   max-width: 90vw;
