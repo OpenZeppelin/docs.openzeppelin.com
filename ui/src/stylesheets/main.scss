@@ -13,6 +13,6 @@
 
 @media (max-width: $mobile-breakpoint) {
   .main {
-    width: 100vw;
+    transition: min-width 500ms;
   }
 }

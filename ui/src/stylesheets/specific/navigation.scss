@@ -35,6 +35,7 @@
 }
 
 .nav-components {
+  width: calc(300px - (2.2rem * 2));
   margin-top: 25px;
 }
 
@@ -95,10 +96,71 @@
   padding-left: 10px;
 }
 
+.cxlose-menu-btn {
+  display: none;
+}
 //------------- MOBILE RESPONSIVENESS ---------------------------------------
 
 @media (max-width: $mobile-breakpoint) {
   .nav {
-    display: none;
+    max-width: 0;
+    padding: 2.2rem 0;
+    opacity: 0;
+    transition: min-width 500ms, padding 500ms, opacity 300ms;
+    .close-menu-btn{
+      visibility: hidden;
+    }
+    .nav-list {
+      a.nav-link-active::before {
+        opacity: 0;
+        transition: 5ms;
+      }
+    }
   }
+
+  .active {
+    padding-left: 2.2rem;
+    opacity: 1;
+    transition: 500ms, opacity 300ms;
+    .close-menu-btn{
+      visibility: visible;
+    }
+    .nav-list {
+      a.nav-link-active::before {
+        opacity: 1;
+        transition: 2000ms;
+      }
+    }
+    .collapsible {
+      padding: 0;
+    }
+  }
+
+  .close-menu-btn {
+    position: absolute;
+    right: 32px;
+    top: 20px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+  }
+  .close-menu-btn:hover {
+    opacity: 1;
+  }
+  .close-menu-btn:before, .close-menu-btn:after {
+    position: absolute;
+    top: 6px;
+    left: 15px;
+    content: ' ';
+    height: 20px;
+    width: 2px;
+    background-color: #333;
+  }
+  .close-menu-btn:before {
+    transform: rotate(45deg);
+  }
+  .close-menu-btn:after {
+    transform: rotate(-45deg);
+  }
+
 }
