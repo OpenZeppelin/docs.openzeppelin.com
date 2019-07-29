@@ -7,8 +7,9 @@
 
   <div class="nav-components">
     {{#sorted site.components "openzeppelin, contracts, sdk, starter-kit"}}
-    <div class="nav-component">
-      <div class="flex align-center justify-justified nav-heading nav-component-heading">
+    <div class="nav-component {{#if (eq this @root.page.component)}}nav-component-active{{/if}}">
+      <div
+        class="flex align-center justify-justified nav-heading nav-component-heading {{#if (eq this @root.page.component)}}nav-heading-active{{/if}}">
         <a class="flex grow align-center link {{#if (eq this @root.page.component)}}nav-link-active{{/if}}"
           href="{{{./url}}}" tabindex="0">
           <img class="nav-icon {{#if (eq this @root.page.component)}}filter-active-icon{{/if}}"

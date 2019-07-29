@@ -22,13 +22,13 @@
       font-weight: var(--weight-medium);
       &::before {
         content: '';
-        position: absolute;
+        position: relative;
         border-color: var(--core-violet-4);
         border-style: solid;
         border-width: 0 0.11em 0 0;
         height: 0.9em;
-        left: 4.1em;
         width: 0.1em;
+        margin-right: 10px;
       }
     }
   }
@@ -36,6 +36,7 @@
 
 .nav-components {
   width: calc(300px - (2.2rem * 2));
+  height: calc(100% - 25px);
   margin-top: 25px;
 }
 
@@ -44,14 +45,30 @@
   padding-left: 30px;
 }
 
+.nav-component-active {
+  height: 80%;
+  overflow: hidden;
+  .nav-heading-active {
+    position: sticky;
+    top: 15px;
+  }
+}
+
 .nav-list {
   padding-left: 0;
   list-style: none;
   line-height: 1.7em;
+  height: 90%;
+  overflow-y: scroll;
 }
 
 .nav-heading {
   color: var(--steel-3);
+}
+
+.nav-heading-active {
+  position: sticky;
+  top: 15px;
 }
 
 .nav-component-heading {
