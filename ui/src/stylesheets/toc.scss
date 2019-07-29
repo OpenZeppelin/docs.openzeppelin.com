@@ -38,7 +38,9 @@
 
 .toc .toc-menu li {
   margin: 0.5rem 0 0;
-  padding: var(--xs) var(--sm);
+  padding-top: var(--xs);
+  padding-bottom: var(--xs);
+  padding-right: var(--sm);
   overflow: hidden;
   text-overflow: ellipsis;
 }
