@@ -9,7 +9,8 @@
     {{#sorted site.components "openzeppelin, contracts, sdk, starter-kit"}}
     <div class="nav-component">
       <div class="flex align-center justify-justified nav-heading nav-component-heading">
-        <a class="flex grow align-center link" href="{{{./url}}}" tabindex="0">
+        <a class="flex grow align-center link {{#if (eq this @root.page.component)}}nav-link-active{{/if}}"
+          href="{{{./url}}}" tabindex="0">
           <img class="nav-icon {{#if (eq this @root.page.component)}}filter-active-icon{{/if}}"
             src="{{@root.uiRootPath}}/images/icons/{{{this.name}}}.svg">
           <span class="flex grow">{{{./title}}}</span>
