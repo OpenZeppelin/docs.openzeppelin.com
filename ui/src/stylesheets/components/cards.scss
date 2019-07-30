@@ -101,7 +101,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 642px) {
   .card {
     display: block;
     width: 100%;
@@ -113,9 +113,9 @@
   }
 }
 
-@media (min-width: $mobile-breakpoint) and (max-width: 1120px), (min-width: 640px) and (max-width: 780px) {
+@media (min-width: $mobile-breakpoint) and (max-width: 1120px), (min-width: 642px) and (max-width: 780px) {
   .card {
-    width: 185px;
+    width: 187px;
     height: 300px;
     margin: 1rem auto;
     & + & {
