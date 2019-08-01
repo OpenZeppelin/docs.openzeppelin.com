@@ -41,15 +41,19 @@
 }
 
 .nav-component {
-  margin-bottom: var(--lg);
   padding-left: 30px;
 }
 
 .nav-component-active {
-  height: 70%;
+  max-height: 80%;
+  overflow-y: auto;
   .nav-heading-active {
     position: sticky;
-    top: 15px;
+    top: 0;
+    padding-top: 15px;
+    padding-bottom: 4px;
+    margin-top: 0;
+    background: #f8f8fa;
   }
 }
 
@@ -75,7 +79,7 @@
   margin-top: var(--md);
   & + .nav-list {
     height: 90%;
-    overflow-y: auto;
+    margin-bottom: 0;
   }
 }
 
@@ -184,5 +188,11 @@
   }
   .close-menu-btn:after {
     transform: rotate(-45deg);
+  }
+}
+
+@media (orientation: landscape) and (max-width: $mobile-breakpoint) {
+  .nav-component-active {
+    height: 60%;
   }
 }
