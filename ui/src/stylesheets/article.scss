@@ -7,10 +7,11 @@
 .article {
   flex-grow: 1;
   padding-bottom: var(--lg); /* matches nav padding */
-  padding-left: var(--xl);
-  padding-right: var(--xl);
+  margin-left: var(--xl);
+  margin-right: var(--xl);
   min-height: calc(100vh - 163px);
-  max-width: 980px;
+  max-width: 964px;
+  width: calc(100% - 200px - 6rem); // 100% of parent (main) minus toc width and margin
 
   // h2 {
   //   text-transform: uppercase;
@@ -21,6 +22,7 @@
 
   pre code {
     border-radius: var(--border-radius);
+    max-width: 90vw;
   }
 
   img {
@@ -104,10 +106,12 @@
 
 .contract-index {
   border-radius: var(--border-radius);
+  max-width: 90vw;
   padding: 1.5rem;
   background-color: #fbfbfc;
   margin-top: 1em;
   margin-bottom: 1em;
+  word-wrap: break-word;
 
   ul {
     list-style: none;
@@ -133,7 +137,7 @@
   }
 
   .title {
-    font-family: Silka;
+    font-family: var(--heading);
     font-size: 0.9em;
     color: var(--core-violet-2);
     letter-spacing: .05em;
@@ -145,10 +149,12 @@
 .contract-item {
   border-radius: var(--border-radius);
   border: solid 1px #e9e9ed;
+  max-width: 90vw;
   padding: 0;
   margin-top: 1em;
   margin-bottom: 1em;
   $spacing: 1em;
+  word-wrap: break-word;
 
   > * {
     margin-right: $spacing;
@@ -185,7 +191,17 @@
     }
   }
 
-  .anchor {
+  .admonitionblock {
+    font-family: var(--sans-serif);
+    margin-right: $spacing;
+    margin-left: $spacing;
+  }
+}
 
+
+@media (max-width: $mobile-breakpoint) {
+  .article {
+    margin-left: var(--lg);
+    margin-right: var(--lg);
   }
 }

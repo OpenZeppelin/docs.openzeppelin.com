@@ -41,8 +41,7 @@
   --border-radius: 6px;
 
   --heading: "Silka", sans-serif;
-  --sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  --sans-serif: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
   --monospace: "Roboto Mono", monospace;
 
   --weight-normal: 400;
@@ -50,6 +49,7 @@
   --weight-bold: 600;
 
   --header-height: 66px;
+  --navbar-height: 70px;
   --footer-height: 361px;
   --nav-item-height: 32px;
   --nav-width: 300px;
@@ -64,6 +64,9 @@
   --transition-speed-md: 0.3s;
   --transition-timing: cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
+
+// Minimum screen size for mobile is 320px
+$mobile-breakpoint: 1000px;
 
 $screen-sm: 576px;
 $screen-md: 768px;

@@ -86,7 +86,7 @@
   }
 
   .card-cta {
-    font-family: Silka;
+    font-family: var(--heading);
     font-size: .8em;
     letter-spacing: .05em;
     text-transform: uppercase;
@@ -97,6 +97,29 @@
       text-decoration: none;
       padding: 20px;
       margin: -20px;
+    }
+  }
+}
+
+@media (max-width: 642px) {
+  .card {
+    display: block;
+    width: 100%;
+    min-height: 150px;
+    margin: 1rem auto;
+    & + & {
+      margin-left: auto;
+    }
+  }
+}
+
+@media (min-width: $mobile-breakpoint) and (max-width: 1120px), (min-width: 642px) and (max-width: 780px) {
+  .card {
+    width: 187px;
+    height: 300px;
+    margin: 1rem auto;
+    & + & {
+      margin-left: 1rem;
     }
   }
 }

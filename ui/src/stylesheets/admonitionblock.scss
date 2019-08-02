@@ -1,6 +1,6 @@
 .alert {
   p {
-    font-family: Silka;
+    font-family: var(--heading);
     color: inherit;
     font-size: 1rem;
   }
@@ -10,9 +10,10 @@
 .alert {
   border: 1px solid rgb(196, 196, 196);
   border-radius: var(--border-radius);
-  font-family: Silka;
+  font-family: var(--heading);
   color: rgb(36, 36, 36);
   line-height: 100%;
+  max-width: 90vw;
   font-size: 1rem;
   text-align: center;
   line-height: 20px;
@@ -36,13 +37,19 @@
       border: none;
       padding: 0;
       margin: 0;
+      word-wrap: break-word;
+      a {
+        word-break: break-all;
+      }
     }
   }
 
   .content {
+    max-width: 82vw;
     padding-left: 60px;
     font-size: 1rem;
     text-align: left;
+    word-wrap: break-word;
   }
 
   &.note {

@@ -6,6 +6,7 @@
   overflow-y: auto;
   flex-basis: 200px;
   font-size: .8em;
+  margin-right: 3rem;
 }
 
 .toc-menu {
@@ -28,7 +29,7 @@
   font-size: inherit;
   margin: 0;
   padding: 0;
-  font-family: Silka;
+  font-family: var(--heading);
   color: var(--aluminum-5);
   letter-spacing: .05em;
   font-weight: var(--weight-bold);
@@ -37,7 +38,9 @@
 
 .toc .toc-menu li {
   margin: 0.5rem 0 0;
-  padding: var(--xs) var(--sm);
+  padding-top: var(--xs);
+  padding-bottom: var(--xs);
+  padding-right: var(--sm);
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -50,4 +53,11 @@
 .toc a.toc-active {
   font-weight: 600;
   color: var(--core-violet-2);
+}
+
+
+@media (max-width: 1370px) {
+  .toc {
+    display: none;
+  }
 }
