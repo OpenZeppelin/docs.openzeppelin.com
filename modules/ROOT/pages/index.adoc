@@ -49,12 +49,11 @@ In order to integrate Gas Station Network into your application, you need to sli
 
 * *Contracts*: See how to use OpenZeppelin Library to integrate GSN https://docs.openzeppelin.com/contracts/2.x/gsn[here].
 * *Fund your dapp recipient*: Use the dapp tool to fund your application https://gifted-mayer-c163b8.netlify.com/recipients[here].
-* *Web3 Provider*: You can see an example of how to integrate it using https://github.com/OpenZeppelin/openzeppelin-network.js[oz.js] in the https://github.com/OpenZeppelin/gsn-sample-chat_app/blob/master/client/src/App.js[sample app]. More documentation is coming soon.
+* *Web3 Provider*: You can see an example of how to integrate it using https://github.com/OpenZeppelin/openzeppelin-network.js[openzeppelin-network.js] in the https://github.com/OpenZeppelin/gsn-sample-chat_app/blob/master/client/src/App.js[sample app]. More documentation is coming soon.
 
 === Sample App: Chat
 We have created a sample chat application to showcase the power of gasless dapps. As you can see you don't need Metamask or any other wallet to interact with it.
 
-See it in action https://gsn-chat-app.openzeppelin.com/[here]
-Github Repo[https://github.com/OpenZeppelin/gsn-sample-chat_app]
+See it in action https://gsn-chat-app.openzeppelin.com/[here] or check out https://github.com/OpenZeppelin/gsn-sample-chat_app[the code]
 
 CAUTION: Gas Station Network is still in beta. It is only live on Rinkeby. We plan to release it to mainnet during August. Then, it will stay in beta for a few months.
