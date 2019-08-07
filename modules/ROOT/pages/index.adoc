@@ -48,7 +48,7 @@ https://medium.com/@rrecuero/eth-onboarding-solution-90607fb81380[Announcement]
 In order to integrate Gas Station Network into your application, you need to slightly modify your contracts with OpenZeppelin library and then connect to a new provider via web3.
 
 * *Contracts*: See how to use OpenZeppelin Library to integrate GSN https://docs.openzeppelin.com/contracts/2.x/gsn[here].
-* *Fund your dapp recipient*: Use the dapp tool to fund your application https://gsn.openzeppelin.com//recipients[here].
+* *Fund your dapp recipient*: Use the dapp tool to fund your application https://gsn.openzeppelin.com/recipients[here].
 * *Web3 Provider*: Check how to use the GSN web3 provider https://github.com/OpenZeppelin/openzeppelin-gsn-provider[here].
   We recommend using https://github.com/OpenZeppelin/openzeppelin-network.js[oz.js] to handle different Web3 Providers.
 * *Testing GSN*: Test and development helper methods and scripts for using GSN are available https://github.com/OpenZeppelin/openzeppelin-gsn-helpers[here].
