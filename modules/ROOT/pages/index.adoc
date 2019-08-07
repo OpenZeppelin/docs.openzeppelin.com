@@ -50,6 +50,7 @@ In order to integrate Gas Station Network into your application, you need to sli
 * *Contracts*: See how to use OpenZeppelin Library to integrate GSN https://docs.openzeppelin.com/contracts/2.x/gsn[here].
 * *Fund your dapp recipient*: Use the dapp tool to fund your application https://gsn.openzeppelin.com//recipients[here].
 * *Web3 Provider*: Check how to use the GSN web3 provider https://github.com/OpenZeppelin/openzeppelin-gsn-provider[here].
+  We recommend using https://github.com/OpenZeppelin/openzeppelin-network.js[oz.js] to handle different Web3 Providers.
 * *Testing GSN*: Test and development helper methods and scripts for using GSN are available https://github.com/OpenZeppelin/openzeppelin-gsn-helpers[here].
 
 === GSN Sample App: Online Chat
