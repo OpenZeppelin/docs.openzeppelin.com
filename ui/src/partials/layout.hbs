@@ -25,10 +25,20 @@
     <link
       href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700&display=swap"
       rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
     {{> head }}
     {{> intercom }}
   </head>
   <body class="flex col {{#if attrs}}{{attrs}}{{/if}}">
     {{> main }}
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script type="text/javascript"> docsearch({
+      apiKey: 'cb0f82eda84539a9d0184ca17e2ad816',
+      indexName: 'openzeppelin',
+      inputSelector: '.search > input',
+      debug: false // Set debug to true if you want to inspect the dropdown
+    });
+    </script> 
   </body>
 </html>
