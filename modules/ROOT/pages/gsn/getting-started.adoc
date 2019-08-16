@@ -4,21 +4,21 @@ The https://gsn.ethereum.org[Gas Station Network] (GSN for short) is a decentral
 
 The GSN was originally designed by Tabookey, and then further developed by OpenZeppelin. Today, it is backed by the Gas Station Network Alliance, a group of companies that adhere to and push the GSN standard.
 
-The OpenZeppelin Platform provides full GSN support across the entire stack, so you can easily start developing a GSN-capable application. But before going through the components below, make sure you go check out our GSN introductory guide.
+The OpenZeppelin Platform provides full GSN support across the entire stack, so you can easily start developing a GSN-capable application. But before going through the components below, make sure you go check out our xref:what-is-the-gsn.adoc[GSN introductory guide].
 
 == Contracts
 
 OpenZeppelin Contracts provides the base utilities to make your contracts GSN-capable, by allowing them to receive meta-transactions using the GSN standard, and providing some payment strategies out of the box.
 
-* Learn how to write a GSN-capable contract
-* Check out the pre-built payment strategies
-* Read the API reference for the `GSNRecipient` base contract
+* Learn https://docs.openzeppelin.com/contracts/2.x/gsn[how to write a GSN-capable contract]
+* Check out the https://docs.openzeppelin.com/contracts/2.x/gsn-advanced[pre-built payment strategies]
+* Read https://docs.openzeppelin.com/contracts/2.x/api/gsn[the API reference for the GSN contracts]
 
 == SDK
 
 The OpenZeppelin CLI can be used to compile and manage your GSN-capable contracts. In addition, we have built a set of GSN-specific helpers to make local development simple, and a front-end library so applications can easily send meta-transactions via the GSN.
 
-* Learn how to build a GSN-powered dapp from scratch in React
+* Learn how to https://docs.openzeppelin.com/sdk/2.5/gsn-dapp[build a GSN-powered dapp from scratch] in React
 * Check out the https://github.com/OpenZeppelin/openzeppelin-network.js[repo for `@openzeppelin/network.js`] for easily setting up a GSN-ready web3 instance
 * Check out the https://github.com/OpenZeppelin/openzeppelin-gsn-provider[repo for `@openzeppelin/gsn-provider`] for more info on the web3 GSN-enabled provider
 * Check out the https://github.com/OpenZeppelin/openzeppelin-gsn-helpers[repo for `@openzeppelin/gsn-helpers`] to see how to set up a working GSN in your local network with a single command
@@ -27,6 +27,6 @@ The OpenZeppelin CLI can be used to compile and manage your GSN-capable contract
 
 The preconfigured OpenZeppelin Starter Kits are an easy way to learn and bootstrap your dapps. We have added a new GSN Starter Kit that ships with full GSN support, and a small demo to understand how the pieces fit together.
 
-* Read about the GSN Starter Kit in the docs
+* Read about the https://docs.openzeppelin.com/starter-kits/2.3/gsnkit[GSN Starter Kit] in the docs
 * Check out the https://github.com/OpenZeppelin/starter-kit-gsn[`openzeppelin/starter-kit-gsn` repo] to see the code
 * Unpack the kit by running `openzeppelin unpack @openzeppelin/starter-kit-gsn` to try it out right away
