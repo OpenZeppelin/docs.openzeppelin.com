@@ -1,6 +1,6 @@
 = Getting started with the Gas Station Network
 
-The https://gsn.ethereum.org[Gas Station Network] (GSN for short) is a decentralized solution for solving user onboarding to Ethereum applications. It allows dapps to pay for their users' transactions in a secure way, so users don't need to hold ETH to pay for their gas, and don't even need to set up an account.
+The https://gsn.ethereum.org[Gas Station Network] (GSN for short) is a decentralized solution for solving user onboarding to Ethereum applications. It allows dapps to pay for their users' transactions in a secure way, so users don't need to hold ETH to pay for their gas or even set up an account.
 
 The GSN was originally designed by Tabookey, and then further developed by OpenZeppelin. Today, it is backed by the Gas Station Network Alliance, a group of companies that adhere to and push the GSN standard.
 
@@ -16,7 +16,7 @@ OpenZeppelin Contracts provides the base utilities to make your contracts GSN-ca
 
 == SDK
 
-The OpenZeppelin CLI can be used to compile and manage your GSN-capable contracts. In addition, we have built a set of GSN-specific helpers to make local development easier, and a front-end library so applications can easily send meta-transactions via the GSN.
+The OpenZeppelin CLI can be used to compile and manage your GSN-capable contracts. In addition, we have built a set of GSN-specific helpers to make local development simple, and a front-end library so applications can easily send meta-transactions via the GSN.
 
 * Learn how to build a GSN-powered dapp from scratch in React
 * Check out the https://github.com/OpenZeppelin/openzeppelin-network.js[repo for `@openzeppelin/network.js`] for easily setting up a GSN-ready web3 instance

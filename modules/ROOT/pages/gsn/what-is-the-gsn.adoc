@@ -3,11 +3,11 @@
 *https://gsn.openzeppelin.com[Website]*
 
 User onboarding is one of the hottest topics in Ethereum. UI/UX along with scalability have been identified as the main problems that prevent adoption. Meta-transactions are a key component to improve the user experience.
-Here you'll learn about what the Gas Station Network (GSN) is and how it solves this problem, by allowing users of a contract to send transactions without needing Ether to pay for gas.
+Here you'll learn what the Gas Station Network (GSN) is and how it solves this problem, by allowing users of a contract to send transactions without needing Ether to pay for gas.
 
 == Sending gas-less transactions
 
-All Ethereum transactions use gas, and the sender of each transaction must have enough Ether to pay for the gas spent. Even though these gas costs are low for basic transactions (a couple of cents), getting this Ether is no easy task: dApp users often need to go through Know Your Customer and Anti Money-Laundering processes (KYC & AML), which not only takes time but often involves sending a selfie holding their passport over the Internet (!).
+All Ethereum transactions use gas, and the sender of each transaction must have enough Ether to pay for the gas spent. Even though these gas costs are low for basic transactions (a couple of cents), getting Ether is no easy task: dApp users often need to go through Know Your Customer and Anti Money-Laundering processes (KYC & AML), which not only takes time but often involves sending a selfie holding their passport over the Internet (!).
 On top of that, they also need to provide financial information to be able to purchase Ether through an exchange.
 Only the most hardcore users will put up with this hassle, and dApp adoption greatly suffers when Ether is required. We can do better.
 
@@ -35,7 +35,7 @@ One of RelayHub's jobs is to act as a, well, _hub_ for all relayers: they will a
 
 The other key task RelayHub carries out is the actual _relaying of transactions_, the sole purpose behind this whole system. Instead of calling a function in your contract directly, your users will request a relayer to do it for them, who will then execute RelayHub's relayCall function. RelayHub will verify that the transaction is legitimate (protecting both users and recipients from dishonest relayers), and then call into your contract as originally requested by your user. This requires your recipient trusting RelayHub to do the right thing, but since it is a smart contract, this is as simple as reading its source code!
 
-NOTE: The RelayHub address will be the same in each network. Right now, the latest relay hub is live with this address `0xD216153c06E857cD7f72665E0aF1d7D82172F494`.
+NOTE: The RelayHub address will be the same in each network. Right now, the latest relay hub is live at this address: https://etherscan.io/address/0xD216153c06E857cD7f72665E0aF1d7D82172F494[`0xD216153c06E857cD7f72665E0aF1d7D82172F494`].
 
 == Receiving a relayed call
 
@@ -63,6 +63,7 @@ To recap, there are four main actors in the GSN:
 == Further reading
 
 * The https://medium.com/@rrecuero/eth-onboarding-solution-90607fb81380[GSN announcement post] provides a good *overview of the system*, along with some use cases to take inspiration from.
-* If you want to learn how to use *OpenZeppelin Contract's pre-made accept and charge strategies*, we'll add an advanced GSN recipients guide soon.
+* To learn how to use OpenZeppelin Contracts to *build a GSN-capable contract*, head to the https://docs.openzeppelin.com/contracts/2.x/gsn[GSN basics guide].
+* If you want to learn how to use OpenZeppelin Contracts' *pre-made accept and charge strategies*, we'll add an advanced GSN recipients guide soon.
 * If instead you wish to know more about how to *use GSN from your application*, head to the https://github.com/OpenZeppelin/openzeppelin-gsn-provider[OpenZeppelin GSN provider guides].
 * For information on how to *test GSN-enabled contracts*, go to the https://github.com/OpenZeppelin/openzeppelin-gsn-helpers[OpenZeppelin test helpers documentation].
