@@ -61,4 +61,4 @@ More information about the GSN Chat App
 https://gsn-chat-app.openzeppelin.com/[Live App]
 https://github.com/OpenZeppelin/gsn-sample-chat_app[Code Repo]
 
-CAUTION: Gas Station Network is still in beta. It is only live on Rinkeby. We plan to release it to mainnet during August. Then, it will stay in beta for a few months.
+CAUTION: Gas Station Network is still in beta. It is live on Mainnet, Rinkeby, Kovan, Ropsten and Goerli.
