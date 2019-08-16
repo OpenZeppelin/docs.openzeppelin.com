@@ -2,7 +2,7 @@
 
 == What does GSN stand for?
 
-GSN stands for "xref:https://medium.com/tabookey/1-800-ethereum-gas-stations-network-for-toll-free-transactions-4bbfc03a0a56[Gas Station Network]". Originally conceived and designed by https://www.tabookey.com[TabooKey] the GSN has grown to encompass many companies in the Ethereum space looking to work together to solve the problem of onboarding users to Ethereum applications.
+GSN stands for https://gsn.ethereum.org[Gas Station Network]. Originally conceived and designed by https://medium.com/tabookey/1-800-ethereum-gas-stations-network-for-toll-free-transactions-4bbfc03a0a56[TabooKey] the GSN has grown to encompass many companies in the Ethereum space looking to work together to solve the problem of onboarding users to Ethereum applications.
 
 == How does it work?
 
