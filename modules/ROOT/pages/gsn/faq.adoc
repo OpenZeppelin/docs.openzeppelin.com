@@ -12,7 +12,7 @@ Users sign messages (not transactions) containing information about a transactio
 
 == Who is paying the gas?
 
-As GSN is intended primarily to https://medium.com/coinmonks/eth-onboarding-solution-90607fb81380[solve the user onboarding problem], it is expected that the (d)app developers themselves will be responsible for paying the gas cost of users. In this case, gas costs should be considered the cost of user acquisition.
+As GSN is intended primarily to https://blog.openzeppelin.com/gsn-the-ultimate-ethereum-onboarding-solution[solve the user onboarding problem], it is expected that the (d)app developers themselves will be responsible for paying the gas cost of users. In this case, gas costs should be considered the cost of user acquisition.
 
 Alternatively, the GSN can be used for more specific situations, such as paying for DAO users transactions from a DAO treasury account, or contracts where users pay for their transactions via counterfactually deployed smart contracts.
 
