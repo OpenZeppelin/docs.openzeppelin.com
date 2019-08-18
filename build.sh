@@ -18,7 +18,7 @@ log() {
 
 log "Building UI bundle..."
 cd ui
-npm install --no-package-lock --no-audit
+npm install --no-audit
 npm run bundle
 cd ..
 log "✓ Done"
