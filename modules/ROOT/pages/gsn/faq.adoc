@@ -8,7 +8,7 @@ GSN stands for https://gsn.ethereum.org[Gas Station Network]. Originally conceiv
 
 The Gas Station Network is a decentralized network of Relayers which can be used to sign and send Ethereum transactions without the original sender (the end-users) paying for gas.
 
-Users sign messages (not transactions) containing information about a transaction they would like and arguments they would like to pass. Relayers are then responsible for signing valid Ethereum transactions with this information, and an inherited xref:api:GSN.adoc#GSNRecipient[`GSNRecipient`] contract preserves the identity of the user that originally requested the transaction. In this way, users can interact directly with smart contracts without needing to have a wallet or own ETH.
+Users sign messages (not transactions) containing information about a transaction they would like and arguments they would like to pass. Relayers are then responsible for signing valid Ethereum transactions with this information, and an inherited xref:api:gsn.adoc#GSNRecipient[`GSNRecipient`] contract preserves the identity of the user that originally requested the transaction. In this way, users can interact directly with smart contracts without needing to have a wallet or own ETH.
 
 == Who is paying the gas?
 
@@ -22,7 +22,7 @@ When using GSN, the Ethereum network still requires gas as payment to sign trans
 
 == Does this work for any contract?
 
-For relayers to pay the gas cost of signing transactions, it is required that the contract with which the user is interacting be GSN enabled. To enable GSN a contract must inherit from the xref:api:GSN.adoc#GSNRecipient[`GSNRecipient`] contract in the OpenZeppelin Contracts library.
+For relayers to pay the gas cost of signing transactions, it is required that the contract with which the user is interacting be GSN enabled. To enable GSN a contract must inherit from the xref:api:gsn.adoc#GSNRecipient[`GSNRecipient`] contract in the OpenZeppelin Contracts library.
 
 == Does this work for any transaction?
 
@@ -30,7 +30,7 @@ No, relayers are only able to pay the gas cost of signing transactions for GSN e
 
 == Where is the private key?
 
-While relayers pay the gas cost for users, this does not mean they have access to users' private keys. The xref:api:GSN.adoc#GSNRecipient[`GSNRecipient`] contract has a utility function called `\_msgSender()` which is to be used in place of the solidity system variable `msg.sender` and returns the true address of the user - even when transactions are signed by the relayers private key.
+While relayers pay the gas cost for users, this does not mean they have access to users' private keys. The xref:api:gsn.adoc#GSNRecipient[`GSNRecipient`] contract has a utility function called `\_msgSender()` which is to be used in place of the solidity system variable `msg.sender` and returns the true address of the user - even when transactions are signed by the relayers private key.
 
 User private keys are never shared or exposed to the relays.
 
@@ -44,7 +44,7 @@ As always, applications that intend to store large amounts of value should consi
 
 == How do I know who the user is?
 
-The xref:api:GSN.adoc#GSNRecipient[`GSNRecipient`] contract has a utility function called `\_msgSender()` which returns the true address of the user making a contract call. The function `\_msgSender()` should be used in place of the solidity system variable `msg.sender`.
+The xref:api:gsn.adoc#GSNRecipient[`GSNRecipient`] contract has a utility function called `\_msgSender()` which returns the true address of the user making a contract call. The function `\_msgSender()` should be used in place of the solidity system variable `msg.sender`.
 
 == Why does it matter if I know who the user is?
 
@@ -52,7 +52,7 @@ The GSN network is built to be compatible with the Ethereum network in its prese
 
 == Do I pay for everyone? How do I decide who to pay for?
 
-(D)app owners can choose from basic predefined payment strategies or construct their own. The OpenZeppelin Contracts xref:api:GSN.adoc#GSNRecipient[`GSNRecipient`] contract provides for pre and post-payment hooks that can be used to verify that a contract function and user are eligible for the transaction cost to be covered by a Relay as well as allow users to pay relays in tokens rather than ETH.
+(D)app owners can choose from basic predefined payment strategies or construct their own. The OpenZeppelin Contracts xref:api:gsn.adoc#GSNRecipient[`GSNRecipient`] contract provides for pre and post-payment hooks that can be used to verify that a contract function and user are eligible for the transaction cost to be covered by a Relay as well as allow users to pay relays in tokens rather than ETH.
 
 When deciding how many payments and for how much to cover, (d)app owners should consider what they expect the total cost of payment to be, and how they will identify who are their users. It is up to (d)app owners to decide how they will identify who is an eligible user.
 
@@ -70,7 +70,7 @@ Although GSN does not require a wallet provider such as Metamask, it is possible
 
 == How do I transition users from the browser key to using MetaMask or vice versa?
 
-OpenZeppelin will be producing several guides and tutorials to help developers integrate GSN into their smart contracts and (d)applications. The process is rather straightforward and involves only inheriting a xref:api:GSN.adoc#GSNRecipient[`GSNRecipient`] contract in the smart contract. It is up to developers to decide how and when they wish their users to send transactions via the GSN network.
+OpenZeppelin will be producing several guides and tutorials to help developers integrate GSN into their smart contracts and (d)applications. The process is rather straightforward and involves only inheriting a xref:api:gsn.adoc#GSNRecipient[`GSNRecipient`] contract in the smart contract. It is up to developers to decide how and when they wish their users to send transactions via the GSN network.
 
 == Can I use this with credit cards?
 
