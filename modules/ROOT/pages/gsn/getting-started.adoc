@@ -11,7 +11,7 @@ The OpenZeppelin Platform provides full GSN support across the entire stack, so 
 OpenZeppelin Contracts provides the base utilities to make your contracts GSN-capable, by allowing them to receive meta-transactions using the GSN standard, and providing some payment strategies out of the box.
 
 * Learn https://docs.openzeppelin.com/contracts/2.x/gsn[how to write a GSN-capable contract]
-* Check out the https://docs.openzeppelin.com/contracts/2.x/gsn-advanced[pre-built payment strategies]
+* Check out the https://docs.openzeppelin.com/contracts/2.x/gsn-bouncers[pre-built payment strategies]
 * Read https://docs.openzeppelin.com/contracts/2.x/api/gsn[the API reference for the GSN contracts]
 
 == SDK
