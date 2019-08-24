@@ -6,9 +6,9 @@ GSN stands for https://gsn.ethereum.org[Gas Station Network]. Originally conceiv
 
 == How does it work?
 
-The Gas Station Network is a decentralized network of Relayers which can be used to sign and send Ethereum transactions without the original sender (the end-users) paying for gas.
+The Gas Station Network is a decentralized network of relayers which can be used to sign and send Ethereum transactions without the original sender (the end-users) paying for gas.
 
-Users sign messages (not transactions) containing information about a transaction they would like and arguments they would like to pass. Relayers are then responsible for signing valid Ethereum transactions with this information, and an inherited xref:api:gsn.adoc#GSNRecipient[`GSNRecipient`] contract preserves the identity of the user that originally requested the transaction. In this way, users can interact directly with smart contracts without needing to have a wallet or own ETH.
+Users sign messages (not transactions) containing information about a transaction they would like and arguments they would like to pass. relayers are then responsible for signing valid Ethereum transactions with this information, and an inherited xref:api:gsn.adoc#GSNRecipient[`GSNRecipient`] contract preserves the identity of the user that originally requested the transaction. In this way, users can interact directly with smart contracts without needing to have a wallet or own ETH.
 
 == Who is paying the gas?
 
@@ -36,7 +36,7 @@ User private keys are never shared or exposed to the relays.
 
 == Is this safe? Secure?
 
-The GSN network and smart contracts have been audited by OpenZeppelin and are considered to be safe. As the Relayers do not have access to users' private keys there is no danger of user funds being stolen via stolen private keys.
+The GSN network and smart contracts have been audited by OpenZeppelin and are considered to be safe. As the relayers do not have access to users' private keys there is no danger of user funds being stolen via stolen private keys.
 
 The original http://eips.ethereum.org/EIPS/eip-1613[Gas Station Network EIP: 1613] lists several theoretical attacks against the relay network which have been accounted for by the software implementation and the Relay network should be considered safe.
 
@@ -86,7 +86,7 @@ Relay providers deposit a stake in the `RelayHub` while (d)app owners deposit a 
 
 The balance deposited by (d)app owners is used to refund relayers for the cost of relaying transactions plus a small fee so that they can cover their expenses and hopefully make a profit.
 
-Relay providers are required to deposit a stake into the `RelayHub` to ensure good behavior. In the event a Relayer behaves badly (for example attempting to reuse a nonce) their deposit can be slashed and collected by other relayers which can then prove on-chain a relayers bad behavior. This system of checks and balances is one of the features that keep the GSN safe and ensures that some forms of attacks against the network do not scale.
+Relay providers are required to deposit a stake into the `RelayHub` to ensure good behavior. In the event a relayer behaves badly (for example attempting to reuse a nonce) their deposit can be slashed and collected by other relayers which can then prove on-chain a relayers bad behavior. This system of checks and balances is one of the features that keep the GSN safe and ensures that some forms of attacks against the network do not scale.
 
 == Does my app need to hold money?
 
