@@ -60,16 +60,17 @@ h6 {
 h1,
 h2 {
   padding-top: 0.75em;
-  padding-bottom: 0.4em;
-  border-bottom: solid 1.2px #d4d4da;
+  border-bottom: solid 1px var(--aluminum-4);
 }
 
 h1 {
   font-size: 1.8em;
+  padding-bottom: 0.4em;
 }
 
 h2 {
   font-size: 1.6em;
+  padding-bottom: 0.3em;
 }
 
 h3 {
