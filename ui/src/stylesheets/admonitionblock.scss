@@ -55,21 +55,18 @@
   &.note {
     border: 1px solid #a134d1;
     color: #a134d1;
-    color: #a134d1;
     background-image: url(../images/icons/unicorn.png);
   }
 
   &.tip {
-    border: 1px solid #4e5ee4;
-    color: #4e5ee4;
-    color: #4e5ee4;
+    border: 1px solid var(--core-violet-4);
+    color: var(--core-violet-4);
     background-image: url(../images/icons/book.png);
   }
 
   &.warning, &.caution, &.important {
-    border: 1px solid #ff7539;
-    color: #ff7539;
-    color: #ff7539;
+    border: 1px solid #F79F1F;
+    color: #F79F1F;
     background-image: url(../images/icons/warning.png);
   }
 }
