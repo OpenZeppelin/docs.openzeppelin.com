@@ -14,11 +14,11 @@
   color: rgb(36, 36, 36);
   line-height: 100%;
   max-width: 90vw;
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-align: center;
-  line-height: 20px;
-  font-weight: 500;
-  padding: 1.3rem 1rem;
+  line-height: 1.4;
+  font-weight: var(--weight-medium);
+  padding: 1rem 0.9rem;
   display: block;
   background-color: white;
   margin: 1.5rem 0;
@@ -26,9 +26,7 @@
   background-size: 35px;
   background-origin: border-box;
   background-position: 1.5rem center;
-  line-height: 1.6;
-  padding-right: 20px;
-
+  
   table {
     padding: 0;
     margin: 0;
@@ -39,7 +37,7 @@
       margin: 0;
       word-wrap: break-word;
       a {
-        word-break: break-all;
+        font-weight: var(--weight-bold);
       }
     }
   }
