@@ -1445,7 +1445,6 @@ the optional functions; to access them see {ERC20Detailed}.
 [.contract-index]
 .Functions
 --
-
 * xref:#IERC20-totalSupply--[`totalSupply()`]
 * xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
 * xref:#IERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
@@ -1458,7 +1457,6 @@ the optional functions; to access them see {ERC20Detailed}.
 [.contract-index]
 .Events
 --
-
 * xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
 * xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
 
@@ -1467,19 +1465,19 @@ the optional functions; to access them see {ERC20Detailed}.
 
 [.contract-item]
 [[IERC20-totalSupply--]]
-==== `totalSupply() → uint256`
+==== `pass:normal[totalSupply() → [.var-type\]#uint256#]`
 
 Returns the amount of tokens in existence.
 
 [.contract-item]
 [[IERC20-balanceOf-address-]]
-==== `balanceOf(address account) → uint256`
+==== `pass:normal[balanceOf([.var-type\]#address# [.var-name\]#account#) → [.var-type\]#uint256#]`
 
 Returns the amount of tokens owned by `account`.
 
 [.contract-item]
 [[IERC20-transfer-address-uint256-]]
-==== `transfer(address recipient, uint256 amount) → bool`
+==== `pass:normal[transfer([.var-type\]#address# [.var-name\]#recipient#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 Moves `amount` tokens from the caller's account to `recipient`.
 
@@ -1489,7 +1487,7 @@ Emits a {Transfer} event.
 
 [.contract-item]
 [[IERC20-allowance-address-address-]]
-==== `allowance(address owner, address spender) → uint256`
+==== `pass:normal[allowance([.var-type\]#address# [.var-name\]#owner#, [.var-type\]#address# [.var-name\]#spender#) → [.var-type\]#uint256#]`
 
 Returns the remaining number of tokens that `spender` will be
 allowed to spend on behalf of `owner` through {transferFrom}. This is
@@ -1499,7 +1497,7 @@ This value changes when {approve} or {transferFrom} are called.
 
 [.contract-item]
 [[IERC20-approve-address-uint256-]]
-==== `approve(address spender, uint256 amount) → bool`
+==== `pass:normal[approve([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 Sets `amount` as the allowance of `spender` over the caller's tokens.
 
@@ -1516,7 +1514,7 @@ Emits an {Approval} event.
 
 [.contract-item]
 [[IERC20-transferFrom-address-address-uint256-]]
-==== `transferFrom(address sender, address recipient, uint256 amount) → bool`
+==== `pass:normal[transferFrom([.var-type\]#address# [.var-name\]#sender#, [.var-type\]#address# [.var-name\]#recipient#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 Moves `amount` tokens from `sender` to `recipient` using the
 allowance mechanism. `amount` is then deducted from the caller's
@@ -1529,7 +1527,7 @@ Emits a {Transfer} event.
 
 [.contract-item]
 [[IERC20-Transfer-address-address-uint256-]]
-==== `Transfer(address from, address to, uint256 value)`
+==== `pass:normal[Transfer([.var-type\]#address# [.var-name\]#from#, [.var-type\]#address# [.var-name\]#to#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 Emitted when `value` tokens are moved from one account (`from`) to
 another (`to`).
@@ -1538,7 +1536,7 @@ Note that `value` may be zero.
 
 [.contract-item]
 [[IERC20-Approval-address-address-uint256-]]
-==== `Approval(address owner, address spender, uint256 value)`
+==== `pass:normal[Approval([.var-type\]#address# [.var-name\]#owner#, [.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 Emitted when the allowance of a `spender` for an `owner` is set by
 a call to {approve}. `value` is the new allowance.
@@ -1596,7 +1594,6 @@ allowances. See {IERC20-approve}.
 [.contract-index]
 .Functions
 --
-
 * xref:#ERC20-totalSupply--[`totalSupply()`]
 * xref:#ERC20-balanceOf-address-[`balanceOf(account)`]
 * xref:#ERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
@@ -1611,6 +1608,7 @@ allowances. See {IERC20-approve}.
 * xref:#ERC20-_approve-address-address-uint256-[`_approve(owner, spender, amount)`]
 * xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(account, amount)`]
 
+[.contract-subindex-inherited]
 .IERC20
 * xref:#IERC20-totalSupply--[`totalSupply()`]
 * xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
@@ -1619,6 +1617,7 @@ allowances. See {IERC20-approve}.
 * xref:#IERC20-approve-address-uint256-[`approve(spender, amount)`]
 * xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
 
+[.contract-subindex-inherited]
 .Context
 * xref:#Context-constructor--[`constructor()`]
 * xref:#Context-_msgSender--[`_msgSender()`]
@@ -1630,11 +1629,12 @@ allowances. See {IERC20-approve}.
 .Events
 --
 
-
+[.contract-subindex-inherited]
 .IERC20
 * xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
 * xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
 
+[.contract-subindex-inherited]
 .Context
 
 --
@@ -1642,19 +1642,19 @@ allowances. See {IERC20-approve}.
 
 [.contract-item]
 [[ERC20-totalSupply--]]
-==== `totalSupply() → uint256`
+==== `pass:normal[totalSupply() → [.var-type\]#uint256#]`
 
 See {IERC20-totalSupply}.
 
 [.contract-item]
 [[ERC20-balanceOf-address-]]
-==== `balanceOf(address account) → uint256`
+==== `pass:normal[balanceOf([.var-type\]#address# [.var-name\]#account#) → [.var-type\]#uint256#]`
 
 See {IERC20-balanceOf}.
 
 [.contract-item]
 [[ERC20-transfer-address-uint256-]]
-==== `transfer(address recipient, uint256 amount) → bool`
+==== `pass:normal[transfer([.var-type\]#address# [.var-name\]#recipient#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 See {IERC20-transfer}.
 
@@ -1665,13 +1665,13 @@ Requirements:
 
 [.contract-item]
 [[ERC20-allowance-address-address-]]
-==== `allowance(address owner, address spender) → uint256`
+==== `pass:normal[allowance([.var-type\]#address# [.var-name\]#owner#, [.var-type\]#address# [.var-name\]#spender#) → [.var-type\]#uint256#]`
 
 See {IERC20-allowance}.
 
 [.contract-item]
 [[ERC20-approve-address-uint256-]]
-==== `approve(address spender, uint256 amount) → bool`
+==== `pass:normal[approve([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 See {IERC20-approve}.
 
@@ -1681,7 +1681,7 @@ Requirements:
 
 [.contract-item]
 [[ERC20-transferFrom-address-address-uint256-]]
-==== `transferFrom(address sender, address recipient, uint256 amount) → bool`
+==== `pass:normal[transferFrom([.var-type\]#address# [.var-name\]#sender#, [.var-type\]#address# [.var-name\]#recipient#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 See {IERC20-transferFrom}.
 
@@ -1696,7 +1696,7 @@ Requirements:
 
 [.contract-item]
 [[ERC20-increaseAllowance-address-uint256-]]
-==== `increaseAllowance(address spender, uint256 addedValue) → bool`
+==== `pass:normal[increaseAllowance([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#addedValue#) → [.var-type\]#bool#]`
 
 Atomically increases the allowance granted to `spender` by the caller.
 
@@ -1711,7 +1711,7 @@ Requirements:
 
 [.contract-item]
 [[ERC20-decreaseAllowance-address-uint256-]]
-==== `decreaseAllowance(address spender, uint256 subtractedValue) → bool`
+==== `pass:normal[decreaseAllowance([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#subtractedValue#) → [.var-type\]#bool#]`
 
 Atomically decreases the allowance granted to `spender` by the caller.
 
@@ -1728,7 +1728,7 @@ Requirements:
 
 [.contract-item]
 [[ERC20-_transfer-address-address-uint256-]]
-==== `_transfer(address sender, address recipient, uint256 amount)`
+==== `pass:normal[_transfer([.var-type\]#address# [.var-name\]#sender#, [.var-type\]#address# [.var-name\]#recipient#, [.var-type\]#uint256# [.var-name\]#amount#)]`
 
 Moves tokens `amount` from `sender` to `recipient`.
 
@@ -1745,7 +1745,7 @@ Requirements:
 
 [.contract-item]
 [[ERC20-_mint-address-uint256-]]
-==== `_mint(address account, uint256 amount)`
+==== `pass:normal[_mint([.var-type\]#address# [.var-name\]#account#, [.var-type\]#uint256# [.var-name\]#amount#)]`
 
 Creates `amount` tokens and assigns them to `account`, increasing
 the total supply.
@@ -1758,7 +1758,7 @@ Requirements
 
 [.contract-item]
 [[ERC20-_burn-address-uint256-]]
-==== `_burn(address account, uint256 amount)`
+==== `pass:normal[_burn([.var-type\]#address# [.var-name\]#account#, [.var-type\]#uint256# [.var-name\]#amount#)]`
 
 Destroys `amount` tokens from `account`, reducing the
 total supply.
@@ -1772,7 +1772,7 @@ Requirements
 
 [.contract-item]
 [[ERC20-_approve-address-address-uint256-]]
-==== `_approve(address owner, address spender, uint256 amount)`
+==== `pass:normal[_approve([.var-type\]#address# [.var-name\]#owner#, [.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#amount#)]`
 
 Sets `amount` as the allowance of `spender` over the `owner`s tokens.
 
@@ -1788,7 +1788,7 @@ Requirements:
 
 [.contract-item]
 [[ERC20-_burnFrom-address-uint256-]]
-==== `_burnFrom(address account, uint256 amount)`
+==== `pass:normal[_burnFrom([.var-type\]#address# [.var-name\]#account#, [.var-type\]#uint256# [.var-name\]#amount#)]`
 
 Destroys `amount` tokens from `account`.`amount` is then deducted
 from the caller's allowance.
@@ -1822,12 +1822,12 @@ Optional functions from the ERC20 standard.
 [.contract-index]
 .Functions
 --
-
 * xref:#ERC20Detailed-constructor-string-string-uint8-[`constructor(name, symbol, decimals)`]
 * xref:#ERC20Detailed-name--[`name()`]
 * xref:#ERC20Detailed-symbol--[`symbol()`]
 * xref:#ERC20Detailed-decimals--[`decimals()`]
 
+[.contract-subindex-inherited]
 .IERC20
 * xref:#IERC20-totalSupply--[`totalSupply()`]
 * xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
@@ -1842,7 +1842,7 @@ Optional functions from the ERC20 standard.
 .Events
 --
 
-
+[.contract-subindex-inherited]
 .IERC20
 * xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
 * xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
@@ -1852,7 +1852,7 @@ Optional functions from the ERC20 standard.
 
 [.contract-item]
 [[ERC20Detailed-constructor-string-string-uint8-]]
-==== `constructor(string name, string symbol, uint8 decimals)`
+==== `pass:normal[constructor([.var-type\]#string# [.var-name\]#name#, [.var-type\]#string# [.var-name\]#symbol#, [.var-type\]#uint8# [.var-name\]#decimals#)]`
 
 Sets the values for `name`, `symbol`, and `decimals`. All three of
 these values are immutable: they can only be set once during
@@ -1860,20 +1860,20 @@ construction.
 
 [.contract-item]
 [[ERC20Detailed-name--]]
-==== `name() → string`
+==== `pass:normal[name() → [.var-type\]#string#]`
 
 Returns the name of the token.
 
 [.contract-item]
 [[ERC20Detailed-symbol--]]
-==== `symbol() → string`
+==== `pass:normal[symbol() → [.var-type\]#string#]`
 
 Returns the symbol of the token, usually a shorter version of the
 name.
 
 [.contract-item]
 [[ERC20Detailed-decimals--]]
-==== `decimals() → uint8`
+==== `pass:normal[decimals() → [.var-type\]#uint8#]`
 
 Returns the number of decimals used to get its user representation.
 For example, if `decimals` equals `2`, a balance of `505` tokens should
@@ -1933,14 +1933,17 @@ At construction, the deployer of the contract is the only minter.
 .Modifiers
 --
 
-
+[.contract-subindex-inherited]
 .MinterRole
 * xref:#MinterRole-onlyMinter--[`onlyMinter()`]
 
+[.contract-subindex-inherited]
 .ERC20
 
+[.contract-subindex-inherited]
 .IERC20
 
+[.contract-subindex-inherited]
 .Context
 
 --
@@ -1948,9 +1951,9 @@ At construction, the deployer of the contract is the only minter.
 [.contract-index]
 .Functions
 --
-
 * xref:#ERC20Mintable-mint-address-uint256-[`mint(account, amount)`]
 
+[.contract-subindex-inherited]
 .MinterRole
 * xref:#MinterRole-constructor--[`constructor()`]
 * xref:#MinterRole-isMinter-address-[`isMinter(account)`]
@@ -1959,6 +1962,7 @@ At construction, the deployer of the contract is the only minter.
 * xref:#MinterRole-_addMinter-address-[`_addMinter(account)`]
 * xref:#MinterRole-_removeMinter-address-[`_removeMinter(account)`]
 
+[.contract-subindex-inherited]
 .ERC20
 * xref:#ERC20-totalSupply--[`totalSupply()`]
 * xref:#ERC20-balanceOf-address-[`balanceOf(account)`]
@@ -1974,6 +1978,7 @@ At construction, the deployer of the contract is the only minter.
 * xref:#ERC20-_approve-address-address-uint256-[`_approve(owner, spender, amount)`]
 * xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(account, amount)`]
 
+[.contract-subindex-inherited]
 .IERC20
 * xref:#IERC20-totalSupply--[`totalSupply()`]
 * xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
@@ -1982,6 +1987,7 @@ At construction, the deployer of the contract is the only minter.
 * xref:#IERC20-approve-address-uint256-[`approve(spender, amount)`]
 * xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
 
+[.contract-subindex-inherited]
 .Context
 * xref:#Context-constructor--[`constructor()`]
 * xref:#Context-_msgSender--[`_msgSender()`]
@@ -1993,17 +1999,20 @@ At construction, the deployer of the contract is the only minter.
 .Events
 --
 
-
+[.contract-subindex-inherited]
 .MinterRole
 * xref:#MinterRole-MinterAdded-address-[`MinterAdded(account)`]
 * xref:#MinterRole-MinterRemoved-address-[`MinterRemoved(account)`]
 
+[.contract-subindex-inherited]
 .ERC20
 
+[.contract-subindex-inherited]
 .IERC20
 * xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
 * xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
 
+[.contract-subindex-inherited]
 .Context
 
 --
@@ -2011,7 +2020,7 @@ At construction, the deployer of the contract is the only minter.
 
 [.contract-item]
 [[ERC20Mintable-mint-address-uint256-]]
-==== `mint(address account, uint256 amount) → bool`
+==== `pass:normal[mint([.var-type\]#address# [.var-name\]#account#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 See {ERC20-_mint}.
 
@@ -2056,10 +2065,10 @@ recognized off-chain (via event analysis).
 [.contract-index]
 .Functions
 --
-
 * xref:#ERC20Burnable-burn-uint256-[`burn(amount)`]
 * xref:#ERC20Burnable-burnFrom-address-uint256-[`burnFrom(account, amount)`]
 
+[.contract-subindex-inherited]
 .ERC20
 * xref:#ERC20-totalSupply--[`totalSupply()`]
 * xref:#ERC20-balanceOf-address-[`balanceOf(account)`]
@@ -2075,6 +2084,7 @@ recognized off-chain (via event analysis).
 * xref:#ERC20-_approve-address-address-uint256-[`_approve(owner, spender, amount)`]
 * xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(account, amount)`]
 
+[.contract-subindex-inherited]
 .IERC20
 * xref:#IERC20-totalSupply--[`totalSupply()`]
 * xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
@@ -2083,6 +2093,7 @@ recognized off-chain (via event analysis).
 * xref:#IERC20-approve-address-uint256-[`approve(spender, amount)`]
 * xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
 
+[.contract-subindex-inherited]
 .Context
 * xref:#Context-constructor--[`constructor()`]
 * xref:#Context-_msgSender--[`_msgSender()`]
@@ -2094,13 +2105,15 @@ recognized off-chain (via event analysis).
 .Events
 --
 
-
+[.contract-subindex-inherited]
 .ERC20
 
+[.contract-subindex-inherited]
 .IERC20
 * xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
 * xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
 
+[.contract-subindex-inherited]
 .Context
 
 --
@@ -2108,7 +2121,7 @@ recognized off-chain (via event analysis).
 
 [.contract-item]
 [[ERC20Burnable-burn-uint256-]]
-==== `burn(uint256 amount)`
+==== `pass:normal[burn([.var-type\]#uint256# [.var-name\]#amount#)]`
 
 Destroys `amount` tokens from the caller.
 
@@ -2116,7 +2129,7 @@ See {ERC20-_burn}.
 
 [.contract-item]
 [[ERC20Burnable-burnFrom-address-uint256-]]
-==== `burnFrom(address account, uint256 amount)`
+==== `pass:normal[burnFrom([.var-type\]#address# [.var-name\]#account#, [.var-type\]#uint256# [.var-name\]#amount#)]`
 
 See {ERC20-_burnFrom}.
 
@@ -2172,18 +2185,22 @@ bug.
 .Modifiers
 --
 
-
+[.contract-subindex-inherited]
 .Pausable
 * xref:#Pausable-whenNotPaused--[`whenNotPaused()`]
 * xref:#Pausable-whenPaused--[`whenPaused()`]
 
+[.contract-subindex-inherited]
 .PauserRole
 * xref:#PauserRole-onlyPauser--[`onlyPauser()`]
 
+[.contract-subindex-inherited]
 .ERC20
 
+[.contract-subindex-inherited]
 .IERC20
 
+[.contract-subindex-inherited]
 .Context
 
 --
@@ -2191,19 +2208,20 @@ bug.
 [.contract-index]
 .Functions
 --
-
 * xref:#ERC20Pausable-transfer-address-uint256-[`transfer(to, value)`]
 * xref:#ERC20Pausable-transferFrom-address-address-uint256-[`transferFrom(from, to, value)`]
 * xref:#ERC20Pausable-approve-address-uint256-[`approve(spender, value)`]
 * xref:#ERC20Pausable-increaseAllowance-address-uint256-[`increaseAllowance(spender, addedValue)`]
 * xref:#ERC20Pausable-decreaseAllowance-address-uint256-[`decreaseAllowance(spender, subtractedValue)`]
 
+[.contract-subindex-inherited]
 .Pausable
 * xref:#Pausable-constructor--[`constructor()`]
 * xref:#Pausable-paused--[`paused()`]
 * xref:#Pausable-pause--[`pause()`]
 * xref:#Pausable-unpause--[`unpause()`]
 
+[.contract-subindex-inherited]
 .PauserRole
 * xref:#PauserRole-constructor--[`constructor()`]
 * xref:#PauserRole-isPauser-address-[`isPauser(account)`]
@@ -2212,6 +2230,7 @@ bug.
 * xref:#PauserRole-_addPauser-address-[`_addPauser(account)`]
 * xref:#PauserRole-_removePauser-address-[`_removePauser(account)`]
 
+[.contract-subindex-inherited]
 .ERC20
 * xref:#ERC20-totalSupply--[`totalSupply()`]
 * xref:#ERC20-balanceOf-address-[`balanceOf(account)`]
@@ -2227,6 +2246,7 @@ bug.
 * xref:#ERC20-_approve-address-address-uint256-[`_approve(owner, spender, amount)`]
 * xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(account, amount)`]
 
+[.contract-subindex-inherited]
 .IERC20
 * xref:#IERC20-totalSupply--[`totalSupply()`]
 * xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
@@ -2235,6 +2255,7 @@ bug.
 * xref:#IERC20-approve-address-uint256-[`approve(spender, amount)`]
 * xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
 
+[.contract-subindex-inherited]
 .Context
 * xref:#Context-constructor--[`constructor()`]
 * xref:#Context-_msgSender--[`_msgSender()`]
@@ -2246,21 +2267,25 @@ bug.
 .Events
 --
 
-
+[.contract-subindex-inherited]
 .Pausable
 * xref:#Pausable-Paused-address-[`Paused(account)`]
 * xref:#Pausable-Unpaused-address-[`Unpaused(account)`]
 
+[.contract-subindex-inherited]
 .PauserRole
 * xref:#PauserRole-PauserAdded-address-[`PauserAdded(account)`]
 * xref:#PauserRole-PauserRemoved-address-[`PauserRemoved(account)`]
 
+[.contract-subindex-inherited]
 .ERC20
 
+[.contract-subindex-inherited]
 .IERC20
 * xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
 * xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
 
+[.contract-subindex-inherited]
 .Context
 
 --
@@ -2268,31 +2293,31 @@ bug.
 
 [.contract-item]
 [[ERC20Pausable-transfer-address-uint256-]]
-==== `transfer(address to, uint256 value) → bool`
+==== `pass:normal[transfer([.var-type\]#address# [.var-name\]#to#, [.var-type\]#uint256# [.var-name\]#value#) → [.var-type\]#bool#]`
 
 
 
 [.contract-item]
 [[ERC20Pausable-transferFrom-address-address-uint256-]]
-==== `transferFrom(address from, address to, uint256 value) → bool`
+==== `pass:normal[transferFrom([.var-type\]#address# [.var-name\]#from#, [.var-type\]#address# [.var-name\]#to#, [.var-type\]#uint256# [.var-name\]#value#) → [.var-type\]#bool#]`
 
 
 
 [.contract-item]
 [[ERC20Pausable-approve-address-uint256-]]
-==== `approve(address spender, uint256 value) → bool`
+==== `pass:normal[approve([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#value#) → [.var-type\]#bool#]`
 
 
 
 [.contract-item]
 [[ERC20Pausable-increaseAllowance-address-uint256-]]
-==== `increaseAllowance(address spender, uint256 addedValue) → bool`
+==== `pass:normal[increaseAllowance([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#addedValue#) → [.var-type\]#bool#]`
 
 
 
 [.contract-item]
 [[ERC20Pausable-decreaseAllowance-address-uint256-]]
-==== `decreaseAllowance(address spender, uint256 subtractedValue) → bool`
+==== `pass:normal[decreaseAllowance([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#subtractedValue#) → [.var-type\]#bool#]`
 
 
 
@@ -2340,16 +2365,20 @@ Extension of {ERC20Mintable} that adds a cap to the supply of tokens.
 .Modifiers
 --
 
-
+[.contract-subindex-inherited]
 .ERC20Mintable
 
+[.contract-subindex-inherited]
 .MinterRole
 * xref:#MinterRole-onlyMinter--[`onlyMinter()`]
 
+[.contract-subindex-inherited]
 .ERC20
 
+[.contract-subindex-inherited]
 .IERC20
 
+[.contract-subindex-inherited]
 .Context
 
 --
@@ -2357,14 +2386,15 @@ Extension of {ERC20Mintable} that adds a cap to the supply of tokens.
 [.contract-index]
 .Functions
 --
-
 * xref:#ERC20Capped-constructor-uint256-[`constructor(cap)`]
 * xref:#ERC20Capped-cap--[`cap()`]
 * xref:#ERC20Capped-_mint-address-uint256-[`_mint(account, value)`]
 
+[.contract-subindex-inherited]
 .ERC20Mintable
 * xref:#ERC20Mintable-mint-address-uint256-[`mint(account, amount)`]
 
+[.contract-subindex-inherited]
 .MinterRole
 * xref:#MinterRole-constructor--[`constructor()`]
 * xref:#MinterRole-isMinter-address-[`isMinter(account)`]
@@ -2373,6 +2403,7 @@ Extension of {ERC20Mintable} that adds a cap to the supply of tokens.
 * xref:#MinterRole-_addMinter-address-[`_addMinter(account)`]
 * xref:#MinterRole-_removeMinter-address-[`_removeMinter(account)`]
 
+[.contract-subindex-inherited]
 .ERC20
 * xref:#ERC20-totalSupply--[`totalSupply()`]
 * xref:#ERC20-balanceOf-address-[`balanceOf(account)`]
@@ -2388,6 +2419,7 @@ Extension of {ERC20Mintable} that adds a cap to the supply of tokens.
 * xref:#ERC20-_approve-address-address-uint256-[`_approve(owner, spender, amount)`]
 * xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(account, amount)`]
 
+[.contract-subindex-inherited]
 .IERC20
 * xref:#IERC20-totalSupply--[`totalSupply()`]
 * xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
@@ -2396,6 +2428,7 @@ Extension of {ERC20Mintable} that adds a cap to the supply of tokens.
 * xref:#IERC20-approve-address-uint256-[`approve(spender, amount)`]
 * xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
 
+[.contract-subindex-inherited]
 .Context
 * xref:#Context-constructor--[`constructor()`]
 * xref:#Context-_msgSender--[`_msgSender()`]
@@ -2407,19 +2440,23 @@ Extension of {ERC20Mintable} that adds a cap to the supply of tokens.
 .Events
 --
 
-
+[.contract-subindex-inherited]
 .ERC20Mintable
 
+[.contract-subindex-inherited]
 .MinterRole
 * xref:#MinterRole-MinterAdded-address-[`MinterAdded(account)`]
 * xref:#MinterRole-MinterRemoved-address-[`MinterRemoved(account)`]
 
+[.contract-subindex-inherited]
 .ERC20
 
+[.contract-subindex-inherited]
 .IERC20
 * xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
 * xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
 
+[.contract-subindex-inherited]
 .Context
 
 --
@@ -2427,20 +2464,20 @@ Extension of {ERC20Mintable} that adds a cap to the supply of tokens.
 
 [.contract-item]
 [[ERC20Capped-constructor-uint256-]]
-==== `constructor(uint256 cap)`
+==== `pass:normal[constructor([.var-type\]#uint256# [.var-name\]#cap#)]`
 
 Sets the value of the `cap`. This value is immutable, it can only be
 set once during construction.
 
 [.contract-item]
 [[ERC20Capped-cap--]]
-==== `cap() → uint256`
+==== `pass:normal[cap() → [.var-type\]#uint256#]`
 
 Returns the cap on the token's total supply.
 
 [.contract-item]
 [[ERC20Capped-_mint-address-uint256-]]
-==== `_mint(address account, uint256 value)`
+==== `pass:normal[_mint([.var-type\]#address# [.var-name\]#account#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 See {ERC20Mintable-mint}.
 
@@ -2475,7 +2512,6 @@ which allows you to call the safe operations as `token.safeTransfer(...)`, etc.
 [.contract-index]
 .Functions
 --
-
 * xref:#SafeERC20-safeTransfer-contract-IERC20-address-uint256-[`safeTransfer(token, to, value)`]
 * xref:#SafeERC20-safeTransferFrom-contract-IERC20-address-address-uint256-[`safeTransferFrom(token, from, to, value)`]
 * xref:#SafeERC20-safeApprove-contract-IERC20-address-uint256-[`safeApprove(token, spender, value)`]
@@ -2488,31 +2524,31 @@ which allows you to call the safe operations as `token.safeTransfer(...)`, etc.
 
 [.contract-item]
 [[SafeERC20-safeTransfer-contract-IERC20-address-uint256-]]
-==== `safeTransfer(contract IERC20 token, address to, uint256 value)`
+==== `pass:normal[safeTransfer([.var-type\]#contract IERC20# [.var-name\]#token#, [.var-type\]#address# [.var-name\]#to#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 
 
 [.contract-item]
 [[SafeERC20-safeTransferFrom-contract-IERC20-address-address-uint256-]]
-==== `safeTransferFrom(contract IERC20 token, address from, address to, uint256 value)`
+==== `pass:normal[safeTransferFrom([.var-type\]#contract IERC20# [.var-name\]#token#, [.var-type\]#address# [.var-name\]#from#, [.var-type\]#address# [.var-name\]#to#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 
 
 [.contract-item]
 [[SafeERC20-safeApprove-contract-IERC20-address-uint256-]]
-==== `safeApprove(contract IERC20 token, address spender, uint256 value)`
+==== `pass:normal[safeApprove([.var-type\]#contract IERC20# [.var-name\]#token#, [.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 
 
 [.contract-item]
 [[SafeERC20-safeIncreaseAllowance-contract-IERC20-address-uint256-]]
-==== `safeIncreaseAllowance(contract IERC20 token, address spender, uint256 value)`
+==== `pass:normal[safeIncreaseAllowance([.var-type\]#contract IERC20# [.var-name\]#token#, [.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 
 
 [.contract-item]
 [[SafeERC20-safeDecreaseAllowance-contract-IERC20-address-uint256-]]
-==== `safeDecreaseAllowance(contract IERC20 token, address spender, uint256 value)`
+==== `pass:normal[safeDecreaseAllowance([.var-type\]#contract IERC20# [.var-name\]#token#, [.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 
 
@@ -2542,7 +2578,6 @@ For a more complete vesting schedule, see {TokenVesting}.
 [.contract-index]
 .Functions
 --
-
 * xref:#TokenTimelock-constructor-contract-IERC20-address-uint256-[`constructor(token, beneficiary, releaseTime)`]
 * xref:#TokenTimelock-token--[`token()`]
 * xref:#TokenTimelock-beneficiary--[`beneficiary()`]
@@ -2555,31 +2590,31 @@ For a more complete vesting schedule, see {TokenVesting}.
 
 [.contract-item]
 [[TokenTimelock-constructor-contract-IERC20-address-uint256-]]
-==== `constructor(contract IERC20 token, address beneficiary, uint256 releaseTime)`
+==== `pass:normal[constructor([.var-type\]#contract IERC20# [.var-name\]#token#, [.var-type\]#address# [.var-name\]#beneficiary#, [.var-type\]#uint256# [.var-name\]#releaseTime#)]`
 
 
 
 [.contract-item]
 [[TokenTimelock-token--]]
-==== `token() → contract IERC20`
+==== `pass:normal[token() → [.var-type\]#contract IERC20#]`
 
 
 
 [.contract-item]
 [[TokenTimelock-beneficiary--]]
-==== `beneficiary() → address`
+==== `pass:normal[beneficiary() → [.var-type\]#address#]`
 
 
 
 [.contract-item]
 [[TokenTimelock-releaseTime--]]
-==== `releaseTime() → uint256`
+==== `pass:normal[releaseTime() → [.var-type\]#uint256#]`
 
 
 
 [.contract-item]
 [[TokenTimelock-release--]]
-==== `release()`
+==== `pass:normal[release()]`
 
 
 
