@@ -48,6 +48,10 @@
   font-size: var(--md);
   opacity: .8;
 
+  &:hover {
+    color: var(--core-violet-2);
+  }
+
   &.subheading-list {
     font-weight: var(--weight-normal);
     margin: .25rem 0 0;
