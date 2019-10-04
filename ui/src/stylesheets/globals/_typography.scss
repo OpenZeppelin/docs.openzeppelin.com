@@ -113,8 +113,8 @@ aside {
   margin-top: var(--lg);
 }
 
-a,a code {
-  color: var(--color-code);  
+a {
+  color: var(--core-violet-4);  
 
   &:focus,
   &:hover {
@@ -127,6 +127,18 @@ a,a code {
 
   .admonitionblock & {
     color: inherit;
+  }
+}
+
+a code {
+  text-decoration: underline;
+  text-decoration-color: var(--color-code);
+
+  &:focus,
+  &:hover {
+    color: var(--core-violet-4);
+    text-decoration: underline;
+    text-decoration-color: var(--color-violet-4);
   }
 }
 
