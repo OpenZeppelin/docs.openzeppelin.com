@@ -31,7 +31,7 @@
 }
 
 body {
-  color: var(--steel-4);
+  color: var(--color-text);
   font-family: var(--sans-serif);
   line-height: 1.6;
 }
@@ -59,16 +59,18 @@ h6 {
 
 h1,
 h2 {
-  padding-bottom: 15px;
-  border-bottom: solid 1.2px #d4d4da;
+  padding-top: 0.75em;
+  border-bottom: solid 1px var(--aluminum-4);
 }
 
 h1 {
   font-size: 1.8em;
+  padding-bottom: 0.4em;
 }
 
 h2 {
   font-size: 1.6em;
+  padding-bottom: 0.3em;
 }
 
 h3 {

@@ -1,3 +1,139 @@
+:Pausable: pass:normal[xref:index.md#Pausable[`Pausable`]]
+:Pausable-whenNotPaused: pass:normal[xref:index.md#Pausable-whenNotPaused--[`Pausable.whenNotPaused`]]
+:Pausable-whenPaused: pass:normal[xref:index.md#Pausable-whenPaused--[`Pausable.whenPaused`]]
+:PauserRole-onlyPauser: pass:normal[xref:index.md#PauserRole-onlyPauser--[`PauserRole.onlyPauser`]]
+:Pausable-constructor: pass:normal[xref:index.md#Pausable-constructor--[`Pausable.constructor`]]
+:Pausable-paused: pass:normal[xref:index.md#Pausable-paused--[`Pausable.paused`]]
+:Pausable-pause: pass:normal[xref:index.md#Pausable-pause--[`Pausable.pause`]]
+:Pausable-unpause: pass:normal[xref:index.md#Pausable-unpause--[`Pausable.unpause`]]
+:PauserRole-isPauser: pass:normal[xref:index.md#PauserRole-isPauser-address-[`PauserRole.isPauser`]]
+:PauserRole-addPauser: pass:normal[xref:index.md#PauserRole-addPauser-address-[`PauserRole.addPauser`]]
+:PauserRole-renouncePauser: pass:normal[xref:index.md#PauserRole-renouncePauser--[`PauserRole.renouncePauser`]]
+:PauserRole-_addPauser: pass:normal[xref:index.md#PauserRole-_addPauser-address-[`PauserRole._addPauser`]]
+:PauserRole-_removePauser: pass:normal[xref:index.md#PauserRole-_removePauser-address-[`PauserRole._removePauser`]]
+:Context-_msgSender: pass:normal[xref:index.md#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:index.md#Context-_msgData--[`Context._msgData`]]
+:Pausable-Paused: pass:normal[xref:index.md#Pausable-Paused-address-[`Pausable.Paused`]]
+:Pausable-Unpaused: pass:normal[xref:index.md#Pausable-Unpaused-address-[`Pausable.Unpaused`]]
+:PauserRole-PauserAdded: pass:normal[xref:index.md#PauserRole-PauserAdded-address-[`PauserRole.PauserAdded`]]
+:PauserRole-PauserRemoved: pass:normal[xref:index.md#PauserRole-PauserRemoved-address-[`PauserRole.PauserRemoved`]]
+:Context: pass:normal[xref:GSN.adoc#Context[`Context`]]
+:Context-constructor: pass:normal[xref:GSN.adoc#Context-constructor--[`Context.constructor`]]
+:Context-_msgSender: pass:normal[xref:GSN.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:GSN.adoc#Context-_msgData--[`Context._msgData`]]
+:GSNRecipient: pass:normal[xref:GSN.adoc#GSNRecipient[`GSNRecipient`]]
+:GSNRecipient-getHubAddr: pass:normal[xref:GSN.adoc#GSNRecipient-getHubAddr--[`GSNRecipient.getHubAddr`]]
+:GSNRecipient-_upgradeRelayHub: pass:normal[xref:GSN.adoc#GSNRecipient-_upgradeRelayHub-address-[`GSNRecipient._upgradeRelayHub`]]
+:GSNRecipient-relayHubVersion: pass:normal[xref:GSN.adoc#GSNRecipient-relayHubVersion--[`GSNRecipient.relayHubVersion`]]
+:GSNRecipient-_withdrawDeposits: pass:normal[xref:GSN.adoc#GSNRecipient-_withdrawDeposits-uint256-address-payable-[`GSNRecipient._withdrawDeposits`]]
+:GSNRecipient-_msgSender: pass:normal[xref:GSN.adoc#GSNRecipient-_msgSender--[`GSNRecipient._msgSender`]]
+:GSNRecipient-_msgData: pass:normal[xref:GSN.adoc#GSNRecipient-_msgData--[`GSNRecipient._msgData`]]
+:GSNBouncerBase-preRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-preRelayedCall-bytes-[`GSNBouncerBase.preRelayedCall`]]
+:GSNBouncerBase-postRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-postRelayedCall-bytes-bool-uint256-bytes32-[`GSNBouncerBase.postRelayedCall`]]
+:GSNBouncerBase-_approveRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_approveRelayedCall--[`GSNBouncerBase._approveRelayedCall`]]
+:GSNBouncerBase-_approveRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_approveRelayedCall-bytes-[`GSNBouncerBase._approveRelayedCall`]]
+:GSNBouncerBase-_rejectRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_rejectRelayedCall-uint256-[`GSNBouncerBase._rejectRelayedCall`]]
+:GSNBouncerBase-_preRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_preRelayedCall-bytes-[`GSNBouncerBase._preRelayedCall`]]
+:GSNBouncerBase-_postRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_postRelayedCall-bytes-bool-uint256-bytes32-[`GSNBouncerBase._postRelayedCall`]]
+:GSNBouncerBase-_computeCharge: pass:normal[xref:GSN.adoc#GSNBouncerBase-_computeCharge-uint256-uint256-uint256-[`GSNBouncerBase._computeCharge`]]
+:Context-constructor: pass:normal[xref:GSN.adoc#Context-constructor--[`Context.constructor`]]
+:IRelayRecipient-acceptRelayedCall: pass:normal[xref:GSN.adoc#IRelayRecipient-acceptRelayedCall-address-address-bytes-uint256-uint256-uint256-uint256-bytes-uint256-[`IRelayRecipient.acceptRelayedCall`]]
+:GSNRecipient-RelayHubChanged: pass:normal[xref:GSN.adoc#GSNRecipient-RelayHubChanged-address-address-[`GSNRecipient.RelayHubChanged`]]
+:IRelayHub: pass:normal[xref:GSN.adoc#IRelayHub[`IRelayHub`]]
+:IRelayHub-stake: pass:normal[xref:GSN.adoc#IRelayHub-stake-address-uint256-[`IRelayHub.stake`]]
+:IRelayHub-registerRelay: pass:normal[xref:GSN.adoc#IRelayHub-registerRelay-uint256-string-[`IRelayHub.registerRelay`]]
+:IRelayHub-removeRelayByOwner: pass:normal[xref:GSN.adoc#IRelayHub-removeRelayByOwner-address-[`IRelayHub.removeRelayByOwner`]]
+:IRelayHub-unstake: pass:normal[xref:GSN.adoc#IRelayHub-unstake-address-[`IRelayHub.unstake`]]
+:IRelayHub-getRelay: pass:normal[xref:GSN.adoc#IRelayHub-getRelay-address-[`IRelayHub.getRelay`]]
+:IRelayHub-depositFor: pass:normal[xref:GSN.adoc#IRelayHub-depositFor-address-[`IRelayHub.depositFor`]]
+:IRelayHub-balanceOf: pass:normal[xref:GSN.adoc#IRelayHub-balanceOf-address-[`IRelayHub.balanceOf`]]
+:IRelayHub-withdraw: pass:normal[xref:GSN.adoc#IRelayHub-withdraw-uint256-address-payable-[`IRelayHub.withdraw`]]
+:IRelayHub-canRelay: pass:normal[xref:GSN.adoc#IRelayHub-canRelay-address-address-address-bytes-uint256-uint256-uint256-uint256-bytes-bytes-[`IRelayHub.canRelay`]]
+:IRelayHub-relayCall: pass:normal[xref:GSN.adoc#IRelayHub-relayCall-address-address-bytes-uint256-uint256-uint256-uint256-bytes-bytes-[`IRelayHub.relayCall`]]
+:IRelayHub-requiredGas: pass:normal[xref:GSN.adoc#IRelayHub-requiredGas-uint256-[`IRelayHub.requiredGas`]]
+:IRelayHub-maxPossibleCharge: pass:normal[xref:GSN.adoc#IRelayHub-maxPossibleCharge-uint256-uint256-uint256-[`IRelayHub.maxPossibleCharge`]]
+:IRelayHub-penalizeRepeatedNonce: pass:normal[xref:GSN.adoc#IRelayHub-penalizeRepeatedNonce-bytes-bytes-bytes-bytes-[`IRelayHub.penalizeRepeatedNonce`]]
+:IRelayHub-penalizeIllegalTransaction: pass:normal[xref:GSN.adoc#IRelayHub-penalizeIllegalTransaction-bytes-bytes-[`IRelayHub.penalizeIllegalTransaction`]]
+:IRelayHub-getNonce: pass:normal[xref:GSN.adoc#IRelayHub-getNonce-address-[`IRelayHub.getNonce`]]
+:IRelayHub-Staked: pass:normal[xref:GSN.adoc#IRelayHub-Staked-address-uint256-uint256-[`IRelayHub.Staked`]]
+:IRelayHub-RelayAdded: pass:normal[xref:GSN.adoc#IRelayHub-RelayAdded-address-address-uint256-uint256-uint256-string-[`IRelayHub.RelayAdded`]]
+:IRelayHub-RelayRemoved: pass:normal[xref:GSN.adoc#IRelayHub-RelayRemoved-address-uint256-[`IRelayHub.RelayRemoved`]]
+:IRelayHub-Unstaked: pass:normal[xref:GSN.adoc#IRelayHub-Unstaked-address-uint256-[`IRelayHub.Unstaked`]]
+:IRelayHub-Deposited: pass:normal[xref:GSN.adoc#IRelayHub-Deposited-address-address-uint256-[`IRelayHub.Deposited`]]
+:IRelayHub-Withdrawn: pass:normal[xref:GSN.adoc#IRelayHub-Withdrawn-address-address-uint256-[`IRelayHub.Withdrawn`]]
+:IRelayHub-CanRelayFailed: pass:normal[xref:GSN.adoc#IRelayHub-CanRelayFailed-address-address-address-bytes4-uint256-[`IRelayHub.CanRelayFailed`]]
+:IRelayHub-TransactionRelayed: pass:normal[xref:GSN.adoc#IRelayHub-TransactionRelayed-address-address-address-bytes4-enum-IRelayHub-RelayCallStatus-uint256-[`IRelayHub.TransactionRelayed`]]
+:IRelayHub-Penalized: pass:normal[xref:GSN.adoc#IRelayHub-Penalized-address-address-uint256-[`IRelayHub.Penalized`]]
+:IRelayRecipient: pass:normal[xref:GSN.adoc#IRelayRecipient[`IRelayRecipient`]]
+:IRelayRecipient-getHubAddr: pass:normal[xref:GSN.adoc#IRelayRecipient-getHubAddr--[`IRelayRecipient.getHubAddr`]]
+:IRelayRecipient-acceptRelayedCall: pass:normal[xref:GSN.adoc#IRelayRecipient-acceptRelayedCall-address-address-bytes-uint256-uint256-uint256-uint256-bytes-uint256-[`IRelayRecipient.acceptRelayedCall`]]
+:IRelayRecipient-preRelayedCall: pass:normal[xref:GSN.adoc#IRelayRecipient-preRelayedCall-bytes-[`IRelayRecipient.preRelayedCall`]]
+:IRelayRecipient-postRelayedCall: pass:normal[xref:GSN.adoc#IRelayRecipient-postRelayedCall-bytes-bool-uint256-bytes32-[`IRelayRecipient.postRelayedCall`]]
+:GSNBouncerBase: pass:normal[xref:GSN.adoc#GSNBouncerBase[`GSNBouncerBase`]]
+:GSNBouncerBase-preRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-preRelayedCall-bytes-[`GSNBouncerBase.preRelayedCall`]]
+:GSNBouncerBase-postRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-postRelayedCall-bytes-bool-uint256-bytes32-[`GSNBouncerBase.postRelayedCall`]]
+:GSNBouncerBase-_approveRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_approveRelayedCall--[`GSNBouncerBase._approveRelayedCall`]]
+:GSNBouncerBase-_approveRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_approveRelayedCall-bytes-[`GSNBouncerBase._approveRelayedCall`]]
+:GSNBouncerBase-_rejectRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_rejectRelayedCall-uint256-[`GSNBouncerBase._rejectRelayedCall`]]
+:GSNBouncerBase-_preRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_preRelayedCall-bytes-[`GSNBouncerBase._preRelayedCall`]]
+:GSNBouncerBase-_postRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_postRelayedCall-bytes-bool-uint256-bytes32-[`GSNBouncerBase._postRelayedCall`]]
+:GSNBouncerBase-_computeCharge: pass:normal[xref:GSN.adoc#GSNBouncerBase-_computeCharge-uint256-uint256-uint256-[`GSNBouncerBase._computeCharge`]]
+:IRelayRecipient-getHubAddr: pass:normal[xref:GSN.adoc#IRelayRecipient-getHubAddr--[`IRelayRecipient.getHubAddr`]]
+:IRelayRecipient-acceptRelayedCall: pass:normal[xref:GSN.adoc#IRelayRecipient-acceptRelayedCall-address-address-bytes-uint256-uint256-uint256-uint256-bytes-uint256-[`IRelayRecipient.acceptRelayedCall`]]
+:GSNBouncerERC20Fee: pass:normal[xref:GSN.adoc#GSNBouncerERC20Fee[`GSNBouncerERC20Fee`]]
+:GSNBouncerERC20Fee-constructor: pass:normal[xref:GSN.adoc#GSNBouncerERC20Fee-constructor-string-string-uint8-[`GSNBouncerERC20Fee.constructor`]]
+:GSNBouncerERC20Fee-token: pass:normal[xref:GSN.adoc#GSNBouncerERC20Fee-token--[`GSNBouncerERC20Fee.token`]]
+:GSNBouncerERC20Fee-_mint: pass:normal[xref:GSN.adoc#GSNBouncerERC20Fee-_mint-address-uint256-[`GSNBouncerERC20Fee._mint`]]
+:GSNBouncerERC20Fee-acceptRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerERC20Fee-acceptRelayedCall-address-address-bytes-uint256-uint256-uint256-uint256-bytes-uint256-[`GSNBouncerERC20Fee.acceptRelayedCall`]]
+:GSNBouncerERC20Fee-_preRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerERC20Fee-_preRelayedCall-bytes-[`GSNBouncerERC20Fee._preRelayedCall`]]
+:GSNBouncerERC20Fee-_postRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerERC20Fee-_postRelayedCall-bytes-bool-uint256-bytes32-[`GSNBouncerERC20Fee._postRelayedCall`]]
+:GSNBouncerBase-preRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-preRelayedCall-bytes-[`GSNBouncerBase.preRelayedCall`]]
+:GSNBouncerBase-postRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-postRelayedCall-bytes-bool-uint256-bytes32-[`GSNBouncerBase.postRelayedCall`]]
+:GSNBouncerBase-_approveRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_approveRelayedCall--[`GSNBouncerBase._approveRelayedCall`]]
+:GSNBouncerBase-_approveRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_approveRelayedCall-bytes-[`GSNBouncerBase._approveRelayedCall`]]
+:GSNBouncerBase-_rejectRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_rejectRelayedCall-uint256-[`GSNBouncerBase._rejectRelayedCall`]]
+:GSNBouncerBase-_computeCharge: pass:normal[xref:GSN.adoc#GSNBouncerBase-_computeCharge-uint256-uint256-uint256-[`GSNBouncerBase._computeCharge`]]
+:IRelayRecipient-getHubAddr: pass:normal[xref:GSN.adoc#IRelayRecipient-getHubAddr--[`IRelayRecipient.getHubAddr`]]
+:__unstable__ERC20PrimaryAdmin: pass:normal[xref:GSN.adoc#__unstable__ERC20PrimaryAdmin[`__unstable__ERC20PrimaryAdmin`]]
+:Secondary-onlyPrimary: pass:normal[xref:GSN.adoc#Secondary-onlyPrimary--[`Secondary.onlyPrimary`]]
+:__unstable__ERC20PrimaryAdmin-constructor: pass:normal[xref:GSN.adoc#__unstable__ERC20PrimaryAdmin-constructor-string-string-uint8-[`__unstable__ERC20PrimaryAdmin.constructor`]]
+:__unstable__ERC20PrimaryAdmin-mint: pass:normal[xref:GSN.adoc#__unstable__ERC20PrimaryAdmin-mint-address-uint256-[`__unstable__ERC20PrimaryAdmin.mint`]]
+:__unstable__ERC20PrimaryAdmin-allowance: pass:normal[xref:GSN.adoc#__unstable__ERC20PrimaryAdmin-allowance-address-address-[`__unstable__ERC20PrimaryAdmin.allowance`]]
+:__unstable__ERC20PrimaryAdmin-_approve: pass:normal[xref:GSN.adoc#__unstable__ERC20PrimaryAdmin-_approve-address-address-uint256-[`__unstable__ERC20PrimaryAdmin._approve`]]
+:__unstable__ERC20PrimaryAdmin-transferFrom: pass:normal[xref:GSN.adoc#__unstable__ERC20PrimaryAdmin-transferFrom-address-address-uint256-[`__unstable__ERC20PrimaryAdmin.transferFrom`]]
+:Secondary-constructor: pass:normal[xref:GSN.adoc#Secondary-constructor--[`Secondary.constructor`]]
+:Secondary-primary: pass:normal[xref:GSN.adoc#Secondary-primary--[`Secondary.primary`]]
+:Secondary-transferPrimary: pass:normal[xref:GSN.adoc#Secondary-transferPrimary-address-[`Secondary.transferPrimary`]]
+:ERC20Detailed-name: pass:normal[xref:GSN.adoc#ERC20Detailed-name--[`ERC20Detailed.name`]]
+:ERC20Detailed-symbol: pass:normal[xref:GSN.adoc#ERC20Detailed-symbol--[`ERC20Detailed.symbol`]]
+:ERC20Detailed-decimals: pass:normal[xref:GSN.adoc#ERC20Detailed-decimals--[`ERC20Detailed.decimals`]]
+:ERC20-totalSupply: pass:normal[xref:GSN.adoc#ERC20-totalSupply--[`ERC20.totalSupply`]]
+:ERC20-balanceOf: pass:normal[xref:GSN.adoc#ERC20-balanceOf-address-[`ERC20.balanceOf`]]
+:ERC20-transfer: pass:normal[xref:GSN.adoc#ERC20-transfer-address-uint256-[`ERC20.transfer`]]
+:ERC20-approve: pass:normal[xref:GSN.adoc#ERC20-approve-address-uint256-[`ERC20.approve`]]
+:ERC20-increaseAllowance: pass:normal[xref:GSN.adoc#ERC20-increaseAllowance-address-uint256-[`ERC20.increaseAllowance`]]
+:ERC20-decreaseAllowance: pass:normal[xref:GSN.adoc#ERC20-decreaseAllowance-address-uint256-[`ERC20.decreaseAllowance`]]
+:ERC20-_transfer: pass:normal[xref:GSN.adoc#ERC20-_transfer-address-address-uint256-[`ERC20._transfer`]]
+:ERC20-_mint: pass:normal[xref:GSN.adoc#ERC20-_mint-address-uint256-[`ERC20._mint`]]
+:ERC20-_burn: pass:normal[xref:GSN.adoc#ERC20-_burn-address-uint256-[`ERC20._burn`]]
+:ERC20-_burnFrom: pass:normal[xref:GSN.adoc#ERC20-_burnFrom-address-uint256-[`ERC20._burnFrom`]]
+:Context-_msgSender: pass:normal[xref:GSN.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:GSN.adoc#Context-_msgData--[`Context._msgData`]]
+:Secondary-PrimaryTransferred: pass:normal[xref:GSN.adoc#Secondary-PrimaryTransferred-address-[`Secondary.PrimaryTransferred`]]
+:IERC20-Transfer: pass:normal[xref:GSN.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
+:IERC20-Approval: pass:normal[xref:GSN.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
+:GSNBouncerSignature: pass:normal[xref:GSN.adoc#GSNBouncerSignature[`GSNBouncerSignature`]]
+:GSNBouncerSignature-constructor: pass:normal[xref:GSN.adoc#GSNBouncerSignature-constructor-address-[`GSNBouncerSignature.constructor`]]
+:GSNBouncerSignature-acceptRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerSignature-acceptRelayedCall-address-address-bytes-uint256-uint256-uint256-uint256-bytes-uint256-[`GSNBouncerSignature.acceptRelayedCall`]]
+:GSNBouncerBase-preRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-preRelayedCall-bytes-[`GSNBouncerBase.preRelayedCall`]]
+:GSNBouncerBase-postRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-postRelayedCall-bytes-bool-uint256-bytes32-[`GSNBouncerBase.postRelayedCall`]]
+:GSNBouncerBase-_approveRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_approveRelayedCall--[`GSNBouncerBase._approveRelayedCall`]]
+:GSNBouncerBase-_approveRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_approveRelayedCall-bytes-[`GSNBouncerBase._approveRelayedCall`]]
+:GSNBouncerBase-_rejectRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_rejectRelayedCall-uint256-[`GSNBouncerBase._rejectRelayedCall`]]
+:GSNBouncerBase-_preRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_preRelayedCall-bytes-[`GSNBouncerBase._preRelayedCall`]]
+:GSNBouncerBase-_postRelayedCall: pass:normal[xref:GSN.adoc#GSNBouncerBase-_postRelayedCall-bytes-bool-uint256-bytes32-[`GSNBouncerBase._postRelayedCall`]]
+:GSNBouncerBase-_computeCharge: pass:normal[xref:GSN.adoc#GSNBouncerBase-_computeCharge-uint256-uint256-uint256-[`GSNBouncerBase._computeCharge`]]
+:IRelayRecipient-getHubAddr: pass:normal[xref:GSN.adoc#IRelayRecipient-getHubAddr--[`IRelayRecipient.getHubAddr`]]
 :Roles: pass:normal[xref:access.adoc#Roles[`Roles`]]
 :Roles-add: pass:normal[xref:access.adoc#Roles-add-struct-Roles-Role-address-[`Roles.add`]]
 :Roles-remove: pass:normal[xref:access.adoc#Roles-remove-struct-Roles-Role-address-[`Roles.remove`]]
@@ -10,6 +146,8 @@
 :CapperRole-renounceCapper: pass:normal[xref:access.adoc#CapperRole-renounceCapper--[`CapperRole.renounceCapper`]]
 :CapperRole-_addCapper: pass:normal[xref:access.adoc#CapperRole-_addCapper-address-[`CapperRole._addCapper`]]
 :CapperRole-_removeCapper: pass:normal[xref:access.adoc#CapperRole-_removeCapper-address-[`CapperRole._removeCapper`]]
+:Context-_msgSender: pass:normal[xref:access.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:access.adoc#Context-_msgData--[`Context._msgData`]]
 :CapperRole-CapperAdded: pass:normal[xref:access.adoc#CapperRole-CapperAdded-address-[`CapperRole.CapperAdded`]]
 :CapperRole-CapperRemoved: pass:normal[xref:access.adoc#CapperRole-CapperRemoved-address-[`CapperRole.CapperRemoved`]]
 :MinterRole: pass:normal[xref:access.adoc#MinterRole[`MinterRole`]]
@@ -20,6 +158,8 @@
 :MinterRole-renounceMinter: pass:normal[xref:access.adoc#MinterRole-renounceMinter--[`MinterRole.renounceMinter`]]
 :MinterRole-_addMinter: pass:normal[xref:access.adoc#MinterRole-_addMinter-address-[`MinterRole._addMinter`]]
 :MinterRole-_removeMinter: pass:normal[xref:access.adoc#MinterRole-_removeMinter-address-[`MinterRole._removeMinter`]]
+:Context-_msgSender: pass:normal[xref:access.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:access.adoc#Context-_msgData--[`Context._msgData`]]
 :MinterRole-MinterAdded: pass:normal[xref:access.adoc#MinterRole-MinterAdded-address-[`MinterRole.MinterAdded`]]
 :MinterRole-MinterRemoved: pass:normal[xref:access.adoc#MinterRole-MinterRemoved-address-[`MinterRole.MinterRemoved`]]
 :PauserRole: pass:normal[xref:access.adoc#PauserRole[`PauserRole`]]
@@ -30,6 +170,8 @@
 :PauserRole-renouncePauser: pass:normal[xref:access.adoc#PauserRole-renouncePauser--[`PauserRole.renouncePauser`]]
 :PauserRole-_addPauser: pass:normal[xref:access.adoc#PauserRole-_addPauser-address-[`PauserRole._addPauser`]]
 :PauserRole-_removePauser: pass:normal[xref:access.adoc#PauserRole-_removePauser-address-[`PauserRole._removePauser`]]
+:Context-_msgSender: pass:normal[xref:access.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:access.adoc#Context-_msgData--[`Context._msgData`]]
 :PauserRole-PauserAdded: pass:normal[xref:access.adoc#PauserRole-PauserAdded-address-[`PauserRole.PauserAdded`]]
 :PauserRole-PauserRemoved: pass:normal[xref:access.adoc#PauserRole-PauserRemoved-address-[`PauserRole.PauserRemoved`]]
 :SignerRole: pass:normal[xref:access.adoc#SignerRole[`SignerRole`]]
@@ -40,6 +182,8 @@
 :SignerRole-renounceSigner: pass:normal[xref:access.adoc#SignerRole-renounceSigner--[`SignerRole.renounceSigner`]]
 :SignerRole-_addSigner: pass:normal[xref:access.adoc#SignerRole-_addSigner-address-[`SignerRole._addSigner`]]
 :SignerRole-_removeSigner: pass:normal[xref:access.adoc#SignerRole-_removeSigner-address-[`SignerRole._removeSigner`]]
+:Context-_msgSender: pass:normal[xref:access.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:access.adoc#Context-_msgData--[`Context._msgData`]]
 :SignerRole-SignerAdded: pass:normal[xref:access.adoc#SignerRole-SignerAdded-address-[`SignerRole.SignerAdded`]]
 :SignerRole-SignerRemoved: pass:normal[xref:access.adoc#SignerRole-SignerRemoved-address-[`SignerRole.SignerRemoved`]]
 :WhitelistAdminRole: pass:normal[xref:access.adoc#WhitelistAdminRole[`WhitelistAdminRole`]]
@@ -50,6 +194,8 @@
 :WhitelistAdminRole-renounceWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-renounceWhitelistAdmin--[`WhitelistAdminRole.renounceWhitelistAdmin`]]
 :WhitelistAdminRole-_addWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-_addWhitelistAdmin-address-[`WhitelistAdminRole._addWhitelistAdmin`]]
 :WhitelistAdminRole-_removeWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-_removeWhitelistAdmin-address-[`WhitelistAdminRole._removeWhitelistAdmin`]]
+:Context-_msgSender: pass:normal[xref:access.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:access.adoc#Context-_msgData--[`Context._msgData`]]
 :WhitelistAdminRole-WhitelistAdminAdded: pass:normal[xref:access.adoc#WhitelistAdminRole-WhitelistAdminAdded-address-[`WhitelistAdminRole.WhitelistAdminAdded`]]
 :WhitelistAdminRole-WhitelistAdminRemoved: pass:normal[xref:access.adoc#WhitelistAdminRole-WhitelistAdminRemoved-address-[`WhitelistAdminRole.WhitelistAdminRemoved`]]
 :WhitelistedRole: pass:normal[xref:access.adoc#WhitelistedRole[`WhitelistedRole`]]
@@ -67,6 +213,8 @@
 :WhitelistAdminRole-renounceWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-renounceWhitelistAdmin--[`WhitelistAdminRole.renounceWhitelistAdmin`]]
 :WhitelistAdminRole-_addWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-_addWhitelistAdmin-address-[`WhitelistAdminRole._addWhitelistAdmin`]]
 :WhitelistAdminRole-_removeWhitelistAdmin: pass:normal[xref:access.adoc#WhitelistAdminRole-_removeWhitelistAdmin-address-[`WhitelistAdminRole._removeWhitelistAdmin`]]
+:Context-_msgSender: pass:normal[xref:access.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:access.adoc#Context-_msgData--[`Context._msgData`]]
 :WhitelistedRole-WhitelistedAdded: pass:normal[xref:access.adoc#WhitelistedRole-WhitelistedAdded-address-[`WhitelistedRole.WhitelistedAdded`]]
 :WhitelistedRole-WhitelistedRemoved: pass:normal[xref:access.adoc#WhitelistedRole-WhitelistedRemoved-address-[`WhitelistedRole.WhitelistedRemoved`]]
 :WhitelistAdminRole-WhitelistAdminAdded: pass:normal[xref:access.adoc#WhitelistAdminRole-WhitelistAdminAdded-address-[`WhitelistAdminRole.WhitelistAdminAdded`]]
@@ -88,6 +236,8 @@
 :Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
 :Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
 :ReentrancyGuard-constructor: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
 :FinalizableCrowdsale: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale[`FinalizableCrowdsale`]]
 :TimedCrowdsale-onlyWhileOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-onlyWhileOpen--[`TimedCrowdsale.onlyWhileOpen`]]
@@ -116,6 +266,8 @@
 :Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
 :Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
 :Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :FinalizableCrowdsale-CrowdsaleFinalized: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-CrowdsaleFinalized--[`FinalizableCrowdsale.CrowdsaleFinalized`]]
 :TimedCrowdsale-TimedCrowdsaleExtended: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-TimedCrowdsaleExtended-uint256-uint256-[`TimedCrowdsale.TimedCrowdsaleExtended`]]
 :Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
@@ -145,6 +297,8 @@
 :Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
 :Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
 :Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :TimedCrowdsale-TimedCrowdsaleExtended: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-TimedCrowdsaleExtended-uint256-uint256-[`TimedCrowdsale.TimedCrowdsaleExtended`]]
 :Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
 :__unstable__TokenVault: pass:normal[xref:crowdsale.adoc#__unstable__TokenVault[`__unstable__TokenVault`]]
@@ -153,6 +307,8 @@
 :Secondary-constructor: pass:normal[xref:crowdsale.adoc#Secondary-constructor--[`Secondary.constructor`]]
 :Secondary-primary: pass:normal[xref:crowdsale.adoc#Secondary-primary--[`Secondary.primary`]]
 :Secondary-transferPrimary: pass:normal[xref:crowdsale.adoc#Secondary-transferPrimary-address-[`Secondary.transferPrimary`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :Secondary-PrimaryTransferred: pass:normal[xref:crowdsale.adoc#Secondary-PrimaryTransferred-address-[`Secondary.PrimaryTransferred`]]
 :RefundableCrowdsale: pass:normal[xref:crowdsale.adoc#RefundableCrowdsale[`RefundableCrowdsale`]]
 :TimedCrowdsale-onlyWhileOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-onlyWhileOpen--[`TimedCrowdsale.onlyWhileOpen`]]
@@ -185,6 +341,8 @@
 :Crowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_processPurchase-address-uint256-[`Crowdsale._processPurchase`]]
 :Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
 :Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :FinalizableCrowdsale-CrowdsaleFinalized: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-CrowdsaleFinalized--[`FinalizableCrowdsale.CrowdsaleFinalized`]]
 :TimedCrowdsale-TimedCrowdsaleExtended: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-TimedCrowdsaleExtended-uint256-uint256-[`TimedCrowdsale.TimedCrowdsaleExtended`]]
 :Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
@@ -221,6 +379,8 @@
 :Crowdsale-_deliverTokens: pass:normal[xref:crowdsale.adoc#Crowdsale-_deliverTokens-address-uint256-[`Crowdsale._deliverTokens`]]
 :Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
 :Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :FinalizableCrowdsale-CrowdsaleFinalized: pass:normal[xref:crowdsale.adoc#FinalizableCrowdsale-CrowdsaleFinalized--[`FinalizableCrowdsale.CrowdsaleFinalized`]]
 :TimedCrowdsale-TimedCrowdsaleExtended: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-TimedCrowdsaleExtended-uint256-uint256-[`TimedCrowdsale.TimedCrowdsaleExtended`]]
 :Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
@@ -244,6 +404,8 @@
 :Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
 :Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
 :ReentrancyGuard-constructor: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
 :MintedCrowdsale: pass:normal[xref:crowdsale.adoc#MintedCrowdsale[`MintedCrowdsale`]]
 :ReentrancyGuard-nonReentrant: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-nonReentrant--[`ReentrancyGuard.nonReentrant`]]
@@ -262,6 +424,8 @@
 :Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
 :Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
 :ReentrancyGuard-constructor: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
 :IncreasingPriceCrowdsale: pass:normal[xref:crowdsale.adoc#IncreasingPriceCrowdsale[`IncreasingPriceCrowdsale`]]
 :TimedCrowdsale-onlyWhileOpen: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-onlyWhileOpen--[`TimedCrowdsale.onlyWhileOpen`]]
@@ -290,6 +454,8 @@
 :Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
 :Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
 :ReentrancyGuard-constructor: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :TimedCrowdsale-TimedCrowdsaleExtended: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-TimedCrowdsaleExtended-uint256-uint256-[`TimedCrowdsale.TimedCrowdsaleExtended`]]
 :Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
 :CappedCrowdsale: pass:normal[xref:crowdsale.adoc#CappedCrowdsale[`CappedCrowdsale`]]
@@ -312,6 +478,8 @@
 :Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
 :Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
 :ReentrancyGuard-constructor: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
 :IndividuallyCappedCrowdsale: pass:normal[xref:crowdsale.adoc#IndividuallyCappedCrowdsale[`IndividuallyCappedCrowdsale`]]
 :CapperRole-onlyCapper: pass:normal[xref:crowdsale.adoc#CapperRole-onlyCapper--[`CapperRole.onlyCapper`]]
@@ -339,6 +507,8 @@
 :Crowdsale-_processPurchase: pass:normal[xref:crowdsale.adoc#Crowdsale-_processPurchase-address-uint256-[`Crowdsale._processPurchase`]]
 :Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
 :Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :CapperRole-CapperAdded: pass:normal[xref:crowdsale.adoc#CapperRole-CapperAdded-address-[`CapperRole.CapperAdded`]]
 :CapperRole-CapperRemoved: pass:normal[xref:crowdsale.adoc#CapperRole-CapperRemoved-address-[`CapperRole.CapperRemoved`]]
 :Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
@@ -370,6 +540,8 @@
 :Crowdsale-_updatePurchasingState: pass:normal[xref:crowdsale.adoc#Crowdsale-_updatePurchasingState-address-uint256-[`Crowdsale._updatePurchasingState`]]
 :Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
 :Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :Pausable-Paused: pass:normal[xref:crowdsale.adoc#Pausable-Paused-address-[`Pausable.Paused`]]
 :Pausable-Unpaused: pass:normal[xref:crowdsale.adoc#Pausable-Unpaused-address-[`Pausable.Unpaused`]]
 :PauserRole-PauserAdded: pass:normal[xref:crowdsale.adoc#PauserRole-PauserAdded-address-[`PauserRole.PauserAdded`]]
@@ -399,6 +571,8 @@
 :Crowdsale-_getTokenAmount: pass:normal[xref:crowdsale.adoc#Crowdsale-_getTokenAmount-uint256-[`Crowdsale._getTokenAmount`]]
 :Crowdsale-_forwardFunds: pass:normal[xref:crowdsale.adoc#Crowdsale-_forwardFunds--[`Crowdsale._forwardFunds`]]
 :ReentrancyGuard-constructor: pass:normal[xref:crowdsale.adoc#ReentrancyGuard-constructor--[`ReentrancyGuard.constructor`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :TimedCrowdsale-TimedCrowdsaleExtended: pass:normal[xref:crowdsale.adoc#TimedCrowdsale-TimedCrowdsaleExtended-uint256-uint256-[`TimedCrowdsale.TimedCrowdsaleExtended`]]
 :Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
 :WhitelistCrowdsale: pass:normal[xref:crowdsale.adoc#WhitelistCrowdsale[`WhitelistCrowdsale`]]
@@ -431,6 +605,8 @@
 :WhitelistAdminRole-renounceWhitelistAdmin: pass:normal[xref:crowdsale.adoc#WhitelistAdminRole-renounceWhitelistAdmin--[`WhitelistAdminRole.renounceWhitelistAdmin`]]
 :WhitelistAdminRole-_addWhitelistAdmin: pass:normal[xref:crowdsale.adoc#WhitelistAdminRole-_addWhitelistAdmin-address-[`WhitelistAdminRole._addWhitelistAdmin`]]
 :WhitelistAdminRole-_removeWhitelistAdmin: pass:normal[xref:crowdsale.adoc#WhitelistAdminRole-_removeWhitelistAdmin-address-[`WhitelistAdminRole._removeWhitelistAdmin`]]
+:Context-_msgSender: pass:normal[xref:crowdsale.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:crowdsale.adoc#Context-_msgData--[`Context._msgData`]]
 :Crowdsale-TokensPurchased: pass:normal[xref:crowdsale.adoc#Crowdsale-TokensPurchased-address-address-uint256-uint256-[`Crowdsale.TokensPurchased`]]
 :WhitelistedRole-WhitelistedAdded: pass:normal[xref:crowdsale.adoc#WhitelistedRole-WhitelistedAdded-address-[`WhitelistedRole.WhitelistedAdded`]]
 :WhitelistedRole-WhitelistedRemoved: pass:normal[xref:crowdsale.adoc#WhitelistedRole-WhitelistedRemoved-address-[`WhitelistedRole.WhitelistedRemoved`]]
@@ -473,31 +649,19 @@
 :ERC20-decreaseAllowance: pass:normal[xref:drafts.adoc#ERC20-decreaseAllowance-address-uint256-[`ERC20.decreaseAllowance`]]
 :ERC20-_approve: pass:normal[xref:drafts.adoc#ERC20-_approve-address-address-uint256-[`ERC20._approve`]]
 :ERC20-_burnFrom: pass:normal[xref:drafts.adoc#ERC20-_burnFrom-address-uint256-[`ERC20._burnFrom`]]
+:Context-constructor: pass:normal[xref:drafts.adoc#Context-constructor--[`Context.constructor`]]
+:Context-_msgSender: pass:normal[xref:drafts.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:drafts.adoc#Context-_msgData--[`Context._msgData`]]
 :ERC20Snapshot-Snapshot: pass:normal[xref:drafts.adoc#ERC20Snapshot-Snapshot-uint256-[`ERC20Snapshot.Snapshot`]]
 :IERC20-Transfer: pass:normal[xref:drafts.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
 :IERC20-Approval: pass:normal[xref:drafts.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
-:SignatureBouncer: pass:normal[xref:drafts.adoc#SignatureBouncer[`SignatureBouncer`]]
-:SignatureBouncer-onlyValidSignature: pass:normal[xref:drafts.adoc#SignatureBouncer-onlyValidSignature-bytes-[`SignatureBouncer.onlyValidSignature`]]
-:SignatureBouncer-onlyValidSignatureAndMethod: pass:normal[xref:drafts.adoc#SignatureBouncer-onlyValidSignatureAndMethod-bytes-[`SignatureBouncer.onlyValidSignatureAndMethod`]]
-:SignatureBouncer-onlyValidSignatureAndData: pass:normal[xref:drafts.adoc#SignatureBouncer-onlyValidSignatureAndData-bytes-[`SignatureBouncer.onlyValidSignatureAndData`]]
-:SignerRole-onlySigner: pass:normal[xref:drafts.adoc#SignerRole-onlySigner--[`SignerRole.onlySigner`]]
-:SignatureBouncer-constructor: pass:normal[xref:drafts.adoc#SignatureBouncer-constructor--[`SignatureBouncer.constructor`]]
-:SignatureBouncer-_isValidSignature: pass:normal[xref:drafts.adoc#SignatureBouncer-_isValidSignature-address-bytes-[`SignatureBouncer._isValidSignature`]]
-:SignatureBouncer-_isValidSignatureAndMethod: pass:normal[xref:drafts.adoc#SignatureBouncer-_isValidSignatureAndMethod-address-bytes-[`SignatureBouncer._isValidSignatureAndMethod`]]
-:SignatureBouncer-_isValidSignatureAndData: pass:normal[xref:drafts.adoc#SignatureBouncer-_isValidSignatureAndData-address-bytes-[`SignatureBouncer._isValidSignatureAndData`]]
-:SignatureBouncer-_isValidDataHash: pass:normal[xref:drafts.adoc#SignatureBouncer-_isValidDataHash-bytes32-bytes-[`SignatureBouncer._isValidDataHash`]]
-:SignerRole-isSigner: pass:normal[xref:drafts.adoc#SignerRole-isSigner-address-[`SignerRole.isSigner`]]
-:SignerRole-addSigner: pass:normal[xref:drafts.adoc#SignerRole-addSigner-address-[`SignerRole.addSigner`]]
-:SignerRole-renounceSigner: pass:normal[xref:drafts.adoc#SignerRole-renounceSigner--[`SignerRole.renounceSigner`]]
-:SignerRole-_addSigner: pass:normal[xref:drafts.adoc#SignerRole-_addSigner-address-[`SignerRole._addSigner`]]
-:SignerRole-_removeSigner: pass:normal[xref:drafts.adoc#SignerRole-_removeSigner-address-[`SignerRole._removeSigner`]]
-:SignerRole-SignerAdded: pass:normal[xref:drafts.adoc#SignerRole-SignerAdded-address-[`SignerRole.SignerAdded`]]
-:SignerRole-SignerRemoved: pass:normal[xref:drafts.adoc#SignerRole-SignerRemoved-address-[`SignerRole.SignerRemoved`]]
 :SignedSafeMath: pass:normal[xref:drafts.adoc#SignedSafeMath[`SignedSafeMath`]]
 :SignedSafeMath-mul: pass:normal[xref:drafts.adoc#SignedSafeMath-mul-int256-int256-[`SignedSafeMath.mul`]]
 :SignedSafeMath-div: pass:normal[xref:drafts.adoc#SignedSafeMath-div-int256-int256-[`SignedSafeMath.div`]]
 :SignedSafeMath-sub: pass:normal[xref:drafts.adoc#SignedSafeMath-sub-int256-int256-[`SignedSafeMath.sub`]]
 :SignedSafeMath-add: pass:normal[xref:drafts.adoc#SignedSafeMath-add-int256-int256-[`SignedSafeMath.add`]]
+:Strings: pass:normal[xref:drafts.adoc#Strings[`Strings`]]
+:Strings-fromUint256: pass:normal[xref:drafts.adoc#Strings-fromUint256-uint256-[`Strings.fromUint256`]]
 :TokenVesting: pass:normal[xref:drafts.adoc#TokenVesting[`TokenVesting`]]
 :Ownable-onlyOwner: pass:normal[xref:drafts.adoc#Ownable-onlyOwner--[`Ownable.onlyOwner`]]
 :TokenVesting-constructor: pass:normal[xref:drafts.adoc#TokenVesting-constructor-address-uint256-uint256-uint256-bool-[`TokenVesting.constructor`]]
@@ -516,6 +680,8 @@
 :Ownable-renounceOwnership: pass:normal[xref:drafts.adoc#Ownable-renounceOwnership--[`Ownable.renounceOwnership`]]
 :Ownable-transferOwnership: pass:normal[xref:drafts.adoc#Ownable-transferOwnership-address-[`Ownable.transferOwnership`]]
 :Ownable-_transferOwnership: pass:normal[xref:drafts.adoc#Ownable-_transferOwnership-address-[`Ownable._transferOwnership`]]
+:Context-_msgSender: pass:normal[xref:drafts.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:drafts.adoc#Context-_msgData--[`Context._msgData`]]
 :TokenVesting-TokensReleased: pass:normal[xref:drafts.adoc#TokenVesting-TokensReleased-address-uint256-[`TokenVesting.TokensReleased`]]
 :TokenVesting-TokenVestingRevoked: pass:normal[xref:drafts.adoc#TokenVesting-TokenVestingRevoked-address-[`TokenVesting.TokenVestingRevoked`]]
 :Ownable-OwnershipTransferred: pass:normal[xref:drafts.adoc#Ownable-OwnershipTransferred-address-address-[`Ownable.OwnershipTransferred`]]
@@ -552,9 +718,12 @@
 :SafeMath: pass:normal[xref:math.adoc#SafeMath[`SafeMath`]]
 :SafeMath-add: pass:normal[xref:math.adoc#SafeMath-add-uint256-uint256-[`SafeMath.add`]]
 :SafeMath-sub: pass:normal[xref:math.adoc#SafeMath-sub-uint256-uint256-[`SafeMath.sub`]]
+:SafeMath-sub: pass:normal[xref:math.adoc#SafeMath-sub-uint256-uint256-string-[`SafeMath.sub`]]
 :SafeMath-mul: pass:normal[xref:math.adoc#SafeMath-mul-uint256-uint256-[`SafeMath.mul`]]
 :SafeMath-div: pass:normal[xref:math.adoc#SafeMath-div-uint256-uint256-[`SafeMath.div`]]
+:SafeMath-div: pass:normal[xref:math.adoc#SafeMath-div-uint256-uint256-string-[`SafeMath.div`]]
 :SafeMath-mod: pass:normal[xref:math.adoc#SafeMath-mod-uint256-uint256-[`SafeMath.mod`]]
+:SafeMath-mod: pass:normal[xref:math.adoc#SafeMath-mod-uint256-uint256-string-[`SafeMath.mod`]]
 :Ownable: pass:normal[xref:ownership.adoc#Ownable[`Ownable`]]
 :Ownable-onlyOwner: pass:normal[xref:ownership.adoc#Ownable-onlyOwner--[`Ownable.onlyOwner`]]
 :Ownable-constructor: pass:normal[xref:ownership.adoc#Ownable-constructor--[`Ownable.constructor`]]
@@ -563,12 +732,16 @@
 :Ownable-renounceOwnership: pass:normal[xref:ownership.adoc#Ownable-renounceOwnership--[`Ownable.renounceOwnership`]]
 :Ownable-transferOwnership: pass:normal[xref:ownership.adoc#Ownable-transferOwnership-address-[`Ownable.transferOwnership`]]
 :Ownable-_transferOwnership: pass:normal[xref:ownership.adoc#Ownable-_transferOwnership-address-[`Ownable._transferOwnership`]]
+:Context-_msgSender: pass:normal[xref:ownership.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:ownership.adoc#Context-_msgData--[`Context._msgData`]]
 :Ownable-OwnershipTransferred: pass:normal[xref:ownership.adoc#Ownable-OwnershipTransferred-address-address-[`Ownable.OwnershipTransferred`]]
 :Secondary: pass:normal[xref:ownership.adoc#Secondary[`Secondary`]]
 :Secondary-onlyPrimary: pass:normal[xref:ownership.adoc#Secondary-onlyPrimary--[`Secondary.onlyPrimary`]]
 :Secondary-constructor: pass:normal[xref:ownership.adoc#Secondary-constructor--[`Secondary.constructor`]]
 :Secondary-primary: pass:normal[xref:ownership.adoc#Secondary-primary--[`Secondary.primary`]]
 :Secondary-transferPrimary: pass:normal[xref:ownership.adoc#Secondary-transferPrimary-address-[`Secondary.transferPrimary`]]
+:Context-_msgSender: pass:normal[xref:ownership.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:ownership.adoc#Context-_msgData--[`Context._msgData`]]
 :Secondary-PrimaryTransferred: pass:normal[xref:ownership.adoc#Secondary-PrimaryTransferred-address-[`Secondary.PrimaryTransferred`]]
 :PaymentSplitter: pass:normal[xref:payment.adoc#PaymentSplitter[`PaymentSplitter`]]
 :PaymentSplitter-constructor: pass:normal[xref:payment.adoc#PaymentSplitter-constructor-address---uint256---[`PaymentSplitter.constructor`]]
@@ -579,6 +752,9 @@
 :PaymentSplitter-released: pass:normal[xref:payment.adoc#PaymentSplitter-released-address-[`PaymentSplitter.released`]]
 :PaymentSplitter-payee: pass:normal[xref:payment.adoc#PaymentSplitter-payee-uint256-[`PaymentSplitter.payee`]]
 :PaymentSplitter-release: pass:normal[xref:payment.adoc#PaymentSplitter-release-address-payable-[`PaymentSplitter.release`]]
+:Context-constructor: pass:normal[xref:payment.adoc#Context-constructor--[`Context.constructor`]]
+:Context-_msgSender: pass:normal[xref:payment.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:payment.adoc#Context-_msgData--[`Context._msgData`]]
 :PaymentSplitter-PayeeAdded: pass:normal[xref:payment.adoc#PaymentSplitter-PayeeAdded-address-uint256-[`PaymentSplitter.PayeeAdded`]]
 :PaymentSplitter-PaymentReleased: pass:normal[xref:payment.adoc#PaymentSplitter-PaymentReleased-address-uint256-[`PaymentSplitter.PaymentReleased`]]
 :PaymentSplitter-PaymentReceived: pass:normal[xref:payment.adoc#PaymentSplitter-PaymentReceived-address-uint256-[`PaymentSplitter.PaymentReceived`]]
@@ -596,6 +772,8 @@
 :Secondary-constructor: pass:normal[xref:payment.adoc#Secondary-constructor--[`Secondary.constructor`]]
 :Secondary-primary: pass:normal[xref:payment.adoc#Secondary-primary--[`Secondary.primary`]]
 :Secondary-transferPrimary: pass:normal[xref:payment.adoc#Secondary-transferPrimary-address-[`Secondary.transferPrimary`]]
+:Context-_msgSender: pass:normal[xref:payment.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:payment.adoc#Context-_msgData--[`Context._msgData`]]
 :Escrow-Deposited: pass:normal[xref:payment.adoc#Escrow-Deposited-address-uint256-[`Escrow.Deposited`]]
 :Escrow-Withdrawn: pass:normal[xref:payment.adoc#Escrow-Withdrawn-address-uint256-[`Escrow.Withdrawn`]]
 :Secondary-PrimaryTransferred: pass:normal[xref:payment.adoc#Secondary-PrimaryTransferred-address-[`Secondary.PrimaryTransferred`]]
@@ -607,6 +785,8 @@
 :Secondary-constructor: pass:normal[xref:payment.adoc#Secondary-constructor--[`Secondary.constructor`]]
 :Secondary-primary: pass:normal[xref:payment.adoc#Secondary-primary--[`Secondary.primary`]]
 :Secondary-transferPrimary: pass:normal[xref:payment.adoc#Secondary-transferPrimary-address-[`Secondary.transferPrimary`]]
+:Context-_msgSender: pass:normal[xref:payment.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:payment.adoc#Context-_msgData--[`Context._msgData`]]
 :Escrow-Deposited: pass:normal[xref:payment.adoc#Escrow-Deposited-address-uint256-[`Escrow.Deposited`]]
 :Escrow-Withdrawn: pass:normal[xref:payment.adoc#Escrow-Withdrawn-address-uint256-[`Escrow.Withdrawn`]]
 :Secondary-PrimaryTransferred: pass:normal[xref:payment.adoc#Secondary-PrimaryTransferred-address-[`Secondary.PrimaryTransferred`]]
@@ -625,6 +805,8 @@
 :Secondary-constructor: pass:normal[xref:payment.adoc#Secondary-constructor--[`Secondary.constructor`]]
 :Secondary-primary: pass:normal[xref:payment.adoc#Secondary-primary--[`Secondary.primary`]]
 :Secondary-transferPrimary: pass:normal[xref:payment.adoc#Secondary-transferPrimary-address-[`Secondary.transferPrimary`]]
+:Context-_msgSender: pass:normal[xref:payment.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:payment.adoc#Context-_msgData--[`Context._msgData`]]
 :RefundEscrow-RefundsClosed: pass:normal[xref:payment.adoc#RefundEscrow-RefundsClosed--[`RefundEscrow.RefundsClosed`]]
 :RefundEscrow-RefundsEnabled: pass:normal[xref:payment.adoc#RefundEscrow-RefundsEnabled--[`RefundEscrow.RefundsEnabled`]]
 :Escrow-Deposited: pass:normal[xref:payment.adoc#Escrow-Deposited-address-uint256-[`Escrow.Deposited`]]
@@ -632,6 +814,7 @@
 :Secondary-PrimaryTransferred: pass:normal[xref:payment.adoc#Secondary-PrimaryTransferred-address-[`Secondary.PrimaryTransferred`]]
 :Address: pass:normal[xref:utils.adoc#Address[`Address`]]
 :Address-isContract: pass:normal[xref:utils.adoc#Address-isContract-address-[`Address.isContract`]]
+:Address-toPayable: pass:normal[xref:utils.adoc#Address-toPayable-address-[`Address.toPayable`]]
 :Arrays: pass:normal[xref:utils.adoc#Arrays[`Arrays`]]
 :Arrays-findUpperBound: pass:normal[xref:utils.adoc#Arrays-findUpperBound-uint256---uint256-[`Arrays.findUpperBound`]]
 :ReentrancyGuard: pass:normal[xref:utils.adoc#ReentrancyGuard[`ReentrancyGuard`]]
@@ -651,6 +834,9 @@
 :ERC20-_burn: pass:normal[xref:token/ERC20.adoc#ERC20-_burn-address-uint256-[`ERC20._burn`]]
 :ERC20-_approve: pass:normal[xref:token/ERC20.adoc#ERC20-_approve-address-address-uint256-[`ERC20._approve`]]
 :ERC20-_burnFrom: pass:normal[xref:token/ERC20.adoc#ERC20-_burnFrom-address-uint256-[`ERC20._burnFrom`]]
+:Context-constructor: pass:normal[xref:token/ERC20.adoc#Context-constructor--[`Context.constructor`]]
+:Context-_msgSender: pass:normal[xref:token/ERC20.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC20.adoc#Context-_msgData--[`Context._msgData`]]
 :IERC20-Transfer: pass:normal[xref:token/ERC20.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
 :IERC20-Approval: pass:normal[xref:token/ERC20.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
 :ERC20Burnable: pass:normal[xref:token/ERC20.adoc#ERC20Burnable[`ERC20Burnable`]]
@@ -669,6 +855,9 @@
 :ERC20-_burn: pass:normal[xref:token/ERC20.adoc#ERC20-_burn-address-uint256-[`ERC20._burn`]]
 :ERC20-_approve: pass:normal[xref:token/ERC20.adoc#ERC20-_approve-address-address-uint256-[`ERC20._approve`]]
 :ERC20-_burnFrom: pass:normal[xref:token/ERC20.adoc#ERC20-_burnFrom-address-uint256-[`ERC20._burnFrom`]]
+:Context-constructor: pass:normal[xref:token/ERC20.adoc#Context-constructor--[`Context.constructor`]]
+:Context-_msgSender: pass:normal[xref:token/ERC20.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC20.adoc#Context-_msgData--[`Context._msgData`]]
 :IERC20-Transfer: pass:normal[xref:token/ERC20.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
 :IERC20-Approval: pass:normal[xref:token/ERC20.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
 :ERC20Capped: pass:normal[xref:token/ERC20.adoc#ERC20Capped[`ERC20Capped`]]
@@ -695,6 +884,8 @@
 :ERC20-_burn: pass:normal[xref:token/ERC20.adoc#ERC20-_burn-address-uint256-[`ERC20._burn`]]
 :ERC20-_approve: pass:normal[xref:token/ERC20.adoc#ERC20-_approve-address-address-uint256-[`ERC20._approve`]]
 :ERC20-_burnFrom: pass:normal[xref:token/ERC20.adoc#ERC20-_burnFrom-address-uint256-[`ERC20._burnFrom`]]
+:Context-_msgSender: pass:normal[xref:token/ERC20.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC20.adoc#Context-_msgData--[`Context._msgData`]]
 :MinterRole-MinterAdded: pass:normal[xref:token/ERC20.adoc#MinterRole-MinterAdded-address-[`MinterRole.MinterAdded`]]
 :MinterRole-MinterRemoved: pass:normal[xref:token/ERC20.adoc#MinterRole-MinterRemoved-address-[`MinterRole.MinterRemoved`]]
 :IERC20-Transfer: pass:normal[xref:token/ERC20.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
@@ -734,6 +925,8 @@
 :ERC20-_burn: pass:normal[xref:token/ERC20.adoc#ERC20-_burn-address-uint256-[`ERC20._burn`]]
 :ERC20-_approve: pass:normal[xref:token/ERC20.adoc#ERC20-_approve-address-address-uint256-[`ERC20._approve`]]
 :ERC20-_burnFrom: pass:normal[xref:token/ERC20.adoc#ERC20-_burnFrom-address-uint256-[`ERC20._burnFrom`]]
+:Context-_msgSender: pass:normal[xref:token/ERC20.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC20.adoc#Context-_msgData--[`Context._msgData`]]
 :MinterRole-MinterAdded: pass:normal[xref:token/ERC20.adoc#MinterRole-MinterAdded-address-[`MinterRole.MinterAdded`]]
 :MinterRole-MinterRemoved: pass:normal[xref:token/ERC20.adoc#MinterRole-MinterRemoved-address-[`MinterRole.MinterRemoved`]]
 :IERC20-Transfer: pass:normal[xref:token/ERC20.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
@@ -764,6 +957,8 @@
 :ERC20-_burn: pass:normal[xref:token/ERC20.adoc#ERC20-_burn-address-uint256-[`ERC20._burn`]]
 :ERC20-_approve: pass:normal[xref:token/ERC20.adoc#ERC20-_approve-address-address-uint256-[`ERC20._approve`]]
 :ERC20-_burnFrom: pass:normal[xref:token/ERC20.adoc#ERC20-_burnFrom-address-uint256-[`ERC20._burnFrom`]]
+:Context-_msgSender: pass:normal[xref:token/ERC20.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC20.adoc#Context-_msgData--[`Context._msgData`]]
 :Pausable-Paused: pass:normal[xref:token/ERC20.adoc#Pausable-Paused-address-[`Pausable.Paused`]]
 :Pausable-Unpaused: pass:normal[xref:token/ERC20.adoc#Pausable-Unpaused-address-[`Pausable.Unpaused`]]
 :PauserRole-PauserAdded: pass:normal[xref:token/ERC20.adoc#PauserRole-PauserAdded-address-[`PauserRole.PauserAdded`]]
@@ -802,8 +997,11 @@
 :ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_safeTransferFrom-address-address-uint256-bytes-[`ERC721._safeTransferFrom`]]
 :ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
 :ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-[`ERC721._safeMint`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-bytes-[`ERC721._safeMint`]]
 :ERC721-_mint: pass:normal[xref:token/ERC721.adoc#ERC721-_mint-address-uint256-[`ERC721._mint`]]
 :ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-address-uint256-[`ERC721._burn`]]
 :ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
@@ -811,6 +1009,8 @@
 :ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
 :ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
 :ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:Context-_msgSender: pass:normal[xref:token/ERC721.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC721.adoc#Context-_msgData--[`Context._msgData`]]
 :IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
 :IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
 :IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
@@ -826,8 +1026,11 @@
 :ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_safeTransferFrom-address-address-uint256-bytes-[`ERC721._safeTransferFrom`]]
 :ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
 :ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-[`ERC721._safeMint`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-bytes-[`ERC721._safeMint`]]
 :ERC721-_mint: pass:normal[xref:token/ERC721.adoc#ERC721-_mint-address-uint256-[`ERC721._mint`]]
 :ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-address-uint256-[`ERC721._burn`]]
 :ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
@@ -835,6 +1038,8 @@
 :ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
 :ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
 :ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:Context-_msgSender: pass:normal[xref:token/ERC721.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC721.adoc#Context-_msgData--[`Context._msgData`]]
 :IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
 :IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
 :IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
@@ -856,12 +1061,17 @@
 :ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_safeTransferFrom-address-address-uint256-bytes-[`ERC721._safeTransferFrom`]]
 :ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
 :ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-[`ERC721._safeMint`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-bytes-[`ERC721._safeMint`]]
 :ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
 :ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
 :ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
 :ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:Context-_msgSender: pass:normal[xref:token/ERC721.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC721.adoc#Context-_msgData--[`Context._msgData`]]
 :IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
 :IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
 :IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
@@ -888,12 +1098,17 @@
 :ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_safeTransferFrom-address-address-uint256-bytes-[`ERC721._safeTransferFrom`]]
 :ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
 :ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-[`ERC721._safeMint`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-bytes-[`ERC721._safeMint`]]
 :ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
 :ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
 :ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
 :ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:Context-_msgSender: pass:normal[xref:token/ERC721.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC721.adoc#Context-_msgData--[`Context._msgData`]]
 :IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
 :IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
 :IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
@@ -916,14 +1131,19 @@
 :ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_safeTransferFrom-address-address-uint256-bytes-[`ERC721._safeTransferFrom`]]
 :ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
 :ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-[`ERC721._safeMint`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-bytes-[`ERC721._safeMint`]]
 :ERC721-_mint: pass:normal[xref:token/ERC721.adoc#ERC721-_mint-address-uint256-[`ERC721._mint`]]
 :ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
 :ERC721-_transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_transferFrom-address-address-uint256-[`ERC721._transferFrom`]]
 :ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
 :ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
 :ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:Context-_msgSender: pass:normal[xref:token/ERC721.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC721.adoc#Context-_msgData--[`Context._msgData`]]
 :IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
 :IERC721-Approval: pass:normal[xref:token/ERC721.adoc#IERC721-Approval-address-address-uint256-[`IERC721.Approval`]]
 :IERC721-ApprovalForAll: pass:normal[xref:token/ERC721.adoc#IERC721-ApprovalForAll-address-address-bool-[`IERC721.ApprovalForAll`]]
@@ -951,14 +1171,19 @@
 :ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_safeTransferFrom-address-address-uint256-bytes-[`ERC721._safeTransferFrom`]]
 :ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
 :ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-[`ERC721._safeMint`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-bytes-[`ERC721._safeMint`]]
 :ERC721-_mint: pass:normal[xref:token/ERC721.adoc#ERC721-_mint-address-uint256-[`ERC721._mint`]]
 :ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
 :ERC721-_transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_transferFrom-address-address-uint256-[`ERC721._transferFrom`]]
 :ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
 :ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
 :ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:Context-_msgSender: pass:normal[xref:token/ERC721.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC721.adoc#Context-_msgData--[`Context._msgData`]]
 :MinterRole-MinterAdded: pass:normal[xref:token/ERC721.adoc#MinterRole-MinterAdded-address-[`MinterRole.MinterAdded`]]
 :MinterRole-MinterRemoved: pass:normal[xref:token/ERC721.adoc#MinterRole-MinterRemoved-address-[`MinterRole.MinterRemoved`]]
 :IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
@@ -967,6 +1192,8 @@
 :ERC721Mintable: pass:normal[xref:token/ERC721.adoc#ERC721Mintable[`ERC721Mintable`]]
 :MinterRole-onlyMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-onlyMinter--[`MinterRole.onlyMinter`]]
 :ERC721Mintable-mint: pass:normal[xref:token/ERC721.adoc#ERC721Mintable-mint-address-uint256-[`ERC721Mintable.mint`]]
+:ERC721Mintable-safeMint: pass:normal[xref:token/ERC721.adoc#ERC721Mintable-safeMint-address-uint256-[`ERC721Mintable.safeMint`]]
+:ERC721Mintable-safeMint: pass:normal[xref:token/ERC721.adoc#ERC721Mintable-safeMint-address-uint256-bytes-[`ERC721Mintable.safeMint`]]
 :MinterRole-constructor: pass:normal[xref:token/ERC721.adoc#MinterRole-constructor--[`MinterRole.constructor`]]
 :MinterRole-isMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-isMinter-address-[`MinterRole.isMinter`]]
 :MinterRole-addMinter: pass:normal[xref:token/ERC721.adoc#MinterRole-addMinter-address-[`MinterRole.addMinter`]]
@@ -982,8 +1209,11 @@
 :ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_safeTransferFrom-address-address-uint256-bytes-[`ERC721._safeTransferFrom`]]
 :ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
 :ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-[`ERC721._safeMint`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-bytes-[`ERC721._safeMint`]]
 :ERC721-_mint: pass:normal[xref:token/ERC721.adoc#ERC721-_mint-address-uint256-[`ERC721._mint`]]
 :ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-address-uint256-[`ERC721._burn`]]
 :ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
@@ -991,6 +1221,8 @@
 :ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
 :ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
 :ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:Context-_msgSender: pass:normal[xref:token/ERC721.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC721.adoc#Context-_msgData--[`Context._msgData`]]
 :MinterRole-MinterAdded: pass:normal[xref:token/ERC721.adoc#MinterRole-MinterAdded-address-[`MinterRole.MinterAdded`]]
 :MinterRole-MinterRemoved: pass:normal[xref:token/ERC721.adoc#MinterRole-MinterRemoved-address-[`MinterRole.MinterRemoved`]]
 :IERC721-Transfer: pass:normal[xref:token/ERC721.adoc#IERC721-Transfer-address-address-uint256-[`IERC721.Transfer`]]
@@ -1002,7 +1234,7 @@
 :PauserRole-onlyPauser: pass:normal[xref:token/ERC721.adoc#PauserRole-onlyPauser--[`PauserRole.onlyPauser`]]
 :ERC721Pausable-approve: pass:normal[xref:token/ERC721.adoc#ERC721Pausable-approve-address-uint256-[`ERC721Pausable.approve`]]
 :ERC721Pausable-setApprovalForAll: pass:normal[xref:token/ERC721.adoc#ERC721Pausable-setApprovalForAll-address-bool-[`ERC721Pausable.setApprovalForAll`]]
-:ERC721Pausable-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721Pausable-transferFrom-address-address-uint256-[`ERC721Pausable.transferFrom`]]
+:ERC721Pausable-_transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721Pausable-_transferFrom-address-address-uint256-[`ERC721Pausable._transferFrom`]]
 :Pausable-constructor: pass:normal[xref:token/ERC721.adoc#Pausable-constructor--[`Pausable.constructor`]]
 :Pausable-paused: pass:normal[xref:token/ERC721.adoc#Pausable-paused--[`Pausable.paused`]]
 :Pausable-pause: pass:normal[xref:token/ERC721.adoc#Pausable-pause--[`Pausable.pause`]]
@@ -1016,17 +1248,22 @@
 :ERC721-ownerOf: pass:normal[xref:token/ERC721.adoc#ERC721-ownerOf-uint256-[`ERC721.ownerOf`]]
 :ERC721-getApproved: pass:normal[xref:token/ERC721.adoc#ERC721-getApproved-uint256-[`ERC721.getApproved`]]
 :ERC721-isApprovedForAll: pass:normal[xref:token/ERC721.adoc#ERC721-isApprovedForAll-address-address-[`ERC721.isApprovedForAll`]]
+:ERC721-transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-transferFrom-address-address-uint256-[`ERC721.transferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-[`ERC721.safeTransferFrom`]]
 :ERC721-safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-safeTransferFrom-address-address-uint256-bytes-[`ERC721.safeTransferFrom`]]
+:ERC721-_safeTransferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_safeTransferFrom-address-address-uint256-bytes-[`ERC721._safeTransferFrom`]]
 :ERC721-_exists: pass:normal[xref:token/ERC721.adoc#ERC721-_exists-uint256-[`ERC721._exists`]]
 :ERC721-_isApprovedOrOwner: pass:normal[xref:token/ERC721.adoc#ERC721-_isApprovedOrOwner-address-uint256-[`ERC721._isApprovedOrOwner`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-[`ERC721._safeMint`]]
+:ERC721-_safeMint: pass:normal[xref:token/ERC721.adoc#ERC721-_safeMint-address-uint256-bytes-[`ERC721._safeMint`]]
 :ERC721-_mint: pass:normal[xref:token/ERC721.adoc#ERC721-_mint-address-uint256-[`ERC721._mint`]]
 :ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-address-uint256-[`ERC721._burn`]]
 :ERC721-_burn: pass:normal[xref:token/ERC721.adoc#ERC721-_burn-uint256-[`ERC721._burn`]]
-:ERC721-_transferFrom: pass:normal[xref:token/ERC721.adoc#ERC721-_transferFrom-address-address-uint256-[`ERC721._transferFrom`]]
 :ERC721-_checkOnERC721Received: pass:normal[xref:token/ERC721.adoc#ERC721-_checkOnERC721Received-address-address-uint256-bytes-[`ERC721._checkOnERC721Received`]]
 :ERC165-supportsInterface: pass:normal[xref:token/ERC721.adoc#ERC165-supportsInterface-bytes4-[`ERC165.supportsInterface`]]
 :ERC165-_registerInterface: pass:normal[xref:token/ERC721.adoc#ERC165-_registerInterface-bytes4-[`ERC165._registerInterface`]]
+:Context-_msgSender: pass:normal[xref:token/ERC721.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC721.adoc#Context-_msgData--[`Context._msgData`]]
 :Pausable-Paused: pass:normal[xref:token/ERC721.adoc#Pausable-Paused-address-[`Pausable.Paused`]]
 :Pausable-Unpaused: pass:normal[xref:token/ERC721.adoc#Pausable-Unpaused-address-[`Pausable.Unpaused`]]
 :PauserRole-PauserAdded: pass:normal[xref:token/ERC721.adoc#PauserRole-PauserAdded-address-[`PauserRole.PauserAdded`]]
@@ -1125,6 +1362,9 @@
 :ERC777-approve: pass:normal[xref:token/ERC777.adoc#ERC777-approve-address-uint256-[`ERC777.approve`]]
 :ERC777-transferFrom: pass:normal[xref:token/ERC777.adoc#ERC777-transferFrom-address-address-uint256-[`ERC777.transferFrom`]]
 :ERC777-_mint: pass:normal[xref:token/ERC777.adoc#ERC777-_mint-address-address-uint256-bytes-bytes-[`ERC777._mint`]]
+:Context-constructor: pass:normal[xref:token/ERC777.adoc#Context-constructor--[`Context.constructor`]]
+:Context-_msgSender: pass:normal[xref:token/ERC777.adoc#Context-_msgSender--[`Context._msgSender`]]
+:Context-_msgData: pass:normal[xref:token/ERC777.adoc#Context-_msgData--[`Context._msgData`]]
 :IERC20-Transfer: pass:normal[xref:token/ERC777.adoc#IERC20-Transfer-address-address-uint256-[`IERC20.Transfer`]]
 :IERC20-Approval: pass:normal[xref:token/ERC777.adoc#IERC20-Approval-address-address-uint256-[`IERC20.Approval`]]
 :IERC777-Sent: pass:normal[xref:token/ERC777.adoc#IERC777-Sent-address-address-address-uint256-bytes-bytes-[`IERC777.Sent`]]
@@ -1159,7 +1399,7 @@
 
 This set of interfaces, contracts, and utilities are all related to the https://eips.ethereum.org/EIPS/eip-20[ERC20 Token Standard].
 
-TIP: For an overview of ERC20 tokens and a walkthrough on how to create a token contract read our xref:ROOT:tokens.adoc#erc20[ERC20 guide].
+TIP: For an overview of ERC20 tokens and a walkthrough on how to create a token contract read our xref:ROOT:tokens.adoc#ERC20[ERC20 guide].
 
 There a few core contracts that implement the behavior specified in the EIP:
 
@@ -1204,34 +1444,40 @@ the optional functions; to access them see {ERC20Detailed}.
 
 [.contract-index]
 .Functions
+--
 * xref:#IERC20-totalSupply--[`totalSupply()`]
-* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
-* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
-* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
-* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
-* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
+* xref:#IERC20-allowance-address-address-[`allowance(owner, spender)`]
+* xref:#IERC20-approve-address-uint256-[`approve(spender, amount)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
+
+--
 
 [.contract-index]
 .Events
-* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
-* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+--
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
+
+--
 
 
 [.contract-item]
 [[IERC20-totalSupply--]]
-==== `totalSupply() → uint256`
+==== `pass:normal[totalSupply() → [.var-type\]#uint256#]`
 
 Returns the amount of tokens in existence.
 
 [.contract-item]
 [[IERC20-balanceOf-address-]]
-==== `balanceOf(address account) → uint256`
+==== `pass:normal[balanceOf([.var-type\]#address# [.var-name\]#account#) → [.var-type\]#uint256#]`
 
 Returns the amount of tokens owned by `account`.
 
 [.contract-item]
 [[IERC20-transfer-address-uint256-]]
-==== `transfer(address recipient, uint256 amount) → bool`
+==== `pass:normal[transfer([.var-type\]#address# [.var-name\]#recipient#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 Moves `amount` tokens from the caller's account to `recipient`.
 
@@ -1241,7 +1487,7 @@ Emits a {Transfer} event.
 
 [.contract-item]
 [[IERC20-allowance-address-address-]]
-==== `allowance(address owner, address spender) → uint256`
+==== `pass:normal[allowance([.var-type\]#address# [.var-name\]#owner#, [.var-type\]#address# [.var-name\]#spender#) → [.var-type\]#uint256#]`
 
 Returns the remaining number of tokens that `spender` will be
 allowed to spend on behalf of `owner` through {transferFrom}. This is
@@ -1251,7 +1497,7 @@ This value changes when {approve} or {transferFrom} are called.
 
 [.contract-item]
 [[IERC20-approve-address-uint256-]]
-==== `approve(address spender, uint256 amount) → bool`
+==== `pass:normal[approve([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 Sets `amount` as the allowance of `spender` over the caller's tokens.
 
@@ -1268,7 +1514,7 @@ Emits an {Approval} event.
 
 [.contract-item]
 [[IERC20-transferFrom-address-address-uint256-]]
-==== `transferFrom(address sender, address recipient, uint256 amount) → bool`
+==== `pass:normal[transferFrom([.var-type\]#address# [.var-name\]#sender#, [.var-type\]#address# [.var-name\]#recipient#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 Moves `amount` tokens from `sender` to `recipient` using the
 allowance mechanism. `amount` is then deducted from the caller's
@@ -1281,7 +1527,7 @@ Emits a {Transfer} event.
 
 [.contract-item]
 [[IERC20-Transfer-address-address-uint256-]]
-==== `Transfer(address from, address to, uint256 value)`
+==== `pass:normal[Transfer([.var-type\]#address# [.var-name\]#from#, [.var-type\]#address# [.var-name\]#to#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 Emitted when `value` tokens are moved from one account (`from`) to
 another (`to`).
@@ -1290,7 +1536,7 @@ Note that `value` may be zero.
 
 [.contract-item]
 [[IERC20-Approval-address-address-uint256-]]
-==== `Approval(address owner, address spender, uint256 value)`
+==== `pass:normal[Approval([.var-type\]#address# [.var-name\]#owner#, [.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 Emitted when the allowance of a `spender` for an `owner` is set by
 a call to {approve}. `value` is the new allowance.
@@ -1311,6 +1557,9 @@ a call to {approve}. `value` is the new allowance.
 :_burn: pass:normal[xref:#ERC20-_burn-address-uint256-[`_burn`]]
 :_approve: pass:normal[xref:#ERC20-_approve-address-address-uint256-[`_approve`]]
 :_burnFrom: pass:normal[xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom`]]
+:constructor: pass:normal[xref:#Context-constructor--[`constructor`]]
+:_msgSender: pass:normal[xref:#Context-_msgSender--[`_msgSender`]]
+:_msgData: pass:normal[xref:#Context-_msgData--[`_msgData`]]
 :Transfer: pass:normal[xref:#IERC20-Transfer-address-address-uint256-[`Transfer`]]
 :Approval: pass:normal[xref:#IERC20-Approval-address-address-uint256-[`Approval`]]
 
@@ -1344,47 +1593,68 @@ allowances. See {IERC20-approve}.
 
 [.contract-index]
 .Functions
+--
 * xref:#ERC20-totalSupply--[`totalSupply()`]
-* xref:#ERC20-balanceOf-address-[`balanceOf(address)`]
-* xref:#ERC20-transfer-address-uint256-[`transfer(address,uint256)`]
-* xref:#ERC20-allowance-address-address-[`allowance(address,address)`]
-* xref:#ERC20-approve-address-uint256-[`approve(address,uint256)`]
-* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
-* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(address,uint256)`]
-* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(address,uint256)`]
-* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(address,address,uint256)`]
-* xref:#ERC20-_mint-address-uint256-[`_mint(address,uint256)`]
-* xref:#ERC20-_burn-address-uint256-[`_burn(address,uint256)`]
-* xref:#ERC20-_approve-address-address-uint256-[`_approve(address,address,uint256)`]
-* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(address,uint256)`]
+* xref:#ERC20-balanceOf-address-[`balanceOf(account)`]
+* xref:#ERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
+* xref:#ERC20-allowance-address-address-[`allowance(owner, spender)`]
+* xref:#ERC20-approve-address-uint256-[`approve(spender, amount)`]
+* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
+* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(spender, addedValue)`]
+* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(spender, subtractedValue)`]
+* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(sender, recipient, amount)`]
+* xref:#ERC20-_mint-address-uint256-[`_mint(account, amount)`]
+* xref:#ERC20-_burn-address-uint256-[`_burn(account, amount)`]
+* xref:#ERC20-_approve-address-address-uint256-[`_approve(owner, spender, amount)`]
+* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(account, amount)`]
+
+[.contract-subindex-inherited]
+.IERC20
 * xref:#IERC20-totalSupply--[`totalSupply()`]
-* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
-* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
-* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
-* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
-* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
+* xref:#IERC20-allowance-address-address-[`allowance(owner, spender)`]
+* xref:#IERC20-approve-address-uint256-[`approve(spender, amount)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
+
+[.contract-subindex-inherited]
+.Context
+* xref:#Context-constructor--[`constructor()`]
+* xref:#Context-_msgSender--[`_msgSender()`]
+* xref:#Context-_msgData--[`_msgData()`]
+
+--
 
 [.contract-index]
 .Events
-* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
-* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+--
+
+[.contract-subindex-inherited]
+.IERC20
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
+
+[.contract-subindex-inherited]
+.Context
+
+--
 
 
 [.contract-item]
 [[ERC20-totalSupply--]]
-==== `totalSupply() → uint256`
+==== `pass:normal[totalSupply() → [.var-type\]#uint256#]`
 
 See {IERC20-totalSupply}.
 
 [.contract-item]
 [[ERC20-balanceOf-address-]]
-==== `balanceOf(address account) → uint256`
+==== `pass:normal[balanceOf([.var-type\]#address# [.var-name\]#account#) → [.var-type\]#uint256#]`
 
 See {IERC20-balanceOf}.
 
 [.contract-item]
 [[ERC20-transfer-address-uint256-]]
-==== `transfer(address recipient, uint256 amount) → bool`
+==== `pass:normal[transfer([.var-type\]#address# [.var-name\]#recipient#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 See {IERC20-transfer}.
 
@@ -1395,13 +1665,13 @@ Requirements:
 
 [.contract-item]
 [[ERC20-allowance-address-address-]]
-==== `allowance(address owner, address spender) → uint256`
+==== `pass:normal[allowance([.var-type\]#address# [.var-name\]#owner#, [.var-type\]#address# [.var-name\]#spender#) → [.var-type\]#uint256#]`
 
 See {IERC20-allowance}.
 
 [.contract-item]
 [[ERC20-approve-address-uint256-]]
-==== `approve(address spender, uint256 value) → bool`
+==== `pass:normal[approve([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 See {IERC20-approve}.
 
@@ -1411,7 +1681,7 @@ Requirements:
 
 [.contract-item]
 [[ERC20-transferFrom-address-address-uint256-]]
-==== `transferFrom(address sender, address recipient, uint256 amount) → bool`
+==== `pass:normal[transferFrom([.var-type\]#address# [.var-name\]#sender#, [.var-type\]#address# [.var-name\]#recipient#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 See {IERC20-transferFrom}.
 
@@ -1420,13 +1690,13 @@ required by the EIP. See the note at the beginning of {ERC20};
 
 Requirements:
 - `sender` and `recipient` cannot be the zero address.
-- `sender` must have a balance of at least `value`.
+- `sender` must have a balance of at least `amount`.
 - the caller must have allowance for `sender`'s tokens of at least
 `amount`.
 
 [.contract-item]
 [[ERC20-increaseAllowance-address-uint256-]]
-==== `increaseAllowance(address spender, uint256 addedValue) → bool`
+==== `pass:normal[increaseAllowance([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#addedValue#) → [.var-type\]#bool#]`
 
 Atomically increases the allowance granted to `spender` by the caller.
 
@@ -1441,7 +1711,7 @@ Requirements:
 
 [.contract-item]
 [[ERC20-decreaseAllowance-address-uint256-]]
-==== `decreaseAllowance(address spender, uint256 subtractedValue) → bool`
+==== `pass:normal[decreaseAllowance([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#subtractedValue#) → [.var-type\]#bool#]`
 
 Atomically decreases the allowance granted to `spender` by the caller.
 
@@ -1458,7 +1728,7 @@ Requirements:
 
 [.contract-item]
 [[ERC20-_transfer-address-address-uint256-]]
-==== `_transfer(address sender, address recipient, uint256 amount)`
+==== `pass:normal[_transfer([.var-type\]#address# [.var-name\]#sender#, [.var-type\]#address# [.var-name\]#recipient#, [.var-type\]#uint256# [.var-name\]#amount#)]`
 
 Moves tokens `amount` from `sender` to `recipient`.
 
@@ -1475,7 +1745,7 @@ Requirements:
 
 [.contract-item]
 [[ERC20-_mint-address-uint256-]]
-==== `_mint(address account, uint256 amount)`
+==== `pass:normal[_mint([.var-type\]#address# [.var-name\]#account#, [.var-type\]#uint256# [.var-name\]#amount#)]`
 
 Creates `amount` tokens and assigns them to `account`, increasing
 the total supply.
@@ -1488,7 +1758,7 @@ Requirements
 
 [.contract-item]
 [[ERC20-_burn-address-uint256-]]
-==== `_burn(address account, uint256 value)`
+==== `pass:normal[_burn([.var-type\]#address# [.var-name\]#account#, [.var-type\]#uint256# [.var-name\]#amount#)]`
 
 Destroys `amount` tokens from `account`, reducing the
 total supply.
@@ -1502,7 +1772,7 @@ Requirements
 
 [.contract-item]
 [[ERC20-_approve-address-address-uint256-]]
-==== `_approve(address owner, address spender, uint256 value)`
+==== `pass:normal[_approve([.var-type\]#address# [.var-name\]#owner#, [.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#amount#)]`
 
 Sets `amount` as the allowance of `spender` over the `owner`s tokens.
 
@@ -1518,9 +1788,9 @@ Requirements:
 
 [.contract-item]
 [[ERC20-_burnFrom-address-uint256-]]
-==== `_burnFrom(address account, uint256 amount)`
+==== `pass:normal[_burnFrom([.var-type\]#address# [.var-name\]#account#, [.var-type\]#uint256# [.var-name\]#amount#)]`
 
-Destoys `amount` tokens from `account`.`amount` is then deducted
+Destroys `amount` tokens from `account`.`amount` is then deducted
 from the caller's allowance.
 
 See {_burn} and {_approve}.
@@ -1551,26 +1821,38 @@ Optional functions from the ERC20 standard.
 
 [.contract-index]
 .Functions
-* xref:#ERC20Detailed-constructor-string-string-uint8-[`constructor(string,string,uint8)`]
+--
+* xref:#ERC20Detailed-constructor-string-string-uint8-[`constructor(name, symbol, decimals)`]
 * xref:#ERC20Detailed-name--[`name()`]
 * xref:#ERC20Detailed-symbol--[`symbol()`]
 * xref:#ERC20Detailed-decimals--[`decimals()`]
+
+[.contract-subindex-inherited]
+.IERC20
 * xref:#IERC20-totalSupply--[`totalSupply()`]
-* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
-* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
-* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
-* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
-* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
+* xref:#IERC20-allowance-address-address-[`allowance(owner, spender)`]
+* xref:#IERC20-approve-address-uint256-[`approve(spender, amount)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
+
+--
 
 [.contract-index]
 .Events
-* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
-* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+--
+
+[.contract-subindex-inherited]
+.IERC20
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
+
+--
 
 
 [.contract-item]
 [[ERC20Detailed-constructor-string-string-uint8-]]
-==== `constructor(string name, string symbol, uint8 decimals)`
+==== `pass:normal[constructor([.var-type\]#string# [.var-name\]#name#, [.var-type\]#string# [.var-name\]#symbol#, [.var-type\]#uint8# [.var-name\]#decimals#)]`
 
 Sets the values for `name`, `symbol`, and `decimals`. All three of
 these values are immutable: they can only be set once during
@@ -1578,20 +1860,20 @@ construction.
 
 [.contract-item]
 [[ERC20Detailed-name--]]
-==== `name() → string`
+==== `pass:normal[name() → [.var-type\]#string#]`
 
 Returns the name of the token.
 
 [.contract-item]
 [[ERC20Detailed-symbol--]]
-==== `symbol() → string`
+==== `pass:normal[symbol() → [.var-type\]#string#]`
 
 Returns the symbol of the token, usually a shorter version of the
 name.
 
 [.contract-item]
 [[ERC20Detailed-decimals--]]
-==== `decimals() → uint8`
+==== `pass:normal[decimals() → [.var-type\]#uint8#]`
 
 Returns the number of decimals used to get its user representation.
 For example, if `decimals` equals `2`, a balance of `505` tokens should
@@ -1631,6 +1913,8 @@ no way affects any of the arithmetic of the contract, including
 :_burn: pass:normal[xref:#ERC20-_burn-address-uint256-[`_burn`]]
 :_approve: pass:normal[xref:#ERC20-_approve-address-address-uint256-[`_approve`]]
 :_burnFrom: pass:normal[xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom`]]
+:_msgSender: pass:normal[xref:#Context-_msgSender--[`_msgSender`]]
+:_msgData: pass:normal[xref:#Context-_msgData--[`_msgData`]]
 :MinterAdded: pass:normal[xref:#MinterRole-MinterAdded-address-[`MinterAdded`]]
 :MinterRemoved: pass:normal[xref:#MinterRole-MinterRemoved-address-[`MinterRemoved`]]
 :Transfer: pass:normal[xref:#IERC20-Transfer-address-address-uint256-[`Transfer`]]
@@ -1647,48 +1931,96 @@ At construction, the deployer of the contract is the only minter.
 
 [.contract-index]
 .Modifiers
+--
+
+[.contract-subindex-inherited]
+.MinterRole
 * xref:#MinterRole-onlyMinter--[`onlyMinter()`]
+
+[.contract-subindex-inherited]
+.ERC20
+
+[.contract-subindex-inherited]
+.IERC20
+
+[.contract-subindex-inherited]
+.Context
+
+--
 
 [.contract-index]
 .Functions
-* xref:#ERC20Mintable-mint-address-uint256-[`mint(address,uint256)`]
+--
+* xref:#ERC20Mintable-mint-address-uint256-[`mint(account, amount)`]
+
+[.contract-subindex-inherited]
+.MinterRole
 * xref:#MinterRole-constructor--[`constructor()`]
-* xref:#MinterRole-isMinter-address-[`isMinter(address)`]
-* xref:#MinterRole-addMinter-address-[`addMinter(address)`]
+* xref:#MinterRole-isMinter-address-[`isMinter(account)`]
+* xref:#MinterRole-addMinter-address-[`addMinter(account)`]
 * xref:#MinterRole-renounceMinter--[`renounceMinter()`]
-* xref:#MinterRole-_addMinter-address-[`_addMinter(address)`]
-* xref:#MinterRole-_removeMinter-address-[`_removeMinter(address)`]
+* xref:#MinterRole-_addMinter-address-[`_addMinter(account)`]
+* xref:#MinterRole-_removeMinter-address-[`_removeMinter(account)`]
+
+[.contract-subindex-inherited]
+.ERC20
 * xref:#ERC20-totalSupply--[`totalSupply()`]
-* xref:#ERC20-balanceOf-address-[`balanceOf(address)`]
-* xref:#ERC20-transfer-address-uint256-[`transfer(address,uint256)`]
-* xref:#ERC20-allowance-address-address-[`allowance(address,address)`]
-* xref:#ERC20-approve-address-uint256-[`approve(address,uint256)`]
-* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
-* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(address,uint256)`]
-* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(address,uint256)`]
-* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(address,address,uint256)`]
-* xref:#ERC20-_mint-address-uint256-[`_mint(address,uint256)`]
-* xref:#ERC20-_burn-address-uint256-[`_burn(address,uint256)`]
-* xref:#ERC20-_approve-address-address-uint256-[`_approve(address,address,uint256)`]
-* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(address,uint256)`]
+* xref:#ERC20-balanceOf-address-[`balanceOf(account)`]
+* xref:#ERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
+* xref:#ERC20-allowance-address-address-[`allowance(owner, spender)`]
+* xref:#ERC20-approve-address-uint256-[`approve(spender, amount)`]
+* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
+* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(spender, addedValue)`]
+* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(spender, subtractedValue)`]
+* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(sender, recipient, amount)`]
+* xref:#ERC20-_mint-address-uint256-[`_mint(account, amount)`]
+* xref:#ERC20-_burn-address-uint256-[`_burn(account, amount)`]
+* xref:#ERC20-_approve-address-address-uint256-[`_approve(owner, spender, amount)`]
+* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(account, amount)`]
+
+[.contract-subindex-inherited]
+.IERC20
 * xref:#IERC20-totalSupply--[`totalSupply()`]
-* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
-* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
-* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
-* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
-* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
+* xref:#IERC20-allowance-address-address-[`allowance(owner, spender)`]
+* xref:#IERC20-approve-address-uint256-[`approve(spender, amount)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
+
+[.contract-subindex-inherited]
+.Context
+* xref:#Context-constructor--[`constructor()`]
+* xref:#Context-_msgSender--[`_msgSender()`]
+* xref:#Context-_msgData--[`_msgData()`]
+
+--
 
 [.contract-index]
 .Events
-* xref:#MinterRole-MinterAdded-address-[`MinterAdded(address)`]
-* xref:#MinterRole-MinterRemoved-address-[`MinterRemoved(address)`]
-* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
-* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+--
+
+[.contract-subindex-inherited]
+.MinterRole
+* xref:#MinterRole-MinterAdded-address-[`MinterAdded(account)`]
+* xref:#MinterRole-MinterRemoved-address-[`MinterRemoved(account)`]
+
+[.contract-subindex-inherited]
+.ERC20
+
+[.contract-subindex-inherited]
+.IERC20
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
+
+[.contract-subindex-inherited]
+.Context
+
+--
 
 
 [.contract-item]
 [[ERC20Mintable-mint-address-uint256-]]
-==== `mint(address account, uint256 amount) → bool`
+==== `pass:normal[mint([.var-type\]#address# [.var-name\]#account#, [.var-type\]#uint256# [.var-name\]#amount#) → [.var-type\]#bool#]`
 
 See {ERC20-_mint}.
 
@@ -1715,6 +2047,9 @@ Requirements:
 :_burn: pass:normal[xref:#ERC20-_burn-address-uint256-[`_burn`]]
 :_approve: pass:normal[xref:#ERC20-_approve-address-address-uint256-[`_approve`]]
 :_burnFrom: pass:normal[xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom`]]
+:constructor: pass:normal[xref:#Context-constructor--[`constructor`]]
+:_msgSender: pass:normal[xref:#Context-_msgSender--[`_msgSender`]]
+:_msgData: pass:normal[xref:#Context-_msgData--[`_msgData`]]
 :Transfer: pass:normal[xref:#IERC20-Transfer-address-address-uint256-[`Transfer`]]
 :Approval: pass:normal[xref:#IERC20-Approval-address-address-uint256-[`Approval`]]
 
@@ -1729,37 +2064,64 @@ recognized off-chain (via event analysis).
 
 [.contract-index]
 .Functions
-* xref:#ERC20Burnable-burn-uint256-[`burn(uint256)`]
-* xref:#ERC20Burnable-burnFrom-address-uint256-[`burnFrom(address,uint256)`]
+--
+* xref:#ERC20Burnable-burn-uint256-[`burn(amount)`]
+* xref:#ERC20Burnable-burnFrom-address-uint256-[`burnFrom(account, amount)`]
+
+[.contract-subindex-inherited]
+.ERC20
 * xref:#ERC20-totalSupply--[`totalSupply()`]
-* xref:#ERC20-balanceOf-address-[`balanceOf(address)`]
-* xref:#ERC20-transfer-address-uint256-[`transfer(address,uint256)`]
-* xref:#ERC20-allowance-address-address-[`allowance(address,address)`]
-* xref:#ERC20-approve-address-uint256-[`approve(address,uint256)`]
-* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
-* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(address,uint256)`]
-* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(address,uint256)`]
-* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(address,address,uint256)`]
-* xref:#ERC20-_mint-address-uint256-[`_mint(address,uint256)`]
-* xref:#ERC20-_burn-address-uint256-[`_burn(address,uint256)`]
-* xref:#ERC20-_approve-address-address-uint256-[`_approve(address,address,uint256)`]
-* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(address,uint256)`]
+* xref:#ERC20-balanceOf-address-[`balanceOf(account)`]
+* xref:#ERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
+* xref:#ERC20-allowance-address-address-[`allowance(owner, spender)`]
+* xref:#ERC20-approve-address-uint256-[`approve(spender, amount)`]
+* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
+* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(spender, addedValue)`]
+* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(spender, subtractedValue)`]
+* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(sender, recipient, amount)`]
+* xref:#ERC20-_mint-address-uint256-[`_mint(account, amount)`]
+* xref:#ERC20-_burn-address-uint256-[`_burn(account, amount)`]
+* xref:#ERC20-_approve-address-address-uint256-[`_approve(owner, spender, amount)`]
+* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(account, amount)`]
+
+[.contract-subindex-inherited]
+.IERC20
 * xref:#IERC20-totalSupply--[`totalSupply()`]
-* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
-* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
-* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
-* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
-* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
+* xref:#IERC20-allowance-address-address-[`allowance(owner, spender)`]
+* xref:#IERC20-approve-address-uint256-[`approve(spender, amount)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
+
+[.contract-subindex-inherited]
+.Context
+* xref:#Context-constructor--[`constructor()`]
+* xref:#Context-_msgSender--[`_msgSender()`]
+* xref:#Context-_msgData--[`_msgData()`]
+
+--
 
 [.contract-index]
 .Events
-* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
-* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+--
+
+[.contract-subindex-inherited]
+.ERC20
+
+[.contract-subindex-inherited]
+.IERC20
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
+
+[.contract-subindex-inherited]
+.Context
+
+--
 
 
 [.contract-item]
 [[ERC20Burnable-burn-uint256-]]
-==== `burn(uint256 amount)`
+==== `pass:normal[burn([.var-type\]#uint256# [.var-name\]#amount#)]`
 
 Destroys `amount` tokens from the caller.
 
@@ -1767,7 +2129,7 @@ See {ERC20-_burn}.
 
 [.contract-item]
 [[ERC20Burnable-burnFrom-address-uint256-]]
-==== `burnFrom(address account, uint256 amount)`
+==== `pass:normal[burnFrom([.var-type\]#address# [.var-name\]#account#, [.var-type\]#uint256# [.var-name\]#amount#)]`
 
 See {ERC20-_burnFrom}.
 
@@ -1800,6 +2162,8 @@ See {ERC20-_burnFrom}.
 :_burn: pass:normal[xref:#ERC20-_burn-address-uint256-[`_burn`]]
 :_approve: pass:normal[xref:#ERC20-_approve-address-address-uint256-[`_approve`]]
 :_burnFrom: pass:normal[xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom`]]
+:_msgSender: pass:normal[xref:#Context-_msgSender--[`_msgSender`]]
+:_msgData: pass:normal[xref:#Context-_msgData--[`_msgData`]]
 :Paused: pass:normal[xref:#Pausable-Paused-address-[`Paused`]]
 :Unpaused: pass:normal[xref:#Pausable-Unpaused-address-[`Unpaused`]]
 :PauserAdded: pass:normal[xref:#PauserRole-PauserAdded-address-[`PauserAdded`]]
@@ -1819,84 +2183,141 @@ bug.
 
 [.contract-index]
 .Modifiers
+--
+
+[.contract-subindex-inherited]
+.Pausable
 * xref:#Pausable-whenNotPaused--[`whenNotPaused()`]
 * xref:#Pausable-whenPaused--[`whenPaused()`]
+
+[.contract-subindex-inherited]
+.PauserRole
 * xref:#PauserRole-onlyPauser--[`onlyPauser()`]
+
+[.contract-subindex-inherited]
+.ERC20
+
+[.contract-subindex-inherited]
+.IERC20
+
+[.contract-subindex-inherited]
+.Context
+
+--
 
 [.contract-index]
 .Functions
-* xref:#ERC20Pausable-transfer-address-uint256-[`transfer(address,uint256)`]
-* xref:#ERC20Pausable-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
-* xref:#ERC20Pausable-approve-address-uint256-[`approve(address,uint256)`]
-* xref:#ERC20Pausable-increaseAllowance-address-uint256-[`increaseAllowance(address,uint256)`]
-* xref:#ERC20Pausable-decreaseAllowance-address-uint256-[`decreaseAllowance(address,uint256)`]
+--
+* xref:#ERC20Pausable-transfer-address-uint256-[`transfer(to, value)`]
+* xref:#ERC20Pausable-transferFrom-address-address-uint256-[`transferFrom(from, to, value)`]
+* xref:#ERC20Pausable-approve-address-uint256-[`approve(spender, value)`]
+* xref:#ERC20Pausable-increaseAllowance-address-uint256-[`increaseAllowance(spender, addedValue)`]
+* xref:#ERC20Pausable-decreaseAllowance-address-uint256-[`decreaseAllowance(spender, subtractedValue)`]
+
+[.contract-subindex-inherited]
+.Pausable
 * xref:#Pausable-constructor--[`constructor()`]
 * xref:#Pausable-paused--[`paused()`]
 * xref:#Pausable-pause--[`pause()`]
 * xref:#Pausable-unpause--[`unpause()`]
+
+[.contract-subindex-inherited]
+.PauserRole
 * xref:#PauserRole-constructor--[`constructor()`]
-* xref:#PauserRole-isPauser-address-[`isPauser(address)`]
-* xref:#PauserRole-addPauser-address-[`addPauser(address)`]
+* xref:#PauserRole-isPauser-address-[`isPauser(account)`]
+* xref:#PauserRole-addPauser-address-[`addPauser(account)`]
 * xref:#PauserRole-renouncePauser--[`renouncePauser()`]
-* xref:#PauserRole-_addPauser-address-[`_addPauser(address)`]
-* xref:#PauserRole-_removePauser-address-[`_removePauser(address)`]
+* xref:#PauserRole-_addPauser-address-[`_addPauser(account)`]
+* xref:#PauserRole-_removePauser-address-[`_removePauser(account)`]
+
+[.contract-subindex-inherited]
+.ERC20
 * xref:#ERC20-totalSupply--[`totalSupply()`]
-* xref:#ERC20-balanceOf-address-[`balanceOf(address)`]
-* xref:#ERC20-transfer-address-uint256-[`transfer(address,uint256)`]
-* xref:#ERC20-allowance-address-address-[`allowance(address,address)`]
-* xref:#ERC20-approve-address-uint256-[`approve(address,uint256)`]
-* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
-* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(address,uint256)`]
-* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(address,uint256)`]
-* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(address,address,uint256)`]
-* xref:#ERC20-_mint-address-uint256-[`_mint(address,uint256)`]
-* xref:#ERC20-_burn-address-uint256-[`_burn(address,uint256)`]
-* xref:#ERC20-_approve-address-address-uint256-[`_approve(address,address,uint256)`]
-* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(address,uint256)`]
+* xref:#ERC20-balanceOf-address-[`balanceOf(account)`]
+* xref:#ERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
+* xref:#ERC20-allowance-address-address-[`allowance(owner, spender)`]
+* xref:#ERC20-approve-address-uint256-[`approve(spender, amount)`]
+* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
+* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(spender, addedValue)`]
+* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(spender, subtractedValue)`]
+* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(sender, recipient, amount)`]
+* xref:#ERC20-_mint-address-uint256-[`_mint(account, amount)`]
+* xref:#ERC20-_burn-address-uint256-[`_burn(account, amount)`]
+* xref:#ERC20-_approve-address-address-uint256-[`_approve(owner, spender, amount)`]
+* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(account, amount)`]
+
+[.contract-subindex-inherited]
+.IERC20
 * xref:#IERC20-totalSupply--[`totalSupply()`]
-* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
-* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
-* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
-* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
-* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
+* xref:#IERC20-allowance-address-address-[`allowance(owner, spender)`]
+* xref:#IERC20-approve-address-uint256-[`approve(spender, amount)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
+
+[.contract-subindex-inherited]
+.Context
+* xref:#Context-constructor--[`constructor()`]
+* xref:#Context-_msgSender--[`_msgSender()`]
+* xref:#Context-_msgData--[`_msgData()`]
+
+--
 
 [.contract-index]
 .Events
-* xref:#Pausable-Paused-address-[`Paused(address)`]
-* xref:#Pausable-Unpaused-address-[`Unpaused(address)`]
-* xref:#PauserRole-PauserAdded-address-[`PauserAdded(address)`]
-* xref:#PauserRole-PauserRemoved-address-[`PauserRemoved(address)`]
-* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
-* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+--
+
+[.contract-subindex-inherited]
+.Pausable
+* xref:#Pausable-Paused-address-[`Paused(account)`]
+* xref:#Pausable-Unpaused-address-[`Unpaused(account)`]
+
+[.contract-subindex-inherited]
+.PauserRole
+* xref:#PauserRole-PauserAdded-address-[`PauserAdded(account)`]
+* xref:#PauserRole-PauserRemoved-address-[`PauserRemoved(account)`]
+
+[.contract-subindex-inherited]
+.ERC20
+
+[.contract-subindex-inherited]
+.IERC20
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
+
+[.contract-subindex-inherited]
+.Context
+
+--
 
 
 [.contract-item]
 [[ERC20Pausable-transfer-address-uint256-]]
-==== `transfer(address to, uint256 value) → bool`
+==== `pass:normal[transfer([.var-type\]#address# [.var-name\]#to#, [.var-type\]#uint256# [.var-name\]#value#) → [.var-type\]#bool#]`
 
 
 
 [.contract-item]
 [[ERC20Pausable-transferFrom-address-address-uint256-]]
-==== `transferFrom(address from, address to, uint256 value) → bool`
+==== `pass:normal[transferFrom([.var-type\]#address# [.var-name\]#from#, [.var-type\]#address# [.var-name\]#to#, [.var-type\]#uint256# [.var-name\]#value#) → [.var-type\]#bool#]`
 
 
 
 [.contract-item]
 [[ERC20Pausable-approve-address-uint256-]]
-==== `approve(address spender, uint256 value) → bool`
+==== `pass:normal[approve([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#value#) → [.var-type\]#bool#]`
 
 
 
 [.contract-item]
 [[ERC20Pausable-increaseAllowance-address-uint256-]]
-==== `increaseAllowance(address spender, uint256 addedValue) → bool`
+==== `pass:normal[increaseAllowance([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#addedValue#) → [.var-type\]#bool#]`
 
 
 
 [.contract-item]
 [[ERC20Pausable-decreaseAllowance-address-uint256-]]
-==== `decreaseAllowance(address spender, uint256 subtractedValue) → bool`
+==== `pass:normal[decreaseAllowance([.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#subtractedValue#) → [.var-type\]#bool#]`
 
 
 
@@ -1927,6 +2348,8 @@ bug.
 :_burn: pass:normal[xref:#ERC20-_burn-address-uint256-[`_burn`]]
 :_approve: pass:normal[xref:#ERC20-_approve-address-address-uint256-[`_approve`]]
 :_burnFrom: pass:normal[xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom`]]
+:_msgSender: pass:normal[xref:#Context-_msgSender--[`_msgSender`]]
+:_msgData: pass:normal[xref:#Context-_msgData--[`_msgData`]]
 :MinterAdded: pass:normal[xref:#MinterRole-MinterAdded-address-[`MinterAdded`]]
 :MinterRemoved: pass:normal[xref:#MinterRole-MinterRemoved-address-[`MinterRemoved`]]
 :Transfer: pass:normal[xref:#IERC20-Transfer-address-address-uint256-[`Transfer`]]
@@ -1940,64 +2363,121 @@ Extension of {ERC20Mintable} that adds a cap to the supply of tokens.
 
 [.contract-index]
 .Modifiers
+--
+
+[.contract-subindex-inherited]
+.ERC20Mintable
+
+[.contract-subindex-inherited]
+.MinterRole
 * xref:#MinterRole-onlyMinter--[`onlyMinter()`]
+
+[.contract-subindex-inherited]
+.ERC20
+
+[.contract-subindex-inherited]
+.IERC20
+
+[.contract-subindex-inherited]
+.Context
+
+--
 
 [.contract-index]
 .Functions
-* xref:#ERC20Capped-constructor-uint256-[`constructor(uint256)`]
+--
+* xref:#ERC20Capped-constructor-uint256-[`constructor(cap)`]
 * xref:#ERC20Capped-cap--[`cap()`]
-* xref:#ERC20Capped-_mint-address-uint256-[`_mint(address,uint256)`]
-* xref:#ERC20Mintable-mint-address-uint256-[`mint(address,uint256)`]
+* xref:#ERC20Capped-_mint-address-uint256-[`_mint(account, value)`]
+
+[.contract-subindex-inherited]
+.ERC20Mintable
+* xref:#ERC20Mintable-mint-address-uint256-[`mint(account, amount)`]
+
+[.contract-subindex-inherited]
+.MinterRole
 * xref:#MinterRole-constructor--[`constructor()`]
-* xref:#MinterRole-isMinter-address-[`isMinter(address)`]
-* xref:#MinterRole-addMinter-address-[`addMinter(address)`]
+* xref:#MinterRole-isMinter-address-[`isMinter(account)`]
+* xref:#MinterRole-addMinter-address-[`addMinter(account)`]
 * xref:#MinterRole-renounceMinter--[`renounceMinter()`]
-* xref:#MinterRole-_addMinter-address-[`_addMinter(address)`]
-* xref:#MinterRole-_removeMinter-address-[`_removeMinter(address)`]
+* xref:#MinterRole-_addMinter-address-[`_addMinter(account)`]
+* xref:#MinterRole-_removeMinter-address-[`_removeMinter(account)`]
+
+[.contract-subindex-inherited]
+.ERC20
 * xref:#ERC20-totalSupply--[`totalSupply()`]
-* xref:#ERC20-balanceOf-address-[`balanceOf(address)`]
-* xref:#ERC20-transfer-address-uint256-[`transfer(address,uint256)`]
-* xref:#ERC20-allowance-address-address-[`allowance(address,address)`]
-* xref:#ERC20-approve-address-uint256-[`approve(address,uint256)`]
-* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
-* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(address,uint256)`]
-* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(address,uint256)`]
-* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(address,address,uint256)`]
-* xref:#ERC20-_mint-address-uint256-[`_mint(address,uint256)`]
-* xref:#ERC20-_burn-address-uint256-[`_burn(address,uint256)`]
-* xref:#ERC20-_approve-address-address-uint256-[`_approve(address,address,uint256)`]
-* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(address,uint256)`]
+* xref:#ERC20-balanceOf-address-[`balanceOf(account)`]
+* xref:#ERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
+* xref:#ERC20-allowance-address-address-[`allowance(owner, spender)`]
+* xref:#ERC20-approve-address-uint256-[`approve(spender, amount)`]
+* xref:#ERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
+* xref:#ERC20-increaseAllowance-address-uint256-[`increaseAllowance(spender, addedValue)`]
+* xref:#ERC20-decreaseAllowance-address-uint256-[`decreaseAllowance(spender, subtractedValue)`]
+* xref:#ERC20-_transfer-address-address-uint256-[`_transfer(sender, recipient, amount)`]
+* xref:#ERC20-_mint-address-uint256-[`_mint(account, amount)`]
+* xref:#ERC20-_burn-address-uint256-[`_burn(account, amount)`]
+* xref:#ERC20-_approve-address-address-uint256-[`_approve(owner, spender, amount)`]
+* xref:#ERC20-_burnFrom-address-uint256-[`_burnFrom(account, amount)`]
+
+[.contract-subindex-inherited]
+.IERC20
 * xref:#IERC20-totalSupply--[`totalSupply()`]
-* xref:#IERC20-balanceOf-address-[`balanceOf(address)`]
-* xref:#IERC20-transfer-address-uint256-[`transfer(address,uint256)`]
-* xref:#IERC20-allowance-address-address-[`allowance(address,address)`]
-* xref:#IERC20-approve-address-uint256-[`approve(address,uint256)`]
-* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(address,address,uint256)`]
+* xref:#IERC20-balanceOf-address-[`balanceOf(account)`]
+* xref:#IERC20-transfer-address-uint256-[`transfer(recipient, amount)`]
+* xref:#IERC20-allowance-address-address-[`allowance(owner, spender)`]
+* xref:#IERC20-approve-address-uint256-[`approve(spender, amount)`]
+* xref:#IERC20-transferFrom-address-address-uint256-[`transferFrom(sender, recipient, amount)`]
+
+[.contract-subindex-inherited]
+.Context
+* xref:#Context-constructor--[`constructor()`]
+* xref:#Context-_msgSender--[`_msgSender()`]
+* xref:#Context-_msgData--[`_msgData()`]
+
+--
 
 [.contract-index]
 .Events
-* xref:#MinterRole-MinterAdded-address-[`MinterAdded(address)`]
-* xref:#MinterRole-MinterRemoved-address-[`MinterRemoved(address)`]
-* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(address,address,uint256)`]
-* xref:#IERC20-Approval-address-address-uint256-[`Approval(address,address,uint256)`]
+--
+
+[.contract-subindex-inherited]
+.ERC20Mintable
+
+[.contract-subindex-inherited]
+.MinterRole
+* xref:#MinterRole-MinterAdded-address-[`MinterAdded(account)`]
+* xref:#MinterRole-MinterRemoved-address-[`MinterRemoved(account)`]
+
+[.contract-subindex-inherited]
+.ERC20
+
+[.contract-subindex-inherited]
+.IERC20
+* xref:#IERC20-Transfer-address-address-uint256-[`Transfer(from, to, value)`]
+* xref:#IERC20-Approval-address-address-uint256-[`Approval(owner, spender, value)`]
+
+[.contract-subindex-inherited]
+.Context
+
+--
 
 
 [.contract-item]
 [[ERC20Capped-constructor-uint256-]]
-==== `constructor(uint256 cap)`
+==== `pass:normal[constructor([.var-type\]#uint256# [.var-name\]#cap#)]`
 
 Sets the value of the `cap`. This value is immutable, it can only be
 set once during construction.
 
 [.contract-item]
 [[ERC20Capped-cap--]]
-==== `cap() → uint256`
+==== `pass:normal[cap() → [.var-type\]#uint256#]`
 
 Returns the cap on the token's total supply.
 
 [.contract-item]
 [[ERC20Capped-_mint-address-uint256-]]
-==== `_mint(address account, uint256 value)`
+==== `pass:normal[_mint([.var-type\]#address# [.var-name\]#account#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 See {ERC20Mintable-mint}.
 
@@ -2031,41 +2511,44 @@ which allows you to call the safe operations as `token.safeTransfer(...)`, etc.
 
 [.contract-index]
 .Functions
-* xref:#SafeERC20-safeTransfer-contract-IERC20-address-uint256-[`safeTransfer(contract IERC20,address,uint256)`]
-* xref:#SafeERC20-safeTransferFrom-contract-IERC20-address-address-uint256-[`safeTransferFrom(contract IERC20,address,address,uint256)`]
-* xref:#SafeERC20-safeApprove-contract-IERC20-address-uint256-[`safeApprove(contract IERC20,address,uint256)`]
-* xref:#SafeERC20-safeIncreaseAllowance-contract-IERC20-address-uint256-[`safeIncreaseAllowance(contract IERC20,address,uint256)`]
-* xref:#SafeERC20-safeDecreaseAllowance-contract-IERC20-address-uint256-[`safeDecreaseAllowance(contract IERC20,address,uint256)`]
+--
+* xref:#SafeERC20-safeTransfer-contract-IERC20-address-uint256-[`safeTransfer(token, to, value)`]
+* xref:#SafeERC20-safeTransferFrom-contract-IERC20-address-address-uint256-[`safeTransferFrom(token, from, to, value)`]
+* xref:#SafeERC20-safeApprove-contract-IERC20-address-uint256-[`safeApprove(token, spender, value)`]
+* xref:#SafeERC20-safeIncreaseAllowance-contract-IERC20-address-uint256-[`safeIncreaseAllowance(token, spender, value)`]
+* xref:#SafeERC20-safeDecreaseAllowance-contract-IERC20-address-uint256-[`safeDecreaseAllowance(token, spender, value)`]
+
+--
 
 
 
 [.contract-item]
 [[SafeERC20-safeTransfer-contract-IERC20-address-uint256-]]
-==== `safeTransfer(contract IERC20 token, address to, uint256 value)`
+==== `pass:normal[safeTransfer([.var-type\]#contract IERC20# [.var-name\]#token#, [.var-type\]#address# [.var-name\]#to#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 
 
 [.contract-item]
 [[SafeERC20-safeTransferFrom-contract-IERC20-address-address-uint256-]]
-==== `safeTransferFrom(contract IERC20 token, address from, address to, uint256 value)`
+==== `pass:normal[safeTransferFrom([.var-type\]#contract IERC20# [.var-name\]#token#, [.var-type\]#address# [.var-name\]#from#, [.var-type\]#address# [.var-name\]#to#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 
 
 [.contract-item]
 [[SafeERC20-safeApprove-contract-IERC20-address-uint256-]]
-==== `safeApprove(contract IERC20 token, address spender, uint256 value)`
+==== `pass:normal[safeApprove([.var-type\]#contract IERC20# [.var-name\]#token#, [.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 
 
 [.contract-item]
 [[SafeERC20-safeIncreaseAllowance-contract-IERC20-address-uint256-]]
-==== `safeIncreaseAllowance(contract IERC20 token, address spender, uint256 value)`
+==== `pass:normal[safeIncreaseAllowance([.var-type\]#contract IERC20# [.var-name\]#token#, [.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 
 
 [.contract-item]
 [[SafeERC20-safeDecreaseAllowance-contract-IERC20-address-uint256-]]
-==== `safeDecreaseAllowance(contract IERC20 token, address spender, uint256 value)`
+==== `pass:normal[safeDecreaseAllowance([.var-type\]#contract IERC20# [.var-name\]#token#, [.var-type\]#address# [.var-name\]#spender#, [.var-type\]#uint256# [.var-name\]#value#)]`
 
 
 
@@ -2094,41 +2577,44 @@ For a more complete vesting schedule, see {TokenVesting}.
 
 [.contract-index]
 .Functions
-* xref:#TokenTimelock-constructor-contract-IERC20-address-uint256-[`constructor(contract IERC20,address,uint256)`]
+--
+* xref:#TokenTimelock-constructor-contract-IERC20-address-uint256-[`constructor(token, beneficiary, releaseTime)`]
 * xref:#TokenTimelock-token--[`token()`]
 * xref:#TokenTimelock-beneficiary--[`beneficiary()`]
 * xref:#TokenTimelock-releaseTime--[`releaseTime()`]
 * xref:#TokenTimelock-release--[`release()`]
 
+--
+
 
 
 [.contract-item]
 [[TokenTimelock-constructor-contract-IERC20-address-uint256-]]
-==== `constructor(contract IERC20 token, address beneficiary, uint256 releaseTime)`
+==== `pass:normal[constructor([.var-type\]#contract IERC20# [.var-name\]#token#, [.var-type\]#address# [.var-name\]#beneficiary#, [.var-type\]#uint256# [.var-name\]#releaseTime#)]`
 
 
 
 [.contract-item]
 [[TokenTimelock-token--]]
-==== `token() → contract IERC20`
+==== `pass:normal[token() → [.var-type\]#contract IERC20#]`
 
 
 
 [.contract-item]
 [[TokenTimelock-beneficiary--]]
-==== `beneficiary() → address`
+==== `pass:normal[beneficiary() → [.var-type\]#address#]`
 
 
 
 [.contract-item]
 [[TokenTimelock-releaseTime--]]
-==== `releaseTime() → uint256`
+==== `pass:normal[releaseTime() → [.var-type\]#uint256#]`
 
 
 
 [.contract-item]
 [[TokenTimelock-release--]]
-==== `release()`
+==== `pass:normal[release()]`
 
 
 
