@@ -198,6 +198,26 @@
   }
 }
 
+.article-navigation div {
+    display: inline;
+    font-weight: var(--weight-bold);
+    color: var(--core-violet-4);
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    //border: solid 1px var(--core-violet-4);
+    //border-radius: var(--border-radius);
+    //padding: .5em 1em;
+
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: var(--md);
+    }
+
+    &.btn-previous { float: left; }
+    &.btn-next { float: right; }
+
+}
 
 @media (max-width: $mobile-breakpoint) {
   .article {
