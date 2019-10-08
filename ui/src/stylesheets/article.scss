@@ -146,6 +146,21 @@
   }
 }
 
+.contract-subindex-inherited {
+  border-top: solid 1px var(--aluminum-4);
+  margin-top: 1.2em;
+  padding-top: .25em;
+  opacity: .7;
+
+  .title {
+    float: right;
+    color: var(--color-text);
+    margin-top: .8em;
+    font-size: 0.8em;
+    opacity: .7;
+  }
+}
+
 .contract-item {
   border-radius: var(--border-radius);
   border: solid 1px #e9e9ed;
