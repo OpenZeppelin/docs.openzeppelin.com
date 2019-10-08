@@ -2,14 +2,14 @@
 	<article class="article doc">
 		<h1>{{{page.title}}}</h1>
 		{{{page.contents}}}
-                <p class="article-navigation">
-                {{#if previous}}
-                  <a href="{{{previous.url}}}">Previous</a>
+                <div class="article-navigation">
+                {{#if page.previous}}
+                 	<div class="btn-previous"><a href="{{{page.previous.url}}}">&larr; {{{page.previous.content}}}</a></div>
                 {{/if}}
-                {{#if next}}
-                  <a href="{{{next.url}}}">Next</a>
+                {{#if page.next}}
+                	<div class="btn-next"><a href="{{{page.next.url}}}">{{{page.next.content}}} &rarr;</a></div>
                 {{/if}}
-                </p>
+                </div>
 	</article>
 	{{> toc}}
 </div>
