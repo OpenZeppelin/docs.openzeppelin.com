@@ -46,7 +46,6 @@
   font-family: var(--sans-serif);
   font-weight: var(--weight-bold);
   font-size: var(--md);
-  opacity: .8;
 
   &.subheading-item {
     font-weight: var(--weight-normal);
@@ -54,6 +53,7 @@
   }
   
   &.subheading-item a code {
+    opacity: 1;
     text-decoration: none;
   }
 }
@@ -61,15 +61,21 @@
 .toc a {
   color: inherit;
   text-decoration: none;
+  opacity: .8; 
 
   &:hover {
     color: var(--core-violet-2);
+    opacity: 1;
   }
 }
 
-.toc a.toc-active {
-  font-weight: var(--weight-bold);
+.toc .toc-menu li a.toc-active {
   color: var(--core-violet-4);
+  opacity: 1;
+
+  code {
+    color: var(--core-violet-4);
+  }
 }
 
 
