@@ -43,6 +43,10 @@
   padding-right: var(--sm);
   overflow: hidden;
   text-overflow: ellipsis;
+
+  &.subheading-item a code {
+    text-decoration: none;
+  }
 }
 
 .toc a {
