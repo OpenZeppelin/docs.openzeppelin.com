@@ -14,21 +14,19 @@
   color: rgb(36, 36, 36);
   line-height: 100%;
   max-width: 90vw;
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-align: center;
-  line-height: 20px;
-  font-weight: 500;
-  padding: 1.3rem 1rem;
+  line-height: 1.4;
+  font-weight: var(--weight-medium);
+  padding: 1rem 0.9rem;
   display: block;
   background-color: white;
   margin: 1.5rem 0;
   background-repeat: no-repeat;
-  background-size: 35px;
+  background-size: 32px;
   background-origin: border-box;
-  background-position: 1.5rem center;
-  line-height: 1.6;
-  padding-right: 20px;
-
+  background-position: 1.4rem center;
+  
   table {
     padding: 0;
     margin: 0;
@@ -38,15 +36,12 @@
       padding: 0;
       margin: 0;
       word-wrap: break-word;
-      a {
-        word-break: break-all;
-      }
     }
   }
 
   .content {
     max-width: 82vw;
-    padding-left: 60px;
+    padding-left: 58px;
     font-size: 1rem;
     text-align: left;
     word-wrap: break-word;
@@ -55,21 +50,18 @@
   &.note {
     border: 1px solid #a134d1;
     color: #a134d1;
-    color: #a134d1;
     background-image: url(../images/icons/unicorn.png);
   }
 
   &.tip {
-    border: 1px solid #4e5ee4;
-    color: #4e5ee4;
-    color: #4e5ee4;
+    border: 1px solid var(--core-violet-4);
+    color: var(--core-violet-4);
     background-image: url(../images/icons/book.png);
   }
 
   &.warning, &.caution, &.important {
-    border: 1px solid #ff7539;
-    color: #ff7539;
-    color: #ff7539;
+    border: 1px solid #F79F1F;
+    color: #F79F1F;
     background-image: url(../images/icons/warning.png);
   }
 }
