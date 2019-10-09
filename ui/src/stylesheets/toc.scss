@@ -46,14 +46,15 @@
   font-family: var(--sans-serif);
   font-weight: var(--weight-bold);
   font-size: var(--md);
-  opacity: .8;
 
   &.subheading-item {
     font-weight: var(--weight-normal);
     margin: .25rem 0 0;
+    opacity: .8;
   }
   
   &.subheading-item a code {
+    opacity: 1;
     text-decoration: none;
   }
 }
