@@ -4,7 +4,7 @@ The https://gsn.openzeppelin.com[Gas Station Network] (GSN for short) is a decen
 
 The GSN was originally designed by Tabookey, and then further developed by OpenZeppelin. Today, it is backed by the Gas Station Network Alliance, a group of companies that adhere to and push the GSN standard.
 
-The OpenZeppelin Platform provides full GSN support across the entire stack, so you can easily start developing a GSN-capable application. But before going through the components below, make sure you go check out our xref:what-is-the-gsn.adoc[GSN introductory guide].
+The OpenZeppelin Platform provides full GSN support across the entire stack, so you can easily start developing a GSN-capable application. But before going through the components below, make sure you go check out our xref:gsn/what-is-the-gsn.adoc[GSN introductory guide].
 
 == Contracts
 
