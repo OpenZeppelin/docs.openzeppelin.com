@@ -185,8 +185,13 @@
 
     code {
       color: inherit;
+      font-weight: var(--weight-bold);
       background-color: transparent;
       padding: 0;
+
+      span.var-type {
+        font-weight: var(--weight-normal);
+      }
     }
 
     &::before {
