@@ -22,11 +22,7 @@
   display: block;
   background-color: white;
   margin: 1.5rem 0;
-  background-repeat: no-repeat;
-  background-size: 32px;
-  background-origin: border-box;
-  background-position: 1.4rem center;
-  
+
   table {
     padding: 0;
     margin: 0;
@@ -50,19 +46,16 @@
   &.note {
     border: 1px solid #a134d1;
     color: #a134d1;
-    background-image: url(../images/icons/unicorn.png);
   }
 
   &.tip {
     border: 1px solid var(--core-violet-4);
     color: var(--core-violet-4);
-    background-image: url(../images/icons/book.png);
   }
 
   &.warning, &.caution, &.important {
     border: 1px solid #F79F1F;
     color: #F79F1F;
-    background-image: url(../images/icons/warning.png);
   }
 }
 
