@@ -13,13 +13,6 @@
   max-width: 964px;
   width: calc(100% - 200px - 6rem); // 100% of parent (main) minus toc width and margin
 
-  // h2 {
-  //   text-transform: uppercase;
-  //   font-size: 0.9em;
-  //   margin-top: 3em;
-  //   color: gray;
-  // }
-
   pre code {
     border-radius: var(--border-radius);
     max-width: 90vw;
@@ -213,10 +206,32 @@
   }
 }
 
+.article-navigation {
+  display: flex;
+
+  div {
+    display: block;
+    flex-grow: 1;
+    font-weight: var(--weight-bold);
+    color: var(--core-violet-4);
+    margin-top: 1.5rem;
+    margin-bottom: .5rem;
+
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: var(--md);
+    }
+
+    &.btn-next { text-align: right; }
+  }
+}
 
 @media (max-width: $mobile-breakpoint) {
   .article {
     margin-left: var(--lg);
     margin-right: var(--lg);
   }
+  .article-navigation { flex-direction: column; }
+  .article-navigation div.btn-next, .article-navigation div.btn-previous { text-align: center; }
 }
