@@ -108,7 +108,6 @@ html.is-clipped--navbar {
   flex-flow: row wrap;
   max-width: 1280px;
   background-color: #fff;
-  margin-left: var(--sm);
   padding: 0.5rem 0;
 }
 
@@ -146,7 +145,7 @@ html.is-clipped--navbar {
   align-items: center;
   width: 100%;
   height: calc(var(--navbar-height) - 1rem);
-  padding-right: 2.5rem;
+  margin-left: var(--xs);
 }
 
 .navbar-item.has-dropdown {
@@ -245,7 +244,7 @@ html.is-clipped--navbar {
 
   .navbar__logo {
     width: auto;
-    padding: 0 2.5rem;
+    margin-left: var(--xl);
   }
 
   .navbar-end {
