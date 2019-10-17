@@ -8,7 +8,6 @@
 
 .admonitionblock,
 .alert {
-  display: grid;
   max-width: 90vw;
   background-color: white;
   border: solid #ddd;
@@ -43,6 +42,7 @@
   }
 
   &::before { 
+    display: block;
     font-size: 0.9em;
     font-weight: var(--weight-bold);
     text-align: left;
