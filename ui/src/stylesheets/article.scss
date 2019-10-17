@@ -170,6 +170,10 @@
   }
 
   h4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
     padding: 0;
     margin: $spacing;
     margin-bottom: 2 * $spacing;
@@ -178,8 +182,20 @@
 
     code {
       color: inherit;
+      font-weight: var(--weight-bold);
       background-color: transparent;
       padding: 0;
+
+      span.var-type {
+        font-weight: var(--weight-normal);
+      }
+    }
+
+    .visibility {
+      font-family: var(--sans-serif);
+      font-size: var(--md);
+      font-weight: 300;
+      opacity: .8;
     }
 
     &::before {
