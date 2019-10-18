@@ -101,7 +101,7 @@
   border-radius: var(--border-radius);
   max-width: 90vw;
   padding: 1.5rem;
-  background-color: #fbfbfc;
+  background-color: #f8f8fa;
   margin-top: 1em;
   margin-bottom: 1em;
   word-wrap: break-word;
@@ -156,7 +156,7 @@
 
 .contract-item {
   border-radius: var(--border-radius);
-  border: solid 1px #e9e9ed;
+  border: solid 1px #ddd;
   max-width: 90vw;
   padding: 0;
   margin-top: 1em;
@@ -210,8 +210,8 @@
       z-index: -10;
       border-top-left-radius: var(--border-radius);
       border-top-right-radius: var(--border-radius);
-      background-color: #fbfbfc;
-      border-bottom: solid 1px #e9e9ed;
+      background-color: #f9f9fa;
+      border-bottom: solid 1px #ddd;
     }
   }
 
