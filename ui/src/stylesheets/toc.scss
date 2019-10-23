@@ -7,6 +7,7 @@
   flex-basis: 200px;
   font-size: .8em;
   margin-right: 3rem;
+  opacity: .8;
 }
 
 .toc-menu {
@@ -46,7 +47,6 @@
   font-family: var(--sans-serif);
   font-weight: var(--weight-bold);
   font-size: var(--md);
-  opacity: .8;
 
   &.subheading-item {
     font-weight: var(--weight-normal);
@@ -63,8 +63,7 @@
   }
 }
 
-.toc a.toc-active {
-  font-weight: var(--weight-bold);
+.toc .toc-menu li a.toc-active {
   color: var(--core-violet-4);
 }
 
