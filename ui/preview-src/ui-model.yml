@@ -97,3 +97,11 @@ page:
       urlType: internal
     - <<: *item
       content: ERC 721
+  previous:
+    content: Getting Started
+    url: /contracts/2.x/index.html
+    urlType: internal
+  next:
+    content: Next Steps
+    url: /contracts/2.x/index.html
+    urlType: internal

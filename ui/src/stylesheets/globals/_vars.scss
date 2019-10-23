@@ -1,4 +1,5 @@
 :root {
+  --core-gray: #f8f8fa;
   --core-violet-1: #9aa2e7;
   --core-violet-2: #6d79e9;
   --core-violet-3: #6472e7;
@@ -36,10 +37,11 @@
   --tertiary: #fff;
 
   --color-text: #282846;
+  --color-text-light: #555566;
   --color-navbar-text: #282846;
   --color-code: #336;
 
-  --border-radius: 6px;
+  --border-radius: .3rem;
 
   --heading: "Silka", sans-serif;
   --sans-serif: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;

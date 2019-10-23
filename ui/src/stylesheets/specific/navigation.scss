@@ -5,7 +5,7 @@
   position: sticky;
   top: 0;
   width: var(--nav-width);
-  background: #f8f8fa;
+  background: var(--core-gray);
   color: var(--steel-2);
   padding-top: 70px;
 
@@ -23,12 +23,10 @@
       &::before {
         content: '';
         position: relative;
-        border-color: var(--core-violet-4);
-        border-style: solid;
-        border-width: 0 0.11em 0 0;
-        height: 0.9em;
-        width: 0.1em;
-        margin-right: 10px;
+        border-right: 1px solid var(--core-violet-4);
+        height: 1em;
+        width: 1px;
+        margin-right: 9px;
         margin-left: -10px;
       }
     }
@@ -54,7 +52,7 @@
     padding-top: 15px;
     padding-bottom: 4px;
     margin-top: 0;
-    background: #f8f8fa;
+    background: var(--core-gray);
     z-index: 2;
   }
 }

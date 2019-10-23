@@ -10,15 +10,8 @@
   margin-left: var(--xl);
   margin-right: var(--xl);
   min-height: calc(100vh - 163px);
-  max-width: 964px;
+  max-width: 48rem;
   width: calc(100% - 200px - 6rem); // 100% of parent (main) minus toc width and margin
-
-  // h2 {
-  //   text-transform: uppercase;
-  //   font-size: 0.9em;
-  //   margin-top: 3em;
-  //   color: gray;
-  // }
 
   pre code {
     border-radius: var(--border-radius);
@@ -108,7 +101,7 @@
   border-radius: var(--border-radius);
   max-width: 90vw;
   padding: 1.5rem;
-  background-color: #fbfbfc;
+  background-color: #f8f8fa;
   margin-top: 1em;
   margin-bottom: 1em;
   word-wrap: break-word;
@@ -163,7 +156,7 @@
 
 .contract-item {
   border-radius: var(--border-radius);
-  border: solid 1px #e9e9ed;
+  border: solid 1px #ddd;
   max-width: 90vw;
   padding: 0;
   margin-top: 1em;
@@ -177,6 +170,10 @@
   }
 
   h4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
     padding: 0;
     margin: $spacing;
     margin-bottom: 2 * $spacing;
@@ -185,8 +182,20 @@
 
     code {
       color: inherit;
+      font-weight: var(--weight-bold);
       background-color: transparent;
       padding: 0;
+
+      span.var-type {
+        font-weight: var(--weight-normal);
+      }
+    }
+
+    .item-kind {
+      font-family: var(--sans-serif);
+      font-size: var(--md);
+      font-weight: 300;
+      opacity: .8;
     }
 
     &::before {
@@ -201,8 +210,8 @@
       z-index: -10;
       border-top-left-radius: var(--border-radius);
       border-top-right-radius: var(--border-radius);
-      background-color: #fbfbfc;
-      border-bottom: solid 1px #e9e9ed;
+      background-color: #f9f9fa;
+      border-bottom: solid 1px #ddd;
     }
   }
 
@@ -213,10 +222,32 @@
   }
 }
 
+.article-navigation {
+  display: flex;
+
+  div {
+    display: block;
+    flex-grow: 1;
+    font-weight: var(--weight-bold);
+    color: var(--core-violet-4);
+    margin-top: 1.5rem;
+    margin-bottom: .5rem;
+
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: var(--md);
+    }
+
+    &.btn-next { text-align: right; }
+  }
+}
 
 @media (max-width: $mobile-breakpoint) {
   .article {
     margin-left: var(--lg);
     margin-right: var(--lg);
   }
+  .article-navigation { flex-direction: column; }
+  .article-navigation div.btn-next, .article-navigation div.btn-previous { text-align: center; }
 }
