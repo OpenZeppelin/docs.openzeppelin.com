@@ -91,7 +91,6 @@ h6 {
 
 code {
   background-color: #f5f6fe;
-  color: var(--color-code);
   border-radius: .2em;
   padding: .2em .4em;
 }
@@ -127,18 +126,6 @@ a {
 
   .admonitionblock & {
     color: inherit;
-  }
-}
-
-a code {
-  text-decoration: underline;
-  text-decoration-color: var(--color-code);
-
-  &:focus,
-  &:hover {
-    color: var(--core-violet-4);
-    text-decoration: underline;
-    text-decoration-color: var(--color-violet-4);
   }
 }
 
