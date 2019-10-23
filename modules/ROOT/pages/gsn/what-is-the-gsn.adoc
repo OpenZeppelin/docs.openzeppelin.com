@@ -62,6 +62,6 @@ To recap, there are four main actors in the GSN:
 
 * The https://medium.com/@rrecuero/eth-onboarding-solution-90607fb81380[GSN announcement post] provides a good *overview of the system*, along with some use cases to take inspiration from.
 * To learn how to use OpenZeppelin Contracts to *build a GSN-capable contract*, head to the https://docs.openzeppelin.com/contracts/2.x/gsn[GSN basics guide].
-* If you want to learn how to use OpenZeppelin Contracts' *pre-made accept and charge strategies*, go to the https://docs.openzeppelin.com/contracts/2.x/gsn-bouncers[GSN Bouncers guide].
+* If you want to learn how to use OpenZeppelin Contracts' *pre-made accept and charge strategies*, go to the https://docs.openzeppelin.com/contracts/2.x/gsn-strategies[GSN Strategies guide].
 * If instead you wish to know more about how to *use GSN from your application*, head to the https://github.com/OpenZeppelin/openzeppelin-gsn-provider[OpenZeppelin GSN provider guides].
 * For information on how to *test GSN-enabled contracts*, go to the https://github.com/OpenZeppelin/openzeppelin-gsn-helpers[OpenZeppelin test helpers documentation].
