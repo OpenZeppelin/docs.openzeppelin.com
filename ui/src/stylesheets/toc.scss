@@ -7,6 +7,7 @@
   flex-basis: 200px;
   font-size: .8em;
   margin-right: 3rem;
+  opacity: .8;
 }
 
 .toc-menu {
@@ -50,33 +51,20 @@
   &.subheading-item {
     font-weight: var(--weight-normal);
     margin: .25rem 0 0;
-    opacity: .8;
-  }
-  
-  &.subheading-item a code {
-    opacity: 1;
-    text-decoration: none;
   }
 }
 
 .toc a {
   color: inherit;
   text-decoration: none;
-  opacity: .8; 
 
   &:hover {
     color: var(--core-violet-2);
-    opacity: 1;
   }
 }
 
 .toc .toc-menu li a.toc-active {
   color: var(--core-violet-4);
-  opacity: 1;
-
-  code {
-    color: var(--core-violet-4);
-  }
 }
 
 
