@@ -81,6 +81,10 @@
 .nav-li {
   margin-bottom: 0.5rem;
   line-height: 1.5rem;
+
+  a:hover {
+    color: var(--core-violet-4);
+  }
 }
 
 .nav-icon {
@@ -112,6 +116,7 @@
 
 .collapsible {
   font-weight: var(--weight-bold);
+  cursor: pointer;
 }
 
 .collapsible-content {
