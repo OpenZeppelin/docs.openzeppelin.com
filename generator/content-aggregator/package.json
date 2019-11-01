@@ -10,7 +10,7 @@
     "execa": "^1.0.0",
     "fs-extra": "~7.0",
     "isomorphic-git": "0.47.0",
-    "js-yaml": "~3.12",
+    "js-yaml": "~3.13",
     "lodash": "~4.17",
     "matcher": "~1.1",
     "mime-types": "~2.1",
