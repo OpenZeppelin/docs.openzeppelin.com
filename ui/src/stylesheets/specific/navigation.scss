@@ -135,6 +135,18 @@
   &:hover{
     font-weight: 600;
   }
+
+  &::after{
+    content: url(../images/icons/arrow.svg);
+    margin-left: 0.35em;
+    width: .65rem;
+    height: auto;
+    display: block;
+  }
+}
+
+.collapsible.active::after{
+    transform: rotate(180deg);
 }
 
 .collapsible-content {
