@@ -90,7 +90,7 @@ h6 {
 }
 
 code {
-  background-color: #f5f6fe;
+  background-color: #f6f6f7;
   border-radius: .2em;
   padding: .2em .4em;
 }
@@ -113,11 +113,7 @@ aside {
 }
 
 a {
-  color: var(--core-violet-4);
-
-  &:active {
-    color: var(--core-violet-4);
-  }
+  color: var(--core-violet-5);
 
   .admonitionblock & {
     color: inherit;
