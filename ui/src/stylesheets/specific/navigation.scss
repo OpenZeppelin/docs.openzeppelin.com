@@ -23,15 +23,10 @@
     }
     a.nav-link-active {
       font-weight: var(--weight-medium);
-      &::before {
-        content: '';
-        position: relative;
-        border-right: 1px solid var(--core-violet-4);
-        height: 1em;
-        width: 1px;
-        margin-right: 9px;
-        margin-left: -10px;
-      }
+      border-left: 2px solid var(--core-violet-4);
+      padding-left: 8px;
+      margin-left: -10px;
+      border-radius: 1px;
     }
   }
 }
