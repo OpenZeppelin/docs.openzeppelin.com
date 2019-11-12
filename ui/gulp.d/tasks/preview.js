@@ -17,7 +17,6 @@ const watchedDirs = [
 ];
 
 module.exports = ({ dest, port }) => {
-	console.log('Ahre')
   browserSync({
     files: dest,
     ghostMode: false,
