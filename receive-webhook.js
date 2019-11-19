@@ -13,11 +13,12 @@ const { branch, tag } = parseRef(ref);
 const source = getPlaybookSource(repository.full_name);
 
 if (!source) {
-  throw new Error('Repository does not match a content source');
+  throw new Error(`Repository ${repository.full_name} does not match a content source`);
 }
 
 if (!(match(branch, source.branches) || match(tag, source.tags))) {
-  throw new Error('Branch or tag does not match a content source');
+  const branchOrTag = branch || tag;
+  throw new Error(`Branch or tag '${branchOrTag}' of ${repository.full_name} does not match a content source`);
 }
 
 process.exit(0);
