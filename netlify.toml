@@ -1,3 +1,7 @@
 [build]
   command = "yarn build"
   publish = "build/site"
+
+[[redirects]]
+  from = "https://openzeppelin-docs.netlify.com/*"
+  to = "https://docs.openzeppelin.com/:splat"
