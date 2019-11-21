@@ -349,12 +349,9 @@ async function readFilesFromWorktree (base, startPath, repoDir) {
   const pkg = await pkgDir(base);
 
   if (!disablePrepare && pkg && pkg.startsWith(repoDir)) {
-    const pkgJson = JSON.parse(await fs.readFile(path.join(pkg, 'package.json')))
-    if (pkgJson.scripts && pkgJson.scripts['prepare-docs']) {
-      await execa('npm', ['ci'], {
-        stdio: 'inherit',
-        cwd: pkg,
-      });
+    const pkgJson = await fs.readJson(path.join(pkg, 'package.json'));
+
+    if (_.get(pkgJson, 'scripts.prepare-docs')) {
       await execa('npm', ['run', 'prepare-docs'], {
         stdio: 'inherit',
         cwd: pkg,
@@ -404,15 +401,53 @@ function collectFiles (done) {
 }
 
 async function readFilesFromGitTree (repo, ref, startPath) {
-  const checkoutDir = repo.gitdir.replace(/\.git$/, '') + '-' + ref.name;
-  const checkoutArgs = Object.assign({}, repo, {
-    ref: ref.qname,
-    dir: checkoutDir,
-    noCheckout: false,
-  });
-  await git.checkout(checkoutArgs);
+  const sha = await git.resolveRef(Object.assign({}, repo, { ref: ref.qname }));
+  const refDir = path.join(
+    repo.gitdir.replace(/\.git$/, ''),
+    makeHash(ref.name),
+  );
+  const startPathIdentifier = makeHash(startPath);
+  const checkoutDir = path.join(refDir, sha, startPathIdentifier);
+  if (!await fs.pathExists(checkoutDir)) {
+    await fs.remove(refDir);
+    const checkoutArgs = Object.assign({}, repo, {
+      ref: ref.qname,
+      dir: checkoutDir,
+      noCheckout: false,
+    });
+    await git.checkout(checkoutArgs);
+  }
   const worktreeDir = ospath.join(checkoutDir, startPath);
-  return readFilesFromWorktree(worktreeDir, startPath, checkoutDir);
+  const files = await readFilesFromWorktree(worktreeDir, startPath, checkoutDir);
+  await cleanUpGitTreeCache(checkoutDir, worktreeDir);
+  return files;
+}
+
+function makeHash(str) {
+  const hash = createHash('sha1');
+  hash.update(str);
+  return hash.digest('hex');
+}
+
+async function cleanUpGitTreeCache(checkoutDir, worktreeDir) {
+  const keep = ['antora.yml', 'modules'].map(k => path.join(worktreeDir, k));
+  await removeEverythingBut(checkoutDir, keep);
+}
+
+async function removeEverythingBut(root, keep) {
+  await Promise.all((await fs.readdir(root, { withFileTypes: true }))
+    .map(async e => {
+      const fullPath = path.join(root, e.name);
+
+      if (keep.includes(fullPath)) {
+        return;
+      } else if (keep.some(k => k.startsWith(fullPath))) {
+        await removeEverythingBut(fullPath, keep);
+      } else {
+        await fs.remove(fullPath);
+      }
+    })
+  );
 }
 
 function loadComponentDescriptor (files, startPath) {

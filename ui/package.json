@@ -1,6 +1,7 @@
 {
   "name": "openzeppelin-docs-site-theme",
   "private": true,
+  "version": "0.0.0",
   "description": "The default theme for the openzeppelin documentation site",
   "homepage": "https://docs.openzeppelin.com",
   "license": "MIT",
@@ -56,7 +57,7 @@
     "gulp-vinyl-zip": "~2.1.2",
     "handlebars": "~4.1",
     "highlight.js": "~9.15",
-    "highlightjs-solidity": "^1.0.6",
+    "highlightjs-solidity": "1.0.6",
     "js-yaml": "~3.13",
     "lodash.debounce": "^4.0.8",
     "map-stream": "^0.0.7",
