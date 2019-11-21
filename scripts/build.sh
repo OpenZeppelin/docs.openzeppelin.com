@@ -5,7 +5,7 @@ set -o xtrace -o errexit
 if [ -v INCOMING_HOOK_BODY ]; then
   # will exit with an error and thus abort the deploy
   # unless the webhook is an update to a content source
-  node receive-webhook.js
+  node scripts/receive-webhook.js
 fi
 
 log() {
@@ -34,4 +34,4 @@ antora --generator generator --stacktrace "$@"
 
 ## Redirections
 
-node latest-redirects.js
+node scripts/latest-redirects.js

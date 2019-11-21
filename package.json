@@ -7,8 +7,8 @@
     "antora/content-aggregator"
   ],
   "scripts": {
-    "build": "bash build.sh --fetch playbook.yml",
-    "build:no-fetch": "bash build.sh playbook.yml",
+    "build": "bash scripts/build.sh --fetch playbook.yml",
+    "build:no-fetch": "bash scripts/build.sh playbook.yml",
     "build-ui": "yarn --cwd ui bundle"
   },
   "dependencies": {

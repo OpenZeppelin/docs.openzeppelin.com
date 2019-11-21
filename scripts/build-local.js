@@ -28,7 +28,7 @@ playbook.content.sources = [{
 const localPlaybookFile = path.resolve(__dirname, 'local-playbook.yml');
 fs.writeFileSync(localPlaybookFile, yaml.safeDump(playbook));
 
-proc.execFileSync('bash', ['./build.sh', localPlaybookFile], {
+proc.execFileSync('bash', ['scripts/build.sh', localPlaybookFile], {
   cwd: __dirname,
   stdio: 'inherit',
 });
