@@ -1,1 +1,1 @@
-module.exports = (url) => url.replace(/\/index\.html$/, '');
+module.exports = (url) => url.replace(/(\/index)?\.html$/, '');
