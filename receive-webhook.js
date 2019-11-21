@@ -5,7 +5,8 @@ const fs = require('fs');
 const { repository, ref } = getPayload();
 
 if (!repository || !ref) {
-  throw new Error('Webhook payload is not a GitHub push event');
+  console.error('Webhook payload is not a GitHub push event');
+  process.exit(1);
 }
 
 const { branch, tag } = parseRef(ref);
@@ -13,13 +14,18 @@ const { branch, tag } = parseRef(ref);
 const source = getPlaybookSource(repository.full_name);
 
 if (!source) {
-  throw new Error(`Repository ${repository.full_name} does not match a content source`);
+  console.error(`Repository ${repository.full_name} does not match a content source`);
+  process.exit(1);
 }
 
+const branchOrTag = branch || tag;
+
 if (!(match(branch, source.branches) || match(tag, source.tags))) {
-  const branchOrTag = branch || tag;
-  throw new Error(`Branch or tag '${branchOrTag}' of ${repository.full_name} does not match a content source`);
+  console.error(`Branch or tag '${branchOrTag}' of ${repository.full_name} does not match a content source`);
+  process.exit(1);
 }
+
+console.error(`Processing an update in '${branchOrTag}' of ${repository.full_name}`);
 
 process.exit(0);
 
