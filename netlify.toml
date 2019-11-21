@@ -5,3 +5,4 @@
 [[redirects]]
   from = "https://openzeppelin-docs.netlify.com/*"
   to = "https://docs.openzeppelin.com/:splat"
+  force = true
