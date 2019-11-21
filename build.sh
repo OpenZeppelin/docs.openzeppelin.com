@@ -1,30 +1,37 @@
 #!/usr/bin/env bash
 
-set -o errexit
+set -o xtrace -o errexit
 
-npm install --no-package-lock --no-audit
-
-if [ -n "$INCOMING_HOOK_BODY" ]; then
+if [ -v INCOMING_HOOK_BODY ]; then
   # will exit with an error and thus abort the deploy
   # unless the webhook is an update to a content source
   node receive-webhook.js
 fi
 
-export PATH="$(npm bin):$PATH"
-
 log() {
   echo "$*" >&2
 }
 
-log "Building UI bundle..."
-cd ui
-npm install --no-audit
-npm run bundle
-cd ..
-log "✓ Done"
+if [ -v NETLIFY ]; then
+  : ${NETLIFY_BUILD_BASE="/opt/build"}
 
-log "Building site..."
-antora --generator generator "$@"
-log "✓ Done"
+  NETLIFY_CACHE_DIR="$NETLIFY_BUILD_BASE/cache"
+
+  export XDG_CACHE_HOME="$NETLIFY_CACHE_DIR/xdg"
+
+  nicer_node_gyp="$(yarn -s which nicer-node-gyp)"
+  yarn config set node_gyp "$nicer_node_gyp"
+  npm config set node_gyp "$nicer_node_gyp"
+fi
+
+## UI Bundle
+
+yarn --cwd ui bundle
+
+## Antora
+
+antora --generator generator --stacktrace "$@"
+
+## Redirections
 
 node latest-redirects.js
