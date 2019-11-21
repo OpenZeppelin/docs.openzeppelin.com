@@ -1,8 +1,3 @@
 [build]
   command = "yarn build"
   publish = "build/site"
-
-[build.environment]
-  # this is necessary because of an npm bug with local dependencies
-  # https://npm.community/t/npm-install-does-not-install-transitive-dependencies-of-local-dependency/2264
-  NPM_FLAGS = "--no-package-lock --no-audit"
