@@ -11,7 +11,7 @@ const sv = require('semver');
 const components = glob.sync('sitemap-*.xml', { cwd: 'build/site' })
   .map(c => c.match(/sitemap-(.*)\.xml/)[1]);
 
-let redirects = '';
+let redirects = fs.readFileSync('_redirects');
 
 for (const comp of components) {
   // Get all the versions of this component.
