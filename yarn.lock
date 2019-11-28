@@ -6659,14 +6659,6 @@ nice-try@^1.0.4:
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
-"nicer-node-gyp@github:frangio/nicer-node-gyp":
-  version "0.1.0"
-  resolved "https://codeload.github.com/frangio/nicer-node-gyp/tar.gz/a3966193a464049471ba337e4f8866e50c464ad3"
-  dependencies:
-    env-paths "^2.2.0"
-    fs-extra "^8.1.0"
-    ora "^4.0.3"
-
 nick@^0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/nick/-/nick-0.1.3.tgz#d8a30b7da789d417e0baa5437f33c487be9b6020"
@@ -6678,6 +6670,15 @@ node-fetch@^2.3.0:
   version "2.6.0"
   resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
   integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
+
+node-gyp-cache@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/node-gyp-cache/-/node-gyp-cache-0.1.0.tgz#28e66e446b54704dc5cacee97af39deba04df592"
+  integrity sha512-PTpM2RK3J/4QTVzgY9DtBzHWvXKfYMBhNukRzex3H2sxnU8TZ/jPZlgjUaDD93ioW1Hf0zt+qFotb4dxBaHNGQ==
+  dependencies:
+    env-paths "^2.2.0"
+    fs-extra "^8.1.0"
+    ora "^4.0.3"
 
 node-gyp@^3.8.0:
   version "3.8.0"

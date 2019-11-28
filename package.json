@@ -21,6 +21,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "nicer-node-gyp": "github:frangio/nicer-node-gyp"
+    "node-gyp-cache": "^0.1.0"
   }
 }
