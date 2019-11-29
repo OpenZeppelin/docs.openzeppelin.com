@@ -1,5 +1,5 @@
 {
-  "name": "openzeppelin-docs",
+  "name": "docs.openzeppelin.com",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -10,11 +10,11 @@
   "scripts": {
     "build": "bash scripts/build.sh --fetch playbook.yml",
     "build:no-fetch": "bash scripts/build.sh playbook.yml",
-    "build-ui": "yarn --cwd ui bundle"
+    "build:custom": "bash scripts/build.sh",
+    "prepare": "yarn --cwd ui bundle"
   },
   "dependencies": {
     "@antora/cli": "^2.0.0",
-    "find-up": "^4.1.0",
     "glob": "^7.1.4",
     "js-yaml": "^3.13.1",
     "multimatch": "^4.0.0",

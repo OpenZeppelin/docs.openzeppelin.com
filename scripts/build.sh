@@ -19,14 +19,11 @@ if [ -v NETLIFY ]; then
 
   export XDG_CACHE_HOME="$NETLIFY_CACHE_DIR/xdg"
 
+  # TODO: can we use a local config?
   nicer_node_gyp="$(yarn -s which nicer-node-gyp)"
   yarn config set node_gyp "$nicer_node_gyp"
   npm config set node_gyp "$nicer_node_gyp"
 fi
-
-## UI Bundle
-
-yarn --cwd ui bundle
 
 ## Antora
 

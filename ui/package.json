@@ -20,7 +20,6 @@
   "browserslist": [
     "last 2 versions"
   ],
-  "dependencies": {},
   "devDependencies": {
     "@csstools/postcss-sass": "^4.0.0",
     "@octokit/rest": "^16.28.4",
