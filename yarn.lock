@@ -6671,10 +6671,10 @@ node-fetch@^2.3.0:
   resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
   integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
 
-node-gyp-cache@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/node-gyp-cache/-/node-gyp-cache-0.1.0.tgz#28e66e446b54704dc5cacee97af39deba04df592"
-  integrity sha512-PTpM2RK3J/4QTVzgY9DtBzHWvXKfYMBhNukRzex3H2sxnU8TZ/jPZlgjUaDD93ioW1Hf0zt+qFotb4dxBaHNGQ==
+node-gyp-cache@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/node-gyp-cache/-/node-gyp-cache-0.2.0.tgz#270a655eaaeb4cc4bb995fef343fbf15303768b3"
+  integrity sha512-V/jpPcpESOhwPP6XC8MeRzFx0OM0qtBG8pU66cLpjlrJ2fQXp7U17L254Z0fzibe2OcMrISpfAh1XHc7Tibn/g==
   dependencies:
     env-paths "^2.2.0"
     fs-extra "^8.1.0"

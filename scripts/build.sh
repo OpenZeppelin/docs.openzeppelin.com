@@ -20,9 +20,9 @@ if [ -v NETLIFY ]; then
   export XDG_CACHE_HOME="$NETLIFY_CACHE_DIR/xdg"
 
   # TODO: can we use a local config?
-  nicer_node_gyp="$(yarn -s which nicer-node-gyp)"
-  yarn config set node_gyp "$nicer_node_gyp"
-  npm config set node_gyp "$nicer_node_gyp"
+  node_gyp_cache="$(yarn -s which node-gyp-cache)"
+  yarn config set node_gyp "$node_gyp_cache"
+  npm config set node_gyp "$node_gyp_cache"
 fi
 
 ## Antora
