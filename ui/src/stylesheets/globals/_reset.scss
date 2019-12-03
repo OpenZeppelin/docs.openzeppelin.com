@@ -122,10 +122,6 @@ button {
   background: transparent;
   box-shadow: none;
   overflow: visible;
-
-  &:focus {
-    outline: 0;
-  }
 }
 
 button,
@@ -167,10 +163,6 @@ textarea {
   -webkit-appearance: none;
   background: transparent;
   border: 0;
-
-  &:focus {
-    outline: none;
-  }
 
   &[type='radio'] {
     -webkit-appearance: radio;
@@ -259,9 +251,4 @@ input[type='search'] {
   &::-webkit-search-results-decoration {
     display: none;
   }
-}
-
-select:focus,
-a:focus {
-  outline: 0;
 }

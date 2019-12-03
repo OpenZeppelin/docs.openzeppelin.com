@@ -22,6 +22,9 @@ site:
       url: /contracts/2.x/index.html
       version: '2.x'
       displayVersion: '2.x'
+    - url: /contracts/2.x/index.html
+      version: '1.x'
+      displayVersion: '1.x'
     latestVersion: *latest_version_contracts
   - name: sdk
     title: SDK

@@ -16,41 +16,42 @@
             src="{{@root.uiRootPath}}/images/icons/{{{this.name}}}.svg">
           <span class="flex grow">{{{./title}}}</span>
         </a>
-        {{#if this.versions}}
-        {{#unless (eq this.versions.length 1)}}
-        <button class="flex align-center shrink btn btn-version">
-          3.8
-          {{!-- @@include('public/_theme/images/icons/chevron.svg')--}}
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000" viewBox="0 0 30 30">
-            <path d="M15.003 21.284L6.563 9.232l1.928-.516 6.512 9.299 6.506-9.299
-                  1.928.516-8.434 12.052z" />
-          </svg>
-
-          <div class="popover">
-            <span class="popover__heading">Current version</span>
-            <ol class="ol current">
-              {{#each this.versions}}
-              {{#if ./latest}}
-              <li class="flex align-center justify-justified li" {{#if selected}}selected{{/if}} value="{{{url}}}">
-                {{string}}
-              </li>
-              {{/if}}
-              {{/each}}
-            </ol>
-            <span class="popover__heading">Previous versions</span>
-            <ol class="ol">
-              {{#each this.versions}}
-              {{#unless ./latest}}
-              <li class="flex align-center justify-justified li" {{#if selected}}selected{{/if}} value="{{{url}}}">
-                {{string}}
-              </li>
-              {{/unless}}
-              {{/each}}
-            </ol>
+        <div class="component-version">
+          {{#if (and versions (eq this @root.page.component))}}
+          {{#unless (eq versions.length 1)}}
+          <button class="flex align-center shrink btn btn-version">
+            {{@root.page.componentVersion.displayVersion}}
+            {{!-- @@include('public/_theme/images/icons/chevron.svg')--}}
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000" viewBox="0 0 30 30">
+              <path d="M15.003 21.284L6.563 9.232l1.928-.516 6.512 9.299 6.506-9.299
+                    1.928.516-8.434 12.052z" />
+            </svg>
+          </button>
+          <div class="popover-container">
+            <div class="popover">
+              <p>Current version</p>
+              <ul>
+                <li>
+                  {{#with latestVersion}}
+                    <a href="{{{url}}}">{{displayVersion}}</a>
+                  {{/with}}
+                </li>
+              </ul>
+              <p>Previous versions</p>
+              <ul>
+                {{#each versions}}
+                  {{#unless (eq this ../latestVersion)}}
+                    <li>
+                      <a href="{{{url}}}">{{displayVersion}}</a>
+                    </li>
+                  {{/unless}}
+                {{/each}}
+              </ul>
+            </div>
           </div>
-        </button>
-        {{/unless}}
-        {{/if}}
+          {{/unless}}
+          {{/if}}
+        </div>
       </div>
       {{#if (eq this @root.page.component)}}
       {{> navigation-tree items=@root.page.navigation}}

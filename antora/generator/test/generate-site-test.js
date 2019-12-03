@@ -195,7 +195,7 @@ describe('generateSite()', function () {
       .to.be.a.file()
       .not.with.contents.that.match(/the-component\/2\.0\/_attributes\.html/)
     $ = loadHtmlFile('the-component/2.0/index.html')
-    expect($('head link[rel=canonical]')).to.have.attr('href', 'https://example.com/docs/the-component/2.0/index.html')
+    expect($('head link[rel=canonical]')).to.have.attr('href', 'https://example.com/docs/the-component/2.0')
     expect($('nav.navbar .navbar-brand .navbar-item')).to.have.attr('href', 'https://example.com/docs')
   }).timeout(timeoutOverride)
 

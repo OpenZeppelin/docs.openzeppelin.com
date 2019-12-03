@@ -1,8 +1,10 @@
 [build]
-  command = "npm run build"
+  command = "yarn build"
   publish = "build/site"
 
-[build.environment]
-  # this is necessary because of an npm bug with local dependencies
-  # https://npm.community/t/npm-install-does-not-install-transitive-dependencies-of-local-dependency/2264
-  NPM_FLAGS = "--no-package-lock --no-audit"
+# This replaces the meta refresh with an HTTP refresh that doesn't have an
+# index.html suffix
+[[redirects]]
+  from = "/"
+  to = "/openzeppelin"
+  status = 302

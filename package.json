@@ -1,18 +1,27 @@
 {
-  "name": "openzeppelin-docs",
+  "name": "docs.openzeppelin.com",
+  "version": "0.0.0",
   "private": true,
-  "main": "index.js",
+  "workspaces": [
+    "ui",
+    "antora/generator",
+    "antora/content-aggregator"
+  ],
   "scripts": {
-    "build": "bash build.sh --fetch playbook.yml",
-    "build:no-fetch": "bash build.sh playbook.yml"
+    "build": "bash scripts/build.sh --fetch playbook.yml",
+    "build:no-fetch": "bash scripts/build.sh playbook.yml",
+    "build:custom": "bash scripts/build.sh",
+    "prepare": "yarn --cwd ui bundle"
   },
   "dependencies": {
     "@antora/cli": "^2.0.0",
-    "find-up": "^4.1.0",
-    "generator": "file:generator",
     "glob": "^7.1.4",
     "js-yaml": "^3.13.1",
-    "multimatch": "^4.0.0"
+    "multimatch": "^4.0.0",
+    "yarn": "^1.19.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "node-gyp-cache": "^0.2.0"
+  }
 }
