@@ -2,12 +2,24 @@
 
 == what this is
 
-on a local blockchain
+send tx, query values
+manual testing but also live interactions
+
+== on a local blockchain
 
 difference from unit testing
-production-like environment
 
 why local:
   no delays (instant mining)
   no need to get funds
 
+== on a public network
+
+useful to share with other people
+closer to production (e.g. blocktimes, gas price, reorgs)
+
+need to get funds
+
+== on mainnet
+
+security considerations?
