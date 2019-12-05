@@ -1,0 +1,86 @@
+= Write Solidity Contracts
+
+Welcome to the exciting world of smart contract development! This guide will help get you started writing Solidity contracts, importing libraries, and compiling these into deployable Ethereum bytecode. Onwards!
+
+== Learn about Solidity
+
+We won't cover language concepts, syntax, etc. in this guide. For that, you'll want to check out the following curated content, which features great learning resources for new developers and veterans alike:
+
+ * For a general overview of how Ethereum and smart contracts work, you can't go wrong with Matt Condon's https://medium.com/@mattcondon/getting-up-to-speed-on-ethereum-63ed28821bbe[Getting Up to Speed on Ethereum]
+ * The https://solidity.readthedocs.io/en/latest/introduction-to-smart-contracts.html[official Solidity documentation] is a very good starting point for people new to the language, as are their https://solidity.readthedocs.io/en/latest/security-considerations.html[security recommendations], which nicely go over the differences between blockchains and traditional software platforms
+ * A set of https://consensys.github.io/smart-contract-best-practices/[best practices] was compiled by Consensys Dilligence: these are quite extensive, and include both https://consensys.github.io/smart-contract-best-practices/recommendations/[proven patterns] to learn from and https://consensys.github.io/smart-contract-best-practices/known_attacks/[known pitfalls] to avoid
+ * A rite of passage in the learning of Solidity is playing our very own https://solidity-05.ethernaut.openzeppelin.com/[Ethernaut] game: it'll test your understanding of both language and Ethereum concepts by having you look for subtle vulnerabilities in smart contracts as you advance through the increasingly difficult levels
+
+== Setting up a Solidity Project
+
+Simple works best: all you need to do is create directory called `contracts` and store your Solidity source files (`.sol`) there. That's it!
+
+All tools will automatically pick every contract in this directory, letting you organize your code in subdirectories (e.g. `admin`, `token`, etc.). To import a file from a different directory, simply refer to it by its relative path:
+
+```solidity
+import './admin/TransferrableAdmin.sol';
+```
+
+== Using the OpenZeppelin Contracts Library
+
+Reusable modules and libraries are the cornerstone behind great software. The https://openzeppelin.com/contracts/[*OpenZeppelin Contracts*] library is the result of years of community-driven effort towards a set of useful building blocks for smart contracts to build on. They've been the subject of multiple security audits, and their security and correctness battle-tested. And using them is as easy as any other contract!
+
+You'll first need to download the contracts from the latest published release:
+
+```bash
+$ npm install --save-dev @openzeppelin/contracts
+```
+
+Once installed, the library is ready to be used! Simply `import` the contracts as you would any other source in your system, prefixing the path with `@openzeppelin/contracts`:
+
+```solidity
+pragma solidity ^0.5.0;
+
+import '@openzeppelin/contracts/ERC20/ERC20.sol';
+
+contract MyToken is ERC20 {
+  constructor(uint256 initialSupply) public {
+    _mint(msg.sender, initialSupply);
+  }
+}
+```
+
+The OpenZeppelin Contracts feature extensive https://docs.openzeppelin.com/contracts/2.x/#next-steps[documentation], complete with a detailed API reference: see for example the entry for the https://docs.openzeppelin.com/contracts/2.x/api/token/erc20#ERC20-_mint-address-uint256-[`_mint` function] used in the code sample above.
+
+While the library is designed in such a way that it is difficult to misuse it, when in doubt, you can always refer to the documentation for clarification.
+
+== Compiling your Contracts
+
+Your contracts are set up, libraries installed, but how do you actually transform these Solidity source files into executable Ethereum bytecode?
+
+For that, we'll use the https://docs.openzeppelin.com/sdk/2.6/[*OpenZeppelin command-line interface (CLI)*]:
+
+```bash
+$ npm install --save-dev @openzeppelin/cli
+```
+
+The CLI is quite powerful, and it is the entry point to many exciting features (such as upgradeable smart contracts and interactive transactions!). For this guide however, we'll focus on the task at hand: compiling your smart contracts. This can be achieved by running a single command:
+
+```bash
+$ npx oz compile
+```
+
+NOTE: If you're unfamiliar with the `npx` command, check out our https://example.com[project setup guide].
+
+Simple as that! All contracts in the `contracts` directory and subdirectories will be compiled, and the resulting compilation artifacts stored in the `build/contracst` directory (you'll want to add this to your `.gitignore`).
+
+The `compile` command has multiple flags and options to configure. For example, if you wanted to use a specific compiler version and optimize the bytecode for execution cost, you might run:
+
+```bash
+$ npx oz compile --solc-version=0.5.12 --optimizer on
+```
+
+For detailed information on these options, refer to the https://docs.openzeppelin.com/sdk/2.6/api/cli#compile[`compile` API reference].
+
+== Next Steps
+
+Writing and compiling Solidity contracts are but the first steps in the journey to having your decentralized application running on the Ethereum network. Once you are confortable with this setup, you'll want to move on to more advanced tasks:
+
+ * xref:unit-testing.adoc[Perform automated contract testing]
+ * xref:interact.adoc[Interact with your deployed contracts]
+ * xref:public-staging.adoc[Deploy contracts to a public network]
