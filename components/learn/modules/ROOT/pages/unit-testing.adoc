@@ -1,0 +1,126 @@
+= Testing Smart Contracts
+
+In a blockchain environment, a single mistake could cost you all of your funds (or even worse, your users'!). This guide will teach you how to write automated tests that verify your application behaves exactly as you intended.
+
+== About Testing
+
+If you ever wrote a program, you also run into to see what happens. That was a test. But not a great one, because you then had to re-run your test manually for every single change to your code. Enter automated testing.
+
+Instead of doing things manually, we'll write simple programs ('tests') that will feed your smart contract some input, and then observe how it behaves. If the observed behavior matches the expected one, the test passes!
+
+The sort of tests we'll write here are called https://en.wikipedia.org/wiki/Unit_testing[unit tests]. These are multiple small, focused tests, which each check a small part of your contract for correctness. They can often be expressed in single sentences, which make up a specification: 'the admin is able to pause the contract', 'transferring tokens emits an event', 'non-admins cannot mint new tokens', etc.
+
+== Unit Tests for Solidity Contracts
+
+You may be wondering _how_ we're going to run these tests, since smart contracts are executed inside a blockchain. Using the actual Ethereum network would be very expensive, and while testnets are free, they are also slow (with blocktimes between 5 and 15 seconds). If we intend to run hundreds of tests whenever we make a change to our code, we need something better.
+
+What we will use is called a _local blockchain_: a slimmed down version of the real thing, disconnected from the Internet, running on your machine. This will simplify things quite a bit: you won't need to go get Ether, and you won't have to wait for blocks to be mined.
+
+To aid us in this we'll use the https://github.com/OpenZeppelin/openzeppelin-test-environment#readme[*OpenZeppelin Test Environment*], a JavaScript library that will take care of setting up our local blockchain. Install it by running:
+
+```bash
+$ npm install --save-dev @openzeppelin/test-enviroment
+```
+
+Its usage is very simple: just `require` it for a local blockchain will start running. The library exports variables and functions related to your testing environment (such as `accounts` that have been pre-funded with Ether and convenient ways to load your contracts from their compiled artifacts):
+
+```javascript
+const { accounts, contract } = require('@openzeppelin/test-environment');
+
+const MyToken = contract.fromArtifact('MyToken');
+```
+
+For more detailed information about these exported values and their usage, refer to Test Environment's https://github.com/OpenZeppelin/openzeppelin-test-environment/blob/master/docs/modules/ROOT/pages/api.adoc[API reference].
+
+== Setting up Your Test Script
+
+For the test themselves, you will need to also install a JavaScript _test runner_. You are free to use any of the https://github.com/OpenZeppelin/openzeppelin-test-environment/blob/master/docs/modules/ROOT/pages/setup.adoc#test-runners[recommended ones]: for this guide, we'll pick https://mochajs.org/[Mocha] with https://www.chaijs.com/[Chai] assertions.
+
+```bash
+$ npm install --save-dev mocha chai
+```
+
+Conventionally, test files are stored in a `test` directory. How these look will depend on the test runner of choice: below is a sample of a simple one using Mocha and Chai.
+
+```javascript
+const { accounts, contract } = require('@openzeppelin/test-environment');
+const { expect } = require('chai');
+
+// Load compiled artifacts
+const MyToken = contract.fromArtifact('MyToken');
+
+describe('MyToken', function () {
+  const [ deployer ] = accounts;
+
+  // Test case
+  it('deployer has initial supply', async function () {
+    // Deploy the token contract
+    const token = await MyToken.new(100, { from: deployer });
+
+    // Perform a test on a value
+    expect(await token.balanceOf(deployer)).to.equal('100');
+  });
+});
+```
+
+Many books have been written about how to write tests: for a quick reference, check out the https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/test[*tests for OpenZeppelin Contracts*], or the following https://medium.com/coinmonks/how-to-test-ethereum-smart-contracts-ac28fa852281[guide for ERC20 tests].
+
+Once your tests are ready, it's time to run them! The best way is by adding a `test` script to your `package.json`:
+
+[source,diff]
+----
+ 'scripts': {
++  'test': 'mocha --exit --recursive test'
+ }
+----
+
+All set! Your tests can now be run with `npm test`, checking that your contracts work the way you meant them too.
+
+== Performing More Complex Assertions
+
+As you continue to write new tests, you'll want to start testing some more interesting properties of your contract, such as:
+
+ * verify that the contract reverts on errors
+ * measure by how much an account's Ether balance changed
+ * validate the values on emitted events
+
+https://github.com/OpenZeppelin/openzeppelin-test-helpers#readme[*OpenZeppelin Test Helpers*] is a library designed to help you write all of these tests and more. By using it you will also be able to simulate time passing on the blockchain, properly handle large numbers, and have easy access to common constants.
+
+Adding it to our setup is very easy. Begin by installing it:
+
+```bash
+$ npm install --save-dev @openzeppelin/test-helpers
+```
+
+And you'll be ready to `require` it and use it! Test Environment will detect this installation and configure it for you, so won't have to worry about that.
+
+```javascript
+const { accounts, contract } = require('@openzeppelin/test-environment');
+const { expectRevert } = require('@openzeppelin/test-helpers');
+const { expect } = require('chai');
+
+const MyToken = contract.fromArtifact('MyToken');
+
+describe('MyToken', function () {
+  const [ deployer, nonHolder ] = accounts;
+
+  it('deployer has initial supply', async function () {
+    const token = await MyToken.new(100, { from: deployer });
+
+    // The following transaction should be reverted because nonHolder doesn't
+    // have any tokens to transfer
+    await expectRevert(
+      token.trasfer(deployer, 20, { from: nonHolder }),
+      'ERC20: transfer amount exceeds balance' // Check the revert reason
+    );
+  });
+});
+```
+The Test Helpers are quite powerful, and will let you write powerful assertions without having to worry about the low-level details of the underlying Ethereum libraries. To learn more about what you can do with them, head to their https://github.com/OpenZeppelin/openzeppelin-test-helpers#reference[API reference].
+
+== Next Steps
+
+Once you have thoroughly tested your contracts and are reasonably sure of their correctness, you'll want to deploy them to a real network and start interacting with them. The following guides will get you up to speed on these topics:
+
+ * xref:public-staging.adoc[Deploy contracts to a public network]
+ * xref:interact.adoc[Interact with your deployed contracts]

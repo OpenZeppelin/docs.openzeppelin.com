@@ -1,0 +1,11 @@
+= Local staging environment
+
+== what this is
+
+difference from unit testing
+production-like environment
+
+why local:
+  no delays (instant mining)
+  no need to get funds
+
