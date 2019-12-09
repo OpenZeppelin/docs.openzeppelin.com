@@ -4,7 +4,7 @@ In a blockchain environment, a single mistake could cost you all of your funds (
 
 == About Testing
 
-If you ever wrote a program, you also run into to see what happens. That was a test. But not a great one, because you then had to re-run your test manually for every single change to your code. Enter automated testing.
+If you ever wrote a program, you also ran it to see what happens. That was a test. But not a great one, because you then had to re-run your test manually for every single change to your code. Enter automated testing.
 
 Instead of doing things manually, we'll write simple programs ('tests') that will feed your smart contract some input, and then observe how it behaves. If the observed behavior matches the expected one, the test passes!
 
