@@ -8,7 +8,7 @@ If you ever wrote a program, you also ran it to see what happens. That was a tes
 
 Instead of doing things manually, we'll write simple programs ('tests') that will feed your smart contract some input, and then observe how it behaves. If the observed behavior matches the expected one, the test passes!
 
-The sort of tests we'll write here are called https://en.wikipedia.org/wiki/Unit_testing[unit tests]. These are multiple small, focused tests, which each check a small part of your contract for correctness. They can often be expressed in single sentences, which make up a specification: 'the admin is able to pause the contract', 'transferring tokens emits an event', 'non-admins cannot mint new tokens', etc.
+The sort of tests we'll write here are called https://en.wikipedia.org/wiki/Unit_testing[unit tests]. These are multiple small, focused tests, which each check a small part of your contract for correctness. They can often be expressed in single sentences which make up a specification, such as 'the admin is able to pause the contract', 'transferring tokens emits an event' or 'non-admins cannot mint new tokens'.
 
 == Unit Tests for Solidity Contracts
 
