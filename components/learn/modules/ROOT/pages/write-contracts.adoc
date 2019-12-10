@@ -4,7 +4,7 @@ Welcome to the exciting world of smart contract development! This guide will hel
 
 == Learn about Solidity
 
-We won't cover language concepts, syntax, etc. in this guide. For that, you'll want to check out the following curated content, which features great learning resources for new developers and veterans alike:
+We won't cover language concepts such as syntax or keywords in this guide. For that, you'll want to check out the following curated content, which features great learning resources for new developers and veterans alike:
 
  * For a general overview of how Ethereum and smart contracts work, the official https://ethereum.org/learn/[Learn about Ethereum] website hosts lots of beginner-friendly content
  * The https://solidity.readthedocs.io/en/latest/introduction-to-smart-contracts.html[official Solidity documentation] is a very good starting point for people new to the language, as are their https://solidity.readthedocs.io/en/latest/security-considerations.html[security recommendations], which nicely go over the differences between blockchains and traditional software platforms
@@ -15,7 +15,7 @@ We won't cover language concepts, syntax, etc. in this guide. For that, you'll w
 
 Simple works best: all you need to do is create directory called `contracts` and store your Solidity source files (`.sol`) there. That's it!
 
-All tools will automatically pick every contract in this directory, letting you organize your code in subdirectories (e.g. `admin`, `token`, etc.). To import a file from a different directory, simply refer to it by its relative path:
+All tools will automatically pick every contract in this directory, letting you organize your code in subdirectories (such as `access-control` or `token`). To import a file from a different directory, simply refer to it by its relative path:
 
 ```solidity
 import './admin/TransferrableAdmin.sol';
