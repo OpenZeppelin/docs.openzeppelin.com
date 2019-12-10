@@ -6,7 +6,7 @@ Welcome to the exciting world of smart contract development! This guide will hel
 
 We won't cover language concepts, syntax, etc. in this guide. For that, you'll want to check out the following curated content, which features great learning resources for new developers and veterans alike:
 
- * For a general overview of how Ethereum and smart contracts work, you can't go wrong with Matt Condon's https://medium.com/@mattcondon/getting-up-to-speed-on-ethereum-63ed28821bbe[Getting Up to Speed on Ethereum]
+ * For a general overview of how Ethereum and smart contracts work, the official https://ethereum.org/learn/[Learn about Ethereum] website hosts lots of beginner-friendly content
  * The https://solidity.readthedocs.io/en/latest/introduction-to-smart-contracts.html[official Solidity documentation] is a very good starting point for people new to the language, as are their https://solidity.readthedocs.io/en/latest/security-considerations.html[security recommendations], which nicely go over the differences between blockchains and traditional software platforms
  * A set of https://consensys.github.io/smart-contract-best-practices/[best practices] was compiled by Consensys Dilligence: these are quite extensive, and include both https://consensys.github.io/smart-contract-best-practices/recommendations/[proven patterns] to learn from and https://consensys.github.io/smart-contract-best-practices/known_attacks/[known pitfalls] to avoid
  * A rite of passage in the learning of Solidity is playing our very own https://solidity-05.ethernaut.openzeppelin.com/[Ethernaut] game: it'll test your understanding of both language and Ethereum concepts by having you look for subtle vulnerabilities in smart contracts as you advance through the increasingly difficult levels
