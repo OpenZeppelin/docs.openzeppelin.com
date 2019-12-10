@@ -114,6 +114,7 @@ To use one of the OpenZeppelin Contracts, `import` its path with `@openzeppelin/
 
 Let's see how limiting access control to our `SetAndGet` contract looks like:
 
+[[set-and-get-contract]]
 ```solidity
 pragma solidity ^0.5.0;
 
