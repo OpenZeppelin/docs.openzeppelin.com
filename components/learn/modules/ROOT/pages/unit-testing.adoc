@@ -6,7 +6,7 @@ We'll cover the following topics:
 
  * <<setting-up-a-testing-environment, Setting up a Testing Environment>>
  * <<writing-unit-tests, Writing Unit Tests>>
- * <<performing-complex-assertions, Performing Complex Assertions
+ * <<performing-complex-assertions, Performing Complex Assertions>>
  * Best Smart Contract Testing Practices
 
 === About Testing
@@ -110,15 +110,14 @@ It's also a very good idea at this point to set up a Continuous Integration serv
 [[performing-complex-assertions]]
 == Performing Complex Assertions
 
-Many interesting properties of your contracts can be hard to capture with JavaScript primitives, such as:
+Many interesting properties of your contracts may be hard to capture, such as:
 
  * verifying that the contract reverts on errors
  * measuring by how much an account's Ether balance changed
- * validating the values of emitted events
+ * checking that the proper events are emitted
 
-https://github.com/OpenZeppelin/openzeppelin-test-helpers#readme[*OpenZeppelin Test Helpers*] is a library designed to help you test all of these properties. It will also let you simulate time passing on the blockchain, handle very large numbers, and have easy access to common constants.
+https://github.com/OpenZeppelin/openzeppelin-test-helpers#readme[*OpenZeppelin Test Helpers*] is a library designed to help you test all of these properties. It will also simplify the tasks of simulating time passing on the blockchain and handling very large numbers.
 
-Begin by installing it:
 
 ```bash
 $ npm install --save-dev @openzeppelin/test-helpers
@@ -164,7 +163,7 @@ describe('SetAndGet', function () {
 });
 ```
 
-The Test Helpers are very useful, and will let you write powerful assertions without having to worry about the low-level details of the underlying Ethereum libraries. To learn more about what you can do with them, head to their https://github.com/OpenZeppelin/openzeppelin-test-helpers#reference[API reference].
+The Test Helpers will let you write powerful assertions without having to worry about the low-level details of the underlying Ethereum libraries. To learn more about what you can do with them, head to their https://github.com/OpenZeppelin/openzeppelin-test-helpers#reference[API reference].
 
 == Next Steps
 
