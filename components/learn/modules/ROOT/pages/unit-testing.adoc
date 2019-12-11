@@ -22,11 +22,11 @@ Smart contract unit testing consists of multiple small, focused tests, which eac
 
 You may be wondering _how_ we're going to run these tests, since smart contracts are executed inside a blockchain. Using the actual Ethereum network would be very expensive, and while testnets are free, they are also slow (with blocktimes between 5 and 15 seconds). If we intend to run hundreds of tests whenever we make a change to our code, we need something better.
 
-What we will use is called a _local blockchain_: a slimmed down version of the real thing, disconnected from the Internet, running on your machine. This will simplify things quite a bit: you won't need to go get Ether, and you won't have to wait for blocks to be mined.
+What we will use is called a _local blockchain_: a slimmed down version of the real thing, disconnected from the Internet, running on your machine. This will simplify things quite a bit: you won't need to go get Ether, and new blocks will be mined instantly.
 
 To aid us in this we'll use the https://github.com/OpenZeppelin/openzeppelin-test-environment#readme[*OpenZeppelin Test Environment*], a JavaScript library that will take care of setting up our local blockchain.
 
-TIP: If you've read the xref:interact.adoc['Interacting with Your Contracts' guide], you will already be familiar with https://github.com/trufflesuite/ganache-cli/[Ganache]. Test Environment works in a similar way, but is much easier to use.
+NOTE: If you've read the xref:interact.adoc['Interacting with Your Contracts' guide], you will already be familiar with https://github.com/trufflesuite/ganache-cli/[Ganache]. This is what Test Environment uses under the hood, taking care of its configuration for you.
 
 To install the OpenZeppelin Test Environment, run:
 
@@ -34,7 +34,7 @@ To install the OpenZeppelin Test Environment, run:
 $ npm install --save-dev @openzeppelin/test-enviroment
 ```
 
-Once you `require` the library from your JavaScript code, it will automatically run a local testing blockchain for you. It also exports variables and functions related to this environment, such as a list of `accounts` that have been pre-funded with Ether, and convenient ways to load your contracts from their compiled artifacts.
+Once you `require` the library from your JavaScript code, it will automatically run a local testing blockchain for you. It also exports a list of accounts that have been pre-funded with Ether and convenient ways to load your contracts from their compiled artifacts, among other utilities.
 
 ```javascript
 const { accounts, contract } = require('@openzeppelin/test-environment#readme');
