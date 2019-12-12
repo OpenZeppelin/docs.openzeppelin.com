@@ -31,7 +31,7 @@ NOTE: If you've read the xref:interact.adoc['Interacting with Your Contracts' gu
 To install the OpenZeppelin Test Environment, run:
 
 ```bash
-$ npm install --save-dev @openzeppelin/test-enviroment
+$ npm install --save-dev @openzeppelin/test-environment
 ```
 
 Once you `require` the library from your JavaScript code, it will automatically run a local testing blockchain for you. It also exports a list of accounts that have been pre-funded with Ether and convenient ways to load your contracts from their compiled artifacts, among other utilities.
@@ -113,7 +113,7 @@ $ npm test
 
 [TIP]
 ====
-zDon't forget to re-compile your contracts if you make changes to them! If you want to do this automatically on each test run, set your `test` script instead to:
+Don't forget to re-compile your contracts if you make changes to them! If you want to do this automatically on each test run, set your `test` script instead to:
 
 `oz compile && mocha --exit --recursive test`
 ====
