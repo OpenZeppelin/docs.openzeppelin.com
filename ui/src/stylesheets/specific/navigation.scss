@@ -117,6 +117,15 @@
 .collapsible {
   font-weight: var(--weight-bold);
   cursor: pointer;
+
+  &::before{
+    content: url(../images/icons/arrow.svg);
+    margin-right: 0.35em;
+  }
+}
+
+.collapsible.active::before {
+  transform: rotate(90deg);
 }
 
 .collapsible-content {
