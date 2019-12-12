@@ -57,35 +57,37 @@ In order to actually run your tests, you will need to also install a JavaScript 
 $ npm install --save-dev mocha chai
 ```
 
-Create a `test` directory: this is where you will keep your test files. These are best structured by mirroring xref:write-contracts#setting-up-a-solidity-project[the `contracts` directory]: for each `.sol` file there, create a corresponding `.test.js` file.
+Create a `test` directory: this is where you will keep your test files. These are best structured by mirroring xref:writing-smart-contracts#setting-up-a-solidity-project[the `contracts` directory]: for each `.sol` file there, create a corresponding `.test.js` file.
 
-Time to write our first tests! These will test properties of the `SetAndGet` contract xref:write-contracts#set-and-get-contract[from previous guides].
+Time to write our first tests! These will test properties of the `Box` contract xref:writing-smart-contracts#box-contract[from previous guides]: a simple contract that lets you `retrieve` a value the owner previously `store` d.
 
 ```javascript
+// test/Box.test.js
+
 // Load dependencies
 const { accounts, contract } = require('@openzeppelin/test-environment');
 const { expect } = require('chai');
 
 // Load compiled artifacts
-const SetAndGet = contract.fromArtifact('SetAndGet');
+const Box = contract.fromArtifact('Box');
 
 // Start test block
-describe('SetAndGet', function () {
+describe('Box', function () {
   const [ owner ] = accounts;
 
   beforeEach(async function () {
-    // Deploy a new contract for each test
-    this.contract = await SetAndGet.new({ from: owner });
+    // Deploy a new Box contract for each test
+    this.contract = await Box.new({ from: owner });
   });
 
   // Test case
-  it('get returns a value previously set', async function () {
-    // Set a value
-    await this.contract.set(42, { from: owner });
+  it('retrieve returns a value previously stored', async function () {
+    // Store a value - recall that only the owner account can do this!
+    await this.contract.store(42, { from: owner });
 
-    // Test the returned value is the same one - values from the blockchain are
-    // often read as strings
-    expect((await this.contract.get()).toString()).to.equal('42');
+    // Test if the returned value is the same one
+    // Note that we need to use strings to compare the 256 bit integers
+    expect((await this.contract.retrieve()).toString()).to.equal('42');
   });
 });
 ```
@@ -96,14 +98,27 @@ We are now ready to run our tests! The best way to do this is by adding a `test`
 
 [source,diff]
 ----
- 'scripts': {
-+  'test': 'mocha --exit --recursive test'
+ "scripts": {
++  "test": "mocha --exit --recursive test"
  }
 ----
 
-With this, running `npm test` will execute all tests in the `test` directory, checking that your contracts work the way you meant them too.
+With this, running `npm test` will execute all tests in the `test` directory, checking that your contracts work the way you meant them to:
 
-TIP: Don't forget to re-compile your contracts if you make changes to them!
+```bash
+$ npm test
+  Box
+    ✓ retrieve returns a value previously stored
+```
+
+[TIP]
+====
+zDon't forget to re-compile your contracts if you make changes to them! If you want to do this automatically on each test run, set your `test` script instead to:
+
+`oz compile && mocha --exit --recursive test`
+====
+
+Test Environment comes with sensible defaults that should work for most use-cases, but you can always https://github.com/OpenZeppelin/openzeppelin-test-environment/blob/master/docs/modules/ROOT/pages/setup.adoc#configuration[configure] it to provide more accounts or use different kinds of contract objects, among others.
 
 It's also a very good idea at this point to set up a Continuous Integration service such as https://circleci.com/[CircleCI] to make your tests run automatically every time you commit your code to GitHub.
 
@@ -118,52 +133,70 @@ Many interesting properties of your contracts may be hard to capture, such as:
 
 https://github.com/OpenZeppelin/openzeppelin-test-helpers#readme[*OpenZeppelin Test Helpers*] is a library designed to help you test all of these properties. It will also simplify the tasks of simulating time passing on the blockchain and handling very large numbers.
 
-
 ```bash
 $ npm install --save-dev @openzeppelin/test-helpers
 ```
 
-Because Test Environment will detect this installation and configure it for you, we can get started using the library right away:
-
 ```javascript
+// test/Box.test.js
+
 const { accounts, contract } = require('@openzeppelin/test-environment');
-const { expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 const { expect } = require('chai');
 
-const SetAndGet = contract.fromArtifact('SetAndGet');
+// Import utilities from Test Helpers
+const { BN, expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 
-describe('SetAndGet', function () {
+const Box = contract.fromArtifact('Box');
+
+describe('Box', function () {
   const [ owner, other ] = accounts;
 
+  // Use large integers ('big numbers')
+  const value = new BN('42');
+
   beforeEach(async function () {
-    this.contract = await SetAndGet.new({ from: owner });
+    this.contract = await Box.new({ from: owner });
   });
 
-  it('get returns a value previously set', async function () {
-    await this.contract.set(42, { from: owner });
+  it('retrieve returns a value previously stored', async function () {
+    await this.contract.store(value, { from: owner });
 
     // Use large integer comparisons
-    expect(await this.contract.get()).to.be.bignumber.equal('42');
+    expect(await this.contract.retrieve()).to.be.bignumber.equal(value);
   });
 
-  it('set emits an event', async function () {
-    const receipt = await this.contract.set(42);
+  it('store emits an event', async function () {
+    const receipt = await this.contract.store(value, { from: owner });
 
     // Test that a ValueChanged event was emitted with the new value
-    expectEvent(receipt, 'ValueChanged', { newValue: 42 });
+    expectEvent(receipt, 'ValueChanged', { newValue: value });
   });
 
-  it('non owner cannot set new value', async function () {
-    // Test the transaction reverts
+  it('non owner cannot store a value', async function () {
+    // Test a transaction reverts
     await expectRevert(
-      this.contract.set(42, { from: other }),
+      this.contract.store(value, { from: other }),
       'Ownable: caller is not the owner'
     );
   });
 });
 ```
 
+No configuration is required: Test Environment will detect the Test Helpers and do the hard work for you.
+
+Run your tests again to see the Test Helpers in action:
+
+```bash
+$ npm test
+  Box
+    ✓ retrieve returns a value previously stored
+    ✓ store emits an event
+    ✓ non owner cannot store a value
+```
+
 The Test Helpers will let you write powerful assertions without having to worry about the low-level details of the underlying Ethereum libraries. To learn more about what you can do with them, head to their https://github.com/OpenZeppelin/openzeppelin-test-helpers#reference[API reference].
+
+TIP: The OpenZeppelin Test Environment is not required to use the Test Helpers: to learn how to use them standalone or integrated in other systems, refer to their https://github.com/OpenZeppelin/openzeppelin-test-helpers#configuration[documentation].
 
 == Next Steps
 
