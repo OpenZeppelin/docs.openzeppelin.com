@@ -67,78 +67,37 @@ page:
   navigation:
   - content: Overview
     # root: true
-    items:
-    - content: Getting Started
-      url: /contracts/2.x/index.html
-      urlType: internal
-  - content: Basics
+    url: /contracts/2.x/index.html
+    urlType: internal
+  - content: Access Control
+    url: '#'
+  - content: Tokens
     items:
     - &item
-      content: Access Control
-      url: '#'
-      urlType: fragment
-    - <<: *item
-      content: Tokens
-      items:
-        - <<: *item
-          content: Core
-        - <<: *item
-          content: Extensions
-        - <<: *item
-          content: Utilities
-    - <<: *item
-      content: Crowdsales
-      items:
-        - <<: *item
-          content: Crowdsale Rate
-        - <<: *item
-          content: Token Emission
-        - <<: *item
-          content: Validation
-        - <<: *item
-          content: Distribution
-    - <<: *item
-      content: Utilities
-      items:
-        - <<: *item
-          content: Cryptography
-        - <<: *item
-          content: Introspection
-        - <<: *item
-          content: Math
-        - <<: *item
-          content: Payment
-  - content: API
-    items:
-    - <<: *item
-      content: Utils
-      items:
-        - <<: *item
-          content: Core
-        - <<: *item
-          content: Extensions
-        - <<: *item
-          content: Utilities
-    - <<: *item
-      content: Payment
-      items:
-        - <<: *item
-          content: Core
-        - <<: *item
-          content: Extensions
-        - <<: *item
-          content: Utilities
-    - <<: *item
-      content: Math
-    - <<: *item
-      content: Cryptography
-    - <<: *item
-      content: Access
-    - content: ERC 20
+      content: ERC20
       url: /contracts/2.x/api.html
       urlType: internal
-    - <<: *item
-      content: ERC 721
+      items:
+      - <<: *item
+        content: ERC20 Supply
+        url: '#'
+      - <<: *item
+        content: Crowdsales
+        url: '#'
+    - content: ERC721
+      url: '#'
+    - content: ERC777
+      url: '#'
+  - content: GSN
+    items:
+    - content: GSN Strategies
+      url: '#'
+  - content: Utilities
+    url: '#'
+  - content: Releases
+    url: '#'
+  - content: API Reference
+    url: '#' 
   previous:
     content: Getting Started
     url: /contracts/2.x/index.html
