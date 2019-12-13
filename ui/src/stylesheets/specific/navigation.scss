@@ -123,7 +123,7 @@
 }
 
 .collapsible.active::before {
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
 }
 
 .collapsible-content {
