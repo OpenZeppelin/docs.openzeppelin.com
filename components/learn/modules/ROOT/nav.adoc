@@ -1,5 +1,5 @@
 * xref:index.adoc[Overview]
 * xref:writing-smart-contracts.adoc[Writing Smart Contracts]
-* xref:interact.adoc[Interact on a local blockchain]
-* xref:unit-testing.adoc[Automated testing]
+* xref:deploy-and-interact.adoc[Deploy and Interact]
+* xref:unit-testing.adoc[Automated Testing]
 * xref:public-staging.adoc[Deploy to a public network]
