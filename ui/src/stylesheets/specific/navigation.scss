@@ -17,15 +17,6 @@
       color: var(--core-violet-4);
     }
   }
-  .nav-list {
-    a.nav-link-active {
-      font-weight: var(--weight-medium);
-      border-left: 2px solid var(--core-violet-4);
-      padding-left: 8px;
-      margin-left: -10px;
-      border-radius: 1px;
-    }
-  }
 }
 
 .nav-components {
