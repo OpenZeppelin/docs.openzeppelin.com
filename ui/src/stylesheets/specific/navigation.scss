@@ -76,7 +76,7 @@
   margin-left: 1.3rem;
 
   a:hover {
-    color: var(--core-violet-4);
+    opacity: .8;
   }
 }
 
@@ -117,6 +117,9 @@
     width: 1rem;
   }
 
+  &:hover {
+    opacity: .9;
+  }
 }
 
 .collapsible.active::before {
