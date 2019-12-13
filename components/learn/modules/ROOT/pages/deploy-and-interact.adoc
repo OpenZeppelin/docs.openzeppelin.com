@@ -186,5 +186,17 @@ TIP: To learn more about `send-tx` and `call`, check out the https://docs.openze
 [[interacting-programatically]]
 == Interacting Programatically
 
-from sdk interacting guide (https://docs.openzeppelin.com/sdk/2.6/interacting#setup), replace with contract loader?
+from sdk interacting guide (https://docs.openzeppelin.com/sdk/2.6/interacting#setup)
 
+replace manual setup with contract loader?
+
+send tx, call function, same as CLI guide
+
+
+== closing thoughts ???
+
+this was was like testing, but manual and not very complete. automated is better.
+
+next steps:
+    - automated testing
+    - deploying on public testnets
