@@ -51,6 +51,7 @@
 
 .nav-heading {
   color: var(--steel-3);
+  font-weight: var(--weight-bold);
 }
 
 .nav-heading-active {
@@ -107,7 +108,6 @@
 }
 
 .collapsible {
-  font-weight: var(--weight-bold);
   cursor: pointer;
 
   &::before{
