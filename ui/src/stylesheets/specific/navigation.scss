@@ -72,6 +72,7 @@
 .nav-li {
   margin-bottom: 0.5rem;
   line-height: 1.5rem;
+  margin-left: 1.3rem;
 
   a:hover {
     color: var(--core-violet-4);
@@ -111,8 +112,11 @@
 
   &::before{
     content: url(../images/icons/arrow.svg);
-    margin-right: 0.35em;
+    margin-right: 0.3em;
+    margin-left: -1.3rem;
+    width: 1rem;
   }
+
 }
 
 .collapsible.active::before {
@@ -120,7 +124,6 @@
 }
 
 .collapsible-content {
-  padding-left: 10px;
   margin-bottom: var(--md);
 }
 
