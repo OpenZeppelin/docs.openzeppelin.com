@@ -11,7 +11,7 @@ We'll cover the following topics:
 
 === About Testing
 
-There is a a wide range of testing techniques, from xref:interact.adoc[simple manual verifications] to complex end-to-end setups, all of them useful in their own way.
+There is a a wide range of testing techniques, from xref:deploy-and-interact.adoc#interacting-from-the-terminal[simple manual verifications] to complex end-to-end setups, all of them useful in their own way.
 
 When it comes to smart contract development though, practice has shown that https://en.wikipedia.org/wiki/Unit_testing[_contract unit testing_] is exceptionally worthwhile. These tests are simple to write and and quick to run, and let you add features and fix bugs in your code with confidence.
 
@@ -26,7 +26,7 @@ What we will use is called a _local blockchain_: a slimmed down version of the r
 
 To aid us in this we'll use the https://github.com/OpenZeppelin/openzeppelin-test-environment#readme[*OpenZeppelin Test Environment*], a JavaScript library that will take care of setting up our local blockchain.
 
-NOTE: If you've read the xref:interact.adoc['Interacting with Your Contracts' guide], you will already be familiar with https://github.com/trufflesuite/ganache-cli/[Ganache]. This is what Test Environment uses under the hood, taking care of its configuration for you.
+NOTE: If you've read the xref:deploy-and-interact.adoc#local-blockchain[Deploy and Interact guide], you will already be familiar with https://github.com/trufflesuite/ganache-cli/[Ganache]. This is what Test Environment uses under the hood, taking care of its configuration for you.
 
 To install the OpenZeppelin Test Environment, run:
 
