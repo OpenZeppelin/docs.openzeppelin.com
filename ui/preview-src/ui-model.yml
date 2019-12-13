@@ -79,16 +79,55 @@ page:
       urlType: fragment
     - <<: *item
       content: Tokens
+      items:
+        - <<: *item
+          content: Core
+        - <<: *item
+          content: Extensions
+        - <<: *item
+          content: Utilities
     - <<: *item
       content: Crowdsales
+      items:
+        - <<: *item
+          content: Crowdsale Rate
+        - <<: *item
+          content: Token Emission
+        - <<: *item
+          content: Validation
+        - <<: *item
+          content: Distribution
     - <<: *item
       content: Utilities
+      items:
+        - <<: *item
+          content: Cryptography
+        - <<: *item
+          content: Introspection
+        - <<: *item
+          content: Math
+        - <<: *item
+          content: Payment
   - content: API
     items:
     - <<: *item
       content: Utils
+      items:
+        - <<: *item
+          content: Core
+        - <<: *item
+          content: Extensions
+        - <<: *item
+          content: Utilities
     - <<: *item
       content: Payment
+      items:
+        - <<: *item
+          content: Core
+        - <<: *item
+          content: Extensions
+        - <<: *item
+          content: Utilities
     - <<: *item
       content: Math
     - <<: *item
