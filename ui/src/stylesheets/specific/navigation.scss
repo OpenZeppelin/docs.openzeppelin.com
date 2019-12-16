@@ -115,6 +115,7 @@
   cursor: pointer;
 
   &::before{
+    display: inline-block;
     content: url(../images/icons/arrow.svg);
     margin-right: 0.3em;
     margin-left: -1.3rem;
