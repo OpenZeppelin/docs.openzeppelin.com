@@ -29,7 +29,6 @@ We will save this file as `contracts/Box.sol`. Each `.sol` file should have the 
 
 ```solidity
 // contracts/Box.sol
-
 pragma solidity ^0.5.0;
 
 contract Box {
@@ -41,7 +40,6 @@ contract Box {
     // Stores a new value in the contract
     function store(uint256 newValue) public {
         value = newValue;
-
         emit ValueChanged(newValue);
     }
 
@@ -97,7 +95,6 @@ Because the compiler will pick up all files in the `contracts` directory and sub
 [[auth-contract]]
 ```solidity
 // contracts/access-control/Auth.sol
-
 pragma solidity ^0.5.0;
 
 contract Auth {
@@ -105,7 +102,7 @@ contract Auth {
 
   constructor () public {
       // Make the deployer of the contract the administrator
-      administrator == msg.sender;
+      administrator = msg.sender;
   }
 
   function isAdministrator(address user) public view returns (bool) {
@@ -118,7 +115,6 @@ To use this contract from `Box` we use an `import` statement, referring to `Auth
 
 ```solidity
 // contracts/Box.sol
-
 pragma solidity ^0.5.0;
 
 // Import Auth from the access-control subdirectory
@@ -139,7 +135,6 @@ contract Box {
         require(auth.isAdministrator(msg.sender), "Unauthorized");
 
         value = newValue;
-
         emit ValueChanged(newValue);
     }
 
@@ -151,24 +146,24 @@ contract Box {
 
 Separating concerns across multiple contracts is a great way to keep each one simple, and is generally a good practice.
 
-Note however that this is not the only way to split your code into modules: the next section will teach you about using _inheritance_ as an encapsulation mechanism.
+However, this is not the only way to split your code into modules. You can also use _inheritance_ for encapsulation and code reuse in Solidity, as we'll see next.
 
 [[using-openzeppelin-contracts]]
-== Using the OpenZeppelin Contracts Library
+== The OpenZeppelin Contracts Library
 
-Reusable modules and libraries are the cornerstone of great software. The https://openzeppelin.com/contracts/[*OpenZeppelin Contracts*] library contains lots of useful building blocks for smart contracts to build on. And you can rest easy: they've been the subject of multiple audits, with their security and correctness battle-tested.
+Reusable modules and libraries are the cornerstone of great software. The https://openzeppelin.com/contracts/[*OpenZeppelin Contracts*] library contains lots of useful building blocks for smart contracts to build on. And you can rest easy when building on them: they've been the subject of multiple audits, with their security and correctness battle-tested.
 
 === About Inheritance
 
-Most of the contracts in the library are not standalone, that is, you're not expected to deploy them as-is. Instead, you will use them to _augment_ your own contracts by adding features to them. Solidity provides _inheritance_ as a mechanism to achieve this: take a look at the https://solidity.readthedocs.io/en/latest/contracts.html#inheritance[official documentation] to learn about the details behind it.
+Many of the contracts in the library are not standalone, that is, you're not expected to deploy them as-is. Instead, you will use them to _augment_ your own contracts by adding features to them. Solidity provides _multiple inheritance_ as a mechanism to achieve this: take a look at the https://solidity.readthedocs.io/en/latest/contracts.html#inheritance[official documentation] to learn about the details behind it.
 
 For example, the https://docs.openzeppelin.com/contracts/2.x/api/ownership#Ownable[`Ownable`] contract marks the deployer account as the contract's owner, and provides a modifier called `onlyOwner`. When applied to a function, `onlyOwner` will cause all function calls that do not originate from the owner account to revert. Functions to https://docs.openzeppelin.com/contracts/2.x/api/ownership#Ownable-transferOwnership-address-[transfer] and https://docs.openzeppelin.com/contracts/2.x/api/ownership#Ownable-renounceOwnership--[renounce] ownership are also available.
 
-When used this way, inheritance becomes a powerful mechanism that allows for straightforward modularization, without forcing you to deploy and manage multiple contracts.
+When used this way, inheritance becomes a powerful mechanism that allows for modularization, without forcing you to deploy and manage multiple contracts.
 
-=== Using Library Contracts
+=== Importing OpenZeppelin Contracts
 
-The latest published release can be downloaded by running:
+The latest published release of the OpenZeppelin Contracts library can be downloaded by running:
 
 ```bash
 $ npm install --save-dev @openzeppelin/contracts
@@ -176,20 +171,18 @@ $ npm install --save-dev @openzeppelin/contracts
 
 NOTE: You should always use the library from these published releases: copy-pasting library source code into your project is a dangerous practice that makes it very easy to introduce security vulnerabilities in your contracts.
 
-To use one of the OpenZeppelin Contracts, `import` it by preffixing its path with `@openzeppelin/contracts`.
-
-Instead of developing our own <<auth-contract, `Auth`>> contract, we can now use `Ownable` to add access control to `Box`:
+To use one of the OpenZeppelin Contracts, `import` it by prefixing its path with `@openzeppelin/contracts`. For example, in order to replace our own <<auth-contract, `Auth`>> contract, we will import `@openzeppelin/contracts/ownership/Ownable.sol` to add access control to `Box`:
 
 [[box-contract]]
 ```solidity
 // contracts/Box.sol
-
 pragma solidity ^0.5.0;
 
 // Import Ownable from the OpenZeppelin Contracts library
 import '@openzeppelin/contracts/ownership/Ownable.sol';
 
-contract Box is Ownable { // Make Box inherit from the Ownable contract
+// Make Box inherit from the Ownable contract
+contract Box is Ownable {
     uint256 private value;
 
     event ValueChanged(uint256 newValue);
@@ -197,7 +190,6 @@ contract Box is Ownable { // Make Box inherit from the Ownable contract
     // The onlyOwner modifier restricts who can call the store function
     function store(uint256 newValue) public onlyOwner {
         value = newValue;
-
         emit ValueChanged(newValue);
     }
 
@@ -206,8 +198,6 @@ contract Box is Ownable { // Make Box inherit from the Ownable contract
     }
 }
 ```
-
-NOTE: Despite the OpenZeppelin Contracts not being located in your `contracts` directory, the CLI is smart enough to know where to look for them while compiling.
 
 The https://docs.openzeppelin.com/contracts/2.x/#next-steps[OpenZeppelin Contracts documentation] is a great place to learn about developing secure smart contract systems. It features both guides and a detailed API reference: see for example the https://docs.openzeppelin.com/contracts/2.x/access-control[Access Control guide] to know more about the `Ownable` contract used in the code sample above.
 
