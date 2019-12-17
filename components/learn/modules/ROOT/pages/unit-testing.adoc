@@ -11,7 +11,7 @@ We'll cover the following topics:
 
 === About Testing
 
-There is a a wide range of testing techniques, from xref:deploy-and-interact.adoc#interacting-from-the-terminal[simple manual verifications] to complex end-to-end setups, all of them useful in their own way.
+There is a a wide range of testing techniques, from xref:deploy-and-interact.adoc#interacting-via-the-cli[simple manual verifications] to complex end-to-end setups, all of them useful in their own way.
 
 When it comes to smart contract development though, practice has shown that https://en.wikipedia.org/wiki/Unit_testing[_contract unit testing_] is exceptionally worthwhile. These tests are simple to write and and quick to run, and let you add features and fix bugs in your code with confidence.
 

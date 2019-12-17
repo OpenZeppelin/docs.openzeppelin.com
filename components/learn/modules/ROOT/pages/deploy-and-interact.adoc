@@ -5,7 +5,7 @@ Unlike most software, smart contracts don't run on your computer or somebody's s
 This guide will cover all you need to know to get you started using your contracts, including:
 
  * <<deploying-a-smart-contract, Deploying a Smart Contract>>
- * <<interacting-from-the-terminal, Interacting from the Terminal>>
+ * <<interacting-via-the-cli, Interacting from the Terminal>>
  * <<performing-complex-assertions, Interacting Programatically>>
 
 [[local-blockchain]]
@@ -15,7 +15,7 @@ The Ethereum blockchain (often called 'mainnet', for 'main network') requires sp
 
 To solve this, a number of 'testnets' (for 'test networks') exist: these include the Ropsten, Rinkeby and Kovan blockchains. They work very similarly to mainnet, with one key difference: you can get Ether for these networks for free, so that using them doesn't cost you a single cent. However, you will still need to deal with private key management, blocktimes in the range of 5 to 20 seconds, and actually getting this free Ether. And of course, an Internet connection.
 
-During development, it is often a great idea to instead use a _local_ blockchain. It will run on your machine, requiring no Internet connection, provide you with all the Ether that you need, and mine blocks instantly. These reasons will also make local blockchains a great match for xref:unit-testing.adoc#setting-up-a-testing-environment[automated tests].
+During development, it is often a great idea to instead use a _local_ blockchain. It will run on your machine, requiring no Internet access, provide you with all the Ether that you need, and mine blocks instantly. These reasons will also make local blockchains a great match for xref:unit-testing.adoc#setting-up-a-testing-environment[automated tests].
 
 TIP: If you want to learn how to deploy and use contracts on a _public_ blockchain, like the Ethereum testnets, head to our xref:public-staging.adoc[Using Public Networks] guide.
 
@@ -25,7 +25,7 @@ The most popular local blockchain is called https://github.com/trufflesuite/gana
 $ npm install --save-dev ganache-cli
 ```
 
-By default, Ganache will create a random set of unlocked accounts and give them Ether. In order to get the same addresses that will be used in this guide, disable this behavior by starting Ganache in deterministic mode:
+By default, Ganache will create a random set of unlocked accounts and give them Ether. In order to get the same addresses that will be used in this guide, you can start Ganache in deterministic mode:
 
 ```
 $ npx ganache-cli --deterministic
@@ -33,7 +33,9 @@ $ npx ganache-cli --deterministic
 
 Ganache will print out a list of available accounts and their private keys, along with some blockchain configuration values. Most importantly, it will display its address, which we will use to connect to it. By default, this will be `127.0.0.1:8545`.
 
-Something to keep in mind is that every time you run Ganache, it will create a brand new local blockchain - the state of previous runs is **not** preserved. This is fine for our short-lived experiments, but it does mean you will need to have a window open running Ganache for the duration of this guide.
+Something to keep in mind is that every time you run Ganache, it will create a brand new local blockchain - the state of previous runs is **not** preserved. This is fine for our short-lived experiments, but it means that you will need to have a window open running Ganache for the duration of this guide. Alternatively, you can run Ganache with the `--db` option, providing a directory to store its data inbetween runs.
+
+NOTE: As an alternative to Ganache, you can also run an actual Ethereum node in _https://geth.ethereum.org/getting-started/dev-mode[development] https://wiki.parity.io/Private-development-chain[mode]_. These are a bit more complex to set up, and not as flexible for testing and development, but are more representative of the real network than Ganache.
 
 [[getting-started-with-the-cli]]
 == Getting Started with the OpenZeppelin CLI
@@ -54,7 +56,7 @@ $ npx oz init
 
 Two things will happen during initialization. First, an `.openzeppelin` directory will be created, holding project-specific information. This directory will be managed by the CLI: you won't need to manually edit anything. It is important however to commit any changes here to your Git repository.
 
-Second, the CLI will store network configuration in a file called `networks.js`. It is conveniently already populated with an entry called `development`, with configuration matching <<local-blockchain, Ganache>>'s default.
+Second, the CLI will store network configuration in a file called `networks.js`. For convenience, it is already populated with an entry called `development`, with configuration matching <<local-blockchain, Ganache>>'s default.
 
 Let's use our first CLI commands to get acquainted with it. We'll begin by querying Ganache for all unlocked accounts:
 
@@ -85,7 +87,7 @@ $ npx oz balance
 Balance: 100 ETH
 ```
 
-This shows why using a local blockchain is so convenient: Ganache has prefunded all of our accounts with 100 Ether, which means we'll be able to send plenty of transactions using them.
+This shows why using a local blockchain is so convenient: Ganache has prefunded all of our accounts with 100 Ether, which means we'll be able to send plenty of transactions!
 
 [[deploying-a-smart-contract]]
 == Deploying a Smart Contract
@@ -94,7 +96,6 @@ With the <<getting-started-with-the-cli, CLI setup complete>>, we're now ready t
 
 ```solidity
 // contracts/Box.sol
-
 pragma solidity ^0.5.0;
 
 contract Box {
@@ -106,7 +107,6 @@ contract Box {
     // Stores a new value in the contract
     function store(uint256 newValue) public {
         value = newValue;
-
         emit ValueChanged(newValue);
     }
 
@@ -133,23 +133,23 @@ All contracts have been deployed
 
 All done! On a real network this process would've taken a couple seconds, but it is instant on local blockchains.
 
-TIP: If you got a connection error, make sure you are <<local-blockchain, running Ganache>> in the background.
+TIP: If you got a connection error, make sure you are <<local-blockchain, running Ganache>> in another terminal.
 
 The CLI will keep track of your deployed contracts, but it also displays their addresses after deployment (in our example, `0xCfEB869F69431e42cdB54A4F4f105C19C080A601`). These values will be useful when interacting with them programatically.
 
 NOTE: Remember that local blockchains **do not** persist their state throughout multiple runs! If you close your Ganache process, you'll have to re-deploy your contracts.
 
-[[interacting-from-the-terminal]]
-== Interacting from the Terminal
+[[interacting-via-the-cli]]
+== Interacting via the CLI
 
 With our `Box` contract <<deploying-a-smart-contract, deployed>>, we can start using it right away from the <<getting-started-with-the-cli, CLI>>.
 
 
 === Sending Transactions
 
-`Box` 's first function, `store`, receives an integer value and stores it on the blockchain. Because this function _modifies_ the blockchain state, we need to _send a transaction_ to the contract to execute it.
+`Box` 's first function, `store`, receives an integer value and stores it on the contract storage. Because this function _modifies_ the blockchain state, we need to _send a transaction_ to the contract to execute it.
 
-This can be achieved with the CLI's `send-tx` command. Because the CLI knows about your deployment of `Box`, you won't need to specify its address or describe its interface - these will be picked up automatically:
+This can be achieved with the CLI's `send-tx` command. Choose your `Box` contract when prompted by the CLI, and select the `store` function, with whatever value you want to send.
 
 ```bash
 $ npx oz send-tx
@@ -162,11 +162,11 @@ Events emitted:
  - ValueChanged(5)
 ```
 
-Note how `send-tx` also detected that `Box` emitted a `ValueChanged` event with our newly stored value, 5.
+Note how `send-tx` also detected that `Box` emitted a `ValueChanged` event with our newly stored value.
 
 === Querying State
 
-`Box` 's other function is called `retrieve`, and it returns the integer value stored in the contract. This is a _query_ of blockchain state, so we don't need to send a transaction: a _call_ will suffice.
+`Box` 's other function is called `retrieve`, and it returns the integer value stored in the contract. This is a _query_ of blockchain state, so we don't need to send a transaction: a static _call_ will suffice.
 
 You may have noticed `send-tx` didn't include `retrieve` in the list of functions to run: this is because queries are run using the `call` command instead:
 
