@@ -11,7 +11,7 @@
     <div class="nav-component">
       <a class="flex align-center" href="{{{./url}}}" tabindex="0">
         <img class="nav-icon" src="{{@root.uiRootPath}}/images/icons/{{{this.name}}}.svg">
-        <span class="nav-heading nav-component-heading">{{{./title}}}</span>
+        <span class="nav-component-heading">{{{./title}}}</span>
       </a>
     </div>
     {{/sorted}}
@@ -21,7 +21,7 @@
   {{#with @root.page.component}}
   <div class="nav-component {{#if (eq this @root.page.component)}}nav-component-active{{/if}}">
 
-    <div class="flex justify-justified nav-heading nav-component-heading {{#if (eq this @root.page.component)}}nav-heading-active{{/if}}">
+    <div class="flex justify-justified nav-component-heading {{#if (eq this @root.page.component)}}nav-heading-active{{/if}}">
       <a {{#if (eq this @root.page.component)}}{{/if}} tabindex="0">
         <span>{{{./title}}}</span>
       </a>
