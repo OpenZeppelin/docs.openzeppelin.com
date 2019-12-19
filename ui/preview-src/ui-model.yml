@@ -13,6 +13,15 @@ site:
       version: 'master'
       displayVersion: 'master'
     latestVersion: *latest_version_abc
+  - name: entryguides
+    title: Entry Guides
+    url: '#'
+    versions:
+    - &latest_version_abc
+      url: '#' 
+      version: '1.x'
+      displayVersion: '1.x'
+    latestVersion: *latest_version_abc
   - &component_contracts
     name: contracts
     title: Contracts
