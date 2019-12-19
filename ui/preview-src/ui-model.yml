@@ -4,8 +4,9 @@ site:
   url: http://localhost:5252
   title: OpenZeppelin
   components:
-  - name: openzeppelin
-    title: OpenZeppelin
+  - &component_openzeppelin
+    name: openzeppelin
+    title: Home
     url: /openzeppelin/index.html
     versions:
     - &latest_version_abc
