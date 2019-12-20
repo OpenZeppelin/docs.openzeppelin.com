@@ -41,7 +41,7 @@ content:
       branches: docs-v*
       start_path: docs
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-contract-loader.js
+    - url: https://github.com/OpenZeppelin/openzeppelin-contract-loader
       branches: docs-v*
       start_path: docs
 ui:
