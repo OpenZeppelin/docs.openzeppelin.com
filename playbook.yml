@@ -40,6 +40,10 @@ content:
     - url: https://github.com/OpenZeppelin/openzeppelin-network.js
       branches: docs-v*
       start_path: docs
+
+    - url: https://github.com/OpenZeppelin/openzeppelin-contract-loader.js
+      branches: docs-v*
+      start_path: docs
 ui:
   bundle:
     url: ./ui/build/oz-docs-ui.zip
