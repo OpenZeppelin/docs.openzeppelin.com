@@ -8,3 +8,9 @@
   from = "/"
   to = "/openzeppelin"
   status = 302
+
+# The Starter Kit component used to have version 2.3 before it was made versionless.
+[[redirects]]
+  from = "/starter-kits/2.3/*"
+  to = "/starter-kits/:splat"
+  status = 302
