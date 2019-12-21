@@ -19,7 +19,7 @@
         <div class="component-version">
           {{#if (and versions (eq this @root.page.component))}}
           {{#unless (eq versions.length 1)}}
-          <button class="flex align-center shrink btn btn-version">
+          <button class="flex align-center shrink btn btn-version" onclick="this.focus()">
             {{@root.page.componentVersion.displayVersion}}
             {{!-- @@include('public/_theme/images/icons/chevron.svg')--}}
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#000" viewBox="0 0 30 30">

@@ -17,15 +17,6 @@
       color: var(--core-violet-4);
     }
   }
-  .nav-list {
-    a.nav-link-active {
-      font-weight: var(--weight-medium);
-      border-left: 2px solid var(--core-violet-4);
-      padding-left: 8px;
-      margin-left: -10px;
-      border-radius: 1px;
-    }
-  }
 }
 
 .nav-components {
@@ -81,10 +72,16 @@
 .nav-li {
   margin-bottom: 0.5rem;
   line-height: 1.5rem;
+  margin-left: 1.3rem;
 
   a:hover {
-    color: var(--core-violet-4);
+    opacity: .8;
   }
+}
+
+.nav-link code {
+    font-size: .9rem;
+    padding: 0;
 }
 
 .nav-icon {
@@ -115,12 +112,26 @@
 }
 
 .collapsible {
-  font-weight: var(--weight-bold);
   cursor: pointer;
+
+  &::before{
+    display: inline-block;
+    content: url(../images/icons/arrow.svg);
+    margin-right: 0.3em;
+    margin-left: -1.3rem;
+    width: 1rem;
+  }
+
+  &:hover {
+    opacity: .9;
+  }
+}
+
+.collapsible.active::before {
+  transform: rotate(-90deg);
 }
 
 .collapsible-content {
-  padding-left: 10px;
   margin-bottom: var(--md);
 }
 

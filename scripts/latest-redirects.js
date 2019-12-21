@@ -18,6 +18,8 @@ for (const comp of components) {
   const versions = glob.sync('*/', { cwd: `build/site/${comp}` })
     // Remove trailing slash.
     .map(c => c.replace(/\/$/, ''))
+    // Remove anything that doesn't look like a version.
+    .filter(c => sv.coerce(c) !== null)
     // Sort from latest to oldest. Coerces each version into a valid semver
     // version because some component versions might be '2.x'.
     .sort((a, b) => sv.rcompare(sv.coerce(a), sv.coerce(b)));
