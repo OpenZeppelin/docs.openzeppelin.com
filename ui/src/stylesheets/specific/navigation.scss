@@ -6,7 +6,7 @@
   top: 0;
   width: var(--nav-width);
   background: var(--core-gray);
-  color: var(--steel-2);
+  color: var(--color-text-light);
   padding-top: 70px;
 
   a {
@@ -19,8 +19,9 @@
   }
 }
 
-.nav-component {
-  margin-top: 1rem;
+.nav-components {
+  height: calc(100% - 25px);
+}
 
 .btn-back {
   opacity: .6;
@@ -38,8 +39,11 @@
   }
 }
 
-.nav-components {
-  height: calc(100% - 25px);
+.nav-heading {
+  font-size: 1.3rem;
+  font-weight: var(--weight-medium);
+  font-family: var(--heading);
+  margin: .75rem 0;
 }
 
 .nav-component-active {

@@ -22,10 +22,8 @@
   <a class="btn-back" href="{{{@root.site.url}}}">Home</a>
   <div class="nav-component {{#if (eq this @root.page.component)}}nav-component-active{{/if}}">
 
-    <div class="flex justify-justified nav-component-heading {{#if (eq this @root.page.component)}}nav-heading-active{{/if}}">
-      <a {{#if (eq this @root.page.component)}}{{/if}} tabindex="0">
-        <span>{{{./title}}}</span>
-      </a>
+    <div class="flex justify-justified nav-heading">
+      <span class="">{{{./title}}}</span>
       <div class="component-version">
         {{#if (and versions (eq this @root.page.component))}}
         {{#unless (eq versions.length 1)}}
