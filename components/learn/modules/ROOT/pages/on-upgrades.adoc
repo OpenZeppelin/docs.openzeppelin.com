@@ -1,0 +1,8 @@
+= Upgrades
+
+Are smart contracts immutable?
+Hint: https://en.wikipedia.org/wiki/Betteridge%27s_law_of_headlines
+
+Example using the CLI (see first project guide in SDK today)
+Short explanation on how it works plus links
+Small example using upgrades.js

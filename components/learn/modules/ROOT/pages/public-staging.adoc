@@ -1,0 +1,39 @@
+= Public staging environment
+
+pretty much this: https://docs.openzeppelin.com/sdk/2.6/public-deploy
+
+== what this is
+
+difference from unit testing
+production-like environment
+
+== setting up
+
+choose a network (probably ropsten or rinkeby, ropsten is closer to mainnet but rinkeby is more reliable)
+
+=== connection
+infura (explain, get account)
+
+=== funds
+get funds (faucet, depends on network)
+hdwallet provider
+
+=== configure w/dotenv
+use dotenv and hdwallet provider
+add network entry to networks.js
+
+== send CLI commands
+
+same as local, but:
+  not instant
+  persistent forever in <network>.json files
+  `from` is important
+
+note that call is still free and almost instant
+
+== programmatic CLI commands
+
+same caveats apply, using loader still works
+
+next steps:
+  mainnet

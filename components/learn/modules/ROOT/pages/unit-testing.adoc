@@ -1,0 +1,206 @@
+= Testing Smart Contracts
+
+In a blockchain environment, a single mistake could cost you all of your funds - or even worse, your users'!. This guide will help you develop robust applications by writing automated tests that verify your application behaves exactly as you intended.
+
+We'll cover the following topics:
+
+ * <<setting-up-a-testing-environment, Setting up a Testing Environment>>
+ * <<writing-unit-tests, Writing Unit Tests>>
+ * <<performing-complex-assertions, Performing Complex Assertions>>
+ * Best Smart Contract Testing Practices
+
+=== About Testing
+
+There is a a wide range of testing techniques, from xref:deploy-and-interact.adoc#interacting-via-the-cli[simple manual verifications] to complex end-to-end setups, all of them useful in their own way.
+
+When it comes to smart contract development though, practice has shown that https://en.wikipedia.org/wiki/Unit_testing[_contract unit testing_] is exceptionally worthwhile. These tests are simple to write and and quick to run, and let you add features and fix bugs in your code with confidence.
+
+Smart contract unit testing consists of multiple small, focused tests, which each check a small part of your contract for correctness. They can often be expressed in single sentences that make up a specification, such as 'the admin is able to pause the contract', 'transferring tokens emits an event' or 'non-admins cannot mint new tokens'.
+
+[[setting-up-a-testing-environment]]
+== Setting up a Testing Environment
+
+You may be wondering _how_ we're going to run these tests, since smart contracts are executed inside a blockchain. Using the actual Ethereum network would be very expensive, and while testnets are free, they are also slow (with blocktimes between 5 and 15 seconds). If we intend to run hundreds of tests whenever we make a change to our code, we need something better.
+
+What we will use is called a _local blockchain_: a slimmed down version of the real thing, disconnected from the Internet, running on your machine. This will simplify things quite a bit: you won't need to go get Ether, and new blocks will be mined instantly.
+
+To aid us in this we'll use the https://github.com/OpenZeppelin/openzeppelin-test-environment#readme[*OpenZeppelin Test Environment*], a JavaScript library that will take care of setting up our local blockchain.
+
+NOTE: If you've read the xref:deploy-and-interact.adoc#local-blockchain[Deploy and Interact guide], you will already be familiar with https://github.com/trufflesuite/ganache-cli/[Ganache]. This is what Test Environment uses under the hood, taking care of its configuration for you.
+
+To install the OpenZeppelin Test Environment, run:
+
+```bash
+$ npm install --save-dev @openzeppelin/test-environment
+```
+
+Once you `require` the library from your JavaScript code, it will automatically run a local testing blockchain for you. It also exports a list of accounts that have been pre-funded with Ether and convenient ways to load your contracts from their compiled artifacts, among other utilities.
+
+```javascript
+const { accounts, contract } = require('@openzeppelin/test-environment#readme');
+
+// Use the different accounts, which are unlocked and funded with Ether
+const [ admin, deployer, user ] = accounts;
+
+// Create a contract object from a compilation artifact
+const MyContract = contract.fromArtifact('MyContract');
+```
+
+For detailed information on these exported values and their usage, refer to Test Environment's https://github.com/OpenZeppelin/openzeppelin-test-environment/blob/master/docs/modules/ROOT/pages/api.adoc[API reference].
+
+[[writing-unit-tests]]
+== Writing Unit Tests
+
+In order to actually run your tests, you will need to also install a JavaScript _test runner_. You are free to use any of the https://github.com/OpenZeppelin/openzeppelin-test-environment/blob/master/docs/modules/ROOT/pages/setup.adoc#test-runners[recommended ones]: for this guide, we'll pick https://mochajs.org/[Mocha] with https://www.chaijs.com/[Chai] assertions.
+
+```bash
+$ npm install --save-dev mocha chai
+```
+
+Create a `test` directory: this is where you will keep your test files. These are best structured by mirroring xref:writing-smart-contracts#setting-up-a-solidity-project[the `contracts` directory]: for each `.sol` file there, create a corresponding `.test.js` file.
+
+Time to write our first tests! These will test properties of the `Box` contract xref:writing-smart-contracts#box-contract[from previous guides]: a simple contract that lets you `retrieve` a value the owner previously `store` d.
+
+```javascript
+// test/Box.test.js
+
+// Load dependencies
+const { accounts, contract } = require('@openzeppelin/test-environment');
+const { expect } = require('chai');
+
+// Load compiled artifacts
+const Box = contract.fromArtifact('Box');
+
+// Start test block
+describe('Box', function () {
+  const [ owner ] = accounts;
+
+  beforeEach(async function () {
+    // Deploy a new Box contract for each test
+    this.contract = await Box.new({ from: owner });
+  });
+
+  // Test case
+  it('retrieve returns a value previously stored', async function () {
+    // Store a value - recall that only the owner account can do this!
+    await this.contract.store(42, { from: owner });
+
+    // Test if the returned value is the same one
+    // Note that we need to use strings to compare the 256 bit integers
+    expect((await this.contract.retrieve()).toString()).to.equal('42');
+  });
+});
+```
+
+TIP: Many books have been written about how to structure unit tests: for a quick reference, check out the https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/test[tests for OpenZeppelin Contracts], or the following https://medium.com/coinmonks/how-to-test-ethereum-smart-contracts-ac28fa852281[guide for ERC20 tests].
+
+We are now ready to run our tests! The best way to do this is by adding a `test` script to your `package.json`:
+
+[source,diff]
+----
+ "scripts": {
++  "test": "mocha --exit --recursive test"
+ }
+----
+
+With this, running `npm test` will execute all tests in the `test` directory, checking that your contracts work the way you meant them to:
+
+```bash
+$ npm test
+  Box
+    ✓ retrieve returns a value previously stored
+```
+
+[TIP]
+====
+Don't forget to re-compile your contracts if you make changes to them! If you want to do this automatically on each test run, set your `test` script instead to:
+
+`oz compile && mocha --exit --recursive test`
+====
+
+Test Environment comes with sensible defaults that should work for most use-cases, but you can always https://github.com/OpenZeppelin/openzeppelin-test-environment/blob/master/docs/modules/ROOT/pages/setup.adoc#configuration[configure] it to provide more accounts or use different kinds of contract objects, among others.
+
+It's also a very good idea at this point to set up a Continuous Integration service such as https://circleci.com/[CircleCI] to make your tests run automatically every time you commit your code to GitHub.
+
+[[performing-complex-assertions]]
+== Performing Complex Assertions
+
+Many interesting properties of your contracts may be hard to capture, such as:
+
+ * verifying that the contract reverts on errors
+ * measuring by how much an account's Ether balance changed
+ * checking that the proper events are emitted
+
+https://github.com/OpenZeppelin/openzeppelin-test-helpers#readme[*OpenZeppelin Test Helpers*] is a library designed to help you test all of these properties. It will also simplify the tasks of simulating time passing on the blockchain and handling very large numbers.
+
+```bash
+$ npm install --save-dev @openzeppelin/test-helpers
+```
+
+```javascript
+// test/Box.test.js
+
+const { accounts, contract } = require('@openzeppelin/test-environment');
+const { expect } = require('chai');
+
+// Import utilities from Test Helpers
+const { BN, expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
+
+const Box = contract.fromArtifact('Box');
+
+describe('Box', function () {
+  const [ owner, other ] = accounts;
+
+  // Use large integers ('big numbers')
+  const value = new BN('42');
+
+  beforeEach(async function () {
+    this.contract = await Box.new({ from: owner });
+  });
+
+  it('retrieve returns a value previously stored', async function () {
+    await this.contract.store(value, { from: owner });
+
+    // Use large integer comparisons
+    expect(await this.contract.retrieve()).to.be.bignumber.equal(value);
+  });
+
+  it('store emits an event', async function () {
+    const receipt = await this.contract.store(value, { from: owner });
+
+    // Test that a ValueChanged event was emitted with the new value
+    expectEvent(receipt, 'ValueChanged', { newValue: value });
+  });
+
+  it('non owner cannot store a value', async function () {
+    // Test a transaction reverts
+    await expectRevert(
+      this.contract.store(value, { from: other }),
+      'Ownable: caller is not the owner'
+    );
+  });
+});
+```
+
+No configuration is required: Test Environment will detect the Test Helpers and do the hard work for you.
+
+Run your tests again to see the Test Helpers in action:
+
+```bash
+$ npm test
+  Box
+    ✓ retrieve returns a value previously stored
+    ✓ store emits an event
+    ✓ non owner cannot store a value
+```
+
+The Test Helpers will let you write powerful assertions without having to worry about the low-level details of the underlying Ethereum libraries. To learn more about what you can do with them, head to their https://github.com/OpenZeppelin/openzeppelin-test-helpers#reference[API reference].
+
+TIP: The OpenZeppelin Test Environment is not required to use the Test Helpers: to learn how to use them standalone or integrated in other systems, refer to their https://github.com/OpenZeppelin/openzeppelin-test-helpers#configuration[documentation].
+
+== Next Steps
+
+Once you have thoroughly tested your contracts and are reasonably sure of their correctness, you'll want to deploy them to a real network and start interacting with them. The following guides will get you up to speed on these topics:
+
+ * xref:public-staging.adoc[Deploy contracts to a public network]
+ * xref:interact.adoc[Interact with your deployed contracts]

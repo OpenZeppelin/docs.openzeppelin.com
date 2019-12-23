@@ -1,0 +1,12 @@
+= Working on Mainnet
+
+[rough outline]
+
+same as public testnets technically
+
+only real difference: Ether must be purchased, isn't free
+
+**however**
+  - get an audit
+  - safe key management
+  - recall blockchain properties: everyone can send txs, all information is public and stored forever
