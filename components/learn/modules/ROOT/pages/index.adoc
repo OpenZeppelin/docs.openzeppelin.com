@@ -1,0 +1,14 @@
+= Welcome to entry guides
+
+about these guides:
+
+ . standalone
+ . useful to read in sequence
+
+== Development Environment Setup
+
+our tools are javascript and solidity, distributed via npm
+
+install them via `npm install --save-dev` or `yarn add --dev`
+
+use npx to run cli commands
