@@ -1,0 +1,8 @@
+= Dapps
+
+What is dapp vs a web 2.0 app?
+Components: CLI for managing contracts, connecting to the network, loading your contracts
+Introduce Network.js and hot-loader without sample project
+Starter kit for setting everything up
+
+See content from "writing a dapp" in SDK today
