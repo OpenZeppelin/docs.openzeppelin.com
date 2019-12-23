@@ -3,7 +3,6 @@
   {{#each items}}
   <li class="nav-li" {{#if currentPath}}data-state="expanded"{{/if}}>
     {{#if url}}
-    <button>
     <a class="link nav-link{{#if (eq url @root.page.url)}} nav-link-active{{/if}}{{#if items}} collapsible{{/if}}" href="{{{url}}}">
       {{{content}}}
     </a>
