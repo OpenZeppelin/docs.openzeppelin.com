@@ -21,6 +21,21 @@
 
 .nav-component {
   margin-top: 1rem;
+
+.btn-back {
+  opacity: .6;
+  margin-bottom: 0.5rem;
+  line-height: 1.5rem;
+  margin-left: 1.3rem;
+  cursor: pointer;
+
+  &::before{
+    display: inline-block;
+    content: url(../images/icons/arrow_back.svg);
+    margin-right: 0.3em;
+    margin-left: -1.3rem;
+    width: 1rem;
+  }
 }
 
 .nav-components {

@@ -19,6 +19,7 @@
 
   {{else}}
   {{#with @root.page.component}}
+  <a class="btn-back" href="{{{@root.site.url}}}">Home</a>
   <div class="nav-component {{#if (eq this @root.page.component)}}nav-component-active{{/if}}">
 
     <div class="flex justify-justified nav-component-heading {{#if (eq this @root.page.component)}}nav-heading-active{{/if}}">
