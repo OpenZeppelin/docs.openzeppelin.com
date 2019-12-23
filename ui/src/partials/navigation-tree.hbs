@@ -1,23 +1,20 @@
 {{#if items}}
-<ol class="nav-list">
+<ol class="nav-list collapsible-content">
   {{#each items}}
-  <li class="nav-li" {{#if currentPath}}data-state="expanded"
-    {{/if}}>
+  <li class="nav-li" {{#if currentPath}}data-state="expanded"{{/if}}>
     {{#if url}}
-    <a class="link nav-link{{#if (eq url @root.page.url)}} nav-link-active{{/if}}{{#if items}} collapsible{{/if}}"
-      href="{{{./url}}}">
-      {{{./content}}}
+    <button>
+    <a class="link nav-link{{#if (eq url @root.page.url)}} nav-link-active{{/if}}{{#if items}} collapsible{{/if}}" href="{{{url}}}">
+      {{{content}}}
     </a>
     {{else}}
     {{#if content}}
-    <span class="collapsible">{{{./content}}}</span>
+    <span class="collapsible">{{{content}}}</span>
     {{/if}}
     {{/if}}
     {{!-- Nesting --}}
     {{#if items}}
-    <ol class="nav-list collapsible-content">
-      {{> navigation-tree navigation=./items level=(increment ../level) }}
-    </ol>
+    {{> navigation-tree navigation=items level=(increment .level) }}
     {{/if}}
   </li>
   {{/each}}
