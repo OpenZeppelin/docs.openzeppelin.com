@@ -27,6 +27,9 @@ fi
 
 ## Antora
 
+# This will be used by our own prepare-docs scripts.
+export YARN_MUTEX="file:${XDG_RUNTIME_DIR:-/tmp}/openzeppelin-docs-yarn-mutex"
+
 antora --generator generator --stacktrace "$@"
 
 ## Redirections
