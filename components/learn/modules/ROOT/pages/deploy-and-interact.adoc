@@ -186,17 +186,147 @@ TIP: To learn more about `send-tx` and `call`, check out the https://docs.openze
 [[interacting-programatically]]
 == Interacting Programatically
 
-from sdk interacting guide (https://docs.openzeppelin.com/sdk/2.6/interacting#setup)
+While interacting via the command line is useful for running quick tests, in the end you will want to interact with your contracts from your own code. Here, we will see how to use https://web3js.readthedocs.io/en/1.2.4/[web3.js] to do so, so let's install it.
 
-replace manual setup with contract loader?
+[source,console]
+----
+npm install web3
+----
 
-send tx, call function, same as CLI guide
+TIP: Keep in mind that there are many other javascript libraries available, and you can use whichever you like the most. Once a contract is deployed, you can interact with it through any library!
+
+[[connecting-to-the-network]]
+=== Connecting to the Network
+
+Let's begin coding in a new `src/index.js` file, where we will be writing our javascript script. We will start with some boilerplate for writing async code, and setting up a new `web3` object.
+
+[source,js]
+----
+const Web3 = require('web3');
+
+async function main() {
+  // Set up web3 object, connected to the local development network
+  const web3 = new Web3('http://localhost:8545');
+}
+
+main();
+----
+
+Here, we are initializing a new `web3` instance connecting to the local development network we started earlier, that is running on localhost port 8545. We can test if the connection works by asking something to the local node, such as the list of enabled accounts:
+
+[source,js]
+----
+// Set up web3 object, connected to the local development network
+const web3 = new Web3('http://localhost:8545');
+
+// Retrieve accounts from the local node
+const accounts = await web3.eth.getAccounts();
+console.log(accounts);
+----
+
+NOTE: We will not be repeating the boilerplate code on every snippet, but make sure to always code _inside_ the `main` function we defined above!
+
+Run the code above using `node`, and check that you are getting a list of available accounts in response. 
+
+[source,console]
+----
+$ node src/index.js 
+[ '0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1',
+  '0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0',
+  ... ]
+----
+
+These accounts should match the ones you got when you ran `openzeppelin accounts` earlier. Now that we have our first code snippet for getting data out of a blockchain, let's start working with our contract.
+
+[[getting-a-contract-instance]]
+=== Getting a contract instance
+
+In order to interact with our deployed `Box` contract, we will create a new https://web3js.readthedocs.io/en/1.2.4/web3-eth-contract.html[web3 contract instance]. This is a javascript object that represents our contract in the blockchain.
+
+To create this web3 contract, we need two things:
+
+* The address where it is deployed
+* The ABI of the contract, which is the definition of the contract's public functions
+
+The address was returned by the OpenZeppelin CLI when we deployed the contract. As for the ABI, we can retrieve it from the compiled artifact in the `build/contracts` folder as shown below.
+
+[source,js]
+----
+// Set up web3 object, connected to the local development network
+const web3 = new Web3('http://localhost:8545');
+
+// Set up a web3 contract, representing our deployed Box instance
+const address = '0xCfEB869F69431e42cdB54A4F4f105C19C080A601';
+const abi = require('../build/contracts/Box.json').abi;
+const box = new web3.eth.Contract(abi, address);
+----
+
+NOTE: Make sure to replace the `address` with the one you got when deploying the contract, which may be different to the one shown here.
+
+We can now use this javascript object to interact with our contract.
+
+[[calling-the-contract]]
+=== Calling the Contract
+
+Let's start by displaying the current value of the `Box` contract. We will need to https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-call[call] into the `retrieve()` public method of the contract, and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await[await] the response:
+
+[source,js]
+----
+// Call the retrieve() function of the deployed Box contract
+const value = await box.methods.retrieve().call();
+console.log(value);
+----
+
+Make sure everything is running smoothly by running the script again and checking the printed value:
+
+[source,console]
+----
+$ node src/index.js
+5
+----
+
+NOTE: If you restarted ganache between the xref:first.adoc[previous tutorial] and this one, the returned value will be zero, since all state will have been cleared.
+
+We can now actually interact with the contract by sending a transaction to it.
+
+[[sending-a-transaction]]
+=== Sending a transaction
+
+We will now https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-send[send a transaction] to `store` a new value in our Box. Remember that sending a transaction is not as straightforward as making a call: we need to specify who the sender will be, the gas limit, and the gas price we are going to use. To keep this example simple, we will use a hardcoded value for both gas and gas price, and send the transaction from the first available account on the node.
+
+NOTE: In a real-world application, you may want to https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-estimategas[estimate the gas] of your transactions, and check a https://ethgasstation.info/[gas price oracle] to know the optimal values to use on every transaction.
+
+Let's store a value of `20` in our `Box`, and then use the code we had written before to display the updated value:
+
+[source,js]
+----
+// Retrieve accounts from the local node, we will use the first one to send the transaction
+const accounts = await web3.eth.getAccounts();
+
+// Send a transaction to store() a new value in the Box
+await box.methods.store(20)
+  .send({ from: accounts[0], gas: 50000, gasPrice: 1e6 });
+
+// Call the retrieve() function of the deployed Box contract
+const value = await box.methods.retrieve().call();
+console.log(value);
+----
+
+We can now run the snippet, and check that the box's value is updated!
+
+[source,console]
+----
+$ node src/index.js
+20
+----
 
 
-== closing thoughts ???
+== Next steps
 
-this was was like testing, but manual and not very complete. automated is better.
+After going through this guide, you should have learned how to deploy your contracts to a local blockchain and interact with them, both manually and programmatically, using either the OpenZeppelin CLI or the web3.js library respectively. 
 
-next steps:
-    - automated testing
-    - deploying on public testnets
+Now that you can start writing full smart-contract projects, you will need to look into setting up environments for automated testing, staging, and eventually production. Fortunately, we have you covered:
+
+* xref:unit-testing.adoc[Automated testing of smart contract projects]
+* xref:public-staging.adoc[Deploying to a public test network]
+* xref:mainnet.adoc[Going to mainnet]
