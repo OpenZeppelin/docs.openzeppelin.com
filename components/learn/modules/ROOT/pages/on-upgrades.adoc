@@ -1,8 +1,255 @@
 = Upgrades
 
-Are smart contracts immutable?
-Hint: https://en.wikipedia.org/wiki/Betteridge%27s_law_of_headlines
+Smart contracts xref:interact.adoc[deployed] with the OpenZeppelin CLI can be **upgraded** to modify their code, while preserving their address, state, and balance. This allows you to iteratively add new features to your project, or fix any bugs you may find in xref:mainnet.adoc[in production]. 
 
-Example using the CLI (see first project guide in SDK today)
-Short explanation on how it works plus links
-Small example using upgrades.js
+Throughout this guide, we will:
+
+* <<upgrading-a-contract-via-cli, Upgrade our Box contract using the CLI>>
+* <<limitations-of-contracts-upgrades, Learn how to write upgradeable contracts>>
+* <<upgrading-contracts-in-js, Use upgrades.js to programmatically manage upgrades>>
+* <<how-upgrades-work, Learn how upgrades work behind the hood>>
+
+[[upgrading-a-contract-via-cli]]
+== Upgrading a contract using the CLI
+
+Whenever you deploy a new contract using the CLI via `openzeppelin create`, that contract instance can be **upgraded** later. By default, only the address that originally deployed the contract can upgrade it. Let's see how it works, by upgrading the `Box` contract xref:deploy-and-interact.adoc#deploying-a-smart-contract[we deployed earlier]:
+
+```solidity
+// contracts/Box.sol
+pragma solidity ^0.5.0;
+
+contract Box {
+    uint256 private value;
+
+    // Emitted when the stored value changes
+    event ValueChanged(uint256 newValue);
+
+    // Stores a new value in the contract
+    function store(uint256 newValue) public {
+        value = newValue;
+        emit ValueChanged(newValue);
+    }
+
+    // Reads the last stored value
+    function retrieve() public view returns (uint256) {
+        return value;
+    }
+}
+```
+
+NOTE: If you had stopped and restarted ganache between the xref:deploy-and-interact.adoc[deployment guide] and this one, you will need to first `create` a new `Box` instance, so you can now upgrade it.
+
+For the sopenzeppelin-sdkake of the example, let's say we want to add a new feature: a function that increments the `value` stored in the `Box`.
+
+```solidity
+// contracts/Box.sol
+contract Box {
+    // ...
+
+    // Increments the stored value by 1
+    function increment() public {
+        value = value + 1;
+        emit ValueChanged(value);
+    }
+}
+```
+
+After changing the Solidity file, we can now just upgrade the instance we had deployed earlier by running the `openzeppelin upgrade` command.
+
+```bash
+$ npx openzeppelin upgrade
+? Pick a network: development
+✓ Compiled contracts with solc 0.5.9
+✓ Contract Box deployed
+? Which proxies would you like to upgrade?: All proxies
+Instance upgraded at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601.
+```
+
+Done! Our `Box` instance has been upgraded to the latest version of the code, while keeping its state and the same address as before. Let's try it out by invoking the new `increment` function, and checking the `value` afterwards:
+
+```bash
+$ npx openzeppelin send-tx
+? Pick a network: development
+? Pick an instance: Box at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
+? Select which function: increment()
+✓ Transaction successful: 0x9c84faf32a87a33f517b424518712f1dc5ba0bdac4eae3a67ca80a393c555ece
+Events emitted:
+- ValueChanged(6)
+
+$ npx openzeppelin call
+? Pick a network: development
+? Pick an instance: Box at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
+? Select which function: retrieve()
+✓ Method 'retrieve()' returned: 6
+```
+
+That's it! This process is the same regardless of whether you are working on a local blockchain, a testnet, or the main network. 
+
+[[limitations-of-contracts-upgrades]]
+== Limitations of contracts upgrades
+
+Smart contracts are immutable by default, so there are some limitations when making them upgradeable. These come in two flavors: when first creating your contract, and when changing it.
+
+=== Initialization
+
+When writing an upgradeable contract, you cannot declare a `constructor`. If you want to run any initialization code, the SDK provides a special `Initializable` base contract that allows you to tag a method as `initializer`, ensuring it can be run only once.
+
+As an example, let's write a new version of the `Box` contract with an initializer, storing the address of an `admin` who will be the only one allowed to change its contents.
+
+```solidity
+// contracts/AdminBox.sol
+pragma solidity ^0.5.0;
+
+import "@openzeppelin/upgrades/contracts/Initializable.sol";
+
+contract AdminBox is Initializable {
+    uint256 private value;
+    address private admin;
+
+    function initialize(address _admin) public initializer {
+        admin = _admin;
+    }
+
+    // Stores a new value in the contract
+    function store(uint256 newValue) public {
+        require(msg.sender == admin);
+        value = newValue;
+        emit ValueChanged(newValue);
+    }
+
+    // Reads the last stored value
+    function retrieve() public view returns (uint256) {
+        return value;
+    }
+}
+```
+
+When deploying this contract, the CLI will prompt us to execute the initializer and ask us to provide the admin address. 
+
+```bash
+$ npx oz create
+✓ Compiled contracts with solc 0.5.9
+? Pick a contract to instantiate: AdminBox
+? Pick a network: development
+✓ Contract AdminBox deployed
+? Call a function to initialize the instance after creating it? Yes
+? Select which function: initialize(_admin: address)
+? _admin (address): 0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1
+✓ Setting everything up to create contract instances
+✓ Instance created at 0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66
+```
+
+For all practical purposes, the initializer acts as a constructor. However, keep in mind that, since it's a regular function, you need to manually call the initializers of all base contracts, if any.
+
+NOTE: In future versions of the OpenZeppelin SDK, the CLI will take care of automatically converting constructors into initializers, so you do not need to worry about this.
+
+To learn more about this and other caveats when writing upgradeable contracts, check out our Writing Upgradeable Contracts guide.
+
+=== Upgrading
+
+Due to technical limitations, when you upgrade a contract to a new version, you cannot change the **storage layout** of that contract.
+
+This means that, if you have already declared a state variable in your contract, you cannot remove it, change its type, or declare another variable before it. In our `Box` example, it means that we can only add new state variables _after_ `value`.
+
+```solidity
+// contracts/Box.sol
+contract Box {
+    uint256 private value;
+
+    // We can safely add a new variable after the ones we had declared
+    address private owner; 
+    
+    // ...
+}
+```
+
+Fortunately, this limitation only affects state variables. You can change the contract's functions and events as you wish.
+
+NOTE: If you accidentally mess up with your contract's storage layout, the CLI will warn you when you try to upgrade.
+
+To learn more about this limitation, head over to the Modifying Your Contracts guide.
+
+[[upgrading-contracts-in-js]]
+== Upgrading contracts programmatically
+
+If you want to create and upgrade contracts from your javascript code instead of via the command line, you can use the `@openzeppelin/upgrades.js` library instead of the CLI.
+
+NOTE: The CLI does not just manage contract upgrades, but also compilation, interaction, and source code verification. The `upgrade.js` library only takes care of creating and upgrading. The library also does not keep track of the contracts you have already deployed, nor runs any initializer or storage layout validations, as the CLI does.
+
+Your first step will be to install the library in your project, and you will also probably want to install `web3`.
+
+```bash
+npm install @openzeppelin/upgrades.js web3
+```
+
+As in our previous guide on programmatically interacting with contracts, we will start with some boilerplate code to initialize a provider, as well as the upgrades library.
+
+```js
+const Web3 = require('web3');
+const Upgrades = require('@openzeppelin/upgrades')
+
+async function main() {
+  // Set up web3 object, connected to the local development network, initialize the Upgrades library
+  const web3 = new Web3('http://localhost:8545');
+  Upgrades.ZWeb3.initialize(web3.currentProvider)
+}
+
+main();
+```
+
+NOTE: You can check out a full version of the code in this section in the https://github.com/OpenZeppelin/openzeppelin-sdk/tree/master/examples/upgrades-library[upgrades-library example of the SDK repository].
+
+All our code from now on will be part of the `main` function. Let's begin by creating a new `project`, to manage our upgradeable contracts.
+
+```js
+const [from] = await ZWeb3.accounts();
+const project = new ProxyAdminProject('MyProject', null, null, { from, gas: 1e6, gasPrice: 1e9 });
+```
+
+NOTE: The Upgrades library ships with three different flavours of projects: `SimpleProject`, `ProxyAdminProject`, and `AppProject`. We recommend using the `ProxyAdmin` one to begin with. You can learn more in the upgrades.js documentation.
+
+Using this project, we can now create an instance of any contract. The project will take care of deploying it in such a way it can be upgraded later.
+
+```js
+const MyContractV0 = Upgrades.Contracts.getFromLocal('MyContractV0');
+const instance = await project.createProxy(MyContractV0);
+```
+
+After deploying the contract, you can upgrade it to a new version of the code using the `upgradeProxy` method, and providing the instance address.
+
+```js
+const address = instance.options.address;
+const MyContractV1 = Upgrades.Contracts.getFromLocal('MyContractV1');
+await project.upgradeProxy(address, MyContractV1);
+```
+
+That's it! You can now programmatically manage your contracts upgrades from your javascript code.
+
+[[how-upgrades-work]]
+== How upgrades work
+
+Before we wrap up, we will learn how upgrades are actually implemented behind the hood. This section will be more theory-heavy than the previous ones, so feel free to skip over it, and return later if you are curious.
+
+When you create a new upgradeble contract instance, the OpenZeppelin SDK actually deploys two contracts:
+
+. The contract you have written, which is known as the _implementation contract_ or _logic contract_.
+. A _proxy_ to that contract, which is the instance that you actually interact with.
+
+Here, the _proxy_ is a simple contract that just _delegates_ all calls to an implementation contract. A _delegate call_ is similar to a regular call, but all code is executed in the context of the caller, not of the callee. This means that a `transfer` in the implementation contract's code will actually transfer the proxy's balance. Similarly, any reads or writes to the contract storage will read or write from the proxy's storage.
+
+This allows us to **decouple** a contract's state and code: the proxy holds the state, while the logic contract provides the code. And it also allows us to **change** the code by just having the proxy delegate to a different implementation contract.
+
+An upgrade then involves the following steps:
+
+. Deploy the new implementation contract.
+. Send a transaction to the proxy, that updates its implementation address to the new one.
+
+NOTE: You can have multiple proxies using the same implementation contract, so you can save gas using this pattern if you plan to deploy multiple copies of the same contract.
+
+Any user of the smart contract always interacts with the proxy, which never changes its address. This allows you to roll out an upgrade or fix a bug without requesting your users to change anything on their end - they just keep interacting with the same address as always.
+
+NOTE: If you want to learn more about how OpenZeppelin proxies work, check out our Upgrades Pattern guide.
+
+== Next steps
+
+Now that you know how to upgrade your smart contracts, and can iteratively develop your project, it's time to take your project to testnet and to production! You can rest with the confidence that, should a bug appear, you have the tools to modify your contract and change it.
