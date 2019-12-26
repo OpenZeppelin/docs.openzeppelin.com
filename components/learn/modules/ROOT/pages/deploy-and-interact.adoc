@@ -8,7 +8,7 @@ This guide will cover all you need to know to get you started using your contrac
  * <<getting-started-with-the-cli, Install the OpenZeppelin CLI>>
  * <<deploying-a-smart-contract, Deploying a Smart Contract>>
  * <<interacting-via-the-cli, Interacting from the Terminal>>
- * <<performing-complex-assertions, Interacting Programatically>>
+ * <<interacting-programmatically, Interacting Programmatically>>
 
 [[local-blockchain]]
 == Setting up a Local Blockchain
@@ -188,8 +188,8 @@ Because `call` doesn't send a transaction, there is no transaction hash to repor
 
 TIP: To learn more about `send-tx` and `call`, check out the https://docs.openzeppelin.com/sdk/2.6/api/cli[CLI API reference].
 
-[[interacting-programatically]]
-== Interacting Programatically
+[[interacting-programmatically]]
+== Interacting Programmatically
 
 The command-line is useful for protyping and running one-off commands. However, eventually you will want to interact with your contracts from your own application, which means calling or sending transaction in code. In this section, we will see how to use https://web3js.readthedocs.io/en/1.2.4/[web3.js] to interact with our contracts from JavaScript, and https://github.com/OpenZeppelin/openzeppelin-contract-loader[@openzeppelin/contract-loader] to load them. Let's begin by installing them:
 
