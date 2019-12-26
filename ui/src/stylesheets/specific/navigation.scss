@@ -132,10 +132,6 @@ button.collapse-toggle{
 
 }
 
-.collapse-toggle ~ .collapsible-content {
-  display: block;
-}
-
 .collapse-toggle.active ~ .collapsible-content {
   display: none;
 }
