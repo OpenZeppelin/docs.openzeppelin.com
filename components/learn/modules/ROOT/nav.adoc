@@ -4,3 +4,6 @@
 * xref:unit-testing.adoc[Automated Testing]
 * xref:public-staging.adoc[Deploy to a public network]
 * xref:mainnet.adoc[Deploy to Mainnet]
+
+Advanced
+* xref:on-upgrades.adoc[Upgrades]
