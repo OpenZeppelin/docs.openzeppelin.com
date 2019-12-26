@@ -75,39 +75,40 @@ page:
   versions:
   - *latest_version_contracts
   navigation:
-  - content: Overview
-    # root: true
-    url: /contracts/2.x/index.html
-    urlType: internal
-  - content: Access Control
-    url: '#'
-  - content: Tokens
+  - root: true
     items:
-    - &item
-      content: ERC20
-      url: /contracts/2.x/api.html
+    - content: Overview
+      url: /contracts/2.x/index.html
       urlType: internal
+    - content: Access Control
+      url: '#'
+    - content: Tokens
       items:
-      - <<: *item
-        content: ERC20 Supply
+      - &item
+        content: ERC20
+        url: /contracts/2.x/api.html
+        urlType: internal
+        items:
+        - <<: *item
+          content: ERC20 Supply
+          url: '#'
+        - <<: *item
+          content: Crowdsales
+          url: '#'
+      - content: ERC721
         url: '#'
-      - <<: *item
-        content: Crowdsales
+      - content: ERC777
         url: '#'
-    - content: ERC721
+    - content: GSN
+      items:
+      - content: GSN Strategies
+        url: '#'
+    - content: Utilities
       url: '#'
-    - content: ERC777
+    - content: Releases
       url: '#'
-  - content: GSN
-    items:
-    - content: GSN Strategies
-      url: '#'
-  - content: Utilities
-    url: '#'
-  - content: Releases
-    url: '#'
-  - content: API Reference
-    url: '#' 
+    - content: API Reference
+      url: '#' 
   previous:
     content: Getting Started
     url: /contracts/2.x/index.html
