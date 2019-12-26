@@ -130,10 +130,9 @@ button.collapse-toggle{
   width: 1rem;
   height: 1rem;
 
-}
-
-.collapse-toggle.active ~ .collapsible-content {
+  &.active ~ .collapsible-content {
   display: none;
+  }
 }
 
 .collapse-toggle.active img{
