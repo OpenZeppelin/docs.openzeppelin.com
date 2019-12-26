@@ -57,7 +57,9 @@
       </div>
     </div>
     {{#if (eq this @root.page.component)}}
-    {{> navigation-tree items=@root.page.navigation}}
+    {{#each @root.page.navigation}}
+    {{> navigation-tree items=items}}
+    {{/each}}
     {{/if}}
   </div>
 
