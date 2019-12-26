@@ -12,7 +12,7 @@
     "isomorphic-git": "0.47.0",
     "js-yaml": "~3.13",
     "lodash": "~4.17",
-    "matcher": "~1.1",
+    "matcher": "~2.1",
     "mime-types": "~2.1",
     "multi-progress": "~2.0",
     "p-limit": "^2.2.1",
