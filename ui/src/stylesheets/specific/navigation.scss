@@ -123,23 +123,25 @@
   left: 0;
 }
 
-.collapsible {
+button.collapse-toggle{
   cursor: pointer;
+  padding: 0;
+  border: none;
+  margin-left: -1.3rem;
+  width: 1rem;
+  height: 1rem;
 
-  &::before{
-    display: inline-block;
-    content: url(../images/icons/arrow.svg);
-    margin-right: 0.3em;
-    margin-left: -1.3rem;
-    width: 1rem;
-  }
-
-  &:hover {
-    opacity: .9;
-  }
 }
 
-.collapsible.active::before {
+.collapse-toggle ~ .collapsible-content {
+  display: block;
+}
+
+.collapse-toggle.active ~ .collapsible-content {
+  display: none;
+}
+
+.collapse-toggle.active img{
   transform: rotate(-90deg);
 }
 
