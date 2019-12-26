@@ -1,6 +1,7 @@
 'use strict'
 
 const execa = require('execa');
+const pLimit = require('p-limit');
 
 const _ = require('lodash')
 const { createHash } = require('crypto')
@@ -335,6 +336,9 @@ async function populateComponentVersion (source, repo, remoteName, authStatus, r
   return componentVersion
 }
 
+// We limit the concurrent yarn install runs because it corrupts the cache.
+const yarnInstallLimit = pLimit(1);
+
 async function readFilesFromWorktree (base, startPath, repoDir) {
   let stat;
   try {
@@ -352,6 +356,18 @@ async function readFilesFromWorktree (base, startPath, repoDir) {
     const pkgJson = await fs.readJson(path.join(pkg, 'package.json'));
 
     if (_.get(pkgJson, 'scripts.prepare-docs')) {
+      if (await fs.pathExists(path.join(repoDir, 'yarn.lock'))) {
+        await yarnInstallLimit(execa, 'yarn', ['install'], {
+          stdio: 'inherit',
+          cwd: repoDir,
+        });
+      } else if (await fs.pathExists(path.join(repoDir, 'package-lock.json'))) {
+        await execa('npm', ['ci'], {
+          stdio: 'inherit',
+          cwd: repoDir,
+        });
+      }
+
       await execa('npm', ['run', 'prepare-docs'], {
         stdio: 'inherit',
         cwd: pkg,
