@@ -9,6 +9,13 @@
   dependencies:
     asciidoctor.js "1.5.9"
 
+"@antora/asciidoc-loader@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@antora/asciidoc-loader/-/asciidoc-loader-2.2.0.tgz#93b7825bfd7271415f188393a990671f4fadfe4a"
+  integrity sha512-dwKXao6eqbAh8O7OS1ZUgVHmbfl38z7RzBCM6DbTb1VODk1HGIgp6gxauGmy5rBvjrJTtz7M1Dxs+BzBApeyMw==
+  dependencies:
+    asciidoctor.js "1.5.9"
+
 "@antora/cli@^2.0.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@antora/cli/-/cli-2.2.0.tgz#24f1be8d2c15929ce4863fb62633a26e73366465"
