@@ -1,20 +1,24 @@
+{{#each items}}
+{{#if content}}
+<li class="nav-li" {{#if currentPath}}data-state="expanded"{{/if}}>
+  {{#if items}}<button class="collapse-toggle"><img src="{{@root.uiRootPath}}/images/icons/arrow.svg"></button>{{/if}}
+  {{#if url}}
+  <a class="link nav-link{{#if (eq url @root.page.url)}} nav-link-active{{/if}}" href="{{{url}}}">
+    {{{content}}}
+  </a>
+  {{else}}
+  {{#if content}}<span>{{{content}}}</span>{{/if}}
+  {{/if}}
+  {{!-- Nesting --}}
+  {{#if items}}
+  <ol class="nav-list collapsible-content">
+  {{> navigation-tree navigation=items}}
+  </ol>
+  {{/if}}
+</li>
+{{else}}
 {{#if items}}
-<ol class="nav-list collapsible-content">
-  {{#each items}}
-  <li class="nav-li" {{#if currentPath}}data-state="expanded"{{/if}}>
-    {{#if items}}<button class="collapse-toggle"><img src="{{@root.uiRootPath}}/images/icons/arrow.svg"></button>{{/if}}
-    {{#if url}}
-    <a class="link nav-link{{#if (eq url @root.page.url)}} nav-link-active{{/if}}" href="{{{url}}}">
-      {{{content}}}
-    </a>
-    {{else}}
-    {{#if content}}<span>{{{content}}}</span>{{/if}}
-    {{/if}}
-    {{!-- Nesting --}}
-    {{#if items}}
-    {{> navigation-tree navigation=items level=(increment .level) }}
-    {{/if}}
-  </li>
-  {{/each}}
-</ol>
+{{> navigation-tree navigation=items}}
 {{/if}}
+{{/if}}
+{{/each}}

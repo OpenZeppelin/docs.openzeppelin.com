@@ -57,7 +57,9 @@
       </div>
     </div>
     {{#if (eq this @root.page.component)}}
+    <ol class="nav-list">
     {{> navigation-tree items=@root.page.navigation}}
+    </ol>
     {{/if}}
   </div>
 
