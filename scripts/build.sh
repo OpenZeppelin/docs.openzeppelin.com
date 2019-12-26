@@ -2,7 +2,7 @@
 
 set -o xtrace -o errexit
 
-if [ -n ${INCOMING_HOOK_BODY:+x} ]; then
+if [ -n "${INCOMING_HOOK_BODY:+x}" ]; then
   # will exit with an error and thus abort the deploy
   # unless the webhook is an update to a content source
   node scripts/receive-webhook.js
@@ -12,7 +12,7 @@ log() {
   echo "$*" >&2
 }
 
-if [ -n ${NETLIFY:+x} ]; then
+if [ -n "${NETLIFY:+x}" ]; then
   : ${NETLIFY_BUILD_BASE="/opt/build"}
 
   NETLIFY_CACHE_DIR="$NETLIFY_BUILD_BASE/cache"
