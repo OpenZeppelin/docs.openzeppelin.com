@@ -187,11 +187,11 @@ TIP: To learn more about `send-tx` and `call`, check out the https://docs.openze
 [[interacting-programatically]]
 == Interacting Programatically
 
-The command-line is useful for protyping and running one-off commands. However, eventually you will want to interact with your contracts from your own application, which means calling or sending transaction in code. In this section, we will see how to use https://web3js.readthedocs.io/en/1.2.4/[web3.js] to interact with our contracts from JavaScript. Let's begin by installing it:
+The command-line is useful for protyping and running one-off commands. However, eventually you will want to interact with your contracts from your own application, which means calling or sending transaction in code. In this section, we will see how to use https://web3js.readthedocs.io/en/1.2.4/[web3.js] to interact with our contracts from JavaScript, and https://github.com/OpenZeppelin/openzeppelin-contract-loader[@openzeppelin/contract-loader] to load them. Let's begin by installing them:
 
 [source,console]
 ----
-$ npm install web3
+$ npm install web3 @openzeppelin/contract-loader
 ----
 
 TIP: Keep in mind that there are many other JavaScript libraries available, and you can use whichever you like the most. Once a contract is deployed, you can interact with it through any library!
@@ -199,12 +199,13 @@ TIP: Keep in mind that there are many other JavaScript libraries available, and 
 [[connecting-to-the-network]]
 === Connecting to the Network
 
-Let's begin coding in a new `src/index.js` file, where we will be writing our JavaScript script. We will start with some boilerplate for loading the `Web3` library and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function[writing async code].
+Let's begin coding in a new `src/index.js` file, where we will be writing our JavaScript script. We will start with some boilerplate for loading the libraries and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function[writing async code].
 
 [source,js]
 ----
 // src/index.js
 const Web3 = require('web3');
+const { setupLoader } = require('@openzeppelin/contract-loader');
 
 async function main() {
   // Our code will go here
@@ -244,24 +245,19 @@ These accounts should match the ones you got when you ran `oz accounts` earlier.
 [[getting-a-contract-instance]]
 === Getting a Contract Instance
 
-In order to interact with the <<box-contract,`Box`>> contract we <<deploying-a-smart-contract, deployed using the CLI>>, we will create a new https://web3js.readthedocs.io/en/1.2.4/web3-eth-contract.html[web3 contract instance]. This is a javascript object that represents our contract in the blockchain.
+In order to interact with the <<box-contract,`Box`>> contract we <<deploying-a-smart-contract, deployed using the CLI>>, we will create a new https://web3js.readthedocs.io/en/1.2.4/web3-eth-contract.html[web3 contract instance] using https://github.com/OpenZeppelin/openzeppelin-contract-loader[@openzeppelin/contract-loader]. 
 
-To create this web3 contract, we need two things:
-
-* The address where it is deployed
-* The ABI of the contract, which is the definition of the contract's public functions
-
-The address was returned by the OpenZeppelin CLI when we deployed the contract. As for the ABI, we can retrieve it from the compiled artifact in the `build/contracts` folder as shown below.
+A web3 contract instance is a javascript object that represents our contract in the blockchain, which we can use to interact with our contract. To create one, we need to provide the `contract-loader` with the contract name and the address where it was deployed - the address was the value returned by the CLI when we deployed the contract via `oz create`.
 
 [source,js]
 ----
-// Set up web3 object, connected to the local development network
+// Set up web3 object, connected to the local development network, and a contract loader
 const web3 = new Web3('http://localhost:8545');
+const loader = setupLoader({ provider: web3 }).web3;
 
-// Set up a web3 contract, representing our deployed Box instance
+// Set up a web3 contract, representing our deployed Box instance, using the contract loader
 const address = '0xCfEB869F69431e42cdB54A4F4f105C19C080A601';
-const abi = require('../build/contracts/Box.json').abi;
-const box = new web3.eth.Contract(abi, address);
+const box = loader.fromArtifact('Box', address);
 ----
 
 NOTE: Make sure to replace the `address` with the one you got when deploying the contract, which may be different to the one shown here.
