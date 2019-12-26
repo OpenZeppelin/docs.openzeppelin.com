@@ -15,6 +15,7 @@
     "matcher": "~1.1",
     "mime-types": "~2.1",
     "multi-progress": "~2.0",
+    "p-limit": "^2.2.1",
     "pkg-dir": "^4.2.0",
     "through2": "~3.0",
     "vinyl": "~2.2",
