@@ -8,12 +8,30 @@ Throughout this guide, we will:
 * <<limitations-of-contracts-upgrades, Learn how to write upgradeable contracts>>
 * <<upgrading-contracts-in-js, Use upgrades.js to programmatically manage upgrades>>
 * <<how-upgrades-work, Learn how upgrades work behind the hood>>
-TIP: If you're unfamiliar with the OpenZeppelin CLI, head to xref:deploy-and-interact.adoc#getting-started-with-the-cli[our introductory guide] first!
+
+[[what-is-an-upgrade]]
+== What's in an upgrade
+
+Smart contracts in Ethereum are immutable by default. This means that, once you have created them, there is no way to alter them, effectively acting as an inalterable contract among participants.
+
+However, for some scenarios, it is desirable to be able to modify them. Think of a contract between two parties: if they both agree to change it, they should be able to do so. This could happen because they detected a bug they need to fix (which could even lead to a hacker stealing you funds!), they want to add additional features, or simply because the rules of the game changed.
+
+Without being able to upgrade your contracts, if you spot a bug in one of them, you will need to:
+
+. Deploy a new version of the contract
+. Manually migrate all state from the old one contract to the new one (which can be very expensive in terms of gas fees!)
+. Update all contracts that interacted with the old contract to use the address of the new one
+. Reach out to all your users and convince them to start using the new deployment (and handle both contracts being used simultaneously, as users are slow to migrate)
+
+To avoid going through this mess, we have built contract upgrades directly in our SDK. This allows us to *change the contract code, while preserving the state, balance, and address*. An upgrade then only requires running a single command. Let's see it in action.
 
 [[upgrading-a-contract-via-cli]]
 == Upgrading a contract using the CLI
 
-Whenever you deploy a new contract using the CLI via `openzeppelin create`, that contract instance can be **upgraded** later. By default, only the address that originally deployed the contract can upgrade it. 
+Whenever you deploy a new contract using the CLI via `openzeppelin create`, that contract instance can be **upgraded** later. By default, only the address that originally deployed the contract has the rights to upgrade it. 
+
+TIP: If you're unfamiliar with the OpenZeppelin CLI, head to xref:deploy-and-interact.adoc#getting-started-with-the-cli[our introductory guide] first!
+
 
 Let's see how it works, by upgrading the `Box` contract xref:deploy-and-interact.adoc#deploying-a-smart-contract[we deployed earlier]:
 
@@ -68,7 +86,7 @@ $ npx openzeppelin upgrade
 Instance upgraded at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601.
 ```
 
-Done! Our `Box` instance has been upgraded to the latest version of the code, while keeping its state and the same address as before. 
+Done! Our `Box` instance has been upgraded to the latest version of the code, while keeping its state and the same address as before. We haven't had to manually deploy a new one at a new address, nor manually copy the `value` from the old `Box` to the new one.
 
 Let's try it out by invoking the new `increment` function, and checking the `value` afterwards:
 
@@ -88,12 +106,37 @@ $ npx openzeppelin call
 ✓ Method 'retrieve()' returned: 6
 ```
 
-That's it! This process is the same regardless of whether you are working on a local blockchain, a testnet, or the main network. 
+That's it! Notice how the `value` of the `Box` was preserved throughout the upgrade, as well as its address. And this process is the same regardless of whether you are working on a local blockchain, a testnet, or the main network. Let's see how the OpenZeppelin SDK accomplishes this.
+
+[[how-upgrades-work]]
+== How upgrades work
+
+_This section will be more theory-heavy than others, so feel free to skip over it, and return later if you are curious._
+
+When you create a new upgradeble contract instance, the OpenZeppelin SDK actually deploys two contracts:
+
+. The contract you have written, which is known as the _implementation contract_ or _logic contract_.
+. A _proxy_ to that contract, which is the instance that you actually interact with.
+
+Here, the _proxy_ is a simple contract that just _delegates_ all calls to an implementation contract. A _delegate call_ is similar to a regular call, but all code is executed in the context of the caller, not of the callee. This means that a `transfer` in the implementation contract's code will actually transfer the proxy's balance. Similarly, any reads or writes to the contract storage will read or write from the proxy's storage.
+
+This allows us to **decouple** a contract's state and code: the proxy holds the state, while the logic contract provides the code. And it also allows us to **change** the code by just having the proxy delegate to a different implementation contract.
+
+An upgrade then involves the following steps:
+
+. Deploy the new implementation contract.
+. Send a transaction to the proxy, that updates its implementation address to the new one.
+
+NOTE: You can have multiple proxies using the same implementation contract, so you can save gas using this pattern if you plan to deploy multiple copies of the same contract.
+
+Any user of the smart contract always interacts with the proxy, which never changes its address. This allows you to roll out an upgrade or fix a bug without requesting your users to change anything on their end - they just keep interacting with the same address as always.
+
+NOTE: If you want to learn more about how OpenZeppelin proxies work, check out our xref:sdk::pattern.adoc[Upgrades Pattern guide].
 
 [[limitations-of-contracts-upgrades]]
 == Limitations of contracts upgrades
 
-Smart contracts are immutable by default, so there are some limitations when making them upgradeable. These come in two flavors: when first creating your contract, and when changing it.
+While any smart contract can be made upgradeable, some restrictions of the Solidity language need to be worked around. These come up when writing both the initial contract and version we'll upgrade it to.
 
 === Initialization
 
@@ -179,7 +222,7 @@ To learn more about this limitation, head over to the xref:sdk::writing-contract
 
 If you want to create and upgrade contracts from your javascript code instead of via the command line, you can use the `@openzeppelin/upgrades.js` library instead of the CLI.
 
-NOTE: The CLI does not just manage contract upgrades, but also compilation, interaction, and source code verification. The `upgrade.js` library only takes care of creating and upgrading. The library also does not keep track of the contracts you have already deployed, nor runs any initializer or storage layout validations, as the CLI does.
+NOTE: The CLI does not just manage contract upgrades, but also compilation, interaction, and source code verification. The `upgrade.js` library only takes care of creating and upgrading. The library also does not keep track of the contracts you have already deployed, nor runs any initializer or storage layout validations, as the CLI does. Nevertheless, these capabilities may be added to `upgrade.js` in the near future.
 
 Your first step will be to install the library in your project, and you will also probably want to install `web3`.
 
@@ -230,30 +273,7 @@ await project.upgradeProxy(address, MyContractV1);
 
 That's it! You can now programmatically manage your contracts upgrades from your javascript code.
 
-[[how-upgrades-work]]
-== How upgrades work
 
-Before we wrap up, we will learn how upgrades are actually implemented behind the hood. This section will be more theory-heavy than the previous ones, so feel free to skip over it, and return later if you are curious.
-
-When you create a new upgradeble contract instance, the OpenZeppelin SDK actually deploys two contracts:
-
-. The contract you have written, which is known as the _implementation contract_ or _logic contract_.
-. A _proxy_ to that contract, which is the instance that you actually interact with.
-
-Here, the _proxy_ is a simple contract that just _delegates_ all calls to an implementation contract. A _delegate call_ is similar to a regular call, but all code is executed in the context of the caller, not of the callee. This means that a `transfer` in the implementation contract's code will actually transfer the proxy's balance. Similarly, any reads or writes to the contract storage will read or write from the proxy's storage.
-
-This allows us to **decouple** a contract's state and code: the proxy holds the state, while the logic contract provides the code. And it also allows us to **change** the code by just having the proxy delegate to a different implementation contract.
-
-An upgrade then involves the following steps:
-
-. Deploy the new implementation contract.
-. Send a transaction to the proxy, that updates its implementation address to the new one.
-
-NOTE: You can have multiple proxies using the same implementation contract, so you can save gas using this pattern if you plan to deploy multiple copies of the same contract.
-
-Any user of the smart contract always interacts with the proxy, which never changes its address. This allows you to roll out an upgrade or fix a bug without requesting your users to change anything on their end - they just keep interacting with the same address as always.
-
-NOTE: If you want to learn more about how OpenZeppelin proxies work, check out our xref:sdk::pattern.adoc[Upgrades Pattern guide].
 
 == Next steps
 
