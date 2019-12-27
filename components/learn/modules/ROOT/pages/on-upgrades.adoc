@@ -1,6 +1,6 @@
 = Upgrades
 
-Smart contracts xref:interact.adoc[deployed] with the OpenZeppelin CLI can be **upgraded** to modify their code, while preserving their address, state, and balance. This allows you to iteratively add new features to your project, or fix any bugs you may find in xref:mainnet.adoc[in production]. 
+Smart contracts xref:deploy-and-interact.adoc[deployed] with the OpenZeppelin CLI can be **upgraded** to modify their code, while preserving their address, state, and balance. This allows you to iteratively add new features to your project, or fix any bugs you may find in xref:mainnet.adoc[in production]. 
 
 Throughout this guide, we will:
 
@@ -8,11 +8,14 @@ Throughout this guide, we will:
 * <<limitations-of-contracts-upgrades, Learn how to write upgradeable contracts>>
 * <<upgrading-contracts-in-js, Use upgrades.js to programmatically manage upgrades>>
 * <<how-upgrades-work, Learn how upgrades work behind the hood>>
+TIP: If you're unfamiliar with the OpenZeppelin CLI, head to xref:deploy-and-interact.adoc#getting-started-with-the-cli[our introductory guide] first!
 
 [[upgrading-a-contract-via-cli]]
 == Upgrading a contract using the CLI
 
-Whenever you deploy a new contract using the CLI via `openzeppelin create`, that contract instance can be **upgraded** later. By default, only the address that originally deployed the contract can upgrade it. Let's see how it works, by upgrading the `Box` contract xref:deploy-and-interact.adoc#deploying-a-smart-contract[we deployed earlier]:
+Whenever you deploy a new contract using the CLI via `openzeppelin create`, that contract instance can be **upgraded** later. By default, only the address that originally deployed the contract can upgrade it. 
+
+Let's see how it works, by upgrading the `Box` contract xref:deploy-and-interact.adoc#deploying-a-smart-contract[we deployed earlier]:
 
 ```solidity
 // contracts/Box.sol
@@ -39,7 +42,7 @@ contract Box {
 
 NOTE: If you had stopped and restarted ganache between the xref:deploy-and-interact.adoc[deployment guide] and this one, you will need to first `create` a new `Box` instance, so you can now upgrade it.
 
-For the sopenzeppelin-sdkake of the example, let's say we want to add a new feature: a function that increments the `value` stored in the `Box`.
+For the sake of the example, let's say we want to add a new feature: a function that increments the `value` stored in the `Box`.
 
 ```solidity
 // contracts/Box.sol
@@ -65,7 +68,9 @@ $ npx openzeppelin upgrade
 Instance upgraded at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601.
 ```
 
-Done! Our `Box` instance has been upgraded to the latest version of the code, while keeping its state and the same address as before. Let's try it out by invoking the new `increment` function, and checking the `value` afterwards:
+Done! Our `Box` instance has been upgraded to the latest version of the code, while keeping its state and the same address as before. 
+
+Let's try it out by invoking the new `increment` function, and checking the `value` afterwards:
 
 ```bash
 $ npx openzeppelin send-tx
@@ -143,7 +148,7 @@ For all practical purposes, the initializer acts as a constructor. However, keep
 
 NOTE: In future versions of the OpenZeppelin SDK, the CLI will take care of automatically converting constructors into initializers, so you do not need to worry about this.
 
-To learn more about this and other caveats when writing upgradeable contracts, check out our Writing Upgradeable Contracts guide.
+To learn more about this and other caveats when writing upgradeable contracts, check out our xref:sdk::writing-contracts.adoc[Writing Upgradeable Contracts] guide.
 
 === Upgrading
 
@@ -167,7 +172,7 @@ Fortunately, this limitation only affects state variables. You can change the co
 
 NOTE: If you accidentally mess up with your contract's storage layout, the CLI will warn you when you try to upgrade.
 
-To learn more about this limitation, head over to the Modifying Your Contracts guide.
+To learn more about this limitation, head over to the xref:sdk::writing-contracts.adoc#modifying-your-contracts[Modifying Your Contracts] guide.
 
 [[upgrading-contracts-in-js]]
 == Upgrading contracts programmatically
@@ -248,7 +253,7 @@ NOTE: You can have multiple proxies using the same implementation contract, so y
 
 Any user of the smart contract always interacts with the proxy, which never changes its address. This allows you to roll out an upgrade or fix a bug without requesting your users to change anything on their end - they just keep interacting with the same address as always.
 
-NOTE: If you want to learn more about how OpenZeppelin proxies work, check out our Upgrades Pattern guide.
+NOTE: If you want to learn more about how OpenZeppelin proxies work, check out our xref:sdk::pattern.adoc[Upgrades Pattern guide].
 
 == Next steps
 
