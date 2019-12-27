@@ -27,7 +27,7 @@
       <div class="component-version">
         {{#if (and versions (eq this @root.page.component))}}
         {{#unless (eq versions.length 1)}}
-        <button class="flex align-center shrink btn btn-version">
+        <button class="flex align-center shrink btn btn-version" onclick="this.focus()">
           {{@root.page.componentVersion.displayVersion}}
         </button>
         <div class="popover-container">
