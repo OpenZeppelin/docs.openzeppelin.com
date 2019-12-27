@@ -1,8 +1,160 @@
-= Dapps
+= Building a dapp
 
-What is dapp vs a web 2.0 app?
-Components: CLI for managing contracts, connecting to the network, loading your contracts
-Introduce Network.js and hot-loader without sample project
-Starter kit for setting everything up
+Decentralized Applications (aka dapps or ÐApps) are web applications backed by Ethereum smart contracts. Instead of using a centralized server or database, these applications rely on the blockchain as a consensus and coordination layer. This leads to potentially unstoppable applications: anyone can spin up a copy of the frontend, and freely connect it to the public Ethereum network.
 
-See content from "writing a dapp" in SDK today
+In this guide, we will see how we can use OpenZeppelin libraries such as https://github.com/OpenZeppelin/openzeppelin-network.js[network-js] and the https://github.com/OpenZeppelin/solidity-loader[hot-loader] to build your dapp, as well as how the https://github.com/OpenZeppelin/starter-kit[Starter Kits] bind all pieces of a dapp together:
+
+  * <<network, Connecting to the network>>
+  * <<hot-loader, Hot-loading your contracts>>
+  * <<starter-kit, Kickstarting a dapp using starter kits>>
+
+If you are in a rush, just skip over to <<starter-kit, the last section>>!
+
+[[network]]
+== Connecting to the Network
+
+When building a dapp, the first step is to connect to the Ethereum network. This usually involves the following steps:
+
+  . If the user is running Metamask, use the injected web3 provider to access the network, and monitor for network or account changes
+  . If not, fall back to a connection to a public Infura node
+
+To avoid having to code this logic on every dapp, we built https://github.com/OpenZeppelin/openzeppelin-network.js[`@openzeppelin/network`] to take care of it. It ships with a `useWeb3` https://reactjs.org/docs/hooks-intro.html[React hook] for getting a `web3Context` based on the logic above. This `web3Context` object provides access to a connected `web3` instance, network information, the user accounts, a function to https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1102.md[request account access], and more.
+
+The following snippet shows a small React app component that connects to the network using Metamask (falling back to Infura if not found), prompts the user for account access, and shows the user balance.
+
+```js
+import React, { useCallback, useState, useEffect } from 'react';
+import { useWeb3 } from '@openzeppelin/network/react';
+
+function App() {
+  // Get web3 context via @openzeppelin/network/react hook
+  const web3Context = useWeb3(`wss://mainnet.infura.io/ws/v3/${PROJECT_ID}`);
+  const { lib: web3, networkId, accounts, providerName } = web3Context;
+
+  // Methods for requesting accounts access
+  const requestAuth = (web3Context) => web3Context.requestAuth();
+  const requestAccess = useCallback(() => requestAuth(web3Context), []);
+
+  // Querying account balance
+  const [balance, setBalance] = useState(0);
+  const getBalance = useCallback(async () => {
+    setBalance(
+      accounts && accounts.length > 0 
+      ? (await web3.eth.getBalance(accounts[0]))
+      : 'Unknown')
+  }, [accounts, web3.eth, web3.utils]);
+  useEffect(() => {
+    getBalance();
+  }, [accounts, getBalance, networkId]);
+
+  // Show all information to the user
+  return (
+    <div>
+      <div>Network: {networkId || 'No connection'}</div>
+      <div>Your address: {accounts ? accounts[0] : 'Unknown'}</div>
+      
+      {accounts && accounts.length ? (
+        <div>Accounts access granted</div>
+      ) : !!networkId && providerName !== 'infura' ? (
+        <button onClick={requestAccess}>Request Access</button>
+      ) : (
+        <div>No accounts access</div>
+      )}
+    </div>
+  );
+}
+```
+
+NOTE: You can easily xref:on-gsn.adoc[enable meta-transaction support] in your dapp when using the network library by http://example.com[adding a `gsn` option] to the React hook.
+
+You can follow a step-by-step tutorial on building a dapp from scratch using the network-js library in the http://example.com[Building a network powered dapp] guide.
+
+[[hot-loader]]
+== Hot-loading Contracts
+
+Now that we have a working connection to the Ethereum network, we can start interacting with the contracts we have coded and xref:deploy-and-interact.adoc[deployed using the CLI]. While we can create a https://web3js.readthedocs.io/en/v1.2.4/web3-eth-contract.html[regular `web3` contract instance] using the ABI and address, we can instead leverage xref:on-upgrades.adoc[OpenZeppelin upgrades] to hot-load our contracts.
+
+This means that, once we have deployed a contract and loaded it in our running React dapp, the app will **automatically pick up any changes to the Solidity code and upgrade the contract** during development. The https://github.com/OpenZeppelin/solidity-loader[hot loader] will watch all your Solidity contracts, and whenever you recompile, it will automatically upgrade the contract on the local development network - keeping the same address and state, and just changing the code to the new version you wrote.
+
+NOTE: The hot-loader is implemented as at https://webpack.js.org/[webpack] plugin. It will not work if you are using a different bundler for your application.
+
+To set up the hot-loader, you need to install `@openzeppelin/solidity-loader` and `json-loader`, and add the following https://webpack.js.org/configuration/module/#rule[rule] to your webpack configuration:
+
+```js
+test: /\.sol$/,
+use: [
+  { loader: 'json-loader' },
+  {
+    loader: '@openzeppelin/solidity-loader',
+    options: {
+      network: 'development',
+      disabled: false
+    },
+  },
+],
+```
+
+NOTE: If you are using `create-react-app`, you may need to either eject the application to modify the webpack configuration, or use https://github.com/timarney/react-app-rewired[`react-app-rewired`].
+
+Then, just load the contract Solidity file from your client code, which will go through the hot-loader. Whenever you modify your `Box` contract source, the loader will automatically upgrade the instance to the latest code for you.
+
+```js
+// Load web3 context using @openzeppelin/network
+const { networkId, lib: web3 } = useWeb3Network('http://127.0.0.1:8545');
+
+// Load contract artifact
+const Box = require('../../contracts/Box.sol');
+
+// Load deployed instance
+const [box, setBox] = useState(undefined);
+if (!box && Box && Box.networks && networkId) {
+  const deployedNetwork = Box.networks[networkId.toString()];
+  if (deployedNetwork) {
+    setBox(new web3.eth.Contract(Box.abi, deployedNetwork.address));
+  }
+}
+```
+
+You can follow a step-by-step tutorial on enabling hot loader in a React web application at https://forum.openzeppelin.com/t/building-an-openzeppelin-dapp-with-solidity-hot-loader/1843/1[the forum].
+
+[[starter-kit]]
+== Kickstarting your dapp
+
+As you have seen so far, setting up a dapp may involve a certain deal of boilerplate and configuration, such as creating an OpenZeppelin CLI project, initializing a new webpack client app, setting up network configuration, loading your contracts, etc.
+
+To kickstart this process, we have built the xref:starter-kits[OpenZeppelin Starter Kits]. Starter Kits are preconfigured dapps with several OpenZeppelin libraries, Infura connections, and https://github.com/ConsenSys/rimble-ui[Rimble UI components], ready to start developing right away.
+
+You can start a new project from a starter kit using the `oz unpack` CLI command:
+
+```console
+$ npx oz unpack starter
+✓ Kit downloaded and unpacked
+The kit is ready to use. 
+
+Quick Start
+Run your local blockchain:
+> ganache-cli --deterministic
+Initialize the OpenZeppelin project:
+> openzeppelin init app
+Go to the client directory:
+> cd client
+Run the React app:
+> npm run start
+Continue in your browser!
+More at https://github.com/OpenZeppelin/starter-kit/tree/stable
+```
+
+This will unpack a new preconfigured React dapp, with a network connection set up to both metamask and the local node.
+
+image::StarterKit.png[OpenZeppelin Starter Kit,500]
+
+If you want to learn more about how to use the starter kit, `unpack` the `tutorial` instead of the `starter` kit, which will guide you through the process of deploying and interacting with contracts from a dapp. You can also check out the xref:starter-kits:list[list of all starter kits] available to unpack.
+
+You can read more about Starter Kits in their xref:starter-kits[section of this documentation site].
+
+## Next Steps
+
+You now have the initial tools to build a decentralized web-based front-end for your smart contracts. Your next steps should be to:
+
+  * xref:unit-testing.adoc[Write tests for your application]
+  * xref:public-staging.adoc[Deploy it to a testnet]
