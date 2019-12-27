@@ -51,6 +51,7 @@
 }
 
 .nav-component-active {
+  min-height: 100%;
   overflow-y: auto;
   .nav-heading-active {
     position: sticky;
