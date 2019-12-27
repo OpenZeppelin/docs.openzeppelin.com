@@ -14,8 +14,8 @@ site:
       version: 'master'
       displayVersion: 'master'
     latestVersion: *latest_version_abc
-  - name: entryguides
-    title: Entry Guides
+  - name: Learn
+    title: Learn
     url: '#'
     versions:
     - &latest_version_abc
