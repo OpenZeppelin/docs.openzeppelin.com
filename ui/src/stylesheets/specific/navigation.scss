@@ -20,7 +20,7 @@
 }
 
 .nav-component {
-  line-height: 2.2rem;
+  line-height: 2.5rem;
 }
 
 .nav-components {
@@ -80,6 +80,7 @@
   font-family: var(--heading);
   font-weight: var(--weight-medium);
   position: relative;
+  font-size: 1.1rem;
   & + .nav-list {
     height: 90%;
     margin-bottom: 0;
