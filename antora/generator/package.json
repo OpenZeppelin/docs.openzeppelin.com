@@ -11,7 +11,7 @@
     "@antora/navigation-builder": "2.0.0",
     "@antora/page-composer": "2.2.0",
     "@antora/playbook-builder": "2.0.0",
-    "@antora/redirect-producer": "2.0.0",
+    "@antora/redirect-producer": "2.2.0",
     "@antora/site-mapper": "2.0.0",
     "@antora/site-publisher": "2.0.0",
     "@antora/ui-loader": "2.2.0"

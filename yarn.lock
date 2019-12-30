@@ -83,13 +83,13 @@
     js-yaml "~3.13"
     json5 "~2.1"
 
-"@antora/redirect-producer@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@antora/redirect-producer/-/redirect-producer-2.0.0.tgz#9c1d303b2aaef3027cc9009e13a4f574dcdfbc35"
-  integrity sha512-qlRPGNAhtbIOWK9XHEdH4Iiaz1/8SBvm5rK46R4YinjZqMibMehOfFoIdRf2qsE9mfOsYKwKUSF8Jnv/emXuJw==
+"@antora/redirect-producer@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@antora/redirect-producer/-/redirect-producer-2.2.0.tgz#1d22c7f5df50243a38e17dcd40c26b6a13f77d12"
+  integrity sha512-ZkUe95Wj3TiFrbXA0sRDCv+0yD1HxI84/2pQj6cnMV01vrfj9HKeMdbBG1Sgf5bmaDDJ1nImlT0l2g6t+pBIJg==
   dependencies:
-    "@antora/asciidoc-loader" "2.0.0"
-    vinyl "^2.2.0"
+    "@antora/asciidoc-loader" "2.2.0"
+    vinyl "~2.2"
 
 "@antora/site-mapper@2.0.0":
   version "2.0.0"
