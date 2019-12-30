@@ -32,12 +32,12 @@
     lodash "^4.17.11"
     vinyl "^2.2.0"
 
-"@antora/document-converter@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@antora/document-converter/-/document-converter-2.0.0.tgz#99448a415e51fd4829891624802961f6861e23be"
-  integrity sha512-8slnLdeMxI4kU64fMsNp58HjpFYZ7chrl5tCYr1/4Jr00fVHwn8vx2YS1cKyowcrmb9uG6YI/pMNt9F3kjTtYA==
+"@antora/document-converter@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@antora/document-converter/-/document-converter-2.2.0.tgz#8ca696c62be22555569bc25db5a3be4613ec3a00"
+  integrity sha512-Ka3moJL5HRoaHUz6U1s9M36WGJg8vUmlQziUpKsC96GbgWyiNXIvNwvQN9kdAW0AXR1CNpIcZ8sl7ygIaa7pLA==
   dependencies:
-    "@antora/asciidoc-loader" "2.0.0"
+    "@antora/asciidoc-loader" "2.2.0"
 
 "@antora/expand-path-helper@^1.0.0", "@antora/expand-path-helper@~1.0":
   version "1.0.0"

@@ -7,7 +7,7 @@
   "dependencies": {
     "@antora/asciidoc-loader": "2.2.0",
     "@antora/content-classifier": "2.0.0",
-    "@antora/document-converter": "2.0.0",
+    "@antora/document-converter": "2.2.0",
     "@antora/navigation-builder": "2.0.0",
     "@antora/page-composer": "2.2.0",
     "@antora/playbook-builder": "2.0.0",
