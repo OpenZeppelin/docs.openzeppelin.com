@@ -2,7 +2,7 @@
 
 Learn about writing, testing, deploying, and upgrading your smart contract applications on Ethereum using the OpenZeppelin tools. 
 
-// Our offering includes the most widely used Solidity smart contracts library, a command-line tool for managing your project, several javascript modules, and pre-packaged boxes to bootstrap development.
+// Our offering includes the most widely used Solidity smart contracts library, a command-line tool for managing your project, several JavaScript modules, and pre-packaged boxes to bootstrap development.
 
 == Why OpenZeppelin?
 
@@ -52,14 +52,14 @@ Bundles to bootstrap your decentralized web application.
 --
 
 [horizontal]
-`upgrades-js`:: A javascript library for managing upgradeable contracts, which powers the OpenZeppelin CLI
-`test-environment`:: A javascript library for creating a testing environment for contracts, which plays nice with Mocha, Ava, and Jest
-`test-helpers`:: A javascript library of common assertions for smart contracts, which can be used with `test-environment`, `truffle`, or vanilla `web3-js` setups
-`network-js`:: A javascript library for easily connecting to the Ethereum network from a dapp, used in most Starter Kits
-`gsn-helpers`:: A thin CLI and javascript library for simplifying development of an application using the Gas Station Network
+`upgrades-js`:: A JavaScript library for managing upgradeable contracts, which powers the OpenZeppelin CLI
+`test-environment`:: A JavaScript library for creating a testing environment for contracts, which plays nice with Mocha, Ava, and Jest
+`test-helpers`:: A JavaScript library of common assertions for smart contracts, which can be used with `test-environment`, `truffle`, or vanilla `web3-js` setups
+`network-js`:: A JavaScript library for easily connecting to the Ethereum network from a dapp, used in most Starter Kits
+`gsn-helpers`:: A thin CLI and JavaScript library for simplifying development of an application using the Gas Station Network
 `gsn-provider`:: A `web3-js` provider for seamlessly sending gasless transactions via the Gas Station Network
 `hot-loader`:: A webpack plugin for automatically compiling and upgrading your contracts locally while you develop
-`contracts-loader`:: A minimal javascript library for loading contract artifacts by name or ABI
+`contracts-loader`:: A minimal JavaScript library for loading contract artifacts by name or ABI
 `solidity-docgen`:: A tool for automatically generating documentation based on the natspec comments of your Solidity contracts
 
 == More from OpenZeppelin
