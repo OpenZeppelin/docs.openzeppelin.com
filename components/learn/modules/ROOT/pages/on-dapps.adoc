@@ -1,12 +1,12 @@
-= Building a dapp
+= Building a Dapp
 
 Decentralized Applications (aka dapps or ÐApps) are web applications backed by Ethereum smart contracts. Instead of using a centralized server or database, these applications rely on the blockchain as a consensus and coordination layer. This leads to potentially unstoppable applications: anyone can spin up a copy of the frontend, and freely connect it to the public Ethereum network.
 
 In this guide, we will see how we can use OpenZeppelin libraries such as https://github.com/OpenZeppelin/openzeppelin-network.js[network-js] and the https://github.com/OpenZeppelin/solidity-loader[hot-loader] to build your dapp, as well as how the https://github.com/OpenZeppelin/starter-kit[Starter Kits] bind all pieces of a dapp together:
 
-  * <<network, Connecting to the network>>
-  * <<hot-loader, Hot-loading your contracts>>
-  * <<starter-kit, Kickstarting a dapp using starter kits>>
+  * <<network, Connecting to the Network>>
+  * <<hot-loader, Hot-loading your Contracts>>
+  * <<starter-kit, Kickstarting a Dapp using Starter Kits>>
 
 If you are in a rush, just skip over to <<starter-kit, the last section>>!
 
@@ -118,7 +118,7 @@ if (!box && Box && Box.networks && networkId) {
 You can follow a step-by-step tutorial on enabling hot loader in a React web application at https://forum.openzeppelin.com/t/building-an-openzeppelin-dapp-with-solidity-hot-loader/1843/1[the forum].
 
 [[starter-kit]]
-== Kickstarting your dapp
+== Kickstarting your Dapp
 
 As you have seen so far, setting up a dapp may involve a certain deal of boilerplate and configuration, such as creating an OpenZeppelin CLI project, initializing a new webpack client app, setting up network configuration, loading your contracts, etc.
 
