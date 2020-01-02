@@ -4,10 +4,10 @@ After running your project on a testnet for some time without issues, you can no
 
 In this guide, we will go through Ethereum-specific considerations for taking your project to production, such as:
 
-  * <<auditing-and-security, Auditing and security>>
-  * <<verify-source-code, Source code verification>>
-  * <<key-management, Secure key management and admin accounts>>
-  * <<project-governance, Project governance definition>>
+  * <<auditing-and-security, Auditing and Security>>
+  * <<verify-source-code, Verifying Source Code>>
+  * <<key-management, Managing Keys Securely>>
+  * <<project-governance, Handling Project Governance>>
   
 Remember that, while managing your contracts in a testnet and in mainnet is technically the same, there are important differences when on mainnet, since your project now manages real value for your users.
 
