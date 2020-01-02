@@ -225,10 +225,10 @@ If you want to create and upgrade contracts from your JavaScript code instead of
 
 NOTE: The CLI does not just manage contract upgrades, but also compilation, interaction, and source code verification. The `upgrade.js` library only takes care of creating and upgrading. The library also does not keep track of the contracts you have already deployed, nor runs any initializer or storage layout validations, as the CLI does. Nevertheless, these capabilities may be added to `upgrade.js` in the near future.
 
-Your first step will be to install the library in your project, and you will also probably want to install `web3`.
+Your first step will be to install the library in your project, and you will also probably want to install `web3`:
 
 ```bash
-npm install @openzeppelin/upgrades.js web3
+$ npm install @openzeppelin/upgrades.js web3
 ```
 
 As in our previous guide on programmatically interacting with contracts, we will start with some boilerplate code to initialize a provider, as well as the upgrades library.
