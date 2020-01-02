@@ -80,7 +80,7 @@
   font-family: var(--heading);
   font-weight: var(--weight-medium);
   position: relative;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   & + .nav-list {
     height: 90%;
     margin-bottom: 0;
@@ -105,8 +105,8 @@
 .nav-icon {
   margin-right: .5rem;
   margin-bottom: 2px;
-  height: var(--lg);
-  width: var(--lg);
+  height: 18px;
+  width: 18px;
   opacity: .8;
 }
 
