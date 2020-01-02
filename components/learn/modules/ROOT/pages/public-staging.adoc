@@ -53,7 +53,7 @@ To send transactions in a testnet, you will need a new account. While you can us
 ----
 
 $ npx mnemonics
-they rally raise swamp ...
+mistake pelican mention moment ...
 ----
 
 WARNING: Make sure to keep your mnemonic secure. Even if it is just for testing purposes, there are still malicious users out there who will wreak havoc on your testnet deployment just for fun!
@@ -97,8 +97,10 @@ Note in the first line that we are loading the project id and mnemonic from a `s
 
 [source,json]
 ----
-{ "mnemonic": "they rally raise swamp ...", 
-  "projectId": "305c13705054a8d918ad77549e402c72" }
+{ 
+  "mnemonic": "mistake pelican mention moment ...", 
+  "projectId": "305c13705054a8d918ad77549e402c72"
+}
 ----
 
 NOTE: Instead of a `secrets.json` file, you can use whatever secret-management solution you like for your project. A popular and simple option is to use https://github.com/motdotla/dotenv[`dotenv`] for injecting secrets as environment variables.
