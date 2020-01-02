@@ -1,4 +1,4 @@
-= Deploying to a public test network
+= Deploying to a Public Test Network
 
 After you have xref:writing-smart-contracts.adoc[written your contracts], xref:unit-testing.adoc[tested them], and xref:deploy-and-interact.adoc[tried them out locally], it's time to move to a persistent public testing environment, where you and your beta users can start interacting with your application.
 
@@ -12,7 +12,7 @@ In this guide, we will pick up our xref:deploy-and-interact.adoc#box-contract[be
 
 Remember that deploying to public test network is a necessary step when developing an Ethereum project. They provide a safe environment for testing that closely mimics the main network - and you don't want to take out your project for its test drive in an environment where mistakes will actually cost you money!
 
-[[testnets-list]]
+[[testnet-list]]
 == Available Testnets
 
 There are four test networks available for you to choose, each with their own characteristics:
@@ -27,8 +27,8 @@ NOTE: Each network is identified by a numeric ID. Development networks usually h
 
 It is up to you whether you want to test in a more unpredictable environment, to assess how robust your application is, or a more reliable one, to simplify your testing experience.
 
-[[project-setup]]
-== Connect a Project to a Public Testnet
+[[connecting-project-to-network]]
+== Connecting a Project to a Testnet
 
 To connect our OpenZeppelin project to a public testnet, we will need to:
 
@@ -37,7 +37,7 @@ To connect our OpenZeppelin project to a public testnet, we will need to:
   . Update our networks configuration file
   . Fund our testing account
 
-=== Access a Testnet Node
+=== Accessing a Testnet Node
 
 While you can spin up your own https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options[Geth] or https://wiki.parity.io/Chain-specification[Parity] node connected to a testnet, the easiest way to access a testnet is via a public node service such as https://infura.io[Infura]. Infura provides access to public nodes for all testnets and the main network, via both free and paid plans.
 
@@ -45,7 +45,7 @@ NOTE: We say a node is _public_ when it can be accessed by the general public, a
 
 Head over to Infura, or your public node provider of your choice, create an account, and jot down your assigned project ID - we will use it later to connect to the network.
 
-=== Create a New Account
+=== Creating a New Account
 
 To send transactions in a testnet, you will need a new account. While you can use any method you want to create it, here we will use the `mnemonics` package, which will output a fresh mnemonic to derive a new set of accounts:
 
@@ -58,7 +58,7 @@ they rally raise swamp ...
 
 WARNING: Make sure to keep your mnemonic secure. Even if it is just for testing purposes, there are still malicious users out there who will wreak havoc on your testnet deployment just for fun!
 
-=== Testnet Networks Configuration
+=== Configuring the Network
 
 As we are using public nodes, we will need to sign all our transactions locally. We will use the `@truffle/hdwallet-provider` to do this, setting it up with our new mnemonic, which will be used to derive our testnet accounts. We will also need to tell the provider how to connect to the test network: we will use the Infura endpoint for this.
 
@@ -131,7 +131,7 @@ Balance: 0 ETH
 
 Empty! This points to our next task: getting testnet funds for sending transactions from our account.
 
-=== Fund the Testnet Account
+=== Funding the Testnet Account
 
 Most public testnets have a faucet: a site that will provide you with a small amount of test Ether for free. If you are on Rinkeby, head on to the https://faucet.rinkeby.io/[Rinkeby Authenticated Faucet] to get funds by authenticating with your twitter or facebook account. Alternatively, you can also use https://faucet.metamask.io/[Metamask's faucet] to ask for funds directly to your Metamask accounts.
 
