@@ -221,7 +221,7 @@ To learn more about this limitation, head over to the xref:sdk::writing-contract
 [[upgrading-contracts-in-js]]
 == Upgrading Contracts Programmatically
 
-If you want to create and upgrade contracts from your javascript code instead of via the command line, you can use the `@openzeppelin/upgrades.js` library instead of the CLI.
+If you want to create and upgrade contracts from your JavaScript code instead of via the command line, you can use the `@openzeppelin/upgrades.js` library instead of the CLI.
 
 NOTE: The CLI does not just manage contract upgrades, but also compilation, interaction, and source code verification. The `upgrade.js` library only takes care of creating and upgrading. The library also does not keep track of the contracts you have already deployed, nor runs any initializer or storage layout validations, as the CLI does. Nevertheless, these capabilities may be added to `upgrade.js` in the near future.
 
@@ -272,7 +272,7 @@ const MyContractV1 = Upgrades.Contracts.getFromLocal('MyContractV1');
 await project.upgradeProxy(address, MyContractV1);
 ```
 
-That's it! You can now programmatically manage your contracts upgrades from your javascript code.
+That's it! You can now programmatically manage your contracts upgrades from your JavaScript code.
 
 
 
