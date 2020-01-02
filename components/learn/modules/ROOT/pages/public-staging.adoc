@@ -6,8 +6,8 @@ We will use *public testing networks* (aka _testnets_) for this, which are netwo
 
 In this guide, we will pick up our xref:deploy-and-interact.adoc#box-contract[beloved `Box` contract], and deploy it to a testnet, while learning:
 
-* <<testnets-list, What test networks are available>>
-* <<project-setup, How to set up your OpenZeppelin project for working on a testnet>>
+* <<testnet-list, What test networks are available>>
+* <<connecting-project-to-network, How to set up your OpenZeppelin project for working on a testnet>>
 * <<deploy-and-interact, How to deploy and interact with your testnet contract instances>>
 
 Remember that deploying to public test network is a necessary step when developing an Ethereum project. They provide a safe environment for testing that closely mimics the main network - and you don't want to take out your project for its test drive in an environment where mistakes will actually cost you money!
