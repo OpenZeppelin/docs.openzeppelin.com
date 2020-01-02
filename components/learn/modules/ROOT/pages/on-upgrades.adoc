@@ -4,8 +4,9 @@ Smart contracts xref:deploy-and-interact.adoc[deployed] with the OpenZeppelin CL
 
 Throughout this guide, we will:
 
+* <<what-is-an-uograde, Why upgrades are important>>
 * <<upgrading-a-contract-via-cli, Upgrade our Box contract using the CLI>>
-* <<limitations-of-contracts-upgrades, Learn how to write upgradeable contracts>>
+* <<limitations-of-contract-upgrades, Learn how to write upgradeable contracts>>
 * <<upgrading-contracts-in-js, Use upgrades.js to programmatically manage upgrades>>
 * <<how-upgrades-work, Learn how upgrades work behind the hood>>
 
@@ -26,7 +27,7 @@ Without being able to upgrade your contracts, if you spot a bug in one of them, 
 To avoid going through this mess, we have built contract upgrades directly in our SDK. This allows us to *change the contract code, while preserving the state, balance, and address*. An upgrade then only requires running a single command. Let's see it in action.
 
 [[upgrading-a-contract-via-cli]]
-== Upgrading a contract using the CLI
+== Upgrading a Contract using the CLI
 
 Whenever you deploy a new contract using the CLI via `openzeppelin create`, that contract instance can be **upgraded** later. By default, only the address that originally deployed the contract has the rights to upgrade it. 
 
@@ -133,8 +134,8 @@ Any user of the smart contract always interacts with the proxy, which never chan
 
 NOTE: If you want to learn more about how OpenZeppelin proxies work, check out our xref:sdk::pattern.adoc[Upgrades Pattern guide].
 
-[[limitations-of-contracts-upgrades]]
-== Limitations of contracts upgrades
+[[limitations-of-contract-upgrades]]
+== Limitations of Contract Upgrades
 
 While any smart contract can be made upgradeable, some restrictions of the Solidity language need to be worked around. These come up when writing both the initial contract and version we'll upgrade it to.
 
@@ -218,7 +219,7 @@ NOTE: If you accidentally mess up with your contract's storage layout, the CLI w
 To learn more about this limitation, head over to the xref:sdk::writing-contracts.adoc#modifying-your-contracts[Modifying Your Contracts] guide.
 
 [[upgrading-contracts-in-js]]
-== Upgrading contracts programmatically
+== Upgrading Contracts Programmatically
 
 If you want to create and upgrade contracts from your javascript code instead of via the command line, you can use the `@openzeppelin/upgrades.js` library instead of the CLI.
 
@@ -275,6 +276,6 @@ That's it! You can now programmatically manage your contracts upgrades from your
 
 
 
-== Next steps
+== Next Steps
 
 Now that you know how to upgrade your smart contracts, and can iteratively develop your project, it's time to take your project to testnet and to production! You can rest with the confidence that, should a bug appear, you have the tools to modify your contract and change it.
