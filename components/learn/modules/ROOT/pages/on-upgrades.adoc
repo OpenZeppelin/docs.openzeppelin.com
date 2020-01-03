@@ -7,8 +7,8 @@ Throughout this guide, we will:
 * <<whats-in-an-upgrade, Why upgrades are important>>
 * <<upgrading-a-contract-via-cli, Upgrade our Box contract using the CLI>>
 * <<how-upgrades-work, Learn how upgrades work under the hood>>
-* <<limitations-of-contract-upgrades, Learn how to write upgradeable contracts>>
 * <<upgrading-contracts-in-js, Use upgrades.js to programmatically manage upgrades>>
+* <<limitations-of-contract-upgrades, Learn how to write upgradeable contracts>>
 
 [[whats-in-an-upgrade]]
 == What's in an upgrade
@@ -134,6 +134,62 @@ Any user of the smart contract always interacts with the proxy, *which never cha
 
 NOTE: If you want to learn more about how OpenZeppelin proxies work, check out our xref:sdk::pattern.adoc[Upgrades Pattern guide].
 
+[[upgrading-contracts-in-js]]
+== Upgrading Contracts Programmatically
+
+If you want to create and upgrade contracts from your JavaScript code instead of via the command line, you can use the *OpenZeppelin Upgrades* library instead of the CLI.
+
+NOTE: The CLI does not just manage contract upgrades, but also compilation, interaction, and source code verification. The Upgrades library only takes care of creating and upgrading. The library also does not keep track of the contracts you have already deployed, nor runs any initializer or storage layout validations, as the CLI does. Nevertheless, these capabilities may be added to the Upgrades library in the near future.
+
+Your first step will be to install the library in your project, and you will also probably want to install `web3`:
+
+```bash
+$ npm install @openzeppelin/upgrades.js web3
+```
+
+As in our previous guide on xref:deploy-and-interact.adoc#interacting-programmatically[programmatically interacting with contracts], we will start with some boilerplate code to initialize a provider, as well as the Upgrades library.
+
+```js
+const Web3 = require('web3');
+const Upgrades = require('@openzeppelin/upgrades')
+
+async function main() {
+  // Set up web3 object, connected to the local development network, initialize the Upgrades library
+  const web3 = new Web3('http://localhost:8545');
+  Upgrades.ZWeb3.initialize(web3.currentProvider)
+}
+
+main();
+```
+
+NOTE: You can check out a full version of the code in this section in the https://github.com/OpenZeppelin/openzeppelin-sdk/tree/master/examples/upgrades-library[upgrades-library example of the SDK repository].
+
+All our code from now on will be part of the `main` function. Let's begin by creating a new `project`, to manage our upgradeable contracts.
+
+```js
+const [from] = await ZWeb3.accounts();
+const project = new ProxyAdminProject('MyProject', null, null, { from, gas: 1e6, gasPrice: 1e9 });
+```
+
+NOTE: The Upgrades library ships with three different flavours of projects: `SimpleProject`, `ProxyAdminProject`, and `AppProject`. We recommend using the `ProxyAdmin` one to begin with. You can learn more in the Upgrades documentation.
+
+Using this project, we can now create an instance of any contract. The project will take care of deploying it in such a way it can be upgraded later.
+
+```js
+const MyContractV0 = Upgrades.Contracts.getFromLocal('MyContractV0');
+const instance = await project.createProxy(MyContractV0);
+```
+
+After deploying the contract, you can upgrade it to a new version of the code using the `upgradeProxy` method, and providing the instance address.
+
+```js
+const address = instance.options.address;
+const MyContractV1 = Upgrades.Contracts.getFromLocal('MyContractV1');
+await project.upgradeProxy(address, MyContractV1);
+```
+
+That's it! You can now programmatically manage your contracts upgrades from your JavaScript code.
+
 [[limitations-of-contract-upgrades]]
 == Limitations of Contract Upgrades
 
@@ -217,64 +273,6 @@ Fortunately, this limitation only affects state variables. You can change the co
 NOTE: If you accidentally mess up with your contract's storage layout, the CLI will warn you when you try to upgrade.
 
 To learn more about this limitation, head over to the xref:sdk::writing-contracts.adoc#modifying-your-contracts[Modifying Your Contracts] guide.
-
-[[upgrading-contracts-in-js]]
-== Upgrading Contracts Programmatically
-
-If you want to create and upgrade contracts from your JavaScript code instead of via the command line, you can use the *OpenZeppelin Upgrades* library instead of the CLI.
-
-NOTE: The CLI does not just manage contract upgrades, but also compilation, interaction, and source code verification. The Upgrades library only takes care of creating and upgrading. The library also does not keep track of the contracts you have already deployed, nor runs any initializer or storage layout validations, as the CLI does. Nevertheless, these capabilities may be added to the Upgrades library in the near future.
-
-Your first step will be to install the library in your project, and you will also probably want to install `web3`:
-
-```bash
-$ npm install @openzeppelin/upgrades.js web3
-```
-
-As in our previous guide on xref:deploy-and-interact.adoc#interacting-programmatically[programmatically interacting with contracts], we will start with some boilerplate code to initialize a provider, as well as the Upgrades library.
-
-```js
-const Web3 = require('web3');
-const Upgrades = require('@openzeppelin/upgrades')
-
-async function main() {
-  // Set up web3 object, connected to the local development network, initialize the Upgrades library
-  const web3 = new Web3('http://localhost:8545');
-  Upgrades.ZWeb3.initialize(web3.currentProvider)
-}
-
-main();
-```
-
-NOTE: You can check out a full version of the code in this section in the https://github.com/OpenZeppelin/openzeppelin-sdk/tree/master/examples/upgrades-library[upgrades-library example of the SDK repository].
-
-All our code from now on will be part of the `main` function. Let's begin by creating a new `project`, to manage our upgradeable contracts.
-
-```js
-const [from] = await ZWeb3.accounts();
-const project = new ProxyAdminProject('MyProject', null, null, { from, gas: 1e6, gasPrice: 1e9 });
-```
-
-NOTE: The Upgrades library ships with three different flavours of projects: `SimpleProject`, `ProxyAdminProject`, and `AppProject`. We recommend using the `ProxyAdmin` one to begin with. You can learn more in the Upgrades documentation.
-
-Using this project, we can now create an instance of any contract. The project will take care of deploying it in such a way it can be upgraded later.
-
-```js
-const MyContractV0 = Upgrades.Contracts.getFromLocal('MyContractV0');
-const instance = await project.createProxy(MyContractV0);
-```
-
-After deploying the contract, you can upgrade it to a new version of the code using the `upgradeProxy` method, and providing the instance address.
-
-```js
-const address = instance.options.address;
-const MyContractV1 = Upgrades.Contracts.getFromLocal('MyContractV1');
-await project.upgradeProxy(address, MyContractV1);
-```
-
-That's it! You can now programmatically manage your contracts upgrades from your JavaScript code.
-
-
 
 == Next Steps
 
