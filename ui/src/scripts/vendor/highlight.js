@@ -8,6 +8,7 @@
   hljs.registerLanguage('diff', require('highlight.js/lib/languages/diff'));
   hljs.registerLanguage('python', require('highlight.js/lib/languages/python'));
   hljs.registerLanguage('shell', require('highlight.js/lib/languages/shell'));
+  hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
   require('highlightjs-solidity')(hljs);
   hljs.initHighlightingOnLoad();
 })();
