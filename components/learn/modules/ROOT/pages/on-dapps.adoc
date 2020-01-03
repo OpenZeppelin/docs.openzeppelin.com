@@ -65,6 +65,8 @@ function App() {
 }
 ```
 
+In the snippet above, just with the first two lines we get access to the Ethereum network via Metamask, falling back to Infura, as well as information on the network, provider, and even user accounts - all of this through the `useWeb3` hook provided by Network JS.
+
 TIP: You can easily xref:on-gsn.adoc[enable meta-transaction support] in your dapp when using Network JS by xref:network.js:api.adoc#webcontextoptions[adding a `gsn` option] to the React hook.
 
 To learn more, head to our step-by-step tutorial on xref:network.js::building-a-dapp-from-scratch.adoc[Building a Dapp from Scratch] using the Networks library.
@@ -129,7 +131,7 @@ To kickstart this process, we have built the xref::starter-kits/index.adoc[*Open
 You can start a new project from a starter kit using the `oz unpack` CLI command:
 
 ```console
-$ npx oz unpack starter
+$ oz unpack starter
 ✓ Kit downloaded and unpacked
 The kit is ready to use. 
 
@@ -146,9 +148,11 @@ Continue in your browser!
 More at https://github.com/OpenZeppelin/starter-kit/tree/stable
 ```
 
-This will unpack a preconfigured React dapp, with a network connection set up to both Metamask and the local node.
+This will unpack a preconfigured React dapp, with a network connection set up to both Metamask and the local node. Each box in the dapp shows the information from each connection, each obtained from a different `web3Context`: network ID, provider, accounts, and balance. On the Metamask side, you need to request access to the user accounts before obtaining them from the plugin.
 
 image::StarterKit.png[OpenZeppelin Starter Kit,500]
+
+Having this initial setup, you can now modify it to start building your own application on top of it - as you would do in a vanilla https://create-react-app.dev/[`create-react-app` setup].
 
 If you want to learn more about using Starter Kits, `unpack` the xref:starter-kits::tutorial.adoc[`tutorial`] kit instead of `starter`: it will guide you through the process of deploying and interacting with contracts from a dapp. You can also check out the xref:starter-kits::list.adoc[list of all starter kits] available to unpack.
 
