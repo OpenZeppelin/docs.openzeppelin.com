@@ -11,7 +11,7 @@ Throughout this guide, we will:
 * <<limitations-of-contract-upgrades, Learn how to write upgradeable contracts>>
 
 [[whats-in-an-upgrade]]
-== What's in an upgrade
+== What's in an Upgrade
 
 Smart contracts in Ethereum are immutable by default. Once you create them there is no way to alter them, effectively acting as an unbreakable contract among participants.
 
@@ -110,7 +110,7 @@ $ npx openzeppelin call
 That's it! Notice how the `value` of the `Box` was preserved throughout the upgrade, as well as its address. And this process is the same regardless of whether you are working on a local blockchain, a testnet, or the main network. Let's see how the OpenZeppelin SDK accomplishes this.
 
 [[how-upgrades-work]]
-== How upgrades work
+== How Upgrades Work
 
 _This section will be more theory-heavy than others: feel free to skip over it and return later if you are curious._
 
