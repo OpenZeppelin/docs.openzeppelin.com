@@ -1,6 +1,6 @@
 = Deploy to Mainnet
 
-After running your project on a testnet for some time without issues, you can now deploy it to the main Ethereum network (aka _mainnet_). However, the planning for going to mainnet should begin much earlier than your planned release date. 
+After xref:public-staging.adoc[running your project on a testnet] for some time without issues, you will want to deploy it to the main Ethereum network (aka _mainnet_). However, the planning for going to mainnet should begin much earlier than your planned release date. 
 
 In this guide, we will go through Ethereum-specific considerations for taking your project to production, such as:
 
@@ -18,9 +18,9 @@ While security affects all of software development, security in smart contracts 
 
 With this in mind, security should be a primary concern at all stages of development. This means that **security is not something that you sprinkle on your project a week before you release**, but a guiding principle since day one of your project.
 
-Reviewing https://consensys.github.io/smart-contract-best-practices/[smart contract security best practices] as you begin coding is a good idea. Also, make sure to go through our https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] to ensure your project is secure and healthy before releasing.
+Review https://consensys.github.io/smart-contract-best-practices/[smart contract security best practices] as you begin coding, and make sure to go through our https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] to ensure your project is healthy.
 
-Once you have gone through all items in the checklist, it's a good time to request an audit with one or more auditing firms. Here you can mailto:audits@openzeppelin.com[contact] the https://openzeppelin.com/security-audits/[OpenZeppelin Security team] directly for an audit - it is an experienced team with a https://blog.openzeppelin.com/security-audits/[long track record].
+Once you are done, it's a good time to request an audit with one or more auditing firms. Here you can mailto:audits@openzeppelin.com[contact] the https://openzeppelin.com/security-audits/[OpenZeppelin Security team] directly for an audit - we are an experienced team with a https://blog.openzeppelin.com/security-audits/[long track record].
 
 Remember that audits do not ensure the absence of bugs, but having several experienced security researchers go through your code certainly helps.
 
@@ -29,7 +29,9 @@ Remember that audits do not ensure the absence of bugs, but having several exper
 
 Right after you deploy your contracts to mainnet, you should **verify their source code**. This process involves submitting the Solidity code to a third-party, such as https://etherscan.io/[Etherscan] or https://www.etherchain.org/[Etherchain], who will compile it and _verify_ that it matches the deployed assembly. This allows any user to view your contract code in a block explorer, and know that it corresponds to the assembly actually running at that address.
 
-You can verify your contracts manually on the https://etherscan.io/verifyContract[Etherscan] or https://www.etherchain.org/tools/verifyContract[Etherchain] websites, or you can have the OpenZeppelin CLI verify them for you. To do so, run the `oz verify` command on your project. Note that you will need an https://etherscan.io/apis[Etherscan API key] if you use their service.
+You can verify your contracts manually on the https://etherscan.io/verifyContract[Etherscan] or https://www.etherchain.org/tools/verifyContract[Etherchain] websites, or have the OpenZeppelin CLI do it for you. 
+
+To do this, run the `oz verify` command on your project:
 
 ```console
 $ oz verify
@@ -40,33 +42,34 @@ $ oz verify
 ? Provide an etherscan API KEY: XYZ
 Contract source code of Box verified and published successfully
 ```
+NOTE: You will need an https://etherscan.io/apis[Etherscan API key] to use their service.
 
 Remember that, when you deploy a contract via the OpenZeppelin CLI, both xref:on-upgrades.adoc#how-upgrades-work[a logic and a proxy contract are deployed]. This means that the contract that the user interacts with will be a just proxy, and the actual logic will be in a different one. Etherscan does have https://medium.com/etherscan-blog/and-finally-proxy-contract-support-on-etherscan-693e3da0714b[support for correctly showing OpenZeppelin proxies and their implementations], but other explorers may not.
 
-NOTE: You can check out on Etherscan a verified https://etherscan.io/address/0x3c68fe89047e59dff502642eea839347b53202cd#readProxyContract[proxy] and https://etherscan.io/address/0x73ba08C7982bEE9F0f4625fE323E930608C82485#code[implementation] contracts to see how they look.
+TIP: Check out our Etherscan-verified https://etherscan.io/address/0x3c68fe89047e59dff502642eea839347b53202cd#readProxyContract[proxy] and https://etherscan.io/address/0x73ba08C7982bEE9F0f4625fE323E930608C82485#code[implementation] `Box` contracts to see how they look.
 
 [[key-management]]
 == Key Management
 
-When working on mainnet, you need to take special care to secure your private keys. The accounts you use to deploy and interact with your contracts will hold real Ether, which has real value, and is a tempting target for hackers. Take every precaution to protect your keys, and consider using https://docs.ethhub.io/using-ethereum/wallets/hardware/[hardware wallets] if necessary.
+When working on mainnet you need to take special care to secure your private keys. The accounts you use to deploy and interact with your contracts will hold real Ether, which has real value and is a tempting target for hackers. Take every precaution to protect your keys, and consider using a https://docs.ethhub.io/using-ethereum/wallets/hardware/[hardware wallet] if necessary.
 
-NOTE: Unlike on a testnet, you cannot get mainnet Ether from a faucet. You will need to head to an exchange to trade in other coins or fiat to get real ETH for deploying your contracts.
+NOTE: Unlike on a testnet, you cannot get mainnet Ether from a faucet. You will need to head to an exchange to trade in other coins or fiat to get real Ether for deploying your contracts.
 
 Additionally, you may define certain accounts to have special privileges in your system - and you should take extra care to secure them.
 
 [[admin-accounts]]
 === Admin Accounts
 
-We refer to an account as an _admin account_ when it has special privileges in your system. For example, an account may have the power to https://docs.openzeppelin.com/contracts/2.x/api/lifecycle#_pausable[pause] a contract. If such an account falls in the hands of a malicious user, they may wreak havoc in your system.
+An _admin_ (short for _administrator_) account is one that has special privileges in your system. For example, an admin may have the power to https://docs.openzeppelin.com/contracts/2.x/api/lifecycle#_pausable[pause] a contract. If such an account were to fall in the hands of a malicious user, they could wreak havoc in your system.
 
-A good option for securing admin accounts is to use a special contract, such as a multisig, instead of an externally owned account. A _multisig_ is a contract that can execute any action, _as long as a predefined number of trusted members agree upon it_. https://safe.gnosis.io/multisig[Gnosis Safe] is a good implementation multisig to use.
+A good option for securing admin accounts is to use a special contract, such as a multisig, instead of a regular externally owned account. A _multisig_ is a contract that can execute any action, _as long as a predefined number of trusted members agree upon it_. https://safe.gnosis.io/multisig[Gnosis Safe] is a good multisig to use.
 
 [[set-admin]]
 === Upgrades Admin
 
-A special administrator account in an OpenZeppelin project is the account with the power to xref:on-upgrades.adoc[_upgrade_] other contracts. This defaults to the externally owned account used to deploy the contracts, which is good enough for a local or testnet deployment, but in mainnet you need to better secure your contracts. An attacker who gets hold of your upgrade admin account can change any contract in your system.
+A special administrator account in an OpenZeppelin project is the account with the power to xref:on-upgrades.adoc[_upgrade_] other contracts. This defaults to the externally owned account used to deploy the contracts: while this is good enough for a local or testnet deployment, in mainnet you need to better secure your contracts. An attacker who gets hold of your upgrade admin account can change any contract in your system!
 
-With this in mind, after you have deployed your contracts to mainnet, it is a good idea to **change the admin account** - for instance, to a multisig. To do this, you can use the `set-admin` command:
+With this in mind, it is a good idea to **change the admin account** after deployment  - for example, to a multisig. To do this, you can use the `set-admin` command:
 
 ```console
 $ npx oz set-admin
@@ -82,11 +85,11 @@ NOTE: In a standard OpenZeppelin project, all proxies are actually managed by a 
 When you need to upgrade your contracts, you can transfer ownership back to a secure externally owned account, upgrade via `oz upgrade`, and then use `set-admin` to restore ownership to the multisig.
 
 [[project-governance]]
-== Governance
+== Project Governance
 
 It can be argued that admin accounts reflect that a project is not actually _decentralized_. After all, if an account can single-handedly change any contract in the system, we are not exactly creating a trustless environment.
 
-Here is where _governance_ comes in. In many cases there will be some operations in your project that will need special privileges, from fine-tuning system parameters, to running full contract upgrades. You will need to decide how those actions will be decided upon: whether it is by a https://safe.gnosis.io/multisig[small group] of trusted developers, or by https://daostack.io/[public] https://aragon.org/[voting] of all the project stakeholers.
+Here is where _governance_ comes in. In many cases there will be some operations in your project that require special privileges, from fine-tuning system parameters, to running full contract upgrades. You will need to choose how those actions will be decided upon: whether it is by a https://safe.gnosis.io/multisig[small group] of trusted developers, or by https://daostack.io/[public] https://aragon.org/[voting] of all project stakeholders.
 
 There is no right answer here. Which governance scheme you pick for your project will largely depend on what you are building and who your community is.
 
