@@ -5,7 +5,7 @@ Unlike most software, smart contracts don't run on your computer or somebody's s
 This guide will cover all you need to know to get you started using your contracts, including:
 
  * <<local-blockchain, Setting up a Local Blockchain>>
- * <<getting-started-with-the-cli, Install the OpenZeppelin CLI>>
+ * <<getting-started-with-the-cli, Installing the OpenZeppelin CLI>>
  * <<deploying-a-smart-contract, Deploying a Smart Contract>>
  * <<interacting-via-the-cli, Interacting from the Terminal>>
  * <<interacting-programmatically, Interacting Programmatically>>
@@ -191,7 +191,9 @@ TIP: To learn more about `send-tx` and `call`, check out the https://docs.openze
 [[interacting-programmatically]]
 == Interacting Programmatically
 
-The command-line is useful for protyping and running one-off commands. However, eventually you will want to interact with your contracts from your own application, which means calling or sending transaction in code. In this section, we will see how to use https://web3js.readthedocs.io/en/1.2.4/[web3.js] to interact with our contracts from JavaScript, and https://github.com/OpenZeppelin/openzeppelin-contract-loader[@openzeppelin/contract-loader] to load them. Let's begin by installing them:
+The command-line is useful for protyping and running one-off commands. However, eventually you will want to interact with your contracts from your own application, which means calling or sending transaction in code. 
+
+In this section, we will see how to use https://web3js.readthedocs.io/en/1.2.4/[web3.js] to interact with our contracts from JavaScript, and the https://github.com/OpenZeppelin/openzeppelin-contract-loader[*OpenZeppelin Contract Loader*] to load them. Let's begin by installing them:
 
 [source,console]
 ----
@@ -218,7 +220,7 @@ async function main() {
 main();
 ----
 
-We will first initialize a new `web3` instance. A `web3` instance is an object that holds a connection to a blockchain node, and allows us to send transactions and queries. We will create one connecting to the local development network we started earlier, that is running on localhost port 8545. 
+We will first initialize a new `web3` instance. This is an object that holds a connection to a blockchain node, and allows us to send transactions and queries. We will create one connecting to the <<local-blockchain, local development network>> we started earlier, which is running on localhost port 8545. 
 
 We can test if the connection works by asking something to the local node, such as the list of enabled accounts:
 
@@ -249,9 +251,9 @@ These accounts should match the ones you got when you ran `oz accounts` earlier.
 [[getting-a-contract-instance]]
 === Getting a Contract Instance
 
-In order to interact with the <<box-contract,`Box`>> contract we <<deploying-a-smart-contract, deployed using the CLI>>, we will create a new https://web3js.readthedocs.io/en/1.2.4/web3-eth-contract.html[web3 contract instance] using https://github.com/OpenZeppelin/openzeppelin-contract-loader[@openzeppelin/contract-loader]. 
+In order to interact with the <<box-contract,`Box`>> contract we <<deploying-a-smart-contract, deployed using the CLI>>, we will create a new https://web3js.readthedocs.io/en/1.2.4/web3-eth-contract.html[web3 contract instance] using the https://github.com/OpenZeppelin/openzeppelin-contract-loader[*OpenZeppelin Contract Loader*]. 
 
-A web3 contract instance is a javascript object that represents our contract in the blockchain, which we can use to interact with our contract. To create one, we need to provide the `contract-loader` with the contract name and the address where it was deployed - the address was the value returned by the CLI when we deployed the contract via `oz create`.
+A web3 contract instance is a JavaScript object that represents our contract in the blockchain, which we can use to interact with our contract. To create one we need to provide the Contract Loader with the contract name and the address where it was deployed, which the CLI returned when we ran `oz create`.
 
 [source,js]
 ----
@@ -280,7 +282,7 @@ const value = await box.methods.retrieve().call();
 console.log("Box value is", value);
 ----
 
-This snippet is equivalent to the `oz call` we ran earlier from the command line. Now, make sure everything is running smoothly by running the script again and checking the printed value:
+This snippet is equivalent to the `oz call` we ran earlier from the CLI. Now, make sure everything is running smoothly by running the script again and checking the printed value:
 
 [source,console]
 ----
@@ -288,7 +290,12 @@ $ node src/index.js
 Box value is 5
 ----
 
-NOTE: If you restarted ganache at any point, this script may fail. Restarting ganache clears all local blockchain state, so the `Box` contract instance will not be at the expected address.
+[WARNING]
+====
+If you restarted ganache at any point, this script may fail. Restarting ganache clears all local blockchain state, so the `Box` contract instance will not be at the expected address.
+
+If this happens, simply <<local-blockchain, start ganache>> and <<deploying-a-smart-contract, redeploy>> the `Box` contract.
+====
 
 We can now actually interact with the contract by sending a transaction to it.
 
@@ -326,10 +333,9 @@ Box value is 20
 
 == Next Steps
 
-After going through this guide, you should have learned how to deploy your contracts to a local blockchain and interact with them, both manually and programmatically, using either the OpenZeppelin CLI or the web3.js library respectively. 
 
-Now that you can start writing full smart-contract projects, you will need to look into setting up environments for automated testing, staging, and eventually production. Fortunately, we have you covered:
+Now that you know how to set up a local blockchain, deploy contracts and interact with them both manually and programmatically, you will need to learn about testing environments, public test networks and going to production:
 
-* xref:unit-testing.adoc[Automated testing of smart contract projects]
-* xref:public-staging.adoc[Deploying to a public test network]
-* xref:mainnet.adoc[Going to mainnet]
+* xref:unit-testing.adoc[Automated Testing]
+* xref:public-staging.adoc[Deploying to a Public Test Network]
+* xref:mainnet.adoc[Deploying to Mainnet]
