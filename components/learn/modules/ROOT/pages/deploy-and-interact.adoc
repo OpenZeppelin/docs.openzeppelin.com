@@ -4,36 +4,38 @@ Unlike most software, smart contracts don't run on your computer or somebody's s
 
 This guide will cover all you need to know to get you started using your contracts, including:
 
+ * <<local-blockchain, Setting up a Local Blockchain>>
+ * <<getting-started-with-the-cli, Installing the OpenZeppelin CLI>>
  * <<deploying-a-smart-contract, Deploying a Smart Contract>>
  * <<interacting-via-the-cli, Interacting from the Terminal>>
- * <<performing-complex-assertions, Interacting Programatically>>
+ * <<interacting-programmatically, Interacting Programmatically>>
 
 [[local-blockchain]]
-== Using a Local Blockchain
+== Setting up a Local Blockchain
 
-The Ethereum blockchain (often called 'mainnet', for 'main network') requires spending real money to use it, in the form of Ether (its native currency). This makes it a poor choice when trying out new ideas or tools.
+Before we begin, we first need an environment where to deploy our contracts. The Ethereum blockchain (often called 'mainnet', for 'main network') requires spending real money to use it, in the form of Ether (its native currency). This makes it a poor choice when trying out new ideas or tools.
 
-To solve this, a number of 'testnets' (for 'test networks') exist: these include the Ropsten, Rinkeby and Kovan blockchains. They work very similarly to mainnet, with one key difference: you can get Ether for these networks for free, so that using them doesn't cost you a single cent. However, you will still need to deal with private key management, blocktimes in the range of 5 to 20 seconds, and actually getting this free Ether. And of course, an Internet connection.
+To solve this, a number of 'testnets' (for 'test networks') exist: these include the Ropsten, Rinkeby, and Kovan blockchains. They work very similarly to mainnet, with one difference: you can get Ether for these networks for free, so that using them doesn't cost you a single cent. However, you will still need to deal with private key management, blocktimes in the range of 5 to 20 seconds, and actually getting this free Ether.
 
-During development, it is often a great idea to instead use a _local_ blockchain. It will run on your machine, requiring no Internet access, provide you with all the Ether that you need, and mine blocks instantly. These reasons will also make local blockchains a great match for xref:unit-testing.adoc#setting-up-a-testing-environment[automated tests].
+During development, it is a better idea to instead use a _local_ blockchain. It runs on your machine, requires no Internet access, provides you with all the Ether that you need, and mines blocks instantly. These reasons also make local blockchains a great fit for xref:unit-testing.adoc#setting-up-a-testing-environment[automated tests].
 
 TIP: If you want to learn how to deploy and use contracts on a _public_ blockchain, like the Ethereum testnets, head to our xref:public-staging.adoc[Using Public Networks] guide.
 
-The most popular local blockchain is called https://github.com/trufflesuite/ganache-cli/[Ganache]. To install it on your project, run:
+The most popular local blockchain is https://www.trufflesuite.com/ganache[Ganache]. To install it on your project, run:
 
 ```bash
 $ npm install --save-dev ganache-cli
 ```
 
-By default, Ganache will create a random set of unlocked accounts and give them Ether. In order to get the same addresses that will be used in this guide, you can start Ganache in deterministic mode:
+Upon startup, Ganache will create a random set of unlocked accounts and give them Ether. In order to get the same addresses that will be used in this guide, you can start Ganache in deterministic mode:
 
 ```
 $ npx ganache-cli --deterministic
 ```
 
-Ganache will print out a list of available accounts and their private keys, along with some blockchain configuration values. Most importantly, it will display its address, which we will use to connect to it. By default, this will be `127.0.0.1:8545`.
+Ganache will print out a list of available accounts and their private keys, along with some blockchain configuration values. Most importantly, it will display its address, which we'll use to connect to it. By default, this will be `127.0.0.1:8545`.
 
-Something to keep in mind is that every time you run Ganache, it will create a brand new local blockchain - the state of previous runs is **not** preserved. This is fine for our short-lived experiments, but it means that you will need to have a window open running Ganache for the duration of this guide. Alternatively, you can run Ganache with the `--db` option, providing a directory to store its data inbetween runs.
+Keep in mind that every time you run Ganache, it will create a brand new local blockchain - the state of previous runs is **not** preserved. This is fine for short-lived experiments, but it means that you will need to have a window open running Ganache for the duration of these guides. Alternatively, you can run Ganache with the `--db` option, providing a directory to store its data inbetween runs.
 
 NOTE: As an alternative to Ganache, you can also run an actual Ethereum node in _https://geth.ethereum.org/getting-started/dev-mode[development] https://wiki.parity.io/Private-development-chain[mode]_. These are a bit more complex to set up, and not as flexible for testing and development, but are more representative of the real network than Ganache.
 
@@ -48,11 +50,13 @@ You may have used the CLI already to xref:writing-smart-contracts.adoc#compiling
 $ npm install --save-dev @openzeppelin/cli
 ```
 
-In order to track your deployed contracts and connect to different networks, the CLI needs to be initialized in your project. Do so now, and provide it with a name and version number for your project when prompted:
+In order to manage your deployed contracts, you need to create a new CLI project. Do so now, and provide it with a name and version number for your project when prompted:
 
 ```bash
-$ npx oz init
+$ npx openzeppelin init
 ```
+
+NOTE: You can call the OpenZeppelin CLI with both `openzeppelin` and `oz`. For brevity, from here on we'll use the latter.
 
 Two things will happen during initialization. First, an `.openzeppelin` directory will be created, holding project-specific information. This directory will be managed by the CLI: you won't need to manually edit anything. It is important however to commit any changes here to your Git repository.
 
@@ -92,8 +96,9 @@ This shows why using a local blockchain is so convenient: Ganache has prefunded 
 [[deploying-a-smart-contract]]
 == Deploying a Smart Contract
 
-With the <<getting-started-with-the-cli, CLI setup complete>>, we're now ready to deploy a contract. We'll be deploying `Box`, from the xref:writing-smart-contracts.adoc#setting-up-a-solidity-project[Writing Smart Contracts guide]. Make sure you have a copy stored in `contracts/Box.sol`:
+With the <<getting-started-with-the-cli, CLI setup complete>>, we're now ready to deploy a contract. We'll be deploying `Box`, from the xref:writing-smart-contracts.adoc#setting-up-a-solidity-project[Writing Smart Contracts guide]. Make sure you have a copy in `contracts/Box.sol`:
 
+[[box-contract]]
 ```solidity
 // contracts/Box.sol
 pragma solidity ^0.5.0;
@@ -144,7 +149,6 @@ NOTE: Remember that local blockchains **do not** persist their state throughout 
 
 With our `Box` contract <<deploying-a-smart-contract, deployed>>, we can start using it right away from the <<getting-started-with-the-cli, CLI>>.
 
-
 === Sending Transactions
 
 `Box` 's first function, `store`, receives an integer value and stores it on the contract storage. Because this function _modifies_ the blockchain state, we need to _send a transaction_ to the contract to execute it.
@@ -182,20 +186,153 @@ Because `call` doesn't send a transaction, there is no transaction hash to repor
 
 TIP: To learn more about `send-tx` and `call`, check out the https://docs.openzeppelin.com/sdk/2.6/api/cli[CLI API reference].
 
-[[interacting-programatically]]
-== Interacting Programatically
+[[interacting-programmatically]]
+== Interacting Programmatically
 
-from sdk interacting guide (https://docs.openzeppelin.com/sdk/2.6/interacting#setup)
+The command-line is useful for protyping and running one-off commands. However, eventually you will want to interact with your contracts from your own application, which means calling or sending transaction in code. 
 
-replace manual setup with contract loader?
+In this section, we'll see how to use https://web3js.readthedocs.io/en/1.2.4/[web3.js] to interact with our contracts from JavaScript, and the https://github.com/OpenZeppelin/openzeppelin-contract-loader[*OpenZeppelin Contract Loader*] to load them. Let's begin by installing them:
 
-send tx, call function, same as CLI guide
+[source,console]
+----
+$ npm install web3 @openzeppelin/contract-loader
+----
+
+TIP: Keep in mind that there are many other JavaScript libraries available, and you can use whichever you like the most. Once a contract is deployed, you can interact with it through any library!
+
+[[connecting-to-the-network]]
+=== Connecting to the Network
+
+Let's start coding in a new `src/index.js` file, where we'll be writing our JavaScript script, beginning with some boilerplate for loading the libraries and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function[writing async code].
+
+[source,js]
+----
+// src/index.js
+const Web3 = require('web3');
+const { setupLoader } = require('@openzeppelin/contract-loader');
+
+async function main() {
+  // Our code will go here
+}
+
+main();
+----
+
+We'll first initialize a new `web3` instance. This is an object that holds a connection to a blockchain node, and allows us to send transactions and queries. We'll create one connecting to the <<local-blockchain, local development network>> we started earlier, which is running on localhost port 8545. 
+
+We can test if the connection works by asking something to the local node, such as the list of enabled accounts:
+
+[source,js]
+----
+// Set up web3 object, connected to the local development network
+const web3 = new Web3('http://localhost:8545');
+
+// Retrieve accounts from the local node
+const accounts = await web3.eth.getAccounts();
+console.log(accounts);
+----
+
+NOTE: We won't be repeating the boilerplate code on every snippet, but make sure to always code _inside_ the `main` function we defined above!
+
+Run the code above using `node`, and check that you are getting a list of available accounts in response. 
+
+[source,console]
+----
+$ node src/index.js 
+[ '0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1',
+  '0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0',
+  ... ]
+----
+
+These accounts should match the ones you got when you ran `oz accounts` earlier. Now that we have our first code snippet for getting data out of a blockchain, let's start working with our contract.
+
+[[getting-a-contract-instance]]
+=== Getting a Contract Instance
+
+In order to interact with the <<box-contract,`Box`>> contract we <<deploying-a-smart-contract, deployed using the CLI>>, we'll create a new https://web3js.readthedocs.io/en/1.2.4/web3-eth-contract.html[web3 contract instance] using the https://github.com/OpenZeppelin/openzeppelin-contract-loader[*OpenZeppelin Contract Loader*]. 
+
+A web3 contract instance is a JavaScript object that represents our contract in the blockchain, which we can use to interact with our contract. To create one we need to provide the Contract Loader with the contract name and the address where it was deployed, which the CLI returned when we ran `oz create`.
+
+[source,js]
+----
+// Set up web3 object, connected to the local development network, and a contract loader
+const web3 = new Web3('http://localhost:8545');
+const loader = setupLoader({ provider: web3 }).web3;
+
+// Set up a web3 contract, representing our deployed Box instance, using the contract loader
+const address = '0xCfEB869F69431e42cdB54A4F4f105C19C080A601';
+const box = loader.fromArtifact('Box', address);
+----
+
+NOTE: Make sure to replace the `address` with the one you got when deploying the contract, which may be different to the one shown here.
+
+We can now use this JavaScript object to interact with our contract.
+
+[[calling-the-contract]]
+=== Calling the Contract
+
+Let's start by displaying the current value of the `Box` contract. We'll need to https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-call[call] into the `retrieve()` public method of the contract, and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await[await] the response:
+
+[source,js]
+----
+// Call the retrieve() function of the deployed Box contract
+const value = await box.methods.retrieve().call();
+console.log("Box value is", value);
+----
+
+This snippet is equivalent to the `oz call` we ran earlier from the CLI. Now, make sure everything is running smoothly by running the script again and checking the printed value:
+
+[source,console]
+----
+$ node src/index.js
+Box value is 5
+----
+
+[WARNING]
+====
+If you restarted ganache at any point, this script may fail. Restarting ganache clears all local blockchain state, so the `Box` contract instance won't be at the expected address.
+
+If this happens, simply <<local-blockchain, start ganache>> and <<deploying-a-smart-contract, redeploy>> the `Box` contract.
+====
+
+We can now actually interact with the contract by sending a transaction to it.
+
+[[sending-a-transaction]]
+=== Sending a Transaction
+
+We'll now https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-send[send a transaction] to `store` a new value in our Box. Remember that sending a transaction is not as straightforward as making a call: we need to specify who the sender will be, the gas limit, and the gas price we are going to use. To keep this example simple, we'll use a hardcoded value for both gas and gas price, and send the transaction from the first available account on the node.
+
+NOTE: In a real-world application, you may want to https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-estimategas[estimate the gas] of your transactions, and check a https://ethgasstation.info/[gas price oracle] to know the optimal values to use on every transaction.
+
+Let's store a value of `20` in our `Box`, and then use the code we had written before to display the updated value:
+
+[source,js]
+----
+// Retrieve accounts from the local node, we'll use the first one to send the transaction
+const accounts = await web3.eth.getAccounts();
+
+// Send a transaction to store() a new value in the Box
+await box.methods.store(20)
+  .send({ from: accounts[0], gas: 50000, gasPrice: 1e6 });
+
+// Call the retrieve() function of the deployed Box contract
+const value = await box.methods.retrieve().call();
+console.log("Box value is", value);
+----
+
+We can now run the snippet, and check that the box's value is updated!
+
+[source,console]
+----
+$ node src/index.js
+Box value is 20
+----
 
 
-== closing thoughts ???
+== Next Steps
 
-this was was like testing, but manual and not very complete. automated is better.
+Now that you know how to set up a local blockchain, deploy contracts and interact with them both manually and programmatically, you will need to learn about testing environments, public test networks and going to production:
 
-next steps:
-    - automated testing
-    - deploying on public testnets
+* xref:unit-testing.adoc[Automated Testing]
+* xref:public-staging.adoc[Deploying to a Public Test Network]
+* xref:mainnet.adoc[Deploying to Mainnet]
