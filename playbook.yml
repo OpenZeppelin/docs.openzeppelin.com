@@ -9,11 +9,11 @@ content:
     - url: .
       branches: HEAD
       start_path: components/home
-    
+
     - url: .
       branches: HEAD
       start_path: components/learn
-    
+
     - url: https://github.com/OpenZeppelin/openzeppelin-contracts
       branches: docs-v*
       start_path: docs
@@ -54,3 +54,6 @@ ui:
     url: ./ui/build/oz-docs-ui.zip
     # url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
     # snapshot: true
+asciidoc:
+  attributes:
+    idprefix: ''
