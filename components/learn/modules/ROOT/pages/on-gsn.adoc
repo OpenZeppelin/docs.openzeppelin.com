@@ -45,7 +45,7 @@ NOTE: It might feel like there are many moving pieces here, but each component h
 We will create a super simple contract that just counts transactions sent to it from users but will tie it into the GSN so the users will not have to pay for the gas from those transactions. Let's get started!
 
 [[environment-set-up]]
-=== Setting up the environment
+=== Setting up the Environment
 
 We will begin by creating a new npm project and installing all dependencies.
 
@@ -74,7 +74,7 @@ openzeppelin init
 
 
 [[creating-our-contract]]
-=== Creating our contract
+=== Creating our Contract
 
 We will write our vanilla `Counter` contract in the newly created `contracts` folder.
 
@@ -151,7 +151,7 @@ All contracts are up to date
 Great! Now, if we deployed this contract to mainnet or the rinkeby testnet, we would almost be ready to start sending gasless transactions to it since the GSN is set up on both of those networks. However, since we are on a local ganache, we need to set it up ourselves.
 
 [[deploying-local-gsn]]
-=== Deploying a local GSN for development
+=== Deploying a Local GSN for Development
 
 The GSN is composed of a central `RelayHub` contract that coordinates all relayed transactions, as well as multiple decentralized relayers. The relayers are processes that receive requests to relay a transaction via an HTTP interface and send them to the network via the `RelayHub`.
 
@@ -182,7 +182,7 @@ $ npx oz-gsn fund-recipient --recipient 0xCfEB869F69431e42cdB54A4F4f105C19C080A6
 Cool! Now that we have our GSN-powered contract and a local GSN to try it out, let's build a small (d)app.
 
 [[creating-the-dapp]]
-=== Creating the dapp
+=== Creating the Dapp
 
 We will create our (d)app using the `create-react-app` package, which bootstraps a simple client-side application using React.
 
