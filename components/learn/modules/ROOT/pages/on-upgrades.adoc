@@ -4,13 +4,13 @@ Smart contracts xref:deploy-and-interact.adoc[deployed] with the OpenZeppelin CL
 
 Throughout this guide, we will:
 
-* <<what-is-an-uograde, Why upgrades are important>>
+* <<whats-in-an-upgrade, Why upgrades are important>>
 * <<upgrading-a-contract-via-cli, Upgrade our Box contract using the CLI>>
+* <<how-upgrades-work, Learn how upgrades work under the hood>>
 * <<limitations-of-contract-upgrades, Learn how to write upgradeable contracts>>
 * <<upgrading-contracts-in-js, Use upgrades.js to programmatically manage upgrades>>
-* <<how-upgrades-work, Learn how upgrades work behind the hood>>
 
-[[what-is-an-upgrade]]
+[[whats-in-an-upgrade]]
 == What's in an upgrade
 
 Smart contracts in Ethereum are immutable by default. Once you create them there is no way to alter them, effectively acting as an unbreakable contract among participants.
@@ -278,4 +278,4 @@ That's it! You can now programmatically manage your contracts upgrades from your
 
 == Next Steps
 
-Now that you know how to upgrade your smart contracts, and can iteratively develop your project, it's time to take your project to testnet and to production! You can rest with the confidence that, should a bug appear, you have the tools to modify your contract and change it.
+Now that you know how to upgrade your smart contracts, and can iteratively develop your project, it's time to take your project to xref:public-staging.adoc[testnet] and to xref:mainnet.adoc[production]! You can rest with the confidence that, should a bug appear, you have the tools to modify your contract and change it.
