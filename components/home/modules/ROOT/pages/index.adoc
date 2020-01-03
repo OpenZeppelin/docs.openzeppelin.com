@@ -16,10 +16,10 @@ Comprehensive guides for every step of your development journey
 Environment Setup:: Install node, npm, and the basic libraries for web3 development
 Write Smart Contracts:: Write and compile your first Solidity contracts, using the building blocks from the OpenZeppelin Contracts library
 Local Development:: Deploy your contracts to a local blockchain and send your first transactions using the OpenZeppelin CLI
-Test your Contracts:: Unit test your contracts with the OpenZeppelin `test-environment`, combined with assertions from our `test-helpers`
-Upgrade your Contracts:: Change the code of your deployed contracts to add new features or fix bugs, using the OpenZeppelin CLI or the `upgrades` library
+Test your Contracts:: Unit test your contracts with the OpenZeppelin Test Environment, combined with assertions from our Test Helpers
+Upgrade your Contracts:: Change the code of your deployed contracts to add new features or fix bugs, using the OpenZeppelin CLI or the Upgrades library
 Deploy to Testnet:: Set up a staging environment by deploying your app to a public Ethereum testnet using the OpenZeppelin CLI
-Build a Dapp:: Create a decentralized web app using OpenZeppelin `network-js` and `hot-loader`, or simply unpack a Starter Kit
+Build a Dapp:: Create a decentralized web app using OpenZeppelin Networks JS and Hot Loader, or simply unpack a Starter Kit
 Send Gasless Transactions:: Leverage the Gas Station Network so your users can send transactions without having ETH to pay for gas
 Go to Mainnet:: All the boxes you need to check before taking your project to production on the main Ethereum network
 
