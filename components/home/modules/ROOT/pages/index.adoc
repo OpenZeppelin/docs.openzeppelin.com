@@ -2,7 +2,7 @@
 
 Learn about writing, testing, deploying, and upgrading your smart contract applications on Ethereum using the OpenZeppelin tools. 
 
-Our offering includes the most widely used Solidity smart contracts library, a command-line tool for managing your project, several javascript modules, and pre-packaged boxes to bootstrap development.
+Our offering includes the most widely used Solidity smart contracts library, a command-line tool for managing your project, several JavaScript modules, and pre-packaged boxes to bootstrap development.
 
 == Why OpenZeppelin?
 
