@@ -121,7 +121,7 @@ The OpenZeppelin CLI will guide you through the deployment process, asking for i
 
 ```bash
 $ npx oz create
-Nothing to compile, all contracts are up to date.
+✓ Compiled contracts with solc 0.5.9
 ? Pick a contract to instantiate Box
 ? Pick a network development
 ✓ Contract Box deployed
@@ -176,7 +176,6 @@ $ npx oz call
 ? Pick an instance Box at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
 ? Select which function retrieve()
 ✓ Method 'retrieve()' returned: 5
-5
 ```
 
 Because `call` doesn't send a transaction, there is no transaction hash to report. This also means that using `call` doesn't cost any Ether, and can be used for free on any network.
