@@ -6,11 +6,11 @@ Learn about writing, testing, deploying, and upgrading your smart contract appli
 
 == Why OpenZeppelin?
 
-OpenZeppelin tools have been built with *security in mind*. Since the first release of the Contracts library in 2016, our libraries have been downloaded over 1.5 million times to create tokens, protect digital assets, and power decentralized applications, securing more than $4.5 billion in digital assets. We also work with top Ethereum projects through our https://openzeppelin.com/security-audits/[security audits service].
+OpenZeppelin tools have been built with *security in mind*. Since the first release of the Contracts library in 2016, our libraries have been downloaded over 1.5 million times to create tokens, protect digital assets, and power decentralized applications, securing more than $4.5 billion. We also work with top Ethereum projects through our https://openzeppelin.com/security-audits/[security audits service].
 
 == Learn
 
-Comprehensive guides for every step of your development journey
+Comprehensive guides for every step of your development journey:
 
 [horizontal]
 Environment Setup:: Install node, npm, and the basic libraries for web3 development
@@ -25,7 +25,7 @@ Go to Mainnet:: All the boxes you need to check before taking your project to pr
 
 == Tools
 
-All the open source tools built and maintained by the OpenZeppelin team
+All the open source tools built and maintained by the OpenZeppelin team:
 
 [.card.card-contracts]
 .xref:contracts::index.adoc[Contracts]
@@ -79,7 +79,7 @@ The OpenZeppelin https://openzeppelin.com/about/[team] is always hiring. If you 
 === Social
 
 // We may want to remove this if it's going to be present on the footer?
-You can https://twitter.com/OpenZeppelin[follow us on Twitter], check out https://blog.openzeppelin.com/[our Blog], tune in https://www.youtube.com/channel/UC0Nx8RbugiCzdlVGK7hWZfw/videos[our YouTube channel], or join https://forum.openzeppelin.com/[our Forum]!
+You can https://forum.openzeppelin.com/[join our Forum], https://blog.openzeppelin.com/[check out our Blog], https://twitter.com/OpenZeppelin[follow us on Twitter], or https://www.youtube.com/channel/UC0Nx8RbugiCzdlVGK7hWZfw/videos[tune in our YouTube channel]!
 
 == Questions?
 
