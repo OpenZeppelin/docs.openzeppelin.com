@@ -14,7 +14,7 @@ In this guide, we will explore the concept of gasless (also called _meta_) trans
 
 All Ethereum transactions use gas, and the sender of each transaction must have enough Ether to pay for the gas spent. Even though these gas costs are low for basic transactions (a couple of cents), getting Ether is no easy task: dApp users often need to go through Know Your Customer and Anti Money-Laundering processes (KYC & AML), which not only takes time but often involves sending a selfie holding their passport over the Internet (!). On top of that, they also need to provide financial information to be able to purchase Ether through an exchange. Only the most hardcore users will put up with this hassle, and dApp adoption greatly suffers when Ether is required. We can do better.
 
-**Enter meta-transactions**. This is a fancy name for a simple idea: a third-party (called here a _relayer_) can send another user's transactions and pay themselves for the gas cost. In this scheme, users sign messages (not transactions) containing information about a transaction they would like to execute. Relayers are then responsible for signing valid Ethereum transactions with this information and sending them to the network, paying for the gas cost. A xref:contracts:api/gsn.adoc#GSNRecipient[base contract] preserves the identity of the user that originally requested the transaction. In this way, users can interact directly with smart contracts without needing to have a wallet or own ETH.
+**Enter meta-transactions**. This is a fancy name for a simple idea: a third-party (called here a _relayer_) can send another user's transactions and pay themselves for the gas cost. In this scheme, users sign messages (not transactions) containing information about a transaction they would like to execute. Relayers are then responsible for signing valid Ethereum transactions with this information and sending them to the network, paying for the gas cost. A xref:contracts::api/gsn.adoc#GSNRecipient[base contract] preserves the identity of the user that originally requested the transaction. In this way, users can interact directly with smart contracts without needing to have a wallet or own ETH.
 
 This means that, in order to support meta transactions in your application, you need to keep a _relayer_ process running - or leverage a decentralized relayer network.
 
@@ -40,7 +40,7 @@ TIP: You can learn more about how the GSN works in https://example.com[this guid
 
 Time to build a dapp leveraging the GSN and push it to a testnet. In this section, we will use the `create-react-app` package to bootstrap a React application and use the `@openzeppelin/network` package to easily set up a web3 object with GSN support. Also, since the GSN is not available on your local ganache, we will use the `@openzeppelin/gsn-helpers` package to emulate it locally. We will use the `@openzeppelin/cli` to manage our contracts and extend from `@openzeppelin/contracts-ethereum-package` to add GSN capabilities to them. 
 
-NOTE: It might feel like there are many moving pieces here, but each component has a well-defined role in building this application. That said, if you are new to the OpenZeppelin platform, it may help to look into the xref:contracts:gsn[OpenZeppelin Contracts GSN guide] and xref:on-dapps.adoc[how to build a dapp] before you continue reading.
+NOTE: It might feel like there are many moving pieces here, but each component has a well-defined role in building this application. That said, if you are new to the OpenZeppelin platform, it may help to look into the xref:contracts::gsn.adoc[OpenZeppelin Contracts GSN guide] and xref:on-dapps.adoc[how to build a dapp] before you continue reading.
 
 We will create a super simple contract that just counts transactions sent to it from users but will tie it into the GSN so the users will not have to pay for the gas from those transactions. Let's get started!
 
@@ -94,7 +94,7 @@ contract Counter {
 
 This is simple enough. Now, let's modify it to add GSN support. This requires extending from `GSNRecipient` contract and implementing the `acceptRelayedCall` method. This method must return whether we accept or reject to pay for a user transaction. For the sake of simplicity, we will be paying for all transactions sent to this contract.
 
-NOTE: For most (d)apps, it is probably not a good idea to have such a generous policy since any malicious user can easily drain your contract from funds. Check out our https://example.com/[guide on GSN payment strategies] for different approaches to this problem.
+NOTE: For most (d)apps, it is probably not a good idea to have such a generous policy since any malicious user can easily drain your contract from funds. Check out our xref:contracts::gsn-strategies.adoc[guide on GSN payment strategies] for different approaches to this problem.
 
 [source,solidity]
 ----
@@ -170,7 +170,7 @@ RelayHttpServer starting. version: 0.4.0
 Relay funded. Balance: 4999305160000000000
 ----
 
-NOTE: Under the hood, this command takes care of several steps to have a local relayer up and running. First, it will download a relayer binary for your platform and start it. It will then deploy the `RelayHub` contract to your local ganache, registering the relayer on the hub, and funding it so it can relay transactions. You can run these steps individually by using other `oz-gsn commands` or even https://github.com/OpenZeppelin/openzeppelin-gsn-helpers[directly from your code].
+NOTE: Under the hood, this command takes care of several steps to have a local relayer up and running. First, it will download a relayer binary for your platform and start it. It will then deploy the `RelayHub` contract to your local ganache, registering the relayer on the hub, and funding it so it can relay transactions. You can run these steps individually by using other `oz-gsn commands` or even xref::gsn-helpers/index.adoc[directly from your code].
 
 The last step will be to _fund_ our `Counter` contract. GSN relayers require recipient contracts to have funds since they will then charge the cost of the relayed transaction (plus a fee!) to it. We will again use the `oz-gsn` set of commands to do this. Make sure to replace the recipient address with the address of your `Counter` contract instance.
 
@@ -281,7 +281,7 @@ export default App;
 ----
 
 
-NOTE: You can pass a `dev: true` flag to the `gsn` options when setting up the provider. This will use the https://github.com/OpenZeppelin/openzeppelin-gsn-provider/[GSNDevProvider] instead of the regular GSN provider. This is a provider set up specifically for testing or development, and it _does not require a relayer to be running_ to work. This can make development easier, but it will feel less like the actual GSN experience. If you want to use an actual relayer, you can run `npx oz-gsn run-relayer` locally (see the https://github.com/OpenZeppelin/openzeppelin-gsn-helpers#running-the-relayer-binary[OpenZeppelin GSN helpers] for more info).
+NOTE: You can pass a `dev: true` flag to the `gsn` options when setting up the provider. This will use the xref:gsn-provider::index.adoc[GSNDevProvider] instead of the regular GSN provider. This is a provider set up specifically for testing or development, and it _does not require a relayer to be running_ to work. This can make development easier, but it will feel less like the actual GSN experience. If you want to use an actual relayer, you can run `npx oz-gsn run-relayer` locally (see the xref:gsn-helpers::preparing-a-testing-environment.adoc[OpenZeppelin GSN helpers] for more info).
 
 Great! We can now fire up our application running `npm start` from within the `client` folder. Remember to keep both your ganache and relayer up and running. You should be able to send transactions to your `Counter` contract without having to use MetaMask or have any ETH at all!
 
@@ -330,7 +330,7 @@ That's it! We can now start sending transactions to our `Counter` contract on th
 
 == The GSN Starter Kit
 
-xref:starter-kits:index.adoc[Starter Kits] are pre-configured project templates to bootstrap dapp development. One of them, the xref:starter-kits:gsnkit.adoc[GSN Starter Kit], is a ready-to-use dapp connected to the GSN, with a similar setup as the one we built from scratch in the previous section.
+xref:starter-kits::index.adoc[Starter Kits] are pre-configured project templates to bootstrap dapp development. One of them, the xref:starter-kits::gsnkit.adoc[GSN Starter Kit], is a ready-to-use dapp connected to the GSN, with a similar setup as the one we built from scratch in the previous section.
 
 If you are building a new dapp and want to include meta-transaction support, you can run `oz unpack gsn` to jumpstart your development and start with a GSN-enabled box!
 
@@ -338,7 +338,7 @@ If you are building a new dapp and want to include meta-transaction support, you
 
 To learn more about the GSN, head over to the following resources:
 
-* To learn how to use OpenZeppelin Contracts to *build a GSN-capable contract*, head to the xref:contracts:gsn.adoc[GSN basics guide].
-* If you want to learn how to use OpenZeppelin Contracts' *pre-made accept and charge strategies*, go to the xref:contracts:gsn-strategies.adoc[GSN Strategies guide].
-* If instead you wish to know more about how to *use GSN from your application*, head to the xref:gsn-provider:index.adoc[OpenZeppelin GSN provider guides].
-* For information on how to *test GSN-enabled contracts*, go to the xref:test-helpers:index.adoc[OpenZeppelin test helpers documentation].
+* To learn how to use OpenZeppelin Contracts to *build a GSN-capable contract*, head to the xref:contracts::gsn.adoc[GSN basics guide].
+* If you want to learn how to use OpenZeppelin Contracts' *pre-made accept and charge strategies*, go to the xref:contracts::gsn-strategies.adoc[GSN Strategies guide].
+* If instead you wish to know more about how to *use GSN from your application*, head to the xref:gsn-provider::index.adoc[OpenZeppelin GSN provider guides].
+* For information on how to *test GSN-enabled contracts*, go to the xref:test-helpers::index.adoc[OpenZeppelin test helpers documentation].
