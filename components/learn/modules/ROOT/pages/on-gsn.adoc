@@ -328,6 +328,7 @@ image::GSNDappTool.png[OpenZeppelin GSN Dapp Tool,500]
 
 That's it! We can now start sending transactions to our `Counter` contract on the Rinkeby network from our browser without even having MetaMask installed.
 
+[[gsn-kit]]
 == The GSN Starter Kit
 
 xref:starter-kits::index.adoc[Starter Kits] are pre-configured project templates to bootstrap dapp development. One of them, the xref:starter-kits::gsnkit.adoc[GSN Starter Kit], is a ready-to-use dapp connected to the GSN, with a similar setup as the one we built from scratch in the previous section.
