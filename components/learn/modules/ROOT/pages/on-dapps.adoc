@@ -2,7 +2,7 @@
 
 Decentralized Applications (aka dapps or ÐApps) are web applications backed by Ethereum smart contracts. Instead of using a centralized server or database, these applications rely on the blockchain as a consensus and coordination layer. This leads to potentially unstoppable applications: anyone can spin up a copy of the frontend, and freely connect it to the public Ethereum network.
 
-In this guide, we will see how we can use OpenZeppelin libraries such as xref::network-js:index.adoc[Network JS] and the https://github.com/OpenZeppelin/solidity-loader[hot-loader] to build your dapp, as well as how the https://github.com/OpenZeppelin/starter-kit[Starter Kits] bind all pieces of a dapp together:
+In this guide, we will see how we can use OpenZeppelin libraries such as xref:network-js::index.adoc[Network JS] and the https://github.com/OpenZeppelin/solidity-loader[hot-loader] to build your dapp, as well as how the https://github.com/OpenZeppelin/starter-kit[Starter Kits] bind all pieces of a dapp together:
 
   * <<network, Connecting to the Network>>
   * <<hot-loader, Hot-loading your Contracts>>
@@ -67,7 +67,7 @@ function App() {
 
 In the snippet above, with just the first two lines we get access to the Ethereum network via Metamask and falling back to Infura, as well as information on the network, provider, and even user accounts - all of this through the `useWeb3` hook provided by Network JS.
 
-TIP: You can easily xref:on-gsn.adoc[enable meta-transaction support] in your dapp when using Network JS by xref:network.js:api.adoc#webcontextoptions[adding a `gsn` option] to the React hook.
+TIP: You can easily xref:on-gsn.adoc[enable meta-transaction support] in your dapp when using Network JS by xref:network.js::api.adoc#webcontextoptions[adding a `gsn` option] to the React hook.
 
 To learn more, head to our step-by-step tutorial on xref:network-js::building-a-dapp-from-scratch.adoc[Building a Dapp from Scratch] using the Networks library.
 
