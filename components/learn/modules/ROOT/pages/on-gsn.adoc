@@ -338,7 +338,6 @@ If you are building a new dapp and want to include meta-transaction support, you
 
 To learn more about the GSN, head over to the following resources:
 
-* The https://medium.com/@rrecuero/eth-onboarding-solution-90607fb81380[GSN announcement post] provides a good *overview of the system*, along with some use cases to take inspiration from.
 * To learn how to use OpenZeppelin Contracts to *build a GSN-capable contract*, head to the xref:contracts:gsn.adoc[GSN basics guide].
 * If you want to learn how to use OpenZeppelin Contracts' *pre-made accept and charge strategies*, go to the xref:contracts:gsn-strategies.adoc[GSN Strategies guide].
 * If instead you wish to know more about how to *use GSN from your application*, head to the xref:gsn-provider:index.adoc[OpenZeppelin GSN provider guides].
