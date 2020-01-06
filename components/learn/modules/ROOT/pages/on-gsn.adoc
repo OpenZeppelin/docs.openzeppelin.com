@@ -47,25 +47,17 @@ We will create a super simple contract that just counts transactions sent to it 
 [[environment-set-up]]
 === Setting up the Environment
 
-We will begin by creating a new npm project and installing all dependencies.
+We will begin by creating a new npm project and installing all dependencies, including https://www.trufflesuite.com/ganache[Ganache] (which we'll use to xref:deploy-and-interact.adoc#local-blockchain[run a local network]):
 
 [source,console]
 ----
-mkdir gsn-dapp && cd gsn-dapp
-npm init -y
-npm install @openzeppelin/network
-npm install --save-dev @openzeppelin/gsn-helpers @openzeppelin/contracts-ethereum-package @openzeppelin/upgrades
+$ mkdir gsn-dapp && cd gsn-dapp
+$ npm init -y
+$ npm install @openzeppelin/network
+$ npm install --save-dev @openzeppelin/gsn-helpers @openzeppelin/contracts-ethereum-package @openzeppelin/upgrades @openzeppelin/cli ganache-cli
 ----
 
-Make sure you have the https://github.com/OpenZeppelin/openzeppelin-sdk/tree/master/packages/cli#readme[OpenZeppelin CLI installed], as well as https://www.trufflesuite.com/ganache[Ganache] for running a local network.
-
-[source,console]
-----
-npm install --global @openzeppelin/cli ganache-cli
-----
-
-
-Use the CLI to set up a new project and follow the prompts so we can write our first contract.
+TIP: Check out xref:deploy-and-interact.adoc#getting-started-with-the-cli[Getting Started with the OpenZeppelin CLI] if you're unfamiliar with it.
 
 [source,console]
 ----
