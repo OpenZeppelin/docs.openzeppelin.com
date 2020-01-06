@@ -32,6 +32,14 @@
     lodash "^4.17.11"
     vinyl "^2.2.0"
 
+"@antora/content-classifier@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@antora/content-classifier/-/content-classifier-2.2.0.tgz#bc6206f575105a6c62a9d75e1fb0dd3c91503905"
+  integrity sha512-cVoL7aR619FNFN3bKiiFhLinaFktQ06OmMG+QMJW0tNRaeI1ATYtrpUvwG5KVuciwDZFKp+GboRUoud0OGLfJQ==
+  dependencies:
+    lodash "~4.17"
+    vinyl "~2.2"
+
 "@antora/document-converter@2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@antora/document-converter/-/document-converter-2.2.0.tgz#8ca696c62be22555569bc25db5a3be4613ec3a00"
@@ -91,13 +99,13 @@
     "@antora/asciidoc-loader" "2.2.0"
     vinyl "~2.2"
 
-"@antora/site-mapper@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@antora/site-mapper/-/site-mapper-2.0.0.tgz#d3e44a48de6fb6d3c4d01a0dec1efd28474bb882"
-  integrity sha512-rPpDLuJbM7c0fNpzf95qrxsjzNAXuyACXE+FXUOwmFp3SYIFGEWATLk1MMNes7SfLAchMMVwjEr1Uii3D5+/Mw==
+"@antora/site-mapper@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@antora/site-mapper/-/site-mapper-2.2.0.tgz#306a9148d569bfa07fcfdcda0fd3100d0bd45e23"
+  integrity sha512-318hg4n6SjisAA5e3uq02IdSeW6hQwCo+2TfQQQlCY/+DlFV0V2ML2bicwSrdfweJ42o5TxgSQAtTuOc1YPjgA==
   dependencies:
-    "@antora/content-classifier" "2.0.0"
-    vinyl "^2.2.0"
+    "@antora/content-classifier" "2.2.0"
+    vinyl "~2.2"
 
 "@antora/site-publisher@2.0.0":
   version "2.0.0"
