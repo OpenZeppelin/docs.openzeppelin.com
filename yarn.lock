@@ -4574,13 +4574,26 @@ gulp-uglifyes@^0.2.1:
     through2 "^2.0.3"
     uglify-es "^3.3.7"
 
-"gulp-vinyl-zip@~2.1 >=2.1.2", gulp-vinyl-zip@~2.1.2:
+"gulp-vinyl-zip@~2.1 >=2.1.2":
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/gulp-vinyl-zip/-/gulp-vinyl-zip-2.1.3.tgz#a7b9160ec6374278de9f621998320129bf871840"
   integrity sha512-wOHNPddyZ45il4wNz3Bk9ChpEq5FK/P76SSkqAMCLVZSOVtLBiDIVXDbYWDlfZpoYEjZQl+28I+Uzmmr6pSnBQ==
   dependencies:
     event-stream "3.3.4"
     queue "^4.2.1"
+    through2 "^2.0.3"
+    vinyl "^2.0.2"
+    vinyl-fs "^3.0.3"
+    yauzl "^2.2.1"
+    yazl "^2.2.1"
+
+gulp-vinyl-zip@~2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/gulp-vinyl-zip/-/gulp-vinyl-zip-2.2.0.tgz#ca8938c2a0960faf13e84663f79e3678d06f2f1b"
+  integrity sha512-7tKXptewHdKnOV0HGIyB/5+dvfmwmHq+hnolAQ64zz/pPomUXJcFPeYCkatRmOztkfZOn+14zoIFS2G39PkzIg==
+  dependencies:
+    queue "^4.2.1"
+    through "^2.3.8"
     through2 "^2.0.3"
     vinyl "^2.0.2"
     vinyl-fs "^3.0.3"
