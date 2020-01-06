@@ -57,13 +57,14 @@ $ npm install @openzeppelin/network
 $ npm install --save-dev @openzeppelin/gsn-helpers @openzeppelin/contracts-ethereum-package @openzeppelin/upgrades @openzeppelin/cli ganache-cli
 ----
 
-TIP: Check out xref:deploy-and-interact.adoc#getting-started-with-the-cli[Getting Started with the OpenZeppelin CLI] if you're unfamiliar with it.
+Use the CLI to set up a new project and follow the prompts so we can write our first contract.
 
 [source,console]
 ----
-openzeppelin init
+$ npx oz init
 ----
 
+TIP: Check out xref:deploy-and-interact.adoc#getting-started-with-the-cli[Getting Started with the OpenZeppelin CLI] if you're unfamiliar with it.
 
 [[creating-our-contract]]
 === Creating our Contract
