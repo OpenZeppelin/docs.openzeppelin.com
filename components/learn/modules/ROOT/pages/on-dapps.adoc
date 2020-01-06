@@ -2,7 +2,7 @@
 
 Decentralized Applications (aka dapps or ÐApps) are web applications backed by Ethereum smart contracts. Instead of using a centralized server or database, these applications rely on the blockchain as a consensus and coordination layer. This leads to potentially unstoppable applications: anyone can spin up a copy of the frontend, and freely connect it to the public Ethereum network.
 
-In this guide, we will see how we can use OpenZeppelin libraries such as https://github.com/OpenZeppelin/openzeppelin-network.js[network-js] and the https://github.com/OpenZeppelin/solidity-loader[hot-loader] to build your dapp, as well as how the https://github.com/OpenZeppelin/starter-kit[Starter Kits] bind all pieces of a dapp together:
+In this guide, we will see how we can use OpenZeppelin libraries such as xref::network-js:index.adoc[Network JS] and the https://github.com/OpenZeppelin/solidity-loader[hot-loader] to build your dapp, as well as how the https://github.com/OpenZeppelin/starter-kit[Starter Kits] bind all pieces of a dapp together:
 
   * <<network, Connecting to the Network>>
   * <<hot-loader, Hot-loading your Contracts>>
@@ -18,7 +18,7 @@ When building a dapp, the first step is to connect to the Ethereum network. This
   . If the user is running Metamask, use the injected web3 provider to access the network, and monitor for network or account changes
   . If not, fall back to a public Infura node
 
-To avoid having to code this logic on every dapp, we built xref:network.js::index.adoc[*OpenZeppelin Network JS*] to take care of it. It provides a `useWeb3` https://reactjs.org/docs/hooks-intro.html[React hook] for getting a `web3Context` based on the logic above. This `web3Context` object provides access to a connected `web3` instance, network information, the user accounts, a function to https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1102.md[request account access], and more.
+To avoid having to code this logic on every dapp, we built xref:network-js::index.adoc[*OpenZeppelin Network JS*] to take care of it. It provides a `useWeb3` https://reactjs.org/docs/hooks-intro.html[React hook] for getting a `web3Context` based on the logic above. This `web3Context` object provides access to a connected `web3` instance, network information, the user accounts, a function to https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1102.md[request account access], and more.
 
 The following snippet is a small React app that connects to the network using Metamask (falling back to Infura if not found), prompts the user for account access, and displays the user balance:
 
@@ -69,7 +69,7 @@ In the snippet above, with just the first two lines we get access to the Ethereu
 
 TIP: You can easily xref:on-gsn.adoc[enable meta-transaction support] in your dapp when using Network JS by xref:network.js:api.adoc#webcontextoptions[adding a `gsn` option] to the React hook.
 
-To learn more, head to our step-by-step tutorial on xref:network.js::building-a-dapp-from-scratch.adoc[Building a Dapp from Scratch] using the Networks library.
+To learn more, head to our step-by-step tutorial on xref:network-js::building-a-dapp-from-scratch.adoc[Building a Dapp from Scratch] using the Networks library.
 
 [[hot-loader]]
 == Hot-loading Contracts
@@ -126,7 +126,7 @@ For detailed setup instructions, follow our step-by-step tutorial on https://for
 
 As you have seen so far, setting up a dapp involves a certain deal of boilerplate and configuration, including creating an OpenZeppelin CLI project, initializing a new webpack client app, configuring network access and loading your contracts.
 
-To kickstart this process, we have built the xref::starter-kits/index.adoc[*OpenZeppelin Starter Kits*]. Starter Kits are preconfigured dapps with several OpenZeppelin libraries, Infura connections, and https://github.com/ConsenSys/rimble-ui[Rimble UI components], ready to start developing right away.
+To kickstart this process, we have built the xref::starter-kits:index.adoc[*OpenZeppelin Starter Kits*]. Starter Kits are preconfigured dapps with several OpenZeppelin libraries, Infura connections, and https://github.com/ConsenSys/rimble-ui[Rimble UI components], ready to start developing right away.
 
 You can start a new project from a starter kit using the `oz unpack` CLI command:
 
