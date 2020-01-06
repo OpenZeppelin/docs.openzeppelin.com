@@ -152,6 +152,8 @@ This will unpack a preconfigured React dapp, with a network connection set up to
 
 image::StarterKit.png[OpenZeppelin Starter Kit,500]
 
+TIP: Check out a live demo of the page above http://starter-kit-demo.openzeppelin.com/[here].
+
 Having this initial setup, you can now modify it to start building your own application on top of it - as you would do in a vanilla https://create-react-app.dev/[`create-react-app` setup].
 
 If you want to learn more about using Starter Kits, `unpack` the xref:starter-kits::tutorial.adoc[`tutorial`] kit instead of `starter`: it will guide you through the process of deploying and interacting with contracts from a dapp. You can also check out the xref:starter-kits::list.adoc[list of all starter kits] available to unpack.
