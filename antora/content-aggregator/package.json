@@ -9,7 +9,7 @@
     "cache-directory": "~2.0",
     "execa": "^1.0.0",
     "fs-extra": "~7.0",
-    "isomorphic-git": "0.47.0",
+    "isomorphic-git": "0.72.1",
     "js-yaml": "~3.13",
     "lodash": "~4.17",
     "matcher": "~1.1",
