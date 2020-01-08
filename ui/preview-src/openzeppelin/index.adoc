@@ -1,27 +1,44 @@
-= Welcome to OpenZeppelin Documentation!
+= OpenZeppelin Documentation
 
-Learn about developing, upgrading and deploying your smart contract applications
+Learn about writing, testing, deploying, and upgrading your smart contract applications on Ethereum using the OpenZeppelin tools. 
 
-We have three different components to help you solve all your smart contract needs. Each one builds on top of the previous one. Our contracts library is our cornerstone product, a secure foundation for your solidity needs. Our SDK gives you a tool suite to interact with your smart contracts and the starter kits help you tie it all together with a consumer-ready frontend.
+Our offering includes the most widely used Solidity smart contracts library, a command-line tool for managing your project, several JavaScript modules, and pre-packaged boxes to bootstrap development.
 
-== Why use OpenZeppelin tools?
+== Why OpenZeppelin?
 
-OpenZeppelin has been the bedrock of smart contract development in Ethereum for the last few years. Our libraries have been used by more than 100K developers to create tokens, protect digital assets and power decentralized applications. It has helped developers secure more than $4.5 billion in digital assets.
+OpenZeppelin tools have been built with *security in mind*. Since the first release of the Contracts library in 2016, our libraries have been downloaded over 1.5 million times to create tokens, protect digital assets, and power decentralized applications, securing more than $4.5 billion. We also work with top Ethereum projects through our https://openzeppelin.com/security-audits/[security audits service].
 
-As the ecosystem matures, we are taking all the lessons we have learned during this journey to help you create professional applications that are ready for consumer adoption.
+== Learn
+
+Comprehensive guides for every step of your development journey:
+
+[horizontal]
+Environment Setup:: Install node, npm, and the basic libraries for web3 development
+Write Smart Contracts:: Write and compile your first Solidity contracts, using the building blocks from the OpenZeppelin Contracts library
+Local Development:: Deploy your contracts to a local blockchain and send your first transactions using the OpenZeppelin CLI
+Test your Contracts:: Unit test your contracts with the OpenZeppelin Test Environment, combined with assertions from our Test Helpers
+Upgrade your Contracts:: Change the code of your deployed contracts to add new features or fix bugs, using the OpenZeppelin CLI or the Upgrades library
+Deploy to Testnet:: Set up a staging environment by deploying your app to a public Ethereum testnet using the OpenZeppelin CLI
+Build a Dapp:: Create a decentralized web app using OpenZeppelin Networks JS and Hot Loader, or simply unpack a Starter Kit
+Send Gasless Transactions:: Leverage the Gas Station Network so your users can send transactions without having ETH to pay for gas
+Go to Mainnet:: All the boxes you need to check before taking your project to production on the main Ethereum network
+
+== Tools
+
+All the open source tools built and maintained by the OpenZeppelin team:
 
 [.card.card-contracts]
 .xref:contracts::index.adoc[Contracts]
 --
-A library of modular, reusable, secure smart contracts, written in Solidity.
+A library of modular, reusable, and secure smart contracts, written in Solidity.
 
 [.card-cta]#xref:contracts::index.adoc[Get started >]#
 --
 
 [.card.card-sdk]
-.xref:sdk::index.adoc[SDK]
+.xref:sdk::index.adoc[CLI]
 --
-A suite of tools to help you develop, test, upgrade and deploy smart contracts.
+A command-line tool to help you deploy, upgrade, and interact with your smart contracts.
 
 [.card-cta]#xref:sdk::index.adoc[Get started >]#
 --
@@ -29,7 +46,41 @@ A suite of tools to help you develop, test, upgrade and deploy smart contracts.
 [.card.card-starter-kits]
 .xref:starter-kits::index.adoc[Starter Kits]
 --
-Bundles to kickstart your decentralized web application.
+Bundles to bootstrap your decentralized web application.
 
 [.card-cta]#xref:starter-kits::index.adoc[Get started >]#
 --
+
+[horizontal]
+`upgrades-js`:: A JavaScript library for managing upgradeable contracts, which powers the OpenZeppelin CLI
+`test-environment`:: A JavaScript library for creating a testing environment for contracts, which plays nice with Mocha, Ava, and Jest
+`test-helpers`:: A JavaScript library of common assertions for smart contracts, which can be used with `test-environment`, `truffle`, or vanilla `web3-js` setups
+`network-js`:: A JavaScript library for easily connecting to the Ethereum network from a dapp, used in most Starter Kits
+`gsn-helpers`:: A thin CLI and JavaScript library for simplifying development of an application using the Gas Station Network
+`gsn-provider`:: A `web3-js` provider for seamlessly sending gasless transactions via the Gas Station Network
+`hot-loader`:: A webpack plugin for automatically compiling and upgrading your contracts locally while you develop
+`contracts-loader`:: A minimal JavaScript library for loading contract artifacts by name or ABI
+`solidity-docgen`:: A tool for automatically generating documentation based on the natspec comments of your Solidity contracts
+
+== More from OpenZeppelin
+
+=== Audits
+
+The OpenZeppelin Research team provides a https://openzeppelin.com/security-audits/[Security Audits] service for decentralized applications, tools, and protocols. You can browse through past public audits in https://blog.openzeppelin.com/security-audits/[our blog]. Go through our https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] and mailto:audits@openzeppelin.com[contact us] before xref:learn::mainnet.adoc[going to production] to make sure your project is secure.
+
+=== Ethernaut
+
+Learn more about security in Solidity contracts by playing https://ethernaut.openzeppelin.com/[Ethernaut]. Every level in Ethernaut is a smart contract waiting to be hacked, and teaches you a vulnerability by having you exploit it - many of them based on real-life hacks! You can discuss your solutions or ask for tips in https://forum.openzeppelin.com/c/security/ethernaut/30[our forum].
+
+=== Careers
+
+The OpenZeppelin https://openzeppelin.com/about/[team] is always hiring. If you have enjoyed using our tools or reading our audit reports, and want to be a part of it, check out our https://openzeppelin.com/jobs/[current job openings] and join us!
+
+=== Social
+
+// We may want to remove this if it's going to be present on the footer?
+You can https://forum.openzeppelin.com/[join our Forum], https://blog.openzeppelin.com/[check out our Blog], https://twitter.com/OpenZeppelin[follow us on Twitter], or https://www.youtube.com/channel/UC0Nx8RbugiCzdlVGK7hWZfw/videos[tune in our YouTube channel]!
+
+== Questions?
+
+Join the OpenZeppelin community in https://forum.openzeppelin.com/[our forum] to https://forum.openzeppelin.com/c/support/17[ask for help], as well as share your feedback or showcase what you have built with OpenZeppelin!
