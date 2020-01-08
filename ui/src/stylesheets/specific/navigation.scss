@@ -20,7 +20,7 @@
 }
 
 .nav-component {
-  line-height: 2.2rem;
+  line-height: 2.5rem;
 }
 
 .nav-components {
@@ -80,6 +80,7 @@
   font-family: var(--heading);
   font-weight: var(--weight-medium);
   position: relative;
+  font-size: 1.05rem;
   & + .nav-list {
     height: 90%;
     margin-bottom: 0;
@@ -104,8 +105,9 @@
 .nav-icon {
   margin-right: .5rem;
   margin-bottom: 2px;
-  height: var(--lg);
-  width: var(--lg);
+  height: 1.1rem;
+  width: 1.1rem;
+  opacity: .8;
 }
 
 .search > .input {

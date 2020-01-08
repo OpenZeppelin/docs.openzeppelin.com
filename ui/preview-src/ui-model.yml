@@ -60,10 +60,74 @@ site:
       version: '1.9'
       displayVersion: '1.9'
     latestVersion: *latest_version_starter-kits
+  - name: test-environment
+    title: Test Environment
+    url: '#'
+    versions:
+    - &latest_version_abc
+      url: '#' 
+      version: '1.x'
+      displayVersion: '1.x'
+    latestVersion: *latest_version_abc
+  - name: test-helpers
+    title: Test Helpers
+    url: '#'
+    versions:
+    - &latest_version_abc
+      url: '#' 
+      version: '1.x'
+      displayVersion: '1.x'
+    latestVersion: *latest_version_abc
+  - name: network-js
+    title: Network JS
+    url: '#'
+    versions:
+    - &latest_version_abc
+      url: '#' 
+      version: '1.x'
+      displayVersion: '1.x'
+    latestVersion: *latest_version_abc
+  - name: gsn-provider
+    title: GSN Provider
+    url: '#'
+    versions:
+    - &latest_version_abc
+      url: '#' 
+      version: '1.x'
+      displayVersion: '1.x'
+    latestVersion: *latest_version_abc
+  - name: gsn-helpers
+    title: GSN Helpers
+    url: '#'
+    versions:
+    - &latest_version_abc
+      url: '#' 
+      version: '1.x'
+      displayVersion: '1.x'
+    latestVersion: *latest_version_abc
+  - name: contract-loader
+    title: Contract Loader
+    url: '#'
+    versions:
+    - &latest_version_abc
+      url: '#' 
+      version: '1.x'
+      displayVersion: '1.x'
+    latestVersion: *latest_version_abc
+  - name: docgen
+    title: Docgen
+    url: '#'
+    versions:
+    - &latest_version_abc
+      url: '#' 
+      version: '1.x'
+      displayVersion: '1.x'
+    latestVersion: *latest_version_abc
+
 page:
   title: Welcome to OpenZeppelin Documentation!
   url: /contracts/2.x/index.html
-  component: *component_contracts
+  component: *component_openzeppelin
   componentVersion: *latest_version_contracts
   version: '2.x'
   displayVersion: '2.x'
