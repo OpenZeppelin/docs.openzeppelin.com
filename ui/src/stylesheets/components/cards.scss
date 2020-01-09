@@ -153,6 +153,11 @@
       margin-left: auto;
     }
   }
+  .card-learn {
+    width: 100%;
+    min-height: 7rem;
+    margin-right: 0;
+  }
 }
 
 @media (min-width: $mobile-breakpoint) and (max-width: 1120px), (min-width: 642px) and (max-width: 780px) {
@@ -163,5 +168,9 @@
     & + & {
       margin-left: 1rem;
     }
+  }
+  .card-learn {
+    width: 48%;
+    min-height: 11rem;
   }
 }
