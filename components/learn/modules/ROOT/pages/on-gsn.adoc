@@ -2,9 +2,9 @@
 
 Anyone who sends an Ethereum transaction needs to have Ethere to pay for its gas fees. This forces new users to purchase Ether (which can be a daunting task) before they can start using a dapp. This is a major hurdle in user onboarding.
 
-In this guide, we will explore the concept of gasless (also called _meta_) transactions, where the user does not need to pay for their gas fees. We will also introduce the https://gasstation.network[Gas Station Network], a decentralized solution to this problem, as well as the OpenZeppelin libraries that allow you to leverage it in your dapps:
+In this guide, we will explore the concept of gasless (also called _meta_) transactions, where *the user does not need to pay for their gas fees*. We will also introduce the https://gasstation.network[Gas Station Network], a decentralized solution to this problem, as well as the OpenZeppelin libraries that allow you to leverage it in your dapps:
 
-* <<what-is-a-meta-tx, Learn what are meta-transactions and why they matter>>
+* <<what-is-a-meta-tx, Learn what meta-transactions are and why they matter>>
 * <<gas-station-network, The Gas Station Network as a decentralized meta-transaction solution>>
 * <<building-a-gsn-dapp, Build a GSN-powered DApp from scratch>>
 * <<gsn-kit, Fast-forward with the GSN Starter Kit>>
@@ -21,7 +21,7 @@ This means that, in order to support meta transactions in your application, you 
 [[gas-station-network]]
 == The Gas Station Network
 
-The https://gasstation.network[Gas Station Network] (_GSN_) is a decentralized network of _relayers_. It allows you to build dapps where you pay for your users transactions, so they do not need to hold Ether to pay for gas, easing their onboarding process.
+The https://gasstation.network[Gas Station Network] (GSN) is a decentralized network of _relayers_. It allows you to build dapps where you pay for your users transactions, so they do not need to hold Ether to pay for gas, easing their onboarding process.
 
 NOTE: The GSN was originally conceived and designed by https://medium.com/tabookey/1-800-ethereum-gas-stations-network-for-toll-free-transactions-4bbfc03a0a56[TabooKey], and it has grown to encompass many companies in the Ethereum space looking to work together to solve the problem of onboarding users to Ethereum applications.
 
@@ -38,11 +38,15 @@ TIP: You can learn more about how the GSN works in https://example.com[this guid
 [[building-a-gsn-dapp]]
 == Building a GSN-powered DApp
 
-Time to build a dapp leveraging the GSN and push it to a testnet. In this section, we will use the `create-react-app` package to bootstrap a React application and use the `@openzeppelin/network` package to easily set up a web3 object with GSN support. Also, since the GSN is not available on your local ganache, we will use the `@openzeppelin/gsn-helpers` package to emulate it locally. We will use the `@openzeppelin/cli` to manage our contracts and extend from `@openzeppelin/contracts-ethereum-package` to add GSN capabilities to them. 
+Time to build a dapp leveraging the GSN and push it to a testnet. In this section, we will use:
+ * The `create-react-app` package to bootstrap a React application, along with xref::network-js:index.adoc[*OpenZeppelin Network JS*] to easily set up a web3 object with GSN support
+ * xref:gsn-helpers::index.adoc[*OpenZeppelin GSN Helpers*] to emulate the GSN in your local ganache instance
+ * The https://github.com/OpenZeppelin/openzeppelin-contracts-ethereum-package[`@openzeppelin/contracts-ethereum-package`] smart contract library to get GSN
+ * The xref:sdk::index.adoc[*OpenZeppelin CLI*] to manage and deploy our contracts
 
-NOTE: It might feel like there are many moving pieces here, but each component has a well-defined role in building this application. That said, if you are new to the OpenZeppelin platform, it may help to look into the xref:contracts::gsn.adoc[OpenZeppelin Contracts GSN guide] and xref:on-dapps.adoc[how to build a dapp] before you continue reading.
+NOTE: It might feel like there are many moving pieces here, but each component has a well-defined role in building this application. That said, if you are new to the OpenZeppelin platform, it may help to look into the xref:contracts::gsn.adoc[OpenZeppelin Contracts GSN guide] and the xref:on-dapps.adoc[Building a Dapp tutorial] before you continue reading.
 
-We will create a super simple contract that just counts transactions sent to it from users but will tie it into the GSN so the users will not have to pay for the gas from those transactions. Let's get started!
+We will create a simple contract that just counts transactions sent to it, but will tie it into the GSN so that users will not have to pay for the gas when sending these transactions. Let's get started!
 
 [[environment-set-up]]
 === Setting up the Environment
@@ -73,6 +77,7 @@ We will write our vanilla `Counter` contract in the newly created `contracts` fo
 
 [source,solidity]
 ----
+// contracts/Counter.sol
 pragma solidity ^0.5.0;
 
 contract Counter {
@@ -85,12 +90,13 @@ contract Counter {
 ----
 
 
-This is simple enough. Now, let's modify it to add GSN support. This requires extending from `GSNRecipient` contract and implementing the `acceptRelayedCall` method. This method must return whether we accept or reject to pay for a user transaction. For the sake of simplicity, we will be paying for all transactions sent to this contract.
+This is simple enough. Now, let's modify it to add GSN support. This requires extending from the `GSNRecipient` contract and implementing the `acceptRelayedCall` method. This method must return whether we accept or reject to pay for a user transaction. For the sake of simplicity, we will be paying for all transactions sent to this contract.
 
 NOTE: For most (d)apps, it is probably not a good idea to have such a generous policy since any malicious user can easily drain your contract from funds. Check out our xref:contracts::gsn-strategies.adoc[guide on GSN payment strategies] for different approaches to this problem.
 
 [source,solidity]
 ----
+// contracts/Counter.sol
 pragma solidity ^0.5.0;
 
 import "@openzeppelin/contracts-ethereum-package/contracts/GSN/GSNRecipient.sol";
@@ -116,6 +122,7 @@ contract Counter is GSNRecipient {
     return _approveRelayedCall();
   }
 
+  // We won't do any pre or post processing, so leave _preRelayedCall and _postRelayedCall empty
   function _preRelayedCall(bytes memory context) internal returns (bytes32) {
   }
 
@@ -124,9 +131,11 @@ contract Counter is GSNRecipient {
 }
 ----
 
-Start ganache on a separate terminal by running `ganache-cli`. Then, create an instance of our new contract using the OpenZeppelin CLI with `oz create`, and follow the prompts, including saying yes to call a function to initialize the instance. Be sure to copy the address of your instance which is returned at the end of the process.
+Start ganache on a separate terminal by running `npx ganache-cli`. Then, create an instance of our new contract using the OpenZeppelin CLI with `npx oz create` and follow the prompts, including choosing to call a function to initialize the instance. 
 
-NOTE: It is important that you remember to call the `initialize()` function when creating the contract, as this will be sure to get your contract ready to be used in the GSN.
+Be sure to take note of the address of your instance, which is returned at the end of this process!
+
+NOTE: It is important that you remember to call the `initialize()` function when creating the contract, as this will get your contract ready to be used in the GSN.
 
 
 [source,console]
@@ -141,14 +150,14 @@ All contracts are up to date
 ✓ Instance created at 0x7F73086E24ce5834E62075dEAB2b8F10865FFF9B
 ----
 
-Great! Now, if we deployed this contract to mainnet or the rinkeby testnet, we would almost be ready to start sending gasless transactions to it since the GSN is set up on both of those networks. However, since we are on a local ganache, we need to set it up ourselves.
+Great! Now, if we deployed this contract to mainnet or the rinkeby testnet, we would be almost ready to start sending gasless transactions to it, since the GSN is already set up on both of those networks. However, since we are on a local ganache, we'll need to set it up ourselves.
 
 [[deploying-local-gsn]]
 === Deploying a Local GSN for Development
 
 The GSN is composed of a central `RelayHub` contract that coordinates all relayed transactions, as well as multiple decentralized relayers. The relayers are processes that receive requests to relay a transaction via an HTTP interface and send them to the network via the `RelayHub`.
 
-Having ganache already running, you can start a new relayer in a new terminal using the following command from `@openzeppelin/gsn-helpers`:
+With ganache running, you can start a relayer in a new terminal using the following command from the xref:gsn-helpers::api.adoc#command_line_interface[*OpenZeppelin GSN Helpers*]:
 
 [source,console]
 ----
@@ -163,14 +172,15 @@ RelayHttpServer starting. version: 0.4.0
 Relay funded. Balance: 4999305160000000000
 ----
 
-NOTE: Under the hood, this command takes care of several steps to have a local relayer up and running. First, it will download a relayer binary for your platform and start it. It will then deploy the `RelayHub` contract to your local ganache, registering the relayer on the hub, and funding it so it can relay transactions. You can run these steps individually by using other `oz-gsn commands` or even xref::gsn-helpers:index.adoc[directly from your code].
+NOTE: Under the hood, this command takes care of several steps to have a local relayer up and running. First, it will download a relayer binary for your platform and start it. It will then deploy the `RelayHub` contract to your local ganache, registering the relayer on the hub, and funding it so it can relay transactions. You can run these steps individually by using other `oz-gsn commands` or even xref::gsn-helpers:api.adoc#javascript_interface[directly from your JavaScript code].
 
-The last step will be to _fund_ our `Counter` contract. GSN relayers require recipient contracts to have funds since they will then charge the cost of the relayed transaction (plus a fee!) to it. We will again use the `oz-gsn` set of commands to do this. Make sure to replace the recipient address with the address of your `Counter` contract instance.
+The last step will be to _fund_ our `Counter` contract. GSN relayers require recipient contracts to have funds since they will then charge the cost of the relayed transaction (plus a fee!) to it. We will again use the `oz-gsn` set of commands to do this:
 
 [source,console]
 ----
 $ npx oz-gsn fund-recipient --recipient 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
 ----
+NOTE: Make sure to replace the recipient address with the address of your `Counter` contract instance!
 
 Cool! Now that we have our GSN-powered contract and a local GSN to try it out, let's build a small (d)app.
 
@@ -181,21 +191,22 @@ We will create our (d)app using the `create-react-app` package, which bootstraps
 
 [source,console]
 ----
-npx create-react-app client
+$ npx create-react-app client
 ----
 
 First, create a symlink so we can access our compiled contract `.json` files. From inside the `client/src` directory, run:
 [source,console]
 ----
-ln -ns ../../build
+$ ln -ns ../../build
 ----
 
 This will allow our front end to reach our contract artifacts.
 
-Then, replace `client/src/App.js` file, with the following code. This will use `@openzeppelin/network` to create a new provider connected to the local network. It will use a key generated on the spot to sign all transactions on behalf of the user and will use the GSN to relay them to the network. This allows your users to start interacting with your (d)app right away, even if they do not have MetaMask installed, an Ethereum account, or any ETH at all.
+Then, replace `client/src/App.js` with the following code. This will use xref:network-js::index.adoc[*OpenZeppelin Network JS*] to create a new provider connected to the local network. It will use a key generated on the spot to sign all transactions on behalf of the user and will use the GSN to relay them to the network. This allows your users to start interacting with your (d)app right away, even if they do not have MetaMask installed, an Ethereum account, or any ETH at all.
 
-[source,javascript]
+[source,jsx]
 ----
+// client/src/App.js
 import React, { useState, useEffect, useCallback } from "react";
 import { useWeb3Network } from "@openzeppelin/network/react";
 
@@ -274,16 +285,18 @@ export default App;
 ----
 
 
-NOTE: You can pass a `dev: true` flag to the `gsn` options when setting up the provider. This will use the xref:gsn-provider::index.adoc[GSNDevProvider] instead of the regular GSN provider. This is a provider set up specifically for testing or development, and it _does not require a relayer to be running_ to work. This can make development easier, but it will feel less like the actual GSN experience. If you want to use an actual relayer, you can run `npx oz-gsn run-relayer` locally (see the xref:gsn-helpers::preparing-a-testing-environment.adoc[OpenZeppelin GSN helpers] for more info).
+NOTE: You can pass a `dev: true` flag to the `gsn` options when setting up the provider. This will use the xref:gsn-provider::index.adoc[GSNDevProvider] instead of the regular GSN provider. This is a provider set up specifically for testing or development, and it _does not require a relayer to be running_ to work. This can make development easier, but it will feel less like the actual GSN experience. If you want to use an actual relayer, you can run `npx oz-gsn run-relayer` locally (see the xref:gsn-helpers::preparing-a-testing-environment.adoc[Preparing a Testing Environment] for more info).
 
 Great! We can now fire up our application running `npm start` from within the `client` folder. Remember to keep both your ganache and relayer up and running. You should be able to send transactions to your `Counter` contract without having to use MetaMask or have any ETH at all!
 
 [[moving-to-testnet]]
-=== Moving to a testnet
+=== Moving to a Testnet
 
-It is not too impressive sending a local transaction in your ganache network, where you already have a bunch of fully-funded accounts. To witness the GSN at its full potential, let's move our application to the Rinkeby testnet. If you later want to go onto mainnet, the instructions are the same.
+It is not very impressive to send a local transaction in your ganache network, where you already have a bunch of fully-funded accounts. To witness the GSN at its full potential, let's move our application to the Rinkeby testnet. If you later want to go onto mainnet, the instructions are the same.
 
-Let's start by deploying our `Counter` contract to Rinkeby. You will need an account with some Rinkeby Ether for this, which you will have to register in your `network.js` file. Take a look at xref:public-deploy.adoc[deploying to a public network] guide for more information.
+You will need to create a new entry in the `networks.js` file, with a Rinkeby account that has been funded. For detailed instructions on how to do this, check out xref:public-staging.adoc[Deploying to a Public Test Network].
+ 
+We can now deploy our `Counter` contract to Rinkeby:
 
 [source,console]
 ----
@@ -300,11 +313,12 @@ $ openzeppelin create
 ----
 
 
-The next step will be to instruct our (d)app to connect to a Rinkeby node instead of to the local network. Change the `PROVIDER_URL` in your `App.js` to do this using, for instance, an Infura Rinkeby endpoint. At this point, you will also want to pass in a config object as we will be using a real GSN provider rather than our developer environment, and our config options give us more control over things such as the gas price we are willing to pay. For production (d)apps, you will want to configure this to your requirements. 
+The next step will be to instruct our (d)app to connect to a Rinkeby node instead of the local network. Change the `PROVIDER_URL` in your `App.js` to, for example, an Infura Rinkeby endpoint. 
+
+We will now be using a real GSN provider rather than our developer environment, so you may want to also provide a xref:gsn-provider::api.adoc[configuration object], which will give you more control over things such as the gas price you are willing to pay. For production (d)apps, you will want to configure this to your requirements. 
 
 [source,javascript]
 ----
-
 import { useWeb3Network, useEphemeralKey } from "@openzeppelin/network/react";
 
 // inside App.js#App()
@@ -334,5 +348,5 @@ To learn more about the GSN, head over to the following resources:
 
 * To learn how to use OpenZeppelin Contracts to *build a GSN-capable contract*, head to the xref:contracts::gsn.adoc[GSN basics guide].
 * If you want to learn how to use OpenZeppelin Contracts' *pre-made accept and charge strategies*, go to the xref:contracts::gsn-strategies.adoc[GSN Strategies guide].
-* If instead you wish to know more about how to *use GSN from your application*, head to the xref:gsn-provider::index.adoc[OpenZeppelin GSN provider guides].
-* For information on how to *test GSN-enabled contracts*, go to the xref:test-helpers::index.adoc[OpenZeppelin test helpers documentation].
+* If instead you wish to know more about how to *use GSN from your application*, head to the xref:gsn-provider::index.adoc[OpenZeppelin GSN Provider guides].
+* For information on how to *test GSN-enabled contracts*, go to the xref:gsn-helpers::preparing-a-testing-environmentadoc[OpenZeppelin GSN Helpers documentation].
