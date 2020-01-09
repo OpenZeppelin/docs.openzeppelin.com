@@ -14,47 +14,47 @@ Comprehensive guides for every step of your development journey:
 
 [.card-learn]
 --
-xref:learn::index.adoc[[.title]#Environment Setup# Install node+++,+++ npm+++,+++ and the basic libraries for web3 development]
+xref:learn::index.adoc[[.title]#Environment Setup# Install node+++,+++ npm+++,+++ and the basic libraries for web3 development.]
 --
 
 [.card-learn]
 --
-xref:learn::index.adoc[[.title]#Write Smart Contracts# Write and compile your first Solidity contracts+++,+++ using the building blocks from the OpenZeppelin Contracts library]
+xref:learn::index.adoc[[.title]#Write Smart Contracts# Write and compile your first Solidity contracts+++,+++ using the building blocks from the OpenZeppelin Contracts library.]
 --
 
 [.card-learn]
 --
-xref:learn::index.adoc[[.title]#Local Development# Deploy your contracts to a local blockchain and send your first transactions using the OpenZeppelin CLI]
+xref:learn::index.adoc[[.title]#Local Development# Deploy your contracts to a local blockchain and send your first transactions using the OpenZeppelin CLI.]
 --
 
 [.card-learn]
 --
-xref:learn::index.adoc[[.title]#Test your Contracts# Unit test your contracts with the OpenZeppelin `test-environment`+++,+++ combined with assertions from our `test-helpers`]
+xref:learn::index.adoc[[.title]#Test your Contracts# Unit test your contracts with the OpenZeppelin `test-environment`+++,+++ combined with assertions from our `test-helpers`.]
 --
 
 [.card-learn]
 --
-xref:learn::index.adoc[[.title]#Upgrade your Contracts# Change the code of your deployed contracts to add new features or fix bugs, using the OpenZeppelin CLI or the `upgrades` library]
+xref:learn::index.adoc[[.title]#Upgrade your Contracts# Change the code of your deployed contracts to add new features or fix bugs, using the OpenZeppelin CLI or the `upgrades` library.]
 --
 
 [.card-learn]
 --
-xref:learn::index.adoc[[.title]#Deploy to Testnet# Set up a staging environment by deploying your app to a public Ethereum testnet using the OpenZeppelin CLI]
+xref:learn::index.adoc[[.title]#Deploy to Testnet# Set up a staging environment by deploying your app to a public Ethereum testnet using the OpenZeppelin CLI.]
 --
 
 [.card-learn]
 --
-xref:learn::index.adoc[[.title]#Build a Dapp# Create a decentralized web app using OpenZeppelin `network-js` and `hot-loader`+++,+++ or simply unpack a Starter Kit]
+xref:learn::index.adoc[[.title]#Build a Dapp# Create a decentralized web app using OpenZeppelin `network-js` and `hot-loader`+++,+++ or simply unpack a Starter Kit.]
 --
 
 [.card-learn]
 --
-xref:learn::index.adoc[[.title]#Send Gasless Transactions# Leverage the Gas Station Network so your users can send transactions without having ETH to pay for gas]
+xref:learn::index.adoc[[.title]#Send Gasless Transactions# Leverage the Gas Station Network so your users can send transactions without having ETH to pay for gas.]
 --
 
 [.card-learn]
 --
-xref:learn::index.adoc[[.title]#Go to Mainnet# All the boxes you need to check before taking your project to production on the main Ethereum network]
+xref:learn::index.adoc[[.title]#Go to Mainnet# All the boxes you need to check before taking your project to production on the main Ethereum network.]
 --
 
 
