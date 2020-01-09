@@ -63,25 +63,22 @@ xref:learn::index.adoc[[.title]#Go to Mainnet# All the boxes you need to check b
 All the open source tools built and maintained by the OpenZeppelin team:
 
 [.card.card-contracts]
-.xref:contracts::index.adoc[Contracts]
 --
-A library of modular, reusable, and secure smart contracts, written in Solidity.
+xref:contracts::index.adoc[[.title]#Contracts# A library of modular+++,+++ reusable+++,+++ and secure smart contracts+++,+++ written in Solidity.]
 
 [.card-cta]#xref:contracts::index.adoc[Get started >]#
 --
 
 [.card.card-sdk]
-.xref:sdk::index.adoc[CLI]
 --
-A command-line tool to help you deploy, upgrade, and interact with your smart contracts.
+xref:sdk::index.adoc[[.title]#CLI# A command-line tool to help you deploy+++,+++ upgrade+++,+++ and interact with your smart contracts.]
 
 [.card-cta]#xref:sdk::index.adoc[Get started >]#
 --
 
 [.card.card-starter-kits]
-.xref:starter-kits::index.adoc[Starter Kits]
 --
-Bundles to bootstrap your decentralized web application.
+xref:starter-kits::index.adoc[[.title]#Starter Kits# Bundles to bootstrap your decentralized web application.]
 
 [.card-cta]#xref:starter-kits::index.adoc[Get started >]#
 --
