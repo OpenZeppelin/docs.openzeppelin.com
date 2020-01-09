@@ -92,7 +92,8 @@ contract Counter {
 
 This is simple enough. Now, let's modify it to add GSN support. This requires extending from the `GSNRecipient` contract and implementing the `acceptRelayedCall` method. This method must return whether we accept or reject to pay for a user transaction. For the sake of simplicity, we will be paying for all transactions sent to this contract.
 
-NOTE: For most (d)apps, it is probably not a good idea to have such a generous policy since any malicious user can easily drain your contract from funds. Check out our xref:contracts::gsn-strategies.adoc[guide on GSN payment strategies] for different approaches to this problem.
+NOTE: For most (d)apps, it is probably not a good idea to have such a generous policy since any malicious user could easily drain your contract's funds. Check out our xref:contracts::gsn-strategies.adoc[guide on GSN payment strategies] for different approaches to this problem.
+
 
 [source,solidity]
 ----
@@ -327,7 +328,6 @@ const context = useWeb3Network('https://rinkeby.infura.io/v3/' + INFURA_API_TOKE
 });
 ----
  
-Redeploy using the cli command `oz create`, selecting `Rinkeby` as the network, and copy the address returned at the end (You will need it later to fund your contract!).
 
 We are almost there! If you try to use your (d)app now, you will notice that you are not able to send any transactions. This is because your `Counter` contract has not been funded on this network yet. Instead of using the `oz-gsn fund-recipient` command we used earlier, we will now use the https://gsn.openzeppelin.com[online gsn-tool] by pasting in the address of your instance. To do this, the web interface requires that you use MetaMask on the Rinkeby Network, which will allow you to deposit funds into your contract.
 
