@@ -87,7 +87,7 @@ Join the OpenZeppelin community in https://forum.openzeppelin.com/[our forum] to
 
 == Share the Love!
 
-If you are using OpenZeppelin tools or libraries in your project, share the love with the rest of the community by adding a badge to your `README`!
+If you are using OpenZeppelin contracts, tools, or libraries in your project, share the love with the rest of the community by adding a badge to your `README`! Let your audience know that your system is built with the most secure components available.
 
 image::https://img.shields.io/badge/built%20with-OpenZeppelin-3677FF[built-with openzeppelin]
 
