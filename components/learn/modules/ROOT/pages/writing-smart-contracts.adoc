@@ -98,16 +98,16 @@ Because the compiler will pick up all files in the `contracts` directory and sub
 pragma solidity ^0.5.0;
 
 contract Auth {
-  address private administrator;
+    address private administrator;
 
-  constructor () public {
-      // Make the deployer of the contract the administrator
-      administrator = msg.sender;
-  }
+    constructor () public {
+        // Make the deployer of the contract the administrator
+        administrator = msg.sender;
+    }
 
-  function isAdministrator(address user) public view returns (bool) {
-      return user == administrator;
-  }
+    function isAdministrator(address user) public view returns (bool) {
+        return user == administrator;
+    }
 }
 ```
 
@@ -118,7 +118,7 @@ To use this contract from `Box` we use an `import` statement, referring to `Auth
 pragma solidity ^0.5.0;
 
 // Import Auth from the access-control subdirectory
-import './access-control/Auth.sol';
+import "./access-control/Auth.sol";
 
 contract Box {
     uint256 private value;
@@ -179,7 +179,7 @@ To use one of the OpenZeppelin Contracts, `import` it by prefixing its path with
 pragma solidity ^0.5.0;
 
 // Import Ownable from the OpenZeppelin Contracts library
-import '@openzeppelin/contracts/ownership/Ownable.sol';
+import "@openzeppelin/contracts/ownership/Ownable.sol";
 
 // Make Box inherit from the Ownable contract
 contract Box is Ownable {
