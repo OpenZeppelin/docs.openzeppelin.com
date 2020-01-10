@@ -96,8 +96,6 @@ module.exports = {
 };
 ----
 
-NOTE: The `HDWalletProvider` can be configured to generate more than a single account from the mnemonic. Check out its https://github.com/trufflesuite/truffle/tree/master/packages/hdwallet-provider[documentation] for more info.
-
 Note in the first line that we are loading the project id and mnemonic from a `secrets.json` file, which should look like the following, but using your own values. Make sure to `.gitignore` it!
 
 [source,json]
