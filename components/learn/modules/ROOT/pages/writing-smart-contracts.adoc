@@ -86,7 +86,7 @@ For detailed information on these options, refer to the https://docs.openzeppeli
 [[adding-more-contracts]]
 == Adding More Contracts
 
-As your project grows, you will begin to create more contracts that interact with each other: each one should be stored on its own `.sol` file.
+As your project grows, you will begin to create more contracts that interact with each other: each one should be stored in its own `.sol` file.
 
 To see how this looks, let's add a simple access control system to our `Box` contract: we will store an administrator address in a contract called `Auth`, and only let `Box` be used by those accounts that `Auth` allows.
 
