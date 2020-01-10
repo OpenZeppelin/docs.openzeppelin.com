@@ -34,7 +34,7 @@ xref:learn::index.adoc[[.title]#Test your Contracts# Unit test your contracts wi
 
 [.card-learn]
 --
-xref:learn::index.adoc[[.title]#Upgrade your Contracts# Change the code of your deployed contracts to add new features or fix bugs, using the OpenZeppelin CLI or the `upgrades` library.]
+xref:learn::index.adoc[[.title]#Upgrade your Contracts# Change the code of your deployed contracts to add new features or fix bugs+++,+++ using the OpenZeppelin CLI or the `upgrades` library.]
 --
 
 [.card-learn]
