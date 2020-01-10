@@ -3,7 +3,7 @@
 * xref:deploy-and-interact.adoc[Deploy and Interact]
 * xref:unit-testing.adoc[Automated Testing]
 * xref:public-staging.adoc[Deploy to a public testnet]
-* xref:mainnet.adoc[Deploy to Mainnet]
 * xref:on-dapps.adoc[Building a Dapp]
+* xref:mainnet.adoc[Deploy to Mainnet]
 * xref:on-upgrades.adoc[Upgrades]
 * xref:on-gsn.adoc[Gasless Transactions]
