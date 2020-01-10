@@ -5,9 +5,9 @@ Unlike most software, smart contracts don't run on your computer or somebody's s
 This guide will cover all you need to know to get you started using your contracts, including:
 
  * <<local-blockchain, Setting up a Local Blockchain>>
- * <<getting-started-with-the-cli, Installing the OpenZeppelin CLI>>
+ * <<getting-started-with-the-cli, Getting Started with the OpenZeppelin CLI>>
  * <<deploying-a-smart-contract, Deploying a Smart Contract>>
- * <<interacting-via-the-cli, Interacting from the Terminal>>
+ * <<interacting-via-the-cli, Interacting via the CLI>>
  * <<interacting-programmatically, Interacting Programmatically>>
 
 [[local-blockchain]]
