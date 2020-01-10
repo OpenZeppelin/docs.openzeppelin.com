@@ -356,16 +356,18 @@ async function readFilesFromWorktree (base, startPath, repoDir) {
     const pkgJson = await fs.readJson(path.join(pkg, 'package.json'));
 
     if (_.get(pkgJson, 'scripts.prepare-docs')) {
-      if (await fs.pathExists(path.join(repoDir, 'yarn.lock'))) {
-        await yarnInstallLimit(execa, 'yarn', ['install'], {
-          stdio: 'inherit',
-          cwd: repoDir,
-        });
-      } else if (await fs.pathExists(path.join(repoDir, 'package-lock.json'))) {
-        await execa('npm', ['ci'], {
-          stdio: 'inherit',
-          cwd: repoDir,
-        });
+      if (!await fs.pathExists(path.join(repoDir, 'node_modules'))) {
+        if (await fs.pathExists(path.join(repoDir, 'yarn.lock'))) {
+          await yarnInstallLimit(execa, 'yarn', ['install'], {
+            stdio: 'inherit',
+            cwd: repoDir,
+          });
+        } else if (await fs.pathExists(path.join(repoDir, 'package-lock.json'))) {
+          await execa('npm', ['ci'], {
+            stdio: 'inherit',
+            cwd: repoDir,
+          });
+        }
       }
 
       await execa('npm', ['run', 'prepare-docs'], {
