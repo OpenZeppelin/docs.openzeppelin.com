@@ -8,22 +8,12 @@
   position: relative;
   padding: .8rem 1.1rem;
   margin-right: .6rem;
-  &.card-contracts {
-    --card-icon: url(../images/contracts_white.svg);
-    background-image: linear-gradient(45deg, #6746d6 0%, #a134d1 100%);
   box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.09);
   border-radius: var(--border-radius);
 
   a {
     color: white;
     text-decoration: none;
-  }
-
-  &.card-starter-kits {
-    --card-icon: url(../images/kit_white.svg);
-    background-image: linear-gradient(-135deg, #00e1d4 0%, #00c7f2 100%);
-    box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.09);
-    border-radius: var(--border-radius);
   }
 
   .title {
@@ -45,6 +35,19 @@
         margin-right: .5em;
       }
     }
+  &.card-contracts {
+    --card-icon: url(../images/contracts_white.svg);
+    background-image: linear-gradient(45deg, #6746d6 0%, #a134d1 100%);
+  }
+
+  &.card-sdk {
+    --card-icon: url(../images/sdk_white.svg);
+    background-image: linear-gradient(-134deg, #3677ff 0%, #1ecff7 100%);
+  }
+
+  &.card-starter-kits {
+    --card-icon: url(../images/kit_white.svg);
+    background-image: linear-gradient(-135deg, #00e1d4 0%, #00c7f2 100%);
   }
 
   .content {
