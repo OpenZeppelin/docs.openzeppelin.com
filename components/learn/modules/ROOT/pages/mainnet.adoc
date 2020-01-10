@@ -44,7 +44,7 @@ Contract source code of Box verified and published successfully
 ```
 NOTE: You will need an https://etherscan.io/apis[Etherscan API key] to use their service.
 
-Remember that, when you deploy a contract via the OpenZeppelin CLI, both xref:on-upgrades.adoc#how-upgrades-work[a logic and a proxy contract are deployed]. This means that the contract that the user interacts with will be a just proxy, and the actual logic will be in a different one. Etherscan does have https://medium.com/etherscan-blog/and-finally-proxy-contract-support-on-etherscan-693e3da0714b[support for correctly showing OpenZeppelin proxies and their implementations], but other explorers may not.
+Remember that, when you deploy a contract via the OpenZeppelin CLI, both xref:on-upgrades.adoc#how-upgrades-work[a logic and a proxy contract are deployed]. This means that the contract that the user interacts with will be just a proxy, and the actual logic will be in a different one. Etherscan does have https://medium.com/etherscan-blog/and-finally-proxy-contract-support-on-etherscan-693e3da0714b[support for correctly showing OpenZeppelin proxies and their implementations], but other explorers may not.
 
 TIP: Check out our Etherscan-verified https://etherscan.io/address/0x3c68fe89047e59dff502642eea839347b53202cd#readProxyContract[proxy] and https://etherscan.io/address/0x73ba08C7982bEE9F0f4625fE323E930608C82485#code[implementation] `Box` contracts to see how they look.
 
