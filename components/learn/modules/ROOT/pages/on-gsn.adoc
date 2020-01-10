@@ -1,6 +1,6 @@
 = Gasless Transactions
 
-Anyone who sends an Ethereum transaction needs to have Ethere to pay for its gas fees. This forces new users to purchase Ether (which can be a daunting task) before they can start using a dapp. This is a major hurdle in user onboarding.
+Anyone who sends an Ethereum transaction needs to have Ether to pay for its gas fees. This forces new users to purchase Ether (which can be a daunting task) before they can start using a dapp. This is a major hurdle in user onboarding.
 
 In this guide, we will explore the concept of gasless (also called _meta_) transactions, where *the user does not need to pay for their gas fees*. We will also introduce the https://gasstation.network[Gas Station Network], a decentralized solution to this problem, as well as the OpenZeppelin libraries that allow you to leverage it in your dapps:
 
@@ -14,7 +14,7 @@ In this guide, we will explore the concept of gasless (also called _meta_) trans
 
 All Ethereum transactions use gas, and the sender of each transaction must have enough Ether to pay for the gas spent. Even though these gas costs are low for basic transactions (a couple of cents), getting Ether is no easy task: dApp users often need to go through Know Your Customer and Anti Money-Laundering processes (KYC & AML), which not only takes time but often involves sending a selfie holding their passport over the Internet (!). On top of that, they also need to provide financial information to be able to purchase Ether through an exchange. Only the most hardcore users will put up with this hassle, and dApp adoption greatly suffers when Ether is required. We can do better.
 
-**Enter meta-transactions**. This is a fancy name for a simple idea: a third-party (called here a _relayer_) can send another user's transactions and pay themselves for the gas cost. In this scheme, users sign messages (not transactions) containing information about a transaction they would like to execute. Relayers are then responsible for signing valid Ethereum transactions with this information and sending them to the network, paying for the gas cost. A xref:contracts:api:GSN.adoc#GSNRecipient[base contract] preserves the identity of the user that originally requested the transaction. In this way, users can interact directly with smart contracts without needing to have a wallet or own ETH.
+**Enter meta-transactions**. This is a fancy name for a simple idea: a third-party (called a _relayer_) can send another user's transactions and pay themselves for the gas cost. In this scheme, users sign messages (not transactions) containing information about a transaction they would like to execute. Relayers are then responsible for signing valid Ethereum transactions with this information and sending them to the network, paying for the gas cost. A xref:contracts:api:GSN.adoc#GSNRecipient[base contract] preserves the identity of the user that originally requested the transaction. In this way, users can interact directly with smart contracts without needing to have a wallet or own Ether.
 
 This means that, in order to support meta transactions in your application, you need to keep a _relayer_ process running - or leverage a decentralized relayer network.
 
@@ -39,7 +39,8 @@ TIP: You can learn more about how the GSN works in https://example.com[this guid
 == Building a GSN-powered DApp
 
 Time to build a dapp leveraging the GSN and push it to a testnet. In this section, we will use:
- * The `create-react-app` package to bootstrap a React application, along with xref::network-js:index.adoc[*OpenZeppelin Network JS*] to easily set up a web3 object with GSN support
+
+ * The `create-react-app` package to bootstrap a React application, along with xref:network-js::index.adoc[*OpenZeppelin Network JS*] to easily set up a web3 object with GSN support
  * xref:gsn-helpers::index.adoc[*OpenZeppelin GSN Helpers*] to emulate the GSN in your local ganache instance
  * The https://github.com/OpenZeppelin/openzeppelin-contracts-ethereum-package[`@openzeppelin/contracts-ethereum-package`] smart contract library to get GSN
  * The xref:sdk::index.adoc[*OpenZeppelin CLI*] to manage and deploy our contracts
@@ -81,11 +82,11 @@ We will write our vanilla `Counter` contract in the newly created `contracts` fo
 pragma solidity ^0.5.0;
 
 contract Counter {
-  uint256 public value;
+    uint256 public value;
 
-  function increase() public {
-    value += 1;
-  }
+    function increase() public {
+        value += 1;
+    }
 }
 ----
 
@@ -103,32 +104,32 @@ pragma solidity ^0.5.0;
 import "@openzeppelin/contracts-ethereum-package/contracts/GSN/GSNRecipient.sol";
 
 contract Counter is GSNRecipient {
-  uint256 public value;
+    uint256 public value;
 
-  function increase() public {
-    value += 1;
-  }
+    function increase() public {
+        value += 1;
+    }
 
-  function acceptRelayedCall(
-    address relay,
-    address from,
-    bytes calldata encodedFunction,
-    uint256 transactionFee,
-    uint256 gasPrice,
-    uint256 gasLimit,
-    uint256 nonce,
-    bytes calldata approvalData,
-    uint256 maxPossibleCharge
-  ) external view returns (uint256, bytes memory) {
-    return _approveRelayedCall();
-  }
+    function acceptRelayedCall(
+        address relay,
+        address from,
+        bytes calldata encodedFunction,
+        uint256 transactionFee,
+        uint256 gasPrice,
+        uint256 gasLimit,
+        uint256 nonce,
+        bytes calldata approvalData,
+        uint256 maxPossibleCharge
+    ) external view returns (uint256, bytes memory) {
+        return _approveRelayedCall();
+    }
 
-  // We won't do any pre or post processing, so leave _preRelayedCall and _postRelayedCall empty
-  function _preRelayedCall(bytes memory context) internal returns (bytes32) {
-  }
+    // We won't do any pre or post processing, so leave _preRelayedCall and _postRelayedCall empty
+    function _preRelayedCall(bytes memory context) internal returns (bytes32) {
+    }
 
-  function _postRelayedCall(bytes memory context, bool, uint256 actualCharge, bytes32) internal {
-  }
+    function _postRelayedCall(bytes memory context, bool, uint256 actualCharge, bytes32) internal {
+    }
 }
 ----
 
@@ -203,7 +204,7 @@ $ ln -ns ../../build
 
 This will allow our front end to reach our contract artifacts.
 
-Then, replace `client/src/App.js` with the following code. This will use xref:network-js::index.adoc[*OpenZeppelin Network JS*] to create a new provider connected to the local network. It will use a key generated on the spot to sign all transactions on behalf of the user and will use the GSN to relay them to the network. This allows your users to start interacting with your (d)app right away, even if they do not have MetaMask installed, an Ethereum account, or any ETH at all.
+Then, replace `client/src/App.js` with the following code. This will use xref:network-js::index.adoc[*OpenZeppelin Network JS*] to create a new provider connected to the local network. It will use a key generated on the spot to sign all transactions on behalf of the user and will use the GSN to relay them to the network. This allows your users to start interacting with your (d)app right away, even if they do not have MetaMask installed, an Ethereum account, or any Ether at all.
 
 [source,jsx]
 ----
