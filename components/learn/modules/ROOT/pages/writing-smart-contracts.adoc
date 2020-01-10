@@ -207,4 +207,4 @@ Writing and compiling Solidity contracts are but the first steps in the journey 
 
  * xref:deploy-and-interact.adoc[Deploying and Interacting with Smart Contracts]
  * xref:unit-testing.adoc[Automated Testing]
- * xref:public-staging.adoc[Deploying to a Public Network]
+ * xref:public-staging.adoc[Deploying to a Public Test Network]
