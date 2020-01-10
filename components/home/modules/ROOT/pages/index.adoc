@@ -19,7 +19,7 @@ Local Development:: Deploy your contracts to a local blockchain and send your fi
 Test your Contracts:: Unit test your contracts with the OpenZeppelin Test Environment, combined with assertions from our Test Helpers
 Upgrade your Contracts:: Change the code of your deployed contracts to add new features or fix bugs, using the OpenZeppelin CLI or the Upgrades library
 Deploy to Testnet:: Set up a staging environment by deploying your app to a public Ethereum testnet using the OpenZeppelin CLI
-Build a Dapp:: Create a decentralized web app using OpenZeppelin Networks JS and Hot Loader, or simply unpack a Starter Kit
+Build a Dapp:: Create a decentralized web app using OpenZeppelin Networks JS and Solidity Hot Loader, or simply unpack a Starter Kit
 Send Gasless Transactions:: Leverage the Gas Station Network so your users can send transactions without having ETH to pay for gas
 Go to Mainnet:: All the boxes you need to check before taking your project to production on the main Ethereum network
 
@@ -58,7 +58,7 @@ Bundles to bootstrap your decentralized web application.
 `network-js`:: A JavaScript library for easily connecting to the Ethereum network from a dapp, used in most Starter Kits
 `gsn-helpers`:: A thin CLI and JavaScript library for simplifying development of an application using the Gas Station Network
 `gsn-provider`:: A `web3-js` provider for seamlessly sending gasless transactions via the Gas Station Network
-`hot-loader`:: A webpack plugin for automatically compiling and upgrading your contracts locally while you develop
+`solidity-loader`:: A webpack plugin for automatically compiling and upgrading your contracts locally while you develop
 `contracts-loader`:: A minimal JavaScript library for loading contract artifacts by name or ABI
 `solidity-docgen`:: A tool for automatically generating documentation based on the natspec comments of your Solidity contracts
 
