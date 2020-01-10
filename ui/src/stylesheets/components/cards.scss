@@ -75,10 +75,13 @@
     margin-left: 20px;
   }
 
-  .content {
-    margin-top: 2em;
-    font-size: 0.9em;
-    width: 88%;
+  &:hover{
+    cursor: pointer;
+    box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.25);
+  }
+}
+
+
 .card-generic {
   width: 31.7%;
   min-height: 14rem;
@@ -179,9 +182,14 @@
   }
 
   &:hover{
+    cursor: pointer;
     border: solid 1px #B8BFF4;
     border-left: solid 3px #4E5EE4;
-    box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.09);
+    box-shadow: 0 6px 12px 0 rgba(60, 60, 60, 0.09);
+
+    .title {
+      color: #4E5EE4;
+    }
   }
 }
 
