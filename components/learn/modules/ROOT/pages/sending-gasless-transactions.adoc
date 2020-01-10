@@ -1,4 +1,4 @@
-= Gasless Transactions
+= Sending Gasless Transactions
 
 Anyone who sends an Ethereum transaction needs to have Ether to pay for its gas fees. This forces new users to purchase Ether (which can be a daunting task) before they can start using a dapp. This is a major hurdle in user onboarding.
 
@@ -43,16 +43,16 @@ Time to build a dapp leveraging the GSN and push it to a testnet. In this sectio
  * The `create-react-app` package to bootstrap a React application, along with xref:network-js::index.adoc[*OpenZeppelin Network JS*] to easily set up a web3 object with GSN support
  * xref:gsn-helpers::index.adoc[*OpenZeppelin GSN Helpers*] to emulate the GSN in your local ganache instance
  * The https://github.com/OpenZeppelin/openzeppelin-contracts-ethereum-package[`@openzeppelin/contracts-ethereum-package`] smart contract library to get GSN
- * The xref:sdk::index.adoc[*OpenZeppelin CLI*] to manage and deploy our contracts
+ * The xref:cli::index.adoc[*OpenZeppelin CLI*] to manage and deploy our contracts
 
-NOTE: It might feel like there are many moving pieces here, but each component has a well-defined role in building this application. That said, if you are new to the OpenZeppelin platform, it may help to look into the xref:contracts::gsn.adoc[OpenZeppelin Contracts GSN guide] and the xref:on-dapps.adoc[Building a Dapp tutorial] before you continue reading.
+NOTE: It might feel like there are many moving pieces here, but each component has a well-defined role in building this application. That said, if you are new to the OpenZeppelin platform, it may help to look into the xref:contracts::gsn.adoc[OpenZeppelin Contracts GSN guide] and the xref:building-a-dapp.adoc[Building a Dapp] tutorial before you continue reading.
 
 We will create a simple contract that just counts transactions sent to it, but will tie it into the GSN so that users will not have to pay for the gas when sending these transactions. Let's get started!
 
 [[environment-set-up]]
 === Setting up the Environment
 
-We will begin by creating a new npm project and installing all dependencies, including https://www.trufflesuite.com/ganache[Ganache] (which we'll use to xref:deploy-and-interact.adoc#local-blockchain[run a local network]):
+We will begin by creating a new npm project and installing all dependencies, including https://www.trufflesuite.com/ganache[Ganache] (which we'll use to xref:deploying-and-interacting.adoc#local-blockchain[run a local network]):
 
 [source,console]
 ----
@@ -69,7 +69,7 @@ Use the CLI to set up a new project and follow the prompts so we can write our f
 $ npx oz init
 ----
 
-TIP: Check out xref:deploy-and-interact.adoc#getting-started-with-the-cli[Getting Started with the OpenZeppelin CLI] if you're unfamiliar with it.
+TIP: Check out xref:deploying-and-interacting.adoc#getting-started-with-the-cli[Getting Started with the OpenZeppelin CLI] if you're unfamiliar with it.
 
 [[creating-our-contract]]
 === Creating our Contract
@@ -133,7 +133,7 @@ contract Counter is GSNRecipient {
 }
 ----
 
-Start ganache on a separate terminal by running `npx ganache-cli`. Then, create an instance of our new contract using the OpenZeppelin CLI with `npx oz create` and follow the prompts, including choosing to call a function to initialize the instance. 
+Start ganache on a separate terminal by running `npx ganache-cli`. Then, create an instance of our new contract using the OpenZeppelin CLI with `npx oz create` and follow the prompts, including choosing to call a function to initialize the instance.
 
 Be sure to take note of the address of your instance, which is returned at the end of this process!
 
@@ -159,7 +159,7 @@ Great! Now, if we deployed this contract to mainnet or the rinkeby testnet, we w
 
 The GSN is composed of a central `RelayHub` contract that coordinates all relayed transactions, as well as multiple decentralized relayers. The relayers are processes that receive requests to relay a transaction via an HTTP interface and send them to the network via the `RelayHub`.
 
-With ganache running, you can start a relayer in a new terminal using the following command from the xref:gsn-helpers::api.adoc#command_line_interface[*OpenZeppelin GSN Helpers*]:
+With ganache running, you can start a relayer in a new terminal using the following command from the xref:gsn-helpers::api.adoc#command-line-interface[*OpenZeppelin GSN Helpers*]:
 
 [source,console]
 ----
@@ -174,7 +174,7 @@ RelayHttpServer starting. version: 0.4.0
 Relay funded. Balance: 4999305160000000000
 ----
 
-NOTE: Under the hood, this command takes care of several steps to have a local relayer up and running. First, it will download a relayer binary for your platform and start it. It will then deploy the `RelayHub` contract to your local ganache, registering the relayer on the hub, and funding it so it can relay transactions. You can run these steps individually by using other `oz-gsn commands` or even xref::gsn-helpers:api.adoc#javascript_interface[directly from your JavaScript code].
+NOTE: Under the hood, this command takes care of several steps to have a local relayer up and running. First, it will download a relayer binary for your platform and start it. It will then deploy the `RelayHub` contract to your local ganache, registering the relayer on the hub, and funding it so it can relay transactions. You can run these steps individually by using other `oz-gsn commands` or even xref::gsn-helpers:api.adoc#javascript-interface[directly from your JavaScript code].
 
 The last step will be to _fund_ our `Counter` contract. GSN relayers require recipient contracts to have funds since they will then charge the cost of the relayed transaction (plus a fee!) to it. We will again use the `oz-gsn` set of commands to do this:
 
@@ -296,8 +296,8 @@ Great! We can now fire up our application running `npm start` from within the `c
 
 It is not very impressive to send a local transaction in your ganache network, where you already have a bunch of fully-funded accounts. To witness the GSN at its full potential, let's move our application to the Rinkeby testnet. If you later want to go onto mainnet, the instructions are the same.
 
-You will need to create a new entry in the `networks.js` file, with a Rinkeby account that has been funded. For detailed instructions on how to do this, check out xref:public-staging.adoc[Deploying to a Public Test Network].
- 
+You will need to create a new entry in the `networks.js` file, with a Rinkeby account that has been funded. For detailed instructions on how to do this, check out xref:connecting-to-public-test-networks.adoc[Deploying to Public Tests Network].
+
 We can now deploy our `Counter` contract to Rinkeby:
 
 [source,console]
@@ -315,9 +315,9 @@ $ openzeppelin create
 ----
 
 
-The next step will be to instruct our (d)app to connect to a Rinkeby node instead of the local network. Change the `PROVIDER_URL` in your `App.js` to, for example, an Infura Rinkeby endpoint. 
+The next step will be to instruct our (d)app to connect to a Rinkeby node instead of the local network. Change the `PROVIDER_URL` in your `App.js` to, for example, an Infura Rinkeby endpoint.
 
-We will now be using a real GSN provider rather than our developer environment, so you may want to also provide a xref:gsn-provider::api.adoc[configuration object], which will give you more control over things such as the gas price you are willing to pay. For production (d)apps, you will want to configure this to your requirements. 
+We will now be using a real GSN provider rather than our developer environment, so you may want to also provide a xref:gsn-provider::api.adoc[configuration object], which will give you more control over things such as the gas price you are willing to pay. For production (d)apps, you will want to configure this to your requirements.
 
 [source,javascript]
 ----
@@ -328,7 +328,7 @@ const context = useWeb3Network('https://rinkeby.infura.io/v3/' + INFURA_API_TOKE
   gsn: { signKey: useEphemeralKey() }
 });
 ----
- 
+
 
 We are almost there! If you try to use your (d)app now, you will notice that you are not able to send any transactions. This is because your `Counter` contract has not been funded on this network yet. Instead of using the `oz-gsn fund-recipient` command we used earlier, we will now use the https://gsn.openzeppelin.com[online gsn-tool] by pasting in the address of your instance. To do this, the web interface requires that you use MetaMask on the Rinkeby Network, which will allow you to deposit funds into your contract.
 

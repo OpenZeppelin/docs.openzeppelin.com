@@ -1,8 +1,8 @@
-= Upgrades
+= Upgrading Smart Contracts
 
-Smart contracts xref:deploy-and-interact.adoc[deployed] with the OpenZeppelin CLI can be **upgraded** to modify their code, while preserving their address, state, and balance. This allows you to iteratively add new features to your project, or fix any bugs you may find in xref:mainnet.adoc[in production]. 
+Smart contracts xref:deploying-and-interacting.adoc[deployed] with the OpenZeppelin CLI can be **upgraded** to modify their code, while preserving their address, state, and balance. This allows you to iteratively add new features to your project, or fix any bugs you may find in xref:mainnet.adoc[in production].
 
-Throughout this guide, we will:
+Throughout this guide, we will learn:
 
 * <<whats-in-an-upgrade, Why upgrades are important>>
 * <<upgrading-a-contract-via-cli, Upgrade our Box contract using the CLI>>
@@ -24,17 +24,17 @@ Here's what you'd need to do to fix a bug in a contract you cannot upgrade:
 . Update all contracts that interacted with the old contract to use the address of the new one
 . Reach out to all your users and convince them to start using the new deployment (and handle both contracts being used simultaneously, as users are slow to migrate)
 
-To avoid going through this mess, we have built contract upgrades directly in our SDK. This allows us to *change the contract code, while preserving the state, balance, and address*. And all by running a single command. Let's see it in action.
+To avoid going through this mess, we have built contract upgrades directly into our tools. This allows us to *change the contract code, while preserving the state, balance, and address*. And all by running a single command. Let's see it in action.
 
 [[upgrading-a-contract-via-cli]]
 == Upgrading a Contract using the CLI
 
-Whenever you deploy a new contract using the CLI via `openzeppelin create`, that contract instance can be **upgraded** later. By default, only the address that originally deployed the contract has the rights to upgrade it. 
+Whenever you deploy a new contract using the CLI via `openzeppelin create`, that contract instance can be **upgraded** later. By default, only the address that originally deployed the contract has the rights to upgrade it.
 
-TIP: If you're unfamiliar with the OpenZeppelin CLI, head to xref:deploy-and-interact.adoc#getting-started-with-the-cli[our introductory guide] first!
+TIP: If you're unfamiliar with the OpenZeppelin CLI, head to xref:deploying-and-interacting.adoc#getting-started-with-the-cli[our introductory guide] first!
 
 
-Let's see how it works, by upgrading the `Box` contract xref:deploy-and-interact.adoc#deploying-a-smart-contract[we deployed earlier]:
+Let's see how it works, by upgrading the `Box` contract xref:deploying-and-interacting.adoc#deploying-a-smart-contract[we deployed earlier]:
 
 ```solidity
 // contracts/Box.sol
@@ -59,7 +59,7 @@ contract Box {
 }
 ```
 
-NOTE: If you had stopped and restarted ganache between the xref:deploy-and-interact.adoc[deployment guide] and this one, you will need to first `create` a new `Box` instance, so you can now upgrade it.
+NOTE: If you had stopped and restarted ganache between the xref:deploying-and-interacting.adoc[deployment guide] and this one, you will need to first `create` a new `Box` instance, so you can now upgrade it.
 
 For the sake of the example, let's say we want to add a new feature: a function that increments the `value` stored in the `Box`.
 
@@ -107,14 +107,14 @@ $ npx openzeppelin call
 ✓ Method 'retrieve()' returned: 6
 ```
 
-That's it! Notice how the `value` of the `Box` was preserved throughout the upgrade, as well as its address. And this process is the same regardless of whether you are working on a local blockchain, a testnet, or the main network. Let's see how the OpenZeppelin SDK accomplishes this.
+That's it! Notice how the `value` of the `Box` was preserved throughout the upgrade, as well as its address. And this process is the same regardless of whether you are working on a local blockchain, a testnet, or the main network. Let's see how the OpenZeppelin CLI accomplishes this.
 
 [[how-upgrades-work]]
 == How Upgrades Work
 
 _This section will be more theory-heavy than others: feel free to skip over it and return later if you are curious._
 
-When you create a new upgradeble contract instance, the OpenZeppelin SDK actually deploys two contracts:
+When you create a new upgradeble contract instance, the OpenZeppelin CLI actually deploys two contracts:
 
 . The contract you have written, which is known as the _implementation contract_ or _logic contract_.
 . A _proxy_ to that contract, which is the contract that you actually interact with.
@@ -132,7 +132,7 @@ NOTE: You can have multiple proxies using the same implementation contract, so y
 
 Any user of the smart contract always interacts with the proxy, *which never changes its address*. This allows you to roll out an upgrade or fix a bug without requesting your users to change anything on their end - they just keep interacting with the same address as always.
 
-NOTE: If you want to learn more about how OpenZeppelin proxies work, check out our xref:sdk::pattern.adoc[Upgrades Pattern guide].
+NOTE: If you want to learn more about how OpenZeppelin proxies work, check out xref:upgrades::index.adoc[OpenZeppelin Upgrades].
 
 [[upgrading-contracts-in-js]]
 == Upgrading Contracts Programmatically
@@ -147,7 +147,7 @@ Your first step will be to install the library in your project, and you will als
 $ npm install @openzeppelin/upgrades web3
 ```
 
-As in our previous guide on xref:deploy-and-interact.adoc#interacting-programmatically[programmatically interacting with contracts], we will start with some boilerplate code to initialize a provider, as well as the Upgrades library.
+As in our previous guide on xref:deploying-and-interacting.adoc#interacting-programmatically[programmatically interacting with contracts], we will start with some boilerplate code to initialize a provider, as well as the Upgrades library.
 
 ```js
 const Web3 = require('web3');
@@ -197,7 +197,7 @@ While any smart contract can be made upgradeable, some restrictions of the Solid
 
 === Initialization
 
-Upgradeable contracts cannot have a `constructor`. To help you run initialization code, the SDK provides the `Initializable` base contract that allows you to tag a method as `initializer`, ensuring it can be run only once.
+Upgradeable contracts cannot have a `constructor`. To help you run initialization code, xref:upgrades::index.adoc[*OpenZeppelin Upgrades*] provides the `Initializable` base contract that allows you to tag a method as `initializer`, ensuring it can be run only once.
 
 As an example, let's write a new version of the `Box` contract with an initializer, storing the address of an `admin` who will be the only one allowed to change its contents.
 
@@ -229,7 +229,7 @@ contract AdminBox is Initializable {
 }
 ```
 
-When deploying this contract, the CLI will prompt us to execute the initializer and ask us to provide the admin address. 
+When deploying this contract, the CLI will prompt us to execute the initializer and ask us to provide the admin address.
 
 ```bash
 $ npx oz create
@@ -246,9 +246,9 @@ $ npx oz create
 
 For all practical purposes, the initializer acts as a constructor. However, keep in mind that since it's a regular function, you will need to manually call the initializers of all base contracts (if any).
 
-NOTE: In future versions of the OpenZeppelin SDK, the CLI will take care of automatically converting constructors into initializers, so you won't need to worry about this.
+NOTE: In future versions of the OpenZeppelin CLI, it will take care of automatically converting constructors into initializers, so you won't need to worry about this.
 
-To learn more about this and other caveats when writing upgradeable contracts, check out our xref:sdk::writing-contracts.adoc[Writing Upgradeable Contracts] guide.
+To learn more about this and other caveats when writing upgradeable contracts, check out our xref:upgrades::writing-upgradeable.adoc[Writing Upgradeable Contracts] guide.
 
 === Upgrading
 
@@ -262,8 +262,8 @@ contract Box {
     uint256 private value;
 
     // We can safely add a new variable after the ones we had declared
-    address private owner; 
-    
+    address private owner;
+
     // ...
 }
 ```
@@ -272,8 +272,8 @@ Fortunately, this limitation only affects state variables. You can change the co
 
 NOTE: If you accidentally mess up with your contract's storage layout, the CLI will warn you when you try to upgrade.
 
-To learn more about this limitation, head over to the xref:sdk::writing-contracts.adoc#modifying-your-contracts[Modifying Your Contracts] guide.
+To learn more about this limitation, head over to the xref:upgrades::writing-upgradeable.adoc#modifying-your-contracts[Modifying Your Contracts] guide.
 
 == Next Steps
 
-Now that you know how to upgrade your smart contracts, and can iteratively develop your project, it's time to take your project to xref:public-staging.adoc[testnet] and to xref:mainnet.adoc[production]! You can rest with the confidence that, should a bug appear, you have the tools to modify your contract and change it.
+Now that you know how to upgrade your smart contracts, and can iteratively develop your project, it's time to take your project to xref:connecting-to-public-test-networks.adoc[testnet] and to xref:mainnet.adoc[production]! You can rest with the confidence that, should a bug appear, you have the tools to modify your contract and change it.
