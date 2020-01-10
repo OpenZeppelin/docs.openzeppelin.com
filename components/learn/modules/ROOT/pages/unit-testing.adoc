@@ -1,6 +1,6 @@
 = Testing Smart Contracts
 
-In a blockchain environment, a single mistake could cost you all of your funds - or even worse, your users'!. This guide will help you develop robust applications by writing automated tests that verify your application behaves exactly as you intended.
+In a blockchain environment, a single mistake could cost you all of your funds - or even worse, your users' funds! This guide will help you develop robust applications by writing automated tests that verify your application behaves exactly as you intended.
 
 We'll cover the following topics:
 
@@ -12,20 +12,20 @@ We'll cover the following topics:
 
 There is a a wide range of testing techniques, from xref:deploy-and-interact.adoc#interacting-via-the-cli[simple manual verifications] to complex end-to-end setups, all of them useful in their own way.
 
-When it comes to smart contract development though, practice has shown that https://en.wikipedia.org/wiki/Unit_testing[_contract unit testing_] is exceptionally worthwhile. These tests are simple to write and and quick to run, and let you add features and fix bugs in your code with confidence.
+When it comes to smart contract development though, practice has shown that https://en.wikipedia.org/wiki/Unit_testing[_contract unit testing_] is exceptionally worthwhile. These tests are simple to write and quick to run, and let you add features and fix bugs in your code with confidence.
 
 Smart contract unit testing consists of multiple small, focused tests, which each check a small part of your contract for correctness. They can often be expressed in single sentences that make up a specification, such as 'the admin is able to pause the contract', 'transferring tokens emits an event' or 'non-admins cannot mint new tokens'.
 
 [[setting-up-a-testing-environment]]
 == Setting up a Testing Environment
 
-You may be wondering _how_ we're going to run these tests, since smart contracts are executed inside a blockchain. Using the actual Ethereum network would be very expensive, and while testnets are free, they are also slow (with blocktimes between 5 and 15 seconds). If we intend to run hundreds of tests whenever we make a change to our code, we need something better.
+You may be wondering _how_ we're going to run these tests, since smart contracts are executed inside a blockchain. Using the actual Ethereum network would be very expensive, and while testnets are free, they are also slow (with blocktimes between 5 and 20 seconds). If we intend to run hundreds of tests whenever we make a change to our code, we need something better.
 
-What we will use is called a _local blockchain_: a slimmed down version of the real thing, disconnected from the Internet, running on your machine. This will simplify things quite a bit: you won't need to go get Ether, and new blocks will be mined instantly.
+What we will use is called a _local blockchain_: a slimmed down version of the real thing, disconnected from the Internet, running on your machine. This will simplify things quite a bit: you won't need to get Ether, and new blocks will be mined instantly.
 
 To aid us in this we'll use the https://github.com/OpenZeppelin/openzeppelin-test-environment#readme[*OpenZeppelin Test Environment*], a JavaScript library that will take care of setting up our local blockchain.
 
-NOTE: If you've read the xref:deploy-and-interact.adoc#local-blockchain[Deploy and Interact guide], you will already be familiar with https://github.com/trufflesuite/ganache-cli/[Ganache]. This is what Test Environment uses under the hood, taking care of its configuration for you.
+NOTE: If you've read the xref:deploy-and-interact.adoc#local-blockchain[Deploy and Interact] guide, you will already be familiar with https://github.com/trufflesuite/ganache-cli/[Ganache]. This is what Test Environment uses under the hood, taking care of its configuration for you.
 
 To install the OpenZeppelin Test Environment, run:
 
