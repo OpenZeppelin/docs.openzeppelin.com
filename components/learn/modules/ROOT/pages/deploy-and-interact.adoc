@@ -96,7 +96,7 @@ This shows why using a local blockchain is so convenient: Ganache has prefunded 
 [[deploying-a-smart-contract]]
 == Deploying a Smart Contract
 
-With the <<getting-started-with-the-cli, CLI setup complete>>, we're now ready to deploy a contract. We'll be deploying `Box`, from the xref:writing-smart-contracts.adoc#setting-up-a-solidity-project[Writing Smart Contracts guide]. Make sure you have a copy in `contracts/Box.sol`:
+With the <<getting-started-with-the-cli, CLI setup complete>>, we're now ready to deploy a contract. We'll be deploying `Box`, from the xref:writing-smart-contracts.adoc#setting-up-a-solidity-project[Writing Smart Contracts] guide. Make sure you have a copy in `contracts/Box.sol`:
 
 [[box-contract]]
 ```solidity
