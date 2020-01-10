@@ -7,7 +7,6 @@ We'll cover the following topics:
  * <<setting-up-a-testing-environment, Setting up a Testing Environment>>
  * <<writing-unit-tests, Writing Unit Tests>>
  * <<performing-complex-assertions, Performing Complex Assertions>>
- * Best Smart Contract Testing Practices
 
 === About Testing
 
