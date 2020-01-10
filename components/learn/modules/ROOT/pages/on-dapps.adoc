@@ -124,7 +124,7 @@ For detailed setup instructions, follow our step-by-step tutorial on https://for
 [[starter-kit]]
 == Kickstarting your Dapp
 
-As you have seen so far, setting up a dapp involves a certain deal of boilerplate and configuration, including creating an OpenZeppelin CLI project, initializing a new webpack client app, configuring network access and loading your contracts.
+As you have seen so far, setting up a dapp involves a fair amount of boilerplate and configuration, including creating an OpenZeppelin CLI project, initializing a new webpack client app, configuring network access and loading your contracts.
 
 To kickstart this process, we have built the xref::starter-kits:index.adoc[*OpenZeppelin Starter Kits*]. Starter Kits are preconfigured dapps with several OpenZeppelin libraries, Infura connections, and https://github.com/ConsenSys/rimble-ui[Rimble UI components], ready to start developing right away.
 
