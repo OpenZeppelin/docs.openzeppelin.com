@@ -21,7 +21,7 @@ During development, it is a better idea to instead use a _local_ blockchain. It 
 
 TIP: If you want to learn how to deploy and use contracts on a _public_ blockchain, like the Ethereum testnets, head to our xref:public-staging.adoc[Deploying to a Public Test Network] guide.
 
-The most popular local blockchain is https://www.trufflesuite.com/ganache[Ganache]. To install it on your project, run:
+The most popular local blockchain is https://github.com/trufflesuite/ganache-cli[Ganache]. To install it on your project, run:
 
 ```bash
 $ npm install --save-dev ganache-cli
