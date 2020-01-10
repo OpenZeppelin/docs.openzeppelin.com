@@ -147,13 +147,13 @@ NOTE: Remember that local blockchains **do not** persist their state throughout 
 [[interacting-via-the-cli]]
 == Interacting via the CLI
 
-With our `Box` contract <<deploying-a-smart-contract, deployed>>, we can start using it right away from the <<getting-started-with-the-cli, CLI>>.
+With our `Box` contract <<deploying-a-smart-contract, deployed>>, we can start using it right away from the CLI.
 
 === Sending Transactions
 
-`Box` 's first function, `store`, receives an integer value and stores it on the contract storage. Because this function _modifies_ the blockchain state, we need to _send a transaction_ to the contract to execute it.
+`Box` 's first function, `store`, receives an integer value and stores it in the contract storage. Because this function _modifies_ the blockchain state, we need to _send a transaction_ to the contract to execute it.
 
-This can be achieved with the CLI's `send-tx` command. Choose your `Box` contract when prompted by the CLI, and select the `store` function, with whatever value you want to send.
+This can be achieved with the CLI's `send-tx` command. Choose your `Box` contract when prompted by the CLI, and select the `store` function, with whatever integer value you want to send e.g. 5.
 
 ```bash
 $ npx oz send-tx
@@ -251,7 +251,7 @@ These accounts should match the ones you got when you ran `oz accounts` earlier.
 
 In order to interact with the <<box-contract,`Box`>> contract we <<deploying-a-smart-contract, deployed using the CLI>>, we'll create a new https://web3js.readthedocs.io/en/1.2.4/web3-eth-contract.html[web3 contract instance] using the https://github.com/OpenZeppelin/openzeppelin-contract-loader[*OpenZeppelin Contract Loader*]. 
 
-A web3 contract instance is a JavaScript object that represents our contract in the blockchain, which we can use to interact with our contract. To create one we need to provide the Contract Loader with the contract name and the address where it was deployed, which the CLI returned when we ran `oz create`.
+A web3 contract instance is a JavaScript object that represents our contract on the blockchain, which we can use to interact with our contract. To create one we need to provide the Contract Loader with the contract name and the address where it was deployed, which the CLI returned when we ran `oz create`.
 
 [source,js]
 ----
@@ -295,7 +295,7 @@ If you restarted ganache at any point, this script may fail. Restarting ganache 
 If this happens, simply <<local-blockchain, start ganache>> and <<deploying-a-smart-contract, redeploy>> the `Box` contract.
 ====
 
-We can now actually interact with the contract by sending a transaction to it.
+We can also interact with the contract by sending a transaction to it.
 
 [[sending-a-transaction]]
 === Sending a Transaction
