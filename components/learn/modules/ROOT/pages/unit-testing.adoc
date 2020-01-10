@@ -50,7 +50,7 @@ For detailed information on these exported values and their usage, refer to Test
 [[writing-unit-tests]]
 == Writing Unit Tests
 
-In order to actually run your tests, you will need to also install a JavaScript _test runner_. You are free to use any of the https://github.com/OpenZeppelin/openzeppelin-test-environment/blob/master/docs/modules/ROOT/pages/setup.adoc#test-runners[recommended ones]: for this guide, we'll pick https://mochajs.org/[Mocha] with https://www.chaijs.com/[Chai] assertions.
+In order to actually run your tests, you will need to also install a JavaScript _test runner_. You are free to use any of the https://github.com/OpenZeppelin/openzeppelin-test-environment/blob/master/docs/modules/ROOT/pages/choosing-a-test-runner.adoc[recommended ones]: for this guide, we'll pick https://mochajs.org/[Mocha] with https://www.chaijs.com/[Chai] assertions.
 
 ```bash
 $ npm install --save-dev mocha chai
@@ -117,7 +117,7 @@ Don't forget to re-compile your contracts if you make changes to them! If you wa
 `oz compile && mocha --exit --recursive test`
 ====
 
-Test Environment comes with sensible defaults that should work for most use-cases, but you can always https://github.com/OpenZeppelin/openzeppelin-test-environment/blob/master/docs/modules/ROOT/pages/setup.adoc#configuration[configure] it to provide more accounts or use different kinds of contract objects, among others.
+Test Environment comes with sensible defaults that should work for most use-cases, but you can always https://github.com/OpenZeppelin/openzeppelin-test-environment/blob/master/docs/modules/ROOT/pages/getting-started.adoc#configuration[configure] it to provide more accounts or use different kinds of contract objects, among others.
 
 It's also a very good idea at this point to set up a Continuous Integration service such as https://circleci.com/[CircleCI] to make your tests run automatically every time you commit your code to GitHub.
 
