@@ -1,28 +1,22 @@
 .card {
-  margin-top: 2em;
-  background: var(--core-violet-3);
+  margin-top: 1rem;
   border-radius: var(--border-radius);
   width: 230px;
-  min-height: 280px;
+  min-height: 17rem;
   display: inline-flex;
   flex-direction: column;
-  color: white;
-  box-shadow: rgba(203, 203, 203, 0.81) 0px 4px 5px 0px;
   position: relative;
-  padding: 1.2em;
-
+  padding: .8rem 1.1rem;
+  margin-right: .6rem;
   &.card-contracts {
     --card-icon: url(../images/contracts_white.svg);
     background-image: linear-gradient(45deg, #6746d6 0%, #a134d1 100%);
-    box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.09);
-    border-radius: var(--border-radius);
-  }
+  box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.09);
+  border-radius: var(--border-radius);
 
-  &.card-sdk {
-    --card-icon: url(../images/sdk_white.svg);
-    background-image: linear-gradient(-134deg, #3677ff 0%, #1ecff7 100%);
-    box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.09);
-    border-radius: var(--border-radius);
+  a {
+    color: white;
+    text-decoration: none;
   }
 
   &.card-starter-kits {
@@ -33,14 +27,11 @@
   }
 
   .title {
-    margin-top: 1.2em;
+    display: block;
     font-family: var(--heading);
-    font-weight: bold;
-    font-size: 1.2em;
-
-    a {
-      color: inherit;
-      text-decoration: none;
+    font-weight: var(--weight-bold);
+    font-size: 1.2rem;
+    margin: 1rem 0;
 
       &::before {
         content: "";
