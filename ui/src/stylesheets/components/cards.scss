@@ -71,8 +71,12 @@
     right: -20px;
   }
 
-  & + & {
-    margin-left: 20px;
+  .card-cta {
+    font-family: var(--heading);
+    font-weight: var(--weight-bold);
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: .05em;
   }
 
   &:hover{
