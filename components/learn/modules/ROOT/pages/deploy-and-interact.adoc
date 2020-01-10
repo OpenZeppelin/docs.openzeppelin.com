@@ -19,7 +19,7 @@ To solve this, a number of 'testnets' (for 'test networks') exist: these include
 
 During development, it is a better idea to instead use a _local_ blockchain. It runs on your machine, requires no Internet access, provides you with all the Ether that you need, and mines blocks instantly. These reasons also make local blockchains a great fit for xref:unit-testing.adoc#setting-up-a-testing-environment[automated tests].
 
-TIP: If you want to learn how to deploy and use contracts on a _public_ blockchain, like the Ethereum testnets, head to our xref:public-staging.adoc[Using Public Networks] guide.
+TIP: If you want to learn how to deploy and use contracts on a _public_ blockchain, like the Ethereum testnets, head to our xref:public-staging.adoc[Deploying to a Public Test Network] guide.
 
 The most popular local blockchain is https://www.trufflesuite.com/ganache[Ganache]. To install it on your project, run:
 
