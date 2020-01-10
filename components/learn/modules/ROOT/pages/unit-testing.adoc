@@ -201,5 +201,5 @@ TIP: The OpenZeppelin Test Environment is not required to use the Test Helpers: 
 
 Once you have thoroughly tested your contracts and are reasonably sure of their correctness, you'll want to deploy them to a real network and start interacting with them. The following guides will get you up to speed on these topics:
 
- * xref:public-staging.adoc[Deploy contracts to a public network]
- * xref:interact.adoc[Interact with your deployed contracts]
+ * xref:public-staging.adoc[Deploying to a Public Test Network]
+ * xref:deploy-and-interact.adoc[Deploying and Interacting with Smart Contracts]
