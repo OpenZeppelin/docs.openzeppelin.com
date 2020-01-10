@@ -1,4 +1,5 @@
 * xref:index.adoc[Overview]
+* xref:setting-up-a-node-project.adoc[Setting Up a Node Project]
 * xref:writing-smart-contracts.adoc[Writing Smart Contracts]
 * xref:deploy-and-interact.adoc[Deploy and Interact]
 * xref:unit-testing.adoc[Automated Testing]
