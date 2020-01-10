@@ -205,6 +205,6 @@ The https://docs.openzeppelin.com/contracts/2.x/#next-steps[OpenZeppelin Contrac
 
 Writing and compiling Solidity contracts are but the first steps in the journey to having your decentralized application running on the Ethereum network. Once you are comfortable with this setup, you'll want to move on to more advanced tasks:
 
+ * xref:deploy-and-interact.adoc[Deploying and Interacting with Smart Contracts]
  * xref:unit-testing.adoc[Automated Testing]
- * xref:interact.adoc[Interacting with Contracts]
  * xref:public-staging.adoc[Deploying to a Public Network]
