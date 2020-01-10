@@ -113,14 +113,14 @@ xref:learn::index.adoc[[.title]#gsn-helpers# A thin CLI and JavaScript library f
 xref:learn::index.adoc[[.title]#gsn-provider# A `web3-js` provider for seamlessly sending gasless transactions via the Gas Station Network.]
 --
 
-[.card-generic.contracts-loader]
+[.card-generic.contract-loader]
 --
 xref:learn::index.adoc[[.title]#hot-loader# A webpack plugin for automatically compiling and upgrading your contracts locally while you develop.]
 --
 
-[.card-generic.contracts-loader]
+[.card-generic.contract-loader]
 --
-xref:learn::index.adoc[[.title]#contracts-loader# A minimal JavaScript library for loading contract artifacts by name or ABI.]
+xref:learn::index.adoc[[.title]#contract-loader# A minimal JavaScript library for loading contract artifacts by name or ABI.]
 --
 
 [.card-generic.solidity-docgen]
