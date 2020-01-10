@@ -1,4 +1,4 @@
-= Writing Smart Contracts
+= Developing Smart Contracts
 
 Welcome to the exciting world of smart contract development! This guide will let you get started writing Solidity contracts by going over the following:
 
@@ -55,9 +55,9 @@ contract Box {
 
 The Ethereum Virtual Machine (EVM) cannot execute Solidity code directly: we first need to compile it into EVM bytecode.
 
-To do so, we'll use the https://docs.openzeppelin.com/sdk/2.6/[*OpenZeppelin command-line interface (CLI)*]:
+To do so, we'll use the xref:cli::index.adoc[*OpenZeppelin command-line interface (CLI)*]:
 
-```bash
+```console
 $ npm install --save-dev @openzeppelin/cli
 ```
 
@@ -65,11 +65,11 @@ The CLI is quite powerful, and it is the entry point to many exciting features (
 
 For now however, let's focus on compiling. This can be achieved by running a single command:
 
-```bash
+```console
 $ npx oz compile
 ```
 
-NOTE: If you're unfamiliar with the `npx` command, check out our https://example.com[project setup guide].
+NOTE: If you're unfamiliar with the `npx` command, check out our xref:setting-up-a-node-project.adoc#using-npx[Node project setup guide].
 
 The `compile` command will automatically look for all contracts in the `contracts` directory, and compile them using the Solidity compiler version that best suits your project.
 
@@ -77,11 +77,11 @@ You will notice a `build/contracts` directory was created: it holds the compiled
 
 You can also configure your compilation, which includes choosing a compiler version and enabling optimizations, by passing arguments to the `compile` command:
 
-```bash
+```console
 $ npx oz compile --solc-version=0.5.12 --optimizer on
 ```
 
-For detailed information on these options, refer to the https://docs.openzeppelin.com/sdk/2.6/api/cli#compile[`compile` API reference].
+For detailed information on these options, refer to xref:cli::compiling.adoc[Compiling With the CLI].
 
 [[adding-more-contracts]]
 == Adding More Contracts
@@ -151,13 +151,14 @@ However, this is not the only way to split your code into modules. You can also 
 [[using-openzeppelin-contracts]]
 == The OpenZeppelin Contracts Library
 
-Reusable modules and libraries are the cornerstone of great software. The https://openzeppelin.com/contracts/[*OpenZeppelin Contracts*] library contains lots of useful building blocks for smart contracts to build on. And you can rest easy when building on them: they've been the subject of multiple audits, with their security and correctness battle-tested.
+Reusable modules and libraries are the cornerstone of great software. The xref:contracts::index.adoc[*OpenZeppelin Contracts*] library contains lots of useful building blocks for smart contracts to build on. And you can rest easy when building on them: they've been the subject of multiple audits, with their security and correctness battle-tested.
 
 === About Inheritance
 
 Many of the contracts in the library are not standalone, that is, you're not expected to deploy them as-is. Instead, you will use them to _augment_ your own contracts by adding features to them. Solidity provides _multiple inheritance_ as a mechanism to achieve this: take a look at the https://solidity.readthedocs.io/en/latest/contracts.html#inheritance[official documentation] to learn about the details behind it.
 
-For example, the https://docs.openzeppelin.com/contracts/2.x/api/ownership#Ownable[`Ownable`] contract marks the deployer account as the contract's owner, and provides a modifier called `onlyOwner`. When applied to a function, `onlyOwner` will cause all function calls that do not originate from the owner account to revert. Functions to https://docs.openzeppelin.com/contracts/2.x/api/ownership#Ownable-transferOwnership-address-[transfer] and https://docs.openzeppelin.com/contracts/2.x/api/ownership#Ownable-renounceOwnership--[renounce] ownership are also available.
+
+For example, the xref:contracts:api:ownership.adoc#Ownable[`Ownable`] contract marks the deployer account as the contract's owner, and provides a modifier called `onlyOwner`. When applied to a function, `onlyOwner` will cause all function calls that do not originate from the owner account to revert. Functions to xref:contracts:api:ownership.adoc#Ownable-transferOwnership-address-[transfer] and xref:contracts:api:ownership.adoc#Ownable-renounceOwnership--[renounce] ownership are also available.
 
 When used this way, inheritance becomes a powerful mechanism that allows for modularization, without forcing you to deploy and manage multiple contracts.
 
@@ -165,7 +166,7 @@ When used this way, inheritance becomes a powerful mechanism that allows for mod
 
 The latest published release of the OpenZeppelin Contracts library can be downloaded by running:
 
-```bash
+```console
 $ npm install --save-dev @openzeppelin/contracts
 ```
 
@@ -199,12 +200,12 @@ contract Box is Ownable {
 }
 ```
 
-The https://docs.openzeppelin.com/contracts/2.x/#next-steps[OpenZeppelin Contracts documentation] is a great place to learn about developing secure smart contract systems. It features both guides and a detailed API reference: see for example the https://docs.openzeppelin.com/contracts/2.x/access-control[Access Control guide] to know more about the `Ownable` contract used in the code sample above.
+The xref:contracts::index.adoc[OpenZeppelin Contracts documentation] is a great place to learn about developing secure smart contract systems. It features both guides and a detailed API reference: see for example the xref:contracts::access-control.adoc[Access Control] guide to know more about the `Ownable` contract used in the code sample above.
 
 == Next Steps
 
 Writing and compiling Solidity contracts are but the first steps in the journey to having your decentralized application running on the Ethereum network. Once you are confortable with this setup, you'll want to move on to more advanced tasks:
 
- * xref:unit-testing.adoc[Automated Testing]
- * xref:interact.adoc[Interacting with Contracts]
- * xref:public-staging.adoc[Deploying to a Public Network]
+ * xref:deploying-and-interacting.adoc[Deploying and Interacting]
+ * xref:writing-automated-tests.adoc[Writing Automated Tests]
+ * xref:connecting-to-public-test-networks.adoc[Connecting to Public Test Networks]
