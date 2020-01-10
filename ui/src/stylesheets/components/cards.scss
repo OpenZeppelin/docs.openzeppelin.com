@@ -195,14 +195,10 @@
 
 
 @media (max-width: 642px) {
-  .card {
-    display: block;
+  .card, .card-generic {
     width: 100%;
-    min-height: 150px;
-    margin: 1rem auto;
-    & + & {
-      margin-left: auto;
-    }
+    min-height: 12rem;
+    margin-right: 0;
   }
   .card-learn {
     width: 100%;
@@ -212,13 +208,9 @@
 }
 
 @media (min-width: $mobile-breakpoint) and (max-width: 1120px), (min-width: 642px) and (max-width: 780px) {
-  .card {
-    width: 187px;
-    height: 300px;
-    margin: 1rem auto;
-    & + & {
-      margin-left: 1rem;
-    }
+  .card, .card-generic {
+    width: 48%;
+    min-height: 13rem;
   }
   .card-learn {
     width: 48%;
