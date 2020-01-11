@@ -12,49 +12,49 @@ OpenZeppelin tools have been built with *security in mind*. Since the first rele
 
 Comprehensive guides for every step of your development journey:
 
-[.card-learn]
+[.card.card-learn]
 --
-xref:learn::index.adoc[[.title]#Environment Setup# Install node+++,+++ npm+++,+++ and the basic libraries for web3 development.]
---
-
-[.card-learn]
---
-xref:learn::writing-smart-contracts.adoc[[.title]#Write Smart Contracts# Write and compile your first Solidity contracts+++,+++ using the building blocks from the OpenZeppelin Contracts library.]
+xref:learn::index.adoc[[.card-title]#Environment Setup# [.card-body]#Install node+++,+++ npm+++,+++ and the basic libraries for web3 development.#]
 --
 
-[.card-learn]
+[.card.card-learn]
 --
-xref:learn::deploy-and-interact.adoc[[.title]#Local Development# Deploy your contracts to a local blockchain and send your first transactions using the OpenZeppelin CLI.]
---
-
-[.card-learn]
---
-xref:learn::unit-testing.adoc[[.title]#Test your Contracts# Unit test your contracts with the OpenZeppelin `test-environment`+++,+++ combined with assertions from our `test-helpers`.]
+xref:learn::writing-smart-contracts.adoc[[.card-title]#Write Smart Contracts# [.card-body]#Write and compile your first Solidity contracts+++,+++ using the building blocks from the OpenZeppelin Contracts library.#]
 --
 
-[.card-learn]
+[.card.card-learn]
 --
-xref:learn::on-upgrades.adoc[[.title]#Upgrade your Contracts# Change the code of your deployed contracts to add new features or fix bugs+++,+++ using the OpenZeppelin CLI or the `upgrades` library.]
---
-
-[.card-learn]
---
-xref:learn::public-staging.adoc[[.title]#Deploy to Testnet# Set up a staging environment by deploying your app to a public Ethereum testnet using the OpenZeppelin CLI.]
+xref:learn::deploy-and-interact.adoc[[.card-title]#Local Development# [.card-body]#Deploy your contracts to a local blockchain and send your first transactions using the OpenZeppelin CLI.#]
 --
 
-[.card-learn]
+[.card.card-learn]
 --
-xref:learn::on-dapps.adoc[[.title]#Build a Dapp# Create a decentralized web app using OpenZeppelin `network-js` and `hot-loader`+++,+++ or simply unpack a Starter Kit.]
---
-
-[.card-learn]
---
-xref:learn::on-gsn.adoc[[.title]#Send Gasless Transactions# Leverage the Gas Station Network so your users can send transactions without having ETH to pay for gas.]
+xref:learn::unit-testing.adoc[[.card-title]#Test your Contracts# [.card-body]#Unit test your contracts with the OpenZeppelin `test-environment`+++,+++ combined with assertions from our `test-helpers`.#]
 --
 
-[.card-learn]
+[.card.card-learn]
 --
-xref:learn::mainnet.adoc[[.title]#Go to Mainnet# All the boxes you need to check before taking your project to production on the main Ethereum network.]
+xref:learn::on-upgrades.adoc[[.card-title]#Upgrade your Contracts# [.card-body]#Change the code of your deployed contracts to add new features or fix bugs+++,+++ using the OpenZeppelin CLI or the `upgrades` library.#]
+--
+
+[.card.card-learn]
+--
+xref:learn::public-staging.adoc[[.card-title]#Deploy to Testnet# [.card-body]#Set up a staging environment by deploying your app to a public Ethereum testnet using the OpenZeppelin CLI.#]
+--
+
+[.card.card-learn]
+--
+xref:learn::on-dapps.adoc[[.card-title]#Build a Dapp# [.card-body]#Create a decentralized web app using OpenZeppelin `network-js` and `hot-loader`+++,+++ or simply unpack a Starter Kit.#]
+--
+
+[.card.card-learn]
+--
+xref:learn::on-gsn.adoc[[.card-title]#Send Gasless Transactions# [.card-body]#Leverage the Gas Station Network so your users can send transactions without having ETH to pay for gas.#]
+--
+
+[.card.card-learn]
+--
+xref:learn::mainnet.adoc[[.card-title]#Go to Mainnet# [.card-body]#All the boxes you need to check before taking your project to production on the main Ethereum network.#]
 --
 
 
@@ -62,71 +62,65 @@ xref:learn::mainnet.adoc[[.title]#Go to Mainnet# All the boxes you need to check
 
 All the open source tools built and maintained by the OpenZeppelin team:
 
-[.card.card-contracts]
+[.card.card-primary.card-contracts]
 --
-xref:contracts::index.adoc[[.title]#Contracts# A library of modular+++,+++ reusable+++,+++ and secure smart contracts+++,+++ written in Solidity.]
-
-[.card-cta]#xref:contracts::index.adoc[Get started >]#
+xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#A library of modular+++,+++ reusable+++,+++ and secure smart contracts+++,+++ written in Solidity.# [.card-cta]#Get started >#]
 --
 
-[.card.card-sdk]
+[.card.card-primary.card-sdk]
 --
-xref:sdk::index.adoc[[.title]#CLI# A command-line tool to help you deploy+++,+++ upgrade+++,+++ and interact with your smart contracts.]
-
-[.card-cta]#xref:sdk::index.adoc[Get started >]#
+xref:sdk::index.adoc[[.card-title]#CLI# [.card-body]#A command-line tool to help you deploy+++,+++ upgrade+++,+++ and interact with your smart contracts.# [.card-cta]#Get started >#]
 --
 
-[.card.card-starter-kits]
+[.card.card-primary.card-starter-kits]
 --
-xref:starter-kits::index.adoc[[.title]#Starter Kits# Bundles to bootstrap your decentralized web application.]
-
-[.card-cta]#xref:starter-kits::index.adoc[Get started >]#
+xref:starter-kits::index.adoc[[.card-title]#Starter Kits# [.card-body]#Bundles to bootstrap your decentralized web application.# [.card-cta]#Get started >#]
 --
 
 
-[.card-generic.upgrades-js]
+[.card.card-secondary.card-upgrades-js]
 --
-xref:#::index.adoc[[.title]#upgrades-js# A JavaScript library for managing upgradeable contracts+++,+++ which powers the OpenZeppelin CLI.]
---
-
-[.card-generic.test-environment]
---
-xref:test-environment::index.adoc[[.title]#test-environment# A JavaScript library for creating a testing environment for contracts+++,+++ which plays nice with Mocha+++,+++ Ava+++,+++ and Jest.]
+xref:#::index.adoc[[.card-title]#upgrades-js# [.card-body]#A JavaScript library for managing upgradeable contracts+++,+++ which powers the OpenZeppelin CLI.#]
 --
 
-[.card-generic.test-helpers]
+[.card.card-secondary.card-test-environment]
 --
-xref:test-helpers::index.adoc[[.title]#test-helpers# A JavaScript library of common assertions for smart contracts+++,+++ which can be used with `test-environment`+++,+++ `truffle`+++,+++ or vanilla `web3-js` setups.]
---
-
-[.card-generic.network-js]
---
-xref:network-js::index.adoc[[.title]#network-js# A JavaScript library for easily connecting to the Ethereum network from a dapp+++,+++ used in most Starter Kits.]
+xref:test-environment::index.adoc[[.card-title]#test-environment# [.card-body]#A JavaScript library for creating a testing environment for contracts+++,+++ which plays nice with Mocha+++,+++ Ava+++,+++ and Jest.#]
 --
 
-[.card-generic.gsn-helpers]
+[.card.card-secondary.card-test-helpers]
 --
-xref:gsn-helpers::index.adoc[[.title]#gsn-helpers# A thin CLI and JavaScript library for simplifying development of an application using the Gas Station Network.]
---
-
-[.card-generic.gsn-provider]
---
-xref:gsn-provider::index.adoc[[.title]#gsn-provider# A `web3-js` provider for seamlessly sending gasless transactions via the Gas Station Network.]
+xref:test-helpers::index.adoc[[.card-title]#test-helpers# [.card-body]#A JavaScript library of common assertions for smart contracts+++,+++ which can be used with `test-environment`+++,+++ `truffle`+++,+++ or vanilla `web3-js` setups.#]
 --
 
-[.card-generic.contract-loader]
+[.card.card-secondary.card-network-js]
 --
-xref:#::index.adoc[[.title]#hot-loader# A webpack plugin for automatically compiling and upgrading your contracts locally while you develop.]
---
-
-[.card-generic.contract-loader]
---
-xref:contract-loader::index.adoc[[.title]#contract-loader# A minimal JavaScript library for loading contract artifacts by name or ABI.]
+xref:network-js::index.adoc[[.card-title]#network-js# [.card-body]#A JavaScript library for easily connecting to the Ethereum network from a dapp+++,+++ used in most Starter Kits.#]
 --
 
-[.card-generic.solidity-docgen]
+[.card.card-secondary.card-gsn-helpers]
 --
-xref:#::index.adoc[[.title]#solidity-docgen# A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.]
+xref:gsn-helpers::index.adoc[[.card-title]#gsn-helpers# [.card-body]#A thin CLI and JavaScript library for simplifying development of an application using the Gas Station Network.#]
+--
+
+[.card.card-secondary.card-gsn-provider]
+--
+xref:gsn-provider::index.adoc[[.card-title]#gsn-provider# [.card-body]#A `web3-js` provider for seamlessly sending gasless transactions via the Gas Station Network.#]
+--
+
+[.card.card-secondary.card-contract-loader]
+--
+xref:#::index.adoc[[.card-title]#hot-loader# [.card-body]#A webpack plugin for automatically compiling and upgrading your contracts locally while you develop.#]
+--
+
+[.card.card-secondary.card-contract-loader]
+--
+xref:contract-loader::index.adoc[[.card-title]#contract-loader# [.card-body]#A minimal JavaScript library for loading contract artifacts by name or ABI.#]
+--
+
+[.card.card-secondary.card-solidity-docgen]
+--
+xref:#::index.adoc[[.card-title]#solidity-docgen# [.card-body]#A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.#]
 --
 
 
