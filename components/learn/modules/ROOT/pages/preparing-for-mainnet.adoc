@@ -1,6 +1,6 @@
-= Deploy to Mainnet
+= Preparing for Mainnet
 
-After xref:public-staging.adoc[running your project on a testnet] for some time without issues, you will want to deploy it to the main Ethereum network (aka _mainnet_). However, the planning for going to mainnet should begin much earlier than your planned release date. 
+After xref:connecting-to-public-test-networks.adoc[running your project on a testnet] for some time without issues, you will want to deploy it to the main Ethereum network (aka _mainnet_). However, the planning for going to mainnet should begin much earlier than your planned release date.
 
 In this guide, we will go through Ethereum-specific considerations for taking your project to production, such as:
 
@@ -8,7 +8,7 @@ In this guide, we will go through Ethereum-specific considerations for taking yo
   * <<verify-source-code, Verifying Source Code>>
   * <<key-management, Managing Keys Securely>>
   * <<project-governance, Handling Project Governance>>
-  
+
 Remember that, while managing your contracts in a testnet and in mainnet is technically the same, there are important differences when on mainnet, since your project now manages real value for your users.
 
 [[auditing-and-security]]
@@ -29,7 +29,7 @@ Remember that audits do not ensure the absence of bugs, but having several exper
 
 Right after you deploy your contracts to mainnet, you should **verify their source code**. This process involves submitting the Solidity code to a third-party, such as https://etherscan.io/[Etherscan] or https://www.etherchain.org/[Etherchain], who will compile it and _verify_ that it matches the deployed assembly. This allows any user to view your contract code in a block explorer, and know that it corresponds to the assembly actually running at that address.
 
-You can verify your contracts manually on the https://etherscan.io/verifyContract[Etherscan] or https://www.etherchain.org/tools/verifyContract[Etherchain] websites, or have the OpenZeppelin CLI do it for you. 
+You can verify your contracts manually on the https://etherscan.io/verifyContract[Etherscan] or https://www.etherchain.org/tools/verifyContract[Etherchain] websites, or have the OpenZeppelin CLI do it for you.
 
 To do this, run the `oz verify` command on your project:
 
@@ -44,7 +44,7 @@ Contract source code of Box verified and published successfully
 ```
 NOTE: You will need an https://etherscan.io/apis[Etherscan API key] to use their service.
 
-Remember that, when you deploy a contract via the OpenZeppelin CLI, both xref:on-upgrades.adoc#how-upgrades-work[a logic and a proxy contract are deployed]. This means that the contract that the user interacts with will be a just proxy, and the actual logic will be in a different one. Etherscan does have https://medium.com/etherscan-blog/and-finally-proxy-contract-support-on-etherscan-693e3da0714b[support for correctly showing OpenZeppelin proxies and their implementations], but other explorers may not.
+Remember that, when you deploy a contract via the OpenZeppelin CLI, both xref:upgrading-smart-contracts.adoc#how-upgrades-work[a logic and a proxy contract are deployed]. This means that the contract that the user interacts with will be a just proxy, and the actual logic will be in a different one. Etherscan does have https://medium.com/etherscan-blog/and-finally-proxy-contract-support-on-etherscan-693e3da0714b[support for correctly showing OpenZeppelin proxies and their implementations], but other explorers may not.
 
 TIP: Check out our Etherscan-verified https://etherscan.io/address/0x3c68fe89047e59dff502642eea839347b53202cd#readProxyContract[proxy] and https://etherscan.io/address/0x73ba08C7982bEE9F0f4625fE323E930608C82485#code[implementation] `Box` contracts to see how they look.
 
@@ -67,7 +67,7 @@ A good option for securing admin accounts is to use a special contract, such as 
 [[set-admin]]
 === Upgrades Admin
 
-A special administrator account in an OpenZeppelin project is the account with the power to xref:on-upgrades.adoc[_upgrade_] other contracts. This defaults to the externally owned account used to deploy the contracts: while this is good enough for a local or testnet deployment, in mainnet you need to better secure your contracts. An attacker who gets hold of your upgrade admin account can change any contract in your system!
+A special administrator account in an OpenZeppelin project is the account with the power to xref:upgrading-smart-contracts.adoc[_upgrade_] other contracts. This defaults to the externally owned account used to deploy the contracts: while this is good enough for a local or testnet deployment, in mainnet you need to better secure your contracts. An attacker who gets hold of your upgrade admin account can change any contract in your system!
 
 With this in mind, it is a good idea to **change the admin account** after deployment  - for example, to a multisig. To do this, you can use the `set-admin` command:
 
