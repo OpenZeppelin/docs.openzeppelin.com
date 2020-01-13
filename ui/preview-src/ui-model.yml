@@ -4,125 +4,137 @@ site:
   url: http://localhost:5252
   title: OpenZeppelin
   components:
-  - &component_openzeppelin
-    name: openzeppelin
-    title: Home
-    url: /openzeppelin/index.html
-    versions:
-    - &latest_version_abc
-      url: '#' 
-      version: 'master'
-      displayVersion: 'master'
-    latestVersion: *latest_version_abc
-  - name: Learn
-    title: Learn
-    url: '#'
-    versions:
-    - &latest_version_abc
-      url: '#' 
-      version: '1.x'
-      displayVersion: '1.x'
-    latestVersion: *latest_version_abc
-  - &component_contracts
-    name: contracts
-    title: Contracts
-    url: /contracts/2.x/index.html
-    versions:
-    - &latest_version_contracts
+    openzeppelin:
+      &component_openzeppelin
+      name: openzeppelin
+      title: Home
+      url: /openzeppelin/index.html
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: 'master'
+        displayVersion: 'master'
+      latestVersion: *latest_version_abc
+    learn:
+      name: learn
+      title: Learn
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    contracts:
+      &component_contracts
+      name: contracts
+      title: Contracts
       url: /contracts/2.x/index.html
-      version: '2.x'
-      displayVersion: '2.x'
-    - url: /contracts/2.x/index.html
-      version: '1.x'
-      displayVersion: '1.x'
-    latestVersion: *latest_version_contracts
-  - name: sdk
-    title: SDK
-    url: '#'
-    versions:
-    - &latest_version_sdk
-      url: '#' 
-      version: '2.5'
-      displayVersion: '2.5'
-    - url: '#' 
-      version: '2.4'
-      displayVersion: '2.3'
-    latestVersion: *latest_version_sdk
-  - name: starter-kits
-    title: Starter Kits
-    url: '#'
-    versions:
-    - &latest_version_starter-kits
-      url: '#' 
-      version: '2.3'
-      displayVersion: '2.3'
-    - url: '#' 
-      version: '1.9'
-      displayVersion: '1.9'
-    latestVersion: *latest_version_starter-kits
-  - name: test-environment
-    title: Test Environment
-    url: '#'
-    versions:
-    - &latest_version_abc
-      url: '#' 
-      version: '1.x'
-      displayVersion: '1.x'
-    latestVersion: *latest_version_abc
-  - name: test-helpers
-    title: Test Helpers
-    url: '#'
-    versions:
-    - &latest_version_abc
-      url: '#' 
-      version: '1.x'
-      displayVersion: '1.x'
-    latestVersion: *latest_version_abc
-  - name: network-js
-    title: Network JS
-    url: '#'
-    versions:
-    - &latest_version_abc
-      url: '#' 
-      version: '1.x'
-      displayVersion: '1.x'
-    latestVersion: *latest_version_abc
-  - name: gsn-provider
-    title: GSN Provider
-    url: '#'
-    versions:
-    - &latest_version_abc
-      url: '#' 
-      version: '1.x'
-      displayVersion: '1.x'
-    latestVersion: *latest_version_abc
-  - name: gsn-helpers
-    title: GSN Helpers
-    url: '#'
-    versions:
-    - &latest_version_abc
-      url: '#' 
-      version: '1.x'
-      displayVersion: '1.x'
-    latestVersion: *latest_version_abc
-  - name: contract-loader
-    title: Contract Loader
-    url: '#'
-    versions:
-    - &latest_version_abc
-      url: '#' 
-      version: '1.x'
-      displayVersion: '1.x'
-    latestVersion: *latest_version_abc
-  - name: docgen
-    title: Docgen
-    url: '#'
-    versions:
-    - &latest_version_abc
-      url: '#' 
-      version: '1.x'
-      displayVersion: '1.x'
-    latestVersion: *latest_version_abc
+      versions:
+      - &latest_version_contracts
+        url: /contracts/2.x/index.html
+        version: '2.x'
+        displayVersion: '2.x'
+      - url: /contracts/2.x/index.html
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_contracts
+    sdk:
+      name: sdk
+      title: SDK
+      url: '#'
+      versions:
+      - &latest_version_sdk
+        url: '#' 
+        version: '2.5'
+        displayVersion: '2.5'
+      - url: '#' 
+        version: '2.4'
+        displayVersion: '2.3'
+      latestVersion: *latest_version_sdk
+    starter-kits:
+      name: starter-kits
+      title: Starter Kits
+      url: '#'
+      versions:
+      - &latest_version_starter-kits
+        url: '#' 
+        version: '2.3'
+        displayVersion: '2.3'
+      - url: '#' 
+        version: '1.9'
+        displayVersion: '1.9'
+      latestVersion: *latest_version_starter-kits
+    test-environment:
+      name: test-environment
+      title: Test Environment
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    test-helpers:
+      name: test-helpers
+      title: Test Helpers
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    network-js:
+      name: network-js
+      title: Network JS
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    gsn-provider:
+      name: gsn-provider
+      title: GSN Provider
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    gsn-helpers:
+      name: gsn-helpers
+      title: GSN Helpers
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    contract-loader:
+      name: contract-loader
+      title: Contract Loader
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    docgen:
+      name: docgen
+      title: Docgen
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
 
 page:
   title: Welcome to OpenZeppelin Documentation!
