@@ -21,7 +21,7 @@ v10.16.3
 
 == Creating npm Packages
 
-JavaScript software is often blunded in _packages_, which are distributed via the https://www.npmjs.com/[npm registry]. A package is simply a directory that contains a file called `package.json`, describing the package's name, version, content, and others.
+JavaScript software is often bundled in _packages_, which are distributed via the https://www.npmjs.com/[npm registry]. A package is simply a directory that contains a file called `package.json`, describing the package's name, version, content, and others.
 
 All Node installations include a command-line client for the npm registry, which you'll use while developing your own projects. To start a new project, create a directory for it and run:
 
@@ -40,7 +40,7 @@ There are two broads type of packages stored in the npm registry: _libraries_ an
 
 A third binary was included when installing node: https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner[`npx`]. This is used to run executables installed locally in your project.
 
-Some OpenZeppelin tools (like the xref:cli::index.adoc[CLI]) are executables intended to be run using `npx`. Not including `npx` will cause errors due to the binary not bieng in the system path, so for clarity we'll display the full command in our guides:
+Some OpenZeppelin tools (like the xref:cli::index.adoc[CLI]) are executables intended to be run using `npx`. Not including `npx` will cause errors due to the binary not being in the system path, so for clarity we'll display the full command in our guides:
 
 ```console
 $ openzeppelin init
