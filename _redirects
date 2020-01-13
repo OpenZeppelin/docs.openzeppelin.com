@@ -1,8 +1,8 @@
 https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301!
 
 # Contracts docsite migration
-/contracts/release-schedule /contracts/releases-stability 301
-/contracts/api-stability /contracts/releases-stability 301
+/contracts/2.x/release-schedule /contracts/releases-stability 301
+/contracts/2.x/api-stability /contracts/releases-stability 301
   
 # SDK docsite split from SDK into CLI and Upgrades
 /sdk /cli 301
