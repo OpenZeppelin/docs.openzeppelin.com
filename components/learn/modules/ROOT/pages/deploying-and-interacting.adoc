@@ -58,7 +58,7 @@ $ npx openzeppelin init
 
 NOTE: You can call the OpenZeppelin CLI with both `openzeppelin` and `oz`. For brevity, from here on we'll use the latter.
 
-Two things will happen during initialization. First, an `.openzeppelin` directory will be created, holding project-specific information. This directory will be managed by the CLI: you won't need to manually edit anything. It is important however to commit any changes here to your Git repository (local network files like `dev-<network_id>.json` and the `.session` file https://docs.openzeppelin.com/sdk/2.6/configuration#configuration-files-in-version-control[should not be tracked in Git]).
+Two things will happen during initialization. First, an `.openzeppelin` directory will be created, holding project-specific information. This directory will be managed by the CLI: you won't need to manually edit anything. It is important however to commit any changes here to your Git repository (local network files like `dev-<network_id>.json` and the `.session` file xref:cli::configuration.adoc#configuration-files-in-version-control[should not be tracked in Git]).
 
 Second, the CLI will store network configuration in a file called `networks.js`. For convenience, it is already populated with an entry called `development`, with configuration matching <<local-blockchain, Ganache>>'s default.
 
