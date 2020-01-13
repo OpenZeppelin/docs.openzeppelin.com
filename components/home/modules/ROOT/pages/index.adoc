@@ -126,7 +126,7 @@ xref:#::index.adoc[[.card-title]#solidity-docgen# [.card-body]#A tool for automa
 
 === Audits
 
-The OpenZeppelin Research team provides a https://openzeppelin.com/security-audits/[Security Audits] service for decentralized applications, tools, and protocols. You can browse through past public audits in https://blog.openzeppelin.com/security-audits/[our blog]. Go through our https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] and mailto:audits@openzeppelin.com[contact us] before xref:learn::mainnet.adoc[going to production] to make sure your project is secure.
+The OpenZeppelin Research team provides a https://openzeppelin.com/security-audits/[Security Audits] service for decentralized applications, tools, and protocols. You can browse through past public audits in https://blog.openzeppelin.com/security-audits/[our blog]. Go through our https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] and mailto:audits@openzeppelin.com[contact us] before xref:learn::preparing-for-mainnet.adoc[going to production] to make sure your project is secure.
 
 === Ethernaut
 
