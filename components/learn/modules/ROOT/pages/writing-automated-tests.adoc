@@ -170,6 +170,14 @@ describe('Box', function () {
     // Test that a ValueChanged event was emitted with the new value
     expectEvent(receipt, 'ValueChanged', { newValue: value });
   });
+  
+  it('non owner cannot store a value', async function () {
+    // Test a transaction reverts
+    await expectRevert(
+      this.contract.store(value, { from: other }),
+      'Ownable: caller is not the owner'
+    );
+  });
 });
 ```
 
