@@ -154,7 +154,7 @@ With our `Box` contract <<deploying-a-smart-contract, deployed>>, we can start u
 
 `Box` 's first function, `store`, receives an integer value and stores it in the contract storage. Because this function _modifies_ the blockchain state, we need to _send a transaction_ to the contract to execute it.
 
-This can be achieved with the CLI's `send-tx` command. Choose your `Box` contract when prompted by the CLI, and select the `store` function, with whatever integer value you want to send e.g. 5.
+This can be achieved with the CLI's `send-tx` command. Pick your `Box` contract when prompted by the CLI, select the `store` function, and choose a numeric value to send to it:
 
 ```console
 $ npx oz send-tx
