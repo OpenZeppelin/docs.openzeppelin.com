@@ -14,3 +14,97 @@
   from = "/starter-kits/2.3/*"
   to = "/starter-kits/:splat"
   status = 302
+
+# Contracts docsite migration
+
+[[redirects]]
+  from = "/contracts/release-schedule"
+  to = "/contracts/releases-stability"
+  status = 301
+  
+[[redirects]]
+  from = "/contracts/api-stability"
+  to = "/contracts/releases-stability"
+  status = 301
+  
+# SDK docsite split from SDK into CLI and Upgrades
+  
+[[redirects]]
+  from = "/sdk/first"
+  to = "/cli/getting-started"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/interacting"
+  to = "/learn/deploying-and-interacting"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/linking"
+  to = "/cli/dependencies"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/zepkit"
+  to = "/starter-kits"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/public-deploy"
+  to = "/learn/connecting-to-public-test-networks"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/writing-contracts"
+  to = "/upgrades/writing-upgradeable"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/gsn-dapp"
+  to = "/learn/sending-gasless-transactions"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/network-js"
+  to = "/network-js"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/publish"
+  to = "/cli/publishing-ethereum-package"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/truffle"
+  to = "/cli/truffle"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/testing"
+  to = "/learn/writing-automated-tests"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/zos-lib"
+  to = "/upgrades"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/faq"
+  to = "/cli/faq"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/configuration"
+  to = "/cli/configuration"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/architecture"
+  to = "/cli/contracts-architecture"
+  status = 301
+
+[[redirects]]
+  from = "/sdk/pattern"
+  to = "/upgrades/proxies"
+  status = 301
