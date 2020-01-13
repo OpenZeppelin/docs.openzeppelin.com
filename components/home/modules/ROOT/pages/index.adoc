@@ -1,6 +1,6 @@
 = OpenZeppelin Documentation
 
-Learn about writing, testing, deploying, and upgrading your smart contract applications on Ethereum using the OpenZeppelin tools. 
+Learn about writing, testing, deploying, and upgrading your smart contract applications on Ethereum using the OpenZeppelin tools.
 
 Our offering includes the most widely used Solidity smart contracts library, a command-line tool for managing your project, several JavaScript modules, and pre-packaged boxes to bootstrap development.
 
@@ -68,7 +68,7 @@ xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#A library of mo
 
 [.card.card-primary.card-sdk]
 --
-xref:sdk::index.adoc[[.card-title]#CLI# [.card-body]#A command-line tool to help you deploy+++,+++ upgrade+++,+++ and interact with your smart contracts.# [.card-cta]#Get started >#]
+xref:cli::index.adoc[[.card-title]#CLI# [.card-body]#A command-line tool to help you deploy+++,+++ upgrade+++,+++ and interact with your smart contracts.# [.card-cta]#Get started >#]
 --
 
 [.card.card-primary.card-starter-kits]
@@ -79,7 +79,7 @@ xref:starter-kits::index.adoc[[.card-title]#Starter Kits# [.card-body]#Bundles t
 
 [.card.card-secondary.card-upgrades-js]
 --
-xref:#::index.adoc[[.card-title]#upgrades-js# [.card-body]#A JavaScript library for managing upgradeable contracts+++,+++ which powers the OpenZeppelin CLI.#]
+xref:upgrades::index.adoc[[.card-title]#upgrades-js# [.card-body]#A JavaScript library for managing upgradeable contracts+++,+++ which powers the OpenZeppelin CLI.#]
 --
 
 [.card.card-secondary.card-test-environment]
