@@ -21,7 +21,7 @@
     font-weight: var(--weight-bold);
     font-size: 1rem;
     line-height: 1.4;
-    margin-bottom: 1.2em;
+    margin: .4rem 0 1.2rem;
   }
 
   .card-body {
@@ -129,7 +129,9 @@
   border-left: solid 3px #53536B;
   margin-right: .6rem;
 
-  color: var(--color-text-light);
+  .card-title {
+    margin-bottom: .8rem;
+  }
 
   &:hover {
     border-color: #B8BFF4;
