@@ -148,7 +148,7 @@ NOTE: Remember that local blockchains **do not** persist their state throughout 
 [[interacting-from-the-command-line]]
 == Interacting From the Command Line
 
-With our `Box` contract <<deploying-a-smart-contract, deployed>>, we can start using it right away from the CLI.
+With our `Box` contract <<deploying-a-smart-contract, deployed>>, we can start using it right away from the <<getting-started-with-the-cli, CLI>>.
 
 === Sending Transactions
 
