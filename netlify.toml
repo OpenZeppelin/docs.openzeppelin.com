@@ -19,3 +19,8 @@
   from = "/sdk/2.5/*"
   to = "/sdk/:splat"
   status = 302
+
+[[redirects]]
+  from = "/sdk/2.6/*"
+  to = "/sdk/:splat"
+  status = 302
