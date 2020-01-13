@@ -296,8 +296,6 @@ If you restarted ganache at any point, this script may fail. Restarting ganache 
 If this happens, simply <<local-blockchain, start ganache>> and <<deploying-a-smart-contract, redeploy>> the `Box` contract.
 ====
 
-We can also interact with the contract by sending a transaction to it.
-
 [[sending-a-transaction]]
 === Sending a Transaction
 
