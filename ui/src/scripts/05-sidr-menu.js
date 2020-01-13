@@ -6,7 +6,6 @@
     mainContent = document.querySelector('.main'),
     closeMenuButton = document.querySelector('.close-menu-btn')
 
-  var sidrCollapse = document.querySelectorAll('.collapsible')
 
   sidrToggle.addEventListener('click', function (e) {
     openNav()
@@ -28,15 +27,11 @@
     mainContent.style.display = 'block';
   }
 
-  sidrCollapse.forEach(function (o) {
+  var collapseToggles = document.querySelectorAll('.collapse-toggle')
+
+  collapseToggles.forEach(function (o) {
     o.addEventListener('click', function (e) {
       this.classList.toggle('active')
-      var dropdownContent = this.nextElementSibling
-      if (dropdownContent.style.display === 'none') {
-        dropdownContent.style.display = 'block';
-      } else {
-        dropdownContent.style.display = 'none';
-      }
     })
   })
 })()

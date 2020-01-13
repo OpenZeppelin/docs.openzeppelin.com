@@ -4,56 +4,142 @@ site:
   url: http://localhost:5252
   title: OpenZeppelin
   components:
-  - name: openzeppelin
-    title: OpenZeppelin
-    url: /openzeppelin/index.html
-    versions:
-    - &latest_version_abc
-      url: '#' 
-      version: 'master'
-      displayVersion: 'master'
-    latestVersion: *latest_version_abc
-  - &component_contracts
-    name: contracts
-    title: Contracts
-    url: /contracts/2.x/index.html
-    versions:
-    - &latest_version_contracts
+    openzeppelin:
+      &component_openzeppelin
+      name: openzeppelin
+      title: Home
+      url: /openzeppelin/index.html
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: 'master'
+        displayVersion: 'master'
+      latestVersion: *latest_version_abc
+    learn:
+      name: learn
+      title: Learn
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    contracts:
+      &component_contracts
+      name: contracts
+      title: Contracts
       url: /contracts/2.x/index.html
-      version: '2.x'
-      displayVersion: '2.x'
-    - url: /contracts/2.x/index.html
-      version: '1.x'
-      displayVersion: '1.x'
-    latestVersion: *latest_version_contracts
-  - name: sdk
-    title: SDK
-    url: '#'
-    versions:
-    - &latest_version_sdk
-      url: '#' 
-      version: '2.5'
-      displayVersion: '2.5'
-    - url: '#' 
-      version: '2.4'
-      displayVersion: '2.3'
-    latestVersion: *latest_version_sdk
-  - name: starter-kits
-    title: Starter Kits
-    url: '#'
-    versions:
-    - &latest_version_starter-kits
-      url: '#' 
-      version: '2.3'
-      displayVersion: '2.3'
-    - url: '#' 
-      version: '1.9'
-      displayVersion: '1.9'
-    latestVersion: *latest_version_starter-kits
+      versions:
+      - &latest_version_contracts
+        url: /contracts/2.x/index.html
+        version: '2.x'
+        displayVersion: '2.x'
+      - url: /contracts/2.x/index.html
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_contracts
+    sdk:
+      name: sdk
+      title: SDK
+      url: '#'
+      versions:
+      - &latest_version_sdk
+        url: '#' 
+        version: '2.5'
+        displayVersion: '2.5'
+      - url: '#' 
+        version: '2.4'
+        displayVersion: '2.3'
+      latestVersion: *latest_version_sdk
+    starter-kits:
+      name: starter-kits
+      title: Starter Kits
+      url: '#'
+      versions:
+      - &latest_version_starter-kits
+        url: '#' 
+        version: '2.3'
+        displayVersion: '2.3'
+      - url: '#' 
+        version: '1.9'
+        displayVersion: '1.9'
+      latestVersion: *latest_version_starter-kits
+    test-environment:
+      name: test-environment
+      title: Test Environment
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    test-helpers:
+      name: test-helpers
+      title: Test Helpers
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    network-js:
+      name: network-js
+      title: Network JS
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    gsn-provider:
+      name: gsn-provider
+      title: GSN Provider
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    gsn-helpers:
+      name: gsn-helpers
+      title: GSN Helpers
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    contract-loader:
+      name: contract-loader
+      title: Contract Loader
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    docgen:
+      name: docgen
+      title: Docgen
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+
 page:
   title: Welcome to OpenZeppelin Documentation!
   url: /contracts/2.x/index.html
-  component: *component_contracts
+  component: *component_openzeppelin
   componentVersion: *latest_version_contracts
   version: '2.x'
   displayVersion: '2.x'
@@ -65,39 +151,40 @@ page:
   versions:
   - *latest_version_contracts
   navigation:
-  - content: Overview
-    # root: true
-    url: /contracts/2.x/index.html
-    urlType: internal
-  - content: Access Control
-    url: '#'
-  - content: Tokens
+  - root: true
     items:
-    - &item
-      content: ERC20
-      url: /contracts/2.x/api.html
+    - content: Overview
+      url: /contracts/2.x/index.html
       urlType: internal
+    - content: Access Control
+      url: '#'
+    - content: Tokens
       items:
-      - <<: *item
-        content: ERC20 Supply
+      - &item
+        content: ERC20
+        url: /contracts/2.x/api.html
+        urlType: internal
+        items:
+        - <<: *item
+          content: ERC20 Supply
+          url: '#'
+        - <<: *item
+          content: Crowdsales
+          url: '#'
+      - content: ERC721
         url: '#'
-      - <<: *item
-        content: Crowdsales
+      - content: ERC777
         url: '#'
-    - content: ERC721
+    - content: GSN
+      items:
+      - content: GSN Strategies
+        url: '#'
+    - content: Utilities
       url: '#'
-    - content: ERC777
+    - content: Releases
       url: '#'
-  - content: GSN
-    items:
-    - content: GSN Strategies
-      url: '#'
-  - content: Utilities
-    url: '#'
-  - content: Releases
-    url: '#'
-  - content: API Reference
-    url: '#' 
+    - content: API Reference
+      url: '#' 
   previous:
     content: Getting Started
     url: /contracts/2.x/index.html

@@ -6,7 +6,7 @@
   top: 0;
   width: var(--nav-width);
   background: var(--core-gray);
-  color: var(--steel-2);
+  color: var(--color-text-light);
   padding-top: 70px;
 
   a {
@@ -19,18 +19,39 @@
   }
 }
 
-.nav-components {
-  width: calc(300px - (2.2rem * 2));
-  height: calc(100% - 25px);
-  margin-top: 25px;
+.nav-component {
+  line-height: 2.5rem;
 }
 
-.nav-component {
-  padding-left: 30px;
+.nav-components {
+  height: calc(100% - 25px);
+}
+
+.btn-back {
+  opacity: .6;
+  margin-bottom: 0.5rem;
+  line-height: 1.5rem;
+  margin-left: 1.3rem;
+  cursor: pointer;
+
+  &::before{
+    display: inline-block;
+    content: url(../images/icons/arrow_back.svg);
+    margin-right: 0.3em;
+    margin-left: -1.3rem;
+    width: 1rem;
+  }
+}
+
+.nav-heading {
+  font-size: 1.3rem;
+  font-weight: var(--weight-medium);
+  font-family: var(--heading);
+  margin: .75rem 0;
 }
 
 .nav-component-active {
-  max-height: 80%;
+  min-height: 100%;
   overflow-y: auto;
   .nav-heading-active {
     position: sticky;
@@ -49,20 +70,17 @@
   line-height: 1.7em;
 }
 
-.nav-heading {
-  color: var(--steel-3);
-}
-
 .nav-heading-active {
   position: sticky;
   top: 15px;
 }
 
 .nav-component-heading {
+  color: var(--steel-4);
   font-family: var(--heading);
   font-weight: var(--weight-medium);
   position: relative;
-  margin-top: var(--md);
+  font-size: 1.05rem;
   & + .nav-list {
     height: 90%;
     margin-bottom: 0;
@@ -85,11 +103,11 @@
 }
 
 .nav-icon {
-  margin: 0;
-  height: var(--lg);
-  width: var(--lg);
-  left: calc(-1 * var(--lg) - var(--sm));
-  position: absolute;
+  margin-right: .5rem;
+  margin-bottom: 2px;
+  height: 1.1rem;
+  width: 1.1rem;
+  opacity: .8;
 }
 
 .search > .input {
@@ -111,23 +129,20 @@
   left: 0;
 }
 
-.collapsible {
+button.collapse-toggle{
   cursor: pointer;
+  padding: 0;
+  border: none;
+  margin-left: -1.3rem;
+  width: 1rem;
+  height: 1rem;
 
-  &::before{
-    display: inline-block;
-    content: url(../images/icons/arrow.svg);
-    margin-right: 0.3em;
-    margin-left: -1.3rem;
-    width: 1rem;
-  }
-
-  &:hover {
-    opacity: .9;
+  &.active ~ .collapsible-content {
+  display: none;
   }
 }
 
-.collapsible.active::before {
+.collapse-toggle.active img{
   transform: rotate(-90deg);
 }
 

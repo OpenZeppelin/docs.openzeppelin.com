@@ -8,17 +8,56 @@ content:
   sources:
     - url: .
       branches: HEAD
+      start_path: components/home
+
+    - url: .
+      branches: HEAD
+      start_path: components/learn
+
     - url: https://github.com/OpenZeppelin/openzeppelin-contracts
-      branches: docs-v2.x
+      branches: docs-v*
       start_path: docs
+
     - url: https://github.com/OpenZeppelin/openzeppelin-sdk
-      branches: release-docs/*
-      start_path: packages/docs
+      branches: docs-v*
+      start_path: packages/cli/docs
+
+    - url: https://github.com/OpenZeppelin/openzeppelin-sdk
+      branches: docs-v*
+      start_path: packages/lib/docs
+
     - url: https://github.com/OpenZeppelin/starter-kit
-      branches: master
+      branches: master # Starter Kit is unversioned
+      start_path: docs
+
+    - url: https://github.com/OpenZeppelin/openzeppelin-test-environment
+      branches: docs-v*
+      start_path: docs
+
+    - url: https://github.com/OpenZeppelin/openzeppelin-test-helpers
+      branches: docs-v*
+      start_path: docs
+
+    - url: https://github.com/OpenZeppelin/openzeppelin-gsn-provider
+      branches: docs-v*
+      start_path: docs
+
+    - url: https://github.com/OpenZeppelin/openzeppelin-gsn-helpers
+      branches: docs-v*
+      start_path: docs
+
+    - url: https://github.com/OpenZeppelin/openzeppelin-network.js
+      branches: docs-v*
+      start_path: docs
+
+    - url: https://github.com/OpenZeppelin/openzeppelin-contract-loader
+      branches: docs-v*
       start_path: docs
 ui:
   bundle:
     url: ./ui/build/oz-docs-ui.zip
     # url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
     # snapshot: true
+asciidoc:
+  attributes:
+    idprefix: ''

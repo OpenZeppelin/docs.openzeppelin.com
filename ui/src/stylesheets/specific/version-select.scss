@@ -3,13 +3,20 @@
 }
 
 .btn-version {
-  font-size: .75em;
+  font-size: .85rem;
+  font-weight: var(--weight-normal);
+  height: 1.5rem;
+  padding: 0 .5rem;
+  margin: .4rem 0;
   border: 1px solid;
-  border-radius: 22px;
-  color: var(--steel-3);
-  height: 22px;
-  padding: 0 2px 0 7px;
-  margin-right: .2em;
+  border-radius: 1rem;
+
+  &::after{
+    display: inline-block;
+    content: url(../images/icons/chevron.svg);
+    width: .8rem;
+    margin-left: .2rem;
+  }
 
   &:hover,
   &:focus {

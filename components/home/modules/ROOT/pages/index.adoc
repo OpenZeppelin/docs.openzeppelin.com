@@ -1,0 +1,157 @@
+= OpenZeppelin Documentation
+
+Learn about writing, testing, deploying, and upgrading your smart contract applications on Ethereum using the OpenZeppelin tools.
+
+Our offering includes the most widely used Solidity smart contracts library, a command-line tool for managing your project, several JavaScript modules, and pre-packaged boxes to bootstrap development.
+
+== Why OpenZeppelin?
+
+OpenZeppelin tools have been built with *security in mind*. Since the first release of the Contracts library in 2016, our libraries have been downloaded over 1.5 million times to create tokens, protect digital assets, and power decentralized applications, securing more than $4.5 billion. We also work with top Ethereum projects through our https://openzeppelin.com/security-audits/[security audits service].
+
+== Learn
+
+Comprehensive guides for every step of your development journey:
+
+[.card.card-learn]
+--
+xref:learn::setting-up-a-node-project.adoc[[.card-title]#Setting Up a Node Project# [.card-body]#Install node+++,+++ npm+++,+++ and the basic libraries for web3 development.#]
+--
+
+[.card.card-learn]
+--
+xref:learn::developing-smart-contracts.adoc[[.card-title]#Developing Smart Contracts# [.card-body]#Write and compile your first Solidity contracts+++,+++ using the building blocks from the OpenZeppelin Contracts library.#]
+--
+
+[.card.card-learn]
+--
+xref:learn::deploying-and-interacting.adoc[[.card-title]#Deploying and Interacting# [.card-body]#Deploy your contracts to a local blockchain and send your first transactions using the OpenZeppelin CLI.#]
+--
+
+[.card.card-learn]
+--
+xref:learn::writing-automated-tests.adoc[[.card-title]#Writing Automated Tests# [.card-body]#Unit test your contracts with the OpenZeppelin Test Environment combined with assertions from our Test Helpers.#]
+--
+
+[.card.card-learn]
+--
+xref:learn::upgrading-smart-contracts.adoc[[.card-title]#Upgrading Smart Contracts# [.card-body]#Change the code of your deployed contracts to add new features or fix bugs+++,+++ using the OpenZeppelin CLI or the Upgrades library.#]
+--
+
+[.card.card-learn]
+--
+xref:learn::connecting-to-public-test-networks.adoc[[.card-title]#Connecting to Public Test Networks# [.card-body]#Set up a staging environment by deploying your app to a public Ethereum testnet using the OpenZeppelin CLI.#]
+--
+
+[.card.card-learn]
+--
+xref:learn::building-a-dapp.adoc[[.card-title]#Building a Dapp# [.card-body]#Create a decentralized web app using OpenZeppelin Network JS and Hot Loader, or simply unpack a Starter Kit.#]
+--
+
+[.card.card-learn]
+--
+xref:learn::sending-gasless-transactions.adoc[[.card-title]#Sending Gasless Transactions# [.card-body]#Leverage the Gas Station Network so your users can send transactions without having ETH to pay for gas.#]
+--
+
+[.card.card-learn]
+--
+xref:learn::preparing-for-mainnet.adoc[[.card-title]#Preparing for Mainnet# [.card-body]#All the boxes you need to check before taking your project to production on the main Ethereum network.#]
+--
+
+== Tools
+
+All the open source tools built and maintained by the OpenZeppelin team:
+
+[.card.card-primary.card-contracts]
+--
+xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#A library of modular+++,+++ reusable+++,+++ and secure smart contracts+++,+++ written in Solidity.# [.card-cta]#Get started >#]
+--
+
+[.card.card-primary.card-sdk]
+--
+xref:cli::index.adoc[[.card-title]#CLI# [.card-body]#A command-line tool to help you deploy+++,+++ upgrade+++,+++ and interact with your smart contracts.# [.card-cta]#Get started >#]
+--
+
+[.card.card-primary.card-starter-kits]
+--
+xref:starter-kits::index.adoc[[.card-title]#Starter Kits# [.card-body]#Bundles to bootstrap your decentralized web application.# [.card-cta]#Get started >#]
+--
+
+
+[.card.card-secondary.card-upgrades-js]
+--
+xref:upgrades::index.adoc[[.card-title]#Upgrades# [.card-body]#A JavaScript library for managing upgradeable contracts+++,+++ which powers the OpenZeppelin CLI.#]
+--
+
+[.card.card-secondary.card-test-environment]
+--
+xref:test-environment::index.adoc[[.card-title]#Test Environment# [.card-body]#A JavaScript library for creating a testing environment for contracts+++,+++ which plays nice with Mocha+++,+++ Ava+++,+++ and Jest.#]
+--
+
+[.card.card-secondary.card-test-helpers]
+--
+xref:test-helpers::index.adoc[[.card-title]#Test Helpers# [.card-body]#A JavaScript library of common assertions for smart contracts+++,+++ which can be used with `test-environment`+++,+++ `truffle`+++,+++ or vanilla `web3-js` setups.#]
+--
+
+[.card.card-secondary.card-network-js]
+--
+xref:network-js::index.adoc[[.card-title]#Network JS# [.card-body]#A JavaScript library for easily connecting to the Ethereum network from a dapp+++,+++ used in most Starter Kits.#]
+--
+
+[.card.card-secondary.card-gsn-helpers]
+--
+xref:gsn-helpers::index.adoc[[.card-title]#GSN Helpers# [.card-body]#A thin CLI and JavaScript library for simplifying development of an application using the Gas Station Network.#]
+--
+
+[.card.card-secondary.card-gsn-provider]
+--
+xref:gsn-provider::index.adoc[[.card-title]#GSN Provider# [.card-body]#A `web3-js` provider for seamlessly sending gasless transactions via the Gas Station Network.#]
+--
+
+[.card.card-secondary.card-contract-loader]
+--
+https://github.com/OpenZeppelin/solidity-loader[[.card-title]#Hot Loader# [.card-body]#A webpack plugin for automatically compiling and upgrading your contracts locally while you develop.#]
+--
+
+[.card.card-secondary.card-contract-loader]
+--
+xref:contract-loader::index.adoc[[.card-title]#Contract Loader# [.card-body]#A minimal JavaScript library for loading contract artifacts by name or ABI.#]
+--
+
+[.card.card-secondary.card-solidity-docgen]
+--
+https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [.card-body]#A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.#]
+--
+
+== More from OpenZeppelin
+
+=== Audits
+
+The OpenZeppelin Research team provides a https://openzeppelin.com/security-audits/[Security Audits] service for decentralized applications, tools, and protocols. You can browse through past public audits in https://blog.openzeppelin.com/security-audits/[our blog]. Go through our https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] and mailto:audits@openzeppelin.com[contact us] before xref:learn::preparing-for-mainnet.adoc[going to production] to make sure your project is secure.
+
+=== Ethernaut
+
+Learn more about security in Solidity contracts by playing https://ethernaut.openzeppelin.com/[Ethernaut]. Every level in Ethernaut is a smart contract waiting to be hacked, and teaches you a vulnerability by having you exploit it - many of them based on real-life hacks! You can discuss your solutions or ask for tips in https://forum.openzeppelin.com/c/security/ethernaut/30[our forum].
+
+=== Careers
+
+The OpenZeppelin https://openzeppelin.com/about/[team] is always hiring. If you have enjoyed using our tools or reading our audit reports, and want to be a part of it, check out our https://openzeppelin.com/jobs/[current job openings] and join us!
+
+=== Social
+
+// We may want to remove this if it's going to be present on the footer?
+You can https://forum.openzeppelin.com/[join our Forum], https://blog.openzeppelin.com/[check out our Blog], https://twitter.com/OpenZeppelin[follow us on Twitter], or https://www.youtube.com/channel/UC0Nx8RbugiCzdlVGK7hWZfw/videos[tune in our YouTube channel]!
+
+== Questions?
+
+Join the OpenZeppelin community in https://forum.openzeppelin.com/[our forum] to https://forum.openzeppelin.com/c/support/17[ask for help], as well as share your feedback or showcase what you have built with OpenZeppelin!
+
+== Share the Love!
+
+If you are using OpenZeppelin contracts, tools, or libraries in your project, share the love with the rest of the community by adding a badge to your `README`! Let your audience know that your system is built with the most secure components available.
+
+image::https://img.shields.io/badge/built%20with-OpenZeppelin-3677FF[built-with openzeppelin]
+
+
+```markdown
+[![built-with openzeppelin](https://img.shields.io/badge/built%20with-OpenZeppelin-3677FF)](https://docs.openzeppelin.com/)
+```
