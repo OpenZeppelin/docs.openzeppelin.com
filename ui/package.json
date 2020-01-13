@@ -76,7 +76,7 @@
     "stylelint": "~10.1",
     "stylelint-config-standard": "~18.3",
     "through2": "~3.0",
-    "typeface-roboto": "0.0.54",
+    "typeface-roboto": "0.0.75",
     "typeface-roboto-mono": "0.0.54",
     "undertaker": "^1.2.1",
     "vinyl-buffer": "~1.0",
