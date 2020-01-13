@@ -16,6 +16,6 @@
   status = 302
 
 [[redirects]]
-  from = "/sdk/:version/*"
+  from = "/sdk/2.5/*"
   to = "/sdk/:splat"
   status = 302
