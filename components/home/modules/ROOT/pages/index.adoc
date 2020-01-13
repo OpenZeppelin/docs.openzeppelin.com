@@ -68,7 +68,7 @@ xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#A library of mo
 
 [.card.card-primary.card-sdk]
 --
-xref:sdk::index.adoc[[.card-title]#CLI# [.card-body]#A command-line tool to help you deploy+++,+++ upgrade+++,+++ and interact with your smart contracts.# [.card-cta]#Get started >#]
+xref:cli::index.adoc[[.card-title]#CLI# [.card-body]#A command-line tool to help you deploy+++,+++ upgrade+++,+++ and interact with your smart contracts.# [.card-cta]#Get started >#]
 --
 
 [.card.card-primary.card-starter-kits]
@@ -79,7 +79,7 @@ xref:starter-kits::index.adoc[[.card-title]#Starter Kits# [.card-body]#Bundles t
 
 [.card.card-secondary.card-upgrades-js]
 --
-xref:#::index.adoc[[.card-title]#upgrades-js# [.card-body]#A JavaScript library for managing upgradeable contracts+++,+++ which powers the OpenZeppelin CLI.#]
+xref:upgrades::index.adoc[[.card-title]#upgrades-js# [.card-body]#A JavaScript library for managing upgradeable contracts+++,+++ which powers the OpenZeppelin CLI.#]
 --
 
 [.card.card-secondary.card-test-environment]
@@ -126,7 +126,7 @@ https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#solidity-docgen# [
 
 === Audits
 
-The OpenZeppelin Research team provides a https://openzeppelin.com/security-audits/[Security Audits] service for decentralized applications, tools, and protocols. You can browse through past public audits in https://blog.openzeppelin.com/security-audits/[our blog]. Go through our https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] and mailto:audits@openzeppelin.com[contact us] before xref:learn::mainnet.adoc[going to production] to make sure your project is secure.
+The OpenZeppelin Research team provides a https://openzeppelin.com/security-audits/[Security Audits] service for decentralized applications, tools, and protocols. You can browse through past public audits in https://blog.openzeppelin.com/security-audits/[our blog]. Go through our https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] and mailto:audits@openzeppelin.com[contact us] before xref:learn::preparing-for-mainnet.adoc[going to production] to make sure your project is secure.
 
 === Ethernaut
 
