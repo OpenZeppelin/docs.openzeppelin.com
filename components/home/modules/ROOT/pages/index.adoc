@@ -144,3 +144,14 @@ You can https://forum.openzeppelin.com/[join our Forum], https://blog.openzeppel
 == Questions?
 
 Join the OpenZeppelin community in https://forum.openzeppelin.com/[our forum] to https://forum.openzeppelin.com/c/support/17[ask for help], as well as share your feedback or showcase what you have built with OpenZeppelin!
+
+== Share the Love!
+
+If you are using OpenZeppelin contracts, tools, or libraries in your project, share the love with the rest of the community by adding a badge to your `README`! Let your audience know that your system is built with the most secure components available.
+
+image::https://img.shields.io/badge/built%20with-OpenZeppelin-3677FF[built-with openzeppelin]
+
+
+```markdown
+[![built-with openzeppelin](https://img.shields.io/badge/built%20with-OpenZeppelin-3677FF)](https://docs.openzeppelin.com/)
+```
