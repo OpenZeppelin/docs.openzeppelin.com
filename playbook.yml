@@ -24,7 +24,7 @@ content:
 
     - url: https://github.com/OpenZeppelin/openzeppelin-sdk
       branches: docs-v*
-      start_path: packages/upgrades/docs
+      start_path: packages/lib/docs
 
     - url: https://github.com/OpenZeppelin/starter-kit
       branches: master # Starter Kit is unversioned
