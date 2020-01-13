@@ -1,6 +1,6 @@
 = OpenZeppelin Documentation
 
-Learn about writing, testing, deploying, and upgrading your smart contract applications on Ethereum using the OpenZeppelin tools. 
+Learn about writing, testing, deploying, and upgrading your smart contract applications on Ethereum using the OpenZeppelin tools.
 
 Our offering includes the most widely used Solidity smart contracts library, a command-line tool for managing your project, several JavaScript modules, and pre-packaged boxes to bootstrap development.
 
@@ -109,7 +109,7 @@ xref:gsn-provider::index.adoc[[.card-title]#gsn-provider# [.card-body]#A `web3-j
 
 [.card.card-secondary.card-contract-loader]
 --
-xref:#::index.adoc[[.card-title]#hot-loader# [.card-body]#A webpack plugin for automatically compiling and upgrading your contracts locally while you develop.#]
+https://github.com/OpenZeppelin/solidity-loader[[.card-title]#hot-loader# [.card-body]#A webpack plugin for automatically compiling and upgrading your contracts locally while you develop.#]
 --
 
 [.card.card-secondary.card-contract-loader]
@@ -119,7 +119,7 @@ xref:contract-loader::index.adoc[[.card-title]#contract-loader# [.card-body]#A m
 
 [.card.card-secondary.card-solidity-docgen]
 --
-xref:#::index.adoc[[.card-title]#solidity-docgen# [.card-body]#A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.#]
+https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#solidity-docgen# [.card-body]#A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.#]
 --
 
 == More from OpenZeppelin
