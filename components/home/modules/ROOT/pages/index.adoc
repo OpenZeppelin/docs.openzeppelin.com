@@ -29,12 +29,12 @@ xref:learn::deploying-and-interacting.adoc[[.card-title]#Deploying and Interacti
 
 [.card.card-learn]
 --
-xref:learn::writing-automated-tests.adoc[[.card-title]#Writing Automated Tests# [.card-body]#Unit test your contracts with the OpenZeppelin `test-environment`+++,+++ combined with assertions from our `test-helpers`.#]
+xref:learn::writing-automated-tests.adoc[[.card-title]#Writing Automated Tests# [.card-body]#Unit test your contracts with the OpenZeppelin Test Environment combined with assertions from our Test Helpers.#]
 --
 
 [.card.card-learn]
 --
-xref:learn::upgrading-smart-contracts.adoc[[.card-title]#Upgrading Smart Contracts# [.card-body]#Change the code of your deployed contracts to add new features or fix bugs+++,+++ using the OpenZeppelin CLI or the `upgrades` library.#]
+xref:learn::upgrading-smart-contracts.adoc[[.card-title]#Upgrading Smart Contracts# [.card-body]#Change the code of your deployed contracts to add new features or fix bugs+++,+++ using the OpenZeppelin CLI or the Upgrades library.#]
 --
 
 [.card.card-learn]
@@ -44,7 +44,7 @@ xref:learn::connecting-to-public-test-networks.adoc[[.card-title]#Connecting to 
 
 [.card.card-learn]
 --
-xref:learn::building-a-dapp.adoc[[.card-title]#Building a Dapp# [.card-body]#Create a decentralized web app using OpenZeppelin `network-js` and `hot-loader`+++,+++ or simply unpack a Starter Kit.#]
+xref:learn::building-a-dapp.adoc[[.card-title]#Building a Dapp# [.card-body]#Create a decentralized web app using OpenZeppelin Network JS and Hot Loader, or simply unpack a Starter Kit.#]
 --
 
 [.card.card-learn]
