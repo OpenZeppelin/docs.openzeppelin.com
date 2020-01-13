@@ -14,3 +14,8 @@
   from = "/starter-kits/2.3/*"
   to = "/starter-kits/:splat"
   status = 302
+
+[[redirects]]
+  from = "/sdk/:version/*"
+  to = "/sdk/:splat"
+  status = 302
