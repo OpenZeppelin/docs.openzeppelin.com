@@ -14,49 +14,48 @@ Comprehensive guides for every step of your development journey:
 
 [.card.card-learn]
 --
-xref:learn::index.adoc[[.card-title]#Environment Setup# [.card-body]#Install node+++,+++ npm+++,+++ and the basic libraries for web3 development.#]
+xref:learn::setting-up-a-node-project.adoc[[.card-title]#Setting Up a Node Project# [.card-body]#Install node+++,+++ npm+++,+++ and the basic libraries for web3 development.#]
 --
 
 [.card.card-learn]
 --
-xref:learn::writing-smart-contracts.adoc[[.card-title]#Write Smart Contracts# [.card-body]#Write and compile your first Solidity contracts+++,+++ using the building blocks from the OpenZeppelin Contracts library.#]
+xref:learn::developing-smart-contracts.adoc[[.card-title]#Developing Smart Contracts# [.card-body]#Write and compile your first Solidity contracts+++,+++ using the building blocks from the OpenZeppelin Contracts library.#]
 --
 
 [.card.card-learn]
 --
-xref:learn::deploy-and-interact.adoc[[.card-title]#Local Development# [.card-body]#Deploy your contracts to a local blockchain and send your first transactions using the OpenZeppelin CLI.#]
+xref:learn::deploying-and-interacting.adoc[[.card-title]#Deploying and Interacting# [.card-body]#Deploy your contracts to a local blockchain and send your first transactions using the OpenZeppelin CLI.#]
 --
 
 [.card.card-learn]
 --
-xref:learn::unit-testing.adoc[[.card-title]#Test your Contracts# [.card-body]#Unit test your contracts with the OpenZeppelin `test-environment`+++,+++ combined with assertions from our `test-helpers`.#]
+xref:learn::writing-automated-tests.adoc[[.card-title]#Writing Automated Tests# [.card-body]#Unit test your contracts with the OpenZeppelin `test-environment`+++,+++ combined with assertions from our `test-helpers`.#]
 --
 
 [.card.card-learn]
 --
-xref:learn::on-upgrades.adoc[[.card-title]#Upgrade your Contracts# [.card-body]#Change the code of your deployed contracts to add new features or fix bugs+++,+++ using the OpenZeppelin CLI or the `upgrades` library.#]
+xref:learn::upgrading-smart-contracts.adoc[[.card-title]#Upgrading Smart Contracts# [.card-body]#Change the code of your deployed contracts to add new features or fix bugs+++,+++ using the OpenZeppelin CLI or the `upgrades` library.#]
 --
 
 [.card.card-learn]
 --
-xref:learn::public-staging.adoc[[.card-title]#Deploy to Testnet# [.card-body]#Set up a staging environment by deploying your app to a public Ethereum testnet using the OpenZeppelin CLI.#]
+xref:learn::connecting-to-public-test-networks.adoc[[.card-title]#Connecting to Public Test Networks# [.card-body]#Set up a staging environment by deploying your app to a public Ethereum testnet using the OpenZeppelin CLI.#]
 --
 
 [.card.card-learn]
 --
-xref:learn::on-dapps.adoc[[.card-title]#Build a Dapp# [.card-body]#Create a decentralized web app using OpenZeppelin `network-js` and `hot-loader`+++,+++ or simply unpack a Starter Kit.#]
+xref:learn::building-a-dapp.adoc[[.card-title]#Building a Dapp# [.card-body]#Create a decentralized web app using OpenZeppelin `network-js` and `hot-loader`+++,+++ or simply unpack a Starter Kit.#]
 --
 
 [.card.card-learn]
 --
-xref:learn::on-gsn.adoc[[.card-title]#Send Gasless Transactions# [.card-body]#Leverage the Gas Station Network so your users can send transactions without having ETH to pay for gas.#]
+xref:learn::sending-gasless-transactions.adoc[[.card-title]#Sending Gasless Transactions# [.card-body]#Leverage the Gas Station Network so your users can send transactions without having ETH to pay for gas.#]
 --
 
 [.card.card-learn]
 --
-xref:learn::mainnet.adoc[[.card-title]#Go to Mainnet# [.card-body]#All the boxes you need to check before taking your project to production on the main Ethereum network.#]
+xref:learn::preparing-for-mainnet.adoc[[.card-title]#Preparing for Mainnet# [.card-body]#All the boxes you need to check before taking your project to production on the main Ethereum network.#]
 --
-
 
 == Tools
 
@@ -122,7 +121,6 @@ xref:contract-loader::index.adoc[[.card-title]#contract-loader# [.card-body]#A m
 --
 xref:#::index.adoc[[.card-title]#solidity-docgen# [.card-body]#A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.#]
 --
-
 
 == More from OpenZeppelin
 

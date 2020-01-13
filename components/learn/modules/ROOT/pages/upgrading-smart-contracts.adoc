@@ -144,7 +144,7 @@ NOTE: The CLI does not just manage contract upgrades, but also compilation, inte
 Your first step will be to install the library in your project, and you will also probably want to install `web3`:
 
 ```bash
-$ npm install @openzeppelin/upgrades.js web3
+$ npm install @openzeppelin/upgrades web3
 ```
 
 As in our previous guide on xref:deploying-and-interacting.adoc#interacting-programmatically[programmatically interacting with contracts], we will start with some boilerplate code to initialize a provider, as well as the Upgrades library.

@@ -86,7 +86,7 @@ For detailed information on these options, refer to xref:cli::compiling.adoc[Com
 [[adding-more-contracts]]
 == Adding More Contracts
 
-As your project grows, you will begin to create more contracts that interact with each other: each one should be stored on its own `.sol` file.
+As your project grows, you will begin to create more contracts that interact with each other: each one should be stored in its own `.sol` file.
 
 To see how this looks, let's add a simple access control system to our `Box` contract: we will store an administrator address in a contract called `Auth`, and only let `Box` be used by those accounts that `Auth` allows.
 
@@ -98,16 +98,16 @@ Because the compiler will pick up all files in the `contracts` directory and sub
 pragma solidity ^0.5.0;
 
 contract Auth {
-  address private administrator;
+    address private administrator;
 
-  constructor () public {
-      // Make the deployer of the contract the administrator
-      administrator = msg.sender;
-  }
+    constructor () public {
+        // Make the deployer of the contract the administrator
+        administrator = msg.sender;
+    }
 
-  function isAdministrator(address user) public view returns (bool) {
-      return user == administrator;
-  }
+    function isAdministrator(address user) public view returns (bool) {
+        return user == administrator;
+    }
 }
 ```
 
@@ -118,7 +118,7 @@ To use this contract from `Box` we use an `import` statement, referring to `Auth
 pragma solidity ^0.5.0;
 
 // Import Auth from the access-control subdirectory
-import './access-control/Auth.sol';
+import "./access-control/Auth.sol";
 
 contract Box {
     uint256 private value;
@@ -149,7 +149,7 @@ Separating concerns across multiple contracts is a great way to keep each one si
 However, this is not the only way to split your code into modules. You can also use _inheritance_ for encapsulation and code reuse in Solidity, as we'll see next.
 
 [[using-openzeppelin-contracts]]
-== The OpenZeppelin Contracts Library
+== Using the OpenZeppelin Contracts Library
 
 Reusable modules and libraries are the cornerstone of great software. The xref:contracts::index.adoc[*OpenZeppelin Contracts*] library contains lots of useful building blocks for smart contracts to build on. And you can rest easy when building on them: they've been the subject of multiple audits, with their security and correctness battle-tested.
 
@@ -180,7 +180,7 @@ To use one of the OpenZeppelin Contracts, `import` it by prefixing its path with
 pragma solidity ^0.5.0;
 
 // Import Ownable from the OpenZeppelin Contracts library
-import '@openzeppelin/contracts/ownership/Ownable.sol';
+import "@openzeppelin/contracts/ownership/Ownable.sol";
 
 // Make Box inherit from the Ownable contract
 contract Box is Ownable {
@@ -204,7 +204,7 @@ The xref:contracts::index.adoc[OpenZeppelin Contracts documentation] is a great 
 
 == Next Steps
 
-Writing and compiling Solidity contracts are but the first steps in the journey to having your decentralized application running on the Ethereum network. Once you are confortable with this setup, you'll want to move on to more advanced tasks:
+Writing and compiling Solidity contracts are but the first steps in the journey to having your decentralized application running on the Ethereum network. Once you are comfortable with this setup, you'll want to move on to more advanced tasks:
 
  * xref:deploying-and-interacting.adoc[Deploying and Interacting]
  * xref:writing-automated-tests.adoc[Writing Automated Tests]
