@@ -149,7 +149,7 @@ Separating concerns across multiple contracts is a great way to keep each one si
 However, this is not the only way to split your code into modules. You can also use _inheritance_ for encapsulation and code reuse in Solidity, as we'll see next.
 
 [[using-openzeppelin-contracts]]
-== Using the OpenZeppelin Contracts library
+== Using the OpenZeppelin Contracts Library
 
 Reusable modules and libraries are the cornerstone of great software. The xref:contracts::index.adoc[*OpenZeppelin Contracts*] library contains lots of useful building blocks for smart contracts to build on. And you can rest easy when building on them: they've been the subject of multiple audits, with their security and correctness battle-tested.
 
