@@ -10,7 +10,7 @@ In this guide, we will pick up our xref:deploying-and-interacting.adoc#box-contr
 * <<connecting-project-to-network, How to set up your OpenZeppelin project for working on a testnet>>
 * <<working-on-testnet, How to deploy and interact with your testnet contract instances>>
 
-Remember that deploying to public test network is a necessary step when developing an Ethereum project. They provide a safe environment for testing that closely mimics the main network - you don't want to take out your project for a test drive in an network where mistakes will cost you money!
+Remember that deploying to a public test network is a necessary step when developing an Ethereum project. They provide a safe environment for testing that closely mimics the main network - you don't want to take out your project for a test drive in a network where mistakes will cost you money!
 
 [[testnet-list]]
 == Available Testnets
@@ -42,7 +42,7 @@ To connect our OpenZeppelin project to a public testnet, we will need to:
 
 While you can spin up your own https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options[Geth] or https://wiki.parity.io/Chain-specification[Parity] node connected to a testnet, the easiest way to access a testnet is via a public node service such as https://infura.io[Infura]. Infura provides access to public nodes for all testnets and the main network, via both free and paid plans.
 
-NOTE: We say a node is _public_ when it can be accessed by the general public, and manages no accounts. This means that it can reply to queries and relay signed transactions, but cannot sign transactions on it own.
+NOTE: We say a node is _public_ when it can be accessed by the general public, and manages no accounts. This means that it can reply to queries and relay signed transactions, but cannot sign transactions on its own.
 
 Head over to Infura or a public node provider of your choice, sign up, and jot down your assigned project ID - we will use it later to connect to the network.
 
@@ -75,27 +75,29 @@ $ npm install --save-dev @truffle/hdwallet-provider
 
 Then, we will update our `networks.js` file with a new connection to the testnet. Here we will use Rinkeby, but you can use whichever you want:
 
-[source,js]
+[source,diff]
 ----
-// network.js
-const { projectId, mnemonic } = require('./secrets.json');
-const HDWalletProvider = require('@truffle/hdwallet-provider');
-
-module.exports = {
-  networks: {
-    development: { ... },
-    rinkeby: {
-      provider: () => new HDWalletProvider(
-        mnemonic, `https://rinkeby.infura.io/v3/${projectId}`
-      ),
-      networkId: 4,
-      gasPrice: 10e9
-    }
-  },
-};
+ // network.js
++const { projectId, mnemonic } = require('./secrets.json');
++const HDWalletProvider = require('@truffle/hdwallet-provider');
+ 
+ module.exports = {
+   networks: {
+     development: {
+      ...
+     },
++    rinkeby: {
++      provider: () => new HDWalletProvider(
++        mnemonic, `https://rinkeby.infura.io/v3/${projectId}`
++      ),
++      networkId: 4,
++      gasPrice: 10e9
++    }
+   },
+ };
 ----
 
-NOTE: The `HDWalletProvider` can be configured to generate more than a single account from the mnemonic. Check out its https://github.com/trufflesuite/truffle/tree/master/packages/hdwallet-provider[documentation] for more info.
+NOTE: See the `HDWalletProvider` https://github.com/trufflesuite/truffle/tree/master/packages/hdwallet-provider[documentation] for information on configuration options.
 
 Note in the first line that we are loading the project id and mnemonic from a `secrets.json` file, which should look like the following, but using your own values. Make sure to `.gitignore` it!
 
@@ -140,7 +142,7 @@ Empty! This points to our next task: getting testnet funds so that we can send t
 [[finding-a-testnet-account]]
 === Funding the Testnet Account
 
-Most public testnets have a faucet: a site that will provide you with a small amount of test Ether for free. If you are on Rinkeby, head on to the https://faucet.rinkeby.io/[Rinkeby Authenticated Faucet] to get funds by authenticating with your Twitter or Facebook account. Alternatively, you can also use https://faucet.metamask.io/[Metamask's faucet] to ask for funds directly to your Metamask accounts.
+Most public testnets have a faucet: a site that will provide you with a small amount of test Ether for free. If you are on Rinkeby, head on to the https://faucet.rinkeby.io/[Rinkeby Authenticated Faucet] to get funds by authenticating with your Twitter or Facebook account. Alternatively, you can also use https://faucet.metamask.io/[MetaMask's faucet] to ask for funds directly to your MetaMask accounts.
 
 Armed with a funded account, let's deploy our contracts to the testnet!
 

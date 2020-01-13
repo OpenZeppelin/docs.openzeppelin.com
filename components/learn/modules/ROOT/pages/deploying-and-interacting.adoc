@@ -5,7 +5,7 @@ Unlike most software, smart contracts don't run on your computer or somebody's s
 This guide will cover all you need to know to get you started using your contracts, including:
 
  * <<local-blockchain, Setting up a Local Blockchain>>
- * <<getting-started-with-the-cli, Installing the OpenZeppelin CLI>>
+ * <<getting-started-with-the-cli, Getting Started with the OpenZeppelin CLI>>
  * <<deploying-a-smart-contract, Deploying a Smart Contract>>
  * <<interacting-from-the-command-line, Interacting from the Command Line>>
  * <<interacting-programmatically, Interacting Programmatically>>
@@ -21,7 +21,7 @@ During development, it is a better idea to instead use a _local_ blockchain. It 
 
 TIP: If you want to learn how to deploy and use contracts on a _public_ blockchain, like the Ethereum testnets, head to our xref:connecting-to-public-test-networks.adoc[Connecting to Public Test Networks] guide.
 
-The most popular local blockchain is https://www.trufflesuite.com/ganache[Ganache]. To install it on your project, run:
+The most popular local blockchain is https://github.com/trufflesuite/ganache-cli[Ganache]. To install it on your project, run:
 
 ```console
 $ npm install --save-dev ganache-cli
@@ -58,7 +58,7 @@ $ npx openzeppelin init
 
 NOTE: You can call the OpenZeppelin CLI with both `openzeppelin` and `oz`. For brevity, from here on we'll use the latter.
 
-Two things will happen during initialization. First, an `.openzeppelin` directory will be created, holding project-specific information. This directory will be managed by the CLI: you won't need to manually edit anything. It is important however to commit any changes here to your Git repository.
+Two things will happen during initialization. First, an `.openzeppelin` directory will be created, holding project-specific information. This directory will be managed by the CLI: you won't need to manually edit anything. You should however commit xref:cli::configuration.adoc#configuration-files-in-version-control[some of these files] to Git.
 
 Second, the CLI will store network configuration in a file called `networks.js`. For convenience, it is already populated with an entry called `development`, with configuration matching <<local-blockchain, Ganache>>'s default.
 
@@ -97,7 +97,7 @@ This shows why using a local blockchain is so convenient: Ganache has prefunded 
 [[deploying-a-smart-contract]]
 == Deploying a Smart Contract
 
-With the <<getting-started-with-the-cli, CLI setup complete>>, we're now ready to deploy a contract. We'll be deploying `Box`, from the xref:developing-smart-contracts.adoc#setting-up-a-solidity-project[Writing Smart Contracts guide]. Make sure you have a copy in `contracts/Box.sol`:
+With the <<getting-started-with-the-cli, CLI setup complete>>, we're now ready to deploy a contract. We'll be deploying `Box`, from the xref:developing-smart-contracts.adoc#setting-up-a-solidity-project[Writing Smart Contracts] guide. Make sure you have a copy in `contracts/Box.sol`:
 
 [[box-contract]]
 ```solidity
@@ -152,9 +152,9 @@ With our `Box` contract <<deploying-a-smart-contract, deployed>>, we can start u
 
 === Sending Transactions
 
-`Box` 's first function, `store`, receives an integer value and stores it on the contract storage. Because this function _modifies_ the blockchain state, we need to _send a transaction_ to the contract to execute it.
+`Box` 's first function, `store`, receives an integer value and stores it in the contract storage. Because this function _modifies_ the blockchain state, we need to _send a transaction_ to the contract to execute it.
 
-This can be achieved with the CLI's `send-tx` command. Choose your `Box` contract when prompted by the CLI, and select the `store` function, with whatever value you want to send.
+This can be achieved with the CLI's `send-tx` command. Pick your `Box` contract when prompted by the CLI, select the `store` function, and choose a numeric value to send to it:
 
 ```console
 $ npx oz send-tx
@@ -252,7 +252,7 @@ These accounts should match the ones you got when you ran `oz accounts` earlier.
 
 In order to interact with the <<box-contract,`Box`>> contract we <<deploying-a-smart-contract, deployed using the CLI>>, we'll create a new https://web3js.readthedocs.io/en/1.2.4/web3-eth-contract.html[web3 contract instance] using the xref:contract-loader::index.adoc[*OpenZeppelin Contract Loader*].
 
-A web3 contract instance is a JavaScript object that represents our contract in the blockchain, which we can use to interact with our contract. To create one we need to provide the Contract Loader with the contract name and the address where it was deployed, which the CLI returned when we ran `oz create`.
+A web3 contract instance is a JavaScript object that represents our contract on the blockchain, which we can use to interact with our contract. To create one we need to provide the Contract Loader with the contract name and the address where it was deployed, which the CLI returned when we ran `oz create`.
 
 [source,js]
 ----
@@ -295,8 +295,6 @@ If you restarted ganache at any point, this script may fail. Restarting ganache 
 
 If this happens, simply <<local-blockchain, start ganache>> and <<deploying-a-smart-contract, redeploy>> the `Box` contract.
 ====
-
-We can now actually interact with the contract by sending a transaction to it.
 
 [[sending-a-transaction]]
 === Sending a Transaction
