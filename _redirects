@@ -5,6 +5,7 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 /contracts/api-stability /contracts/releases-stability 301
   
 # SDK docsite split from SDK into CLI and Upgrades
+/sdk /cli 301
 /sdk/first /cli/getting-started 301
 /sdk/interacting /learn/deploying-and-interacting 301
 /sdk/linking /cli/dependencies 301
