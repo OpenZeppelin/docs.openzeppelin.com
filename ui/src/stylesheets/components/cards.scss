@@ -7,7 +7,7 @@
   width: 30%;
   margin-top: 1rem;
   border-radius: var(--border-radius);
-  padding: .8rem 1rem;
+  padding: 1rem;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
@@ -21,7 +21,7 @@
     font-weight: var(--weight-bold);
     font-size: 1rem;
     line-height: 1.4;
-    margin-bottom: 1rem;
+    margin: .4rem 0 1.2rem;
   }
 
   .card-body {
@@ -30,6 +30,10 @@
 }
 
 .card-primary, .card-secondary {
+  a {
+    padding: 1.2rem;
+  }
+
   .card-title::before {
     content: "";
     background-image: var(--card-icon);
@@ -52,7 +56,7 @@
 
   .card-title {
     font-size: 1.2rem;
-    margin: 1.5rem 0;
+    margin-top: 1.2em;
   }
 
   &::after {
@@ -101,7 +105,6 @@
   margin-right: .6rem;
   border: solid 1px #e9e9ed;
   box-shadow: 0 4px 7px 0 rgba(60, 60, 60, 0.09);
-
   color: var(--color-text-light);
 
   &:hover{
@@ -120,12 +123,15 @@
 .card-solidity-docgen { --card-icon: url(../images/icons/docgen.svg); }
 
 .card-learn a {
-  min-height: 12.5rem;
+  min-height: 13.5rem;
   border: solid 1px #cacbcc;
   border-left: solid 3px #53536B;
   margin-right: .6rem;
-
   color: var(--color-text-light);
+
+  .card-title {
+    margin-bottom: .8rem;
+  }
 
   &:hover {
     border-color: #B8BFF4;
