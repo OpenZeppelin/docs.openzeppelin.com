@@ -1,48 +1,5 @@
 = Learn
 
-Comprehensive guides for every step of your development journey:
+Comprehensive guides for every step of your development journey.
 
-[.card.card-learn]
---
-xref:learn::setting-up-a-node-project.adoc[[.card-title]#Setting Up a Node Project# [.card-body]#Install node+++,+++ npm+++,+++ and the basic libraries for web3 development.#]
---
-
-[.card.card-learn]
---
-xref:learn::developing-smart-contracts.adoc[[.card-title]#Developing Smart Contracts# [.card-body]#Write and compile your first Solidity contracts+++,+++ using the building blocks from the OpenZeppelin Contracts library.#]
---
-
-[.card.card-learn]
---
-xref:learn::deploying-and-interacting.adoc[[.card-title]#Deploying and Interacting# [.card-body]#Deploy your contracts to a local blockchain and send your first transactions using the OpenZeppelin CLI.#]
---
-
-[.card.card-learn]
---
-xref:learn::writing-automated-tests.adoc[[.card-title]#Writing Automated Tests# [.card-body]#Unit test your contracts with the OpenZeppelin Test Environment combined with assertions from our Test Helpers.#]
---
-
-[.card.card-learn]
---
-xref:learn::upgrading-smart-contracts.adoc[[.card-title]#Upgrading Smart Contracts# [.card-body]#Change the code of your deployed contracts to add new features or fix bugs+++,+++ using the OpenZeppelin CLI or the Upgrades library.#]
---
-
-[.card.card-learn]
---
-xref:learn::connecting-to-public-test-networks.adoc[[.card-title]#Connecting to Public Test Networks# [.card-body]#Set up a staging environment by deploying your app to a public Ethereum testnet using the OpenZeppelin CLI.#]
---
-
-[.card.card-learn]
---
-xref:learn::building-a-dapp.adoc[[.card-title]#Building a Dapp# [.card-body]#Create a decentralized web app using OpenZeppelin Network JS and Hot Loader, or simply unpack a Starter Kit.#]
---
-
-[.card.card-learn]
---
-xref:learn::sending-gasless-transactions.adoc[[.card-title]#Sending Gasless Transactions# [.card-body]#Leverage the Gas Station Network so your users can send transactions without having ETH to pay for gas.#]
---
-
-[.card.card-learn]
---
-xref:learn::preparing-for-mainnet.adoc[[.card-title]#Preparing for Mainnet# [.card-body]#All the boxes you need to check before taking your project to production on the main Ethereum network.#]
---
+include::learn::partial$cards.adoc[]
