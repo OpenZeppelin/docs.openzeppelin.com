@@ -33,7 +33,7 @@ Additionally, you can leverage the GSN in scenarios where your users pay you off
 
 Furthermore, the GSN is set up in such a way where it’s in the relayers' best interest to serve your requests, and there are measures in place to penalize them if they misbehave. All of this happens automatically, so you can safely start using their services worry-free.
 
-TIP: You can learn more about how the GSN works in https://example.com[this guide].
+TIP: You can learn more about how the GSN works in xref:gsn-provider::interacting-with-relayhub.adoc[Interacting With `RelayHub`].
 
 [[building-a-gsn-dapp]]
 == Building a GSN-powered DApp
@@ -350,4 +350,4 @@ To learn more about the GSN, head over to the following resources:
 * To learn how to use OpenZeppelin Contracts to *build a GSN-capable contract*, head to the xref:contracts::gsn.adoc[GSN basics guide].
 * If you want to learn how to use OpenZeppelin Contracts' *pre-made accept and charge strategies*, go to the xref:contracts::gsn-strategies.adoc[GSN Strategies guide].
 * If instead you wish to know more about how to *use GSN from your application*, head to the xref:gsn-provider::index.adoc[OpenZeppelin GSN Provider guides].
-* For information on how to *test GSN-enabled contracts*, go to the xref:gsn-helpers::preparing-a-testing-environmentadoc[OpenZeppelin GSN Helpers documentation].
+* For information on how to *test GSN-enabled contracts*, go to the xref:gsn-helpers::preparing-a-testing-environment.adoc[OpenZeppelin GSN Helpers documentation].
