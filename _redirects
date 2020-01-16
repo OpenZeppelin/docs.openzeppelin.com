@@ -30,3 +30,6 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 # Removed SDK guides
 /sdk/upgrades-governance https://forum.openzeppelin.com/t/governance-for-smart-contract-upgrades/2080 301
 /sdk/erc20-onboarding https://forum.openzeppelin.com/t/onboarding-erc20-tokens-to-openzeppelin-upgrades/2081 301
+
+# Removed top level GSN section
+/openzeppelin/gsn/getting-started /learn/sending-gasless-transactions 301
