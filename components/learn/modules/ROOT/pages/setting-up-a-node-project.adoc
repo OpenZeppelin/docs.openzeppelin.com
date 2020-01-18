@@ -45,6 +45,7 @@ Some OpenZeppelin tools (like the xref:cli::index.adoc[CLI]) are executables int
 ```console
 $ openzeppelin init
 openzeppelin: command not found
+$ npm install --global @openzeppelin/cli
 $ npx openzeppelin init
 Welcome to the OpenZeppelin SDK!
 ```
