@@ -14,6 +14,8 @@ Comprehensive guides for every step of your development journey.
 
 include::learn::partial$cards.adoc[]
 
+Check out https://forum.openzeppelin.com/c/general/guides-and-tutorials/23[the OpenZeppelin forum] for additional community-contributed guides!
+
 == Tools
 
 All the open source tools built and maintained by the OpenZeppelin team:
