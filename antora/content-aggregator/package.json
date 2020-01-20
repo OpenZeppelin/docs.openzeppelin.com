@@ -7,7 +7,7 @@
   "dependencies": {
     "@antora/expand-path-helper": "~1.0",
     "cache-directory": "~2.0",
-    "execa": "^1.0.0",
+    "execa": "^4.0.0",
     "fs-extra": "~7.0",
     "isomorphic-git": "0.72.1",
     "js-yaml": "~3.13",
