@@ -1,7 +1,15 @@
 'use strict'
 
-const execa = require('execa');
+const events = require('events');
+const proc = require('child_process');
 const pLimit = require('p-limit');
+const onExit = require('signal-exit');
+
+function exec(cmd, args, cwd) {
+  const child = proc.spawn(cmd, args, { cwd, stdio: 'inherit' });
+  onExit(() => child.kill());
+  return events.once(child, 'exit');
+}
 
 const _ = require('lodash')
 const { createHash } = require('crypto')
@@ -358,22 +366,13 @@ async function readFilesFromWorktree (base, startPath, repoDir) {
     if (_.get(pkgJson, 'scripts.prepare-docs')) {
       if (!await fs.pathExists(path.join(repoDir, 'node_modules'))) {
         if (await fs.pathExists(path.join(repoDir, 'yarn.lock'))) {
-          await yarnInstallLimit(execa, 'yarn', ['install'], {
-            stdio: 'inherit',
-            cwd: repoDir,
-          });
+          await yarnInstallLimit(exec, 'yarn', ['install'], repoDir);
         } else if (await fs.pathExists(path.join(repoDir, 'package-lock.json'))) {
-          await execa('npm', ['ci'], {
-            stdio: 'inherit',
-            cwd: repoDir,
-          });
+          await exec('npm', ['ci'], repoDir);
         }
       }
 
-      await execa('npm', ['run', 'prepare-docs'], {
-        stdio: 'inherit',
-        cwd: pkg,
-      });
+      await exec('npm', ['run', 'prepare-docs'], pkg);
     }
   }
 

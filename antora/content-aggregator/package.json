@@ -7,7 +7,6 @@
   "dependencies": {
     "@antora/expand-path-helper": "~1.0",
     "cache-directory": "~2.0",
-    "execa": "^1.0.0",
     "fs-extra": "~7.0",
     "isomorphic-git": "0.72.1",
     "js-yaml": "~3.13",
@@ -17,6 +16,7 @@
     "multi-progress": "~2.0",
     "p-limit": "^2.2.1",
     "pkg-dir": "^4.2.0",
+    "signal-exit": "^3.0.2",
     "through2": "~3.0",
     "vinyl": "~2.2",
     "vinyl-fs": "~3.0"
