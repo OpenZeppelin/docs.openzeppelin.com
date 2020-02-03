@@ -50,7 +50,7 @@
     "gulp-postcss": "^8.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-stylelint": "~11.0",
+    "gulp-stylelint": "~13.0",
     "gulp-uglify": "~3.0",
     "gulp-uglifyes": "^0.2.1",
     "gulp-vinyl-zip": "~2.2.0",
