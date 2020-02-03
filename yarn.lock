@@ -17,14 +17,6 @@
     "@antora/playbook-builder" "2.2.0"
     commander "~3.0"
 
-"@antora/content-classifier@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@antora/content-classifier/-/content-classifier-2.0.0.tgz#8d741b2a6743f034cf6df92dcb0ab4a1c67a1904"
-  integrity sha512-d1MB57X3AaXy30rw+dudxbJ2cdw/Uk1U4JxHbWIkdrEJKty2fbnBu3xjyb70qAv5G0ayovJpqZOaR+YwS0ibbQ==
-  dependencies:
-    lodash "^4.17.11"
-    vinyl "^2.2.0"
-
 "@antora/content-classifier@2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@antora/content-classifier/-/content-classifier-2.2.0.tgz#bc6206f575105a6c62a9d75e1fb0dd3c91503905"
