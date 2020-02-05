@@ -5,10 +5,13 @@ const proc = require('child_process');
 const pLimit = require('p-limit');
 const onExit = require('signal-exit');
 
-function exec(cmd, args, cwd) {
+async function exec(cmd, args, cwd) {
   const child = proc.spawn(cmd, args, { cwd, stdio: 'inherit' });
   onExit(() => child.kill());
-  return events.once(child, 'exit');
+  const [status] = await events.once(child, 'exit');
+  if (status !== 0) {
+    throw new Error(`Command failed: '${cmd}'`);
+  }
 }
 
 const _ = require('lodash')
