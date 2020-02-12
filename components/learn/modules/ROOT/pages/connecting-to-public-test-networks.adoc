@@ -77,7 +77,6 @@ Then, we will update our `networks.js` file with a new connection to the testnet
 
 [source,diff]
 ----
- // network.js
 +const { projectId, mnemonic } = require('./secrets.json');
 +const HDWalletProvider = require('@truffle/hdwallet-provider');
  
