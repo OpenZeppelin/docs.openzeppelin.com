@@ -26,6 +26,8 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 /sdk/deploying /cli/getting-started 301
 /sdk/upgrading /learn/upgrading-smart-contracts 301
 /sdk/upgrading.html /learn/upgrading-smart-contracts 301
+/sdk/setup /cli
+/sdk/setup.html /cli
 
 # Removed SDK guides
 /sdk/upgrades-governance https://forum.openzeppelin.com/t/governance-for-smart-contract-upgrades/2080 301
