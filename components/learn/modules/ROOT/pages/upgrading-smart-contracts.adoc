@@ -167,7 +167,7 @@ NOTE: You can check out a full version of the code in this section in the https:
 All our code from now on will be part of the `main` function. Let's begin by creating a new `project`, to manage our upgradeable contracts.
 
 ```js
-const [from] = await ZWeb3.accounts();
+const [from] = await ZWeb3.eth.getAccounts();
 const project = new ProxyAdminProject('MyProject', null, null, { from, gas: 1e6, gasPrice: 1e9 });
 ```
 
