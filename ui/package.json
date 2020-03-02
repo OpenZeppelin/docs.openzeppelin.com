@@ -22,7 +22,7 @@
   ],
   "devDependencies": {
     "@csstools/postcss-sass": "^4.0.0",
-    "@octokit/rest": "^16.28.4",
+    "@octokit/rest": "^17.0.0",
     "asciidoctor.js": "^1.5.9",
     "autoprefixer": "^9.6.1",
     "browser-pack-flat": "~3.4",
