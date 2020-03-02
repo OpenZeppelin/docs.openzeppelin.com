@@ -77,14 +77,3 @@ module.exports = exportTasks(
   buildPreviewPagesTask,
   bundleTask
 );
-
-// gulp.task('release', ['pack'], () =>
-//   release({
-//     owner: config.get('repository.owner'),
-//     repo: config.get('repository.name'),
-//     token: config.get('github_token'),
-//     dest,
-//   })
-// );
-
-// gulp.task('update', () => update());
