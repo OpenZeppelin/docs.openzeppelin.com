@@ -58,3 +58,6 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 # Removed top level GSN section
 /openzeppelin/gsn/getting-started      /learn/sending-gasless-transactions 301
 /openzeppelin/gsn/getting-started.html /learn/sending-gasless-transactions 301
+
+# Redirect Crowdsale API to deprecation page
+/contracts/3.x/api/crowdsale /contracts/3.x/crowdsale 301
