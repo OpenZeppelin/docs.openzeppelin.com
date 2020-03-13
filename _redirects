@@ -61,3 +61,5 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 
 # Redirect Crowdsale API to deprecation page
 /contracts/3.x/api/crowdsale /contracts/3.x/crowdsales 301
+/contracts/3.x/api/drafts /contracts/3.x/drafts 301
+/contracts/3.x/api/lifecycle /contracts/3.x/api/utils 301
