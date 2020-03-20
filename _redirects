@@ -60,5 +60,7 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 /openzeppelin/gsn/getting-started.html /learn/sending-gasless-transactions 301
 
 # OpenZeppelin Contracts 3.0 deprecation redirects
-/contracts/3.x/api/crowdsale /contracts/3.x/crowdsales 301 # Redirect Crowdsale API to deprecation page
+/contracts/3.x/api/crowdsale /contracts/3.x/crowdsales 301
+/contracts/3.x/api/drafts /contracts/3.x/drafts 301
+/contracts/3.x/api/lifecycle /contracts/3.x/api/utils 301
 /contracts/3.x/api/ownership /contracts/3.x/api/access 301
