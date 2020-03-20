@@ -149,7 +149,7 @@ $ openzeppelin create
 All contracts are up to date
 ? Call a function to initialize the instance after creating it? Yes
 ? Select which function * initialize()
-✓ Instance created at 0x7F73086E24ce5834E62075dEAB2b8F10865FFF9B
+✓ Instance created at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
 ----
 
 Great! Now, if we deployed this contract to mainnet or the rinkeby testnet, we would be almost ready to start sending gasless transactions to it, since the GSN is already set up on both of those networks. However, since we are on a local ganache, we'll need to set it up ourselves.
