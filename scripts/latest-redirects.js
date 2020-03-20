@@ -20,6 +20,8 @@ for (const comp of components) {
     .map(c => c.replace(/\/$/, ''))
     // Remove anything that doesn't look like a version.
     .filter(c => sv.coerce(c) !== null)
+    // Remove prereleases: these will have a dash, e.g. '3.x-rc.0'
+    .filter(c => c.indexOf('-') === -1)
     // Sort from latest to oldest. Coerces each version into a valid semver
     // version because some component versions might be '2.x'.
     .sort((a, b) => sv.rcompare(sv.coerce(a), sv.coerce(b)));
