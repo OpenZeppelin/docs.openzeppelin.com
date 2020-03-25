@@ -17,7 +17,7 @@
     "@antora/ui-loader": "2.2.0"
   },
   "devDependencies": {
-    "fs-extra": "~7.0"
+    "fs-extra": "~9.0"
   },
   "engines": {
     "node": ">=8.11.0"
