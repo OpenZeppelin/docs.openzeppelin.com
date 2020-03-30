@@ -1,6 +1,6 @@
 = Upgrading Smart Contracts
 
-Smart contracts xref:deploying-and-interacting.adoc[deployed] with the OpenZeppelin CLI can be **upgraded** to modify their code, while preserving their address, state, and balance. This allows you to iteratively add new features to your project, or fix any bugs you may find in xref:mainnet.adoc[in production].
+Smart contracts xref:deploying-and-interacting.adoc[deployed] with the OpenZeppelin CLI can be **upgraded** to modify their code, while preserving their address, state, and balance. This allows you to iteratively add new features to your project, or fix any bugs you may find in xref:preparing-for-mainnet.adoc[in production].
 
 Throughout this guide, we will learn:
 
@@ -276,4 +276,4 @@ To learn more about this limitation, head over to the xref:upgrades::writing-upg
 
 == Next Steps
 
-Now that you know how to upgrade your smart contracts, and can iteratively develop your project, it's time to take your project to xref:connecting-to-public-test-networks.adoc[testnet] and to xref:mainnet.adoc[production]! You can rest with the confidence that, should a bug appear, you have the tools to modify your contract and change it.
+Now that you know how to upgrade your smart contracts, and can iteratively develop your project, it's time to take your project to xref:connecting-to-public-test-networks.adoc[testnet] and to xref:preparing-for-mainnet.adoc[production]! You can rest with the confidence that, should a bug appear, you have the tools to modify your contract and change it.

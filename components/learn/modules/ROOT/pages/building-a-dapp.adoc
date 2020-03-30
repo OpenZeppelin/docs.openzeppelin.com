@@ -67,7 +67,7 @@ function App() {
 
 In the snippet above, with just the first two lines we get access to the Ethereum network via Metamask and falling back to Infura, as well as information on the network, provider, and even user accounts - all of this through the `useWeb3` hook provided by Network JS.
 
-TIP: You can easily xref:sending-gasless-transactions.adoc[enable meta-transaction support] in your dapp when using Network JS by xref:network.js::api.adoc#webcontextoptions[adding a `gsn` option] to the React hook.
+TIP: You can easily xref:sending-gasless-transactions.adoc[enable meta-transaction support] in your dapp when using Network JS by xref:network-js::api.adoc#webcontextoptions[adding a `gsn` option] to the React hook.
 
 To learn more, head to our step-by-step tutorial on xref:network-js::building-a-dapp-from-scratch.adoc[Building a Dapp from Scratch] using the Networks library.
 
