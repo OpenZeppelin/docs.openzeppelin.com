@@ -4,5 +4,5 @@ module.exports = function (obj, selection, opts) {
   }
 
   const keys = selection ? selection.split(/, */) : [];
-  return keys.map(key => opts.fn(obj[key])).join('');
+  return keys.reduce((res, key) => Object.assign(res, { [key]: obj[key] }), {});
 }
