@@ -4,5 +4,11 @@ module.exports = function (obj, selection, opts) {
   }
 
   const keys = selection ? selection.split(/, */) : [];
-  return keys.reduce((res, key) => Object.assign(res, { [key]: obj[key] }), {});
+  const result = {};
+  for (const key of keys) {
+    if (obj[key]) {
+      result[key] = obj[key];
+    }
+  }
+  return result;
 }

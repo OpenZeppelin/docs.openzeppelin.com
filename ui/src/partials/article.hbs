@@ -1,10 +1,10 @@
 <div class="article-wrapper">
 	<article class="article doc">
-		{{#with @root.page.component.deprecated}}
+		{{#if (in @root.page.component.name (split "network-js, gsn-provider, gsn-helpers, starter-kits"))}}
 			<div class="article-banner">
-			<b>{{@root.page.component.title}}</b> is in maintenance mode. We are no longer actively developing new features for this project, and will only be releasing fixes for high severity issues{{#if maintenance-until}} until {{{maintenance-until}}}{{/if}}. {{#if announcement-url}}Read <a href="{{{announcement-url}}}" target="_blank_">here</a> for more info.{{/if}}
+			<b>{{@root.page.component.title}}</b> is in maintenance mode. We are no longer actively developing new features for this project, and will only be releasing fixes for high severity issues until July 2020. Read <a href="https://example.org" target="_blank">here</a> for more info.
 			</div>
-		{{/with}}
+		{{/if}}
 		<h1>{{{page.title}}}</h1>
 		{{{page.contents}}}
                 <div class="article-navigation">
