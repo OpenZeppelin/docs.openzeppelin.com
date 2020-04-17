@@ -30,15 +30,5 @@ xref:learn::connecting-to-public-test-networks.adoc[[.card-title]#Connecting to 
 
 [.card.card-learn]
 --
-xref:learn::building-a-dapp.adoc[[.card-title]#Building a Dapp# [.card-body]#Create a decentralized web app using OpenZeppelin Network JS and Hot Loader, or simply unpack a Starter Kit.#]
---
-
-[.card.card-learn]
---
-xref:learn::sending-gasless-transactions.adoc[[.card-title]#Sending Gasless Transactions# [.card-body]#Leverage the Gas Station Network so your users can send transactions without having ETH to pay for gas.#]
---
-
-[.card.card-learn]
---
 xref:learn::preparing-for-mainnet.adoc[[.card-title]#Preparing for Mainnet# [.card-body]#All the boxes you need to check before taking your project to production on the main Ethereum network.#]
 --
