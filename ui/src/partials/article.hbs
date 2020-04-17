@@ -1,5 +1,10 @@
 <div class="article-wrapper">
 	<article class="article doc">
+		{{#with @root.page.component.deprecated}}
+			<div class="article-banner">
+			<b>{{@root.page.component.title}}</b> is in maintenance mode. We are no longer actively developing new features for this project, and will only be releasing fixes for high severity issues{{#if maintenance-until}} until {{{maintenance-until}}}{{/if}}. {{#if announcement-url}}Read <a href="{{{announcement-url}}}" target="_blank_">here</a> for more info.{{/if}}
+			</div>
+		{{/with}}
 		<h1>{{{page.title}}}</h1>
 		{{{page.contents}}}
                 <div class="article-navigation">
