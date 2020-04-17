@@ -8,24 +8,23 @@
   {{#if (eq @root.page.component.name "openzeppelin")}}
   <div class="nav-components">
     <h3 class="nav-title">Start here</h3>
-    {{#select site.components "openzeppelin, learn"}}
-    <div class="nav-component">
-      <a class="flex align-center" href="{{{./url}}}" tabindex="0">
-        <img class="nav-icon" src="{{@root.uiRootPath}}/images/icons/{{{this.name}}}.svg">
-        <span class="nav-component-heading">{{{./title}}}</span>
-      </a>
-    </div>
-    {{/select}}
-    <h3 class="nav-title">Tools &amp; Libraries</h3>
-    {{#sorted site.components "contracts, cli, starter-kits, test-environment, test-helpers, upgrades, network.js, gsn-provider, gsn-helpers, contract-loader"}}
-    {{#unless deprecated}}
-    <div class="nav-component">
-      <a class="flex align-center" href="{{{./url}}}" tabindex="0">
-        <img class="nav-icon" src="{{@root.uiRootPath}}/images/icons/{{{this.name}}}.svg">
-        <span class="nav-component-heading">{{{./title}}}</span>
-      </a>
-    </div>
-    {{/unless}}
+    {{#pick site.components "openzeppelin, learn"}}
+      {{> navigation-component }}
+    {{/pick}}
+    
+    <h3 class="nav-title">Our Tools &amp; Libraries</h3>
+    {{#sorted site.components "contracts, contract-loader, cli, upgrades, starter-kits, test-helpers, test-environment, network.js, gsn-provider, gsn-helpers, docgen, hot-loader"}}
+      {{#unless deprecated}}
+        {{> navigation-component }}
+      {{/unless}}
+    {{/sorted}}
+    {{#if (any site.components "deprecated")}}
+      <h3 class="nav-title">Maintenance updates only</h3>
+    {{/if}}
+    {{#sorted site.components "contracts, contract-loader, cli, upgrades, starter-kits, test-helpers, test-environment, network.js, gsn-provider, gsn-helpers, docgen, hot-loader"}}
+      {{#if deprecated}}
+        {{> navigation-component }}
+      {{/if}}
     {{/sorted}}
   </div>
 

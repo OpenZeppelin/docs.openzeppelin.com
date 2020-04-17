@@ -89,6 +89,7 @@ site:
       name: network-js
       title: Network JS
       url: '#'
+      deprecated: true
       versions:
       - &latest_version_abc
         url: '#' 
