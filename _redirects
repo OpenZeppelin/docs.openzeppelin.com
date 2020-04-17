@@ -1,3 +1,10 @@
+########################
+# NOTE ABOUT REDIRECTS #
+########################
+# Redirects can be added either here or in netlify.toml. The rules in this file
+# will have the highest priority, higher even than those added at build time by
+# scripts/latest-redirects.js. If in doubt, use this file.
+
 https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301!
 
 # Contracts docsite migration
