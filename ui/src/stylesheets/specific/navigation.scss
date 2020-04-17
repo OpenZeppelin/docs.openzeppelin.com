@@ -25,6 +25,23 @@
 
 .nav-components {
   height: calc(100% - 25px);
+
+  hr {
+    background-color: var(--aluminum-4);
+    border-style: none;
+    height: 1px;
+  }
+}
+
+.nav-title {
+  margin: 1em 0 .2em 0;
+  padding: 0;
+  font-size: .8em;
+  font-family: var(--heading);
+  color: var(--aluminum-5);
+  letter-spacing: .05em;
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
 }
 
 .btn-back {
