@@ -30,11 +30,15 @@ xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#A library of mo
 xref:cli::index.adoc[[.card-title]#CLI# [.card-body]#A command-line tool to help you deploy+++,+++ upgrade+++,+++ and interact with your smart contracts.# [.card-cta]#Get started >#]
 --
 
-[.card.card-primary.card-starter-kits]
+[.card.card-primary.card-test-helpers]
 --
-xref:starter-kits::index.adoc[[.card-title]#Starter Kits# [.card-body]#Bundles to bootstrap your decentralized web application.# [.card-cta]#Get started >#]
+xref:test-helpers::index.adoc[[.card-title]#Test Helpers# [.card-body]#A JavaScript library of common assertions for smart contracts+++,+++ which can be used with test-environment+++,+++ truffle+++,+++ or vanilla web3-js setups.#]
 --
 
+[.card.card-secondary.card-contract-loader]
+--
+xref:contract-loader::index.adoc[[.card-title]#Contract Loader# [.card-body]#A minimal JavaScript library for loading contract artifacts by name or ABI.#]
+--
 
 [.card.card-secondary.card-upgrades-js]
 --
@@ -46,34 +50,9 @@ xref:upgrades::index.adoc[[.card-title]#Upgrades# [.card-body]#A JavaScript libr
 xref:test-environment::index.adoc[[.card-title]#Test Environment# [.card-body]#A JavaScript library for creating a testing environment for contracts+++,+++ which plays nice with Mocha+++,+++ Ava+++,+++ and Jest.#]
 --
 
-[.card.card-secondary.card-test-helpers]
---
-xref:test-helpers::index.adoc[[.card-title]#Test Helpers# [.card-body]#A JavaScript library of common assertions for smart contracts+++,+++ which can be used with `test-environment`+++,+++ `truffle`+++,+++ or vanilla `web3-js` setups.#]
---
-
-[.card.card-secondary.card-network-js]
---
-xref:network-js::index.adoc[[.card-title]#Network JS# [.card-body]#A JavaScript library for easily connecting to the Ethereum network from a dapp+++,+++ used in most Starter Kits.#]
---
-
-[.card.card-secondary.card-gsn-helpers]
---
-xref:gsn-helpers::index.adoc[[.card-title]#GSN Helpers# [.card-body]#A thin CLI and JavaScript library for simplifying development of an application using the Gas Station Network.#]
---
-
-[.card.card-secondary.card-gsn-provider]
---
-xref:gsn-provider::index.adoc[[.card-title]#GSN Provider# [.card-body]#A `web3-js` provider for seamlessly sending gasless transactions via the Gas Station Network.#]
---
-
 [.card.card-secondary.card-contract-loader]
 --
 https://github.com/OpenZeppelin/solidity-loader[[.card-title]#Hot Loader# [.card-body]#A webpack plugin for automatically compiling and upgrading your contracts locally while you develop.#]
---
-
-[.card.card-secondary.card-contract-loader]
---
-xref:contract-loader::index.adoc[[.card-title]#Contract Loader# [.card-body]#A minimal JavaScript library for loading contract artifacts by name or ABI.#]
 --
 
 [.card.card-secondary.card-solidity-docgen]

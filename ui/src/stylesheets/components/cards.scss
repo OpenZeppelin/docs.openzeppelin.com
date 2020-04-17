@@ -95,8 +95,8 @@
   background-image: linear-gradient(-134deg, #3677ff 0%, #1ecff7 100%);
 }
 
-.card-starter-kits a {
-  --card-icon: url(../images/kit_white.svg);
+.card-test-helpers a { 
+  --card-icon: url(../images/test-helpers_white.svg);
   background-image: linear-gradient(-135deg, #00e1d4 0%, #00c7f2 100%);
 }
 
@@ -115,7 +115,6 @@
 
 .card-upgrades-js { --card-icon: url(../images/icons/sdk.svg); }
 .card-test-environment { --card-icon: url(../images/icons/test-environment.svg); }
-.card-test-helpers { --card-icon: url(../images/icons/test-helpers.svg); }
 .card-network-js { --card-icon: url(../images/icons/network-js.svg); }
 .card-gsn-helpers { --card-icon: url(../images/icons/gsn-helpers.svg); }
 .card-gsn-provider { --card-icon: url(../images/icons/gsn-provider.svg); }
