@@ -8,6 +8,7 @@
   from = "/"
   to = "/openzeppelin"
   status = 302
+  force = true
 
 # The Starter Kit component used to have version 2.3 before it was made versionless.
 [[redirects]]
