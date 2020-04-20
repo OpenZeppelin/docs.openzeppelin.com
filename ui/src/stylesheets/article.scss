@@ -246,7 +246,7 @@
 .article-banner {
   background-color: var(--aluminum-2);
   border: solid 1px var(--aluminum-4);
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   padding: 10px;
   margin: 0 -10px;
 }
