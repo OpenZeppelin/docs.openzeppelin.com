@@ -71,3 +71,4 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 /contracts/3.x/api/drafts /contracts/3.x/drafts 301
 /contracts/3.x/api/lifecycle /contracts/3.x/api/utils 301
 /contracts/3.x/api/ownership /contracts/3.x/api/access 301
+/contracts/api/deploy-ready /contracts/api/presets 301
