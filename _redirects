@@ -74,4 +74,4 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 /contracts/api/deploy-ready /contracts/api/presets 301
 
 # OpenZeppelin Contracts 3.0-rc redirect
-https://docs.openzeppelin.com/contracts/3.x-rc/* https://docs.openzeppelin.com/contracts/3.x/:splat 301!
+/contracts/3.x-rc/* /contracts/3.x/:splat 301
