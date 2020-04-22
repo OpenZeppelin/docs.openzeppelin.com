@@ -2,12 +2,21 @@
   command = "yarn build"
   publish = "build/site"
 
+########################
+# NOTE ABOUT REDIRECTS #
+########################
+# Redirects can be added either here or in _redirects. The rules in this file
+# will have the lowest priority, not only lower than those seen in _redirects
+# but also lower than those added at build time by scripts/latest-redirects.js.
+# If in doubt, use _redirects.
+
 # This replaces the meta refresh with an HTTP refresh that doesn't have an
 # index.html suffix
 [[redirects]]
   from = "/"
   to = "/openzeppelin"
   status = 302
+  force = true
 
 # The Starter Kit component used to have version 2.3 before it was made versionless.
 [[redirects]]
