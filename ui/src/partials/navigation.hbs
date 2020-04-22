@@ -7,14 +7,20 @@
 
   {{#if (eq @root.page.component.name "openzeppelin")}}
   <div class="nav-components">
-    {{#sorted site.components "openzeppelin, learn, contracts, cli, starter-kits, test-environment, test-helpers, upgrades, network.js, gsn-provider, gsn-helpers, contract-loader"}}
-    <div class="nav-component">
-      <a class="flex align-center" href="{{{./url}}}" tabindex="0">
-        <img class="nav-icon" src="{{@root.uiRootPath}}/images/icons/{{{this.name}}}.svg">
-        <span class="nav-component-heading">{{{./title}}}</span>
-      </a>
-    </div>
+    <h3 class="nav-title">Start here</h3>
+    {{#each (pick site.components "openzeppelin, learn")}}
+      {{> navigation-component }}
+    {{/each}}
+    
+    <h3 class="nav-title">Our Tools &amp; Libraries</h3>
+    {{#sorted (omit site.components "openzeppelin, learn, starter-kits, network-js, gsn-provider, gsn-helpers") "contracts, contract-loader, cli, upgrades, test-helpers, test-environment, docgen, hot-loader"}}
+      {{> navigation-component }}
     {{/sorted}}
+
+    <h3 class="nav-title">Maintenance updates only</h3>
+    {{#each (pick site.components "starter-kits, network-js, gsn-provider, gsn-helpers")}}
+      {{> navigation-component }}
+    {{/each}}
   </div>
 
   {{else}}

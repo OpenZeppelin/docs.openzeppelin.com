@@ -39,9 +39,9 @@ site:
         version: '1.x'
         displayVersion: '1.x'
       latestVersion: *latest_version_contracts
-    sdk:
-      name: sdk
-      title: SDK
+    cli:
+      name: cli
+      title: CLI
       url: '#'
       versions:
       - &latest_version_sdk
@@ -52,6 +52,19 @@ site:
         version: '2.4'
         displayVersion: '2.3'
       latestVersion: *latest_version_sdk
+    upgrades:
+      name: upgrades
+      title: Upgrades
+      url: '#'
+      versions:
+      - &latest_version_upgrades
+        url: '#' 
+        version: '2.5'
+        displayVersion: '2.5'
+      - url: '#' 
+        version: '2.4'
+        displayVersion: '2.3'
+      latestVersion: *latest_version_upgrades
     starter-kits:
       name: starter-kits
       title: Starter Kits
