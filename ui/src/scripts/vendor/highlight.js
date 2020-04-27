@@ -1,7 +1,7 @@
 ;(function () {
   'use strict'
 
-  var hljs = require('highlight.js/lib/highlight');
+  var hljs = require('highlight.js/lib/core');
   hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
   hljs.registerLanguage('typescript', require('highlight.js/lib/languages/typescript'));
   hljs.registerLanguage('json', require('highlight.js/lib/languages/json'));
