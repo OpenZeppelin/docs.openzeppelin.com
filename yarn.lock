@@ -9,6 +9,14 @@
   dependencies:
     asciidoctor.js "1.5.9"
 
+"@antora/asciidoc-loader@2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@antora/asciidoc-loader/-/asciidoc-loader-2.3.0.tgz#e9917dd0a61ede76b337f32ac59abc27d3398f8f"
+  integrity sha512-mncSlmkk6rYH5SGplZtHjuieG3ve5bhm4x0f9WIFE+GhqajIogDjxTBNWNr9B2dVA4bMves7Sy+c5h+f9V3iVw==
+  dependencies:
+    asciidoctor.js "1.5.9"
+    opal-runtime "1.0.11"
+
 "@antora/cli@^2.0.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@antora/cli/-/cli-2.2.0.tgz#24f1be8d2c15929ce4863fb62633a26e73366465"
@@ -64,12 +72,12 @@
     js-yaml "~3.13"
     json5 "~2.1"
 
-"@antora/redirect-producer@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@antora/redirect-producer/-/redirect-producer-2.2.0.tgz#1d22c7f5df50243a38e17dcd40c26b6a13f77d12"
-  integrity sha512-ZkUe95Wj3TiFrbXA0sRDCv+0yD1HxI84/2pQj6cnMV01vrfj9HKeMdbBG1Sgf5bmaDDJ1nImlT0l2g6t+pBIJg==
+"@antora/redirect-producer@2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@antora/redirect-producer/-/redirect-producer-2.3.0.tgz#0a0516cde38ba97f339182553d99842aa6a95719"
+  integrity sha512-/632VZlkpFIh5KlV3A9LqE4yGtYyQ+1vOb5A9yajYWsCnhqNfEMslMWuoLoQk4gzs3Ju+hz5MrAXp8sn1vbRvg==
   dependencies:
-    "@antora/asciidoc-loader" "2.2.0"
+    "@antora/asciidoc-loader" "2.3.0"
     vinyl "~2.2"
 
 "@antora/site-mapper@2.2.0":
