@@ -1,19 +1,34 @@
 {
   "name": "content-aggregator",
-  "version": "2.0.0",
-  "license": "MPL-2.0",
+  "version": "2.3.0",
   "private": true,
+  "description": "Fetches and aggregates content from distributed sources for use in an Antora documentation pipeline.",
+  "license": "MPL-2.0",
+  "author": "OpenDevise Inc. (https://opendevise.com)",
+  "contributors": [
+    "Dan Allen <dan@opendevise.com>",
+    "Sarah White <sarah@opendevise.com>",
+    "Hubert SABLONNIÈRE <hubert.sablonniere@gmail.com>",
+    "Balachandran Sivakumar <balachandran@balachandran.org>"
+  ],
+  "homepage": "https://antora.org",
+  "repository": "gitlab:antora/antora",
+  "bugs": {
+    "url": "https://gitlab.com/antora/antora/issues"
+  },
   "main": "lib/index.js",
   "dependencies": {
     "@antora/expand-path-helper": "~1.0",
+    "braces": "~3.0",
     "cache-directory": "~2.0",
-    "fs-extra": "~9.0",
+    "camelcase-keys": "~6.2",
+    "fs-extra": "~8.1",
     "isomorphic-git": "0.78.5",
     "js-yaml": "~3.13",
-    "lodash": "~4.17",
-    "matcher": "~1.1",
+    "matcher": "~2.1",
     "mime-types": "~2.1",
     "multi-progress": "~2.0",
+    "picomatch": "~2.2",
     "p-limit": "^2.2.1",
     "pkg-dir": "^4.2.0",
     "signal-exit": "^3.0.2",
@@ -29,5 +44,15 @@
   },
   "files": [
     "lib/"
+  ],
+  "keywords": [
+    "antora",
+    "antora-component",
+    "git",
+    "isomorphic-git",
+    "content",
+    "documentation",
+    "static site",
+    "web publishing"
   ]
 }

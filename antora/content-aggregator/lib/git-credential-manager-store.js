@@ -13,53 +13,63 @@ class GitCredentialManagerStore {
     if ((this.contents = (config = config || {}).contents)) {
       this.path = undefined
     } else {
-      const path = config.path
-      this.path = path ? expandPath(path, '~+', startDir) : undefined
+      this.path = config.path ? expandPath(config.path, '~+', startDir) : undefined
     }
+    return this
   }
 
   async load () {
     if (this.entries) return this.entries
-    return (this.entries = new Promise(async (resolve) => {
-      let contents = this.contents
-      let delimiter
-      if (contents) {
+    return (this.entries = new Promise((resolve) => {
+      let contentsPromise, delimiter
+      if (this.contents) {
         delimiter = /[,\n]/
+        contentsPromise = Promise.resolve(this.contents)
       } else {
         delimiter = '\n'
-        let path = this.path || ospath.join(homedir(), '.git-credentials')
-        contents = await fs.pathExists(path).then((exists) => {
+        let credentialsPath = this.path || ospath.join(homedir(), '.git-credentials')
+        contentsPromise = fs.pathExists(credentialsPath).then((exists) => {
           if (exists) {
-            return fs.readFile(path, 'utf-8')
+            return fs.readFile(credentialsPath, 'utf-8')
           } else {
             const xdgConfigHome = process.env.XDG_CONFIG_HOME || ospath.join(homedir(), '.config')
-            path = ospath.join(xdgConfigHome, 'git', 'credentials')
             return fs
-              .pathExists(path)
-              .then((fallbackExists) => (fallbackExists ? fs.readFile(path, 'utf-8') : undefined))
+              .pathExists((credentialsPath = ospath.join(xdgConfigHome, 'git', 'credentials')))
+              .then((fallbackExists) => (fallbackExists ? fs.readFile(credentialsPath, 'utf-8') : undefined))
           }
         })
-        if (!contents) return resolve({})
       }
-      resolve(
-        contents
-          .trim()
-          .split(delimiter)
-          .reduce((accum, url) => {
-            try {
-              const { username, password, hostname, pathname } = new URL(url)
-              const credentials = password ? { username, password } : username ? { token: username } : undefined
-              if (!credentials) return accum
-              if (pathname === '/') {
-                accum[hostname] = credentials
-              } else {
-                accum[hostname + pathname] = credentials
-                if (!pathname.endsWith('.git')) accum[hostname + pathname + '.git'] = credentials
-              }
-            } catch (e) {}
-            return accum
-          }, {})
-      )
+      contentsPromise.then((contents) => {
+        if (contents) {
+          resolve(
+            contents
+              .trim()
+              .split(delimiter)
+              .reduce((accum, url) => {
+                try {
+                  const { username, password, hostname, pathname } = new URL(url)
+                  let credentials
+                  if (password) {
+                    credentials = { username: decodeURIComponent(username), password: decodeURIComponent(password) }
+                  } else if (username) {
+                    credentials = { token: decodeURIComponent(username) }
+                  } else {
+                    return accum
+                  }
+                  if (pathname === '/') {
+                    accum[hostname] = credentials
+                  } else {
+                    accum[hostname + pathname] = credentials
+                    if (!pathname.endsWith('.git')) accum[hostname + pathname + '.git'] = credentials
+                  }
+                } catch (e) {}
+                return accum
+              }, {})
+          )
+        } else {
+          resolve({})
+        }
+      })
     }))
   }
 
