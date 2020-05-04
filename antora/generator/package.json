@@ -8,7 +8,7 @@
     "@antora/asciidoc-loader": "2.3.0",
     "@antora/content-classifier": "2.3.0",
     "@antora/document-converter": "2.3.0",
-    "@antora/navigation-builder": "2.3.0",
+    "@antora/navigation-builder": "2.3.1",
     "@antora/page-composer": "2.3.0",
     "@antora/playbook-builder": "2.3.0",
     "@antora/redirect-producer": "2.3.0",
