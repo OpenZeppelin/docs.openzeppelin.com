@@ -10,6 +10,14 @@
     asciidoctor.js "1.5.9"
     opal-runtime "1.0.11"
 
+"@antora/asciidoc-loader@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@antora/asciidoc-loader/-/asciidoc-loader-2.3.1.tgz#4e7bb806f0b8592b04a9d621b0ef465d21148ad6"
+  integrity sha512-YSf5oEExzrR+O7FizQAeIYyP/BAGvhGw9inACFF3Er3fzCR/sOvPadT6a/slW//tVGLF3eul0ARvw7QAvo6yHQ==
+  dependencies:
+    asciidoctor.js "1.5.9"
+    opal-runtime "1.0.11"
+
 "@antora/cli@^2.0.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@antora/cli/-/cli-2.3.0.tgz#e8bc5509fa7742249c338ec49ad28582c3765e35"
@@ -24,6 +32,14 @@
   integrity sha512-x/GUrm62+zSA8uQYaPG1y8NDALSDeKKl+um0CrxV5nt8c6vEO80KODN4YEPqoC0tOq8zdT99J6ElYblpkxrW6Q==
   dependencies:
     "@antora/asciidoc-loader" "2.3.0"
+    vinyl "~2.2"
+
+"@antora/content-classifier@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@antora/content-classifier/-/content-classifier-2.3.1.tgz#c1702f036a3a4c0f8a8f15d13d644e72707e2818"
+  integrity sha512-d9vfhxcJY8DdU43h93cK96/Te2eKcJeA4pCljQrRUFpguZndMVrmWMxp8wzOYYSMIIukwcZVa3AISz86RNvrYA==
+  dependencies:
+    "@antora/asciidoc-loader" "2.3.1"
     vinyl "~2.2"
 
 "@antora/document-converter@2.3.0":
@@ -73,12 +89,12 @@
     "@antora/asciidoc-loader" "2.3.0"
     vinyl "~2.2"
 
-"@antora/site-mapper@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@antora/site-mapper/-/site-mapper-2.3.0.tgz#08c75114e679512f4298db34709836fd38c779a9"
-  integrity sha512-XzIoYKJQXgOzsDeUlL/edVR9B9aaCYUHADvzYqDc1S5/czFQxpqIIgMfYCiYYc7pHk6nmj5rgx/6HfvDImv87w==
+"@antora/site-mapper@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@antora/site-mapper/-/site-mapper-2.3.1.tgz#b00af5e9ad37e6d024f156f42ca8c8a559854b83"
+  integrity sha512-EkHEEPz0CfLJuE8lx6s9b8+jEC8krFN29zAqK6WaOTi34Tqhv5H/W14mk7IJfy8nWjIjZgP/q/a8gJK9LegYaw==
   dependencies:
-    "@antora/content-classifier" "2.3.0"
+    "@antora/content-classifier" "2.3.1"
     vinyl "~2.2"
 
 "@antora/site-publisher@2.3.0":
