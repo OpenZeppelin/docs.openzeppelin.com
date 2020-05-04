@@ -6,7 +6,7 @@
   "main": "lib/index.js",
   "dependencies": {
     "@antora/asciidoc-loader": "2.3.1",
-    "@antora/content-classifier": "2.3.0",
+    "@antora/content-classifier": "2.3.1",
     "@antora/document-converter": "2.3.1",
     "@antora/navigation-builder": "2.3.1",
     "@antora/page-composer": "2.3.0",

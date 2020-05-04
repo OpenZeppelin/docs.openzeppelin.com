@@ -26,14 +26,6 @@
     "@antora/playbook-builder" "2.3.1"
     commander "~5.1"
 
-"@antora/content-classifier@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@antora/content-classifier/-/content-classifier-2.3.0.tgz#c0312b739a30346b6c06a664043a7627ffbbaa1f"
-  integrity sha512-x/GUrm62+zSA8uQYaPG1y8NDALSDeKKl+um0CrxV5nt8c6vEO80KODN4YEPqoC0tOq8zdT99J6ElYblpkxrW6Q==
-  dependencies:
-    "@antora/asciidoc-loader" "2.3.0"
-    vinyl "~2.2"
-
 "@antora/content-classifier@2.3.1":
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@antora/content-classifier/-/content-classifier-2.3.1.tgz#c1702f036a3a4c0f8a8f15d13d644e72707e2818"
@@ -68,18 +60,6 @@
   dependencies:
     handlebars "~4.7"
     require-from-string "~2.0"
-
-"@antora/playbook-builder@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@antora/playbook-builder/-/playbook-builder-2.3.0.tgz#b43bcd5fe5d3dc506082a821e9a161f61ffa5b7c"
-  integrity sha512-zuuTqY5dDXYhu4LfmFW3qzdFXSrXSo9NCDX9eBJ6MCXsuj64PqdOljzv4rWNy3HvmKOSCupfWCashJS0vuH2Dw==
-  dependencies:
-    "@iarna/toml" "~2.2"
-    camelcase-keys "~6.2"
-    convict "~5.2"
-    deep-freeze-node "~1.1"
-    js-yaml "~3.13"
-    json5 "~2.1"
 
 "@antora/playbook-builder@2.3.1":
   version "2.3.1"
