@@ -65,6 +65,17 @@
     js-yaml "~3.13"
     json5 "~2.1"
 
+"@antora/playbook-builder@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@antora/playbook-builder/-/playbook-builder-2.3.1.tgz#b93f530594e7bb6a465202328f5bba8d1495fbb8"
+  integrity sha512-/gl4H/0ey/Uc80GaomZoz10c/f8TX4bQ70SR+BlKrwjwsHCskfffVa+jvMAjnOlP0SGEPwIGkifWPGQbTHdH7A==
+  dependencies:
+    "@iarna/toml" "~2.2"
+    camelcase-keys "~6.2"
+    convict "~5.2"
+    js-yaml "~3.13"
+    json5 "~2.1"
+
 "@antora/redirect-producer@2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@antora/redirect-producer/-/redirect-producer-2.3.0.tgz#0a0516cde38ba97f339182553d99842aa6a95719"
