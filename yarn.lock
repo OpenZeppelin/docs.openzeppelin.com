@@ -97,10 +97,10 @@
     "@antora/content-classifier" "2.3.1"
     vinyl "~2.2"
 
-"@antora/site-publisher@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@antora/site-publisher/-/site-publisher-2.3.0.tgz#16f66d0133cee5cb2d77e806e9c58817c7e45a45"
-  integrity sha512-2qC0fDE70VKtyttPpRx9glPWL4M5x7HYVCs1K6+GmpuISmljO3c/09L+ExPsJiSVVFarnWmMu0w+76XqSRHlog==
+"@antora/site-publisher@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@antora/site-publisher/-/site-publisher-2.3.1.tgz#e590224b295b5b2df521e01f9f886033bbc1f42b"
+  integrity sha512-s42S+e3IF5qLgL7N42LpcGc2+UcsJBrY9B10fUP0WQFM51LsNWIwQmU3EheoSEUjo5JvQYi5vlQsHlb7j8TCPA==
   dependencies:
     "@antora/expand-path-helper" "~1.0"
     fs-extra "~8.1"
