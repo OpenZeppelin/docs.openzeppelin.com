@@ -42,12 +42,12 @@
     "@antora/asciidoc-loader" "2.3.1"
     vinyl "~2.2"
 
-"@antora/document-converter@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@antora/document-converter/-/document-converter-2.3.0.tgz#ac6c4a659bcc573806469949ecf75bf6c4570506"
-  integrity sha512-RMvdqBIz+pXf5znuyVeR7GF8qw/zLfaRMmEzMzywYa+8Cappxy+pgs+BuAuH1TdAnsFzpPrIO211c2FE1OxXBg==
+"@antora/document-converter@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@antora/document-converter/-/document-converter-2.3.1.tgz#d150b7bc252fa6ce7f63d88f2a9fcdd6341a39d4"
+  integrity sha512-5vnr3twkunAkv04NaqgLtXQTTlRNsvTo/jpVrUQ6DNQHE3l3Sr0z/6u4GWkueI95L/PFlFQ79WUNsBPLICfLrA==
   dependencies:
-    "@antora/asciidoc-loader" "2.3.0"
+    "@antora/asciidoc-loader" "2.3.1"
 
 "@antora/expand-path-helper@~1.0":
   version "1.0.0"
