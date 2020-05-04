@@ -10,6 +10,14 @@
     asciidoctor.js "1.5.9"
     opal-runtime "1.0.11"
 
+"@antora/asciidoc-loader@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@antora/asciidoc-loader/-/asciidoc-loader-2.3.1.tgz#4e7bb806f0b8592b04a9d621b0ef465d21148ad6"
+  integrity sha512-YSf5oEExzrR+O7FizQAeIYyP/BAGvhGw9inACFF3Er3fzCR/sOvPadT6a/slW//tVGLF3eul0ARvw7QAvo6yHQ==
+  dependencies:
+    asciidoctor.js "1.5.9"
+    opal-runtime "1.0.11"
+
 "@antora/cli@^2.0.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@antora/cli/-/cli-2.3.0.tgz#e8bc5509fa7742249c338ec49ad28582c3765e35"
