@@ -4636,10 +4636,10 @@ highlight.js@~10.0:
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.0.1.tgz#32ba25ee532291b86d1480b809a7e38bcd7f6dfe"
   integrity sha512-l1HB5S9nmBuvurFIOPbpeJv4psKh2MyKCTOYRK/E6dwRXkbG96PLH7amP/xpGNyZOK8OWqv45DxLS/ZAIb3n9w==
 
-highlightjs-solidity@1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/highlightjs-solidity/-/highlightjs-solidity-1.0.12.tgz#74c481916873cf2ca9b036f6173535ad1abd824b"
-  integrity sha512-kx91S0PiprCTjMtFhl1lNphjDu8ZL75N/4tHxUJiY0j+DDJjQ0UtV8TXYoU9hg8UDZ5pKaKUxhynjfVWWPxMsg==
+highlightjs-solidity@1.0.14:
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/highlightjs-solidity/-/highlightjs-solidity-1.0.14.tgz#a8b9778bd95f3754752fed51f8bb40ab7eb1cd2f"
+  integrity sha512-NhU/f45QKrdJzX9+rw6AC9oUvBdl9QBzsVHya74yJ8FEl1BpZwkT+0u9u5qg3zta3Ofh4quVmr+aLR1Mrvzvcg==
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
