@@ -91,10 +91,10 @@
     vinyl "~2.2"
     vinyl-fs "~3.0"
 
-"@antora/ui-loader@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@antora/ui-loader/-/ui-loader-2.3.0.tgz#3282e28576234d9ad7ad135188c1e2a82640ed33"
-  integrity sha512-EcBUwd4ImWI/BH0dZpH6CfDzBnAtQ2qUPChaeqVbmfCNpBvH6t09YYRVA713no21ypAF3AwBs3FGU1+vR6T/IQ==
+"@antora/ui-loader@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@antora/ui-loader/-/ui-loader-2.3.1.tgz#cfffa326c455ec05b2017390d61b5807e18d2b8f"
+  integrity sha512-0uZDixaamnMnGJvl1M5bqW2ac8+6W2KZcfOTwPBEJJCLTGiZe4GASB+zR7tXNyrUr51zLuCjxPNcEbzGEfRxAQ==
   dependencies:
     "@antora/expand-path-helper" "~1.0"
     bl "~4.0"
