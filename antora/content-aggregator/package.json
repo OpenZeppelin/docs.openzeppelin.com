@@ -25,7 +25,7 @@
     "fs-extra": "~8.1",
     "isomorphic-git": "0.78.5",
     "js-yaml": "~3.13",
-    "matcher": "~2.1",
+    "matcher": "~3.0",
     "mime-types": "~2.1",
     "multi-progress": "~2.0",
     "picomatch": "~2.2",
