@@ -28,7 +28,7 @@
     "browser-sync": "^2.26.7",
     "browserify": "^16.3.0",
     "chokidar": "^3.0.2",
-    "convict": "^5.0.0",
+    "convict": "^6.0.0",
     "cssnano": "^4.1.10",
     "eslint": "^6.0.1",
     "eslint-config-standard": "^13.0.1",
