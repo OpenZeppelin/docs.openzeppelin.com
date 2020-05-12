@@ -53,10 +53,10 @@
   dependencies:
     "@antora/asciidoc-loader" "2.3.1"
 
-"@antora/page-composer@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@antora/page-composer/-/page-composer-2.3.0.tgz#1446934f4ae033b8230aac6f2f08b3270f7613b1"
-  integrity sha512-ve4h3uColNuqGehSJ2qUw5dar1Ls3i+RBYh2HyVZZ84qjLoOjPGAALFYzRVJnYlEX6nAswNFhh5ll/hIuaxuHQ==
+"@antora/page-composer@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@antora/page-composer/-/page-composer-2.3.1.tgz#a81dda7c5de69e9225297b068f11297485814416"
+  integrity sha512-HVZR5GgF+aA41Y0FVOmRHkI5Hn+ab4giJ5FvKwMZlqF10zd0u+rne6+0664kC08wYUIr40/OMayCRgIHPqEwuQ==
   dependencies:
     handlebars "~4.7"
     require-from-string "~2.0"
