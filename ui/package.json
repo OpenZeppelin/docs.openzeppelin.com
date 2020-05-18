@@ -54,7 +54,7 @@
     "gulp-vinyl-zip": "~2.2.0",
     "handlebars": "~4.7",
     "highlight.js": "~10.0",
-    "highlightjs-solidity": "1.0.14",
+    "highlightjs-solidity": "1.0.15",
     "js-yaml": "~3.13",
     "lodash.debounce": "^4.0.8",
     "map-stream": "^0.0.7",
