@@ -51,7 +51,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-stylelint": "~11.0",
     "gulp-uglify-es": "^2.0.0",
-    "gulp-vinyl-zip": "~2.2.0",
+    "gulp-vinyl-zip": "~2.4.0",
     "handlebars": "~4.7",
     "highlight.js": "~10.0",
     "highlightjs-solidity": "1.0.14",
