@@ -35,11 +35,6 @@ xref:cli::index.adoc[[.card-title]#CLI# [.card-body]#A command-line tool to help
 xref:test-helpers::index.adoc[[.card-title]#Test Helpers# [.card-body]#A JavaScript library of common assertions for smart contracts+++,+++ which can be used with test-environment+++,+++ truffle+++,+++ or vanilla web3-js setups.#]
 --
 
-[.card.card-secondary.card-contract-loader]
---
-xref:contract-loader::index.adoc[[.card-title]#Contract Loader# [.card-body]#A minimal JavaScript library for loading contract artifacts by name or ABI.#]
---
-
 [.card.card-secondary.card-upgrades-js]
 --
 xref:upgrades::index.adoc[[.card-title]#Upgrades# [.card-body]#A JavaScript library for managing upgradeable contracts+++,+++ which powers the OpenZeppelin CLI.#]
@@ -48,6 +43,11 @@ xref:upgrades::index.adoc[[.card-title]#Upgrades# [.card-body]#A JavaScript libr
 [.card.card-secondary.card-test-environment]
 --
 xref:test-environment::index.adoc[[.card-title]#Test Environment# [.card-body]#A JavaScript library for creating a testing environment for contracts+++,+++ which plays nice with Mocha+++,+++ Ava+++,+++ and Jest.#]
+--
+
+[.card.card-secondary.card-contract-loader]
+--
+xref:contract-loader::index.adoc[[.card-title]#Contract Loader# [.card-body]#A minimal JavaScript library for loading contract artifacts by name or ABI.#]
 --
 
 [.card.card-secondary.card-contract-loader]
