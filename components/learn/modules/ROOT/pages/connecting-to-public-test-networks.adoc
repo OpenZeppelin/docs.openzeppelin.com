@@ -54,7 +54,7 @@ To send transactions in a testnet, you will need a new Ethereum account. There a
 [source,console]
 ----
 $ npx mnemonics
-mistake pelican mention moment ...
+pioneer tent curve wild ...
 ----
 
 WARNING: Make sure to keep your mnemonic secure. Even if it is just for testing purposes, there are still malicious users out there who will wreak havoc on your testnet deployment for fun!
@@ -103,7 +103,7 @@ Note in the first line that we are loading the project id and mnemonic from a `s
 [source,json]
 ----
 {
-  "mnemonic": "mistake pelican mention moment ...",
+  "mnemonic": "pioneer tent curve wild ...",
   "projectId": "305c13705054a8d918ad77549e402c72"
 }
 ----
@@ -115,14 +115,14 @@ We can now test out that this configuration is working by listing the accounts w
 [source,console]
 ----
 $ npx oz accounts
-? Pick a network: rinkeby
+? Pick a network rinkeby
 Accounts for rinkeby:
-Default: 0xf0A9eD2663311CE436347Bb6F240181FF103CA16
+Default: 0xc38C62Af27e329aD58e889E7AE3070B1db571eB0
 All:
-- 0: 0xf0A9eD2663311CE436347Bb6F240181FF103CA16
-- 1: 0x3B9861c7D3e7BBd41602d9FfaCEF10BC04867Bc0
-- 2: 0x8C7623AC7Fe2E635Fa256791C25dA2c8851c5F08
-- 3: 0xd86f3FeeFd93bd19acaFd212D8630DEDeb56C6bd
+- 0: 0xc38C62Af27e329aD58e889E7AE3070B1db571eB0
+- 1: 0xE8595815B50088fd4371f2E52fb2F5eeAfd654ac
+- 2: 0x1Ad3B46f8d23d84380c618F4aD33Bf49E2Df7f25
+- 3: 0xebfb88b31bdDead46a909276D3A69e2b712A2Aa3
 ...
 ----
 
@@ -131,9 +131,10 @@ We can also test the connection to the Infura node, by querying our account bala
 [source,console]
 ----
 $ npx oz balance
-? Enter an address to query its balance: 0xf0A9eD2663311CE436347Bb6F240181FF103CA16
-? Pick a network: rinkeby
+? Enter an address to query its balance 0xc38C62Af27e329aD58e889E7AE3070B1db571eB0
+? Pick a network rinkeby
 Balance: 0 ETH
+0
 ----
 
 Empty! This points to our next task: getting testnet funds so that we can send transactions.
@@ -152,32 +153,31 @@ With a project configured to work on a public testnet, we can now finally xref::
 
 [source,console]
 ----
-$ npx oz create
-✓ Compiled contracts with solc 0.5.12 (commit.7709ece9)
-? Pick a contract to instantiate: Box
-? Pick a network: rinkeby
-✓ Contract Box deployed
-? Call a function to initialize the instance after creating it? No
-✓ Setting everything up to create contract instances
-✓ Instance created at 0x59f3855C986920f3087FB801db3bD3B0d2DfE02C
+$ npx oz deploy
+✓ Compiled contracts with solc 0.6.7 (commit.b8d736ae)
+? Choose the kind of deployment regular
+? Pick a network rinkeby
+? Pick a contract to deploy Box
+✓ Deployed instance of Box
+0xA1a05372ECD1353105543ee46C8AA447547C6680
 ----
 
 That's it! Your `Box` contract instance will be forever stored in the testnet, and publicly accessible to anyone. The OpenZeppelin CLI will keep track of this and all your deployed contracts in `.openzeppelin/rinkeby.json`, so you can easily refer to them later, such as when upgrading or interacting with them.
 
 You can see your contract on a block explorer such as https://etherscan.io/[Etherscan]. Remember to access the explorer on the testnet where you deployed your contract, such as https://rinkeby.etherscan.io[rinkeby.etherscan.io] for Rinkeby.
 
-TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0x59f3855C986920f3087FB801db3bD3B0d2DfE02C[here].
+TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0xA1a05372ECD1353105543ee46C8AA447547C6680[here].
 
 You can also interact with your instance as you regularly would, either using the `call` and `send-tx` xref::deploying-and-interacting.adoc#interacting-from-the-command-line[CLI commands], or xref::deploying-and-interacting.adoc#interacting-programatically[programmatically using `web3`]. You can also xref:upgrading-smart-contracts.adoc[upgrade your contracts] via `oz upgrade` as you add new features to your staging project!
 
 [source,console]
 ----
 $ npx oz send-tx
-? Pick a network: rinkeby
-? Pick an instance: Box at 0x59f3855C986920f3087FB801db3bD3B0d2DfE02C
+? Pick a network rinkeby
+? Pick an instance Box at 0xA1a05372ECD1353105543ee46C8AA447547C6680
 ? Select which function store(newValue: uint256)
-? newValue (uint256): 42
-✓ Transaction successful. Transaction hash: 0x9a664c9566f265a0b11c8741cf27c87b993cf56c76660d19fcfddcdd27b31116
+? newValue: uint256: 42
+✓ Transaction successful. Transaction hash: 0xd6ef798b1c85f5dca1cf4b27f8544d6333dd1ab1f83e61a19f2cb3df203e638c
 Events emitted:
  - ValueChanged(42)
 ----
