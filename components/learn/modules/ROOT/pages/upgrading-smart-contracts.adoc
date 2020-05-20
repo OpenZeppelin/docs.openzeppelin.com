@@ -38,7 +38,9 @@ Let's see how it works, by upgrading the `Box` contract xref:deploying-and-inter
 
 ```solidity
 // contracts/Box.sol
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+
 
 contract Box {
     uint256 private value;
@@ -59,7 +61,34 @@ contract Box {
 }
 ```
 
-NOTE: If you had stopped and restarted ganache between the xref:deploying-and-interacting.adoc[deployment guide] and this one, you will need to first `create` a new `Box` instance, so you can now upgrade it.
+We need to first `deploy` a new `Box` instance as an upgradeable contract (we previously deployed regular non-upgradeable contracts), so we can then upgrade it.
+
+```bash
+$ npx oz deploy
+✓ Compiled contracts with solc 0.6.7 (commit.b8d736ae)
+? Choose the kind of deployment upgradeable
+? Pick a network development
+? Pick a contract to deploy Box
+✓ Contract Box deployed
+All implementations have been deployed
+? Call a function to initialize the instance after creating it? No
+✓ Setting everything up to create contract instances
+✓ Instance created at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
+To upgrade this instance run 'oz upgrade'
+0xCfEB869F69431e42cdB54A4F4f105C19C080A601
+```
+
+Then store a value.
+```bash
+$ npx oz send-tx
+? Pick a network development
+? Pick an instance Box at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
+? Select which function store(newValue: uint256)
+? newValue: uint256: 5
+✓ Transaction successful. Transaction hash: 0x9c15e805959a1fb9cbf6e7e108094b02c3d439ec1190549bff1166731e0e2274
+Events emitted:
+ - ValueChanged(5)
+```
 
 For the sake of the example, let's say we want to add a new feature: a function that increments the `value` stored in the `Box`.
 
@@ -79,12 +108,16 @@ contract Box {
 After changing the Solidity file, we can now just upgrade the instance we had deployed earlier by running the `openzeppelin upgrade` command.
 
 ```bash
-$ npx openzeppelin upgrade
-? Pick a network: development
-✓ Compiled contracts with solc 0.5.9
+$ npx oz upgrade
+? Pick a network development
+? Which instances would you like to upgrade? Choose by name
+? Pick an instance to upgrade Box
+? Call a function on the instance after upgrading it? No
+✓ Compiled contracts with solc 0.6.7 (commit.b8d736ae)
 ✓ Contract Box deployed
-? Which instances would you like to upgrade?: All instances
-Instance upgraded at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601.
+All implementations have been deployed
+✓ Instance upgraded at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601. Transaction receipt: 0xcd85e8481c8e15f37a2822e5ac829cec315484dc8cddde37625270358ff9370f
+✓ Instance at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601 upgraded
 ```
 
 Done! Our `Box` instance has been upgraded to the latest version of the code, *while keeping its state and the same address as before*. We didn't need to deploy a new one at a new address, nor manually copy the `value` from the old `Box` to the new one.
@@ -92,19 +125,20 @@ Done! Our `Box` instance has been upgraded to the latest version of the code, *w
 Let's try it out by invoking the new `increment` function, and checking the `value` afterwards:
 
 ```bash
-$ npx openzeppelin send-tx
-? Pick a network: development
-? Pick an instance: Box at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
-? Select which function: increment()
-✓ Transaction successful: 0x9c84faf32a87a33f517b424518712f1dc5ba0bdac4eae3a67ca80a393c555ece
+$ npx oz send-tx
+? Pick a network development
+? Pick an instance Box at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
+? Select which function increment()
+✓ Transaction successful. Transaction hash: 0xb3eaceb24df52c4933d868113aabb02c12a91080e0c923373e1ddedae7b46325
 Events emitted:
-- ValueChanged(6)
+ - ValueChanged(6)
 
-$ npx openzeppelin call
-? Pick a network: development
-? Pick an instance: Box at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
-? Select which function: retrieve()
+$ npx oz call
+? Pick a network development
+? Pick an instance Box at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
+? Select which function retrieve()
 ✓ Method 'retrieve()' returned: 6
+6
 ```
 
 That's it! Notice how the `value` of the `Box` was preserved throughout the upgrade, as well as its address. And this process is the same regardless of whether you are working on a local blockchain, a testnet, or the main network. Let's see how the OpenZeppelin CLI accomplishes this.
@@ -203,13 +237,18 @@ As an example, let's write a new version of the `Box` contract with an initializ
 
 ```solidity
 // contracts/AdminBox.sol
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
 
 import "@openzeppelin/upgrades/contracts/Initializable.sol";
+
 
 contract AdminBox is Initializable {
     uint256 private value;
     address private admin;
+
+    // Emitted when the stored value changes
+    event ValueChanged(uint256 newValue);
 
     function initialize(address _admin) public initializer {
         admin = _admin;
@@ -217,7 +256,7 @@ contract AdminBox is Initializable {
 
     // Stores a new value in the contract
     function store(uint256 newValue) public {
-        require(msg.sender == admin);
+        require(msg.sender == admin, "AdminBox: not admin");
         value = newValue;
         emit ValueChanged(newValue);
     }
@@ -232,16 +271,19 @@ contract AdminBox is Initializable {
 When deploying this contract, the CLI will prompt us to execute the initializer and ask us to provide the admin address.
 
 ```bash
-$ npx oz create
-✓ Compiled contracts with solc 0.5.9
-? Pick a contract to instantiate: AdminBox
-? Pick a network: development
+$ npx oz deploy
+Nothing to compile, all contracts are up to date.
+? Choose the kind of deployment upgradeable
+? Pick a network development
+? Pick a contract to deploy AdminBox
 ✓ Contract AdminBox deployed
+All implementations have been deployed
 ? Call a function to initialize the instance after creating it? Yes
-? Select which function: initialize(_admin: address)
-? _admin (address): 0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1
-✓ Setting everything up to create contract instances
-✓ Instance created at 0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66
+? Select which function * initialize(admin: address)
+? admin: address: 0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1
+✓ Instance created at 0xC89Ce4735882C9F0f0FE26686c53074E09B0D550
+To upgrade this instance run 'oz upgrade'
+0xC89Ce4735882C9F0f0FE26686c53074E09B0D550
 ```
 
 For all practical purposes, the initializer acts as a constructor. However, keep in mind that since it's a regular function, you will need to manually call the initializers of all base contracts (if any).
