@@ -183,7 +183,7 @@ describe('Box', function () {
 
 No configuration is required: Test Environment will detect the Test Helpers and do the hard work for you.
 
-These will test properties of the `Box` contract xref:developing-smart-contracts.adoc#using-openzeppelin-contracts[from previous guides]: a simple contract that lets you `retrieve` a value the owner previously `store` d.
+These will test properties of the `Box` contract xref:developing-smart-contracts.adoc#using-openzeppelin-contracts[from previous guides]: a simple contract that lets you `retrieve` a value the owner previously `store`d.
 
 Run your tests again to see the Test Helpers in action:
 
