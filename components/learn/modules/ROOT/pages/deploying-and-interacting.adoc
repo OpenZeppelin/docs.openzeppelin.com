@@ -102,7 +102,9 @@ With the <<getting-started-with-the-cli, CLI setup complete>>, we're now ready t
 [[box-contract]]
 ```solidity
 // contracts/Box.sol
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+
 
 contract Box {
     uint256 private value;
@@ -123,25 +125,23 @@ contract Box {
 }
 ```
 
-The OpenZeppelin CLI will guide you through the deployment process, asking for information as needed. Using the `create` command, deploy the `Box` contract to the `development` network (<<local-blockchain, Ganache>>), replying "no" when prompted to initialize:
+The OpenZeppelin CLI will guide you through the deployment process, asking for information as needed. Using the `deploy` command, deploy the `Box` contract to the `development` network (<<local-blockchain, Ganache>>), choosing regular when prompted with the kind of deployment:
 
 ```console
-$ npx oz create
-✓ Compiled contracts with solc 0.5.9
-? Pick a contract to instantiate Box
+$ npx oz deploy
+✓ Compiled contracts with solc 0.6.7 (commit.b8d736ae)
+? Choose the kind of deployment regular
 ? Pick a network development
-✓ Contract Box deployed
-All contracts have been deployed
-? Call a function to initialize the instance after creating it? No
-✓ Setting everything up to create contract instances
-✓ Instance created at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
+? Pick a contract to deploy Box
+✓ Deployed instance of Box
+0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab
 ```
 
 All done! On a real network this process would've taken a couple seconds, but it is instant on local blockchains.
 
 TIP: If you got a connection error, make sure you are <<local-blockchain, running Ganache>> in another terminal.
 
-The CLI will keep track of your deployed contracts, but it also displays their addresses after deployment (in our example, `0xCfEB869F69431e42cdB54A4F4f105C19C080A601`). These values will be useful when interacting with them programatically.
+The CLI will keep track of your deployed contracts, but it also displays their addresses after deployment (in our example, `0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab`). These values will be useful when interacting with them programatically.
 
 NOTE: Remember that local blockchains **do not** persist their state throughout multiple runs! If you close your Ganache process, you'll have to re-deploy your contracts.
 
@@ -159,10 +159,10 @@ This can be achieved with the CLI's `send-tx` command. Pick your `Box` contract 
 ```console
 $ npx oz send-tx
 ? Pick a network development
-? Pick an instance Box at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
+? Pick an instance Box at 0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab
 ? Select which function store(newValue: uint256)
-? newValue (uint256): 5
-✓ Transaction successful. Transaction hash: 0xe2f6d0f14719c1ec4eadcb9addef5661326e0adda5f2072ec6e1cc87d113c393
+? newValue: uint256: 5
+✓ Transaction successful. Transaction hash: 0xd40664c0a80215e964975ab3cea7f27a453c802f01c15cd754aca2c7bd6bd6c1
 Events emitted:
  - ValueChanged(5)
 ```
@@ -178,9 +178,10 @@ You may have noticed `send-tx` didn't include `retrieve` in the list of function
 ```console
 $ npx oz call
 ? Pick a network development
-? Pick an instance Box at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
+? Pick an instance Box at 0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab
 ? Select which function retrieve()
 ✓ Method 'retrieve()' returned: 5
+5
 ```
 
 Because `call` doesn't send a transaction, there is no transaction hash to report. This also means that using `call` doesn't cost any Ether, and can be used for free on any network.
@@ -250,7 +251,7 @@ These accounts should match the ones you got when you ran `oz accounts` earlier.
 [[getting-a-contract-instance]]
 === Getting a Contract Instance
 
-In order to interact with the <<box-contract,`Box`>> contract we <<deploying-a-smart-contract, deployed using the CLI>>, we'll create a new https://web3js.readthedocs.io/en/1.2.4/web3-eth-contract.html[web3 contract instance] using the xref:contract-loader::index.adoc[*OpenZeppelin Contract Loader*].
+In order to interact with the <<box-contract,`Box`>> contract we <<deploying-a-smart-contract, deployed using the CLI>>, we'll create a new https://web3js.readthedocs.io/en/v1.2.7/web3-eth-contract.html[web3 contract instance] using the xref:contract-loader::index.adoc[*OpenZeppelin Contract Loader*].
 
 A web3 contract instance is a JavaScript object that represents our contract on the blockchain, which we can use to interact with our contract. To create one we need to provide the Contract Loader with the contract name and the address where it was deployed, which the CLI returned when we ran `oz create`.
 
@@ -261,7 +262,7 @@ const web3 = new Web3('http://localhost:8545');
 const loader = setupLoader({ provider: web3 }).web3;
 
 // Set up a web3 contract, representing our deployed Box instance, using the contract loader
-const address = '0xCfEB869F69431e42cdB54A4F4f105C19C080A601';
+const address = '0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab';
 const box = loader.fromArtifact('Box', address);
 ----
 
@@ -299,9 +300,9 @@ If this happens, simply <<local-blockchain, start ganache>> and <<deploying-a-sm
 [[sending-a-transaction]]
 === Sending a Transaction
 
-We'll now https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-send[send a transaction] to `store` a new value in our Box. Remember that sending a transaction is not as straightforward as making a call: we need to specify who the sender will be, the gas limit, and the gas price we are going to use. To keep this example simple, we'll use a hardcoded value for both gas and gas price, and send the transaction from the first available account on the node.
+We'll now https://web3js.readthedocs.io/en/v1.2.7/web3-eth-contract.html#methods-mymethod-send[send a transaction] to `store` a new value in our Box. Remember that sending a transaction is not as straightforward as making a call: we need to specify who the sender will be, the gas limit, and the gas price we are going to use. To keep this example simple, we'll use a hardcoded value for both gas and gas price, and send the transaction from the first available account on the node.
 
-NOTE: In a real-world application, you may want to https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-estimategas[estimate the gas] of your transactions, and check a https://ethgasstation.info/[gas price oracle] to know the optimal values to use on every transaction.
+NOTE: In a real-world application, you may want to https://web3js.readthedocs.io/en/v1.2.7/web3-eth-contract.html#methods-mymethod-estimategas[estimate the gas] of your transactions, and check a https://ethgasstation.info/[gas price oracle] to know the optimal values to use on every transaction.
 
 Let's store a value of `20` in our `Box`, and then use the code we had written before to display the updated value:
 

@@ -29,7 +29,9 @@ We will save this file as `contracts/Box.sol`. Each `.sol` file should have the 
 
 ```solidity
 // contracts/Box.sol
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+
 
 contract Box {
     uint256 private value;
@@ -78,7 +80,7 @@ You will notice a `build/contracts` directory was created: it holds the compiled
 You can also configure your compilation, which includes choosing a compiler version and enabling optimizations, by passing arguments to the `compile` command:
 
 ```console
-$ npx oz compile --solc-version=0.5.12 --optimizer on
+$ npx oz compile --solc-version=0.6.7 --optimizer on
 ```
 
 For detailed information on these options, refer to xref:cli::compiling.adoc[Compiling With the CLI].
@@ -95,12 +97,14 @@ Because the compiler will pick up all files in the `contracts` directory and sub
 [[auth-contract]]
 ```solidity
 // contracts/access-control/Auth.sol
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+
 
 contract Auth {
     address private administrator;
 
-    constructor () public {
+    constructor() public {
         // Make the deployer of the contract the administrator
         administrator = msg.sender;
     }
@@ -115,10 +119,12 @@ To use this contract from `Box` we use an `import` statement, referring to `Auth
 
 ```solidity
 // contracts/Box.sol
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
 
 // Import Auth from the access-control subdirectory
 import "./access-control/Auth.sol";
+
 
 contract Box {
     uint256 private value;
@@ -172,15 +178,17 @@ $ npm install --save-dev @openzeppelin/contracts
 
 NOTE: You should always use the library from these published releases: copy-pasting library source code into your project is a dangerous practice that makes it very easy to introduce security vulnerabilities in your contracts.
 
-To use one of the OpenZeppelin Contracts, `import` it by prefixing its path with `@openzeppelin/contracts`. For example, in order to replace our own <<auth-contract, `Auth`>> contract, we will import `@openzeppelin/contracts/ownership/Ownable.sol` to add access control to `Box`:
+To use one of the OpenZeppelin Contracts, `import` it by prefixing its path with `@openzeppelin/contracts`. For example, in order to replace our own <<auth-contract, `Auth`>> contract, we will import `@openzeppelin/contracts/access/Ownable.sol` to add access control to `Box`:
 
 [[box-contract]]
 ```solidity
 // contracts/Box.sol
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
 
 // Import Ownable from the OpenZeppelin Contracts library
-import "@openzeppelin/contracts/ownership/Ownable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
 
 // Make Box inherit from the Ownable contract
 contract Box is Ownable {
