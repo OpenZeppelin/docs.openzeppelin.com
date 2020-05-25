@@ -4467,9 +4467,9 @@ gulp-uglify-es@^2.0.0:
     vinyl-sourcemaps-apply "^0.2.1"
 
 gulp-vinyl-zip@~2.2, gulp-vinyl-zip@~2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/gulp-vinyl-zip/-/gulp-vinyl-zip-2.2.0.tgz#ca8938c2a0960faf13e84663f79e3678d06f2f1b"
-  integrity sha512-7tKXptewHdKnOV0HGIyB/5+dvfmwmHq+hnolAQ64zz/pPomUXJcFPeYCkatRmOztkfZOn+14zoIFS2G39PkzIg==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/gulp-vinyl-zip/-/gulp-vinyl-zip-2.2.1.tgz#24a60230afeb3b88b1efba06d31653ef7145dfd8"
+  integrity sha512-9lwCZUkrENzP649hVQB2r+8GgeGtVrqA2fEeVDX6aYr6+yJjdczWu0r1C6WvbZdzhXcA61MtR5MEyjR9a3D7cw==
   dependencies:
     queue "^4.2.1"
     through "^2.3.8"
