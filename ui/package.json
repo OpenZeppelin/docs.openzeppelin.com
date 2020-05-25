@@ -67,7 +67,7 @@
     "postcss-import": "~12.0",
     "postcss-scss": "^2.0.0",
     "postcss-url": "~8.0",
-    "prettier-eslint": "~9.0",
+    "prettier-eslint": "~10.1",
     "require-directory": "~2.1",
     "require-from-string": "~2.0",
     "run-sequence": "^2.2.1",
