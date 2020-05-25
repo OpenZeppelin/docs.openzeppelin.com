@@ -91,10 +91,10 @@
     vinyl "~2.2"
     vinyl-fs "~3.0"
 
-"@antora/ui-loader@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@antora/ui-loader/-/ui-loader-2.3.1.tgz#cfffa326c455ec05b2017390d61b5807e18d2b8f"
-  integrity sha512-0uZDixaamnMnGJvl1M5bqW2ac8+6W2KZcfOTwPBEJJCLTGiZe4GASB+zR7tXNyrUr51zLuCjxPNcEbzGEfRxAQ==
+"@antora/ui-loader@2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@antora/ui-loader/-/ui-loader-2.3.2.tgz#ddbccf778405a39090566376fe89462fbedc31dc"
+  integrity sha512-jdzyK1TFcaxpdtnQcRknzKIXO+mMsyRiX3zmn++FQFV6FSvljRMoPZ+lXEx+93alIoYLe0ts55UQeUUGqNwq0g==
   dependencies:
     "@antora/expand-path-helper" "~1.0"
     bl "~4.0"
@@ -103,7 +103,7 @@
     fs-extra "~8.1"
     got "~9.6"
     gulp-vinyl-zip "~2.2"
-    js-yaml "~3.13"
+    js-yaml "~3.14"
     minimatch-all "~1.1"
     through2 "~3.0"
     vinyl "~2.2"
@@ -5494,7 +5494,15 @@ js-tokens@^4.0.0:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-js-yaml@^3.13.0, js-yaml@^3.13.1, js-yaml@~3.13:
+js-yaml@^3.13.0, js-yaml@^3.13.1, js-yaml@~3.14:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.0.tgz#a7a34170f26a21bb162424d8adacb4113a69e482"
+  integrity sha512-/4IbIeHcD9VMHFqDR/gQ7EdZdLimOvW2DdcxFjdyyZ9NsbS+ccrXqVWDtab/lRl5AlUqmpBx8EhPaWR+OtY17A==
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
+
+js-yaml@~3.13:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
