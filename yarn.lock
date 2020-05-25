@@ -10,6 +10,14 @@
     asciidoctor.js "1.5.9"
     opal-runtime "1.0.11"
 
+"@antora/asciidoc-loader@2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@antora/asciidoc-loader/-/asciidoc-loader-2.3.2.tgz#524e763a9faee166f2ec4ac7c1796267d81e5f45"
+  integrity sha512-mu+eCDmFI0qY3d1kiU8vsQ1b5suYds257zr7jnzH4BnT2uVznfuLCDSz1LDvaPTdjE4nl4e8KvmUPmV7345F9g==
+  dependencies:
+    asciidoctor.js "1.5.9"
+    opal-runtime "1.0.11"
+
 "@antora/cli@^2.0.0":
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@antora/cli/-/cli-2.3.1.tgz#344ba6ab00cd9106da734ab85b791098ab114aa6"
@@ -24,6 +32,14 @@
   integrity sha512-d9vfhxcJY8DdU43h93cK96/Te2eKcJeA4pCljQrRUFpguZndMVrmWMxp8wzOYYSMIIukwcZVa3AISz86RNvrYA==
   dependencies:
     "@antora/asciidoc-loader" "2.3.1"
+    vinyl "~2.2"
+
+"@antora/content-classifier@2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@antora/content-classifier/-/content-classifier-2.3.2.tgz#e5690d6fac7e6d4f2907ab8741fa7c7ee268e965"
+  integrity sha512-kirwJWJ/3K7bQKKkVB748ljbJDAohwySFCQeWEeaa9zAwGhhqUePBM991Udy1xwmNv6d4yxZOorj3At31aCSKg==
+  dependencies:
+    "@antora/asciidoc-loader" "2.3.2"
     vinyl "~2.2"
 
 "@antora/document-converter@2.3.1":
