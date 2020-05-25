@@ -64,6 +64,17 @@
     js-yaml "~3.13"
     json5 "~2.1"
 
+"@antora/playbook-builder@2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@antora/playbook-builder/-/playbook-builder-2.3.2.tgz#971e51c14c48ca7c2ce34f81bd59448a169e7a8a"
+  integrity sha512-V344PWlrYBU99H2WYjHuL9yERXiTQcHKoxcaiYVlmBzVRZJA3c7+/ScrggH1AyrJ71bjt63GSmOsimQJ0armDQ==
+  dependencies:
+    "@iarna/toml" "~2.2"
+    camelcase-keys "~6.2"
+    convict "~6.0"
+    js-yaml "~3.14"
+    json5 "~2.1"
+
 "@antora/redirect-producer@2.3.1":
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@antora/redirect-producer/-/redirect-producer-2.3.1.tgz#9030fab6afd3659c199866ac3b662492c5b7bb4d"
@@ -2090,6 +2101,14 @@ convict@^5.0.0, convict@~5.2:
     moment "2.24.0"
     validator "11.1.0"
     yargs-parser "13.0.0"
+
+convict@~6.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/convict/-/convict-6.0.0.tgz#4be829f001a778d337d32ec79e9ae7f2e39df1a6"
+  integrity sha512-osfPkv5yjVoZqrTWBXuh/ABGpFoaJplbt0WXr0CodR4CSWt8UnzY4PSUyRz/+5BX5YUtWcToG29Kr0B6xhdIMg==
+  dependencies:
+    lodash.clonedeep "^4.5.0"
+    yargs-parser "^18.1.3"
 
 cookie@0.3.1:
   version "0.3.1"
@@ -5494,7 +5513,15 @@ js-tokens@^4.0.0:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-js-yaml@^3.13.0, js-yaml@^3.13.1, js-yaml@~3.13:
+js-yaml@^3.13.0, js-yaml@^3.13.1, js-yaml@~3.14:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.0.tgz#a7a34170f26a21bb162424d8adacb4113a69e482"
+  integrity sha512-/4IbIeHcD9VMHFqDR/gQ7EdZdLimOvW2DdcxFjdyyZ9NsbS+ccrXqVWDtab/lRl5AlUqmpBx8EhPaWR+OtY17A==
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
+
+js-yaml@~3.13:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
@@ -5794,7 +5821,7 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
-lodash.clonedeep@4.5.0, lodash.clonedeep@^4.3.2:
+lodash.clonedeep@4.5.0, lodash.clonedeep@^4.3.2, lodash.clonedeep@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
@@ -10289,6 +10316,14 @@ yargs-parser@^10.0.0:
   integrity sha512-VCIyR1wJoEBZUqk5PA+oOBF6ypbwh5aNB3I50guxAL/quggdfs4TtNHQrSazFA3fYZ+tEqfs0zIGlv0c/rgjbQ==
   dependencies:
     camelcase "^4.1.0"
+
+yargs-parser@^18.1.3:
+  version "18.1.3"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-18.1.3.tgz#be68c4975c6b2abf469236b0c870362fab09a7b0"
+  integrity sha512-o50j0JeToy/4K6OZcaQmW6lyXXKhq7csREXcDwk2omFPJEwUNOVtJKvmDr9EI1fAJZUyZcRF7kxGBWmRXudrCQ==
+  dependencies:
+    camelcase "^5.0.0"
+    decamelize "^1.2.0"
 
 yargs-parser@^4.1.0, yargs-parser@^4.2.0:
   version "4.2.1"
