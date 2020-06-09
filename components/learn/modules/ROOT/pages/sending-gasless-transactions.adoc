@@ -103,7 +103,7 @@ pragma solidity ^0.5.0;
 
 import "@openzeppelin/contracts-ethereum-package/contracts/GSN/GSNRecipient.sol";
 
-contract Counter is GSNRecipient {
+contract Counter is GSNRecipientUpgradeSafe {
     uint256 public value;
 
     function increase() public {
