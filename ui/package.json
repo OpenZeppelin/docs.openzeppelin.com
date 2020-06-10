@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "description": "The default theme for the openzeppelin documentation site",
   "homepage": "https://docs.openzeppelin.com",
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/openzeppelin/docs-site-theme.git"
