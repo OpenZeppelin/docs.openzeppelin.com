@@ -1,5 +1,7 @@
 = Building a Dapp
 
+WARNING: This article is no longer maintained. Read https://forum.openzeppelin.com/t/doubling-down-in-security/2712[here] for more info.
+
 Decentralized Applications (aka dapps or ÐApps) are web applications backed by Ethereum smart contracts. Instead of using a centralized server or database, these applications rely on the blockchain as a consensus and coordination layer. This leads to potentially unstoppable applications: anyone can spin up a copy of the frontend, and freely connect it to the public Ethereum network.
 
 In this guide, we will see how we can use OpenZeppelin libraries such as xref:network-js::index.adoc[Network JS] and the https://github.com/OpenZeppelin/solidity-loader[hot-loader] to build your dapp, as well as how the xref:starter-kits::index.adoc[Starter Kits] bind all pieces of a dapp together:
