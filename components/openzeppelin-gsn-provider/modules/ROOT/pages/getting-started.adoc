@@ -1,0 +1,151 @@
+= Getting Started
+
+This guide will get you up to speed with sending meta-tranasctions via the GSN, including:
+
+ * Setup for <<create-in-react-application, React Applications>>
+ * Signing transactions with an <<using-an-offline-signing-key, offline key>>
+ * Using a <<using-a-custom-base-provider, custom provider>>
+
+== Creating a Provider
+
+Before a transaction can be sent, you will need to create a `GSNProvider`. How this is done depends on your environment.
+
+=== In Regular Applications
+
+Create a `GSNProvider` and use it as the provider for your web3 instance:
+
+```javascript
+const { GSNProvider } = require("@openzeppelin/gsn-provider");
+const web3 = new Web3(new GSNProvider("http://localhost:8545"));
+```
+
+[[create-in-react-application]]
+=== In React Applications
+
+The best way to do this is using xref:network-js::index.adoc[*OpenZeppelin Network JS*], a package designed for easily setting up your connection to the Ethereum network.
+
+With React Hooks:
+
+```javascript
+import { useWeb3Network } from "@openzeppelin/network/react";
+const local = useWeb3Network("http://127.0.0.1:8545", { gsn: true });
+```
+
+You can also create a signing key on the spot:
+
+```javascript
+import { useWeb3Network, useEphemeralKey } from "@openzeppelin/network/react";
+const local = useWeb3Network("http://127.0.0.1:8545", {
+  gsn: { signKey: useEphemeralKey() }
+});
+```
+
+== Sending Transactions
+
+Once you have connected your web3 instance to a `GSNProvider`, all transactions sent to contracts will be automatically routed through the GSN:
+
+```javascript
+const Web3 = require("web3");
+
+const web3 = new Web3(gsnProvider);
+const myContract = new web3.eth.Contract(abi, address);
+
+// Sends the transaction via the GSN
+await myContract.methods.myFunction().send({ from });
+
+// Disable GSN for a specific transaction
+await myContract.methods.myFunction().send({ from, useGSN: false });
+```
+
+[[using-an-offline-signing-key]]
+=== Using an Offline Signing Key
+
+The snippet above will ask the node at `localhost:8545` to sign the meta-transactions to send. This will only work if the node has an unlocked account, which is not the case for most public nodes (such as infura). Because of this, the GSN provider also accepts a `signKey` parameter that will be used for offline signing all transactions:
+
+```javascript
+const { generate } = require("ethereumjs-wallet");
+const { GSNProvider } = require("@openzeppelin/gsn-provider");
+
+const gsnProvider = new GSNProvider("http://localhost:8545", { signKey: generate().privKey });
+```
+
+[[using-a-custom-base-provider]]
+=== Using a Custom Base Provider
+
+The `GSNProvider` will automatically create a base provider based on the connection string supplied. For instance, `GSNProvider('http://localhost:8545')` will create a vanilla `HTTPProvider`. You can specify your own provider instead of a connection string, which will be used to sending the requests to the network after being processed by the GSN provider:
+
+```javascript
+const Web3 = require("web3");
+const { GSNProvider } = require("@openzeppelin/gsn-provider");
+
+const ipc = new Web3.providers.IpcProvider("/path/to/ipc", require("net"));
+const gsnProvider = new GSNProvider(ipc);
+```
+
+=== Modifying an Existing web3 or Contract
+
+You can also change the provider of an existing web3 instance or contract already created to send its transactions via the GSN:
+
+```javascript
+const { GSNProvider } = require("@openzeppelin/gsn-provider");
+const gsnProvider = new GSNProvider("http://localhost:8545");
+
+existingWeb3.setProvider(gsnProvider);
+existingContract.setProvider(gsnProvider);
+```
+
+You can also use the `setGSN` and `withGSN` shorthands:
+
+```javascript
+const { web3: gsnWeb3 } = require("@openzeppelin/gsn-provider");
+gsnWeb3.setGSN(existingWeb3); // modifies existingWeb3
+gsnWeb3.withGSN(existingWeb3); // returns a new web3 instance
+```
+
+=== Injecting Approval Data
+
+The GSN protocol allows you to supply an arbitrary `approveData` blob, that can be checked on the recipient contract. This allows to implement off-chain approvals that are verified on-chain: for instance, you could have your users go through a captcha, and only then sign an approval for a transaction on your backend.
+
+To support this, the `GSNProvider` accepts an `approveFunction` parameter (both at construction time and on each transaction) that receives all transaction parameters, and should return the approval data.
+
+```javascript
+const { utils, GSNProvider } = require("@openzeppelin/gsn-provider");
+
+const approveFunction = async ({
+  from,
+  to,
+  encodedFunctionCall,
+  txFee,
+  gasPrice,
+  gas,
+  nonce,
+  relayerAddress,
+  relayHubAddress
+}) => {
+  const hash = web3.utils.soliditySha3(
+    from,
+    to,
+    encodedFunctionCall,
+    txFee,
+    gasPrice,
+    gas,
+    nonce,
+    relayerAddress,
+    relayHubAddress
+  );
+  const signature = await web3.eth.sign(hash, signer);
+  return utils.fixSignature(signature); // this takes care of removing signature malleability attacks
+};
+
+const gsnProvider = new GSNProvider("http://localhost:8545", { approveFunction });
+```
+
+Given that the pattern above is quite common, and is implemented in xref:contracts::index.adoc[*OpenZeppelin Contracts*] by the `GSNBouncerSignature` contract, there is a helper function that takes care of bundling the meta-transaction parameters together and hashing them, so you only need to provide a signing function for an arbitrary blob.
+
+```javascript
+const { utils, GSNProvider } = require("@openzeppelin/gsn-provider");
+
+const gsnProvider = new GSNProvider({
+  approveFunction: utils.makeApproveFunction(data => web3.eth.sign(data, approver))
+});
+```

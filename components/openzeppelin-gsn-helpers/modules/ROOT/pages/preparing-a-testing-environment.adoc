@@ -1,0 +1,81 @@
+= Preparing a Testing Environment
+
+When testing a GSN application, you need more than a local blockchain: the GSN `RelayHub` contract has to be deployed, there must be relayers running, and your recipients need to be funded.
+
+This guide will provide you with simple scripts you can add to your project to start testing using the GSN right away.
+
+== Simple Bash Setup
+
+It is not uncommon for projects to have a `test.sh` file that performs some initialization after a local blockchain is running, but before the tests themselves execute.
+
+The following script will deploy `RelayHub`, download the relayer binary, run a relayer server and register on the hub:
+
+```console
+// Perform necessary cleanup on exit
+trap cleanup EXIT
+
+cleanup() {
+  kill $gsn_relay_server_pid
+}
+
+ganache_url="http://localhost:$ganache_port"
+relayer_port=8099
+
+setup_gsn_relay() {
+  gsn_relay_server_pid=$(npx oz-gsn run-relayer --ethereumNodeURL $ganache_url --port $relayer_port --detach --quiet)
+}
+```
+
+=== Advanced Configuration
+
+If you want to have more fine-grained control over the setup process, you can use the following setup:
+
+```console
+ganache_url="http://localhost:8545"
+relayer_port=8099
+relayer_url="http://localhost:${relayer_port}"
+
+relayer_running() {
+  nc -z localhost "$relayer_port"
+}
+
+setup_gsn_relay() {
+  relay_hub_addr=$(npx oz-gsn deploy-relay-hub --ethereumNodeURL $ganache_url)
+  echo "Launching GSN relay server to hub $relay_hub_addr"
+
+  ./bin/gsn-relay -DevMode -RelayHubAddress $relay_hub_addr -EthereumNodeUrl $ganache_url -Url $relayer_url &> /dev/null &
+  gsn_relay_server_pid=$!
+
+  while ! relayer_running; do
+    sleep 0.1
+  done
+  echo "GSN relay server launched!"
+
+  npx oz-gsn register-relayer --ethereumNodeURL $ganache_url --relayUrl $relayer_url
+}
+```
+
+== Interacting with the GSN
+
+Once the GSN setup is complete, before your test cases are executed you will need to set up an xref:gsn-provider::index.adoc[*OpenZeppelin GSN Provider*] and register any recipients:
+
+```javascript
+beforeEach(async function () {
+  // Create web3 instance and a contract
+  this.web3 = new Web3(PROVIDER_URL);
+  this.accounts = await this.web3.eth.getAccounts();
+
+  // Create recipient contract
+  const Recipient = new this.web3.eth.Contract(RecipientAbi, null, { data: RecipientBytecode });
+  this.recipient = await Recipient.deploy().send({ from: this.accounts[0], gas: 1e6 });
+
+  // Register the recipient in the hub
+  await fundRecipient(this.web3, { recipient: this.recipient.options.address });
+
+  // Create gsn provider and plug it into the recipient
+  const gsnProvider = new GSNProvider(PROVIDER_URL);
+  this.recipient.setProvider(gsnProvider);
+});
+```
+
+All transactions sent to the `recipient` contract instance will be sent as a meta-transaction via the GSN running locally on your workstation.

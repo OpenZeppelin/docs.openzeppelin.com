@@ -1,0 +1,61 @@
+= Contract Loader
+
+**Load contract objects from built artifacts or ABIs.** Includes support for both `web3-eth-contract` and `@truffle/contract` objects.
+
+== Overview
+
+=== Installation
+
+```bash
+npm install @openzeppelin/contract-loader
+```
+
+You may also need to install https://www.npmjs.com/package/web3-eth-contract[`web3-eth-contract`] or https://www.npmjs.com/package/@truffle/contract[`@truffle/contract`], depending on which abstractions you want to be able to load.
+
+NOTE: Contract Loader requires access to the filesystem to read contract ABIs. Because of this, it will not work in a browser-based Dapp.
+
+=== Usage
+
+Create a loader object:
+
+```javascript
+const { setupLoader } = require('@openzeppelin/contract-loader');
+
+const loader = setupLoader({
+  provider,        // either a web3 provider or a web3 instance
+  defaultSender,   // optional
+  defaultGas,      // optional, defaults to 200 thousand
+  defaultGasPrice, // optional, defaults to 1 gigawei
+});
+```
+
+Load web3 contracts:
+
+```javascript
+const ERC20 = loader.web3.fromArtifact('ERC20');
+
+// Deploy contract
+const token = await ERC20.deploy().send();
+
+// Send transactions and query state
+const balance = await token.methods.balanceOf(sender).call();
+await token.methods.transfer(receiver, balance).send({ from: sender });
+
+```
+
+Load Truffle contracts:
+
+```javascript
+const ERC20 = loader.truffle.fromArtifact('ERC20');
+
+// Deploy contract
+const token = await ERC20.new();
+
+// Send transactions and query state
+const balance = await token.balanceOf(sender);
+await token.transfer(receiver, balance, { from: sender });
+```
+
+== Learn More
+
+* For detailed usage information, take a look at the xref:api.adoc[API Reference].

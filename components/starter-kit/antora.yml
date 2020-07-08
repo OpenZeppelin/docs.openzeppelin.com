@@ -1,0 +1,5 @@
+name: starter-kits
+title: Starter Kits
+version: master
+nav:
+  - modules/ROOT/nav.adoc

@@ -1,0 +1,204 @@
+= API Reference
+
+[[basic-options]]
+== Basic Options
+
+Multiple settings of the `GSNProvider` can be set at creation:
+
+```javascript
+const options = { useGSN: true, fixedGasLimit: 10000 }; // Among others
+new GSNProvider("http://localhost:8545", options);
+```
+
+These are documented below.
+
+[[use-gsn]]
+=== `useGSN`
+
+```javascript
+useGSN (bool)
+```
+
+Whether to send meta txs by default, or a function that receives a payload and returns whether to use a meta tx (defaults to true).
+
+=== `signKey`
+
+```javascript
+signKey (hex string)
+```
+
+Optional private key to sign the meta txs, using the underlying provider `sign` if not set.
+
+[[approve-function]]
+=== `approveFunction`
+```javascript
+approveFunction (function)
+```
+
+Optional function for generating application approval data for a transaction, and returns a `bytes` approval data (such as a signature) that can be checked in the
+recipient; receives as a parameter a single object with the properties `from`, `to`, `encodedFunctionCall`, `txFee`, `gasPrice`, `gas`, `nonce`, `relayerAddress`, `relayHubAddress`.
+
+=== `fixedGasPrice`
+
+```javascript
+fixedGasPrice (integer|string)
+```
+
+Fixed gas price to use in all gsn transactions.
+
+=== `fixedGasLimit`
+
+```javascript
+fixedGasLimit (integer|string)
+```
+
+Fixed gas limit to use in all gsn transactions.
+
+=== `minStake`
+
+```javascript
+minStake (integer)
+```
+
+Filters out relays with stake below this value (optional)
+
+=== `minDelay`
+
+```javascript
+minDelay (integer)
+```
+
+Filters out relays with unstake delay below this value (optional)
+
+=== `verbose`
+
+```javascript
+verbose (bool)
+```
+
+== Advanced Options
+
+These are related to the relayer selection algorithm: most likely you will not need to use them.
+
+=== `preferredRelayer`
+
+```javascript
+preferredRelayer (object)
+```
+
+Attempt to use this relayer, falling back to the regular lookup algorithm on failure. Mandatory options are `RelayServerAddress`, `relayUrl` and `transactionFee`.
+
+Sample configuration:
+
+```javascript
+preferredRelayer = {
+  RelayServerAddress: '0x73a652f54d5fd8273f17a28e206d47f5bd1bc06a',
+  relayUrl: 'http://localhost:8090',
+  transactionFee: '70',
+};
+```
+
+=== `gasPriceFactorPercent`
+
+```javascript
+`gasPriceFactorPercent (integer)
+```
+
+Percentage increase over the network gas price for gsn transactions (defaults to 20, note that you need to clear web3 default fixed gasprice for this setting to
+go into effect).
+
+=== `httpTimeout`
+
+```javascript
+httpTimeout (integer)
+```
+
+Timeout in ms for HTTP requests to relayers (defaults to 10000).
+
+=== `allowedRelayNonceGap`
+
+```javascript
+allowedRelayNonceGap (integer)
+```
+
+(defaults to 3)
+
+=== `relayTimeoutGrace`
+
+```javascript
+relayTimeoutGrace (integer)
+```
+
+Whenever a relayer timeouts a request, it is downscored by the client, and this penalization is reset every `relayTimeoutGrace` seconds (defaults to 1800, 30 mins)
+
+=== `calculateRelayScore`
+
+```javascript
+`calculateRelayScore (function)
+```
+
+Given a relayer, must return a numeric score (the higher the better) to rank it (defaults to using the transaction fee and penalizations due to timeouts, maxes at
+1000)
+
+=== `relayFilter`
+
+```javascript
+relayFilter (function)
+```
+
+Given a relayer, must return a boolean indicating whether it is elligible (defaults to using `minDelay` and `minStake`)
+
+[[tx-fee]]
+=== `txfee`
+
+```javascript
+txfee (integer)
+```
+
+Forcefully use this transaction fee instead of the one advertised by the relayer (may lead to overpayment or rejections, defaults to empty)
+
+=== `addScoreRandomness`
+
+```javascript
+addScoreRandomness (function)
+```
+
+Used for injecting randomness tie-breaking between relayers with the same score (defaults to uniform 0..1 random)
+
+
+== Transaction Parameters
+
+In addition to the regular transaction parameters (`from`, `gas`, etc), the GSN provider will also accept these parameters, which will override the ones set during provider creation.
+
+[WARNING]
+====
+When using https://www.npmjs.com/package/@truffle/contract[Truffle contracts], you must also pass one of the regular parameters. Since GSN transactions by definition carry no Ether, `value` is a good choice for this:
+
+```javascript
+await myTruffleContract.myFunction(paramA, { useGSN: false, value: 0 });
+```
+====
+
+=== `useGSN`
+
+```javascript
+useGSN (bool)
+```
+
+Same as the <<use-gsn, `useGSN`>> construction option.
+
+=== `txFee`
+
+```javascript
+txFee (integer)
+```
+
+Same as the <<tx-fee, `txFee`>> construction option.
+
+=== `approveFunction`
+
+```javascript
+approveFunction (function)
+```
+
+Same as the <<approve-function, `approveFunction`>> construction option.

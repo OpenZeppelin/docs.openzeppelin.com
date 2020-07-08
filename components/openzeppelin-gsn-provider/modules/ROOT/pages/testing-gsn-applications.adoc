@@ -1,0 +1,33 @@
+= Testing GSN Applications
+
+A GSN-capable smart contract or web application cannot be properly tested without interacting with relayers and the `RelayHub` contract. While these exist on all testnets, it is often desirable to be able to perform tests on a _local_ blockchain.
+
+This guide will teach you how to have a slimmed-down version of the GSN on your development machine.
+
+== Deploying the RelayHub Contract
+
+The on-chain part of the GSN cannot be stubbed or faked: the contracts will only recognize the canonical addresses.
+
+Doing this locally however is not a complex process: head to the xref:gsn-helpers::index.adoc[*OpenZeppelin GSN Helpers*] to learn how to deploy a `RelayHub` instance, the core contract of the GSN, both from the terminal and programatically.
+
+== Using the Development Provider
+
+In addition to the `GSNProvider`, this package includes `GSNDevProvider`: a provider that _also_ acts as a GSN relayer.
+
+Any transactions sent through it will be signed by the sender, and relayed by another address. It will register itself in the relay hub as `http://gsn-dev-relayer.openzeppelin.com/`.
+
+NOTE: The `GSNDevProvider` still needs `RelayHub` to be deployed on the network.
+
+It requires two addresses with funds: one to act as the relayer, and one to act as its owner (who will register it on the `RelayHub`). If these are not set when constructing the provider, they will default to the first two accounts on the local node.
+
+```javascript
+const { GSNDevProvider } = require("@openzeppelin/gsn-provider");
+const gsnDevProvider = new GSNDevProvider("http://localhost:8545", {
+  ownerAddress: accounts[0],
+  relayerAddress: accounts[1]
+});
+```
+
+The `GSNDevProvider`'s basic usage is the same as the regular `GSNProvider`'s: transactions sent using it will go over the GSN by default.
+
+With this setup in place, you will be able to test interactions that rely on the `acceptRelayedCall`, `preRelayedCall`, and `postRelayedCall` methods of your contracts. However, unlike regular relayers `GSNDevProvider` will never fail: this part of the testing process needs to be carried out on a real network.

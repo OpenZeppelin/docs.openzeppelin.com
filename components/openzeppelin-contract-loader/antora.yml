@@ -1,0 +1,5 @@
+name: contract-loader
+title: Contract Loader
+version: 0.6
+nav:
+  - modules/ROOT/nav.adoc

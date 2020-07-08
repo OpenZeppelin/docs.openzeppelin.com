@@ -1,0 +1,5 @@
+name: network-js
+title: Network JS
+version: 0.2
+nav:
+  - modules/ROOT/nav.adoc

@@ -1,0 +1,112 @@
+= API Reference
+
+== Command Line Interface
+
+The following commands are available via the CLI:
+
+* `deploy-relay-hub`: deploys the singleton `RelayHub` instance.
+* `run-relayer`: downloads and runs a relayer binary, and registers it, deploying a `RelayHub` if needed.
+* `register-relayer`: stakes for a relayer and fund it.
+* `fund-recipient`: funds a recipient contract so that it can receive relayed calls.
+* `balance`: queries a recipient or relayer owner GSN balance.
+* `withdraw`: withdraws a relayer's owner revenue.
+
+To use a command, run:
+
+```console
+$ npx oz-gsn <command> <options>
+```
+
+For example:
+
+```console
+$ npx oz-gsn deploy-relay-hub --ethereumNodeURL http://localhost:8545
+Deploying singleton RelayHub instance
+RelayHub deployed at 0xd216153c06e857cd7f72665e0af1d7d82172f494
+```
+
+To learn about a command's options and usage, run:
+
+```console
+$ npx oz-gsn <command> --help
+```
+
+== JavaScript Interface
+
+The CLI commands are also exported as JavaScript functions.
+
+Most functions receive an `options` object: these values are optional unless noted, and their defaults are listed here.
+
+=== `deployRelayHub`
+
+```javascript
+async function deployRelayHub(web3, {
+  from: web3.eth.accounts[0],
+});
+```
+
+Deploys a `RelayHub` instance.
+
+=== `runRelayer`
+
+```javascript
+async function runRelayer(web3, {
+  relayUrl: 'http://localhost:8090',
+  workdir: process.cwd(), // defaults to a tmp dir
+  devMode: true,
+  ethereumNodeURL: 'http://localhost:8545',
+  gasPricePercent: 0,
+  port: 8090,
+  quiet: true,
+});
+```
+
+Downloads the platform-specific binary and runs a relayer.
+
+=== `registerRelay`
+
+```javascript
+async function registerRelay({
+  relayUrl: 'http://localhost:8090',
+  stake: ether('1'),
+  unstakeDelay: 604800, // 1 week
+  funds: ether('5'),
+  from: web3.eth.accounts[0],
+});
+```
+
+Registers a relayer on `RelayHub`. Requires the relayer process to be running.
+
+=== `fundRecipient`
+
+```javascript
+async function fundRecipient(web3, {
+  recipient: RECIPIENT_ADDRESS, // required
+  amount: ether('1'),
+  from: web3.eth.accounts[0],
+});
+```
+
+Funds a recipient contract.
+
+=== `balance`
+
+```javascript
+async function balance(web3, {
+  recipient: RECIPIENT_ADDRESS, // required
+});
+```
+
+Queries a recipient's or owner's GSN balance.
+
+=== `withdraw`
+
+```javascript
+async function withdraw(web3, {
+  from: OWNER_ADDRESS, // required
+  to: OWNER_ADDRESS,
+  amount: await balance(web3, { recipient: from }),
+});
+```
+
+Withdraws a relayer owner's GSN balance.

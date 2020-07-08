@@ -1,0 +1,5 @@
+name: gsn-provider
+title: GSN Provider
+version: 0.1
+nav:
+  - modules/ROOT/nav.adoc

@@ -1,6 +1,6 @@
 site:
   title: OpenZeppelin Docs
-  url: https://docs.openzeppelin.com
+  url: https://learnblockchain.cn/docs/oz/
   start_page: openzeppelin::index.adoc
   keys:
     google_analytics: 'UA-85043059-1'
@@ -14,45 +14,41 @@ content:
       branches: HEAD
       start_path: components/learn
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-contracts
-      branches: docs-v*
-      start_path: docs
+    - url: .
+      branches: HEAD
+      start_path: components/openzeppelin-contracts
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-sdk
-      branches: docs-v*
-      start_path: packages/cli/docs
+    - url: .
+      branches: HEAD
+      start_path: components/openzeppelin-sdk
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-sdk
-      branches: docs-v*
-      start_path: packages/lib/docs
+    - url: .
+      branches: HEAD
+      start_path: components/starter-kit
 
-    - url: https://github.com/OpenZeppelin/starter-kit
-      branches: master # Starter Kit is unversioned
-      start_path: docs
+    - url: .
+      branches: HEAD
+      start_path: components/openzeppelin-test-environment
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-test-environment
-      branches: docs-v*
-      start_path: docs
+    - url: .
+      branches: HEAD
+      start_path: components/openzeppelin-test-helpers
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-test-helpers
-      branches: docs-v*
-      start_path: docs
+    - url: .
+      branches: HEAD
+      start_path: components/openzeppelin-gsn-provider
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-gsn-provider
-      branches: docs-v*
-      start_path: docs
+    - url: .
+      branches: HEAD
+      start_path: components/openzeppelin-gsn-helpers
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-gsn-helpers
-      branches: docs-v*
-      start_path: docs
+    - url: .
+      branches: HEAD
+      start_path: components/openzeppelin-network.js
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-network.js
-      branches: docs-v*
-      start_path: docs
-
-    - url: https://github.com/OpenZeppelin/openzeppelin-contract-loader
-      branches: docs-v*
-      start_path: docs
+    - url: .
+      branches: HEAD
+      start_path: components/openzeppelin-contract-loader
 ui:
   bundle:
     url: ./ui/build/oz-docs-ui.zip
