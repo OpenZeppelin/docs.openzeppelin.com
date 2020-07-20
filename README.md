@@ -46,7 +46,9 @@ npm i -g @antora/cli@2.3 @antora/site-generator-default@2.3
 antora playbook.yml
 ```
 
-编译出HTML在 build/site 目录下，直接打开index.html即可。
+编译出HTML在 build/site 目录下，然后用web服务器加载该目录，例如在在 build/site 目录下，使用`python -m SimpleHTTPServer`命令。
+
+> 直接打开 build/site 下的文件也可以预览，但是有时链接跳转会出现找不到页面的情况，需要手动修改 url 地址。
 
 
 ### 2. 翻译
