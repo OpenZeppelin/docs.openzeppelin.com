@@ -3,7 +3,7 @@
 
 | 文件               |  译者(认领-完成)    |   校对  |  学分 | 
 | ----------------- | ----------------- | ---------------   | --------   |
-| xxx/xxx.adoc         |  xxxx  | xxxx  | xxx | 
+| components/learn/modules/ROOT/pages/upgrading-smart-contracts.adoc         |  Ashton  | Tiny熊  | xxx | 
 
 
 
