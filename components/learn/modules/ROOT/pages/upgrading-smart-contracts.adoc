@@ -1,40 +1,39 @@
-= Upgrading Smart Contracts
+= 升级合约
 
-Smart contracts xref:deploying-and-interacting.adoc[deployed] with the OpenZeppelin CLI can be **upgraded** to modify their code, while preserving their address, state, and balance. This allows you to iteratively add new features to your project, or fix any bugs you may find in xref:preparing-for-mainnet.adoc[in production].
+使用 OpenZeppelin CLI xref:deploying-and-interacting.adoc[部署]的合约可以在保留其地址、状态和余额的情况下通过升级来更改代码。这样你就可以往你的项目中迭代新功能，或者修正任何可能出现在生产环境的问题。
 
-Throughout this guide, we will learn:
+通过这篇指南，我们将学习到：
 
-* <<whats-in-an-upgrade, Why upgrades are important>>
-* <<upgrading-a-contract-via-cli, Upgrade our Box contract using the CLI>>
-* <<how-upgrades-work, Learn how upgrades work under the hood>>
-* <<upgrading-contracts-in-js, Use upgrades.js to programmatically manage upgrades>>
-* <<limitations-of-contract-upgrades, Learn how to write upgradeable contracts>>
+* <<whats-in-an-upgrade, 为什么可升级性非常重要>>
+* <<upgrading-a-contract-via-cli, 使用 CLI 来升级 Box 合约>>
+* <<how-upgrades-work, 洞悉可升级性的本质>>
+* <<upgrading-contracts-in-js, 使用 upgrades.js 以编程方式管理升级>>
+* <<limitations-of-contract-upgrades, 如何编写可升级合约>>
 
 [[whats-in-an-upgrade]]
-== What's in an Upgrade
+== 什么是可升级性
 
-Smart contracts in Ethereum are immutable by default. Once you create them there is no way to alter them, effectively acting as an unbreakable contract among participants.
+以太坊智能合约默认是不可变的。一旦你创建了它们，就无法对其进行更改，从而有效地构建了参与者之间牢不可破的契约。
 
-However, for some scenarios, it is desirable to be able to modify them. Think of a traditional contract between two parties: if they both agreed to change it, they would be able to do so. On Ethereum, they may desire to alter a smart contract to fix a bug they found (which might even lead to a hacker stealing their funds!), to add additional features, or simply to change the rules enforced by it.
+但是，在某些场景下，又希望能够对这些合约进行修改。想象一下两个合作方签订的传统合同：只要双方都同意，就可以对合同内容进行更改。在以太坊上，他们可能希望通过修改智能合约来修复他们发现的漏洞(这些漏洞甚至可能导致黑客窃取他们在智能合约中的资金！)、添加额外的功能、或者只是更改由它执行的规则。
 
-Here's what you'd need to do to fix a bug in a contract you cannot upgrade:
+如果不能升级合约，你需要做下面的工作来修复一个合约中的问题：
 
-. Deploy a new version of the contract
-. Manually migrate all state from the old one contract to the new one (which can be very expensive in terms of gas fees!)
-. Update all contracts that interacted with the old contract to use the address of the new one
-. Reach out to all your users and convince them to start using the new deployment (and handle both contracts being used simultaneously, as users are slow to migrate)
+. 部署一个新版本合约
+. 手工将所有状态从老合约迁移到新合约（由于 gas 费的原因，这个操作有可能想当昂贵）
+. 更新所有与老合约进行交互的合约来使用新的合约地址
+. 与你的用户联系并说服他们使用新部署的合约（由于用户的迁移总是很缓慢，你可能要处理两个合约同时使用的情况）
 
-To avoid going through this mess, we have built contract upgrades directly into our tools. This allows us to *change the contract code, while preserving the state, balance, and address*. And all by running a single command. Let's see it in action.
+为了避免这些麻烦，我们将合约升级内置到我们的工具中了。这使我们可以 *修改合约代码，同时保留其状态、余额和地址*。所有需要做的只是运行一个命令。让我们来看看具体是怎么操作的。
 
 [[upgrading-a-contract-via-cli]]
-== Upgrading a Contract using the CLI
+== 使用 CLI 升级合约
 
-Whenever you deploy a new contract using the CLI via `openzeppelin create`, that contract instance can be **upgraded** later. By default, only the address that originally deployed the contract has the rights to upgrade it.
+当你使用 CLI 通过 `openzeppelin create` 命令来部署合约时，所创建的合约实例就是**可升级的**。默认情况下，只有原来部署合约那个地址才有权限升级它。
 
-TIP: If you're unfamiliar with the OpenZeppelin CLI, head to xref:deploying-and-interacting.adoc#getting-started-with-the-cli[our introductory guide] first!
+TIP: 如果你对 OpenZeppelin CLI 还不熟悉, 先去我们的 xref:deploying-and-interacting.adoc#getting-started-with-the-cli[入门指南] 去看看吧!
 
-
-Let's see how it works, by upgrading the `Box` contract xref:deploying-and-interacting.adoc#deploying-a-smart-contract[we deployed earlier]:
+让我们通过升级xref:deploying-and-interacting.adoc#deploying-a-smart-contract[我们前面部署过的] `Box` 合约来看看具体如何操作：
 
 ```solidity
 // contracts/Box.sol
@@ -61,7 +60,7 @@ contract Box {
 }
 ```
 
-We need to first `deploy` a new `Box` instance as an upgradeable contract (we previously deployed regular non-upgradeable contracts), so we can then upgrade it.
+我们需要首先 `部署` 一个新的可升级 `Box` 合约实例（我们前面部署的是一个常规的不可升级合约），以便于我们随后对其进行升级。
 
 ```bash
 $ npx oz deploy
@@ -78,7 +77,7 @@ To upgrade this instance run 'oz upgrade'
 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
 ```
 
-Then store a value.
+然后通过调用 store 函数来往合约里存一个 value。
 ```bash
 $ npx oz send-tx
 ? Pick a network development
@@ -90,7 +89,7 @@ Events emitted:
  - ValueChanged(5)
 ```
 
-For the sake of the example, let's say we want to add a new feature: a function that increments the `value` stored in the `Box`.
+在本例子中，假定我们现在想加一个新功能：对存储在 `Box` 合约中的 `value` 加 1。
 
 ```solidity
 // contracts/Box.sol
@@ -105,7 +104,7 @@ contract Box {
 }
 ```
 
-After changing the Solidity file, we can now just upgrade the instance we had deployed earlier by running the `openzeppelin upgrade` command.
+改好 Solidity 源码文件后，我们只需要运行 `openzeppelin upgrade` 命令就可对前面部署的合约实例进行升级。
 
 ```bash
 $ npx oz upgrade
@@ -120,9 +119,9 @@ All implementations have been deployed
 ✓ Instance at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601 upgraded
 ```
 
-Done! Our `Box` instance has been upgraded to the latest version of the code, *while keeping its state and the same address as before*. We didn't need to deploy a new one at a new address, nor manually copy the `value` from the old `Box` to the new one.
+好了！我们的 `Box` 实例已经被升级到最新版本的合约代码了，*地址和状态都和原来一样*。我们不需要将合约部署到新的地址，然后再手动将 `value` 从老的 `Box` 拷贝到新的合约实例。
 
-Let's try it out by invoking the new `increment` function, and checking the `value` afterwards:
+让我们试着调用一下新添加的 `increment` 函数，看看随后 `value` 的变化：
 
 ```bash
 $ npx oz send-tx
@@ -141,54 +140,55 @@ $ npx oz call
 6
 ```
 
-That's it! Notice how the `value` of the `Box` was preserved throughout the upgrade, as well as its address. And this process is the same regardless of whether you are working on a local blockchain, a testnet, or the main network. Let's see how the OpenZeppelin CLI accomplishes this.
+看见没！`Box` 的地址和 `value` 状态在升级后都得以保留。不管你用的是本地区块链、测试网络还是主网，效果都是一样的。接下来让我们看看 OpenZeppelin CLI 是如何完成这一切的。
 
 [[how-upgrades-work]]
-== How Upgrades Work
+== 升级是如何进行的
 
-_This section will be more theory-heavy than others: feel free to skip over it and return later if you are curious._
+_这部分含有比其它部分更多的理论性内容，你可以先跳过它，稍后感兴趣时再回过头来看._
 
-When you create a new upgradeble contract instance, the OpenZeppelin CLI actually deploys two contracts:
+当你创建一个可升级合约时，OpenZeppelin CLI 实际上部署了两个合约：
 
-. The contract you have written, which is known as the _implementation contract_ or _logic contract_.
-. A _proxy_ to that contract, which is the contract that you actually interact with.
+. 你自己所写的合约, 称为 _实现合约_ 或 _逻辑合约_.
+. 代理合约，这是实际与合约调用者进行交互的合约.
 
-Here, the _proxy_ is a simple contract that just _delegates_ all calls to an implementation contract. A _delegate call_ is similar to a regular call, except that all code is executed in the context of the caller, not of the callee. Because of this, a `transfer` in the implementation contract's code will actually transfer the proxy's balance, and any reads or writes to the contract storage will read or write from the proxy's own storage.
+这种情况下，代理合约将所有调用都会 _委托_ 给相应的实现合约。_委托调用_ 和常规调用类似，只是所有代码都是在调用方的上下文进行执行，而不是在被调用方执行。因此，实现合约中 `transfer` 函数的执行实际上是对代理合约中的余额进行转账，任何对实现合约存储的读取或写入都将从代理合约自己的存储中读取或写入。
 
-This allows us to **decouple** a contract's state and code: the proxy holds the state, while the logic contract provides the code. And it also allows us to **change** the code by just having the proxy delegate to a different implementation contract.
+这使得我们可以将一个合约的状态和代码**解耦**：由代理合约保持状态，逻辑合约提供代码。这样我们就可以通过代理合约将调用委托给不同的实现合约来**更改**代码。
 
-An upgrade then involves the following steps:
 
-. Deploy the new implementation contract.
-. Send a transaction to the proxy that updates its implementation address to the new one.
+合约升级涉及下面两个步骤:
 
-NOTE: You can have multiple proxies using the same implementation contract, so you can save gas using this pattern if you plan to deploy multiple copies of the same contract.
+. 部署新的实现合约。
+. 发送交易给代理合约去更新其所关联的实现合约地址。
 
-Any user of the smart contract always interacts with the proxy, *which never changes its address*. This allows you to roll out an upgrade or fix a bug without requesting your users to change anything on their end - they just keep interacting with the same address as always.
+NOTE: 你可以为同一个实现合约部署多个代理，这种模式在你计划为一个合约部署多份拷贝时可以为你省点儿 gas 费。
 
-NOTE: If you want to learn more about how OpenZeppelin proxies work, check out xref:upgrades::index.adoc[OpenZeppelin Upgrades].
+任何合约用户都是与代理合约进行交互，**代理合约的地址永远不会改变**。这样你就可以在不需要用户做任何变动的情况下发布合约升级或修复合约问题，用户一直用同一个地址与合约交互就好了。
+
+NOTE: 如果你想了解更多关于 OpenZeppelin 代理如何工作的内容, 请查看 xref:upgrades::index.adoc[OpenZeppelin Upgrades].
 
 [[upgrading-contracts-in-js]]
-== Upgrading Contracts Programmatically
+== 以编程方式升级合约
 
-If you want to create and upgrade contracts from your JavaScript code instead of via the command line, you can use the *OpenZeppelin Upgrades* library instead of the CLI.
+如果你想使用 JavaScript 代码而不是命令行来创建和更新合约，你可以使用 *OpenZeppelin Upgrades* 库而不是 CLI。
 
-NOTE: The CLI does not just manage contract upgrades, but also compilation, interaction, and source code verification. The Upgrades library only takes care of creating and upgrading. The library also does not keep track of the contracts you have already deployed, nor runs any initializer or storage layout validations, as the CLI does. Nevertheless, these capabilities may be added to the Upgrades library in the near future.
+NOTE: CLI 不只是可以用来管理合约升级，还可以进行合约编译、交互以及源码验证。而 Upgrades 库只关注合约创建与升级。这个库也不会像 CLI 那样跟踪你所部署的合约，也不会对初始值设定或存储布局进行校验，不过，这些功能也会在不久的将来添加到 Upgrades 库中。
 
-Your first step will be to install the library in your project, and you will also probably want to install `web3`:
+第一步是在你的项目中安装这个库，可能你也会想要安装 `web3`:
 
 ```bash
 $ npm install @openzeppelin/upgrades web3
 ```
 
-As in our previous guide on xref:deploying-and-interacting.adoc#interacting-programmatically[programmatically interacting with contracts], we will start with some boilerplate code to initialize a provider, as well as the Upgrades library.
+就如前面xref:deploying-and-interacting.adoc#interacting-programmatically[以编程的方式与合约交互]那样，我们先用一些样板代码来初始化一个 provider 和 Upgrades 库。
 
 ```js
 const Web3 = require('web3');
 const Upgrades = require('@openzeppelin/upgrades')
 
 async function main() {
-  // Set up web3 object, connected to the local development network, initialize the Upgrades library
+  // 设置 web3 对象连接到本地开发网络上, 并初始化 Upgrades 库
   const web3 = new Web3('http://localhost:8545');
   Upgrades.ZWeb3.initialize(web3.currentProvider)
 }
@@ -196,25 +196,25 @@ async function main() {
 main();
 ```
 
-NOTE: You can check out a full version of the code in this section in the https://github.com/OpenZeppelin/openzeppelin-sdk/tree/master/examples/upgrades-library[upgrades-library example of the SDK repository].
+NOTE: 你可以从 https://github.com/OpenZeppelin/openzeppelin-sdk/tree/master/examples/upgrades-library[SDK 仓库的 upgrades-library 示例]检出这部分所用到的全部代码。
 
-All our code from now on will be part of the `main` function. Let's begin by creating a new `project`, to manage our upgradeable contracts.
+从现在开始，接下来的所有代码都是 `main` 函数的一部分。让我们从创建一个新的 `project` 开始，来管理我们的可升级合约。
 
 ```js
 const [from] = await ZWeb3.eth.getAccounts();
 const project = new ProxyAdminProject('MyProject', null, null, { from, gas: 1e6, gasPrice: 1e9 });
 ```
 
-NOTE: The Upgrades library ships with three different flavours of projects: `SimpleProject`, `ProxyAdminProject`, and `AppProject`. We recommend using the `ProxyAdmin` one to begin with. You can learn more in the Upgrades documentation.
+NOTE: Upgrades 库支持三种不同类型的 `project`: `SimpleProject`, `ProxyAdminProject`, 以及 `AppProject`. 我们推荐从使用 `ProxyAdmin` 这种类型的 `project` 开始. 你可以通过 Upgrades 文档了解更多相关内容。
 
-Using this project, we can now create an instance of any contract. The project will take care of deploying it in such a way it can be upgraded later.
+我们可以使用这个 `project` 创建任意合约实例，由 `project` 来负责以可升级的方式部署合约。
 
 ```js
 const MyContractV0 = Upgrades.Contracts.getFromLocal('MyContractV0');
 const instance = await project.createProxy(MyContractV0);
 ```
 
-After deploying the contract, you can upgrade it to a new version of the code using the `upgradeProxy` method, and providing the instance address.
+部署合约之后，你可以使用 `upgradeProxy` 方法和新的合约实例地址将其升级到新版本的合约代码。
 
 ```js
 const address = instance.options.address;
@@ -222,18 +222,18 @@ const MyContractV1 = Upgrades.Contracts.getFromLocal('MyContractV1');
 await project.upgradeProxy(address, MyContractV1);
 ```
 
-That's it! You can now programmatically manage your contracts upgrades from your JavaScript code.
+就这些了！你现在已经可以使用你的 JavaScript 代码以编程的方式来管理合约升级了。
 
 [[limitations-of-contract-upgrades]]
-== Limitations of Contract Upgrades
+== 合约升级的局限性
 
-While any smart contract can be made upgradeable, some restrictions of the Solidity language need to be worked around. These come up when writing both the initial contract and the version we'll upgrade it to.
+尽管任何合约都可以变得可升级，由些 Solidity 语言层面的限制我们还是要处理一下的。这些限制在我们编写初始版本和后续升级版本合约时都会碰到。
 
-=== Initialization
+=== 初始化
 
-Upgradeable contracts cannot have a `constructor`. To help you run initialization code, xref:upgrades::index.adoc[*OpenZeppelin Upgrades*] provides the `Initializable` base contract that allows you to tag a method as `initializer`, ensuring it can be run only once.
+可升级的合约不能有 `构造函数`. 为了方便你运行初始化代码, xref:upgrades::index.adoc[*OpenZeppelin Upgrades*] 提供了一个 `Initializable` 基础合约，允许你标记一个函数为 `initializer` 并确定其只能运行一次。
 
-As an example, let's write a new version of the `Box` contract with an initializer, storing the address of an `admin` who will be the only one allowed to change its contents.
+做为例子，让我们写一个新版本的 `Box` 合约，该合约带有一个 `initializer` 函数，通过该函数我们将唯一一个允许更改合约内容的 `admin` 账号地址保存下来。
 
 ```solidity
 // contracts/AdminBox.sol
@@ -268,7 +268,7 @@ contract AdminBox is Initializable {
 }
 ```
 
-When deploying this contract, the CLI will prompt us to execute the initializer and ask us to provide the admin address.
+部署该合约时，CLI 会提示我们执行 initializer 函数并让我们提供 admin 地址。
 
 ```bash
 $ npx oz deploy
@@ -286,36 +286,38 @@ To upgrade this instance run 'oz upgrade'
 0xC89Ce4735882C9F0f0FE26686c53074E09B0D550
 ```
 
-For all practical purposes, the initializer acts as a constructor. However, keep in mind that since it's a regular function, you will need to manually call the initializers of all base contracts (if any).
+在实际使用中，`initializer` 被当做构造函数来用。然而我们要时刻提醒自己这只是个常规函数，你需要手工调用基础合约的 `initializer` 函数（如果有的话）。
 
-NOTE: In future versions of the OpenZeppelin CLI, it will take care of automatically converting constructors into initializers, so you won't need to worry about this.
+NOTE: 在未来的版本中，OpenZeppelin CLI 会自动将构造函数转换为 `initializer`，那时你就不需要再为这个事情费心了。
 
-To learn more about this and other caveats when writing upgradeable contracts, check out our xref:upgrades::writing-upgradeable.adoc[Writing Upgradeable Contracts] guide.
+如果你像了解更多关于编写可升级合约的注意事项，请查看xref:upgrades::writing-upgradeable.adoc[编写可升级智能合约] 指南。
 
-=== Upgrading
+=== 升级
 
-Due to technical limitations, when you upgrade a contract to a new version you cannot change the **storage layout** of that contract.
+由于技术上的限制，在升级合约到一个新版本后你不能更改合约的**存储布局**。
 
 This means that, if you have already declared a state variable in your contract, you cannot remove it, change its type, or declare another variable before it. In our `Box` example, it means that we can only add new state variables _after_ `value`.
+
+这就意味着，你在合约中声明一个状态变量之后，你不能删除它，也不能更改它的类型或者在它之前声明另外一个状态变量。在我们那个 `Box` 例子中，意味着我们只能在 `value` _之后_ 添加新的变量。
 
 ```solidity
 // contracts/Box.sol
 contract Box {
     uint256 private value;
 
-    // We can safely add a new variable after the ones we had declared
+    // 我们可以在已声明变量之后安全的添加新的状态变量
     address private owner;
 
     // ...
 }
 ```
 
-Fortunately, this limitation only affects state variables. You can change the contract's functions and events as you wish.
+幸运的是，这个限制只会影响状态变量。你可以按需对合约的函数和事件做任何变动。
 
-NOTE: If you accidentally mess up with your contract's storage layout, the CLI will warn you when you try to upgrade.
+NOTE: 如果你不幸弄乱了你的合约存储布局，CLI 在你尝试升级合约时会给出警告。
 
-To learn more about this limitation, head over to the xref:upgrades::writing-upgradeable.adoc#modifying-your-contracts[Modifying Your Contracts] guide.
+要了解关于该限制的任何信息, 移步xref:upgrades::writing-upgradeable.adoc#modifying-your-contracts[更改合约指南]。
 
-== Next Steps
+== 下一步
 
-Now that you know how to upgrade your smart contracts, and can iteratively develop your project, it's time to take your project to xref:connecting-to-public-test-networks.adoc[testnet] and to xref:preparing-for-mainnet.adoc[production]! You can rest with the confidence that, should a bug appear, you have the tools to modify your contract and change it.
+现在你已经知道如何升级合约，是时候迭代开发你的项目，并将项目发布到xref:connecting-to-public-test-networks.adoc[测试网]和xref:preparing-for-mainnet.adoc[主网]了! 心中的石头总算可以落地了，如果合约有问题出现，你可以直接拿出工具来更改合约，修复问题了。
