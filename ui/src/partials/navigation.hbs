@@ -11,16 +11,11 @@
     {{#each (pick site.components "openzeppelin, learn")}}
       {{> navigation-component }}
     {{/each}}
-    
+
     <h3 class="nav-title">Our Tools &amp; Libraries</h3>
     {{#sorted (omit site.components "openzeppelin, learn, starter-kits, network-js, gsn-provider, gsn-helpers") "contracts, test-helpers, test-environment, cli, upgrades, contract-loader"}}
       {{> navigation-component }}
     {{/sorted}}
-
-    <h3 class="nav-title">Maintenance updates only</h3>
-    {{#each (pick site.components "starter-kits, network-js, gsn-provider, gsn-helpers")}}
-      {{> navigation-component }}
-    {{/each}}
   </div>
 
   {{else}}
