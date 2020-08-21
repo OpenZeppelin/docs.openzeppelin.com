@@ -2,6 +2,10 @@ const yaml = require('js-yaml');
 const multimatch = require('multimatch');
 const fs = require('fs');
 
+if (process.env.INCOMING_HOOK_BODY === undefined) {
+  process.exit(0);
+}
+
 const { repository, ref } = getPayload();
 
 if (!repository || !ref) {
