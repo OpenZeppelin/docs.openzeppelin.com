@@ -2,6 +2,12 @@
 
 set -o xtrace -o errexit
 
+if [ -n "${INCOMING_HOOK_BODY:+x}" ]; then
+  # will exit with an error and thus abort the deploy
+  # unless the webhook is an update to a content source
+  node scripts/receive-webhook.js
+fi
+
 log() {
   echo "$*" >&2
 }

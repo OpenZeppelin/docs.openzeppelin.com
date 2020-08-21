@@ -1,7 +1,6 @@
 [build]
   command = "yarn build"
   publish = "build/site"
-  ignore = "node scripts/receive-webhook.js"
 
 ########################
 # NOTE ABOUT REDIRECTS #
