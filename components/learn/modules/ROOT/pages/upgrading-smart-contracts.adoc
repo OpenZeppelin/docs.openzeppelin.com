@@ -10,6 +10,8 @@ Throughout this guide, we will learn:
 * <<upgrading-contracts-in-js, Use upgrades.js to programmatically manage upgrades>>
 * <<limitations-of-contract-upgrades, Learn how to write upgradeable contracts>>
 
+TIP: If you're using Truffle or Buidler, you can also check out the new https://github.com/OpenZeppelin/openzeppelin-upgrades[Upgrades plugins], although they're not yet covered by this guide.
+
 [[whats-in-an-upgrade]]
 == What's in an Upgrade
 
