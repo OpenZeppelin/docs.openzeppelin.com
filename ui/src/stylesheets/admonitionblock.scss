@@ -74,7 +74,6 @@
     border-left-color: #F79F1F;
 
     &::before { 
-      content: "warning";
       color: #f79f1f;
       padding-left: 1.5em;
       margin-left: .4em;
@@ -83,5 +82,17 @@
       background-position: left;
       background-origin: border-box;
     }
+  }
+
+  &.warning::before {
+    content: "warning";
+  }
+
+  &.caution::before {
+    content: "caution";
+  }
+
+  &.important::before {
+    content: "important";
   }
 }
