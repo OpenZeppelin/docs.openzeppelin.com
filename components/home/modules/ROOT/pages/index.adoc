@@ -42,7 +42,7 @@ https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [
 
 [.card.card-secondary.card-upgrades-js]
 --
-xref:upgrades::index.adoc[[.card-title]#Upgrades# [.card-body]#A JavaScript library for managing upgradeable contracts+++,+++ which powers the OpenZeppelin CLI.#]
+xref:upgrades-plugins::index.adoc[[.card-title]#Upgrades Plugins# [.card-body]#Plugins for Buidler and Truffle to deploy and manage upgradeable contracts on Ethereum.#]
 --
 
 [.card.card-secondary.card-test-environment]
