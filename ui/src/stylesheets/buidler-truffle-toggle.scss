@@ -1,0 +1,36 @@
+.buidler-truffle-toggle {
+  width: 200px;
+  height: 60px;
+  border: 0;
+  background: url(../images/toggle-active.svg) center / contain no-repeat;
+
+  &:active {
+    background-image: url(../images/toggle-active.svg) !important;
+  }
+
+  span {
+    pointer-events: none;
+    opacity: 0;
+    overflow: hidden;
+  }
+}
+
+.preference-truffle {
+  .buidler {
+    display: none;
+  }
+
+  .buidler-truffle-toggle {
+    background-image: url(../images/toggle-preference-truffle.svg);
+  }
+}
+
+.preference-buidler {
+  .truffle {
+    display: none;
+  }
+
+  .buidler-truffle-toggle {
+    background-image: url(../images/toggle-preference-buidler.svg);
+  }
+}
