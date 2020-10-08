@@ -1,8 +1,12 @@
 .buidler-truffle-toggle {
-  width: 200px;
-  height: 60px;
+  width: 120px;
+  height: 30px;
   border: 0;
+  padding: 0;
+  margin: 0;
   background: url(../images/toggle-active.svg) center / contain no-repeat;
+  overflow: hidden;
+  white-space: nowrap;
 
   &:active {
     background-image: url(../images/toggle-active.svg) !important;
@@ -11,7 +15,6 @@
   span {
     pointer-events: none;
     opacity: 0;
-    overflow: hidden;
   }
 }
 
