@@ -1,4 +1,4 @@
-= Building a Dapp
+= Building a dapp
 
 Decentralized Applications (aka dapps or ÐApps) are web applications backed by Ethereum smart contracts. Instead of using a centralized server or database, these applications rely on the blockchain as a consensus and coordination layer. This leads to potentially unstoppable applications: anyone can spin up a copy of the frontend, and freely connect it to the public Ethereum network.
 
@@ -157,7 +157,7 @@ Having this initial setup, you can now modify it to start building your own appl
 If you want to learn more about using Starter Kits, `unpack` the xref:starter-kits::tutorial.adoc[`tutorial`] kit instead of `starter`: it will guide you through the process of deploying and interacting with contracts from a dapp. You can also check out the xref:starter-kits::list.adoc[list of all starter kits] available to unpack.
 
 
-== Next Steps
+== Next steps
 
 You have taken the first steps towards building a decentralized web-based front-end for your smart contracts. Your next tasks should be:
 

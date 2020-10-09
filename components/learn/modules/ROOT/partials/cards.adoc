@@ -10,22 +10,22 @@ xref:learn::developing-smart-contracts.adoc[[.card-title]#Developing Smart Contr
 
 [.card.card-learn]
 --
-xref:learn::deploying-and-interacting.adoc[[.card-title]#Deploying and Interacting# [.card-body]#Deploy your contracts to a local blockchain and send your first transactions using the OpenZeppelin CLI.#]
+xref:learn::deploying-and-interacting.adoc[[.card-title]#Deploying and Interacting# [.card-body]#Deploy your contracts to a local blockchain and send your first transactions using the console.#]
 --
 
 [.card.card-learn]
 --
-xref:learn::writing-automated-tests.adoc[[.card-title]#Writing Automated Tests# [.card-body]#Unit test your contracts with the OpenZeppelin Test Environment combined with assertions from our Test Helpers.#]
+xref:learn::writing-automated-tests.adoc[[.card-title]#Writing Automated Tests# [.card-body]#Unit test your contracts with assertions from OpenZeppelin Test Helpers and test using the OpenZeppelin Test Environment.#]
 --
 
 [.card.card-learn]
 --
-xref:learn::upgrading-smart-contracts.adoc[[.card-title]#Upgrading Smart Contracts# [.card-body]#Change the code of your deployed contracts to add new features or fix bugs+++,+++ using the OpenZeppelin CLI or the Upgrades library.#]
+xref:learn::connecting-to-public-test-networks.adoc[[.card-title]#Connecting to Public Test Networks# [.card-body]#Set up a staging environment by deploying your app to a public Ethereum testnet.#]
 --
 
 [.card.card-learn]
 --
-xref:learn::connecting-to-public-test-networks.adoc[[.card-title]#Connecting to Public Test Networks# [.card-body]#Set up a staging environment by deploying your app to a public Ethereum testnet using the OpenZeppelin CLI.#]
+xref:learn::upgrading-smart-contracts.adoc[[.card-title]#Upgrading Smart Contracts# [.card-body]#Change the code of your deployed contracts to add new features or fix bugs+++,+++ using OpenZeppelin Upgrades Plugins.#]
 --
 
 [.card.card-learn]

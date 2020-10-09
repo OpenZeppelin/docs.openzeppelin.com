@@ -1,86 +1,94 @@
-= Connecting to Public Test Networks
+= Connecting to public test networks
 
 After you have xref:developing-smart-contracts.adoc[written your contracts], and xref:deploying-and-interacting.adoc[tried them out locally] and xref:writing-automated-tests.adoc[tested them thoroughly], it's time to move to a persistent public testing environment, where you and your beta users can start interacting with your application.
 
 We will use *public testing networks* (aka _testnets_) for this, which are networks that operate similar to the main Ethereum network, but where Ether has no value and is free to acquire - making them ideal for testing your contracts at no cost.
 
-In this guide, we will pick up our xref:deploying-and-interacting.adoc#box-contract[beloved `Box` contract], and deploy it to a testnet, while learning:
+In this guide, we will use our beloved xref:developing-smart-contracts.adoc#box-contract[`Box` contract], and deploy it to a testnet, while learning:
 
 * <<testnet-list, What test networks are available>>
-* <<connecting-project-to-network, How to set up your OpenZeppelin project for working on a testnet>>
+* <<connecting-project-to-network, How to set up your project for working on a testnet>>
 * <<working-on-testnet, How to deploy and interact with your testnet contract instances>>
 
-Remember that deploying to a public test network is a necessary step when developing an Ethereum project. They provide a safe environment for testing that closely mimics the main network - you don't want to take out your project for a test drive in a network where mistakes will cost you money!
+Remember that deploying to a public test network is a necessary step when developing an Ethereum project. They provide a safe environment for testing that closely mimics the main network - you don't want to take out your project for a test drive in a network where mistakes will cost you and your users money!
+
+include::learn::partial$buidler-truffle-toggle.adoc[]
 
 [[testnet-list]]
-== Available Testnets
+== Available testnets
 
 There are four test networks available for you to choose, each with their own characteristics:
 
 [horizontal]
 Ropsten:: The only proof-of-work testnet. It has unpredictable block times and frequent chain reorganizations. At the same time, it is the chain that most closely resembles mainnet. (id=3)
 Rinkeby:: A proof-of-authority network. This means that new blocks are added by a set of pre-defined trusted nodes, instead of by whichever miner provides a proof-of-work. It only works with Geth clients, and has 15-second block times. (id=4)
-Kovan:: Another proof-of-authority network, but this one runs only with Parity clients, and has 4-second block times. (id=42)
-Goerli:: Also a proof-of-authority network, but compatible with both Geth and Parity clients, with 15-second block times. (id=6)
+Kovan:: Another proof-of-authority network, but this one runs only with OpenEthereum clients, and has 4-second block times. (id=42)
+Goerli:: Also a proof-of-authority network, but compatible with both Geth and OpenEthereum clients, with 15-second block times. (id=5)
 
 NOTE: Each network is identified by a numeric ID. Local networks usually have a large random value, while id=1 is reserved for the main Ethereum network.
 
 It is up to you whether you want to test in Ropsten's unpredictable environment to assess how robust your application is, or a more reliable one to simplify the testing experience.
 
 [[connecting-project-to-network]]
-== Connecting a Project to a Public Network
+== Connecting a project to a public network
 
-To connect our OpenZeppelin project to a public testnet, we will need to:
+To connect our project to a public testnet, we will need to:
 
   . <<accessing-a-testnet-node, Get hold of a testnet node>>
   . <<creating-a-new-account, Create a new account>>
-  . <<configuring-the-network, Update our networks configuration file>>
+  . <<configuring-the-network, Update our configuration file>>
   . <<finding-a-testnet-account, Fund our testing account>>
 
 [[accessing-a-testnet-node]]
-=== Accessing a Testnet Node
+=== Accessing a testnet node
 
-While you can spin up your own https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options[Geth] or https://wiki.parity.io/Chain-specification[Parity] node connected to a testnet, the easiest way to access a testnet is via a public node service such as https://infura.io[Infura]. Infura provides access to public nodes for all testnets and the main network, via both free and paid plans.
+While you can spin up your own https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options[Geth] or https://openethereum.github.io/wiki/Chain-specification[OpenEthereum] node connected to a testnet, the easiest way to access a testnet is via a public node service such as https://infura.io[Infura]. Infura provides access to public nodes for all testnets and the main network, via both free and paid plans.
 
 NOTE: We say a node is _public_ when it can be accessed by the general public, and manages no accounts. This means that it can reply to queries and relay signed transactions, but cannot sign transactions on its own.
 
 Head over to Infura or a public node provider of your choice, sign up, and jot down your assigned project ID - we will use it later to connect to the network.
 
 [[creating-a-new-account]]
-=== Creating a New Account
+=== Creating a new account
 
 To send transactions in a testnet, you will need a new Ethereum account. There are many ways to do this: here we will use the `mnemonics` package, which will output a fresh mnemonic (a set of 12 words) we will use to derive our accounts:
 
 [source,console]
 ----
 $ npx mnemonics
-pioneer tent curve wild ...
+drama film snack motion ...
 ----
 
-WARNING: Make sure to keep your mnemonic secure. Even if it is just for testing purposes, there are still malicious users out there who will wreak havoc on your testnet deployment for fun!
+WARNING: Make sure to keep your mnemonic secure. Do not commit secrets to version control. Even if it is just for testing purposes, there are still malicious users out there who will wreak havoc on your testnet deployment for fun!
 
 [[configuring-the-network]]
-=== Configuring the Network
+=== Configuring the network
 
-Since we are using public nodes, we will need to sign all our transactions locally. We will use `@truffle/hdwallet-provider` to do this, setting it up with our mnemonic. We will also tell the provider how to connect to the test network by using the Infura endpoint.
+Since we are using public nodes, we will need to sign all our transactions locally. We will configure the network with our mnemonic and the Infura endpoint.
 
-NOTE: This part assumes you have already set up a new OpenZeppelin project. If you haven't, run `oz init` or head over to the guide on xref:deploying-and-interacting.adoc#getting-started-with-the-cli[getting started with the CLI].
+NOTE: This part assumes you have already set up a project. If you haven't, head over to the guide on xref:developing-smart-contracts.adoc#setting-up-a-solidity-project[Setting up a Solidity project].
 
-Let's start by installing the provider:
+[.truffle]
+--
+Let's start by installing the https://github.com/trufflesuite/truffle/tree/master/packages/hdwallet-provider[@truffle/hdwallet-provider]:
 
 [source,console]
 ----
 $ npm install --save-dev @truffle/hdwallet-provider
 ----
+--
 
-Then, we will update our `networks.js` file with a new connection to the testnet. Here we will use Rinkeby, but you can use whichever you want:
-
+We need to update our configuration file with a new network connection to the testnet. Here we will use Rinkeby, but you can use whichever you want:
+[.truffle]
+--
 [source,diff]
 ----
+// truffle-config.js
 +const { projectId, mnemonic } = require('./secrets.json');
 +const HDWalletProvider = require('@truffle/hdwallet-provider');
  
  module.exports = {
+   ...
    networks: {
      development: {
       ...
@@ -89,22 +97,45 @@ Then, we will update our `networks.js` file with a new connection to the testnet
 +      provider: () => new HDWalletProvider(
 +        mnemonic, `https://rinkeby.infura.io/v3/${projectId}`
 +      ),
-+      networkId: 4,
-+      gasPrice: 10e9
++      network_id: 4,
++      gasPrice: 10e9,
++      skipDryRun: true
 +    }
    },
+   ...
  };
 ----
 
 NOTE: See the `HDWalletProvider` https://github.com/trufflesuite/truffle/tree/master/packages/hdwallet-provider[documentation] for information on configuration options.
+--
 
-Note in the first line that we are loading the project id and mnemonic from a `secrets.json` file, which should look like the following, but using your own values. Make sure to `.gitignore` it!
+[.buidler]
+--
+[source,diff]
+----
+// buidler.config.js
++ const { projectId, mnemonic } = require('./secrets.json');
+...
+  module.exports = {
++    networks: {
++     rinkeby: {
++       url: `https://rinkeby.infura.io/v3/${projectId}`,
++       accounts: {mnemonic: mnemonic}
++     }
++  },
+...
+};
+----
+
+NOTE: See the Buidler https://buidler.dev/config/#json-rpc-based-networks[networks configuration] documentation for information on configuration options.
+--
+Note in the first line that we are loading the project id and mnemonic from a `secrets.json` file, which should look like the following, but using your own values. Make sure to `.gitignore` it to ensure you don't commit secrets to version control!
 
 [source,json]
 ----
 {
-  "mnemonic": "pioneer tent curve wild ...",
-  "projectId": "305c13705054a8d918ad77549e402c72"
+  "mnemonic": "drama film snack motion ...",
+  "projectId": "305c13705054a..."
 }
 ----
 
@@ -112,78 +143,142 @@ TIP: Instead of a `secrets.json` file, you can use whatever secret-management so
 
 We can now test out that this configuration is working by listing the accounts we have available for the Rinkeby network. Remember that yours will be different, as they depend on the mnemonic you used.
 
+[.truffle]
+--
 [source,console]
 ----
-$ npx oz accounts
-? Pick a network rinkeby
-Accounts for rinkeby:
-Default: 0xc38C62Af27e329aD58e889E7AE3070B1db571eB0
-All:
-- 0: 0xc38C62Af27e329aD58e889E7AE3070B1db571eB0
-- 1: 0xE8595815B50088fd4371f2E52fb2F5eeAfd654ac
-- 2: 0x1Ad3B46f8d23d84380c618F4aD33Bf49E2Df7f25
-- 3: 0xebfb88b31bdDead46a909276D3A69e2b712A2Aa3
+$ npx truffle console --network rinkeby
+truffle(rinkeby)> accounts
+[ '0xEce6999C6c5BDA71d673090144b6d3bCD21d13d4',
+  '0xC1310ade58A75E6d4fCb8238f9559188Ea3808f9',
 ...
 ----
+--
 
-We can also test the connection to the Infura node, by querying our account balance.
-
+[.buidler]
+--
 [source,console]
 ----
-$ npx oz balance
-? Enter an address to query its balance 0xc38C62Af27e329aD58e889E7AE3070B1db571eB0
-? Pick a network rinkeby
-Balance: 0 ETH
-0
+$ npx buidler console --network rinkeby
+All contracts have already been compiled, skipping compilation.
+> accounts = await ethers.provider.listAccounts()
+[ '0xEce6999C6c5BDA71d673090144b6d3bCD21d13d4',
+  '0xC1310ade58A75E6d4fCb8238f9559188Ea3808f9',
+...
 ----
+--
+We can also test the connection to the Infura node, by querying our account balance.
+[.truffle]
+--
+[source,console]
+----
+truffle(rinkeby)> await web3.eth.getBalance(accounts[0])
+'0'
+----
+--
+
+[.buidler]
+--
+[source,console]
+----
+> (await ethers.provider.getBalance(accounts[0])).toString()
+'0'
+----
+--
 
 Empty! This points to our next task: getting testnet funds so that we can send transactions.
 
 [[finding-a-testnet-account]]
-=== Funding the Testnet Account
+=== Funding the testnet account
 
 Most public testnets have a faucet: a site that will provide you with a small amount of test Ether for free. If you are on Rinkeby, head on to the https://faucet.rinkeby.io/[Rinkeby Authenticated Faucet] to get funds by authenticating with your Twitter or Facebook account. Alternatively, you can also use https://faucet.metamask.io/[MetaMask's faucet] to ask for funds directly to your MetaMask accounts.
 
 Armed with a funded account, let's deploy our contracts to the testnet!
 
 [[working-on-testnet]]
-== Working on a Testnet
+== Working on a testnet
 
-With a project configured to work on a public testnet, we can now finally xref::deploying-and-interacting.adoc#box-contract[deploy our `Box` contract]. The command here is exactly the same as if you were on your xref::deploying-and-interacting.adoc#local-blockchain[local development network], though it will take a few seconds to run as new blocks are mined.
+With a project configured to work on a public testnet, we can now finally xref::deploying-and-interacting.adoc#deploying-a-smart-contract[deploy our `Box` contract]. The command here is exactly the same as if you were on your xref::deploying-and-interacting.adoc#local-blockchain[local development network], though it will take a few seconds to run as new blocks are mined.
 
+[.truffle]
+--
 [source,console]
 ----
-$ npx oz deploy
-✓ Compiled contracts with solc 0.6.7 (commit.b8d736ae)
-? Choose the kind of deployment regular
-? Pick a network rinkeby
-? Pick a contract to deploy Box
-✓ Deployed instance of Box
-0xA1a05372ECD1353105543ee46C8AA447547C6680
-----
+$ npx truffle migrate --network rinkeby
+...
+2_deploy.js
+===========
 
-That's it! Your `Box` contract instance will be forever stored in the testnet, and publicly accessible to anyone. The OpenZeppelin CLI will keep track of this and all your deployed contracts in `.openzeppelin/rinkeby.json`, so you can easily refer to them later, such as when upgrading or interacting with them.
+   Deploying 'Box'
+   ---------------
+   > transaction hash:    0x56237c80fc5b562736d27dc12560241706849cebe01c46b7c080dad596a65f28
+   > Blocks: 0            Seconds: 6
+   > contract address:    0xA4D767f2Fba05242502ECEcb2Ae97232F7611353
+...
+----
+--
+
+[.buidler]
+--
+[source,console]
+----
+$ npx buidler run --network rinkeby scripts/deploy.js
+All contracts have already been compiled, skipping compilation.
+Deploying Box...
+Box deployed to: 0xc4B718c07971C96641478D146aA1f411b714b366
+----
+--
+
+That's it! Your `Box` contract instance will be forever stored in the testnet, and publicly accessible to anyone. 
 
 You can see your contract on a block explorer such as https://etherscan.io/[Etherscan]. Remember to access the explorer on the testnet where you deployed your contract, such as https://rinkeby.etherscan.io[rinkeby.etherscan.io] for Rinkeby.
 
-TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0xA1a05372ECD1353105543ee46C8AA447547C6680[here].
+[.truffle]
+--
+TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0xA4D767f2Fba05242502ECEcb2Ae97232F7611353[here].
+--
 
-You can also interact with your instance as you regularly would, either using the `call` and `send-tx` xref::deploying-and-interacting.adoc#interacting-from-the-command-line[CLI commands], or xref::deploying-and-interacting.adoc#interacting-programatically[programmatically using `web3`]. You can also xref:upgrading-smart-contracts.adoc[upgrade your contracts] via `oz upgrade` as you add new features to your staging project!
+[.buidler]
+--
+TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0xc4B718c07971C96641478D146aA1f411b714b366[here].
+--
 
-[source,console]
-----
-$ npx oz send-tx
-? Pick a network rinkeby
-? Pick an instance Box at 0xA1a05372ECD1353105543ee46C8AA447547C6680
-? Select which function store(newValue: uint256)
-? newValue: uint256: 42
-✓ Transaction successful. Transaction hash: 0xd6ef798b1c85f5dca1cf4b27f8544d6333dd1ab1f83e61a19f2cb3df203e638c
-Events emitted:
- - ValueChanged(42)
-----
+You can also interact with your instance as you regularly would, either using the xref::deploying-and-interacting.adoc#interacting-from-the-console[console], or xref::deploying-and-interacting.adoc#interacting-programatically[programmatically].
 
+[.truffle]
+--
+```console
+$ npx truffle console --network rinkeby
+truffle(rinkeby)> box = await Box.deployed()
+undefined
+truffle(rinkeby)> await box.store(42)
+{ tx:
+   '0x7d1a556b34fcb26855c6646669fc926738b05589591de6c7bb1f8773546817e7',
+...
+truffle(rinkeby)> (await box.retrieve()).toString()
+'42'
+```
+--
+
+[.buidler]
+--
+```console
+$ npx buidler console --network rinkeby
+All contracts have already been compiled, skipping compilation.
+> const Box = await ethers.getContractFactory("Box")
+undefined
+> const box = await Box.attach("0xc4B718c07971C96641478D146aA1f411b714b366")
+undefined
+> await box.store(42)
+{ hash:
+   '0x7dcc0ae058c88f1490f4f9dbf918fb6ae8f710676fb9a15e2e04e72223d042df',
+...
+> (await box.retrieve()).toString()
+'42'
+```
+--
 Keep in mind that every transaction will cost some gas, so you will eventually need to top up your account with more funds.
 
-== Next Steps
+== Next steps
 
 After thoroughly testing your application on a public testnet, you are ready for the last step on the development journey: xref:preparing-for-mainnet.adoc[deploying your application in production].
