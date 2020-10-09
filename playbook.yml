@@ -26,6 +26,10 @@ content:
       branches: docs-v*
       start_path: packages/lib/docs
 
+    - url: https://github.com/OpenZeppelin/openzeppelin-upgrades
+      branches: docs-v*
+      start_path: docs
+
     - url: https://github.com/OpenZeppelin/starter-kit
       branches: master # Starter Kit is unversioned
       start_path: docs
@@ -56,8 +60,6 @@ content:
 ui:
   bundle:
     url: ./ui/build/oz-docs-ui.zip
-    # url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
-    # snapshot: true
 asciidoc:
   attributes:
     idprefix: ''

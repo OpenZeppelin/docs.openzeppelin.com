@@ -62,6 +62,12 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 /sdk/erc20-onboarding      https://forum.openzeppelin.com/t/onboarding-erc20-tokens-to-openzeppelin-upgrades/2081 301
 /sdk/erc20-onboarding.html https://forum.openzeppelin.com/t/onboarding-erc20-tokens-to-openzeppelin-upgrades/2081 301
 
+# Moved Upgrades content to Upgrades Plugins
+/upgrades/:version/writing-upgradeable      /upgrades-plugins/writing-upgradeable 301!
+/upgrades/:version/writing-upgradeable.html /upgrades-plugins/writing-upgradeable 301!
+/upgrades/:version/proxies      /upgrades-plugins/proxies 301!
+/upgrades/:version/proxies.html /upgrades-plugins/proxies 301!
+
 # Removed top level GSN section
 /openzeppelin/gsn/getting-started      /learn/sending-gasless-transactions 301
 /openzeppelin/gsn/getting-started.html /learn/sending-gasless-transactions 301

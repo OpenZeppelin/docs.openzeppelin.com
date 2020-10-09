@@ -34,4 +34,4 @@
       this.classList.toggle('active')
     })
   })
-})()
+})();

@@ -1,0 +1,21 @@
+site:
+  title: OpenZeppelin Docs
+  url: https://docs.openzeppelin.com
+  start_page: openzeppelin::index.adoc
+  keys:
+    google_analytics: 'UA-85043059-1'
+content:
+  sources:
+    - url: .
+      branches: HEAD
+      start_path: components/home
+
+    - url: .
+      branches: HEAD
+      start_path: components/learn
+ui:
+  bundle:
+    url: ./ui/build/oz-docs-ui.zip
+asciidoc:
+  attributes:
+    idprefix: ''

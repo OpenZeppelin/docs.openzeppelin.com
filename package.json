@@ -10,6 +10,7 @@
   "scripts": {
     "build": "bash scripts/build.sh --fetch playbook.yml",
     "build:no-fetch": "bash scripts/build.sh playbook.yml",
+    "build:local": "bash scripts/build.sh playbook-local-only.yml",
     "build:custom": "bash scripts/build.sh",
     "prepare": "yarn --cwd ui bundle"
   },
