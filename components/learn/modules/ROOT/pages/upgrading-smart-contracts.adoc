@@ -1,19 +1,18 @@
-= Upgrading Smart Contracts
+= Upgrading smart contracts
 
-Smart contracts xref:deploying-and-interacting.adoc[deployed] with the OpenZeppelin CLI can be **upgraded** to modify their code, while preserving their address, state, and balance. This allows you to iteratively add new features to your project, or fix any bugs you may find in xref:preparing-for-mainnet.adoc[in production].
+Smart contracts deployed using xref:upgrades-plugins::index.adoc[OpenZeppelin Upgrades Plugins] can be **upgraded** to modify their code, while preserving their address, state, and balance. This allows you to iteratively add new features to your project, or fix any bugs you may find xref:preparing-for-mainnet.adoc[in production].
 
 Throughout this guide, we will learn:
 
 * <<whats-in-an-upgrade, Why upgrades are important>>
-* <<upgrading-a-contract-via-cli, Upgrade our Box contract using the CLI>>
+* <<upgrading-a-contract-via-plugins, Upgrade our Box using the Upgrades Plugins>>
 * <<how-upgrades-work, Learn how upgrades work under the hood>>
-* <<upgrading-contracts-in-js, Use upgrades.js to programmatically manage upgrades>>
 * <<limitations-of-contract-upgrades, Learn how to write upgradeable contracts>>
 
-TIP: If you're using Truffle or Buidler, you can also check out the new https://github.com/OpenZeppelin/openzeppelin-upgrades[Upgrades plugins], although they're not yet covered by this guide.
+include::learn::partial$buidler-truffle-toggle.adoc[]
 
 [[whats-in-an-upgrade]]
-== What's in an Upgrade
+== What's in an upgrade
 
 Smart contracts in Ethereum are immutable by default. Once you create them there is no way to alter them, effectively acting as an unbreakable contract among participants.
 
@@ -26,23 +25,25 @@ Here's what you'd need to do to fix a bug in a contract you cannot upgrade:
 . Update all contracts that interacted with the old contract to use the address of the new one
 . Reach out to all your users and convince them to start using the new deployment (and handle both contracts being used simultaneously, as users are slow to migrate)
 
-To avoid going through this mess, we have built contract upgrades directly into our tools. This allows us to *change the contract code, while preserving the state, balance, and address*. And all by running a single command. Let's see it in action.
+To avoid going through this mess, we have built contract upgrades directly into our plugins. This allows us to *change the contract code, while preserving the state, balance, and address*. Let's see it in action.
 
-[[upgrading-a-contract-via-cli]]
-== Upgrading a Contract using the CLI
+[[upgrading-a-contract-via-plugins]]
+== Upgrading using the Upgrades Plugins
 
-Whenever you deploy a new contract using the CLI via `openzeppelin create`, that contract instance can be **upgraded** later. By default, only the address that originally deployed the contract has the rights to upgrade it.
+Whenever you deploy a new contract using `deployProxy` in the xref:upgrades-plugins::index.adoc[OpenZeppelin Upgrades Plugins], that contract instance can be **upgraded** later. By default, only the address that originally deployed the contract has the rights to upgrade it.
 
-TIP: If you're unfamiliar with the OpenZeppelin CLI, head to xref:deploying-and-interacting.adoc#getting-started-with-the-cli[our introductory guide] first!
+`deployProxy` will create the following transactions:
 
+. Deploy the implementation contract (our `Box` contract)
+. Deploy the `ProxyAdmin` contract (the admin for our proxy).
+. Deploy the proxy contract and run any initializer function.
 
-Let's see how it works, by upgrading the `Box` contract xref:deploying-and-interacting.adoc#deploying-a-smart-contract[we deployed earlier]:
+Let's see how it works, by deploying an upgradeable version of our `Box` contract, using the same setup as when xref:deploying-and-interacting.adoc#deploying-a-smart-contract[we deployed earlier]:
 
 ```solidity
 // contracts/Box.sol
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.0;
-
 
 contract Box {
     uint256 private value;
@@ -63,41 +64,156 @@ contract Box {
 }
 ```
 
-We need to first `deploy` a new `Box` instance as an upgradeable contract (we previously deployed regular non-upgradeable contracts), so we can then upgrade it.
+We first need to install the Upgrades Plugin.
 
+[.truffle]
+--
+Install the xref:upgrades-plugins::truffle-upgrades.adoc[Truffle Upgrades] plugin.
 ```bash
-$ npx oz deploy
-✓ Compiled contracts with solc 0.6.7 (commit.b8d736ae)
-? Choose the kind of deployment upgradeable
-? Pick a network development
-? Pick a contract to deploy Box
-✓ Contract Box deployed
-All implementations have been deployed
-? Call a function to initialize the instance after creating it? No
-✓ Setting everything up to create contract instances
-✓ Instance created at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
-To upgrade this instance run 'oz upgrade'
-0xCfEB869F69431e42cdB54A4F4f105C19C080A601
+npm install --save-dev @openzeppelin/truffle-upgrades
+```
+--
+
+[.buidler]
+--
+Install the xref:upgrades-plugins::buidler-upgrades.adoc[Buidler Upgrades] plugin.
+```bash
+npm install --save-dev @openzeppelin/buidler-upgrades
 ```
 
-Then store a value.
-```bash
-$ npx oz send-tx
-? Pick a network development
-? Pick an instance Box at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
-? Select which function store(newValue: uint256)
-? newValue: uint256: 5
-✓ Transaction successful. Transaction hash: 0x9c15e805959a1fb9cbf6e7e108094b02c3d439ec1190549bff1166731e0e2274
-Events emitted:
- - ValueChanged(5)
-```
+We then need to configure Buidler to use our `@openzeppelin/buidler-upgrades` plugin. To do this add the plugin in your `buidler.config.js` file as follows.
 
-For the sake of the example, let's say we want to add a new feature: a function that increments the `value` stored in the `Box`.
+```js
+// buidler.config.js
+usePlugin('@nomiclabs/buidler-ethers');
+usePlugin('@openzeppelin/buidler-upgrades');
+ 
+module.exports = {
+...
+};
+```
+--
+
+In order to upgrade a contract like `Box` we need to first deploy it as an upgradeable contract, which is a different deployment procedure than we've seen so far. We will initialize our Box contract by calling `store` with the value 42.
+
+[.truffle]
+--
+Truffle uses https://www.trufflesuite.com/docs/truffle/getting-started/running-migrations[migrations] to deploy contracts.  Migrations consist of JavaScript files and a special Migrations contract to track migrations on-chain.
+
+We will create a migration script to deploy our upgradeable Box contract using xref:upgrades-plugins::api-truffle-upgrades.adoc#deploy-proxy[`deployProxy`].  We will save this file as `migrations/3_deploy_upgradeable_box.js`. 
+
+```js
+// migrations/3_deploy_upgradeable_box.js
+const { deployProxy } = require('@openzeppelin/truffle-upgrades');
+
+const Box = artifacts.require('Box');
+
+module.exports = async function (deployer) {
+  await deployProxy(Box, [42], { deployer, initializer: 'store' });
+};
+```
+--
+
+[.buidler]
+--
+Buidler doesn't currently have a native deployment system, instead we use https://buidler.dev/guides/deploying.html[scripts] to deploy contracts.
+
+We will create a script to deploy our upgradeable Box contract using xref:upgrades-plugins::api-buidler-upgrades.adoc#deploy-proxy[`deployProxy`].  We will save this file as `scripts/deploy_upgradeable_box.js`. 
+
+```js
+// scripts/deploy_upgradeable_box.js
+const { ethers, upgrades } = require("@nomiclabs/buidler");
+
+async function main() {
+  const Box = await ethers.getContractFactory("Box");
+  console.log("Deploying Box...");
+  const box = await upgrades.deployProxy(Box, [42], { initializer: 'store' });
+  await box.deployed();
+  console.log("Box deployed to:", box.address);
+}
+
+main();
+```
+--
+
+We can then deploy our upgradeable contract.  
+
+[.truffle]
+--
+Using the https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#migrate[`migrate`] command, we can deploy the `Box` contract to the `development` network.
+
+```console
+$ npx truffle migrate --network development
+...
+3_deploy_upgradeable_box.js
+===========================
+
+   Replacing 'Box'
+   ---------------
+   ...
+   Deploying 'ProxyAdmin'
+   ----------------------
+   ...
+   Deploying 'AdminUpgradeabilityProxy'
+   ------------------------------------
+   ...
+```
+--
+
+[.buidler]
+--
+Using the `run` command, we can deploy the `Box` contract to the `development` network.
+
+```console
+$ npx buidler run --network development scripts/deploy_upgradeable_box.js
+All contracts have already been compiled, skipping compilation.
+Deploying Box...
+Box deployed to: 0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA
+```
+--
+
+We can then interact with our `Box` contract to `retrieve` the value that we stored during initialization.
+
+[.truffle]
+--
+We will use the https://www.trufflesuite.com/docs/truffle/getting-started/using-truffle-develop-and-the-console[Truffle console] to interact with our upgraded `Box` contract.
+
+```console
+$ npx truffle console --network development
+truffle(development)> box = await Box.deployed()
+undefined
+truffle(development)> (await box.retrieve()).toString()
+'42'
+```
+--
+
+[.buidler]
+--
+We will use the https://buidler.dev/guides/buidler-console.html[Buidler console] to interact with our upgraded `Box` contract.
+
+We need to specify the address of our proxy contract from when we deployed our `Box` contract.
+
+```console
+$ npx buidler console --network development
+All contracts have already been compiled, skipping compilation.
+> const Box = await ethers.getContractFactory("Box")
+undefined
+> const box = await Box.attach("0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA")
+undefined
+> (await box.retrieve()).toString()
+'42'
+```
+--
+
+For the sake of the example, let's say we want to add a new feature: a function that increments the `value` stored in a new version of `Box`.
 
 ```solidity
-// contracts/Box.sol
-contract Box {
-    // ...
+// contracts/BoxV2.sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+
+contract BoxV2 {
+    // ... code from Box.sol
 
     // Increments the stored value by 1
     function increment() public {
@@ -107,57 +223,138 @@ contract Box {
 }
 ```
 
-After changing the Solidity file, we can now just upgrade the instance we had deployed earlier by running the `openzeppelin upgrade` command.
+After creating the Solidity file, we can now upgrade the instance we had deployed earlier using the `upgradeProxy` function.
 
-```bash
-$ npx oz upgrade
-? Pick a network development
-? Which instances would you like to upgrade? Choose by name
-? Pick an instance to upgrade Box
-? Call a function on the instance after upgrading it? No
-✓ Compiled contracts with solc 0.6.7 (commit.b8d736ae)
-✓ Contract Box deployed
-All implementations have been deployed
-✓ Instance upgraded at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601. Transaction receipt: 0xcd85e8481c8e15f37a2822e5ac829cec315484dc8cddde37625270358ff9370f
-✓ Instance at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601 upgraded
+`upgradeProxy` will create the following transactions:
+
+. Deploy the implementation contract (our `BoxV2` contract)
+. Call the `ProxyAdmin` to update the proxy contract to use the new implementation.
+
+[.truffle]
+--
+We will create a migration JavaScript to upgrade our `Box` contract to use `BoxV2` using xref:upgrades-plugins::api-truffle-upgrades.adoc#upgrade-proxy[`upgradeProxy`].  We will save this file as `migrations/4_upgrade_box.js`. 
+
+```js
+// migrations/4_upgrade_box.js
+const { upgradeProxy } = require('@openzeppelin/truffle-upgrades');
+
+const Box = artifacts.require('Box');
+const BoxV2 = artifacts.require('BoxV2');
+
+module.exports = async function (deployer) {
+  const existing = await Box.deployed();
+  await upgradeProxy(existing.address, BoxV2, { deployer });
+};
 ```
+--
+
+[.buidler]
+--
+We will create a script to upgrade our `Box` contract to use `BoxV2` using xref:upgrades-plugins::api-buidler-upgrades.adoc#upgrade-proxy[`upgradeProxy`].  We will save this file as `scripts/upgrade_box.js`. 
+We need to specify the address of our proxy contract from when we deployed our `Box` contract.
+
+```js
+// scripts/upgrade_box.js
+const { ethers, upgrades } = require("@nomiclabs/buidler");
+
+async function main() {
+  const BoxV2 = await ethers.getContractFactory("BoxV2");
+  console.log("Upgrading Box...");
+  const box = await upgrades.upgradeProxy("0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA", BoxV2);
+  console.log("Box upgraded");
+}
+
+main();
+```
+--
+
+We can then deploy our upgradeable contract.  
+
+[.truffle]
+--
+Using the https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#migrate[`migrate`] command, we can upgrade the `Box` contract on the `development` network.
+
+```console
+$ npx truffle migrate --network development
+...
+4_upgrade_box.js
+================
+
+   Deploying 'BoxV2'
+   -----------------
+...
+```
+--
+
+[.buidler]
+--
+Using the `run` command, we can upgrade the `Box` contract on the `development` network.
+
+```console
+$ npx buidler run --network development scripts/upgrade_box.js
+All contracts have already been compiled, skipping compilation.
+Box deployed to: 0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA
+```
+--
 
 Done! Our `Box` instance has been upgraded to the latest version of the code, *while keeping its state and the same address as before*. We didn't need to deploy a new one at a new address, nor manually copy the `value` from the old `Box` to the new one.
 
 Let's try it out by invoking the new `increment` function, and checking the `value` afterwards:
 
-```bash
-$ npx oz send-tx
-? Pick a network development
-? Pick an instance Box at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
-? Select which function increment()
-✓ Transaction successful. Transaction hash: 0xb3eaceb24df52c4933d868113aabb02c12a91080e0c923373e1ddedae7b46325
-Events emitted:
- - ValueChanged(6)
+[.truffle]
+--
+We need to use the address of the proxy contract with the `BoxV2` artifact.
 
-$ npx oz call
-? Pick a network development
-? Pick an instance Box at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
-? Select which function retrieve()
-✓ Method 'retrieve()' returned: 6
-6
+```console
+$ npx truffle console --network development
+truffle(development)> box = await Box.deployed()
+undefined
+truffle(development)> boxV2 = await BoxV2.at(box.address)
+undefined
+truffle(development)> await boxV2.increment()
+{ tx:
+...
+truffle(development)> (await boxV2.retrieve()).toString()
+'43'
 ```
+--
 
-That's it! Notice how the `value` of the `Box` was preserved throughout the upgrade, as well as its address. And this process is the same regardless of whether you are working on a local blockchain, a testnet, or the main network. Let's see how the OpenZeppelin CLI accomplishes this.
+[.buidler]
+--
+We need to specify the address of our proxy contract from when we deployed our `Box` contract.
+
+```console
+$ npx buidler console --network development
+All contracts have already been compiled, skipping compilation.
+> const BoxV2 = await ethers.getContractFactory("BoxV2")
+undefined
+> const box = await BoxV2.attach("0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA")
+undefined
+> await box.increment()
+...
+> (await box.retrieve()).toString()
+'43'
+```
+--
+
+That's it! Notice how the `value` of the `Box` was preserved throughout the upgrade, as well as its address. And this process is the same regardless of whether you are working on a local blockchain, a testnet, or the main network. 
+
+Let's see how the xref:upgrades-plugins::index.adoc[OpenZeppelin Upgrades Plugins] accomplish this.
 
 [[how-upgrades-work]]
-== How Upgrades Work
+== How upgrades work
 
 _This section will be more theory-heavy than others: feel free to skip over it and return later if you are curious._
 
-When you create a new upgradeble contract instance, the OpenZeppelin CLI actually deploys two contracts:
+When you create a new upgradeable contract instance, the xref:upgrades-plugins::index.adoc[OpenZeppelin Upgrades Plugins] actually deploys three contracts:
 
-. The contract you have written, which is known as the _implementation contract_ or _logic contract_.
-. A _proxy_ to that contract, which is the contract that you actually interact with.
+. The contract you have written, which is known as the _implementation contract_ containing the _logic_.
+. A _ProxyAdmin_ to be the admin of the _proxy_.
+. A _proxy_ to the _implementation contract_, which is the contract that you actually interact with.
 
 Here, the _proxy_ is a simple contract that just _delegates_ all calls to an implementation contract. A _delegate call_ is similar to a regular call, except that all code is executed in the context of the caller, not of the callee. Because of this, a `transfer` in the implementation contract's code will actually transfer the proxy's balance, and any reads or writes to the contract storage will read or write from the proxy's own storage.
 
-This allows us to **decouple** a contract's state and code: the proxy holds the state, while the logic contract provides the code. And it also allows us to **change** the code by just having the proxy delegate to a different implementation contract.
+This allows us to **decouple** a contract's state and code: the proxy holds the state, while the implementation contract provides the code. And it also allows us to **change** the code by just having the proxy delegate to a different implementation contract.
 
 An upgrade then involves the following steps:
 
@@ -168,72 +365,16 @@ NOTE: You can have multiple proxies using the same implementation contract, so y
 
 Any user of the smart contract always interacts with the proxy, *which never changes its address*. This allows you to roll out an upgrade or fix a bug without requesting your users to change anything on their end - they just keep interacting with the same address as always.
 
-NOTE: If you want to learn more about how OpenZeppelin proxies work, check out xref:upgrades::index.adoc[OpenZeppelin Upgrades].
-
-[[upgrading-contracts-in-js]]
-== Upgrading Contracts Programmatically
-
-If you want to create and upgrade contracts from your JavaScript code instead of via the command line, you can use the *OpenZeppelin Upgrades* library instead of the CLI.
-
-NOTE: The CLI does not just manage contract upgrades, but also compilation, interaction, and source code verification. The Upgrades library only takes care of creating and upgrading. The library also does not keep track of the contracts you have already deployed, nor runs any initializer or storage layout validations, as the CLI does. Nevertheless, these capabilities may be added to the Upgrades library in the near future.
-
-Your first step will be to install the library in your project, and you will also probably want to install `web3`:
-
-```bash
-$ npm install @openzeppelin/upgrades web3
-```
-
-As in our previous guide on xref:deploying-and-interacting.adoc#interacting-programmatically[programmatically interacting with contracts], we will start with some boilerplate code to initialize a provider, as well as the Upgrades library.
-
-```js
-const Web3 = require('web3');
-const Upgrades = require('@openzeppelin/upgrades')
-
-async function main() {
-  // Set up web3 object, connected to the local development network, initialize the Upgrades library
-  const web3 = new Web3('http://localhost:8545');
-  Upgrades.ZWeb3.initialize(web3.currentProvider)
-}
-
-main();
-```
-
-NOTE: You can check out a full version of the code in this section in the https://github.com/OpenZeppelin/openzeppelin-sdk/tree/master/examples/upgrades-library[upgrades-library example of the SDK repository].
-
-All our code from now on will be part of the `main` function. Let's begin by creating a new `project`, to manage our upgradeable contracts.
-
-```js
-const [from] = await ZWeb3.eth.getAccounts();
-const project = new ProxyAdminProject('MyProject', null, null, { from, gas: 1e6, gasPrice: 1e9 });
-```
-
-NOTE: The Upgrades library ships with three different flavours of projects: `SimpleProject`, `ProxyAdminProject`, and `AppProject`. We recommend using the `ProxyAdmin` one to begin with. You can learn more in the Upgrades documentation.
-
-Using this project, we can now create an instance of any contract. The project will take care of deploying it in such a way it can be upgraded later.
-
-```js
-const MyContractV0 = Upgrades.Contracts.getFromLocal('MyContractV0');
-const instance = await project.createProxy(MyContractV0);
-```
-
-After deploying the contract, you can upgrade it to a new version of the code using the `upgradeProxy` method, and providing the instance address.
-
-```js
-const address = instance.options.address;
-const MyContractV1 = Upgrades.Contracts.getFromLocal('MyContractV1');
-await project.upgradeProxy(address, MyContractV1);
-```
-
-That's it! You can now programmatically manage your contracts upgrades from your JavaScript code.
+NOTE: If you want to learn more about how OpenZeppelin proxies work, check out xref:upgrades-plugins::proxies.adoc[Proxies].
 
 [[limitations-of-contract-upgrades]]
-== Limitations of Contract Upgrades
+== Limitations of contract upgrades
 
-While any smart contract can be made upgradeable, some restrictions of the Solidity language need to be worked around. These come up when writing both the initial contract and the version we'll upgrade it to.
+While any smart contract can be made upgradeable, some restrictions of the Solidity language need to be worked around. These come up when writing both the initial version of contract and the version we'll upgrade it to.
 
 === Initialization
 
-Upgradeable contracts cannot have a `constructor`. To help you run initialization code, xref:upgrades::index.adoc[*OpenZeppelin Upgrades*] provides the `Initializable` base contract that allows you to tag a method as `initializer`, ensuring it can be run only once.
+Upgradeable contracts cannot have a `constructor`. To help you run initialization code, xref:contracts::index.adoc[*OpenZeppelin Contracts*] provides the xref:contracts::api/proxy.adoc#Initializable[`Initializable`] base contract that allows you to tag a method as xref:contracts::api/proxy.adoc#Initializable-initializer--[`initializer`], ensuring it can be run only once.
 
 As an example, let's write a new version of the `Box` contract with an initializer, storing the address of an `admin` who will be the only one allowed to change its contents.
 
@@ -242,8 +383,7 @@ As an example, let's write a new version of the `Box` contract with an initializ
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.0;
 
-import "@openzeppelin/upgrades/contracts/Initializable.sol";
-
+import "@openzeppelin/contracts/proxy/Initializable.sol";
 
 contract AdminBox is Initializable {
     uint256 private value;
@@ -270,29 +410,43 @@ contract AdminBox is Initializable {
 }
 ```
 
-When deploying this contract, the CLI will prompt us to execute the initializer and ask us to provide the admin address.
+When deploying this contract, we will need to specify the `initializer` function name (only when the name is not the default of `initialize`) and provide the admin address that we want to use.
 
-```bash
-$ npx oz deploy
-Nothing to compile, all contracts are up to date.
-? Choose the kind of deployment upgradeable
-? Pick a network development
-? Pick a contract to deploy AdminBox
-✓ Contract AdminBox deployed
-All implementations have been deployed
-? Call a function to initialize the instance after creating it? Yes
-? Select which function * initialize(admin: address)
-? admin: address: 0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1
-✓ Instance created at 0xC89Ce4735882C9F0f0FE26686c53074E09B0D550
-To upgrade this instance run 'oz upgrade'
-0xC89Ce4735882C9F0f0FE26686c53074E09B0D550
+[.truffle]
+--
+```js
+// migrations/5_deploy_upgradeable_adminbox.js
+const { deployProxy } = require('@openzeppelin/truffle-upgrades');
+
+const AdminBox = artifacts.require('AdminBox');
+
+module.exports = async function (deployer) {
+  await deployProxy(AdminBox, ['0xACa94ef8bD5ffEE41947b4585a84BdA5a3d3DA6E'], { deployer, initializer: 'initialize' });
+};
 ```
+--
+
+[.buidler]
+--
+```js
+// scripts/deploy_upgradeable_adminbox.js
+const { ethers, upgrades } = require("@nomiclabs/buidler");
+
+async function main() {
+  const AdminBox = await ethers.getContractFactory("AdminBox");
+  console.log("Deploying AdminBox...");
+  const adminBox = await upgrades.deployProxy(AdminBox, ['0xACa94ef8bD5ffEE41947b4585a84BdA5a3d3DA6E'], { initializer: 'initialize' });
+  await adminBox.deployed();
+  console.log("AdminBox deployed to:", adminBox.address);
+}
+
+main();
+```
+--
 
 For all practical purposes, the initializer acts as a constructor. However, keep in mind that since it's a regular function, you will need to manually call the initializers of all base contracts (if any).
 
-NOTE: In future versions of the OpenZeppelin CLI, it will take care of automatically converting constructors into initializers, so you won't need to worry about this.
-
-To learn more about this and other caveats when writing upgradeable contracts, check out our xref:upgrades::writing-upgradeable.adoc[Writing Upgradeable Contracts] guide.
+To learn more about this and other caveats when writing upgradeable contracts, check out our xref:upgrades-plugins::writing-upgradeable.adoc[Writing Upgradeable Contracts] guide.
 
 === Upgrading
 
@@ -314,10 +468,16 @@ contract Box {
 
 Fortunately, this limitation only affects state variables. You can change the contract's functions and events as you wish.
 
-NOTE: If you accidentally mess up with your contract's storage layout, the CLI will warn you when you try to upgrade.
+NOTE: If you accidentally mess up with your contract's storage layout, the Upgrades Plugins will warn you when you try to upgrade.
 
-To learn more about this limitation, head over to the xref:upgrades::writing-upgradeable.adoc#modifying-your-contracts[Modifying Your Contracts] guide.
+To learn more about this limitation, head over to the xref:upgrades-plugins::writing-upgradeable.adoc#modifying-your-contracts[Modifying Your Contracts] guide.
 
-== Next Steps
+== Testing
+
+To test upgradeable contracts we should create unit tests for the implementation contract, along with creating higher level tests for testing interaction via the proxy.  We can use `deployProxy` in our tests just like we do when we deploy.
+
+When we want to upgrade, we should create unit tests for the new implementation contract, along with creating higher level tests for testing interaction via the proxy after we upgrade using `upgradeProxy`, checking that state is maintained across upgrades.
+
+== Next steps
 
 Now that you know how to upgrade your smart contracts, and can iteratively develop your project, it's time to take your project to xref:connecting-to-public-test-networks.adoc[testnet] and to xref:preparing-for-mainnet.adoc[production]! You can rest with the confidence that, should a bug appear, you have the tools to modify your contract and change it.

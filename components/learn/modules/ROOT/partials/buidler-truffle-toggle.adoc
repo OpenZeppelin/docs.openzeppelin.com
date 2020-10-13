@@ -8,4 +8,3 @@ Instructions are available for both Truffle and Buidler. Choose your preference 
 </button>
 ++++
 ====
-

@@ -1,4 +1,4 @@
-= Sending Gasless Transactions
+= Sending gasless transactions
 
 Anyone who sends an Ethereum transaction needs to have Ether to pay for its gas fees. This forces new users to purchase Ether (which can be a daunting task) before they can start using a dapp. This is a major hurdle in user onboarding.
 
@@ -343,7 +343,7 @@ xref:starter-kits::index.adoc[Starter Kits] are pre-configured project templates
 
 If you are building a new dapp and want to include meta-transaction support, you can run `oz unpack gsn` to jumpstart your development and start with a GSN-enabled box!
 
-== Next Steps
+== Next steps
 
 To learn more about the GSN, head over to the following resources:
 
