@@ -59,7 +59,7 @@
     margin-top: 1.2em;
   }
 
-  &::after {
+  &::before {
     content: "";
     background-image: url(../images/cards.svg);
     background-repeat: no-repeat;
@@ -71,8 +71,8 @@
     right: -20px;
   }
 
-  .card-cta {
-    display: block;
+  &::after {
+    content: "Get started >";
     font-family: var(--heading);
     font-weight: var(--weight-bold);
     font-size: .8em;
@@ -90,7 +90,7 @@
   background-image: linear-gradient(45deg, #6746d6 0%, #a134d1 100%);
 }
 
-.card-sdk a {
+.card-upgrades-js a {
   --card-icon: url(../images/sdk_white.svg);
   background-image: linear-gradient(-134deg, #3677ff 0%, #1ecff7 100%);
 }
@@ -113,7 +113,6 @@
   }
 }
 
-.card-upgrades-js { --card-icon: url(../images/icons/sdk.svg); }
 .card-test-environment { --card-icon: url(../images/icons/test-environment.svg); }
 .card-network-js { --card-icon: url(../images/icons/network-js.svg); }
 .card-gsn-helpers { --card-icon: url(../images/icons/gsn-helpers.svg); }
