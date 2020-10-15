@@ -1,8 +1,8 @@
 <div class="article-wrapper">
 	<article class="article doc">
-		{{#if (eq @root.page.component.name "cli")}}
+		{{#if (in @root.page.component.name "cli, upgrades")}}
 			<div class="article-banner">
-                          OpenZeppelin CLI is not being actively developed. We recommend using <a href="/upgrades-plugins">Upgrades Plugins</a>. Read <a href="https://forum.openzeppelin.com/t/building-for-interoperability-why-we-re-focusing-on-upgrades-plugins/4088" target="_blank">here</a> for more info.
+                          OpenZeppelin SDK is not being actively developed. We recommend using <a href="/upgrades-plugins">Upgrades Plugins</a>. Read <a href="https://forum.openzeppelin.com/t/building-for-interoperability-why-we-re-focusing-on-upgrades-plugins/4088" target="_blank">here</a> for more info.
 			</div>
 		{{/if}}
 		{{#if (in @root.page.component.name "network-js, gsn-provider, gsn-helpers, starter-kits")}}
