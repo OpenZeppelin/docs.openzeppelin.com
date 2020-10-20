@@ -1,0 +1,57 @@
+.popup-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  background-color: #4e5ee4;
+  width: 100%;
+
+  font-family: var(--heading);
+  color: white;
+  text-align: center;
+
+  z-index: 500;
+
+  display: flex;
+
+  animation: popup-show .5s ease;
+
+  a {
+    color: inherit;
+    font-weight: bold;
+  }
+}
+
+@keyframes popup-show {
+  from {
+    clip-path: circle(0%);
+  }
+  to {
+    clip-path: circle(75%);
+  }
+}
+
+.popup-banner-text {
+  flex-grow: 1;
+  padding: 1em;
+}
+
+.popup-banner-close {
+  display: block;
+  padding: 1em;
+  width: 4em;
+
+  float: right;
+  margin: 0;
+  padding: 0 .5em;
+  border: 0;
+  outline: 0;
+
+  &:hover, &:active {
+    background-color: rgba(0, 0, 0, .1);
+  }
+
+  &::before {
+    content: '×';
+  }
+}
