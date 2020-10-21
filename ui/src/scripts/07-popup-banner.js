@@ -19,7 +19,7 @@
       const banner = document.createElement('div');
       banner.classList.add('popup-banner');
       banner.innerHTML = `
-        <div class="popup-banner-text">New: automate your Ethereum operations with OpenZeppelin Defender — <a href="https://openzeppelin.com/defender">Learn More</a></div>
+        <div class="popup-banner-text popup-banner-new">Automate your Ethereum operations with OpenZeppelin Defender — <a href="https://openzeppelin.com/defender">Learn More</a></div>
         <button class="popup-banner-close" aria-label="Close" title="Close"></button>
       `;
 

@@ -31,6 +31,17 @@
   }
 }
 
+.popup-banner-new::before {
+  content: 'new';
+  font-variant: small-caps;
+  font-weight: bold;
+  margin-right: .5em;
+  padding: 0 .2em;
+  border-radius: .2em;
+  border: 1px solid rgba(100%, 100%, 100%, .2);
+  background-color: rgba(100%, 100%, 100%, .1);
+}
+
 .popup-banner-text {
   flex-grow: 1;
   padding: 1em;
