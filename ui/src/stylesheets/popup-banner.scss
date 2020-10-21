@@ -58,6 +58,10 @@
   border: 0;
   outline: 0;
 
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+
   &:hover, &:active {
     background-color: rgba(0, 0, 0, .1);
   }
