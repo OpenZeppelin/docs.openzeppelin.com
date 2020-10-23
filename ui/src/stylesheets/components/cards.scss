@@ -110,6 +110,7 @@
   position: relative;
   padding-top: 3em;
   padding-bottom: 2em;
+  overflow: hidden; // hide background image
 
   .card-title {
     font-size: 1.2em;
