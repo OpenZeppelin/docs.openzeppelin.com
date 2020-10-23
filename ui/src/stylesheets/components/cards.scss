@@ -1,130 +1,66 @@
-.card, .card .content, .card .paragraph, .card p {
-  display: inline;
+// grid layout
+
+.card-section .sectionbody {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-gap: 1rem;
+}
+
+.card-section .sectionbody > .paragraph {
+  grid-column: 1 / -1;
+}
+
+.card {
+  .content, .paragraph, p {
+    display: inline;
+  }
 }
 
 .card a {
+  display: block;
+  height: 100%;
+}
+
+// inner card layout
+
+.card a {
   display: inline-flex;
-  width: 30%;
-  margin-top: 1rem;
-  border-radius: var(--border-radius);
-  padding: 1rem;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
-  color: inherit;
-  text-decoration: none;
-  font-size: .9rem;
-
-  .card-title {
-    display: block;
-    font-family: var(--heading);
-    font-weight: var(--weight-bold);
-    font-size: 1rem;
-    line-height: 1.4;
-    margin: .4rem 0 1.2rem;
-  }
+  padding: 1.5rem 1.2rem;
 
   .card-body {
     flex-grow: 1;
   }
 }
 
-.card-primary, .card-secondary {
-  a {
-    padding: 1.2rem;
-  }
-
-  .card-title::before {
-    content: "";
-    background-image: var(--card-icon);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 1.2em;
-    height: 1.2em;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: .6em;
-  }
+.card-title, .card-body {
+  display: block;
 }
 
-.card-primary a {
-  min-height: 17rem;
-  margin-right: .6rem;
-  box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.09);
-  color: white;
-  padding-bottom: 2em;
+// styling
+
+.card a {
+  border-radius: var(--border-radius);
+  color: inherit;
+  text-decoration: none;
+  font-size: .9rem;
 
   .card-title {
-    font-size: 1.2rem;
-    margin-top: 1.2em;
-  }
-
-  &::before {
-    content: "";
-    background-image: url(../images/cards.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 95px;
-    height: 70px;
-    position: absolute;
-    bottom: 30px;
-    right: -20px;
-  }
-
-  &::after {
-    content: "Get started >";
     font-family: var(--heading);
     font-weight: var(--weight-bold);
-    font-size: .8em;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-  }
-
-  &:hover{
-    box-shadow: 0 8px 14px 0 rgba(60, 60, 60, 0.25);
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 1.2rem;
   }
 }
 
-.card-contracts a {
-  --card-icon: url(../images/contracts_white.svg);
-  background-image: linear-gradient(45deg, #6746d6 0%, #a134d1 100%);
-}
-
-.card-upgrades-js a {
-  --card-icon: url(../images/sdk_white.svg);
-  background-image: linear-gradient(-134deg, #3677ff 0%, #1ecff7 100%);
-}
-
-.card-test-helpers a {
-  --card-icon: url(../images/test-helpers_white.svg);
-  background-image: linear-gradient(-135deg, #00e1d4 0%, #00c7f2 100%);
-}
-
-.card-secondary a {
-  min-height: 14rem;
-  margin-right: .6rem;
-  border: solid 1px #e9e9ed;
-  box-shadow: 0 4px 7px 0 rgba(60, 60, 60, 0.09);
-  color: var(--color-text-light);
-
-  &:hover{
-    border-color: #dfdfe0;
-    box-shadow: 0 6px 12px 0 rgba(60, 60, 60, 0.15);
-  }
-}
-
-.card-test-environment { --card-icon: url(../images/icons/test-environment.svg); }
-.card-network-js { --card-icon: url(../images/icons/network-js.svg); }
-.card-gsn-helpers { --card-icon: url(../images/icons/gsn-helpers.svg); }
-.card-gsn-provider { --card-icon: url(../images/icons/gsn-provider.svg); }
-.card-contract-loader { --card-icon: url(../images/icons/contract-loader.svg); }
-.card-solidity-docgen { --card-icon: url(../images/icons/docgen.svg); }
+// styling learn
 
 .card-learn a {
-  min-height: 13.5rem;
+  // min-height: 13.5rem;
   border: solid 1px #cacbcc;
   border-left: solid 3px #53536B;
-  margin-right: .6rem;
   color: var(--color-text-light);
 
   .card-title {
@@ -142,28 +78,95 @@
   }
 }
 
+// styling product cards
 
-@media (max-width: 642px) {
-  .card a {
-    width: 100%;
-    margin-right: 0;
+.card-primary + .card-secondary {
+  grid-column-start: 1; // show secondary cards in a separate line
+}
+
+.card-primary a, .card-secondary a {
+  box-shadow: 0 5px 10px 0 rgba(60, 60, 60, 0.1);
+
+  &:hover {
+    box-shadow: 0 5px 10px 0 rgba(60, 60, 60, 0.3);
   }
-  .card-primary a, .card-secondary a {
-    min-height: 12rem;
-  }
-  .card-learn a {
-    min-height: 7rem;
+
+  .card-title::before {
+    content: "";
+    background-image: var(--card-icon);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1.2em;
+    height: 1.2em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .6em;
   }
 }
 
-@media (min-width: $mobile-breakpoint) and (max-width: 1120px), (min-width: 642px) and (max-width: 780px) {
-  .card a {
-    width: 48%;
+.card-primary a {
+  min-height: 17rem;
+  color: white;
+  position: relative;
+  padding-top: 3em;
+  padding-bottom: 2em;
+
+  .card-title {
+    font-size: 1.2em;
   }
-  .card-primary a, .card-secondary a {
-    min-height: 13rem;
+
+  &::before {
+    display: block;
+    width: 95px;
+    height: 70px;
+    position: absolute;
+    bottom: 30px;
+    right: -20px;
+    content: "";
+    background-image: url(../images/cards.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
   }
-  .card-learn a {
-    min-height: 11rem;
+
+  &::after {
+    content: "Get started >";
+    font-family: var(--heading);
+    font-weight: var(--weight-bold);
+    font-size: .8em;
+    text-transform: uppercase;
+    letter-spacing: .05em;
   }
 }
+
+.card-secondary a {
+  border: solid 1px #e9e9ed;
+  // box-shadow: 0 4px 7px 0 rgba(60, 60, 60, 0.09);
+  color: var(--color-text-light);
+
+  &:hover {
+    border-color: #dfdfe0;
+  }
+}
+
+
+.card-contracts a {
+  --card-icon: url(../images/contracts_white.svg);
+  background-image: linear-gradient(45deg, #6746d6 0%, #a134d1 100%);
+}
+
+.card-upgrades-js a {
+  --card-icon: url(../images/sdk_white.svg);
+  background-image: linear-gradient(-134deg, #3677ff 0%, #1ecff7 100%);
+}
+
+.card-test-helpers a {
+  --card-icon: url(../images/test-helpers_white.svg);
+  background-image: linear-gradient(-135deg, #00e1d4 0%, #00c7f2 100%);
+}
+
+.card-test-environment { --card-icon: url(../images/icons/test-environment.svg); }
+.card-network-js { --card-icon: url(../images/icons/network-js.svg); }
+.card-gsn-helpers { --card-icon: url(../images/icons/gsn-helpers.svg); }
+.card-gsn-provider { --card-icon: url(../images/icons/gsn-provider.svg); }
+.card-contract-loader { --card-icon: url(../images/icons/contract-loader.svg); }
+.card-solidity-docgen { --card-icon: url(../images/icons/docgen.svg); }
