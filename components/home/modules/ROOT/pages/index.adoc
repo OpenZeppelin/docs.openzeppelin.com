@@ -6,6 +6,7 @@ Once you’ve started to build out your project, you can learn more about how to
 
 When you're ready to inspect your code, you can learn about https://openzeppelin.com/security-audits/[OpenZeppelin Audits], our security audit services. As a leading audit service, we’ve worked with teams such as Coinbase, Compound, Aave, Ethereum Foundation, Brave, and Balancer.     
 
+[.card-section]
 == Learn
 
 Comprehensive guides for every step of your development journey.
@@ -14,6 +15,7 @@ include::learn::partial$cards.adoc[]
 
 Check out https://forum.openzeppelin.com/c/general/guides-and-tutorials/23[the OpenZeppelin forum] for additional community-contributed guides!
 
+[.card-section]
 == Tools & Libraries
 
 All the open source tools and libraries built and maintained by the OpenZeppelin team:
