@@ -6,6 +6,12 @@
   grid-gap: 1rem;
 }
 
+.card-section-2col .sectionbody {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(calc(max(50% - 0.5rem, 250px)), 1fr));
+  grid-gap: 1rem;
+}
+
 .card-section .sectionbody > .paragraph {
   grid-column: 1 / -1;
 }
@@ -19,6 +25,7 @@
 .card a {
   display: block;
   height: 100%;
+  width: 100%;
 }
 
 // inner card layout
