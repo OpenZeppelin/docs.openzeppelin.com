@@ -8,6 +8,7 @@ Our offering includes the most widely used Solidity smart contracts library, a c
 
 OpenZeppelin tools have been built with *security in mind*. Since the first release of the Contracts library in 2016, our libraries have been downloaded over 1.5 million times to create tokens, protect digital assets, and power decentralized applications, securing more than $4.5 billion. We also work with top Ethereum projects through our https://openzeppelin.com/security-audits/[security audits service].
 
+[.card-section]
 == Learn
 
 Comprehensive guides for every step of your development journey.
@@ -16,6 +17,7 @@ include::learn::partial$cards.adoc[]
 
 Check out https://forum.openzeppelin.com/c/general/guides-and-tutorials/23[the OpenZeppelin forum] for additional community-contributed guides!
 
+[.card-section]
 == Tools & Libraries
 
 All the open source tools and libraries built and maintained by the OpenZeppelin team:
