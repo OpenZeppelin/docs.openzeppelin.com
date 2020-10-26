@@ -14,6 +14,11 @@
     return;
   }
 
+  // skip showing the banner if the current page is already defender related
+  if (window.location.pathname.startsWith('/defender')) {
+    return;
+  }
+
   window.addEventListener('load', () => {
     setTimeout(() => {
       const banner = document.createElement('div');
