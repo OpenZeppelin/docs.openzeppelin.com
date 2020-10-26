@@ -24,27 +24,27 @@ All the open source tools and libraries built and maintained by the OpenZeppelin
 
 [.card.card-primary.card-contracts]
 --
-xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#A library of modular+++,+++ reusable+++,+++ and secure smart contracts+++,+++ written in Solidity.#]
+xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#pass:q[A library of modular, reusable, and secure smart contracts, written in Solidity.]#]
 --
 
 [.card.card-primary.card-upgrades-js]
 --
-xref:upgrades-plugins::index.adoc[[.card-title]#Upgrades# [.card-body]#Plugins for Buidler and Truffle to deploy and manage upgradeable contracts on Ethereum.#]
+xref:upgrades-plugins::index.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[Plugins for Buidler and Truffle to deploy and manage upgradeable contracts on Ethereum.]#]
 --
 
 [.card.card-primary.card-test-helpers]
 --
-xref:test-helpers::index.adoc[[.card-title]#Test Helpers# [.card-body]#A JavaScript library of common assertions for testing smart contracts.#]
+xref:test-helpers::index.adoc[[.card-title]#Test Helpers# [.card-body]#pass:q[A JavaScript library of common assertions for testing smart contracts.]#]
 --
 
 [.card.card-secondary.card-solidity-docgen]
 --
-https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [.card-body]#A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.#]
+https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [.card-body]#pass:q[A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.]#]
 --
 
 [.card.card-secondary.card-test-environment]
 --
-xref:test-environment::index.adoc[[.card-title]#Test Environment# [.card-body]#A JavaScript library for creating a testing environment for contracts+++,+++ which plays nice with Mocha+++,+++ Ava+++,+++ and Jest.#]
+xref:test-environment::index.adoc[[.card-title]#Test Environment# [.card-body]#pass:q[A JavaScript library for creating a testing environment for contracts, which plays nice with Mocha, Ava, and Jest.]#]
 --
 
 == More from OpenZeppelin
