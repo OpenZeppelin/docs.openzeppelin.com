@@ -1,4 +1,6 @@
-Welcome! You can use this site to learn about developing and managing your smart contract applications on Ethereum using OpenZeppelin’s products and tools.
+= Welcome!
+
+You can use this site to learn about developing and managing your smart contract applications on Ethereum using OpenZeppelin’s products and tools.
 
 If you're just getting started, you can start building with xref:contracts::index.adoc[OpenZeppelin Contracts], the most widely used Solidity smart contracts library. Our contracts library has received 2+ million downloads, providing developers with a secure foundation for growing projects and protocols. 
 
