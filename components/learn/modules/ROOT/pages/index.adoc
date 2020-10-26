@@ -1,3 +1,4 @@
+[.card-section]
 = Learn
 
 Comprehensive guides for every step of your development journey.
