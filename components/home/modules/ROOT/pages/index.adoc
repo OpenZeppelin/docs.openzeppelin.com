@@ -1,4 +1,4 @@
-= Welcome!
+= Welcome
 
 You can use this site to learn about developing and managing your smart contract applications on Ethereum using OpenZeppelin’s products and tools.
 
