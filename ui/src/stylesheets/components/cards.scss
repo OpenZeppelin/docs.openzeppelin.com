@@ -10,7 +10,7 @@
   grid-template-columns: repeat(auto-fill, minmax(calc(max(50% - 0.5rem, 250px)), 1fr));
 }
 
-.card-section .sectionbody > .paragraph {
+.card-section .sectionbody > :not(.card) {
   grid-column: 1 / -1;
 }
 
