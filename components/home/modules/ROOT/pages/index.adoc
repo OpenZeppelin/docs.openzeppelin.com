@@ -3,15 +3,6 @@
 Explore our guides and examples to integrate OpenZeppelin security products to all aspects of your Ethereum development and operations.    
 
 [.card-section]
-== Learn
-
-Comprehensive guides for every step of your development journey.
-
-include::learn::partial$cards.adoc[]
-
-Check out https://forum.openzeppelin.com/c/general/guides-and-tutorials/23[the OpenZeppelin forum] for additional community-contributed guides!
-
-[.card-section]
 == Explore using OpenZeppelin
 
 OpenZeppelin provides a complete suite of security products to build, manage, and inspect all aspects of software development and operations for Ethereum projects.
@@ -46,24 +37,28 @@ https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [
 xref:test-environment::index.adoc[[.card-title]#Test Environment# [.card-body]#pass:q[A JavaScript library for creating a testing environment for contracts, which plays nice with Mocha, Ava, and Jest.]#]
 --
 
-== More from OpenZeppelin
+=== Security Audits
 
-=== Audits
+OpenZeppelin security audits are trusted by leading organizations building decentralized systems. Browse through past public audits in our https://blog.openzeppelin.com/security-audits/[blog] and follow our https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] before going to production. To learn more about OpenZeppelin’s audit process and request an audit, please visit our https://openzeppelin.com/security-audits/[security audits site].
 
-The OpenZeppelin Research team provides a https://openzeppelin.com/security-audits/[Security Audits] service for decentralized applications, tools, and protocols. You can browse through past public audits in https://blog.openzeppelin.com/security-audits/[our blog]. Go through our https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] and mailto:audits@openzeppelin.com[contact us] before xref:learn::preparing-for-mainnet.adoc[going to production] to make sure your project is secure.
+[.card-section]
+== Learn
+
+Comprehensive guides for every step of your development journey.
+
+include::learn::partial$cards.adoc[]
+
+Check out https://forum.openzeppelin.com/c/general/guides-and-tutorials/23[the OpenZeppelin forum] for additional community-contributed guides!
 
 === Ethernaut
 
 Learn more about security in Solidity contracts by playing https://ethernaut.openzeppelin.com/[Ethernaut]. Every level in Ethernaut is a smart contract waiting to be hacked, and teaches you a vulnerability by having you exploit it - many of them based on real-life hacks! You can discuss your solutions or ask for tips in https://forum.openzeppelin.com/c/security/ethernaut/30[our forum].
 
+== More from OpenZeppelin
+
 === Careers
 
-The OpenZeppelin https://openzeppelin.com/about/[team] is always hiring. If you have enjoyed using our tools or reading our audit reports, and want to be a part of it, check out our https://openzeppelin.com/jobs/[current job openings] and join us!
-
-=== Social
-
-// We may want to remove this if it's going to be present on the footer?
-You can https://forum.openzeppelin.com/[join our Forum], https://blog.openzeppelin.com/[check out our Blog], https://twitter.com/OpenZeppelin[follow us on Twitter], or https://www.youtube.com/channel/UC0Nx8RbugiCzdlVGK7hWZfw/videos[tune in our YouTube channel]!
+OpenZeppelin is growing. If you enjoy using our products or reading our audit reports, and have a genuine interest in protecting the open economy, please check out our current https://openzeppelin.com/jobs/[job openings].
 
 == Questions?
 
