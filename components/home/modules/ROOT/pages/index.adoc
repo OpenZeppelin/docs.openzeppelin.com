@@ -1,12 +1,6 @@
-= Welcome
+= Documentation
 
-You can use this site to learn about developing and managing your smart contract applications on Ethereum using OpenZeppelin’s products and tools.
-
-If you're just getting started, you can start building with xref:contracts::index.adoc[OpenZeppelin Contracts], the most widely used Solidity smart contracts library. Our contracts library has received 2+ million downloads, providing developers with a secure foundation for growing projects and protocols. 
-
-Once you’ve started to build out your project, you can learn more about how to easily manage and automate Ethereum operations with xref:defender::index.adoc[OpenZeppelin Defender]. Defender is a platform to help you securely run admin functions, set up private transaction infrastructure (relayers), run automated scripts, and build with security best practices. 
-
-When you're ready to inspect your code, you can learn about https://openzeppelin.com/security-audits/[OpenZeppelin Audits], our security audit services. As a leading audit service, we’ve worked with teams such as Coinbase, Compound, Aave, Ethereum Foundation, Brave, and Balancer.     
+Explore our guides and examples to integrate OpenZeppelin security products to all aspects of your Ethereum development and operations.    
 
 [.card-section]
 == Learn
@@ -18,9 +12,9 @@ include::learn::partial$cards.adoc[]
 Check out https://forum.openzeppelin.com/c/general/guides-and-tutorials/23[the OpenZeppelin forum] for additional community-contributed guides!
 
 [.card-section]
-== Tools & Libraries
+== Explore using OpenZeppelin
 
-All the open source tools and libraries built and maintained by the OpenZeppelin team:
+OpenZeppelin provides a complete suite of security products to build, manage, and inspect all aspects of software development and operations for Ethereum projects.
 
 [.card.card-primary.card-contracts]
 --
