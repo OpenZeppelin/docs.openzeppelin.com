@@ -57,6 +57,11 @@ content:
     - url: https://github.com/OpenZeppelin/openzeppelin-contract-loader
       branches: docs-v*
       start_path: docs
+
+    - url: https://github.com/OpenZeppelin/defender-docs
+      branches: main
+      start_path: docs
+
 ui:
   bundle:
     url: ./ui/build/oz-docs-ui.zip

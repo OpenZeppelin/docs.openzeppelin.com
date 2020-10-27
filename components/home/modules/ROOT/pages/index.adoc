@@ -1,12 +1,6 @@
-= OpenZeppelin Documentation
+= Documentation
 
-Learn about writing, testing, deploying, and upgrading your smart contract applications on Ethereum using the OpenZeppelin tools.
-
-Our offering includes the most widely used Solidity smart contracts library, a command-line tool for managing your project, several JavaScript modules, and pre-packaged boxes to bootstrap development.
-
-== Why OpenZeppelin?
-
-OpenZeppelin tools have been built with *security in mind*. Since the first release of the Contracts library in 2016, our libraries have been downloaded over 1.5 million times to create tokens, protect digital assets, and power decentralized applications, securing more than $4.5 billion. We also work with top Ethereum projects through our https://openzeppelin.com/security-audits/[security audits service].
+Explore our guides and examples to integrate OpenZeppelin security products to all aspects of your Ethereum development and operations.    
 
 [.card-section]
 == Learn
@@ -18,9 +12,9 @@ include::learn::partial$cards.adoc[]
 Check out https://forum.openzeppelin.com/c/general/guides-and-tutorials/23[the OpenZeppelin forum] for additional community-contributed guides!
 
 [.card-section]
-== Tools & Libraries
+== Explore using OpenZeppelin
 
-All the open source tools and libraries built and maintained by the OpenZeppelin team:
+OpenZeppelin provides a complete suite of security products to build, manage, and inspect all aspects of software development and operations for Ethereum projects.
 
 [.card.card-primary.card-contracts]
 --
@@ -32,7 +26,12 @@ xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#pass:q[A librar
 xref:upgrades-plugins::index.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[Plugins for Buidler and Truffle to deploy and manage upgradeable contracts on Ethereum.]#]
 --
 
-[.card.card-primary.card-test-helpers]
+[.card.card-primary.card-defender]
+--
+xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+--
+
+[.card.card-secondary.card-test-helpers]
 --
 xref:test-helpers::index.adoc[[.card-title]#Test Helpers# [.card-body]#pass:q[A JavaScript library of common assertions for testing smart contracts.]#]
 --
