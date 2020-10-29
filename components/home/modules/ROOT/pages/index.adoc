@@ -27,14 +27,14 @@ xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A secure p
 xref:test-helpers::index.adoc[[.card-title]#Test Helpers# [.card-body]#pass:q[A JavaScript library of common assertions for testing smart contracts.]#]
 --
 
-[.card.card-secondary.card-solidity-docgen]
---
-https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [.card-body]#pass:q[A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.]#]
---
-
 [.card.card-secondary.card-test-environment]
 --
 xref:test-environment::index.adoc[[.card-title]#Test Environment# [.card-body]#pass:q[A JavaScript library for creating a testing environment for contracts, which plays nice with Mocha, Ava, and Jest.]#]
+--
+
+[.card.card-secondary.card-solidity-docgen]
+--
+https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [.card-body]#pass:q[A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.]#]
 --
 
 === Security Audits
