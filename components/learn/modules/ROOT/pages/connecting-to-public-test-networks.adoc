@@ -42,11 +42,13 @@ To connect our project to a public testnet, we will need to:
 [[accessing-a-testnet-node]]
 === Accessing a testnet node
 
-While you can spin up your own https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options[Geth] or https://openethereum.github.io/wiki/Chain-specification[OpenEthereum] node connected to a testnet, the easiest way to access a testnet is via a public node service such as https://infura.io[Infura] or https://alchemyapi.io/[Alchemy]. Infura and Alchemy provide access to public nodes for all testnets and the main network, via both free and paid plans.
+While you can spin up your own https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options[Geth] or https://openethereum.github.io/wiki/Chain-specification[OpenEthereum] node connected to a testnet, the easiest way to access a testnet is via a public node service such as https://alchemyapi.io/[Alchemy] or https://infura.io[Infura]. Alchemy and Infura provide access to public nodes for all testnets and the main network, via both free and paid plans.
 
 NOTE: We say a node is _public_ when it can be accessed by the general public, and manages no accounts. This means that it can reply to queries and relay signed transactions, but cannot sign transactions on its own.
 
-Head over to https://infura.io/register[Infura] or https://dashboard.alchemyapi.io/signup?referral=53fcee38-b894-4d5f-bd65-885d241f8d29[Alchemy], or a public node provider of your choice, sign up, and jot down your assigned project ID - we will use it later to connect to the network.
+In this guide we will use Alchemy, though you can use https://infura.io/[Infura], or another public node provider of your choice.  
+
+Head over to https://dashboard.alchemyapi.io/signup?referral=53fcee38-b894-4d5f-bd65-885d241f8d29[Alchemy] (includes referral code), sign up, and jot down your assigned API key - we will use it later to connect to the network.
 
 [[creating-a-new-account]]
 === Creating a new account
@@ -64,7 +66,7 @@ WARNING: Make sure to keep your mnemonic secure. Do not commit secrets to versio
 [[configuring-the-network]]
 === Configuring the network
 
-Since we are using public nodes, we will need to sign all our transactions locally. We will configure the network with our mnemonic and the Infura endpoint.
+Since we are using public nodes, we will need to sign all our transactions locally. We will configure the network with our mnemonic and an Alchemy endpoint.
 
 NOTE: This part assumes you have already set up a project. If you haven't, head over to the guide on xref:developing-smart-contracts.adoc#setting-up-a-solidity-project[Setting up a Solidity project].
 
@@ -84,7 +86,7 @@ We need to update our configuration file with a new network connection to the te
 [source,diff]
 ----
 // truffle-config.js
-+const { projectId, mnemonic } = require('./secrets.json');
++const { alchemyApiKey, mnemonic } = require('./secrets.json');
 +const HDWalletProvider = require('@truffle/hdwallet-provider');
  
  module.exports = {
@@ -95,7 +97,7 @@ We need to update our configuration file with a new network connection to the te
      },
 +    rinkeby: {
 +      provider: () => new HDWalletProvider(
-+        mnemonic, `https://rinkeby.infura.io/v3/${projectId}`
++        mnemonic, `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`
 +      ),
 +      network_id: 4,
 +      gasPrice: 10e9,
@@ -114,12 +116,12 @@ NOTE: See the `HDWalletProvider` https://github.com/trufflesuite/truffle/tree/ma
 [source,diff]
 ----
 // buidler.config.js
-+ const { projectId, mnemonic } = require('./secrets.json');
++ const { alchemyApiKey, mnemonic } = require('./secrets.json');
 ...
   module.exports = {
 +    networks: {
 +     rinkeby: {
-+       url: `https://rinkeby.infura.io/v3/${projectId}`,
++       url: `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`,
 +       accounts: {mnemonic: mnemonic}
 +     }
 +  },
@@ -135,7 +137,7 @@ Note in the first line that we are loading the project id and mnemonic from a `s
 ----
 {
   "mnemonic": "drama film snack motion ...",
-  "projectId": "305c13705054a..."
+  "alchemyApiKey": "JPV2..."
 }
 ----
 
@@ -167,7 +169,7 @@ All contracts have already been compiled, skipping compilation.
 ...
 ----
 --
-We can also test the connection to the Infura node, by querying our account balance.
+We can also test the connection to the node, by querying our account balance.
 [.truffle]
 --
 [source,console]
