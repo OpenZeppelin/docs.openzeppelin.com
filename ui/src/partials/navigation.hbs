@@ -18,7 +18,7 @@
     {{/each}}
 
     <h3 class="nav-title">Tools &amp; Libraries</h3>
-    {{#sorted (omit site.components "openzeppelin, learn, defender, cli, upgrades, starter-kits, network-js, gsn-provider, gsn-helpers") "contracts, upgrades-plugins, test-helpers, test-environment, contract-loader"}}
+    {{#sorted (omit site.components "openzeppelin, learn, defender, cli, upgrades, contract-loader, starter-kits, network-js, gsn-provider, gsn-helpers") "contracts, upgrades-plugins, test-helpers, test-environment"}}
       {{> navigation-component }}
     {{/sorted}}
 
