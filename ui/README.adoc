@@ -1,21 +1,19 @@
 = OpenZeppelin UI Docs Theme
 
-This project is an archetype that demonstrates how to produce a UI bundle that can be used by Antora to generated a documentation site.
-
 == Development
 Triggers a file Watcher and with LiveReload for UI Development
 ```
-npm run dev
+yarn dev
 ```
 
 === Build
 Builds the UI into `/public` (to deploy to static sites)
 ```
-npm run build-preview
+yarn build-preview
 ```
 
 === Bundle Antora Theme
 Packs the UI bundle into a ZIP file. Ready to be used by Antora powered sites :rocket:
 ```
-npm run bundle
+yarn bundle
 ```
