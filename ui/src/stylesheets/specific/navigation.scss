@@ -9,6 +9,7 @@
   color: var(--color-text-light);
 
   a {
+    padding: .6rem 1rem;
     text-decoration: none;
     color: inherit;
 
@@ -20,7 +21,6 @@
 
 .nav-component {
   line-height: 1rem;
-  padding: .6rem 1rem;
 }
 
 .nav-components {
