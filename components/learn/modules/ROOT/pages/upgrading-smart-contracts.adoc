@@ -9,7 +9,7 @@ Throughout this guide, we will learn:
 * <<how-upgrades-work, Learn how upgrades work under the hood>>
 * <<limitations-of-contract-upgrades, Learn how to write upgradeable contracts>>
 
-include::learn::partial$buidler-truffle-toggle.adoc[]
+include::learn::partial$hardhat-truffle-toggle.adoc[]
 
 [[whats-in-an-upgrade]]
 == What's in an upgrade
@@ -74,19 +74,19 @@ npm install --save-dev @openzeppelin/truffle-upgrades
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 Install the xref:upgrades-plugins::buidler-upgrades.adoc[Buidler Upgrades] plugin.
 ```bash
 npm install --save-dev @openzeppelin/buidler-upgrades
 ```
 
-We then need to configure Buidler to use our `@openzeppelin/buidler-upgrades` plugin. To do this add the plugin in your `buidler.config.js` file as follows.
+We then need to configure Buidler to use our `@openzeppelin/buidler-upgrades` plugin. To do this add the plugin in your `hardhat.config.js` file as follows.
 
 ```js
-// buidler.config.js
-usePlugin('@nomiclabs/buidler-ethers');
-usePlugin('@openzeppelin/buidler-upgrades');
+// hardhat.config.js
+require('@nomiclabs/hardhat-ethers');
+require('@openzeppelin/buidler-upgrades');
  
 module.exports = {
 ...
@@ -114,15 +114,15 @@ module.exports = async function (deployer) {
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
-Buidler doesn't currently have a native deployment system, instead we use https://buidler.dev/guides/deploying.html[scripts] to deploy contracts.
+Hardhat doesn't currently have a native deployment system, instead we use https://hardhat.org/guides/deploying.html[scripts] to deploy contracts.
 
 We will create a script to deploy our upgradeable Box contract using xref:upgrades-plugins::api-buidler-upgrades.adoc#deploy-proxy[`deployProxy`].  We will save this file as `scripts/deploy_upgradeable_box.js`. 
 
 ```js
 // scripts/deploy_upgradeable_box.js
-const { ethers, upgrades } = require("@nomiclabs/buidler");
+const { ethers, upgrades } = require("@nomiclabs/hardhat");
 
 async function main() {
   const Box = await ethers.getContractFactory("Box");
@@ -160,12 +160,12 @@ $ npx truffle migrate --network development
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 Using the `run` command, we can deploy the `Box` contract to the `development` network.
 
 ```console
-$ npx buidler run --network development scripts/deploy_upgradeable_box.js
+$ npx hardhat run --network development scripts/deploy_upgradeable_box.js
 All contracts have already been compiled, skipping compilation.
 Deploying Box...
 Box deployed to: 0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA
@@ -187,14 +187,14 @@ truffle(development)> (await box.retrieve()).toString()
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
-We will use the https://buidler.dev/guides/buidler-console.html[Buidler console] to interact with our upgraded `Box` contract.
+We will use the https://hardhat.org/guides/hardhat-console.html[Hardhat console] to interact with our upgraded `Box` contract.
 
 We need to specify the address of our proxy contract from when we deployed our `Box` contract.
 
 ```console
-$ npx buidler console --network development
+$ npx hardhat console --network development
 All contracts have already been compiled, skipping compilation.
 > const Box = await ethers.getContractFactory("Box")
 undefined
@@ -248,14 +248,14 @@ module.exports = async function (deployer) {
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 We will create a script to upgrade our `Box` contract to use `BoxV2` using xref:upgrades-plugins::api-buidler-upgrades.adoc#upgrade-proxy[`upgradeProxy`].  We will save this file as `scripts/upgrade_box.js`. 
 We need to specify the address of our proxy contract from when we deployed our `Box` contract.
 
 ```js
 // scripts/upgrade_box.js
-const { ethers, upgrades } = require("@nomiclabs/buidler");
+const { ethers, upgrades } = require("@nomiclabs/hardhat");
 
 async function main() {
   const BoxV2 = await ethers.getContractFactory("BoxV2");
@@ -286,12 +286,12 @@ $ npx truffle migrate --network development
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 Using the `run` command, we can upgrade the `Box` contract on the `development` network.
 
 ```console
-$ npx buidler run --network development scripts/upgrade_box.js
+$ npx hardhat run --network development scripts/upgrade_box.js
 All contracts have already been compiled, skipping compilation.
 Box deployed to: 0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA
 ```
@@ -319,12 +319,12 @@ truffle(development)> (await boxV2.retrieve()).toString()
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 We need to specify the address of our proxy contract from when we deployed our `Box` contract.
 
 ```console
-$ npx buidler console --network development
+$ npx hardhat console --network development
 All contracts have already been compiled, skipping compilation.
 > const BoxV2 = await ethers.getContractFactory("BoxV2")
 undefined
@@ -426,11 +426,11 @@ module.exports = async function (deployer) {
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 ```js
 // scripts/deploy_upgradeable_adminbox.js
-const { ethers, upgrades } = require("@nomiclabs/buidler");
+const { ethers, upgrades } = require("@nomiclabs/hardhat");
 
 async function main() {
   const AdminBox = await ethers.getContractFactory("AdminBox");

@@ -1,4 +1,4 @@
-.buidler-truffle-toggle {
+.hardhat-truffle-toggle {
   width: 120px;
   height: 30px;
   border: 0;
@@ -20,21 +20,21 @@
 }
 
 .preference-truffle {
-  .buidler {
+  .hardhat {
     display: none;
   }
 
-  .buidler-truffle-toggle {
+  .hardhat-truffle-toggle {
     background-image: url(../images/toggle-preference-truffle.svg);
   }
 }
 
-.preference-buidler {
+.preference-hardhat {
   .truffle {
     display: none;
   }
 
-  .buidler-truffle-toggle {
-    background-image: url(../images/toggle-preference-buidler.svg);
+  .hardhat-truffle-toggle {
+    background-image: url(../images/toggle-preference-hardhat.svg);
   }
 }

@@ -48,7 +48,7 @@ There are two broads type of packages stored in the npm registry: _libraries_ an
 
 A third binary was included when installing node: https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner[`npx`]. This is used to run executables installed locally in your project.
 
-Whilst https://www.trufflesuite.com/truffle[Truffle] and https://buidler.dev/[Buidler] can be installed globally we recommend installing locally in each project so that you can control the version on a project by project basis.
+Whilst https://www.trufflesuite.com/truffle[Truffle] and https://hardhat.org/[Hardhat] can be installed globally we recommend installing locally in each project so that you can control the version on a project by project basis.
 
 For clarity we'll display the full command in our guides including `npx` so we don't get errors due to the binary not being in the system path:
 
