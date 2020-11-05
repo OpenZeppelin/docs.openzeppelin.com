@@ -9,7 +9,7 @@ We'll cover the following topics:
  * <<performing-complex-assertions, Performing Complex Assertions>>
  * <<test-environment, Using the OpenZeppelin Test Environment>>
 
-include::learn::partial$buidler-truffle-toggle.adoc[]
+include::learn::partial$hardhat-truffle-toggle.adoc[]
 
 == About testing
 
@@ -71,7 +71,7 @@ contract('Box', function () {
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 Create a `test` directory in your project root.  We will save the test as `test/Box.js`. Each test `.js` file commonly has the tests for a single contract, and is named after it.
 
@@ -133,13 +133,12 @@ Compiling your contracts...
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
-Running `npx buidler test` will execute all tests in the `test` directory, checking that your contracts work the way you meant them to:
+Running `npx hardhat test` will execute all tests in the `test` directory, checking that your contracts work the way you meant them to:
 
 ```console
-$ npx buidler test
-All contracts have already been compiled, skipping compilation.
+$ npx hardhat test
 
 
   Box
@@ -163,7 +162,7 @@ Many interesting properties of your contracts may be hard to capture, such as:
 
 xref:test-helpers::index.adoc[*OpenZeppelin Test Helpers*] is a library designed to help you test all of these properties. It will also simplify the tasks of simulating time passing on the blockchain and handling very large numbers.
 
-NOTE: OpenZeppelin Test Helpers is web3.js based, thus Buidler users should https://buidler.dev/guides/truffle-testing.html[use the Truffle plugin] for compatibility, or use https://buidler.dev/guides/waffle-testing.html[Waffle] with ethers.js, which offers similar functionality.
+NOTE: OpenZeppelin Test Helpers is web3.js based, thus Hardhat users should https://hardhat.org/guides/truffle-testing.html[use the Truffle plugin] for compatibility, or use https://hardhat.org/guides/waffle-testing.html[Waffle] with ethers.js, which offers similar functionality.
 
 To install the OpenZeppelin Test Helpers, run:
 ```console

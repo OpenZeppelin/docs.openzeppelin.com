@@ -12,7 +12,7 @@ In this guide, we will use our beloved xref:developing-smart-contracts.adoc#box-
 
 Remember that deploying to a public test network is a necessary step when developing an Ethereum project. They provide a safe environment for testing that closely mimics the main network - you don't want to take out your project for a test drive in a network where mistakes will cost you and your users money!
 
-include::learn::partial$buidler-truffle-toggle.adoc[]
+include::learn::partial$hardhat-truffle-toggle.adoc[]
 
 [[testnet-list]]
 == Available testnets
@@ -111,11 +111,11 @@ We need to update our configuration file with a new network connection to the te
 NOTE: See the `HDWalletProvider` https://github.com/trufflesuite/truffle/tree/master/packages/hdwallet-provider[documentation] for information on configuration options.
 --
 
-[.buidler]
+[.hardhat]
 --
 [source,diff]
 ----
-// buidler.config.js
+// hardhat.config.js
 + const { alchemyApiKey, mnemonic } = require('./secrets.json');
 ...
   module.exports = {
@@ -129,7 +129,7 @@ NOTE: See the `HDWalletProvider` https://github.com/trufflesuite/truffle/tree/ma
 };
 ----
 
-NOTE: See the Buidler https://buidler.dev/config/#json-rpc-based-networks[networks configuration] documentation for information on configuration options.
+NOTE: See the Hardhat https://hardhat.org/config/#json-rpc-based-networks[networks configuration] documentation for information on configuration options.
 --
 Note in the first line that we are loading the project id and mnemonic from a `secrets.json` file, which should look like the following, but using your own values. Make sure to `.gitignore` it to ensure you don't commit secrets to version control!
 
@@ -157,12 +157,11 @@ truffle(rinkeby)> accounts
 ----
 --
 
-[.buidler]
+[.hardhat]
 --
 [source,console]
 ----
-$ npx buidler console --network rinkeby
-All contracts have already been compiled, skipping compilation.
+$ npx hardhat console --network rinkeby
 > accounts = await ethers.provider.listAccounts()
 [ '0xEce6999C6c5BDA71d673090144b6d3bCD21d13d4',
   '0xC1310ade58A75E6d4fCb8238f9559188Ea3808f9',
@@ -179,7 +178,7 @@ truffle(rinkeby)> await web3.eth.getBalance(accounts[0])
 ----
 --
 
-[.buidler]
+[.hardhat]
 --
 [source,console]
 ----
@@ -220,14 +219,13 @@ $ npx truffle migrate --network rinkeby
 ----
 --
 
-[.buidler]
+[.hardhat]
 --
 [source,console]
 ----
-$ npx buidler run --network rinkeby scripts/deploy.js
-All contracts have already been compiled, skipping compilation.
+$ npx hardhat run --network rinkeby scripts/deploy.js
 Deploying Box...
-Box deployed to: 0xc4B718c07971C96641478D146aA1f411b714b366
+Box deployed to: 0x7e25FaDC15EBc59c7b4EFEd313A95A2955bA73E2
 ----
 --
 
@@ -240,9 +238,9 @@ You can see your contract on a block explorer such as https://etherscan.io/[Ethe
 TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0xA4D767f2Fba05242502ECEcb2Ae97232F7611353[here].
 --
 
-[.buidler]
+[.hardhat]
 --
-TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0xc4B718c07971C96641478D146aA1f411b714b366[here].
+TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0x7e25FaDC15EBc59c7b4EFEd313A95A2955bA73E2[here].
 --
 
 You can also interact with your instance as you regularly would, either using the xref::deploying-and-interacting.adoc#interacting-from-the-console[console], or xref::deploying-and-interacting.adoc#interacting-programatically[programmatically].
@@ -262,18 +260,18 @@ truffle(rinkeby)> (await box.retrieve()).toString()
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 ```console
-$ npx buidler console --network rinkeby
+$ npx hardhat console --network rinkeby
 All contracts have already been compiled, skipping compilation.
 > const Box = await ethers.getContractFactory("Box")
 undefined
-> const box = await Box.attach("0xc4B718c07971C96641478D146aA1f411b714b366")
+> const box = await Box.attach("0x7e25FaDC15EBc59c7b4EFEd313A95A2955bA73E2")
 undefined
 > await box.store(42)
 { hash:
-   '0x7dcc0ae058c88f1490f4f9dbf918fb6ae8f710676fb9a15e2e04e72223d042df',
+   '0xc2b34ff678f71df463856d2183ec5644dac8d57806461fcf9417b72824e4de06',
 ...
 > (await box.retrieve()).toString()
 '42'

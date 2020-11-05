@@ -31,23 +31,25 @@ Right after you deploy your contracts to mainnet, you should **verify their sour
 
 You can verify your contracts manually on the https://etherscan.io/verifyContract[Etherscan] website.
 
-[.buidler]
+[.hardhat]
 --
-You can also use https://buidler.dev/plugins/nomiclabs-buidler-etherscan.html[Buidler Etherscan plugin].
+You can also use https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html[Hardhat Etherscan plugin].
 
 To do this, install the plugin:
 ```console
-npm install --save-dev @nomiclabs/buidler-etherscan
+npm install --save-dev @nomiclabs/hardhat-etherscan
 ```
 
-Update your buidler configuration:
+Update your hardhat configuration:
 ```js
-// buidler.config.js
+// hardhat.config.js
 const { etherscanApiKey, projectId, mnemonic } = require('./secrets.json');
-usePlugin("@nomiclabs/buidler-etherscan");
+require("@nomiclabs/hardhat-etherscan");
 ...
 module.exports = {
-...
+  networks: {
+    mainnet: { ... }
+  },
   etherscan: {
     apiKey: etherscanApiKey
   }
@@ -56,7 +58,7 @@ module.exports = {
 Finally run the `verify` task, passing the address of the contract, the network where it's deployed, and the constructor arguments that were used to deploy it (if any):
 
 ```console
-npx buidler verify --network mainnet DEPLOYED_CONTRACT_ADDRESS "Constructor argument 1"
+npx hardhat verify --network mainnet DEPLOYED_CONTRACT_ADDRESS "Constructor argument 1"
 ```
 NOTE: You will need an https://etherscan.io/apis[Etherscan API key] to use their service.
 --

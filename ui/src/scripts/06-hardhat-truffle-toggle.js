@@ -1,6 +1,6 @@
 (function () {
   window.addEventListener('click', e => {
-    if (!event.target.classList.contains('buidler-truffle-toggle')) {
+    if (!event.target.classList.contains('hardhat-truffle-toggle')) {
       return;
     }
 
@@ -8,13 +8,13 @@
     e.preventDefault();
   });
 
-  const cookieName = 'buidler_truffle_preference';
-  const defaultPreference = 'buidler';
+  const cookieName = 'hardhat_truffle_preference';
+  const defaultPreference = 'hardhat';
 
   function getPreference() {
     const cookie = document.cookie.split('; ').find(c => c.startsWith(`${cookieName}=`));
     const current = cookie && cookie.split('=')[1] || defaultPreference;
-    const other = current === 'buidler' ? 'truffle' : 'buidler';
+    const other = current === 'hardhat' ? 'truffle' : 'hardhat';
     return { current, other };
   }
 

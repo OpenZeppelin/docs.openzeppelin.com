@@ -9,7 +9,7 @@ This guide will cover all you need to know to get you started using your contrac
  * <<interacting-from-the-console, Interacting from the Console>>
  * <<interacting-programmatically, Interacting Programmatically>>
 
-include::learn::partial$buidler-truffle-toggle.adoc[]
+include::learn::partial$hardhat-truffle-toggle.adoc[]
 
 [[local-blockchain]]
 == Setting up a Local Blockchain
@@ -43,21 +43,21 @@ Keep in mind that every time you run Ganache, it will create a brand new local b
 TIP: **Truffle** has a graphical version of `ganache-cli`, also called https://www.trufflesuite.com/ganache[Ganache].
 --
 
-[.buidler]
+[.hardhat]
 --
-Buidler comes with a local blockchain built-in, the https://buidler.dev/buidler-evm/[Buidler EVM].
+Hardhat comes with a local blockchain built-in, the https://hardhat.org/hardhat-network/[Hardhat Network].
 
-Upon startup, Buidler EVM will create a set of unlocked accounts and give them Ether.
+Upon startup, Hardhat Network will create a set of unlocked accounts and give them Ether.
 
 ```console
-$ npx buidler node
+$ npx hardhat node
 ```
 
-Buidler EVM will print out a list of available accounts and their private keys, along with its address, `http://127.0.0.1:8545`.
+Hardhat Network will print out its address, `http://127.0.0.1:8545`, along with a list of available accounts and their private keys.
 
-Keep in mind that every time you run Buidler EVM, it will create a brand new local blockchain - the state of previous runs is **not** preserved. This is fine for short-lived experiments, but it means that you will need to have a window open running Buidler EVM for the duration of these guides. 
+Keep in mind that every time you run Hardhat Network, it will create a brand new local blockchain - the state of previous runs is **not** preserved. This is fine for short-lived experiments, but it means that you will need to have a window open running Hardhat Network for the duration of these guides. 
 
-TIP: Buidler will always spin up an instance of **Buidler EVM** when no network is specified and there is no default network configured or the default network is set to `buidlerevm`.
+TIP: Hardhat will always spin up an instance of **Hardhat Network** when no network is specified and there is no default network configured or the default network is set to `hardhat`.
 --
 
 NOTE: You can also run an actual Ethereum node in _https://geth.ethereum.org/getting-started/dev-mode[development] https://wiki.parity.io/Private-development-chain[mode]_. These are a bit more complex to set up, and not as flexible for testing and development, but are more representative of the real network.
@@ -87,9 +87,9 @@ module.exports = async function (deployer) {
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
-Buidler doesn't currently have a native deployment system, instead we use https://buidler.dev/guides/deploying.html[scripts] to deploy contracts.
+Hardhat doesn't currently have a native deployment system, instead we use https://hardhat.org/guides/deploying.html[scripts] to deploy contracts.
 
 We will create a script to deploy our Box contract.  We will save this file as `scripts/deploy.js`. 
 
@@ -112,10 +112,10 @@ main()
   });
 ```
 
-We use https://github.com/ethers-io/ethers.js[ethers] in our script, so we need to install it and the https://buidler.dev/plugins/nomiclabs-buidler-ethers.html[buidler-ethers plugin].
+We use https://github.com/ethers-io/ethers.js[ethers] in our script, so we need to install it and the https://hardhat.org/plugins/nomiclabs-hardhat-ethers.html[@nomiclabs/hardhat-ethers plugin].
 
 ```console
-$ npm install --save-dev @nomiclabs/buidler-ethers ethers
+$ npm install --save-dev @nomiclabs/hardhat-ethers ethers
 ```
 --
 
@@ -138,13 +138,13 @@ module.exports = {
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
-We need to add in our https://buidler.dev/config[configuration] that we are using the `buidler-ethers` plugin.
+We need to add in our https://hardhat.org/config/[configuration] that we are using the `@nomiclabs/hardhat-ethers` plugin.
 
 ```js
-// buidler.config.js
-usePlugin('@nomiclabs/buidler-ethers');
+// hardhat.config.js
+require('@nomiclabs/hardhat-ethers');
 
 module.exports = {
 ...
@@ -192,18 +192,17 @@ Starting migrations...
 NOTE: Truffle will keep track of your deployed contracts, but it also displays their addresses when deploying (in our example, `0xCfEB869F69431e42cdB54A4F4f105C19C080A601`). These values will be useful when interacting with them programmatically.
 --
 
-[.buidler]
+[.hardhat]
 --
-Using the `run` command, we can deploy the `Box` contract to the local network (<<local-blockchain, Buidler EVM>>):
+Using the `run` command, we can deploy the `Box` contract to the local network (<<local-blockchain, Hardhat Network>>):
 
 ```console
-$ npx buidler run --network localhost scripts/deploy.js
-All contracts have already been compiled, skipping compilation.
+$ npx hardhat run --network localhost scripts/deploy.js
 Deploying Box...
-Box deployed to: 0x7c2C195CD6D34B8F845992d380aADB2730bB9C6F
+Box deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
 ```
 
-NOTE: Buidler doesn't keep track of your deployed contracts.  We displayed the deployed address in our script (in our example, `0x7c2C195CD6D34B8F845992d380aADB2730bB9C6F`). This will be useful when interacting with them programmatically.
+NOTE: Hardhat doesn't keep track of your deployed contracts.  We displayed the deployed address in our script (in our example, `0x7c2C195CD6D34B8F845992d380aADB2730bB9C6F`). This will be useful when interacting with them programmatically.
 --
 
 All done! On a real network this process would've taken a couple of seconds, but it is near instant on local blockchains.
@@ -228,18 +227,17 @@ undefined
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
-We will use the https://buidler.dev/guides/buidler-console.html[Buidler console] to interact with our deployed `Box` contract on our localhost network.
+We will use the https://hardhat.org/guides/hardhat-console.html[Hardhat console] to interact with our deployed `Box` contract on our localhost network.
 
 NOTE: We need to specify the address of our `Box` contract we displayed in our deploy script.
 
 ```console
-$ npx buidler console --network localhost
-All contracts have already been compiled, skipping compilation.
+$ npx hardhat console --network localhost
 > const Box = await ethers.getContractFactory("Box")
 undefined
-> const box = await Box.attach("0x7c2C195CD6D34B8F845992d380aADB2730bB9C6F")
+> const box = await Box.attach("0x5FbDB2315678afecb367f032d93F642f64180aa3")
 undefined
 ```
 --
@@ -265,12 +263,12 @@ truffle(development)> await box.store(42)
 Notice how the transaction receipt also shows that `Box` emitted a `ValueChanged` event.
 --
 
-[.buidler]
+[.hardhat]
 --
 ```console
 > await box.store(42)
 { hash:
-   '0xb1d8a8e227110b3a808cb393fff5010344a8b328f16f5994b838e6394af46bd9',
+   '0xa61ed89d6bd21a6182df28e557c241a3dd5aa932d1689f9c5bf8c49039d2334a',
 ...
 ```
 --
@@ -287,7 +285,7 @@ truffle(development)> await box.retrieve()
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 ```console
 > await box.retrieve()
@@ -307,7 +305,7 @@ truffle(development)> (await box.retrieve()).toString()
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 ```console
 > (await box.retrieve()).toString()
@@ -322,9 +320,9 @@ truffle(development)> (await box.retrieve()).toString()
 TIP: To learn more about using the console, check out the https://www.trufflesuite.com/docs/truffle/getting-started/using-truffle-develop-and-the-console[Truffle documentation].
 --
 
-[.buidler]
+[.hardhat]
 --
-TIP: To learn more about using the console, check out the https://buidler.dev/guides/buidler-console.html[Buidler documentation].
+TIP: To learn more about using the console, check out the https://hardhat.org/guides/hardhat-console.html[Hardhat documentation].
 --
 
 [[interacting-programmatically]]
@@ -337,9 +335,9 @@ The console is useful for prototyping and running one-off queries or transaction
 In this section, we'll see how to interact with our contracts from JavaScript, and use https://www.trufflesuite.com/docs/truffle/getting-started/writing-external-scripts[Truffle to execute our script] with our Truffle configuration.
 --
 
-[.buidler]
+[.hardhat]
 --
-In this section, we'll see how to interact with our contracts from JavaScript, and use https://buidler.dev/guides/scripts.html[Buidler to run our script] with our Buidler configuration.
+In this section, we'll see how to interact with our contracts from JavaScript, and use https://hardhat.org/guides/scripts.html[Hardhat to run our script] with our Hardhat configuration.
 --
 
 TIP: Keep in mind that there are many other JavaScript libraries available, and you can use whichever you like the most. Once a contract is deployed, you can interact with it through any library!
@@ -367,7 +365,7 @@ module.exports = async function main(callback) {
 ----
 --
 
-[.buidler]
+[.hardhat]
 --
 [source,js]
 ----
@@ -398,7 +396,7 @@ console.log(accounts)
 ----
 --
 
-[.buidler]
+[.hardhat]
 --
 [source,js]
 ----
@@ -425,17 +423,16 @@ Using network 'development'.
 ----
 --
 
-[.buidler]
+[.hardhat]
 --
-Run the code above using `buidler run`, and check that you are getting a list of available accounts in response.
+Run the code above using `hardhat run`, and check that you are getting a list of available accounts in response.
 
 [source,console]
 ----
-$ npx buidler run --network localhost ./scripts/index.js
-All contracts have already been compiled, skipping compilation.
-[ '0xc783df8a850f42e7F7e57013759C285caa701eB6',
-  '0xeAD9C93b79Ae7C1591b1FB5323BD777E86e150d4',
-  ... ]
+$ npx hardhat run --network localhost ./scripts/index.js
+[ '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  '0x70997970C51812dc3A010C7d01b50e0d17dc79C8',
+    ... ]
 ----
 --
 
@@ -456,7 +453,7 @@ const box = await Box.deployed();
 ----
 --
 
-[.buidler]
+[.hardhat]
 --
 In order to interact with the <<box-contract,`Box`>> contract we deployed, we'll use an https://docs.ethers.io/v5/api/contract/contract/[ethers contract instance].
 
@@ -492,7 +489,7 @@ console.log("Box value is", value.toString());
 ----
 --
 
-[.buidler]
+[.hardhat]
 --
 We'll need to call the read only `retrieve()` public method of the contract, and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await[await] the response:
 
@@ -516,12 +513,11 @@ Box value is 42
 ----
 --
 
-[.buidler]
+[.hardhat]
 --
 [source,console]
 ----
-$ npx buidler run --network localhost ./scripts/index.js
-All contracts have already been compiled, skipping compilation.
+$ npx hardhat run --network localhost ./scripts/index.js
 Box value is 42
 ----
 --
@@ -555,7 +551,7 @@ console.log("Box value is", value.toString());
 NOTE: In a real-world application, you may want to https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-estimategas[estimate the gas] of your transactions, and check a https://ethgasstation.info/[gas price oracle] to know the optimal values to use on every transaction.
 --
 
-[.buidler]
+[.hardhat]
 --
 
 [source,js]
@@ -584,11 +580,11 @@ Box value is 23
 ----
 --
 
-[.buidler]
+[.hardhat]
 --
 [source,console]
 ----
-$ npx truffle exec --network development ./scripts/index.js
+$ npx hardhat run --network localhost ./scripts/index.js
 Using network 'development'.
 
 Box value is 23

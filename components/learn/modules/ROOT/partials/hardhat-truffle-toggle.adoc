@@ -1,0 +1,10 @@
+[NOTE]
+====
+Instructions are available for both Truffle and Hardhat. Choose your preference using this toggle!
+
+++++
+<button class="hardhat-truffle-toggle">
+<span>Toggle Hardhat or Truffle</span>
+</button>
+++++
+====

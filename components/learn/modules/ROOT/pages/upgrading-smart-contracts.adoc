@@ -9,7 +9,12 @@ Throughout this guide, we will learn:
 * <<how-upgrades-work, Learn how upgrades work under the hood>>
 * <<limitations-of-contract-upgrades, Learn how to write upgradeable contracts>>
 
-include::learn::partial$buidler-truffle-toggle.adoc[]
+include::learn::partial$hardhat-truffle-toggle.adoc[]
+
+[WARNING.hardhat]
+--
+This guide and the Upgrades plugin haven't been migrated to Hardhat yet. The following content is for Buidler only. This will be changed shortly. Subscribe to https://github.com/OpenZeppelin/openzeppelin-upgrades/issues/206[OpenZeppelin/openzeppelin-upgrades#206] for updates.
+--
 
 [[whats-in-an-upgrade]]
 == What's in an upgrade
@@ -74,7 +79,7 @@ npm install --save-dev @openzeppelin/truffle-upgrades
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 Install the xref:upgrades-plugins::buidler-upgrades.adoc[Buidler Upgrades] plugin.
 ```bash
@@ -114,7 +119,7 @@ module.exports = async function (deployer) {
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 Buidler doesn't currently have a native deployment system, instead we use https://buidler.dev/guides/deploying.html[scripts] to deploy contracts.
 
@@ -160,7 +165,7 @@ $ npx truffle migrate --network development
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 Using the `run` command, we can deploy the `Box` contract to the `development` network.
 
@@ -187,7 +192,7 @@ truffle(development)> (await box.retrieve()).toString()
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 We will use the https://buidler.dev/guides/buidler-console.html[Buidler console] to interact with our upgraded `Box` contract.
 
@@ -248,7 +253,7 @@ module.exports = async function (deployer) {
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 We will create a script to upgrade our `Box` contract to use `BoxV2` using xref:upgrades-plugins::api-buidler-upgrades.adoc#upgrade-proxy[`upgradeProxy`].  We will save this file as `scripts/upgrade_box.js`. 
 We need to specify the address of our proxy contract from when we deployed our `Box` contract.
@@ -286,7 +291,7 @@ $ npx truffle migrate --network development
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 Using the `run` command, we can upgrade the `Box` contract on the `development` network.
 
@@ -319,7 +324,7 @@ truffle(development)> (await boxV2.retrieve()).toString()
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 We need to specify the address of our proxy contract from when we deployed our `Box` contract.
 
@@ -426,7 +431,7 @@ module.exports = async function (deployer) {
 ```
 --
 
-[.buidler]
+[.hardhat]
 --
 ```js
 // scripts/deploy_upgradeable_adminbox.js
