@@ -14,7 +14,7 @@ xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#pass:q[A librar
 
 [.card.card-primary.card-upgrades-js]
 --
-xref:upgrades-plugins::index.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[Plugins for Buidler and Truffle to deploy and manage upgradeable contracts on Ethereum.]#]
+xref:upgrades-plugins::index.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[Plugins for Hardhat and Truffle to deploy and manage upgradeable contracts on Ethereum.]#]
 --
 
 [.card.card-primary.card-defender]
