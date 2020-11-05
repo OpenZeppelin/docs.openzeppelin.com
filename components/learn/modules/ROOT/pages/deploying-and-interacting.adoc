@@ -53,7 +53,7 @@ Upon startup, Hardhat Network will create a set of unlocked accounts and give th
 $ npx hardhat node
 ```
 
-Hardhat Network will print out a list of available accounts and their private keys, along with its address, `http://127.0.0.1:8545`.
+Hardhat Network will print out its address, `http://127.0.0.1:8545`, along with a list of available accounts and their private keys.
 
 Keep in mind that every time you run Hardhat Network, it will create a brand new local blockchain - the state of previous runs is **not** preserved. This is fine for short-lived experiments, but it means that you will need to have a window open running Hardhat Network for the duration of these guides. 
 
@@ -112,7 +112,7 @@ main()
   });
 ```
 
-We use https://github.com/ethers-io/ethers.js[ethers] in our script, so we need to install it and the https://hardhat.org/plugins/nomiclabs-hardhat-ethers.html[hardhat-ethers plugin].
+We use https://github.com/ethers-io/ethers.js[ethers] in our script, so we need to install it and the https://hardhat.org/plugins/nomiclabs-hardhat-ethers.html[@nomiclabs/hardhat-ethers plugin].
 
 ```console
 $ npm install --save-dev @nomiclabs/hardhat-ethers ethers
@@ -140,7 +140,7 @@ module.exports = {
 
 [.hardhat]
 --
-We need to add in our https://hardhat.org/config[configuration] that we are using the `hardhat-ethers` plugin.
+We need to add in our https://hardhat.org/config/[configuration] that we are using the `@nomiclabs/hardhat-ethers` plugin.
 
 ```js
 // hardhat.config.js
@@ -236,7 +236,6 @@ NOTE: We need to specify the address of our `Box` contract we displayed in our d
 
 ```console
 $ npx hardhat console --network localhost
-All contracts have already been compiled, skipping compilation.
 > const Box = await ethers.getContractFactory("Box")
 undefined
 > const box = await Box.attach("0x7c2C195CD6D34B8F845992d380aADB2730bB9C6F")
@@ -521,7 +520,6 @@ Box value is 42
 [source,console]
 ----
 $ npx hardhat run --network localhost ./scripts/index.js
-All contracts have already been compiled, skipping compilation.
 Box value is 42
 ----
 --

@@ -23,7 +23,7 @@ With that out of the way, let's get started!
 
 The first step after xref:setting-up-a-node-project#creating-a-project[creating a project] is to install a development tool.
 
-The most popular development framework for Ethereum is https://www.trufflesuite.com/truffle[Truffle] which uses https://web3js.readthedocs.io/[web3.js].  The next most popular is https://hardhat.org/[Hardhat], and we cover its most common use with https://docs.ethers.io/[ethers.js].  Each has their strengths and it is useful to be comfortable using all of them.
+The most popular development framework for Ethereum is https://www.trufflesuite.com/truffle[Truffle] which uses https://web3js.readthedocs.io/[web3.js].  The next most popular is https://hardhat.org/[Hardhat] (previously called Buidler), and we cover its most common use with https://docs.ethers.io/[ethers.js].  Each has their strengths and it is useful to be comfortable using all of them.
 
 In these guides we will show how to develop, test and deploy smart contracts using Truffle and Hardhat.  
 
@@ -59,7 +59,7 @@ To get started with Hardhat we will install it in our xref:setting-up-a-node-pro
 $ npm install --save-dev hardhat
 ```
 
-Once installed, we can run ``npx hardhat``. This will create an empty Hardhat project in our project directory.
+Once installed, we can run `npx hardhat`. This will create create a Hardhat config file (`hardhat.config.js`) in our project directory.
 
 ```console
 $ npx hardhat
@@ -72,12 +72,10 @@ $ npx hardhat
 888    888 888  888 888    Y88b 888 888  888 888  888 Y88b.
 888    888 "Y888888 888     "Y88888 888  888 "Y888888  "Y888
 
-Welcome to Hardhat v2.0.0
+Welcome to Hardhat v2.0.2
 
-? What do you want to do? …
-❯ Create a sample project
-  Create an empty hardhat.config.js
-  Quit
+✔ What do you want to do? · Create an empty hardhat.config.js
+Config file created
 ```
 
 --
@@ -152,14 +150,18 @@ We specify a Solidity 0.6 solc version in our `truffle-config.js`.
 
 [.hardhat]
 --
-Our `Box.sol` contract uses Solidity 0.6 so we need to first https://hardhat.org/config/#solc-configuration[configure Hardhat to use an appropriate solc version].
+Our `Box.sol` contract uses Solidity 0.6 so we need to first https://hardhat.org/config/#solidity-configuration[configure Hardhat to use an appropriate solc version].
 
 We specify a Solidity 0.6 solc version in our `hardhat.config.js`.
 
 ```js
 // hardhat.config.js
+
+/**
+ * @type import('hardhat/config').HardhatUserConfig
+ */
 module.exports = {
-  solidity: "0.7.1"
+  solidity: "0.6.12",
 };
 ```
 --
@@ -191,12 +193,13 @@ You will notice a `build/contracts` directory was created: it holds the compiled
 --
 ```console
 $ npx hardhat compile
-Compiling...
-Downloading compiler version 0.6.12
-Compiled 1 contract successfully
+Downloading compiler 0.6.12
+Compiling 1 file with 0.6.12
+Compilation finished successfully
 ```
 
-The https://hardhat.org/guides/compile-contracts.html#compiling-your-contracts[`compile`] built-in task will automatically look for all contracts in the `contracts` directory, and compile them using the Solidity compiler using the configuration in https://hardhat.org/config/#solc-configuration[`hardhat.config.js`].
+The https://hardhat.org/guides/compile-contracts.html#compiling-your-contracts[`compile`] built-in task will automatically look for all contracts in the `contracts` directory, and compile them using the Solidity compiler using the configuration in https://hardhat.org/config/#solidity-configuration[`hardhat.config.js`].
+
 
 You will notice an `artifacts` directory was created: it holds the compiled artifacts (bytecode and metadata), which are .json files. It’s a good idea to add this directory to your `.gitignore`.
 --

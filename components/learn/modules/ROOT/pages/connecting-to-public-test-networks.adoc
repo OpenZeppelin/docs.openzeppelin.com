@@ -162,7 +162,6 @@ truffle(rinkeby)> accounts
 [source,console]
 ----
 $ npx hardhat console --network rinkeby
-All contracts have already been compiled, skipping compilation.
 > accounts = await ethers.provider.listAccounts()
 [ '0xEce6999C6c5BDA71d673090144b6d3bCD21d13d4',
   '0xC1310ade58A75E6d4fCb8238f9559188Ea3808f9',
@@ -225,9 +224,8 @@ $ npx truffle migrate --network rinkeby
 [source,console]
 ----
 $ npx hardhat run --network rinkeby scripts/deploy.js
-All contracts have already been compiled, skipping compilation.
 Deploying Box...
-Box deployed to: 0xc4B718c07971C96641478D146aA1f411b714b366
+Box deployed to: 0x7e25FaDC15EBc59c7b4EFEd313A95A2955bA73E2
 ----
 --
 
@@ -242,7 +240,7 @@ TIP: You can check out the contract we deployed in the example above, along with
 
 [.hardhat]
 --
-TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0xc4B718c07971C96641478D146aA1f411b714b366[here].
+TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0x7e25FaDC15EBc59c7b4EFEd313A95A2955bA73E2[here].
 --
 
 You can also interact with your instance as you regularly would, either using the xref::deploying-and-interacting.adoc#interacting-from-the-console[console], or xref::deploying-and-interacting.adoc#interacting-programatically[programmatically].
