@@ -12,7 +12,9 @@
     "build:no-fetch": "bash scripts/build.sh playbook.yml",
     "build:local": "bash scripts/build.sh playbook-local-only.yml",
     "build:custom": "bash scripts/build.sh",
-    "prepare": "yarn --cwd ui bundle"
+    "prepare": "yarn --cwd ui bundle",
+    "serve": "live-server build/site",
+    "watch:local": "fgbg 'nodemon -e yml,adoc -w components -x yarn build:local' 'live-server build/site'"
   },
   "dependencies": {
     "@antora/cli": "^2.0.0",
@@ -23,6 +25,9 @@
     "yarn": "^1.19.1"
   },
   "devDependencies": {
-    "node-gyp-cache": "^0.2.0"
+    "fgbg": "^0.1.5",
+    "live-server": "^1.2.1",
+    "node-gyp-cache": "^0.2.0",
+    "nodemon": "^2.0.6"
   }
 }
