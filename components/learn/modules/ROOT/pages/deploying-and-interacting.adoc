@@ -238,7 +238,7 @@ NOTE: We need to specify the address of our `Box` contract we displayed in our d
 $ npx hardhat console --network localhost
 > const Box = await ethers.getContractFactory("Box")
 undefined
-> const box = await Box.attach("0x7c2C195CD6D34B8F845992d380aADB2730bB9C6F")
+> const box = await Box.attach("0x5FbDB2315678afecb367f032d93F642f64180aa3")
 undefined
 ```
 --
@@ -269,7 +269,7 @@ Notice how the transaction receipt also shows that `Box` emitted a `ValueChanged
 ```console
 > await box.store(42)
 { hash:
-   '0xb1d8a8e227110b3a808cb393fff5010344a8b328f16f5994b838e6394af46bd9',
+   '0xa61ed89d6bd21a6182df28e557c241a3dd5aa932d1689f9c5bf8c49039d2334a',
 ...
 ```
 --
@@ -431,10 +431,9 @@ Run the code above using `hardhat run`, and check that you are getting a list of
 [source,console]
 ----
 $ npx hardhat run --network localhost ./scripts/index.js
-All contracts have already been compiled, skipping compilation.
-[ '0xc783df8a850f42e7F7e57013759C285caa701eB6',
-  '0xeAD9C93b79Ae7C1591b1FB5323BD777E86e150d4',
-  ... ]
+[ '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  '0x70997970C51812dc3A010C7d01b50e0d17dc79C8',
+    ... ]
 ----
 --
 
@@ -586,7 +585,7 @@ Box value is 23
 --
 [source,console]
 ----
-$ npx truffle exec --network development ./scripts/index.js
+$ npx hardhat run --network localhost ./scripts/index.js
 Using network 'development'.
 
 Box value is 23

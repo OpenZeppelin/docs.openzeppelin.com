@@ -139,7 +139,6 @@ Running `npx hardhat test` will execute all tests in the `test` directory, check
 
 ```console
 $ npx hardhat test
-All contracts have already been compiled, skipping compilation.
 
 
   Box

@@ -267,11 +267,11 @@ $ npx hardhat console --network rinkeby
 All contracts have already been compiled, skipping compilation.
 > const Box = await ethers.getContractFactory("Box")
 undefined
-> const box = await Box.attach("0xc4B718c07971C96641478D146aA1f411b714b366")
+> const box = await Box.attach("0x7e25FaDC15EBc59c7b4EFEd313A95A2955bA73E2")
 undefined
 > await box.store(42)
 { hash:
-   '0x7dcc0ae058c88f1490f4f9dbf918fb6ae8f710676fb9a15e2e04e72223d042df',
+   '0xc2b34ff678f71df463856d2183ec5644dac8d57806461fcf9417b72824e4de06',
 ...
 > (await box.retrieve()).toString()
 '42'
