@@ -185,6 +185,14 @@ dd {
   }
 }
 
+blockquote {
+  margin-left: 2rem;
+
+  & + .attribution {
+    text-align: right;
+  }
+}
+
 .strong {
   font-weight: var(--weight-medium);
 }
