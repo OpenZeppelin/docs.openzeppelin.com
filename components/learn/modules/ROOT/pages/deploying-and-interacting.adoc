@@ -198,9 +198,8 @@ Using the `run` command, we can deploy the `Box` contract to the local network (
 
 ```console
 $ npx hardhat run --network localhost scripts/deploy.js
-All contracts have already been compiled, skipping compilation.
 Deploying Box...
-Box deployed to: 0x7c2C195CD6D34B8F845992d380aADB2730bB9C6F
+Box deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
 ```
 
 NOTE: Hardhat doesn't keep track of your deployed contracts.  We displayed the deployed address in our script (in our example, `0x7c2C195CD6D34B8F845992d380aADB2730bB9C6F`). This will be useful when interacting with them programmatically.
