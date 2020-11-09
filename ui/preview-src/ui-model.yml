@@ -3,6 +3,8 @@ uiRootPath: _theme
 site:
   url: http://localhost:5252
   title: OpenZeppelin
+  ui:
+    url: /_theme
   components:
     openzeppelin:
       &component_openzeppelin
