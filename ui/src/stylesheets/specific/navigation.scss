@@ -9,7 +9,6 @@
   color: var(--color-text-light);
 
   a {
-    padding: .7rem 1rem;
     text-decoration: none;
     color: inherit;
 
@@ -23,6 +22,10 @@
   line-height: 1rem;
 }
 
+.nav-component a,
+.btn-back {
+  padding: .7rem 1rem;
+}
 .nav-components {
   height: calc(100% - 25px);
 }
