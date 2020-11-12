@@ -76,17 +76,17 @@ npm install --save-dev @openzeppelin/truffle-upgrades
 
 [.hardhat]
 --
-Install the xref:upgrades-plugins::buidler-upgrades.adoc[Buidler Upgrades] plugin.
+Install the xref:upgrades-plugins::hardhat-upgrades.adoc[Hardhat Upgrades] plugin.
 ```bash
-npm install --save-dev @openzeppelin/buidler-upgrades
+npm install --save-dev @openzeppelin/hardhat-upgrades
 ```
 
-We then need to configure Buidler to use our `@openzeppelin/buidler-upgrades` plugin. To do this add the plugin in your `hardhat.config.js` file as follows.
+We then need to configure Hardhat to use our `@openzeppelin/hardhat-upgrades` plugin. To do this add the plugin in your `hardhat.config.js` file as follows.
 
 ```js
 // hardhat.config.js
 require('@nomiclabs/hardhat-ethers');
-require('@openzeppelin/buidler-upgrades');
+require('@openzeppelin/hardhat-upgrades');
  
 module.exports = {
 ...
@@ -118,7 +118,7 @@ module.exports = async function (deployer) {
 --
 Hardhat doesn't currently have a native deployment system, instead we use https://hardhat.org/guides/deploying.html[scripts] to deploy contracts.
 
-We will create a script to deploy our upgradeable Box contract using xref:upgrades-plugins::api-buidler-upgrades.adoc#deploy-proxy[`deployProxy`].  We will save this file as `scripts/deploy_upgradeable_box.js`. 
+We will create a script to deploy our upgradeable Box contract using xref:upgrades-plugins::api-hardhat-upgrades.adoc#deploy-proxy[`deployProxy`].  We will save this file as `scripts/deploy_upgradeable_box.js`. 
 
 ```js
 // scripts/deploy_upgradeable_box.js
@@ -250,7 +250,7 @@ module.exports = async function (deployer) {
 
 [.hardhat]
 --
-We will create a script to upgrade our `Box` contract to use `BoxV2` using xref:upgrades-plugins::api-buidler-upgrades.adoc#upgrade-proxy[`upgradeProxy`].  We will save this file as `scripts/upgrade_box.js`. 
+We will create a script to upgrade our `Box` contract to use `BoxV2` using xref:upgrades-plugins::api-hardhat-upgrades.adoc#upgrade-proxy[`upgradeProxy`].  We will save this file as `scripts/upgrade_box.js`. 
 We need to specify the address of our proxy contract from when we deployed our `Box` contract.
 
 ```js
