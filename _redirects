@@ -82,3 +82,9 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 # OpenZeppelin Contracts 3.0-rc redirect
 /contracts/3.x-rc/api/deploy-ready /contracts/3.x/api/presets 301
 /contracts/3.x-rc/* /contracts/3.x/:splat 301
+
+# buidler -> hardhat
+/upgrades-plugins/buidler-upgrades /upgrades-plugins/hardhat-upgrades 301
+/upgrades-plugins/api-buidler-upgrades /upgrades-plugins/api-hardhat-upgrades 301
+/upgrades-plugins/1.x/buidler-upgrades /upgrades-plugins/1.x/hardhat-upgrades 301
+/upgrades-plugins/1.x/api-buidler-upgrades /upgrades-plugins/1.x/api-hardhat-upgrades 301
