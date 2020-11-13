@@ -168,7 +168,7 @@ Using the `run` command, we can deploy the `Box` contract to the `development` n
 $ npx hardhat run --network localhost scripts/deploy_upgradeable_box.js
 All contracts have already been compiled, skipping compilation.
 Deploying Box...
-Box deployed to: 0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA
+Box deployed to: 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
 ```
 --
 
@@ -198,7 +198,7 @@ $ npx hardhat console --network localhost
 All contracts have already been compiled, skipping compilation.
 > const Box = await ethers.getContractFactory("Box")
 undefined
-> const box = await Box.attach("0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA")
+> const box = await Box.attach("0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0")
 undefined
 > (await box.retrieve()).toString()
 '42'
@@ -260,7 +260,7 @@ const { ethers, upgrades } = require("hardhat");
 async function main() {
   const BoxV2 = await ethers.getContractFactory("BoxV2");
   console.log("Upgrading Box...");
-  const box = await upgrades.upgradeProxy("0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA", BoxV2);
+  const box = await upgrades.upgradeProxy("0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0", BoxV2);
   console.log("Box upgraded");
 }
 
@@ -293,7 +293,7 @@ Using the `run` command, we can upgrade the `Box` contract on the `development` 
 ```console
 $ npx hardhat run --network localhost scripts/upgrade_box.js
 All contracts have already been compiled, skipping compilation.
-Box deployed to: 0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA
+Box deployed to: 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
 ```
 --
 
@@ -328,7 +328,7 @@ $ npx hardhat console --network localhost
 All contracts have already been compiled, skipping compilation.
 > const BoxV2 = await ethers.getContractFactory("BoxV2")
 undefined
-> const box = await BoxV2.attach("0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA")
+> const box = await BoxV2.attach("0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0")
 undefined
 > await box.increment()
 ...
