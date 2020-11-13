@@ -165,7 +165,7 @@ $ npx truffle migrate --network development
 Using the `run` command, we can deploy the `Box` contract to the `development` network.
 
 ```console
-$ npx hardhat run --network development scripts/deploy_upgradeable_box.js
+$ npx hardhat run --network localhost scripts/deploy_upgradeable_box.js
 All contracts have already been compiled, skipping compilation.
 Deploying Box...
 Box deployed to: 0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA
@@ -194,7 +194,7 @@ We will use the https://hardhat.org/guides/hardhat-console.html[Hardhat console]
 We need to specify the address of our proxy contract from when we deployed our `Box` contract.
 
 ```console
-$ npx hardhat console --network development
+$ npx hardhat console --network localhost
 All contracts have already been compiled, skipping compilation.
 > const Box = await ethers.getContractFactory("Box")
 undefined
@@ -291,7 +291,7 @@ $ npx truffle migrate --network development
 Using the `run` command, we can upgrade the `Box` contract on the `development` network.
 
 ```console
-$ npx hardhat run --network development scripts/upgrade_box.js
+$ npx hardhat run --network localhost scripts/upgrade_box.js
 All contracts have already been compiled, skipping compilation.
 Box deployed to: 0xFF6049B87215476aBf744eaA3a476cBAd46fB1cA
 ```
@@ -324,7 +324,7 @@ truffle(development)> (await boxV2.retrieve()).toString()
 We need to specify the address of our proxy contract from when we deployed our `Box` contract.
 
 ```console
-$ npx hardhat console --network development
+$ npx hardhat console --network localhost
 All contracts have already been compiled, skipping compilation.
 > const BoxV2 = await ethers.getContractFactory("BoxV2")
 undefined
