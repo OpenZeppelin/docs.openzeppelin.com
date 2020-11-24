@@ -52,7 +52,7 @@
     "gulp-uglify-es": "^2.0.0",
     "gulp-vinyl-zip": "~2.2.0",
     "handlebars": "~4.7",
-    "highlight.js": "~10.0",
+    "highlight.js": "~10.1",
     "highlightjs-solidity": "1.0.14",
     "js-yaml": "~3.13",
     "lodash.debounce": "^4.0.8",
