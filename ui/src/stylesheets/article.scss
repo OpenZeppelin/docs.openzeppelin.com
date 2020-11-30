@@ -182,12 +182,12 @@
 
     code {
       color: inherit;
-      font-weight: var(--weight-bold);
+      font-weight: var(--weight-normal);
       background-color: transparent;
       padding: 0;
 
-      span.var-type {
-        font-weight: var(--weight-normal);
+      .contract-item-name {
+        font-weight: var(--weight-medium);
       }
     }
 
