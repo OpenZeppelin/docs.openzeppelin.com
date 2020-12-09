@@ -1,4 +1,0 @@
-.Gas Station Network
-* xref:gsn/getting-started.adoc[Getting started]
-* xref:gsn/what-is-the-gsn.adoc[What is the GSN?]
-* xref:gsn/faq.adoc[FAQ]
