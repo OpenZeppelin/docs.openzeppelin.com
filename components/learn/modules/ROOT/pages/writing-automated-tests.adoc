@@ -73,10 +73,10 @@ contract('Box', function () {
 
 [.hardhat]
 --
-Create a `test` directory in your project root.  We will save the test as `test/Box.js`. Each test `.js` file commonly has the tests for a single contract, and is named after it.
+Create a `test` directory in your project root.  We will save the test as `test/Box.test.js`. Each test `.js` file commonly has the tests for a single contract, and is named after it.
 
 ```js
-// test/Box.js
+// test/Box.test.js
 // Load dependencies
 const { expect } = require('chai');
  
