@@ -28,11 +28,9 @@
   function setURLParam(preference) {
     const url = new URL(document.location);
     const params = new URLSearchParams(url.search);
-    if (params.has('pref')) {
-      params.set('pref', preference);
-      url.search = params.toString();
-      history.replaceState(null, '', [url]);
-    }
+    params.set('pref', preference);
+    url.search = params.toString();
+    history.replaceState(null, '', [url]);
   }
 
   function getPreference() {
