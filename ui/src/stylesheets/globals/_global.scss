@@ -2,17 +2,6 @@ body {
   background: #fefefe;
 }
 
-.root {
-  display: flex;
-  max-width: 100vw;
-  align-content: flex-start;
-
-  > nav {
-    flex: 0;
-    flex-basis: 17rem;
-  }
-}
-
 .filter-active-icon {
   filter: invert(49%) sepia(69%) saturate(6505%) hue-rotate(225deg) brightness(93%) contrast(91%);
 }
