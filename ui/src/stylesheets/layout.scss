@@ -52,7 +52,8 @@
 .close-menu-btn {
   display: flex;
   padding: var(--lg);
-  margin: calc(-1 * var(--side-margin));
+  margin-top: calc(-1 * var(--side-margin));
+  margin-left: calc(-1 * var(--side-margin));
 
   @media (min-width: $mobile-breakpoint) {
     display: none;
