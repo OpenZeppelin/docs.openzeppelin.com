@@ -68,7 +68,6 @@
 
   &::before {
     content: url(../images/icons/anchor.svg);
-    vertical-align: middle;
   }
 }
 
@@ -162,6 +161,7 @@
     font-size: inherit;
 
     code {
+      flex-grow: 1;
       color: inherit;
       font-weight: var(--weight-normal);
       background-color: transparent;
@@ -172,7 +172,12 @@
       }
     }
 
+    .anchor {
+      order: 10;
+    }
+
     .item-kind {
+      order: 11;
       font-family: var(--sans-serif);
       font-size: var(--md);
       font-weight: 300;
