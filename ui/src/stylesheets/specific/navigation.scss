@@ -1,10 +1,5 @@
 .nav {
-  height: 100vh;
-  overflow-y: auto;
   padding: 1rem;
-  position: sticky;
-  top: 0;
-  width: var(--nav-width);
   background: var(--core-gray);
   color: var(--color-text-light);
 
@@ -25,9 +20,6 @@
 .nav-component a,
 .btn-back {
   padding: .7rem 1rem;
-}
-.nav-components {
-  height: calc(100% - 25px);
 }
 
 .nav-title {
@@ -60,20 +52,13 @@
   font-size: 1.3rem;
   font-weight: var(--weight-medium);
   font-family: var(--heading);
-  margin: .75rem 0;
   padding: 0 1rem;
-  align-items: center;
 }
 
 .nav-component-active {
-  min-height: 100%;
-  overflow-y: auto;
   .nav-heading-active {
-    position: sticky;
-    top: 0;
     padding-top: 15px;
     padding-bottom: 4px;
-    margin-top: 0;
     background: var(--core-gray);
     z-index: 2;
   }
@@ -85,42 +70,26 @@
   line-height: 1.7em;
 }
 
-.nav-heading-active {
-  position: sticky;
-  top: 15px;
-}
-
 .nav-component-heading {
   color: var(--steel-4);
   font-family: var(--heading);
   font-weight: var(--weight-medium);
   position: relative;
   font-size: 1rem;
-  & + .nav-list {
-    height: 90%;
-    margin-bottom: 0;
-  }
 }
 
 .nav-li {
-  margin-bottom: 0.5rem;
-  line-height: 1.5rem;
-  margin-left: 1.3rem;
-
   a:hover {
     opacity: .8;
   }
 }
 
 .nav-link code {
-    font-size: .9rem;
-    padding: 0;
+  font-size: .9rem;
+  padding: 0;
 }
 
 .nav-icon {
-  margin-right: .5rem;
-  height: 1rem;
-  width: 1rem;
   opacity: .8;
 }
 
@@ -147,9 +116,6 @@ button.collapse-toggle{
   cursor: pointer;
   padding: 0;
   border: none;
-  margin-left: -1.3rem;
-  width: 1rem;
-  height: 1rem;
 
   &.active ~ .collapsible-content {
   display: none;
@@ -160,80 +126,6 @@ button.collapse-toggle{
   transform: rotate(-90deg);
 }
 
-.collapsible-content {
-  margin-bottom: var(--md);
-}
-
-.cxlose-menu-btn {
-  display: none;
-}
-//------------- MOBILE RESPONSIVENESS ---------------------------------------
-
-@media (max-width: $mobile-breakpoint) {
-  .nav {
-    max-width: 0;
-    padding: 2.2rem 0;
-    opacity: 0;
-    transition: min-width 500ms, padding 500ms, opacity 300ms;
-    .close-menu-btn{
-      visibility: hidden;
-    }
-    .nav-list {
-      a.nav-link-active::before {
-        opacity: 0;
-        transition: 5ms;
-      }
-    }
-  }
-
-  .active {
-    padding-left: 2.2rem;
-    opacity: 1;
-    transition: 500ms, opacity 300ms;
-    .close-menu-btn{
-      visibility: visible;
-    }
-    .nav-list {
-      a.nav-link-active::before {
-        opacity: 1;
-        transition: 2000ms;
-      }
-    }
-    .collapsible {
-      padding: 0;
-    }
-  }
-
-  .close-menu-btn {
-    position: absolute;
-    right: 32px;
-    top: 20px;
-    width: 32px;
-    height: 32px;
-    opacity: 0.3;
-  }
-  .close-menu-btn:hover {
-    opacity: 1;
-  }
-  .close-menu-btn:before, .close-menu-btn:after {
-    position: absolute;
-    top: 6px;
-    left: 15px;
-    content: ' ';
-    height: 20px;
-    width: 2px;
-    background-color: #333;
-  }
-  .close-menu-btn:before {
-    transform: rotate(45deg);
-  }
-  .close-menu-btn:after {
-    transform: rotate(-45deg);
-  }
-}
-
-@media (orientation: landscape) and (max-width: $mobile-breakpoint) {
-  .nav-component-active {
-    height: 60%;
-  }
+.close-menu-btn {
+  border: 0;
 }

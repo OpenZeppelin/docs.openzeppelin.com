@@ -1,18 +1,10 @@
 .toc-sidebar {
-  flex: 0 0 auto;
-  position: sticky;
-  top: 10vh;
-  max-height: 80vh;
-  overflow-y: auto;
-  flex-basis: 200px;
   font-size: .8em;
-  margin-right: 3rem;
   opacity: .8;
 }
 
 .toc-menu {
   border-width: 0 0 0 0.25rem;
-  margin-bottom: 1.5rem;
 
   ul {
     list-style: none;
@@ -65,11 +57,4 @@
 
 .toc .toc-menu li a.toc-active {
   color: var(--core-violet-4);
-}
-
-
-@media (max-width: 1370px) {
-  .toc {
-    display: none;
-  }
 }

@@ -2,7 +2,7 @@
   'use strict';
 
   var sidebar = document.querySelector(
-    'main .article-wrapper > aside.toc-sidebar'
+    'main .article-wrapper > .toc-sidebar'
   );
 
   if (!sidebar) return;
@@ -12,7 +12,7 @@
     document.querySelector('.body.ui-toc') ||
     !(headings = find(
       'h1[id].sect0, .sect1 > h2[id]',
-      (doc = document.querySelector('article.doc'))
+      (doc = document.querySelector('.article'))
     )).length
   ) {
     sidebar.parentNode.removeChild(sidebar);
@@ -80,7 +80,7 @@
 
   var startOfContent = doc.querySelector('h1.page ~ :not(.labels)');
   if (startOfContent) {
-    var embeddedToc = document.createElement('aside');
+    var embeddedToc = document.createElement('div');
     embeddedToc.className = 'toc embedded';
     embeddedToc.appendChild(menu.cloneNode(true));
     doc.insertBefore(embeddedToc, startOfContent);
@@ -93,7 +93,7 @@
 
     var headings = find(
       'h1[id].sect0, .sect1 > h2[id], .sect2 > h3[id]',
-      (doc = document.querySelector('article.doc'))
+      (doc = document.querySelector('.article'))
     );
 
     var targetPosition = 0;

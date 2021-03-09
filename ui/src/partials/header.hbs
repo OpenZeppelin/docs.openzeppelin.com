@@ -1,16 +1,12 @@
 <header class="header">
   <nav class="navbar">
-    <div class="navbar-brand">
-      {{!-- <a class="navbar-item" href="{{or site.url (or siteRootUrl
-        siteRootPath)}}">{{site.title}}</a> --}}
-      <button class="navbar-burger sidr-toggle" data-target="topbar-nav">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <div id="topbar-nav" class="navbar-menu">
-      <a href="{{@root.site.url}}" class="navbar__logo">
+    <button class="navbar-burger sidr-toggle">
+      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+      </svg>
+    </button>
+    <div class="navbar-logo">
+      <a href="{{@root.site.url}}">
         <svg width="209px" height="24px" viewBox="0 0 209 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink">
           <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -251,12 +247,12 @@
           </g>
         </svg>
       </a>
-      <div class="navbar-end">
-        <a class="navbar-item" href="https://github.com/OpenZeppelin">GitHub</a>
-        <a class="navbar-item" href="https://forum.openzeppelin.com">Forum</a>
-        <a class="navbar-item" href="https://blog.openzeppelin.com">Blog</a>
-        <a class="navbar-item" href="https://openzeppelin.com">Website</a>
-      </div>
+    </div>
+    <div class="navbar-end">
+      <a class="navbar-item" href="https://github.com/OpenZeppelin">GitHub</a>
+      <a class="navbar-item" href="https://forum.openzeppelin.com">Forum</a>
+      <a class="navbar-item" href="https://blog.openzeppelin.com">Blog</a>
+      <a class="navbar-item" href="https://openzeppelin.com">Website</a>
     </div>
   </nav>
 </header>

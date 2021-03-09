@@ -1,0 +1,177 @@
+.root {
+  display: flex;
+}
+
+.nav {
+  height: 100vh;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+  width: 300px;
+  flex: 0 0 auto;
+}
+
+.nav-heading {
+  margin: .75rem 0;
+  align-items: center;
+}
+
+.nav-component-active {
+  min-height: 100%;
+  overflow-y: auto;
+}
+
+.nav-component-active .nav-heading-active {
+  position: sticky;
+  top: 0;
+  margin-top: 0;
+}
+
+.nav-heading-active {
+  position: sticky;
+  top: 15px;
+}
+
+.nav-component-heading + .nav-list {
+  height: 90%;
+  margin-bottom: 0;
+}
+
+.nav-li {
+  margin-bottom: 0.5rem;
+  margin-left: 1.3rem;
+  line-height: 1.5rem;
+}
+
+.nav-icon {
+  margin-right: .5rem;
+  height: 1rem;
+  width: 1rem;
+}
+
+.close-menu-btn {
+  display: flex;
+  padding: var(--lg);
+  margin-top: calc(-1 * var(--side-margin));
+  margin-left: calc(-1 * var(--side-margin));
+
+  @media (min-width: $mobile-breakpoint) {
+    display: none;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .nav {
+    flex-grow: 1;
+    padding: var(--lg);
+  }
+
+  .nav:not(.active) {
+    display: none;
+  }
+
+  .nav.active ~ .main {
+    display: none;
+  }
+}
+
+button.collapse-toggle {
+  margin-left: -1.3rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.collapsible-content {
+  margin-bottom: var(--md);
+}
+
+
+:root {
+  --side-margin: var(--xl);
+
+  @media (max-width: $mobile-breakpoint) {
+    --side-margin: var(--lg);
+  }
+}
+
+.main {
+  min-width: 0; /* This is necessary to avoid overflow due to <pre> children. */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar, .article-wrapper {
+  max-width: 1280px;
+  margin: 0 var(--side-margin);
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: .5em;
+}
+
+.navbar-burger {
+  margin-left: calc(-1 * var(--side-margin));
+  padding: var(--lg);
+  display: flex;
+}
+
+.navbar-logo {
+  flex-grow: 99;
+  display: flex;
+  align-items: stretch;
+
+  a {
+    padding: var(--lg) 0;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.navbar-end {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: .5em;
+}
+
+.navbar-item {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+}
+
+.article-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  column-gap: var(--lg);
+}
+
+.article {
+  min-width: 0; /* This is necessary to avoid overflow due to <pre> children. */
+}
+
+.toc-sidebar {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 200px;
+  max-height: 80vh;
+  position: sticky;
+  top: 10vh;
+  overflow-y: auto;
+
+  @media (max-width: ($mobile-breakpoint * 2 / 3)) {
+    display: none;
+  }
+}
+
+.notoc .toc-sidebar {
+  display: none;
+}
