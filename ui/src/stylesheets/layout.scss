@@ -156,6 +156,7 @@ button.collapse-toggle {
 
 .article {
   min-width: 0; /* This is necessary to avoid overflow due to <pre> children. */
+  flex-grow: 1;
 }
 
 .toc-sidebar {
