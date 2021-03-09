@@ -1,11 +1,5 @@
-html.is-clipped--navbar {
-  overflow-y: hidden;
-}
-
 .root {
   display: flex;
-  max-width: 100vw;
-  align-content: flex-start;
 }
 
 .nav {
@@ -13,11 +7,8 @@ html.is-clipped--navbar {
   overflow-y: auto;
   position: sticky;
   top: 0;
-  width: var(--nav-width);
-}
-
-.nav-components {
-  height: calc(100% - 25px);
+  width: 300px;
+  flex: 0 0 auto;
 }
 
 .nav-heading {
@@ -58,23 +49,32 @@ html.is-clipped--navbar {
   width: 1rem;
 }
 
-@media (max-width: $mobile-breakpoint) {
-  .nav {
-    max-width: 0;
-  }
+.close-menu-btn {
+  display: flex;
+  padding: var(--lg);
+  margin: calc(-1 * var(--side-margin));
 
-  .close-menu-btn {
-    position: absolute;
-    right: 32px;
-    top: 20px;
-    width: 32px;
-    height: 32px;
+  @media (min-width: $mobile-breakpoint) {
+    display: none;
   }
 }
 
-@media (orientation: landscape) and (max-width: $mobile-breakpoint) {
-  .nav-component-active {
-    height: 60%;
+@media (max-width: $mobile-breakpoint) {
+  .nav {
+    flex-grow: 1;
+    padding: var(--lg);
+  }
+
+  .nav:not(.active) {
+    display: none;
+  }
+
+  .nav.active ~ .main {
+    display: none;
+  }
+
+  .collapsible {
+    padding: 0;
   }
 }
 
@@ -89,142 +89,92 @@ button.collapse-toggle {
 }
 
 
+:root {
+  --side-margin: var(--xl);
 
-.main {
-  flex: 1 1 0;
-  min-width: 320px;
-  width: calc(100vw - var(--nav-width));
+  @media (max-width: $mobile-breakpoint) {
+    --side-margin: var(--lg);
+  }
 }
 
-.header {
-  margin-bottom: 20px;
+.main {
+  min-width: 0; /* This is necessary to avoid overflow due to <pre> children. */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar, .article-wrapper {
+  max-width: 1280px;
+  margin: 0 var(--side-margin);
 }
 
 .navbar {
-  width: 100%;
-  height: calc(var(--navbar-height) + 2rem);
-}
-
-.navbar-brand {
-  align-items: stretch;
   display: flex;
-  flex-shrink: 0;
-  height: var(--navbar-height);
+  flex-wrap: wrap;
+  column-gap: .5em;
 }
 
 .navbar-burger {
-  display: block;
-  width: 15px;
-  height: var(--navbar-height);
-  position: relative;
-  margin-left: var(--lg);
-  margin-right: 0.75rem;
+  margin-left: calc(-1 * var(--side-margin));
+  padding: var(--lg);
+  display: flex;
 }
 
-.navbar,
-.navbar-menu,
-.navbar-end {
+.navbar-logo {
+  flex-grow: 99;
+  display: flex;
   align-items: stretch;
-  display: flex;
-  justify-content: flex-start;
-}
 
-.navbar-menu {
-  flex-grow: 1;
-  flex-flow: row wrap;
-  max-width: 1280px;
+  a {
+    padding: var(--lg) 0;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .navbar-end {
-  height: 2rem;
-}
-
-.navbar-item,
-.navbar-link {
-  display: block;
-  flex: none;
-  line-height: 1.5;
-  align-self: center;
-}
-
-.navbar__logo {
+  flex-grow: 1;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: .5em;
+}
+
+.navbar-item {
+  flex-grow: 1;
+  display: flex;
   align-items: center;
-  width: 100%;
-  height: calc(var(--navbar-height) - 1rem);
-  margin-left: var(--xs);
+  justify-content: center;
+  line-height: 1.5;
 }
-
-.navbar-item .icon {
-  width: 1.1rem;
-  height: 1.1rem;
-  display: block;
-}
-
-.navbar .button {
-  display: inline-flex;
-  align-items: center;
-  height: 1.75rem;
-}
-
-@media screen and (min-width: $mobile-breakpoint) {
-  .navbar {
-    height: var(--navbar-height);
-  }
-
-  .navbar,
-  .navbar-menu,
-  .navbar-end {
-    align-items: stretch;
-    display: flex;
-  }
-
-  .navbar-item,
-  .navbar-link {
-    align-items: center;
-    display: flex;
-  }
-
-  .navbar-item.has-dropdown {
-    align-items: stretch;
-  }
-
-  .navbar__logo {
-    width: auto;
-    margin-left: var(--xl);
-  }
-
-  .navbar-end {
-    height: auto;
-    justify-content: flex-end;
-    margin-left: auto;
-  }
-}
-
-
 
 .article-wrapper {
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  column-gap: var(--lg);
 }
 
 .article {
-  flex-grow: 1;
-  margin-left: var(--xl);
-  margin-right: var(--xl);
-  min-height: calc(100vh - 163px);
-  max-width: 48rem;
-  width: calc(100% - 200px - 6rem); // 100% of parent (main) minus toc width and margin
+  min-width: 0; /* This is necessary to avoid overflow due to <pre> children. */
 }
 
 .toc-sidebar {
-  flex: 0 0 auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 200px;
+  max-height: 80vh;
   position: sticky;
   top: 10vh;
-  max-height: 80vh;
   overflow-y: auto;
-  flex-basis: 200px;
-  margin-right: 3rem;
+
+  @media (max-width: ($mobile-breakpoint * 2 / 3)) {
+    display: none;
+  }
+}
+
+.notoc .toc-sidebar {
+  display: none;
 }

@@ -27,7 +27,7 @@
       rel="stylesheet">
     {{> head }}
   </head>
-  <body class="{{#if attrs}}{{attrs}}{{/if}}">
+  <body class="{{#if (in 'notoc' page.attributes)}}notoc{{/if}}">
     {{> main }}
     {{> hubspot }}
   </body>

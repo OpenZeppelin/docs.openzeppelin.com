@@ -238,12 +238,3 @@
   padding: 10px;
   margin: 0 -10px;
 }
-
-@media (max-width: $mobile-breakpoint) {
-  .article {
-    margin-left: var(--lg);
-    margin-right: var(--lg);
-  }
-  .article-navigation { flex-direction: column; }
-  .article-navigation div.btn-next, .article-navigation div.btn-previous { text-align: center; }
-}

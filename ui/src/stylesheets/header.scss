@@ -31,127 +31,28 @@
   background: none;
   border: none;
   outline: none;
-  cursor: pointer;
-  padding: 0;
 }
 
 .navbar-burger::-moz-focus-inner {
   border: none;
 }
 
-.navbar-burger span {
-  background-color: var(--color-navbar-text);
-  display: block;
-  height: 1px;
-  position: absolute;
-  top: 50%;
-  width: 15px;
-}
-
-.navbar-burger span:nth-child(1) {
-  margin-top: -6px;
-}
-
-.navbar-burger span:nth-child(2) {
-  margin-top: -1px;
-}
-
-.navbar-burger span:nth-child(3) {
-  margin-top: 4px;
-}
-
-.navbar-menu {
-  background-color: #fff;
-  padding: 0.5rem 0;
-}
-
-.navbar-item,
-.navbar-link {
+.navbar-item {
   color: var(--color-text);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   font-family: var(--heading);
   font-weight: 500;
   font-size: 0.9rem;
 }
 
-.navbar-item:first-of-type {
-  padding-left: 0;
+.navbar-item:hover {
+  color: var(--color-navbar-hover);
 }
-
-.navbar-item.has-dropdown {
-  padding: 0;
-}
-
-.navbar-link {
-  padding-right: 2.5em;
-}
-
-.navbar .button {
-  background-color: #fff;
-  border: 1px solid #e1e1e1;
-  border-radius: 0.15rem;
-  color: #333;
-  padding: 0 0.75em;
-  white-space: nowrap;
-}
-
 
 //------------- DESKTOP ---------------------------------------
 
 @media screen and (min-width: $mobile-breakpoint) {
   .navbar-burger {
     display: none;
-  }
-
-  .navbar-item:first-of-type {
-    padding-left: 1rem;
-  }
-
-  .navbar-link::after {
-    border-width: 0 0 1px 1px;
-    border-style: solid;
-    content: ' ';
-    display: block;
-    height: 0.5em;
-    pointer-events: none;
-    position: absolute;
-    transform: rotate(-45deg);
-    width: 0.5em;
-    margin-top: -0.375em;
-    right: 1.125em;
-    top: 50%;
-  }
-
-  .navbar-end {
-    padding-right: 2rem;
-  }
-
-  .navbar-brand .navbar-item {
-    align-items: center;
-    display: flex;
-  }
-
-  .navbar-menu a.navbar-item:hover,
-  .navbar-menu .navbar-link:hover {
-    background-color: #fafafa;
-  }
-
-  .navbar-end > .navbar-item,
-  .navbar-end .navbar-link {
-    color: var(--color-navbar-text);
-  }
-
-  .navbar-end > a.navbar-item:hover,
-  .navbar-end .navbar-link:hover {
-    color: var(--color-navbar-hover);
-  }
-
-  .navbar-end .navbar-link::after {
-    border-color: var(--color-navbar-text);
-  }
-
-  .navbar-item.has-dropdown:hover .navbar-link {
-    background-color: var(--color-navbar-bg-focus);
-    color: var(--color-navbar-text);
   }
 }

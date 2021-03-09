@@ -154,6 +154,7 @@ site:
 page:
   title: Welcome to OpenZeppelin Documentation!
   url: /contracts/2.x/index.html
+  attributes: {}
   component: *component_openzeppelin
   componentVersion: *latest_version_contracts
   version: '2.x'
