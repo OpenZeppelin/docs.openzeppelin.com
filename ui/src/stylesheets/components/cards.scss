@@ -2,7 +2,7 @@
 
 .card-section .sectionbody {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(calc(max(30%, 230px)), 1fr));
   grid-gap: 1rem;
 }
 
