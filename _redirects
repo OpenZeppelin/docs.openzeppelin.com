@@ -83,6 +83,8 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 /contracts/3.x-rc/api/deploy-ready /contracts/3.x/api/presets 301
 /contracts/3.x-rc/* /contracts/3.x/:splat 301
 
+/contracts/4.x/* /contracts/4.x-rc/:splat 302
+
 # buidler -> hardhat
 /upgrades-plugins/buidler-upgrades /upgrades-plugins/hardhat-upgrades 301
 /upgrades-plugins/api-buidler-upgrades /upgrades-plugins/api-hardhat-upgrades 301
