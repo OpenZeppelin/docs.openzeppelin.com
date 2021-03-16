@@ -25,6 +25,14 @@
   }
 }
 
+/*
+ * Moves HubSpot's chat bubble if the popup banner is being displayed,
+ * otherwise it blocks the close button.
+ */
+.popup-banner ~ #hubspot-messages-iframe-container {
+  transform: translateX(-4em);
+}
+
 @keyframes popup-show {
   from {
     clip-path: circle(0%);
