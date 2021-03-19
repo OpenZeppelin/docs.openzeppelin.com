@@ -109,11 +109,11 @@ button.collapse-toggle {
 .navbar {
   display: flex;
   flex-wrap: wrap;
-  column-gap: .5em;
 }
 
 .navbar-burger {
   margin-left: calc(-1 * var(--side-margin));
+  margin-right: .5em;
   padding: var(--lg);
   display: flex;
 }
@@ -135,7 +135,6 @@ button.collapse-toggle {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: .5em;
 }
 
 .navbar-item {
@@ -144,6 +143,8 @@ button.collapse-toggle {
   align-items: center;
   justify-content: center;
   line-height: 1.5;
+  margin-right: .25em;
+  margin-left: .25em;
 }
 
 .article-wrapper {
@@ -151,7 +152,6 @@ button.collapse-toggle {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  column-gap: var(--lg);
 }
 
 .article {
@@ -160,6 +160,7 @@ button.collapse-toggle {
 }
 
 .toc-sidebar {
+  margin-left: var(--lg);
   flex-grow: 0;
   flex-shrink: 0;
   width: 200px;
