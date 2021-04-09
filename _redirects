@@ -72,6 +72,10 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 /openzeppelin/gsn/getting-started      /learn/sending-gasless-transactions 301
 /openzeppelin/gsn/getting-started.html /learn/sending-gasless-transactions 301
 
+# Removed Contracts GSN sections
+/contracts/gsn /contracts/3.x/gsn 301
+/contracts/gsn-strategies /contracts/3.x/gsn-strategies 301
+
 # OpenZeppelin Contracts 3.0 deprecation redirects
 /contracts/api/crowdsale /contracts/crowdsales 301
 /contracts/api/drafts /contracts/drafts 301
