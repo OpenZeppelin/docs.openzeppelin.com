@@ -233,6 +233,8 @@ We will use the https://hardhat.org/guides/hardhat-console.html[Hardhat console]
 
 NOTE: We need to specify the address of our `Box` contract we displayed in our deploy script.
 
+NOTE: It's important that we explicitly set the network for Hardhat to connect our console session to. If we don't, Hardhat will default to using a new ephemeral network, which our Box contract wouldn't be deployed to.
+
 ```console
 $ npx hardhat console --network localhost
 > const Box = await ethers.getContractFactory("Box")
