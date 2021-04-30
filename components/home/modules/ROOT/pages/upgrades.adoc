@@ -33,10 +33,10 @@ xref:contracts:api:proxy.adoc#transparent-vs-uups[[.card-title]#Transparent vs U
 
 [.card.card-learn]
 --
-xref:learn:upgrading-smart-contracts.adoc[[.card-title]#Learn: Upgrading Smart Contracts# [.card-body]#pass:q[A chapter about upgrades in our Learn series, a guided journey through smart contract development. Available for both Hardhat and Truffle.]#]
+xref:learn::upgrading-smart-contracts.adoc[[.card-title]#Learn: Upgrading Smart Contracts# [.card-body]#pass:q[A chapter about upgrades in our Learn series, a guided journey through smart contract development. Available for both Hardhat and Truffle.]#]
 --
 
 [.card.card-learn]
 --
-xref:defender:guide-upgrades.adoc[[.card-title]#Upgrading via Multisig# [.card-body]#pass:q[A Defender guide on upgrading a smart contract in production secured by a multisig wallet, using Defender Admin and the Hardhat Upgrades plugin.]#]
+xref:defender::guide-upgrades.adoc[[.card-title]#Upgrading via Multisig# [.card-body]#pass:q[A Defender guide on upgrading a smart contract in production secured by a multisig wallet, using Defender Admin and the Hardhat Upgrades plugin.]#]
 --
