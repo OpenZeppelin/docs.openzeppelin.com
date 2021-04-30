@@ -4,7 +4,7 @@ OpenZeppelin provides tooling for deploying and securing upgradeable smart contr
 
 * xref:upgrades-plugins::index.adoc[Upgrades Plugins] to deploy upgradeable contracts with automated security checks.
 * xref:contracts::upgradeable.adoc[Upgradeable Contracts] to build your contract using our Solidity components.
-* https://openzeppelin.com/defender/[Defender] to manage upgrades in production and automate operations.
+* xref:defender::admin.adoc#upgrades[Defender Admin] to manage upgrades in production and automate operations.
 
 Find all of our resources related to upgradeability below.
 
