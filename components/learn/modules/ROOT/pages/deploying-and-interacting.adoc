@@ -79,7 +79,7 @@ We will create a JavaScript migration to deploy our Box contract.  We will save 
 
 ```js
 // migrations/2_deploy.js
-const Box = artifacts.require("Box");
+const Box = artifacts.require('Box');
 
 module.exports = async function (deployer) {
   await deployer.deploy(Box);
@@ -95,15 +95,15 @@ We will create a script to deploy our Box contract.  We will save this file as `
 
 ```js
 // scripts/deploy.js
-async function main() {
+async function main () {
   // We get the contract to deploy
-  const Box = await ethers.getContractFactory("Box");
-  console.log("Deploying Box...");
+  const Box = await ethers.getContractFactory('Box');
+  console.log('Deploying Box...');
   const box = await Box.deploy();
   await box.deployed();
-  console.log("Box deployed to:", box.address);
+  console.log('Box deployed to:', box.address);
 }
-  
+
 main()
   .then(() => process.exit(0))
   .catch(error => {
@@ -146,6 +146,7 @@ We need to add in our https://hardhat.org/config/[configuration] that we are usi
 // hardhat.config.js
 require('@nomiclabs/hardhat-ethers');
 
+...
 module.exports = {
 ...
 };
@@ -167,7 +168,7 @@ Compiling your contracts...
 Starting migrations...
 ======================
 > Network name:    'development'
-> Network id:      1598946694508
+> Network id:      1619762548805
 > Block gas limit: 6721975 (0x6691b7)
 
 
@@ -183,7 +184,7 @@ Starting migrations...
 
    Deploying 'Box'
    ---------------
-   > transaction hash:    0x198fef66a87a974b9ec05c29b8c3cc0a7b64cc2aef022b0e22c91109d580f016
+   > transaction hash:    0x25b0a326bfc9aa64be13efb5a4fb3f784ffa845c36d049547eeb0f78e0a3108d
    > Blocks: 0            Seconds: 0
    > contract address:    0xCfEB869F69431e42cdB54A4F4f105C19C080A601
 ...
@@ -202,7 +203,7 @@ Deploying Box...
 Box deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
 ```
 
-NOTE: Hardhat doesn't keep track of your deployed contracts.  We displayed the deployed address in our script (in our example, `0x7c2C195CD6D34B8F845992d380aADB2730bB9C6F`). This will be useful when interacting with them programmatically.
+NOTE: Hardhat doesn't keep track of your deployed contracts.  We displayed the deployed address in our script (in our example, `0x5FbDB2315678afecb367f032d93F642f64180aa3`). This will be useful when interacting with them programmatically.
 --
 
 All done! On a real network this process would've taken a couple of seconds, but it is near instant on local blockchains.
@@ -222,7 +223,7 @@ We will use the https://www.trufflesuite.com/docs/truffle/getting-started/using-
 
 ```console
 $ npx truffle console --network development
-truffle(development)> box = await Box.deployed()
+truffle(development)> const box = await Box.deployed();
 undefined
 ```
 --
@@ -235,9 +236,11 @@ NOTE: We need to specify the address of our `Box` contract we displayed in our d
 
 ```console
 $ npx hardhat console --network localhost
-> const Box = await ethers.getContractFactory("Box")
+Welcome to Node.js v12.22.1.
+Type ".help" for more information.
+> const Box = await ethers.getContractFactory('Box');
 undefined
-> const box = await Box.attach("0x5FbDB2315678afecb367f032d93F642f64180aa3")
+> const box = await Box.attach('0x5FbDB2315678afecb367f032d93F642f64180aa3')
 undefined
 ```
 --
@@ -252,9 +255,6 @@ We will send a transaction to call the `store` function with a numeric value:
 truffle(development)> await box.store(42)
 { tx:
    '0x5d4cc78f5d5eac3650214740728192ac760978e261962736289b10da0ec0ea43',
-  receipt:
-   { transactionHash:
-      '0x5d4cc78f5d5eac3650214740728192ac760978e261962736289b10da0ec0ea43',
 ...
        event: 'ValueChanged',
        args: [Result] } ] }
@@ -267,8 +267,8 @@ Notice how the transaction receipt also shows that `Box` emitted a `ValueChanged
 --
 ```console
 > await box.store(42)
-{ hash:
-   '0xa61ed89d6bd21a6182df28e557c241a3dd5aa932d1689f9c5bf8c49039d2334a',
+{
+  hash: '0x3d86c5c2c8a9f31bedb5859efa22d2d39a5ea049255628727207bc2856cce0d3',
 ...
 ```
 --
@@ -352,7 +352,7 @@ Let's start coding in a new `scripts/index.js` file, where we'll be writing our 
 [source,js]
 ----
 // scripts/index.js
-module.exports = async function main(callback) {
+module.exports = async function main (callback) {
   try {
     // Our code will go here
 
@@ -361,7 +361,7 @@ module.exports = async function main(callback) {
     console.error(error);
     callback(1);
   }
-}
+};
 ----
 --
 
@@ -370,7 +370,7 @@ module.exports = async function main(callback) {
 [source,js]
 ----
 // scripts/index.js
-async function main() {
+async function main () {
   // Our code will go here
 }
 
@@ -419,7 +419,8 @@ Using network 'development'.
 
 [ '0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1',
   '0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0',
-  ... ]
+...
+]
 ----
 --
 
@@ -430,9 +431,11 @@ Run the code above using `hardhat run`, and check that you are getting a list of
 [source,console]
 ----
 $ npx hardhat run --network localhost ./scripts/index.js
-[ '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+[
+  '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
   '0x70997970C51812dc3A010C7d01b50e0d17dc79C8',
-    ... ]
+...
+]
 ----
 --
 
@@ -448,7 +451,7 @@ In order to interact with the <<box-contract,`Box`>> contract we deployed, we'll
 [source,js]
 ----
 // Set up a Truffle contract, representing our deployed Box instance
-const Box = artifacts.require("Box");
+const Box = artifacts.require('Box');
 const box = await Box.deployed();
 ----
 --
@@ -462,8 +465,8 @@ An ethers contract instance is a JavaScript object that represents our contract 
 [source,js]
 ----
 // Set up an ethers contract, representing our deployed Box instance
-const address = "0x7c2C195CD6D34B8F845992d380aADB2730bB9C6F"
-const Box = await ethers.getContractFactory("Box");
+const address = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+const Box = await ethers.getContractFactory('Box');
 const box = await Box.attach(address);
 ----
 
@@ -484,8 +487,8 @@ We'll need to call the `retrieve()` public method of the contract, and https://d
 [source,js]
 ----
 // Call the retrieve() function of the deployed Box contract
-value = await box.retrieve();
-console.log("Box value is", value.toString());
+const value = await box.retrieve();
+console.log('Box value is', value.toString());
 ----
 --
 
@@ -496,8 +499,8 @@ We'll need to call the read only `retrieve()` public method of the contract, and
 [source,js]
 ----
 // Call the retrieve() function of the deployed Box contract
-value = await box.retrieve();
-console.log("Box value is", value.toString());
+const value = await box.retrieve();
+console.log('Box value is', value.toString());
 ----
 --
 This snippet is equivalent to the <<querying-state, query>> we ran earlier from the console. Now, make sure everything is running smoothly by running the script again and checking the printed value:
@@ -544,8 +547,8 @@ Let's store a value of `23` in our `Box`, and then use the code we had written b
 await box.store(23);
 
 // Call the retrieve() function of the deployed Box contract
-value = await box.retrieve();
-console.log("Box value is", value.toString());
+const value = await box.retrieve();
+console.log('Box value is', value.toString());
 ----
 
 NOTE: In a real-world application, you may want to https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-estimategas[estimate the gas] of your transactions, and check a https://ethgasstation.info/[gas price oracle] to know the optimal values to use on every transaction.
@@ -561,7 +564,7 @@ await box.store(23);
 
 // Call the retrieve() function of the deployed Box contract
 const value = await box.retrieve();
-console.log("Box value is", value.toString());
+console.log('Box value is', value.toString());
 ----
 
 NOTE: In a real-world application, you may want to https://docs.ethers.io/v5/api/contract/contract/#contract-estimateGas[estimate the gas] of your transactions, and check a https://ethgasstation.info/[gas price oracle] to know the optimal values to use on every transaction.
@@ -585,8 +588,6 @@ Box value is 23
 [source,console]
 ----
 $ npx hardhat run --network localhost ./scripts/index.js
-Using network 'development'.
-
 Box value is 23
 ----
 --
