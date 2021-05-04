@@ -40,3 +40,8 @@ xref:learn::upgrading-smart-contracts.adoc[[.card-title]#Learn: Upgrading Smart 
 --
 xref:defender::guide-upgrades.adoc[[.card-title]#Upgrading via Multisig# [.card-body]#pass:q[A Defender guide on upgrading a smart contract in production secured by a multisig wallet, using Defender Admin and the Hardhat Upgrades plugin.]#]
 --
+
+[.card.card-learn]
+--
+https://forum.openzeppelin.com/t/uups-proxies-tutorial-solidity-javascript/7786[[.card-title]#UUPS Proxies Tutorial# [.card-body]#pass:q[A tutorial on using the UUPS proxy pattern: what the Solidity code should look like, and how to use the Upgrades Plugins with this new proxy pattern.]#]
+--
