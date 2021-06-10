@@ -2,6 +2,9 @@
   padding-bottom: var(--lg); /* matches nav padding */
 
   pre code {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
     border-radius: var(--border-radius);
     max-width: 90vw;
   }
