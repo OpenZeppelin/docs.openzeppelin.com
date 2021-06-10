@@ -25,11 +25,6 @@
     {{#sorted (omit site.components "openzeppelin, learn, defender, cli, upgrades, contract-loader, starter-kits, network-js, gsn-provider, gsn-helpers") "contracts, upgrades-plugins, test-helpers, test-environment"}}
       {{> navigation-component }}
     {{/sorted}}
-
-    <h3 class="nav-title">Maintenance only</h3>
-    {{#each (pick site.components "cli")}}
-      {{> navigation-component }}
-    {{/each}}
   </div>
 
   {{else}}
