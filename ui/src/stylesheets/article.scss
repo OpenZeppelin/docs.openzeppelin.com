@@ -5,10 +5,15 @@
     position: relative;
 
     .btn-copy {
+      visibility: hidden;
       position: absolute;
       top: 0;
       right: 0;
       color: #adbac7;
+    }
+
+    &:hover .btn-copy {
+      visibility: visible;
     }
 
     &.hljs-theme-light .btn-copy {
@@ -77,8 +82,6 @@
 .anchor {
   float: right;
   padding: 0 .3em;
-  transition: opacity var(--transition-speed-sm) var(--transition-timing);
-
   opacity: 0;
 
   &:focus {
