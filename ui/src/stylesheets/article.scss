@@ -1,6 +1,31 @@
 .article {
   padding-bottom: var(--lg); /* matches nav padding */
 
+  .listingblock {
+    position: relative;
+
+    .btn-copy {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #adbac7;
+    }
+
+    &.hljs-theme-light .btn-copy {
+      color: #24292e;
+    }
+  }
+
+  .listingblock.nopadding {
+    pre code {
+      padding: 0;
+    }
+
+    .btn-copy {
+      padding: 0;
+    }
+  }
+
   pre code {
     display: block;
     overflow-x: auto;
