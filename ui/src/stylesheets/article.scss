@@ -207,10 +207,12 @@
 
     .anchor {
       order: 10;
+      font-size: var(--md);
+      font-weight: normal;
+      margin-top: 0;
     }
 
     .item-kind {
-      order: 11;
       font-family: var(--sans-serif);
       font-size: var(--md);
       font-weight: 300;
