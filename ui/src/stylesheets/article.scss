@@ -78,19 +78,18 @@
 .anchor {
   float: right;
   padding: 0 .3em;
-  opacity: 0;
+  visibility: hidden;
+  color: inherit;
+  text-decoration: none;
 
-  &:focus {
-    opacity: 1;
-  }
-
+  &:focus,
   h1:hover &,
   h2:hover &,
   h3:hover &,
   h4:hover &,
   h5:hover &,
   h6:hover & {
-    opacity: 1;
+    visibility: visible;
   }
 
   &::before {
