@@ -16,13 +16,13 @@
       {{> navigation-component }}
     {{/each}}
 
-    <h3 class="nav-title">Products</h3>
-    {{#each (pick site.components "defender")}}
+    <h3 class="nav-title">Our Products</h3>
+    {{#each (pick site.components "defender, contracts, upgrades-plugins")}}
       {{> navigation-component }}
     {{/each}}
 
-    <h3 class="nav-title">Tools &amp; Libraries</h3>
-    {{#sorted (omit site.components "openzeppelin, learn, defender, cli, upgrades, contract-loader, starter-kits, network-js, gsn-provider, gsn-helpers") "contracts, upgrades-plugins, test-helpers, test-environment"}}
+    <h3 class="nav-title">More</h3>
+    {{#sorted (omit site.components "openzeppelin, learn, defender, contracts, upgrades-plugins, cli, upgrades, contract-loader, starter-kits, network-js, gsn-provider, gsn-helpers") "test-helpers, test-environment"}}
       {{> navigation-component }}
     {{/sorted}}
   </div>
