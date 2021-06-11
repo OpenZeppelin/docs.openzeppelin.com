@@ -9,15 +9,11 @@
       position: absolute;
       top: 0;
       right: 0;
-      color: #adbac7;
+      border-radius: var(--border-radius);
     }
 
     &:hover .btn-copy {
       visibility: visible;
-    }
-
-    &.hljs-theme-light .btn-copy {
-      color: #24292e;
     }
   }
 

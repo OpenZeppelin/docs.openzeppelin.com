@@ -15,7 +15,7 @@
   onDOMContentLoaded(() => {
     for (const elem of document.querySelectorAll('.listingblock')) {
       const btn = document.createElement('button');
-      btn.classList.add('btn-icon', 'btn-copy');
+      btn.classList.add('btn-icon', 'btn-copy', 'hljs');
       btn.setAttribute('aria-label', 'Copy');
       btn.innerHTML = '<svg class="icon"><use href="#copy-icon"/></svg>';
       btn.addEventListener('click', copyClick);
