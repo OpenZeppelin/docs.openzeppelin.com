@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .root {
   display: flex;
 }
@@ -169,7 +171,7 @@ button.collapse-toggle {
   top: 10vh;
   overflow-y: auto;
 
-  @media (max-width: ($mobile-breakpoint * 2 / 3)) {
+  @media (max-width: math.div($mobile-breakpoint * 2, 3)) {
     display: none;
   }
 }
