@@ -15,7 +15,7 @@ content:
       start_path: components/learn
 ui:
   bundle:
-    url: ./ui/build/oz-docs-ui.zip
+    url: ./ui/bundle.zip
 asciidoc:
   attributes:
     idprefix: ''

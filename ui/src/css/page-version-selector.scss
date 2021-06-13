@@ -12,7 +12,7 @@
 
 .page-version-selector-toggle {
   background-color: transparent;
-  background-image: url(../images/chevron.svg);
+  background-image: url(../images/icons/chevron.svg);
   background-repeat: no-repeat;
   background-position: right 0.5rem top 50%;
   background-size: auto 0.95em;
@@ -27,7 +27,7 @@
 }
 
 .page-version-selector[data-state=expanded] .page-version-selector-toggle {
-  background-image: url(../images/chevron-white.svg);
+  background-image: url(../images/icons/chevron.svg);
   color: #fff;
 }
 

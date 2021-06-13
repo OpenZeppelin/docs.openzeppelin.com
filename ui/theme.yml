@@ -1,6 +1,0 @@
-destination: build
-theme_destination: _theme
-repository:
-  owner: openzeppelin
-  name: openzeppelin-docs-theme-default
-port: 5252

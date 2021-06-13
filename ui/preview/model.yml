@@ -1,10 +1,9 @@
 antoraVersion: '1.0.0'
-uiRootPath: _theme
+env: []
 site:
-  url: http://localhost:5252
-  title: OpenZeppelin
+  title: OpenZeppelin Docs
   ui:
-    url: /_theme
+    url: /_
   components:
     openzeppelin:
       &component_openzeppelin
@@ -27,6 +26,17 @@ site:
         version: '1.x'
         displayVersion: '1.x'
       latestVersion: *latest_version_abc
+    defender:
+      &component_defender
+      name: defender
+      title: Defender
+      url: #
+      versions:
+      - &latest_version_defender
+        url: #
+        version: 'master'
+        displayVersion: 'master'
+      latestVersion: *latest_version_defender
     contracts:
       &component_contracts
       name: contracts
