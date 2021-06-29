@@ -43,23 +43,23 @@ Let's see how it works, by deploying an upgradeable version of our `Box` contrac
 ```solidity
 // contracts/Box.sol
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 
 contract Box {
-    uint256 private value;
+    uint256 private _value;
 
     // Emitted when the stored value changes
-    event ValueChanged(uint256 newValue);
+    event ValueChanged(uint256 value);
 
     // Stores a new value in the contract
-    function store(uint256 newValue) public {
-        value = newValue;
-        emit ValueChanged(newValue);
+    function store(uint256 value) public {
+        _value = value;
+        emit ValueChanged(value);
     }
 
     // Reads the last stored value
     function retrieve() public view returns (uint256) {
-        return value;
+        return _value;
     }
 }
 ```
@@ -85,9 +85,10 @@ We then need to configure Hardhat to use our `@openzeppelin/hardhat-upgrades` pl
 
 ```js
 // hardhat.config.js
+...
 require('@nomiclabs/hardhat-ethers');
 require('@openzeppelin/hardhat-upgrades');
- 
+...
 module.exports = {
 ...
 };
@@ -122,14 +123,14 @@ We will create a script to deploy our upgradeable Box contract using xref:upgrad
 
 ```js
 // scripts/deploy_upgradeable_box.js
-const { ethers, upgrades } = require("hardhat");
+const { ethers, upgrades } = require('hardhat');
 
-async function main() {
-  const Box = await ethers.getContractFactory("Box");
-  console.log("Deploying Box...");
+async function main () {
+  const Box = await ethers.getContractFactory('Box');
+  console.log('Deploying Box...');
   const box = await upgrades.deployProxy(Box, [42], { initializer: 'store' });
   await box.deployed();
-  console.log("Box deployed to:", box.address);
+  console.log('Box deployed to:', box.address);
 }
 
 main();
@@ -150,13 +151,13 @@ $ npx truffle migrate --network development
 
    Replacing 'Box'
    ---------------
-   ...
+...
    Deploying 'ProxyAdmin'
    ----------------------
-   ...
-   Deploying 'AdminUpgradeabilityProxy'
-   ------------------------------------
-   ...
+...
+   Deploying 'TransparentUpgradeableProxy'
+   ---------------------------------------
+...
 ```
 --
 
@@ -166,7 +167,6 @@ Using the `run` command, we can deploy the `Box` contract to the `development` n
 
 ```console
 $ npx hardhat run --network localhost scripts/deploy_upgradeable_box.js
-All contracts have already been compiled, skipping compilation.
 Deploying Box...
 Box deployed to: 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
 ```
@@ -180,9 +180,9 @@ We will use the https://www.trufflesuite.com/docs/truffle/getting-started/using-
 
 ```console
 $ npx truffle console --network development
-truffle(development)> box = await Box.deployed()
+truffle(development)> const box = await Box.deployed();
 undefined
-truffle(development)> (await box.retrieve()).toString()
+truffle(development)> (await box.retrieve()).toString();
 '42'
 ```
 --
@@ -195,12 +195,13 @@ We need to specify the address of our proxy contract from when we deployed our `
 
 ```console
 $ npx hardhat console --network localhost
-All contracts have already been compiled, skipping compilation.
-> const Box = await ethers.getContractFactory("Box")
+Welcome to Node.js v12.22.1.
+Type ".help" for more information.
+> const Box = await ethers.getContractFactory('Box');
 undefined
-> const box = await Box.attach("0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0")
+> const box = await Box.attach('0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0');
 undefined
-> (await box.retrieve()).toString()
+> (await box.retrieve()).toString();
 '42'
 ```
 --
@@ -210,15 +211,15 @@ For the sake of the example, let's say we want to add a new feature: a function 
 ```solidity
 // contracts/BoxV2.sol
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 
 contract BoxV2 {
     // ... code from Box.sol
 
     // Increments the stored value by 1
     function increment() public {
-        value = value + 1;
-        emit ValueChanged(value);
+        _value = _value + 1;
+        emit ValueChanged(_value);
     }
 }
 ```
@@ -255,13 +256,13 @@ We need to specify the address of our proxy contract from when we deployed our `
 
 ```js
 // scripts/upgrade_box.js
-const { ethers, upgrades } = require("hardhat");
+const { ethers, upgrades } = require('hardhat');
 
-async function main() {
-  const BoxV2 = await ethers.getContractFactory("BoxV2");
-  console.log("Upgrading Box...");
-  const box = await upgrades.upgradeProxy("0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0", BoxV2);
-  console.log("Box upgraded");
+async function main () {
+  const BoxV2 = await ethers.getContractFactory('BoxV2');
+  console.log('Upgrading Box...');
+  await upgrades.upgradeProxy('0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0', BoxV2);
+  console.log('Box upgraded');
 }
 
 main();
@@ -292,8 +293,10 @@ Using the `run` command, we can upgrade the `Box` contract on the `development` 
 
 ```console
 $ npx hardhat run --network localhost scripts/upgrade_box.js
-All contracts have already been compiled, skipping compilation.
-Box deployed to: 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
+Compiling 1 file with 0.8.4
+Compilation finished successfully
+Upgrading Box...
+Box upgraded
 ```
 --
 
@@ -307,14 +310,14 @@ We need to use the address of the proxy contract with the `BoxV2` artifact.
 
 ```console
 $ npx truffle console --network development
-truffle(development)> box = await Box.deployed()
+truffle(development)> const box = await Box.deployed();
 undefined
-truffle(development)> boxV2 = await BoxV2.at(box.address)
+truffle(development)> const boxV2 = await BoxV2.at(box.address);
 undefined
 truffle(development)> await boxV2.increment()
 { tx:
 ...
-truffle(development)> (await boxV2.retrieve()).toString()
+truffle(development)> (await boxV2.retrieve()).toString();
 '43'
 ```
 --
@@ -325,14 +328,15 @@ We need to specify the address of our proxy contract from when we deployed our `
 
 ```console
 $ npx hardhat console --network localhost
-All contracts have already been compiled, skipping compilation.
-> const BoxV2 = await ethers.getContractFactory("BoxV2")
+Welcome to Node.js v12.22.1.
+Type ".help" for more information.
+> const BoxV2 = await ethers.getContractFactory('BoxV2');
 undefined
-> const box = await BoxV2.attach("0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0")
+> const box = await BoxV2.attach('0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0');
 undefined
-> await box.increment()
+> await box.increment();
 ...
-> (await box.retrieve()).toString()
+> (await box.retrieve()).toString();
 '43'
 ```
 --
@@ -381,31 +385,31 @@ As an example, let's write a new version of the `Box` contract with an initializ
 ```solidity
 // contracts/AdminBox.sol
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/proxy/Initializable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 contract AdminBox is Initializable {
-    uint256 private value;
-    address private admin;
+    uint256 private _value;
+    address private _admin;
 
     // Emitted when the stored value changes
-    event ValueChanged(uint256 newValue);
+    event ValueChanged(uint256 value);
 
-    function initialize(address _admin) public initializer {
-        admin = _admin;
+    function initialize(address admin) public initializer {
+        _admin = admin;
     }
 
     // Stores a new value in the contract
-    function store(uint256 newValue) public {
-        require(msg.sender == admin, "AdminBox: not admin");
-        value = newValue;
-        emit ValueChanged(newValue);
+    function store(uint256 value) public {
+        require(msg.sender == _admin, "AdminBox: not admin");
+        _value = value;
+        emit ValueChanged(value);
     }
 
     // Reads the last stored value
     function retrieve() public view returns (uint256) {
-        return value;
+        return _value;
     }
 }
 ```
@@ -430,14 +434,14 @@ module.exports = async function (deployer) {
 --
 ```js
 // scripts/deploy_upgradeable_adminbox.js
-const { ethers, upgrades } = require("hardhat");
+const { ethers, upgrades } = require('hardhat');
 
-async function main() {
-  const AdminBox = await ethers.getContractFactory("AdminBox");
-  console.log("Deploying AdminBox...");
+async function main () {
+  const AdminBox = await ethers.getContractFactory('AdminBox');
+  console.log('Deploying AdminBox...');
   const adminBox = await upgrades.deployProxy(AdminBox, ['0xACa94ef8bD5ffEE41947b4585a84BdA5a3d3DA6E'], { initializer: 'initialize' });
   await adminBox.deployed();
-  console.log("AdminBox deployed to:", adminBox.address);
+  console.log('AdminBox deployed to:', adminBox.address);
 }
 
 main();
@@ -457,10 +461,10 @@ This means that, if you have already declared a state variable in your contract,
 ```solidity
 // contracts/Box.sol
 contract Box {
-    uint256 private value;
+    uint256 private _value;
 
     // We can safely add a new variable after the ones we had declared
-    address private owner;
+    address private _owner;
 
     // ...
 }

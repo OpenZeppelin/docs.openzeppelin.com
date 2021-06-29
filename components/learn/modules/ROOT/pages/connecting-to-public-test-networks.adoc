@@ -97,12 +97,12 @@ We need to update our configuration file with a new network connection to the te
      },
 +    rinkeby: {
 +      provider: () => new HDWalletProvider(
-+        mnemonic, `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`
++        mnemonic, `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`,
 +      ),
 +      network_id: 4,
 +      gasPrice: 10e9,
-+      skipDryRun: true
-+    }
++      skipDryRun: true,
++    },
    },
    ...
  };
@@ -122,9 +122,9 @@ NOTE: See the `HDWalletProvider` https://github.com/trufflesuite/truffle/tree/ma
 +    networks: {
 +     rinkeby: {
 +       url: `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`,
-+       accounts: {mnemonic: mnemonic}
-+     }
-+  },
++       accounts: { mnemonic: mnemonic },
++     },
++   },
 ...
 };
 ----
@@ -153,7 +153,7 @@ $ npx truffle console --network rinkeby
 truffle(rinkeby)> accounts
 [ '0xEce6999C6c5BDA71d673090144b6d3bCD21d13d4',
   '0xC1310ade58A75E6d4fCb8238f9559188Ea3808f9',
-...
+... ]
 ----
 --
 
@@ -162,10 +162,14 @@ truffle(rinkeby)> accounts
 [source,console]
 ----
 $ npx hardhat console --network rinkeby
+Welcome to Node.js v12.22.1.
+Type ".help" for more information.
 > accounts = await ethers.provider.listAccounts()
-[ '0xEce6999C6c5BDA71d673090144b6d3bCD21d13d4',
+[
+  '0xEce6999C6c5BDA71d673090144b6d3bCD21d13d4',
   '0xC1310ade58A75E6d4fCb8238f9559188Ea3808f9',
 ...
+]
 ----
 --
 We can also test the connection to the node, by querying our account balance.
@@ -173,7 +177,7 @@ We can also test the connection to the node, by querying our account balance.
 --
 [source,console]
 ----
-truffle(rinkeby)> await web3.eth.getBalance(accounts[0])
+> (await ethers.provider.getBalance(accounts[0])).toString()
 '0'
 ----
 --
@@ -225,7 +229,7 @@ $ npx truffle migrate --network rinkeby
 ----
 $ npx hardhat run --network rinkeby scripts/deploy.js
 Deploying Box...
-Box deployed to: 0x7e25FaDC15EBc59c7b4EFEd313A95A2955bA73E2
+Box deployed to: 0xD7fBC6865542846e5d7236821B5e045288259cf0
 ----
 --
 
@@ -240,7 +244,7 @@ TIP: You can check out the contract we deployed in the example above, along with
 
 [.hardhat]
 --
-TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0x7e25FaDC15EBc59c7b4EFEd313A95A2955bA73E2[here].
+TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0xD7fBC6865542846e5d7236821B5e045288259cf0[here].
 --
 
 You can also interact with your instance as you regularly would, either using the xref::deploying-and-interacting.adoc#interacting-from-the-console[console], or xref::deploying-and-interacting.adoc#interacting-programatically[programmatically].
@@ -264,14 +268,15 @@ truffle(rinkeby)> (await box.retrieve()).toString()
 --
 ```console
 $ npx hardhat console --network rinkeby
-All contracts have already been compiled, skipping compilation.
-> const Box = await ethers.getContractFactory("Box")
+Welcome to Node.js v12.22.1.
+Type ".help" for more information.
+> const Box = await ethers.getContractFactory('Box');
 undefined
-> const box = await Box.attach("0x7e25FaDC15EBc59c7b4EFEd313A95A2955bA73E2")
+> const box = await Box.attach('0xD7fBC6865542846e5d7236821B5e045288259cf0');
 undefined
-> await box.store(42)
-{ hash:
-   '0xc2b34ff678f71df463856d2183ec5644dac8d57806461fcf9417b72824e4de06',
+> await box.store(42);
+{
+  hash: '0x330e331d30ee83f96552d82b7fdfa6156f9f97d549a612eeef7283d18b31d107',
 ...
 > (await box.retrieve()).toString()
 '42'

@@ -47,22 +47,22 @@ We will save the test as `test/Box.test.js`. Each `.test.js` file should have th
 // test/Box.test.js
 // Load dependencies
 const { expect } = require('chai');
- 
+
 // Load compiled artifacts
 const Box = artifacts.require('Box');
- 
+
 // Start test block
 contract('Box', function () {
   beforeEach(async function () {
     // Deploy a new Box contract for each test
     this.box = await Box.new();
   });
- 
+
   // Test case
   it('retrieve returns a value previously stored', async function () {
     // Store a value
     await this.box.store(42);
- 
+
     // Test if the returned value is the same one
     // Note that we need to use strings to compare the 256 bit integers
     expect((await this.box.retrieve()).toString()).to.equal('42');
@@ -79,23 +79,23 @@ Create a `test` directory in your project root.  We will save the test as `test/
 // test/Box.test.js
 // Load dependencies
 const { expect } = require('chai');
- 
+
 // Start test block
 describe('Box', function () {
   before(async function () {
-    this.Box = await ethers.getContractFactory("Box");
+    this.Box = await ethers.getContractFactory('Box');
   });
- 
+
   beforeEach(async function () {
     this.box = await this.Box.deploy();
     await this.box.deployed();
   });
- 
+
   // Test case
   it('retrieve returns a value previously stored', async function () {
     // Store a value
     await this.box.store(42);
- 
+
     // Test if the returned value is the same one
     // Note that we need to use strings to compare the 256 bit integers
     expect((await this.box.retrieve()).toString()).to.equal('42');
@@ -126,10 +126,10 @@ Compiling your contracts...
 
 
   Contract: Box
-    ✓ retrieve returns a value previously stored (71ms)
+    ✓ retrieve returns a value previously stored (38ms)
 
 
-  1 passing (167ms)
+  1 passing (117ms)
 ```
 --
 
@@ -145,7 +145,7 @@ $ npx hardhat test
     ✓ retrieve returns a value previously stored
 
 
-  1 passing (760ms)
+  1 passing (578ms)
 ```
 --
 
@@ -184,7 +184,6 @@ const Box = artifacts.require('Box');
 
 // Start test block
 contract('Box', function ([ owner, other ]) {
-
   // Use large integers ('big numbers')
   const value = new BN('42');
 
@@ -203,14 +202,14 @@ contract('Box', function ([ owner, other ]) {
     const receipt = await this.box.store(value, { from: owner });
 
     // Test that a ValueChanged event was emitted with the new value
-    expectEvent(receipt, 'ValueChanged', { newValue: value });
+    expectEvent(receipt, 'ValueChanged', { value: value });
   });
-  
+
   it('non owner cannot store a value', async function () {
     // Test a transaction reverts
     await expectRevert(
       this.box.store(value, { from: other }),
-      'Ownable: caller is not the owner'
+      'Ownable: caller is not the owner',
     );
   });
 });
@@ -224,12 +223,12 @@ Run your tests again to see the Test Helpers in action:
 $ npx truffle test
 ...
   Contract: Box
-    ✓ retrieve returns a value previously stored (128ms)
-    ✓ store emits an event (69ms)
-    ✓ non owner cannot store a value (112ms)
+    ✓ retrieve returns a value previously stored
+    ✓ store emits an event
+    ✓ non owner cannot store a value (588ms)
 
 
-  3 passing (3s)
+  3 passing (753ms)
 ```
 
 The Test Helpers will let you write powerful assertions without having to worry about the low-level details of the underlying Ethereum libraries. To learn more about what you can do with them, head to their xref:test-helpers::api.adoc[API reference].
@@ -315,8 +314,17 @@ With this, running `npm test` will execute all tests in the `test` directory, ch
 
 ```console
 $ npm test
+
+> learn@1.0.0 test
+> mocha --exit --recursive
+
+
+
   Box
-    ✓ retrieve returns a value previously stored
+    ✓ retrieve returns a value previously stored (69ms)
+
+
+  1 passing (482ms)
 ```
 
 [TIP]

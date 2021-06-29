@@ -72,7 +72,7 @@ $ npx hardhat
 888    888 888  888 888    Y88b 888 888  888 888  888 Y88b.
 888    888 "Y888888 888     "Y88888 888  888 "Y888888  "Y888
 
-Welcome to Hardhat v2.0.2
+Welcome to Hardhat v2.2.1
 
 ✔ What do you want to do? · Create an empty hardhat.config.js
 Config file created
@@ -93,23 +93,23 @@ We will save this file as `contracts/Box.sol`. Each `.sol` file should have the 
 ```solidity
 // contracts/Box.sol
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 
 contract Box {
-    uint256 private value;
+    uint256 private _value;
 
     // Emitted when the stored value changes
-    event ValueChanged(uint256 newValue);
+    event ValueChanged(uint256 value);
 
     // Stores a new value in the contract
-    function store(uint256 newValue) public {
-        value = newValue;
-        emit ValueChanged(newValue);
+    function store(uint256 value) public {
+        _value = value;
+        emit ValueChanged(value);
     }
 
     // Reads the last stored value
     function retrieve() public view returns (uint256) {
-        return value;
+        return _value;
     }
 }
 ```
@@ -121,9 +121,9 @@ The Ethereum Virtual Machine (EVM) cannot execute Solidity code directly: we fir
 
 [.truffle]
 --
-Our `Box.sol` contract uses Solidity 0.6 so we need to first https://truffleframework.com/docs/truffle/reference/configuration#compiler-configuration[configure Truffle to use an appropriate solc version].
+Our `Box.sol` contract uses Solidity 0.8 so we need to first https://truffleframework.com/docs/truffle/reference/configuration#compiler-configuration[configure Truffle to use an appropriate solc version].
 
-We specify a Solidity 0.6 solc version in our `truffle-config.js`.
+We specify a Solidity 0.8 solc version in our `truffle-config.js`.
 
 ```js
 // truffle-config.js
@@ -132,7 +132,7 @@ We specify a Solidity 0.6 solc version in our `truffle-config.js`.
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.6.12",      // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.4",    // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {
@@ -141,7 +141,7 @@ We specify a Solidity 0.6 solc version in our `truffle-config.js`.
       //  },
       //  evmVersion: "byzantium"
       // }
-    },
+    }
   },
 
   ...
@@ -150,9 +150,9 @@ We specify a Solidity 0.6 solc version in our `truffle-config.js`.
 
 [.hardhat]
 --
-Our `Box.sol` contract uses Solidity 0.6 so we need to first https://hardhat.org/config/#solidity-configuration[configure Hardhat to use an appropriate solc version].
+Our `Box.sol` contract uses Solidity 0.8 so we need to first https://hardhat.org/config/#solidity-configuration[configure Hardhat to use an appropriate solc version].
 
-We specify a Solidity 0.6 solc version in our `hardhat.config.js`.
+We specify a Solidity 0.8 solc version in our `hardhat.config.js`.
 
 ```js
 // hardhat.config.js
@@ -160,8 +160,8 @@ We specify a Solidity 0.6 solc version in our `hardhat.config.js`.
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
-module.exports = {
-  solidity: "0.6.12",
+ module.exports = {
+  solidity: "0.8.4",
 };
 ```
 --
@@ -177,11 +177,13 @@ $ npx truffle compile
 
 Compiling your contracts...
 ===========================
+✔ Fetching solc version list from solc-bin. Attempt #1
+✔ Downloading compiler. Attempt #1.
 > Compiling ./contracts/Box.sol
 > Compiling ./contracts/Migrations.sol
 > Artifacts written to /home/openzeppelin/learn/build/contracts
 > Compiled successfully using:
-   - solc: 0.6.12+commit.27d51765.Emscripten.clang
+   - solc: 0.8.4+commit.c7e474f2.Emscripten.clang
 ```
 
 The https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#compile[`compile`] command will automatically look for all contracts in the `contracts` directory, and compile them using the Solidity compiler using the configuration in https://www.trufflesuite.com/docs/truffle/reference/configuration#compiler-configuration[`truffle-config.js`].
@@ -193,8 +195,11 @@ You will notice a `build/contracts` directory was created: it holds the compiled
 --
 ```console
 $ npx hardhat compile
-Downloading compiler 0.6.12
-Compiling 1 file with 0.6.12
+Solidity 0.8.4 is not fully supported yet. You can still use Hardhat, but some features, like stack traces, might not work correctly.
+
+Learn more at https://hardhat.org/reference/solidity-support"
+
+Compiling 1 file with 0.8.4
 Compilation finished successfully
 ```
 
@@ -217,18 +222,18 @@ Because the compiler will pick up all files in the `contracts` directory and sub
 ```solidity
 // contracts/access-control/Auth.sol
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 
 contract Auth {
-    address private administrator;
+    address private _administrator;
 
-    constructor() public {
+    constructor() {
         // Make the deployer of the contract the administrator
-        administrator = msg.sender;
+        _administrator = msg.sender;
     }
 
     function isAdministrator(address user) public view returns (bool) {
-        return user == administrator;
+        return user == _administrator;
     }
 }
 ```
@@ -238,31 +243,31 @@ To use this contract from `Box` we use an `import` statement, referring to `Auth
 ```solidity
 // contracts/Box.sol
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 
 // Import Auth from the access-control subdirectory
 import "./access-control/Auth.sol";
 
 contract Box {
-    uint256 private value;
-    Auth private auth;
+    uint256 private _value;
+    Auth private _auth;
 
-    event ValueChanged(uint256 newValue);
+    event ValueChanged(uint256 value);
 
-    constructor(Auth _auth) public {
-        auth = _auth;
+    constructor(Auth auth) {
+        _auth = auth;
     }
 
-    function store(uint256 newValue) public {
+    function store(uint256 value) public {
         // Require that the caller is registered as an administrator in Auth
-        require(auth.isAdministrator(msg.sender), "Unauthorized");
+        require(_auth.isAdministrator(msg.sender), "Unauthorized");
 
-        value = newValue;
-        emit ValueChanged(newValue);
+        _value = value;
+        emit ValueChanged(value);
     }
 
     function retrieve() public view returns (uint256) {
-        return value;
+        return _value;
     }
 }
 ```
@@ -300,25 +305,25 @@ To use one of the OpenZeppelin Contracts, `import` it by prefixing its path with
 ```solidity
 // contracts/Box.sol
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 
 // Import Ownable from the OpenZeppelin Contracts library
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 // Make Box inherit from the Ownable contract
 contract Box is Ownable {
-    uint256 private value;
+    uint256 private _value;
 
-    event ValueChanged(uint256 newValue);
+    event ValueChanged(uint256 value);
 
     // The onlyOwner modifier restricts who can call the store function
-    function store(uint256 newValue) public onlyOwner {
-        value = newValue;
-        emit ValueChanged(newValue);
+    function store(uint256 value) public onlyOwner {
+        _value = value;
+        emit ValueChanged(value);
     }
 
     function retrieve() public view returns (uint256) {
-        return value;
+        return _value;
     }
 }
 ```
