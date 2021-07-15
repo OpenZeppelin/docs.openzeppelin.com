@@ -62,6 +62,10 @@ content:
       branches: main
       start_path: docs
 
+    - url: https://github.com/OpenZeppelin/openzeppelin-subgraphs
+      branches: main
+      start_path: docs
+
 ui:
   bundle:
     url: ./ui/bundle.zip
