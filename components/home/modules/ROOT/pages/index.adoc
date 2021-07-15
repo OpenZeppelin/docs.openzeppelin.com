@@ -22,14 +22,14 @@ xref:upgrades.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[A comprehensive s
 xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
 --
 
+[.card.card-secondary.card-subgraphs]
+--
+xref:subgraphs::index.adoc[[.card-title]#Subgraphs# [.card-body]#pass:q[Subgraphs to easily index the activity of contracts built with OpenZeppelin Contracts.]#]
+--
+
 [.card.card-secondary.card-test-helpers]
 --
 xref:test-helpers::index.adoc[[.card-title]#Test Helpers# [.card-body]#pass:q[A JavaScript library of common assertions for testing smart contracts.]#]
---
-
-[.card.card-secondary.card-test-environment]
---
-xref:test-environment::index.adoc[[.card-title]#Test Environment# [.card-body]#pass:q[A JavaScript library for creating a testing environment for contracts, which plays nice with Mocha, Ava, and Jest.]#]
 --
 
 [.card.card-secondary.card-solidity-docgen]
