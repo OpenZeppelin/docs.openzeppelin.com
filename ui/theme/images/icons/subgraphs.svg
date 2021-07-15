@@ -2,6 +2,6 @@
 <circle cx="26.5" cy="35.5" r="22.5" fill="#3D3D58"/>
 <circle cx="47.5" cy="98.5" r="18.5" fill="#3D3D58"/>
 <circle cx="86" cy="46" r="31" fill="#3D3D58"/>
-<line x1="85.8" y1="48.1" x2="46.8" y2="100.1" stroke="#3D3D58" stroke-width="17"/>
-<line x1="25.7999" y1="35.6928" x2="85.7999" y2="48.6928" stroke="#3D3D58" stroke-width="17"/>
+<line x1="86" y1="47.5" x2="47" y2="99.5" stroke="#3D3D58" stroke-width="15"/>
+<line x1="25.5882" y1="34.6701" x2="85.5882" y2="47.6701" stroke="#3D3D58" stroke-width="15"/>
 </svg>
