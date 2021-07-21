@@ -14,10 +14,10 @@ log() {
 
 if [ -n "${NETLIFY:+x}" ]; then
   : ${NETLIFY_BUILD_BASE="/opt/build"}
-
   NETLIFY_CACHE_DIR="$NETLIFY_BUILD_BASE/cache"
-
   export XDG_CACHE_HOME="$NETLIFY_CACHE_DIR/xdg"
+
+  export URL="$DEPLOY_PRIME_URL"
 
   # TODO: can we use a local config?
   node_gyp_cache="$(yarn -s node-which node-gyp-cache)"
