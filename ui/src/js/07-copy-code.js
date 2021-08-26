@@ -14,13 +14,13 @@
     let code = e.target.parentElement.innerText;
     const codeParentElement = e.target.parentElement;
     const codeElement = codeParentElement.querySelector(codeElementSelector);
-    const codeLanguage = codeElement.dataset.lang;
-    const isShellLanguage = shellAliases.indexOf(codeLanguage) >= 0;
+    const codeLanguage = codeElement?.dataset?.lang;
+    const isShellLanguage = shellAliases.includes(codeLanguage);
 
     if (isShellLanguage) {
-      const [firstChar] = code;
-      code = firstChar === '$' ? code.substring(2) : code;
+      code = code.replace(/\$ /gm, '');
     }
+
     navigator.clipboard.writeText(code);
   }
 
