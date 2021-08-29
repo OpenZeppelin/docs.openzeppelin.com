@@ -227,9 +227,9 @@ pragma solidity ^0.8.0;
 contract Auth {
     address private _administrator;
 
-    constructor() {
+    constructor(address deployer) {
         // Make the deployer of the contract the administrator
-        _administrator = msg.sender;
+        _administrator = deployer;
     }
 
     function isAdministrator(address user) public view returns (bool) {
@@ -254,8 +254,8 @@ contract Box {
 
     event ValueChanged(uint256 value);
 
-    constructor(Auth auth) {
-        _auth = auth;
+    constructor() {
+        _auth = new Auth(msg.sender);
     }
 
     function store(uint256 value) public {
