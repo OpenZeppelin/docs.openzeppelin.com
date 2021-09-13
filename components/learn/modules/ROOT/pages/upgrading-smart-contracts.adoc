@@ -400,6 +400,9 @@ contract AdminBox is Initializable {
         _admin = admin;
     }
 
+    /// @custom:oz-upgrades-unsafe-allow constructor
+    constructor() initializer {}
+
     // Stores a new value in the contract
     function store(uint256 value) public {
         require(msg.sender == _admin, "AdminBox: not admin");
@@ -449,6 +452,8 @@ main();
 --
 
 For all practical purposes, the initializer acts as a constructor. However, keep in mind that since it's a regular function, you will need to manually call the initializers of all base contracts (if any).
+
+You may have noticed that we included a constructor as well as an initializer. This constructor serves the purpose of leaving the implementation contract in an initialized state, which is a mitigation against certain potential attacks.
 
 To learn more about this and other caveats when writing upgradeable contracts, check out our xref:upgrades-plugins::writing-upgradeable.adoc[Writing Upgradeable Contracts] guide.
 
