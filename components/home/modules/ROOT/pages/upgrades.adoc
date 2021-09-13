@@ -28,7 +28,7 @@ xref:contracts:api:proxy.adoc[[.card-title]#Proxy Contracts# [.card-body]#pass:q
 
 [.card.card-learn]
 --
-https://blog.openzeppelin.com/the-state-of-smart-contract-upgrades/[[.card-title]#The State of Smart Contract Upgrades# [.card-body]#pass:q[A survey of the different Ethereum smart contract upgrade patterns and strategies from a technical viewpoint, plus a set of good practices and recommendations for upgrades management and governance.]#]
+https://blog.openzeppelin.com/the-state-of-smart-contract-upgrades/[+++<span class="card-title">The State of Smart Contract Upgrades</span><span class="card-body">+++ pass:q[A survey of upgrade patterns, and good practices and recommendations for upgrades management and governance.] +++</span>+++]
 --
 
 [.card.card-learn]
