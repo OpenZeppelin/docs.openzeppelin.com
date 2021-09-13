@@ -28,6 +28,11 @@ xref:contracts:api:proxy.adoc[[.card-title]#Proxy Contracts# [.card-body]#pass:q
 
 [.card.card-learn]
 --
+https://blog.openzeppelin.com/the-state-of-smart-contract-upgrades/[[.card-title]#The State of Smart Contract Upgrades# [.card-body]#pass:q[A survey of the different Ethereum smart contract upgrade patterns and strategies from a technical viewpoint, plus a set of good practices and recommendations for upgrades management and governance.]#]
+--
+
+[.card.card-learn]
+--
 xref:contracts:api:proxy.adoc#transparent-vs-uups[[.card-title]#Transparent vs UUPS Proxies# [.card-body]#pass:q[Explaining the differences between the Transparent Proxy Pattern and the newly available UUPS Proxies.]#]
 --
 
