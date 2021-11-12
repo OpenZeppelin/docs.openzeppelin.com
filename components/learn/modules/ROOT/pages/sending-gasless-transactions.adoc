@@ -2,6 +2,8 @@
 
 WARNING: This guide is now deprecated, as it uses GSNv1, which is no longer supported. Consider using https://docs.openzeppelin.com/defender/[Defender] for https://blog.openzeppelin.com/gasless-metatransactions-with-openzeppelin-defender/[setting up your own meta-transaction relayers] instead, or using GSNv2 from the https://opengsn.org/[OpenGSN] team for a decentralized solution.
 
+WARNING: This article is no longer maintained. Read https://forum.openzeppelin.com/t/doubling-down-in-security/2712[here] for more info.
+
 Anyone who sends an Ethereum transaction needs to have Ether to pay for its gas fees. This forces new users to purchase Ether (which can be a daunting task) before they can start using a dapp. This is a major hurdle in user onboarding.
 
 In this guide, we will explore the concept of gasless (also called _meta_) transactions, where *the user does not need to pay for their gas fees*. We will also introduce the https://gasstation.network[Gas Station Network], a decentralized solution to this problem, as well as the OpenZeppelin libraries that allow you to leverage it in your dapps:
