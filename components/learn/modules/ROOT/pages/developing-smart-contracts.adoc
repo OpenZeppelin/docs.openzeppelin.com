@@ -59,7 +59,7 @@ To get started with Hardhat we will install it in our xref:setting-up-a-node-pro
 $ npm install --save-dev hardhat
 ```
 
-Once installed, we can run `npx hardhat`. This will create create a Hardhat config file (`hardhat.config.js`) in our project directory.
+Once installed, we can run `npx hardhat`. This will create a Hardhat config file (`hardhat.config.js`) in our project directory.
 
 ```console
 $ npx hardhat
