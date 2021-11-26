@@ -18,7 +18,12 @@ xref:upgrades-plugins::index.adoc[[.card-title]#Upgrades Plugins# [.card-body]#p
 
 [.card.card-learn]
 --
-xref:contracts::upgradeable.adoc[[.card-title]#Upgradeable Contracts# [.card-body]#pass:q[A variant of the popular OpenZeppelin Contracts library, with all of the necessary changes specific to upgradeable contracts.]#]
+xref:upgrades-plugins::writing-upgradeable.adoc[[.card-title]#Writing Upgradeable Contracts# [.card-body]#pass:q[When working with upgradeable contracts using OpenZeppelin Upgrades, there are a few minor caveats to keep in mind when writing your Solidity code.]#]
+--
+
+[.card.card-learn]
+--
+xref:contracts::upgradeable.adoc[[.card-title]#OpenZeppelin Upgradeable Contracts# [.card-body]#pass:q[A variant of the popular OpenZeppelin Contracts library, with all of the necessary changes specific to upgradeable contracts.]#]
 --
 
 [.card.card-learn]
