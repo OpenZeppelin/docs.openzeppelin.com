@@ -86,7 +86,7 @@ A good option for securing admin accounts is to use a special contract, such as 
 
 A special administrator account in an xref:upgrades-plugins::index.adoc[OpenZeppelin Upgrades Plugins] project is the account with the power to xref:upgrading-smart-contracts.adoc[_upgrade_] other contracts. This defaults to the externally owned account used to deploy the contracts: while this is good enough for a local or testnet deployment, in mainnet you need to better secure your contracts. An attacker who gets hold of your upgrade admin account can change any contract in your system!
 
-With this in mind, it is a good idea to **change the ownership of the ProxyAdmin** after deployment  - for example, to a multisig. To do this, you can use the `admin.transferProxyAdminOwnership` to transfer ownership of our `ProxyAdmin` contract.
+With this in mind, it is a good idea to **change the ownership of the ProxyAdmin** after deployment  - for example, to a multisig. To do this, you can use `admin.transferProxyAdminOwnership` to transfer ownership of our `ProxyAdmin` contract.
 
 When you need to upgrade your contracts, we can use `prepareUpgrade` to validate and deploy a new implementation contract ready to be used when our proxy is updated.
 
