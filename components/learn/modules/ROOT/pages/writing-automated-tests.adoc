@@ -13,7 +13,7 @@ include::learn::partial$hardhat-truffle-toggle.adoc[]
 
 == About testing
 
-There is a a wide range of testing techniques, from xref:deploying-and-interacting.adoc#interacting-from-the-console[simple manual verifications] to complex end-to-end setups, all of them useful in their own way.
+There is a wide range of testing techniques, from xref:deploying-and-interacting.adoc#interacting-from-the-console[simple manual verifications] to complex end-to-end setups, all of them useful in their own way.
 
 When it comes to smart contract development though, practice has shown that contract https://en.wikipedia.org/wiki/Unit_testing[_unit testing_] is exceptionally worthwhile. These tests are simple to write and quick to run, and let you add features and fix bugs in your code with confidence.
 
