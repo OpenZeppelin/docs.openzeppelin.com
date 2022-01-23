@@ -23,7 +23,7 @@ fi
 
 ## Antora
 
-antora --generator generator --stacktrace "$@"
+antora --stacktrace "$@"
 
 ## Redirections
 

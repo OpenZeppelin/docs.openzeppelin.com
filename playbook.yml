@@ -27,11 +27,11 @@ content:
       start_path: packages/lib/docs
 
     - url: https://github.com/OpenZeppelin/openzeppelin-upgrades
-      branches: master
+      branches: HEAD
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/starter-kit
-      branches: master # Starter Kit is unversioned
+      branches: HEAD # Starter Kit is unversioned
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/openzeppelin-test-environment
@@ -59,11 +59,11 @@ content:
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/defender-docs
-      branches: main
+      branches: HEAD
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/openzeppelin-subgraphs
-      branches: main
+      branches: HEAD
       start_path: docs
 
 ui:

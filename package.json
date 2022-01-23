@@ -2,11 +2,7 @@
   "name": "docs.openzeppelin.com",
   "version": "0.0.0",
   "private": true,
-  "workspaces": [
-    "ui",
-    "antora/generator",
-    "antora/content-aggregator"
-  ],
+  "workspaces": [ "ui" ],
   "scripts": {
     "build": "bash scripts/build.sh --fetch playbook.yml",
     "build:no-fetch": "bash scripts/build.sh playbook.yml",
@@ -17,7 +13,8 @@
     "watch:local": "fgbg 'nodemon -e yml,adoc -w components -x yarn build:local' 'live-server build/site'"
   },
   "dependencies": {
-    "@antora/cli": "^2.0.0",
+    "@antora/cli": "^3.0.0",
+    "@antora/site-generator": "^3.0.0",
     "glob": "^7.1.4",
     "js-yaml": "^3.13.1",
     "multimatch": "^4.0.0",

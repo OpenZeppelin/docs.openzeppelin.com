@@ -1,3 +1,0 @@
-.xref:index.adoc[Index Page]
-* The Category
- ** xref:the-page.adoc[The Page]
