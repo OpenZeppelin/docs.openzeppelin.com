@@ -2,6 +2,9 @@
   command = "yarn build"
   publish = "build/site"
 
+[[plugins]]
+  package = "./plugins/receive-webhook"
+
 ########################
 # NOTE ABOUT REDIRECTS #
 ########################
