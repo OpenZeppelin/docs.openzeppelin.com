@@ -8,7 +8,7 @@ module.exports = {
     const payload = getPayload();
 
     if (payload) {
-      const { error, message } = processPayload();
+      const { error, message } = processPayload(payload);
 
       if (error) {
         utils.build.cancelBuild(message);
