@@ -36,7 +36,7 @@ function processPayload({ repository, ref }) {
   if (!source) {
     return {
       error: 'not-content-source',
-      message: `Update in repository ${repository.full_name} that does not match a content source`,
+      message: `Update in ${repository.full_name} that does not match a content source`,
     };
   }
 
@@ -45,12 +45,12 @@ function processPayload({ repository, ref }) {
   if (!(match(branch, source.branches) || match(tag, source.tags))) {
     return {
       error: 'not-content-source',
-      message: `Update in '${branchOrTag}' of ${repository.full_name} that does not match a content source`,
+      message: `Update in ${repository.full_name}@${branchOrTag} that does not match a content source`,
     };
   }
 
   return {
-    message: `Update in '${branchOrTag}' of ${repository.full_name}`,
+    message: `Update in ${repository.full_name}@${branchOrTag}`,
   };
 }
 
