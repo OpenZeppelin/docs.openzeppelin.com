@@ -11,7 +11,7 @@
     "@antora/user-require-helper" "~2.0"
     "@asciidoctor/core" "~2.2"
 
-"@antora/cli@^3.0.0":
+"@antora/cli@3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@antora/cli/-/cli-3.0.1.tgz#4d28a7f94046adff94477e3104298d22c85b5bc5"
   integrity sha512-6qIPh31Z9VznWMHTi2/40Yx3OcHTGcXf9FaPcWsK4TVjLZtGlfqWccwb4P9ZzQPr+CaFDQFPTB8xwnP7c9GxNw==
@@ -118,7 +118,7 @@
   dependencies:
     vinyl "~2.2"
 
-"@antora/site-generator@^3.0.0":
+"@antora/site-generator@3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@antora/site-generator/-/site-generator-3.0.1.tgz#585328dfe6f1d37c70fd3d1bb1a2a473a7512d26"
   integrity sha512-/fCgSYrW+Wh7rd6vB8YPQWPMgkwF17rYOmHWuU+xYcjQOwB1UQgTNuD2vXXgaQNEBkzAOTGhWQW4pWU2Mp4qZA==
@@ -1265,6 +1265,14 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   integrity sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==
   dependencies:
     color-convert "^2.0.1"
+
+antora@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/antora/-/antora-3.0.1.tgz#cb601c2d31e369e33413b747544f52cbfb37a318"
+  integrity sha512-lZSZAQ6DZ7bPGhAOGZfpk+ArQrooFcxHVeDe9008zec8sR1cGV4z4G6AxyDnll5VEvm/ObvZYRuw5islJy2zkw==
+  dependencies:
+    "@antora/cli" "3.0.1"
+    "@antora/site-generator" "3.0.1"
 
 anymatch@^2.0.0:
   version "2.0.0"
