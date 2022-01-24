@@ -7,6 +7,9 @@
 
 https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301!
 
+# Root pages were previously located here
+/openzeppelin/* /:splat 301
+
 # Contracts docsite migration
 /contracts/2.x/release-schedule /contracts/releases-stability 301
 /contracts/2.x/api-stability /contracts/releases-stability 301

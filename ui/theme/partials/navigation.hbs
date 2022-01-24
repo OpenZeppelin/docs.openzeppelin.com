@@ -9,10 +9,10 @@
     <input class="input" placeholder="Search" type="search">
   </div>
 
-  {{#if (eq @root.page.component.name "openzeppelin")}}
+  {{#if (eq @root.page.component.name "ROOT")}}
   <div class="nav-components">
     <h3 class="nav-title">Start here</h3>
-    {{#each (pick site.components "openzeppelin, learn")}}
+    {{#each (pick site.components "ROOT, learn")}}
       {{> navigation-component }}
     {{/each}}
 
@@ -22,7 +22,7 @@
     {{/each}}
 
     <h3 class="nav-title">More</h3>
-    {{#sorted (omit site.components "openzeppelin, learn, defender, contracts, upgrades-plugins, subgraphs, cli, upgrades, contract-loader, starter-kits, network-js, gsn-provider, gsn-helpers") "test-helpers, test-environment"}}
+    {{#sorted (omit site.components "ROOT, learn, defender, contracts, upgrades-plugins, subgraphs, cli, upgrades, contract-loader, starter-kits, network-js, gsn-provider, gsn-helpers") "test-helpers, test-environment"}}
       {{> navigation-component }}
     {{/sorted}}
   </div>
