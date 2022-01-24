@@ -2,7 +2,9 @@
   "name": "docs.openzeppelin.com",
   "version": "0.0.0",
   "private": true,
-  "workspaces": [ "ui" ],
+  "workspaces": [
+    "ui"
+  ],
   "scripts": {
     "build": "bash scripts/build.sh --fetch playbook.yml",
     "build:no-fetch": "bash scripts/build.sh playbook.yml",
