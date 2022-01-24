@@ -44,7 +44,7 @@
             <p>Current version</p>
             <ul>
               <li>
-                {{#with latestVersion}}
+                {{#with latest}}
                   <a href="{{{url}}}">{{displayVersion}}</a>
                 {{/with}}
               </li>
@@ -52,7 +52,7 @@
             <p>Other versions</p>
             <ul>
               {{#each versions}}
-                {{#unless (eq this ../latestVersion)}}
+                {{#unless (eq this ../latest)}}
                   <li>
                     <a href="{{{url}}}">{{displayVersion}}</a>
                   </li>
