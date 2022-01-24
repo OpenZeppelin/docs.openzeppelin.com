@@ -7,13 +7,7 @@ yarn dev
 ```
 
 === Build
-Builds the UI into `/public` (to deploy to static sites)
+Builds the UI
 ```
-yarn build-preview
-```
-
-=== Bundle Antora Theme
-Packs the UI bundle into a ZIP file. Ready to be used by Antora powered sites :rocket:
-```
-yarn bundle
+yarn build
 ```

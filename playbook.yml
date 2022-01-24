@@ -68,7 +68,7 @@ content:
 
 ui:
   bundle:
-    url: ./ui/bundle.zip
+    url: ./ui/theme
 asciidoc:
   attributes:
     idprefix: ''
