@@ -179,3 +179,8 @@ button.collapse-toggle {
 .notoc .toc-sidebar {
   display: none;
 }
+
+body .leadinModal.leadinModal-theme-top {
+  top: auto;
+  bottom: 0;
+}
