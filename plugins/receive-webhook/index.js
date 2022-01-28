@@ -42,7 +42,7 @@ function processPayload({ repository, ref }) {
 
   const branchOrTag = branch || tag;
 
-  if (!(match(branch, source.branches) || match(tag, source.tags))) {
+  if (!(matchBranch(branch, source.branches) || match(tag, source.tags))) {
     return {
       error: 'not-content-source',
       message: `Update in ${repository.full_name}@${branchOrTag} that does not match a content source`,
@@ -89,6 +89,14 @@ function getPlaybookSource(repoFullName) {
       return false;
     }
   });
+}
+
+// Antora 3 uses HEAD to mean the default remote branch. We assume it's either master or main.
+function matchBranch(b, patterns = []) {
+  if (patterns.includes('HEAD')) {
+    patterns = [...patterns, 'master', 'main'];
+  }
+  return match(b, patterns);
 }
 
 function match(str, patterns = []) {
