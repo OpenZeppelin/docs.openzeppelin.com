@@ -17,12 +17,12 @@
     {{/each}}
 
     <h3 class="nav-title">Our Products</h3>
-    {{#each (pick site.components "defender, contracts, upgrades-plugins, subgraphs")}}
+    {{#each (pick site.components "defender, contracts")}}
       {{> navigation-component }}
     {{/each}}
 
     <h3 class="nav-title">More</h3>
-    {{#sorted (omit site.components "ROOT, learn, defender, contracts, upgrades-plugins, subgraphs, cli, upgrades, contract-loader, starter-kits, network-js, gsn-provider, gsn-helpers") "test-helpers, test-environment"}}
+    {{#sorted (omit site.components "ROOT, learn, defender, contracts, cli, upgrades, contract-loader, starter-kits, network-js, gsn-provider, gsn-helpers") "upgrades-plugins, subgraphs"}}
       {{> navigation-component }}
     {{/sorted}}
   </div>
