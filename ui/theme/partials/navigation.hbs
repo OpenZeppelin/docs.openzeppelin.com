@@ -22,9 +22,9 @@
     {{/each}}
 
     <h3 class="nav-title">More</h3>
-    {{#sorted (omit site.components "ROOT, learn, defender, contracts, cli, upgrades, contract-loader, starter-kits, network-js, gsn-provider, gsn-helpers") "upgrades-plugins, subgraphs"}}
+    {{#each (pick site.components "upgrades-plugins, subgraphs") }}
       {{> navigation-component }}
-    {{/sorted}}
+    {{/each}}
   </div>
 
   {{else}}
