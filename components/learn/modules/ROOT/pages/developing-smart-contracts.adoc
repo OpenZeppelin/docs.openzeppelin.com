@@ -23,7 +23,7 @@ With that out of the way, let's get started!
 
 The first step after xref:setting-up-a-node-project#creating-a-project[creating a project] is to install a development tool.
 
-The most popular development framework for Ethereum is https://www.trufflesuite.com/truffle[Truffle] which uses https://web3js.readthedocs.io/[web3.js].  The next most popular is https://hardhat.org/[Hardhat] (previously called Buidler), and we cover its most common use with https://docs.ethers.io/[ethers.js].  Each has their strengths and it is useful to be comfortable using all of them.
+The most popular development framework for Ethereum is https://www.trufflesuite.com/truffle[Truffle] which uses https://web3js.readthedocs.io/[web3.js].  The next most popular is https://hardhat.org/[Hardhat], and we cover its most common use with https://docs.ethers.io/[ethers.js].  Each has their strengths and it is useful to be comfortable using all of them.
 
 In these guides we will show how to develop, test and deploy smart contracts using Truffle and Hardhat.  
 
