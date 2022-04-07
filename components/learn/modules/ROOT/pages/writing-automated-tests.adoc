@@ -7,7 +7,6 @@ We'll cover the following topics:
  * <<setting-up-a-testing-environment, Setting up a Testing Environment>>
  * <<writing-unit-tests, Writing Unit Tests>>
  * <<performing-complex-assertions, Performing Complex Assertions>>
- * <<test-environment, Using the OpenZeppelin Test Environment>>
 
 include::learn::partial$hardhat-truffle-toggle.adoc[]
 
@@ -232,111 +231,6 @@ $ npx truffle test
 ```
 
 The Test Helpers will let you write powerful assertions without having to worry about the low-level details of the underlying Ethereum libraries. To learn more about what you can do with them, head to their xref:test-helpers::api.adoc[API reference].
-
-[[test-environment]]
-== OpenZeppelin Test Environment
-
-An alternative web3.js based test environment is xref:test-environment::index.adoc[*OpenZeppelin Test Environment*].
-
-TIP: https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/test[OpenZeppelin Contracts tests] use Test Environment.
-
-To install the OpenZeppelin Test Environment, run:
-
-```console
-$ npm install --save-dev @openzeppelin/test-environment
-```
-
-NOTE: Test Environment uses https://github.com/trufflesuite/ganache-cli/[Ganache] under the hood, taking care of its configuration for you.
-
-Once you `require` the library from your JavaScript code, it will automatically run a local testing blockchain for you. It also exports a list of accounts that have been pre-funded with Ether and convenient ways to load your contracts from their compiled artifacts, among other utilities.
-
-```javascript
-const { accounts, contract } = require('@openzeppelin/test-environment');
-
-// Use the different accounts, which are unlocked and funded with Ether
-const [ admin, deployer, user ] = accounts;
-
-// Create a contract object from a compilation artifact
-const MyContract = contract.fromArtifact('MyContract');
-```
-
-For detailed information on these exported values and their usage, refer to Test Environment's xref:test-environment::api.adoc[API reference].
-
-In order to actually run your tests, you will need to also install a JavaScript _test runner_. You are free to use any of the xref:test-environment::choosing-a-test-runner.adoc[recommended ones] such as https://mochajs.org/[Mocha], https://jestjs.io/[Jest] or https://www.npmjs.com/package/ava[Ava]: for this guide, we'll pick Mocha with https://www.chaijs.com/[Chai] assertions.
-
-```console
-$ npm install --save-dev mocha chai
-```
-
-A Test Environment test using Mocha and Chai looks as follows:
-
-```javascript
-// test/Box.test.js
-
-// Load dependencies
-const { accounts, contract } = require('@openzeppelin/test-environment');
-const { expect } = require('chai');
-
-// Load compiled artifacts
-const Box = contract.fromArtifact('Box');
-
-// Start test block
-describe('Box', function () {
-  const [ owner ] = accounts;
-
-  beforeEach(async function () {
-    // Deploy a new Box contract for each test
-    this.contract = await Box.new({ from: owner });
-  });
-
-  // Test case
-  it('retrieve returns a value previously stored', async function () {
-    // Store a value - recall that only the owner account can do this!
-    await this.contract.store(42, { from: owner });
-
-    // Test if the returned value is the same one
-    // Note that we need to use strings to compare the 256 bit integers
-    expect((await this.contract.retrieve()).toString()).to.equal('42');
-  });
-});
-```
-
-The best way to run our tests is by adding a `test` script to your `package.json`:
-
-[source,diff]
-----
- "scripts": {
-+  "test": "mocha --exit --recursive"
- }
-----
-
-With this, running `npm test` will execute all tests in the `test` directory, checking that your contracts work the way you meant them to:
-
-```console
-$ npm test
-
-> learn@1.0.0 test
-> mocha --exit --recursive
-
-
-
-  Box
-    ✓ retrieve returns a value previously stored (69ms)
-
-
-  1 passing (482ms)
-```
-
-[TIP]
-====
-Don't forget to re-compile your contracts if you make changes to them! If you want to do this automatically on each test run, set your `test` script instead to:
-
-`truffle compile && mocha --exit --recursive`
-====
-
-Test Environment comes with sensible defaults that should work for most use-cases, but you can always xref:test-environment::getting-started.adoc#configuration[configure] it to provide more accounts or use different kinds of contract objects, among others.
-
-TIP: The OpenZeppelin Test Environment is not required to use the OpenZeppelin Test Helpers: to learn how to use the Test Helpers standalone or integrated in other systems, refer to their xref:test-helpers::configuration.adoc[documentation].
 
 == Next steps
 
