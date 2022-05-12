@@ -8,6 +8,8 @@ OpenZeppelin provides tooling for deploying and securing upgradeable smart contr
 
 Find all of our resources related to upgradeability below.
 
+TIP: If you don't know where to start we suggest to start with the **Learn: Upgrading Smart Contracts** card.
+
 [.card-section]
 == Resources
 
