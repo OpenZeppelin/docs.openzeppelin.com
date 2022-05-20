@@ -40,7 +40,6 @@
     "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.34.1",
     "server-destroy": "^1.0.1",
-    "sirv-cli": "^1.0.12",
     "yaml": "^1.10.2"
   }
 }
