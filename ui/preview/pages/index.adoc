@@ -1,0 +1,1 @@
+../../../components/home/modules/ROOT/pages/index.adoc

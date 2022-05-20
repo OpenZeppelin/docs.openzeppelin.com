@@ -5,11 +5,11 @@ site:
   ui:
     url: /_
   components:
-    openzeppelin:
-      &component_openzeppelin
-      name: openzeppelin
+    ROOT:
+      &component_root
+      name: ROOT
       title: Home
-      url: /openzeppelin/index.html
+      url: /index.html
       versions:
       - &latest_version_abc
         url: '#' 
@@ -160,12 +160,32 @@ site:
         version: '1.x'
         displayVersion: '1.x'
       latestVersion: *latest_version_abc
+    upgrades-plugins:
+      name: upgrades-plugins
+      title: Upgrades Plugins
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
+    subgraphs:
+      name: subgraphs
+      title: Subgraphs
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_abc
 
 page:
   title: Welcome to OpenZeppelin Documentation!
   url: /contracts/2.x/index.html
   attributes: {}
-  component: *component_openzeppelin
+  component: *component_root
   componentVersion: *latest_version_contracts
   version: '2.x'
   displayVersion: '2.x'
@@ -210,7 +230,7 @@ page:
     - content: Releases
       url: '#'
     - content: API Reference
-      url: '#' 
+      url: '/contracts/2.x/api.html' 
   previous:
     content: Getting Started
     url: /contracts/2.x/index.html
