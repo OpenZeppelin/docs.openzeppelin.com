@@ -9,7 +9,7 @@ export default function serve(root) {
   return {
     writeBundle() {
       if (server) return;
-      server = ls.start({ root });
+      server = ls.start({ root, open: false });
       enableDestroy(server);
     },
     closeWatcher: handleExit,
