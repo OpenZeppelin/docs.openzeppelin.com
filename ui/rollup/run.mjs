@@ -15,13 +15,14 @@ export default function run(cmd, ...args) {
       outputPath = outputOptions.dir || outputOptions.file;
     },
     writeBundle() {
-      if (opts.watch && !watcher) {
+      if (!opts.watch) {
+        runCmd();
+      } else if (!watcher) {
         watcher = chokidar.watch(opts.watch, {
           ignoreInitial: true,
           ignored: [outputPath].concat(opts.ignored),
         }).on('all', debounce(runCmd, 100));
       }
-      runCmd();
     },
   };
 }
