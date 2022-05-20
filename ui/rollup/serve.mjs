@@ -12,5 +12,6 @@ export default function serve(root) {
       server = ls.start({ root });
       enableDestroy(server);
     },
+    closeWatcher: handleExit,
   };
 }
