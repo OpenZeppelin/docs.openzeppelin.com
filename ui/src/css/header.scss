@@ -47,6 +47,9 @@
   color: var(--color-navbar-hover);
 }
 
+.navbar-search-checkbox {
+  display: none;
+}
 
 @media screen and (min-width: $mobile-breakpoint) {
   .navbar-burger {

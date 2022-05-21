@@ -249,8 +249,11 @@
       </a>
     </div>
 
-    <div class="navbar-search">
-      <input id="search-input" type="text" placeholder="Search">
+    <div id="search-field" class="navbar-search">
+      <input class="navbar-search-input" id="search-input" type="text" placeholder="Search">
+      {{#unless (eq @root.page.component.name "ROOT")}}
+      <input class="navbar-search-filter" type="checkbox" data-facet-filter="component:{{page.component.name}}" checked>
+      {{/unless}}
     </div>
 
     <div class="navbar-end">

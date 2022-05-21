@@ -137,17 +137,17 @@ button.collapse-toggle {
   position: relative;
   display: flex;
   flex-grow: 1;
+}
 
-  input {
-    flex-grow: 1;
-    padding: .5rem !important;
-    font-size: 1rem;
-    background-color: var(--aluminum-1);
-    border-radius: 0.25rem;
+.navbar-search-input {
+  flex-grow: 1;
+  padding: .5rem !important;
+  font-size: 1rem;
+  background-color: var(--aluminum-1);
+  border-radius: 0.25rem;
 
-    &:focus {
-      outline: none;
-    }
+  &:focus {
+    outline: none;
   }
 }
 
