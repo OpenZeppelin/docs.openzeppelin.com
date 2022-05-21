@@ -111,6 +111,7 @@ button.collapse-toggle {
 .navbar {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .navbar-burger {
@@ -129,6 +130,24 @@ button.collapse-toggle {
     padding: var(--lg) 0;
     display: flex;
     align-items: center;
+  }
+}
+
+.navbar-search {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+
+  input {
+    flex-grow: 1;
+    padding: .5rem !important;
+    font-size: 1rem;
+    background-color: var(--aluminum-1);
+    border-radius: 0.25rem;
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 
