@@ -93,25 +93,6 @@
   opacity: .8;
 }
 
-.search > .input {
-  background-image: url(../images/icons/search.svg);
-  background-position: 92% 50%;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  margin-bottom: 50px;
-  position: relative;
-  width: $nav-width - ($lg * 2);
-  width: 100%;
-  border: none;
-  padding: 0 2rem;
-  border-bottom: solid 1px #e2e2e7;
-  height: 70px;
-  color: rgba(40, 40, 70, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 button.collapse-toggle{
   cursor: pointer;
   padding: 0;
