@@ -77,3 +77,5 @@ antora:
     - require: './lunr-tokenizer'
     - require: '@antora/lunr-extension'
       index_latest_only: true
+urls:
+  html_extension_style: drop
