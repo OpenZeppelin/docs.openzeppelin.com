@@ -250,7 +250,7 @@
     </div>
 
     <div id="search-field" class="navbar-search">
-      <input class="navbar-search-input" id="search-input" type="text" placeholder="Search">
+      <input class="navbar-search-input" id="search-input" type="text" placeholder="{{#if (eq @root.page.component.name "ROOT")}}Search{{else}}Search {{@root.page.component.title}}{{/if}}">
       {{#unless (eq @root.page.component.name "ROOT")}}
       <input class="navbar-search-filter" type="checkbox" data-facet-filter="component:{{page.component.name}}" checked>
       {{/unless}}
