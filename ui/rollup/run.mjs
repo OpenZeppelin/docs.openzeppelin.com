@@ -19,7 +19,6 @@ export default function run(cmd, ...args) {
         runCmd();
       } else if (!watcher) {
         watcher = chokidar.watch(opts.watch, {
-          ignoreInitial: true,
           ignored: [outputPath].concat(opts.ignored),
         }).on('all', debounce(runCmd, 100));
       }
