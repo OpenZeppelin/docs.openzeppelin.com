@@ -1,7 +1,7 @@
 site:
   title: OpenZeppelin Docs
   url: https://docs.openzeppelin.com
-  start_page: openzeppelin::index.adoc
+  start_page: ROOT::index.adoc
   keys:
     google_analytics: 'UA-85043059-1'
 content:

@@ -1,5 +1,5 @@
 .container {
-  @include media(xl) {
+  @media (min-width: $screen-xl) {
     max-width: $screen-xl;
   }
 }

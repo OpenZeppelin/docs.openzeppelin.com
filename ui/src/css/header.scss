@@ -1,5 +1,3 @@
-//------------- MOBILE FIRST RESPONSIVENESS ---------------------------------------
-
 .header {
   border-bottom: solid 1px #e2e2e7;
 }
@@ -49,7 +47,20 @@
   color: var(--color-navbar-hover);
 }
 
-//------------- DESKTOP ---------------------------------------
+.navbar-search-input {
+  font-size: 1rem;
+  background-color: var(--aluminum-1);
+  border-radius: 0.25rem;
+  border: 1px solid var(--aluminum-3);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.navbar-search-checkbox {
+  display: none;
+}
 
 @media screen and (min-width: $mobile-breakpoint) {
   .navbar-burger {

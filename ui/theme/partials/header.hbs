@@ -248,6 +248,14 @@
         </svg>
       </a>
     </div>
+
+    <div id="search-field" class="navbar-search">
+      <input class="navbar-search-input" id="search-input" type="text" placeholder="{{#if (eq @root.page.component.name "ROOT")}}Search{{else}}Search {{@root.page.component.title}}{{/if}}">
+      {{#unless (eq @root.page.component.name "ROOT")}}
+      <input class="navbar-search-filter" type="checkbox" data-facet-filter="component:{{page.component.name}}" checked>
+      {{/unless}}
+    </div>
+
     <div class="navbar-end">
       <a class="navbar-item" href="https://github.com/OpenZeppelin">GitHub</a>
       <a class="navbar-item" href="https://forum.openzeppelin.com">Forum</a>

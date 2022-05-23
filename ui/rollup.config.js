@@ -4,6 +4,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import { terser } from 'rollup-plugin-terser';
 import { babel } from '@rollup/plugin-babel';
+import serve from './rollup/serve';
+import run from './rollup/run';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -34,7 +36,10 @@ export default {
 
     resolve(),
     commonjs(),
-    babel({ babelHelpers: 'bundled' })
+    babel({ babelHelpers: 'bundled' }),
+
+    !production && run('node', 'preview/build.js', { watch: '.', ignored: ['preview/build'] }),
+    !production && serve('preview/build'),
   ],
   watch: {
     clearScreen: false,

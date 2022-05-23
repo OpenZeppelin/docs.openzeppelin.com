@@ -1,4 +1,4 @@
-// grid layout
+/* grid layout */
 
 .card-section .sectionbody {
   display: grid;
@@ -26,7 +26,7 @@
   width: 100%;
 }
 
-// inner card layout
+/* inner card layout */
 
 .card a {
   display: inline-flex;
@@ -43,7 +43,7 @@
   display: block;
 }
 
-// styling
+/* styling */
 
 .card a {
   border-radius: var(--border-radius);
@@ -60,7 +60,7 @@
   }
 }
 
-// styling learn
+/* styling learn */
 
 .card-learn a {
   border: solid 1px #cacbcc;
@@ -82,10 +82,10 @@
   }
 }
 
-// styling product cards
+/* styling product cards */
 
 .card-primary + .card-secondary {
-  grid-column-start: 1; // show secondary cards in a separate line
+  grid-column-start: 1; /* show secondary cards in a separate line */
 }
 
 .card-primary a, .card-secondary a {
@@ -114,7 +114,7 @@
   position: relative;
   padding-top: 3em;
   padding-bottom: 2em;
-  overflow: hidden; // hide background image
+  overflow: hidden; /* hide background image */
 
   .card-title {
     font-size: 1.2em;

@@ -46,7 +46,9 @@ async function main() {
 async function getPages() {
   const pageFiles = await glob(path.join(previewPagesDir, '**/*.adoc'));
   return Promise.all(pageFiles.map(async f => {
-    const doc = asciidoctor.load(await fs.readFile(f, 'utf8'), { safe: 'safe', attributes: ASCIIDOC_ATTRIBUTES })
+    const source = await fs.readFile(f, 'utf8');
+    const sourceWithLinks = source.replace('xref:contracts::index.adoc', 'link:/contracts/2.x');
+    const doc = asciidoctor.load(sourceWithLinks, { safe: 'safe', attributes: ASCIIDOC_ATTRIBUTES })
     const attributes = fromEntries(
       Object.entries(doc.getAttributes())
         .filter(([k]) => k.startsWith('page-'))
@@ -83,7 +85,7 @@ async function getUIModel() {
   const model = yaml.parse(await fs.readFile(path.join(previewDir, 'model.yml'), 'utf8'));
   const makeModel = page => {
     const [componentName, ...componentPage] = page.relativeSrcPath.split(path.sep);
-    const component = model.site.components[componentName];
+    const component = model.site.components[componentName] ?? model.site.components.ROOT;
     const url = path.join(componentName, ...componentPage)
       .replace(path.extname(page.relativeSrcPath), '.html');
     const siteRootPath = path.relative(page.relativeSrcPath, '');
