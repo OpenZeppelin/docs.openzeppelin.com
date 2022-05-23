@@ -47,6 +47,17 @@
   color: var(--color-navbar-hover);
 }
 
+.navbar-search-input {
+  font-size: 1rem;
+  background-color: var(--aluminum-1);
+  border-radius: 0.25rem;
+  border: 1px solid var(--aluminum-3);
+
+  &:focus {
+    outline: none;
+  }
+}
+
 .navbar-search-checkbox {
   display: none;
 }
