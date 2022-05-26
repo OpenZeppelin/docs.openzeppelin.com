@@ -7,7 +7,6 @@ onLoad(() => {
 
   if (article) {
     const headings = article.querySelectorAll('h2, h3');
-    console.log(headings);
     const toc = { level: 'H0', items: [] };
     const queue = [toc];
     for (const h of headings) {
