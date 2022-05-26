@@ -3,12 +3,14 @@
     <img alt="OpenZeppelin Docs" src="{{{uiRootPath}}}/img/title.svg" class="h-6" />
   </a>
 
-    <div id="search-field">
-      <input class="rounded py-2 px-3 bg-slate-50 border" id="search-input" type="text" placeholder="{{#if (eq @root.page.component.name "ROOT")}}Search{{else}}Search {{@root.page.component.title}}{{/if}}">
-      {{#unless (eq page.component.name "ROOT")}}
-      <input class="hidden" type="checkbox" checked data-facet-filter="component:{{page.component.name}}">
-      {{/unless}}
-    </div>
+  {{#if env.SITE_SEARCH_PROVIDER}}
+  <div class="relative" id="search-field">
+    <input class="rounded py-2 px-3 bg-slate-50 border" id="search-input" type="text" placeholder="{{#if (eq @root.page.component.name "ROOT")}}Search{{else}}Search {{@root.page.component.title}}{{/if}}">
+    {{#unless (eq page.component.name "ROOT")}}
+    <input class="hidden" type="checkbox" checked data-facet-filter="component:{{page.component.name}}">
+    {{/unless}}
+  </div>
+  {{/if}}
 
   <nav class="text-slate-500">
     <ul class="flex gap-5">
