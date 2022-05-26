@@ -43,6 +43,10 @@
   .main-side-column {
     @apply py-10 overflow-auto self-start top-header lg:sticky lg:h-[calc(100vh-var(--header))];
   }
+
+  .readme-notice {
+    @apply hidden;
+  }
 }
 
 /* Outside of @layer because we don't want this to be tree-shaken away. */
