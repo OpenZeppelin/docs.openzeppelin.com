@@ -1,9 +1,0 @@
-{{#if (has-multiple-versions component)}}
-<select class="select version-select js-version">
-	<option disabled>Select version
-		{{#each (page-versions site.components component.name versions)}}
-		<option value="{{{./url}}}" {{#if (eq ./string
-			../component.version.string)}}selected{{/if}}>{{./string}}
-			{{/each}}
-		</select>
-		{{/if}}

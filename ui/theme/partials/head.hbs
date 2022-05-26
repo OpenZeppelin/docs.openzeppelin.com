@@ -1,4 +1,34 @@
-{{#if site.keys.googleAnalytics}}
-<script async src="https://www.googletagmanager.com/gtag/js?id={{site.keys.googleAnalytics}}"></script>
-<script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','{{site.keys.googleAnalytics}}')</script>
-{{/if}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{#if page.title}}{{{page.title}}} - {{/if}}{{site.title}}</title>
+<meta property="og:title" content="{{#if page.title}}{{{page.title}}} - {{/if}}{{site.title}}">
+{{#with page.canonicalUrl}}
+<link rel="canonical" href="{{{this}}}">
+<meta property="og:url" content="{{{this}}}">
+{{/with}}
+{{#with page.description}}
+<meta name="description" content="{{{detag this}}}">
+<meta property="og:description" content="{{{detag this}}}">
+{{/with}}
+{{#unless (eq page.attributes.pagination undefined)}}
+{{#with page.previous}}
+<link rel="prev" href="{{{relativize ./url}}}">
+{{/with}}
+{{#with page.next}}
+<link rel="next" href="{{{relativize ./url}}}">
+{{/with}}
+{{/unless}}
+{{#with page.keywords}}
+<meta name="keywords" content="{{{this}}}">
+{{/with}}
+{{#with (or antoraVersion site.antoraVersion)}}
+<meta name="generator" content="Antora {{{this}}}">
+{{/with}}
+{{#with site.keys.googleAnalytics}}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{this}}"></script>
+<script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','{{this}}')</script>
+{{/with}}
+<meta property="og:image" content="{{{uiRootPath}}}/img/social.png">
+<link rel="icon" href="{{{uiRootPath}}}/img/favicon.png" sizes="any">
+<link rel="stylesheet" href="{{{uiRootPath}}}/dist/index.css">
+<script defer src="{{{uiRootPath}}}/dist/index.js"></script>

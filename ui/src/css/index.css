@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Silka";
+  font-weight: 400;
+  src: url("../fonts/silka-regular-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Silka";
+  font-weight: 500;
+  src: url("../fonts/silka-medium-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Silka";
+  font-weight: 600;
+  src: url("../fonts/silka-semibold-webfont.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Silka";
+  font-weight: 700;
+  src: url("../fonts/silka-bold-webfont.woff2") format("woff2");
+}
+
+:root {
+  --header: 5rem;
+}
+
+@layer components {
+  .icon {
+    @apply inline align-middle pointer-events-none;
+    height: 1em;
+  }
+
+  .nav-tree-item {
+    @apply flex-grow p-2 cursor-pointer;
+  }
+
+  .main-side-column {
+    @apply py-10 overflow-auto self-start top-header lg:sticky lg:h-[calc(100vh-var(--header))];
+  }
+}
+
+/* Outside of @layer because we don't want this to be tree-shaken away. */
+.section-bg {
+  @apply relative py-4;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: calc(50% - 50vw);
+    width: 100vw;
+    height: 100%;
+    z-index: -10;
+    background-color: var(--bg-color, theme('colors.slate.50'));
+  }
+}

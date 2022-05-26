@@ -1,0 +1,8 @@
+{{#with page.navigation}}
+<nav>
+  {{#with @root.page.componentVersion}}
+  <h1 class="p-2 font-display font-semibold"><a href="{{{relativize url}}}">{{title}}</a></h1>
+  {{/with}}
+  {{> nav-tree navigation=this level=0}}
+</nav>
+{{/with}}

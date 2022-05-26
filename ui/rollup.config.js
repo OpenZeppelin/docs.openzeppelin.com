@@ -39,7 +39,7 @@ export default {
     babel({ babelHelpers: 'bundled' }),
 
     !production && run('node', 'preview/build.js', { watch: '.', ignored: ['preview/build'] }),
-    !production && serve('preview/build'),
+    !production && serve('preview/build', { wait: 200 }),
   ],
   watch: {
     clearScreen: false,

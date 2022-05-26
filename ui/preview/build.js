@@ -86,7 +86,7 @@ async function getUIModel() {
   const makeModel = page => {
     const [componentName, ...componentPage] = page.relativeSrcPath.split(path.sep);
     const component = model.site.components[componentName] ?? model.site.components.ROOT;
-    const url = path.join(componentName, ...componentPage)
+    const url = path.join('/', componentName, ...componentPage)
       .replace(path.extname(page.relativeSrcPath), '.html');
     const siteRootPath = path.relative(page.relativeSrcPath, '');
     const siteRootUrl = path.join(siteRootPath, 'index.html');

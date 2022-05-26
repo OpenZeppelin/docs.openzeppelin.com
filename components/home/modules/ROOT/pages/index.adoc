@@ -1,6 +1,6 @@
 = Documentation
 
-Explore our guides and examples to integrate OpenZeppelin security products to all aspects of your Ethereum development and operations.    
+Explore our guides, references, and examples to build with OpenZeppelin.
 
 [.card-section]
 == Explore using OpenZeppelin
@@ -54,6 +54,7 @@ Check out https://forum.openzeppelin.com/c/general/guides-and-tutorials/23[the O
 
 Learn more about security in Solidity contracts by playing https://ethernaut.openzeppelin.com/[Ethernaut]. Every level in Ethernaut is a smart contract waiting to be hacked, and teaches you a vulnerability by having you exploit it - many of them based on real-life hacks! You can discuss your solutions or ask for tips in https://forum.openzeppelin.com/c/security/ethernaut/30[our forum].
 
+[.section-bg]
 == More from OpenZeppelin
 
 === Careers

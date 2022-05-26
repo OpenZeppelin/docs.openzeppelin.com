@@ -1,0 +1,26 @@
+{{#if navigation.length}}
+<ul>
+  {{#each navigation}}
+  <li class="{{#if (and content items.length)}}collapsible {{#unless (is-current-page this)}}collapsed{{/unless}}{{/if}} {{#if (is-current-page this)}}is-current-page{{/if}}">
+    {{#if content}}
+    <div class="flex rounded hover:bg-slate-50">
+      {{#if url}}
+      <a class="nav-tree-item" href="{{#if (eq urlType 'internal')}}{{{relativize url}}}{{else}}{{{url}}}{{/if}}">{{{content}}}</a>
+      {{else}}
+      <label class="nav-tree-item" for="{{random-id key=this}}">{{{content}}}</label>
+      {{/if}}
+      {{#if items.length}}
+      <button class="px-2 rounded text-slate-500 hover:bg-slate-100" id="{{random-id key=this}}">
+        {{icon "chevron-right" class="pointer-events-none rotate-90 collapsed:rotate-0"}}
+      </button>
+      {{/if}}
+    </div>
+    {{/if}}
+    <div class="collapsed:h-0 overflow-hidden {{#if ../level}}pl-4{{/if}}">
+      {{> nav-tree navigation=items level=(increment ../level)}}
+    </div>
+  </li>
+  {{/each}}
+</ul>
+{{/if}}
+

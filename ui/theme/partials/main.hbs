@@ -1,8 +1,16 @@
-<div class="root">
-	{{> navigation }}
-	<main role="main" class="main">
-		{{> header }}
-		{{> article }}
-		{{> footer }}
-	</main>
-</div>
+<main class="container px-5 mx-auto lg:grid grid-cols-5 gap-5">
+  <div class="main-side-column">
+    {{#unless (eq page.component.name "ROOT")}}
+    {{> nav}}
+    {{/unless}}
+  </div>
+
+  <div class="py-10 col-span-3">
+    <article class="doc prose xl:prose-lg">
+      {{#with page.title}}
+      <h1>{{{this}}}</h1>
+      {{/with}}
+      {{{page.contents}}}
+    </article>
+  </div>
+</main>
