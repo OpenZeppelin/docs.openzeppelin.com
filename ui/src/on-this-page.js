@@ -27,7 +27,7 @@ onLoad(() => {
       <ul class=${pad && "pl-4"}>
         ${items.map(i => html`
           <li>
-          <a class="block p-2" href="#${i.id}">${i.title}</a>
+          <a class="block p-2 rounded hover:bg-slate-50" href="#${i.id}">${i.title}</a>
           ${i.items.length ? tree(i.items) : ''}
           </li>
         `)}
