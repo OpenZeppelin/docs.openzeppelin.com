@@ -1,7 +1,7 @@
 {{#if navigation.length}}
 <ul>
   {{#each navigation}}
-  <li class="{{#if (and content items.length)}}collapsible {{#unless (is-current-page this)}}collapsed{{/unless}}{{/if}} {{#if (is-current-page this)}}is-current-page{{/if}}">
+  <li class="{{#if (is-collapsible)}}collapsible {{#unless (is-current-page)}}collapsed{{/unless}}{{/if}} {{#if (is-current-page)}}is-current-page{{/if}}">
     {{#if content}}
     <div class="flex rounded hover:bg-slate-50">
       {{#if url}}
@@ -16,7 +16,7 @@
       {{/if}}
     </div>
     {{/if}}
-    <div class="collapsed:h-0 overflow-hidden {{#if ../level}}pl-4{{/if}}">
+    <div class="collapsed:h-0 overflow-hidden {{#if (is-collapsible)}}pl-4{{/if}}">
       {{> nav-tree navigation=items level=(increment ../level)}}
     </div>
   </li>

@@ -229,12 +229,11 @@ page:
       url: '#'
     - content: Releases
       url: '#'
-    - content: API Reference
-      url: '/contracts/2.x/api.html' 
-      items:
-        - <<: *item
-          content: ERC20
-          url: '#'
+  - content: API Reference
+    items:
+      - <<: *item
+        content: ERC20
+        url: '/contracts/2.x/api.html' 
   previous:
     content: Getting Started
     url: /contracts/2.x/index.html
