@@ -28,6 +28,7 @@
 
 :root {
   --header: 5rem;
+  scroll-padding-top: calc(1rem + var(--header));
 }
 
 @layer components {
