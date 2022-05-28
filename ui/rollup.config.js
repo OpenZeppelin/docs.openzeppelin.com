@@ -38,7 +38,11 @@ export default {
     commonjs(),
     babel({ babelHelpers: 'bundled' }),
 
-    !production && run('node', 'preview/build.js', { watch: '.', ignored: ['preview/build'] }),
+    !production && run('node', 'preview/build.js', {
+      watch: ['preview', 'theme/{partials,helpers}'],
+      ignored: ['preview/build'],
+    }),
+
     !production && serve('preview/build', { wait: 200 }),
   ],
   watch: {
