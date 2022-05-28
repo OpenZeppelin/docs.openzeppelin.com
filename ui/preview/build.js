@@ -7,6 +7,7 @@ const rimraf = promisify(require('rimraf'));
 const path = require('path');
 const fs = require('fs').promises;
 const asciidoctor = require('asciidoctor')();
+const fsSync = require('fs');
 const handlebars = require('handlebars');
 const yaml = require('yaml');
 const fromEntries = require('fromentries');
@@ -14,6 +15,7 @@ const fromEntries = require('fromentries');
 const themeDir = 'theme';
 const previewDir = 'preview';
 const previewPagesDir = path.join(previewDir, 'pages');
+const previewPartialsDir = path.join(previewDir, 'partials');
 const buildDir = path.join(previewDir, 'build');
 
 const ASCIIDOC_ATTRIBUTES = {
@@ -45,10 +47,20 @@ async function main() {
 
 async function getPages() {
   const pageFiles = await glob(path.join(previewPagesDir, '**/*.adoc'));
+
+  const extension_registry = asciidoctor.Extensions.create();
+  extension_registry.includeProcessor(function () {
+    this.process(function (doc, reader, target, attrs) {
+      const [_, file] = target.match(/partial\$(.*)/);
+      const content = fsSync.readFileSync(path.join(previewPartialsDir, file), 'utf8');
+      return reader.pushInclude(content, target, target, 1, attrs);
+    });
+  });
+
   return Promise.all(pageFiles.map(async f => {
     const source = await fs.readFile(f, 'utf8');
     const sourceWithLinks = source.replace('xref:contracts::index.adoc', 'link:/contracts/2.x');
-    const doc = asciidoctor.load(sourceWithLinks, { safe: 'safe', attributes: ASCIIDOC_ATTRIBUTES })
+    const doc = asciidoctor.load(sourceWithLinks, { extension_registry, safe: 'safe', attributes: ASCIIDOC_ATTRIBUTES })
     const attributes = fromEntries(
       Object.entries(doc.getAttributes())
         .filter(([k]) => k.startsWith('page-'))
