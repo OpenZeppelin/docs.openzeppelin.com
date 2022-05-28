@@ -9,6 +9,14 @@ module.exports = {
       addVariant('-collapsed', '.collapsible:not(.collapsed) &')
     }),
   ],
+  corePlugins: {
+    textOpacity: false,
+    backgroundOpacity: false,
+    borderOpacity: false,
+    divideOpacity: false,
+    placeholderOpacity: false,
+    ringOpacity: false,
+  },
   darkMode: 'class',
   theme: {
     extend: {
