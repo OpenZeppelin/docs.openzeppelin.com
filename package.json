@@ -16,7 +16,7 @@
     "watch:local": "fgbg 'nodemon -e yml,adoc -w components -x yarn build:local' 'live-server build/site'"
   },
   "dependencies": {
-    "@antora/lunr-extension": "file:antora-lunr-extension-1.0.0-alpha.6.tgz",
+    "@antora/lunr-extension": "^1.0.0-alpha.8",
     "antora": "^3.0.0",
     "glob": "^7.1.4",
     "js-yaml": "^3.13.1",
