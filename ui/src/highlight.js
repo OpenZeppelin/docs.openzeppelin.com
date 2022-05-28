@@ -1,3 +1,4 @@
+import { onLoad } from './utils/on-load';
 import hljs from 'highlight.js/lib/core';
 
 import markdown from 'highlight.js/lib/languages/markdown';
@@ -28,4 +29,4 @@ hljs.registerLanguage('xml', xml);
 import hljsDefineSolidity from 'highlightjs-solidity';
 hljsDefineSolidity(hljs);
 
-hljs.initHighlightingOnLoad();
+onLoad(hljs.highlightAll);
