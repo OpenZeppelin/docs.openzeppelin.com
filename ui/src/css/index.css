@@ -47,6 +47,46 @@
   .readme-notice {
     @apply hidden;
   }
+
+  .search-result-dropdown-menu {
+    @apply absolute overflow-auto top-[calc(100%+theme('spacing.2'))] max-h-[calc(90vh-var(--header))] w-[500px] border rounded shadow bg-white;
+
+    &:empty {
+      @apply hidden;
+    }
+  }
+
+  .search-result-dataset {
+    @apply space-y-1 p-3;
+  }
+
+  .search-result-component-header {
+    @apply font-bold pb-1 border-b;
+  }
+
+  .search-result-item {
+    @apply py-2 grid grid-cols-3 gap-2 items-baseline;
+  }
+
+  .search-result-document-title {
+    @apply text-right;
+  }
+
+  .search-result-document-hit {
+    @apply col-span-2;
+
+    & > a {
+      @apply p-2 border-l block break-words text-slate-800 hover:bg-slate-50;
+    }
+  }
+
+  .search-result-section-title {
+    @apply text-black;
+  }
+
+  .search-result-highlight {
+    @apply rounded ring ring-sky-600/10 bg-sky-50 text-sky-800 font-bold;
+  }
 }
 
 /* Outside of @layer because we don't want this to be tree-shaken away. */

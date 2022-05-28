@@ -1,5 +1,6 @@
 antoraVersion: '1.0.0'
-env: []
+env:
+  SITE_SEARCH_PROVIDER: true
 site:
   title: OpenZeppelin Docs
   url: http://localhost:8080
