@@ -177,7 +177,7 @@ We can also test the connection to the node, by querying our account balance.
 --
 [source,console]
 ----
-> (await ethers.provider.getBalance(accounts[0])).toString()
+> await web3.eth.getBalance(accounts[0])
 '0'
 ----
 --
@@ -186,7 +186,7 @@ We can also test the connection to the node, by querying our account balance.
 --
 [source,console]
 ----
-> (await ethers.provider.getBalance(accounts[0])).toString()
+> await web3.eth.getBalance(accounts[0])
 '0'
 ----
 --
