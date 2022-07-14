@@ -51,6 +51,16 @@ site:
         version: '1.x'
         displayVersion: '1.x'
       latestVersion: *latest_version_contracts
+    contracts-cairo:
+      name: contracts-cairo
+      title: Contracts for Cairo
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#' 
+        version: '0.2.x'
+        displayVersion: '0.2.x'
+      latestVersion: *latest_version_abc
     cli:
       name: cli
       title: CLI
