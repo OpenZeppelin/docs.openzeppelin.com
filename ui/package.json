@@ -32,6 +32,7 @@
     "handlebars": "^4.7.7",
     "highlight.js": "^11.5.1",
     "highlightjs-solidity": "^2.0.5",
+    "highlightjs-cairo": "^0.1.0",
     "live-server": "^1.2.2",
     "lodash.debounce": "^4.0.8",
     "rimraf": "^3.0.2",
