@@ -294,7 +294,7 @@ When used this way, inheritance becomes a powerful mechanism that allows for mod
 The latest published release of the OpenZeppelin Contracts library can be downloaded by running:
 
 ```console
-$ npm install --save-dev @openzeppelin/contracts
+$ npm install @openzeppelin/contracts
 ```
 
 NOTE: You should always use the library from these published releases: copy-pasting library source code into your project is a dangerous practice that makes it very easy to introduce security vulnerabilities in your contracts.
