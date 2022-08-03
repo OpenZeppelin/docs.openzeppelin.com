@@ -52,7 +52,7 @@
               {{#each versions}}
                 {{#unless (eq this ../latest)}}
                   <li>
-                      <a href="{{{url}}}">{{displayVersion}}</a>
+                    <a href="{{{url}}}">{{displayVersion}}</a>
                   </li>
                 {{/unless}}
               {{/each}}
@@ -65,7 +65,7 @@
     </div>
     {{#if (eq this @root.page.component)}}
     <ol class="nav-list">
-        {{> navigation-tree items=@root.page.navigation}}
+      {{> navigation-tree items=@root.page.navigation}}
     </ol>
     {{/if}}
   </div>
