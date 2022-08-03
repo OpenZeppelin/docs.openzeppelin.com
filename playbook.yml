@@ -67,7 +67,7 @@ content:
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/cairo-contracts
-      branches: integrate-docsite
+      branches: HEAD
       start_path: docs
 ui:
   bundle:
