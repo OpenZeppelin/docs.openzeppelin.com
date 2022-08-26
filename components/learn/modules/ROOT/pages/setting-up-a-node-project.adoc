@@ -16,6 +16,19 @@ TIP: If you are running Windows consider using https://docs.microsoft.com/en-us/
 
 Once you're done, run `node --version` on a terminal to check your installation: any version of the 10.x or 12.x line should be compatible with most Ethereum software.
 
+[.truffle]
+--
+Current Truffel node version recommendation is the 12.x. You can check which is the recommended node version https://trufflesuite.com/docs/truffle/getting-started/installation/[here]
+--
+
+[.hardhat]
+--
+Current Hardhat node version recommendation is using LTS. 
+https://hardhat.org/tutorial/setting-up-the-environment[Hardhat node version]
+https://nodejs.org/en/about/releases/[Current LTS version]
+--
+
+
 ```console
 $ node --version
 v12.22.1

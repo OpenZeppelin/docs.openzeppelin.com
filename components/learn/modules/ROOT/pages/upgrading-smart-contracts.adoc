@@ -487,6 +487,24 @@ To test upgradeable contracts we should create unit tests for the implementation
 
 When we want to upgrade, we should create unit tests for the new implementation contract, along with creating higher level tests for testing interaction via the proxy after we upgrade using `upgradeProxy`, checking that state is maintained across upgrades.
 
+== Possible issues
+
+While learning how to upgrade contract you might find yourself in a situation of conflicting contract on the local environment.
+To solve this consider using the follow steps:
+[.truffle]
+--
+```console
+npx truffle migrate --reset
+```
+--
+
+[.hardhat]
+--
+Stop the node ctrl+C which was ran with `npx hardhat node`
+
+Execute a clean `npx hardhat clean`
+--
+
 == Next steps
 
 Now that you know how to upgrade your smart contracts, and can iteratively develop your project, it's time to take your project to xref:connecting-to-public-test-networks.adoc[testnet] and to xref:preparing-for-mainnet.adoc[production]! You can rest with the confidence that, should a bug appear, you have the tools to modify your contract and change it.
