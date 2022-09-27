@@ -161,7 +161,12 @@ Many interesting properties of your contracts may be hard to capture, such as:
 
 xref:test-helpers::index.adoc[*OpenZeppelin Test Helpers*] is a library designed to help you test all of these properties. It will also simplify the tasks of simulating time passing on the blockchain and handling very large numbers.
 
-NOTE: OpenZeppelin Test Helpers is web3.js based, thus Hardhat users should https://hardhat.org/guides/truffle-testing.html[use the Truffle plugin] for compatibility, or use https://hardhat.org/guides/waffle-testing.html[Waffle] with ethers.js, which offers similar functionality.
+[.hardhat]
+--
+
+NOTE: OpenZeppelin Test Helpers is web3.js based, thus Hardhat users should https://hardhat.org/guides/truffle-testing.html[use the Truffle plugin] for compatibility. However, we recommend instead using https://hardhat.org/hardhat-chai-matchers/docs/overview[Hardhat Chai Matchers] as a better supported alternative for Ethers.js.
+
+--
 
 To install the OpenZeppelin Test Helpers, run:
 ```console
@@ -218,6 +223,8 @@ These will test properties of the `Ownable` `Box` contract from xref:developing-
 
 Run your tests again to see the Test Helpers in action:
 
+[.truffle]
+--
 ```console
 $ npx truffle test
 ...
@@ -229,6 +236,22 @@ $ npx truffle test
 
   3 passing (753ms)
 ```
+--
+
+[.hardhat]
+--
+```console
+$ npx hardhat test
+...
+  Contract: Box
+    ✓ retrieve returns a value previously stored
+    ✓ store emits an event
+    ✓ non owner cannot store a value (588ms)
+
+
+  3 passing (753ms)
+```
+--
 
 The Test Helpers will let you write powerful assertions without having to worry about the low-level details of the underlying Ethereum libraries. To learn more about what you can do with them, head to their xref:test-helpers::api.adoc[API reference].
 
