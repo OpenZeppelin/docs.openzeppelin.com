@@ -34,17 +34,6 @@ We'll use https://www.chaijs.com/[Chai] assertions for our unit tests.
 $ npm install --save-dev chai
 ```
 
-[.hardhat]
---
-Add @nomiclabs/hardhat-truffle5 in hardhat.config.js
-
-```console
-...
-require("@nomiclabs/hardhat-truffle5"); 
-...
-```
---
-
 We will keep our test files in a `test` directory. Tests are best structured by mirroring the xref:developing-smart-contracts.adoc#first-contract[`contracts` directory]: for each `.sol` file there, create a corresponding test file.
 
 Time to write our first tests! These will test properties of the `Box` contract xref:developing-smart-contracts.adoc#box-contract[from previous guides]: a simple contract that lets you `retrieve` a value the owner previously `store` d.
@@ -172,7 +161,12 @@ Many interesting properties of your contracts may be hard to capture, such as:
 
 xref:test-helpers::index.adoc[*OpenZeppelin Test Helpers*] is a library designed to help you test all of these properties. It will also simplify the tasks of simulating time passing on the blockchain and handling very large numbers.
 
-NOTE: OpenZeppelin Test Helpers is web3.js based, thus Hardhat users should https://hardhat.org/guides/truffle-testing.html[use the Truffle plugin] for compatibility, or use https://hardhat.org/guides/waffle-testing.html[Waffle] with ethers.js, which offers similar functionality.
+[.hardhat]
+--
+
+NOTE: OpenZeppelin Test Helpers is web3.js based, thus Hardhat users should https://hardhat.org/guides/truffle-testing.html[use the Truffle plugin] for compatibility. However, we recommend instead using https://hardhat.org/hardhat-chai-matchers/docs/overview[Hardhat Chai Matchers] as a better supported alternative for Ethers.js.
+
+--
 
 To install the OpenZeppelin Test Helpers, run:
 ```console
