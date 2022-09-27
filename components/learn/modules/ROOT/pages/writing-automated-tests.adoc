@@ -241,7 +241,7 @@ $ npx truffle test
 [.hardhat]
 --
 ```console
-$ npx truffle test
+$ npx hardhat test
 ...
   Contract: Box
     ✓ retrieve returns a value previously stored
