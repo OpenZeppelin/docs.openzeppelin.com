@@ -156,7 +156,7 @@ All contracts are up to date
 ✓ Instance created at 0xCfEB869F69431e42cdB54A4F4f105C19C080A601
 ----
 
-Great! Now, if we deployed this contract to mainnet or the rinkeby testnet, we would be almost ready to start sending gasless transactions to it, since the GSN is already set up on both of those networks. However, since we are on a local ganache, we'll need to set it up ourselves.
+Great! Now, if we deployed this contract to mainnet or the goerli testnet, we would be almost ready to start sending gasless transactions to it, since the GSN is already set up on both of those networks. However, since we are on a local ganache, we'll need to set it up ourselves.
 
 [[deploying-local-gsn]]
 === Deploying a Local GSN for Development
@@ -298,18 +298,18 @@ Great! We can now fire up our application running `npm start` from within the `c
 [[moving-to-testnet]]
 === Moving to a Testnet
 
-It is not very impressive to send a local transaction in your ganache network, where you already have a bunch of fully-funded accounts. To witness the GSN at its full potential, let's move our application to the Rinkeby testnet. If you later want to go onto mainnet, the instructions are the same.
+It is not very impressive to send a local transaction in your ganache network, where you already have a bunch of fully-funded accounts. To witness the GSN at its full potential, let's move our application to the goerli testnet. If you later want to go onto mainnet, the instructions are the same.
 
-You will need to create a new entry in the `networks.js` file, with a Rinkeby account that has been funded. For detailed instructions on how to do this, check out xref:connecting-to-public-test-networks.adoc[Deploying to Public Tests Network].
+You will need to create a new entry in the `networks.js` file, with a goerli account that has been funded. For detailed instructions on how to do this, check out xref:connecting-to-public-test-networks.adoc[Deploying to Public Tests Network].
 
-We can now deploy our `Counter` contract to Rinkeby:
+We can now deploy our `Counter` contract to goerli:
 
 [source,console]
 ----
 $ openzeppelin create
 ✓ Compiled contracts with solc 0.5.9 (commit.e560f70d)
 ? Pick a contract to instantiate: Counter
-? Pick a network: rinkeby
+? Pick a network: goerli
 ✓ Added contract Counter
 ✓ Contract Counter deployed
 ? Call a function to initialize the instance after creating it?: Yes
@@ -319,7 +319,7 @@ $ openzeppelin create
 ----
 
 
-The next step will be to instruct our (d)app to connect to a Rinkeby node instead of the local network. Change the `PROVIDER_URL` in your `App.js` to, for example, an Infura Rinkeby endpoint.
+The next step will be to instruct our (d)app to connect to a goerli node instead of the local network. Change the `PROVIDER_URL` in your `App.js` to, for example, an Infura goerli endpoint.
 
 We will now be using a real GSN provider rather than our developer environment, so you may want to also provide a xref:gsn-provider::api.adoc[configuration object], which will give you more control over things such as the gas price you are willing to pay. For production (d)apps, you will want to configure this to your requirements.
 
@@ -328,17 +328,17 @@ We will now be using a real GSN provider rather than our developer environment, 
 import { useWeb3Network, useEphemeralKey } from "@openzeppelin/network/react";
 
 // inside App.js#App()
-const context = useWeb3Network('https://rinkeby.infura.io/v3/' + INFURA_API_TOKEN, {
+const context = useWeb3Network('https://goerli.infura.io/v3/' + INFURA_API_TOKEN, {
   gsn: { signKey: useEphemeralKey() }
 });
 ----
 
 
-We are almost there! If you try to use your (d)app now, you will notice that you are not able to send any transactions. This is because your `Counter` contract has not been funded on this network yet. Instead of using the `oz-gsn fund-recipient` command we used earlier, we will now use the https://gsn.openzeppelin.com[online gsn-tool] by pasting in the address of your instance. To do this, the web interface requires that you use MetaMask on the Rinkeby Network, which will allow you to deposit funds into your contract.
+We are almost there! If you try to use your (d)app now, you will notice that you are not able to send any transactions. This is because your `Counter` contract has not been funded on this network yet. Instead of using the `oz-gsn fund-recipient` command we used earlier, we will now use the https://gsn.openzeppelin.com[online gsn-tool] by pasting in the address of your instance. To do this, the web interface requires that you use MetaMask on the goerli Network, which will allow you to deposit funds into your contract.
 
 image::GSNDappTool.png[OpenZeppelin GSN Dapp Tool,500]
 
-That's it! We can now start sending transactions to our `Counter` contract on the Rinkeby network from our browser without even having MetaMask installed.
+That's it! We can now start sending transactions to our `Counter` contract on the goerli network from our browser without even having MetaMask installed.
 
 [[gsn-kit]]
 == The GSN Starter Kit
