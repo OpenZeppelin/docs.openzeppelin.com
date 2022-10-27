@@ -20,7 +20,7 @@ include::learn::partial$hardhat-truffle-toggle.adoc[]
 There are two test networks available for you to choose, each with their own characteristics:
 
 [horizontal]
-Sepolia:: A proof-of-stake network. This means miners validators explicitly stake capital in the form of ETH into a smart contract, and acts as collateral to be destroyed of validator missbehaves. (id=11155111)
+Sepolia:: A proof-of-stake network. This means validators explicitly stake capital in the form of ETH into a smart contract, which acts as collateral to be destroyed upon misbehavior. (id=11155111)
 Goerli:: Also a proof-of-stake network, compatible with both Geth and OpenEthereum clients, with 15-second block times. (id=5)
 
 NOTE: Each network is identified by a numeric ID. Local networks usually have a large random value, while id=1 is reserved for the main Ethereum network.
