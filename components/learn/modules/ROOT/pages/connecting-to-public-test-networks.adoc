@@ -95,7 +95,7 @@ We need to update our configuration file with a new network connection to the te
 +      provider: () => new HDWalletProvider(
 +        mnemonic, `https://eth-goerli.alchemyapi.io/v2/${alchemyApiKey}`,
 +      ),
-+      network_id: 4,
++      network_id: 5,
 +      gasPrice: 10e9,
 +      skipDryRun: true,
 +    },
