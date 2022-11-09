@@ -15,6 +15,7 @@ We won't cover language concepts such as syntax or keywords in this guide. For t
  * If you're new to the language, the https://solidity.readthedocs.io/en/latest/introduction-to-smart-contracts.html[official Solidity documentation] is a good resource to have handy. Take a look at their https://solidity.readthedocs.io/en/latest/security-considerations.html[security recommendations], which nicely go over the differences between blockchains and traditional software platforms.
  * Consensys' https://consensys.github.io/smart-contract-best-practices/[best practices] are quite extensive, and include both https://consensys.github.io/smart-contract-best-practices/development-recommendations/[proven patterns] to learn from and https://consensys.github.io/smart-contract-best-practices/attacks/[known pitfalls] to avoid.
  * The https://ethernaut.openzeppelin.com/[Ethernaut] web-based game will have you look for subtle vulnerabilities in smart contracts as you advance through levels of increasing difficulty.
+ * For a detailed guide that breaks down Solidity, https://www.alchemy.com/overviews/solidity-smart-contract/[ Alchemy's overview ] provides a high-level understanding of Ethereum smart contract components. This overview speaks to Solidity's mechanics, properties, syntax, and data types. 
 
 With that out of the way, let's get started!
 
