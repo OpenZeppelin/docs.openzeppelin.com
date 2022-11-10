@@ -38,7 +38,7 @@ To connect our project to a public testnet, we will need to:
 [[accessing-a-testnet-node]]
 === Accessing a testnet node
 
-While you can spin up your own https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options[Geth] or https://openethereum.github.io/wiki/Chain-specification[OpenEthereum] node connected to a testnet, the easiest way to access a testnet is via a public node service such as https://alchemyapi.io/[Alchemy] or https://infura.io[Infura]. Alchemy and Infura provide access to public nodes for all testnets and the main network, via both free and paid plans.
+While you can spin up your own https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options[Geth] or https://openethereum.github.io/wiki/Chain-specification[OpenEthereum] node connected to a testnet, the easiest way to access a testnet is via a public node service such as https://alchemy.com/[Alchemy] or https://infura.io[Infura]. Alchemy and Infura provide access to public nodes for all testnets and the main network, via both free and paid plans.
 
 NOTE: We say a node is _public_ when it can be accessed by the general public, and manages no accounts. This means that it can reply to queries and relay signed transactions, but cannot sign transactions on its own.
 
@@ -192,7 +192,7 @@ Empty! This points to our next task: getting testnet funds so that we can send t
 [[finding-a-testnet-account]]
 === Funding the testnet account
 
-Most public testnets have a faucet: a site that will provide you with a small amount of test Ether for free. If you are on goerli, head on to the https://faucet.goerli.io/[goerli Authenticated Faucet] to get funds by authenticating with your Twitter or Facebook account. Alternatively, you can also use https://faucet.metamask.io/[MetaMask's faucet] to ask for funds directly to your MetaMask accounts.
+Most public testnets have a faucet: a site that will provide you with a small amount of test Ether for free. If you are on goerli, head to the https://goerlifaucet.com[Alchemy's free Goerli faucet] to get free testETH. Alternatively, you can also use https://faucet.metamask.io/[MetaMask's faucet] to ask for funds directly to your MetaMask accounts.
 
 Armed with a funded account, let's deploy our contracts to the testnet!
 
