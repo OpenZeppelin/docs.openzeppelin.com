@@ -17,17 +17,13 @@ include::learn::partial$hardhat-truffle-toggle.adoc[]
 [[testnet-list]]
 == Available testnets
 
-There are four test networks available for you to choose, each with their own characteristics:
+There are two test networks available for you to choose, each with their own characteristics:
 
 [horizontal]
-Ropsten:: The only proof-of-work testnet. It has unpredictable block times and frequent chain reorganizations. At the same time, it is the chain that most closely resembles mainnet. (id=3)
-Rinkeby:: A proof-of-authority network. This means that new blocks are added by a set of pre-defined trusted nodes, instead of by whichever miner provides a proof-of-work. It only works with Geth clients, and has 15-second block times. (id=4)
-Kovan:: Another proof-of-authority network, but this one runs only with OpenEthereum clients, and has 4-second block times. (id=42)
-Goerli:: Also a proof-of-authority network, but compatible with both Geth and OpenEthereum clients, with 15-second block times. (id=5)
+Sepolia:: A proof-of-stake network. This means validators explicitly stake capital in the form of ETH into a smart contract, which acts as collateral to be destroyed upon misbehavior. (id=11155111)
+Goerli:: Also a proof-of-stake network, compatible with both Geth and OpenEthereum clients, with 15-second block times. (id=5)
 
 NOTE: Each network is identified by a numeric ID. Local networks usually have a large random value, while id=1 is reserved for the main Ethereum network.
-
-It is up to you whether you want to test in Ropsten's unpredictable environment to assess how robust your application is, or a more reliable one to simplify the testing experience.
 
 [[connecting-project-to-network]]
 == Connecting a project to a public network
@@ -80,7 +76,7 @@ $ npm install --save-dev @truffle/hdwallet-provider
 ----
 --
 
-We need to update our configuration file with a new network connection to the testnet. Here we will use Rinkeby, but you can use whichever you want:
+We need to update our configuration file with a new network connection to the testnet. Here we will use Goerli, but you can use whichever you want:
 [.truffle]
 --
 [source,diff]
@@ -95,11 +91,11 @@ We need to update our configuration file with a new network connection to the te
      development: {
       ...
      },
-+    rinkeby: {
++    goerli: {
 +      provider: () => new HDWalletProvider(
-+        mnemonic, `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`,
++        mnemonic, `https://eth-goerli.alchemyapi.io/v2/${alchemyApiKey}`,
 +      ),
-+      network_id: 4,
++      network_id: 5,
 +      gasPrice: 10e9,
 +      skipDryRun: true,
 +    },
@@ -120,8 +116,8 @@ NOTE: See the `HDWalletProvider` https://github.com/trufflesuite/truffle/tree/ma
 ...
   module.exports = {
 +    networks: {
-+     rinkeby: {
-+       url: `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`,
++     goerli: {
++       url: `https://eth-goerli.alchemyapi.io/v2/${alchemyApiKey}`,
 +       accounts: { mnemonic: mnemonic },
 +     },
 +   },
@@ -143,14 +139,14 @@ Note in the first line that we are loading the project id and mnemonic from a `s
 
 TIP: Instead of a `secrets.json` file, you can use whatever secret-management solution you like for your project. A popular and simple option is to use https://github.com/motdotla/dotenv[`dotenv`] for injecting secrets as environment variables.
 
-We can now test out that this configuration is working by listing the accounts we have available for the Rinkeby network. Remember that yours will be different, as they depend on the mnemonic you used.
+We can now test out that this configuration is working by listing the accounts we have available for the goerli network. Remember that yours will be different, as they depend on the mnemonic you used.
 
 [.truffle]
 --
 [source,console]
 ----
-$ npx truffle console --network rinkeby
-truffle(rinkeby)> accounts
+$ npx truffle console --network goerli
+truffle(goerli)> accounts
 [ '0xEce6999C6c5BDA71d673090144b6d3bCD21d13d4',
   '0xC1310ade58A75E6d4fCb8238f9559188Ea3808f9',
 ... ]
@@ -161,7 +157,7 @@ truffle(rinkeby)> accounts
 --
 [source,console]
 ----
-$ npx hardhat console --network rinkeby
+$ npx hardhat console --network goerli
 Welcome to Node.js v12.22.1.
 Type ".help" for more information.
 > accounts = await ethers.provider.listAccounts()
@@ -196,7 +192,7 @@ Empty! This points to our next task: getting testnet funds so that we can send t
 [[finding-a-testnet-account]]
 === Funding the testnet account
 
-Most public testnets have a faucet: a site that will provide you with a small amount of test Ether for free. If you are on Rinkeby, head on to the https://faucet.rinkeby.io/[Rinkeby Authenticated Faucet] to get funds by authenticating with your Twitter or Facebook account. Alternatively, you can also use https://faucet.metamask.io/[MetaMask's faucet] to ask for funds directly to your MetaMask accounts.
+Most public testnets have a faucet: a site that will provide you with a small amount of test Ether for free. If you are on goerli, head on to the https://faucet.goerli.io/[goerli Authenticated Faucet] to get funds by authenticating with your Twitter or Facebook account. Alternatively, you can also use https://faucet.metamask.io/[MetaMask's faucet] to ask for funds directly to your MetaMask accounts.
 
 Armed with a funded account, let's deploy our contracts to the testnet!
 
@@ -209,7 +205,7 @@ With a project configured to work on a public testnet, we can now finally xref::
 --
 [source,console]
 ----
-$ npx truffle migrate --network rinkeby
+$ npx truffle migrate --network goerli
 ...
 2_deploy.js
 ===========
@@ -227,7 +223,7 @@ $ npx truffle migrate --network rinkeby
 --
 [source,console]
 ----
-$ npx hardhat run --network rinkeby scripts/deploy.js
+$ npx hardhat run --network goerli scripts/deploy.js
 Deploying Box...
 Box deployed to: 0xD7fBC6865542846e5d7236821B5e045288259cf0
 ----
@@ -235,16 +231,16 @@ Box deployed to: 0xD7fBC6865542846e5d7236821B5e045288259cf0
 
 That's it! Your `Box` contract instance will be forever stored in the testnet, and publicly accessible to anyone. 
 
-You can see your contract on a block explorer such as https://etherscan.io/[Etherscan]. Remember to access the explorer on the testnet where you deployed your contract, such as https://rinkeby.etherscan.io[rinkeby.etherscan.io] for Rinkeby.
+You can see your contract on a block explorer such as https://etherscan.io/[Etherscan]. Remember to access the explorer on the testnet where you deployed your contract, such as https://goerli.etherscan.io[goerli.etherscan.io] for goerli.
 
 [.truffle]
 --
-TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0xA4D767f2Fba05242502ECEcb2Ae97232F7611353[here].
+TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://goerli.etherscan.io/address/0xA4D767f2Fba05242502ECEcb2Ae97232F7611353[here].
 --
 
 [.hardhat]
 --
-TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://rinkeby.etherscan.io/address/0xD7fBC6865542846e5d7236821B5e045288259cf0[here].
+TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://goerli.etherscan.io/address/0xD7fBC6865542846e5d7236821B5e045288259cf0[here].
 --
 
 You can also interact with your instance as you regularly would, either using the xref::deploying-and-interacting.adoc#interacting-from-the-console[console], or xref::deploying-and-interacting.adoc#interacting-programatically[programmatically].
@@ -252,14 +248,14 @@ You can also interact with your instance as you regularly would, either using th
 [.truffle]
 --
 ```console
-$ npx truffle console --network rinkeby
-truffle(rinkeby)> box = await Box.deployed()
+$ npx truffle console --network goerli
+truffle(goerli)> box = await Box.deployed()
 undefined
-truffle(rinkeby)> await box.store(42)
+truffle(goerli)> await box.store(42)
 { tx:
    '0x7d1a556b34fcb26855c6646669fc926738b05589591de6c7bb1f8773546817e7',
 ...
-truffle(rinkeby)> (await box.retrieve()).toString()
+truffle(goerli)> (await box.retrieve()).toString()
 '42'
 ```
 --
@@ -267,7 +263,7 @@ truffle(rinkeby)> (await box.retrieve()).toString()
 [.hardhat]
 --
 ```console
-$ npx hardhat console --network rinkeby
+$ npx hardhat console --network goerli
 Welcome to Node.js v12.22.1.
 Type ".help" for more information.
 > const Box = await ethers.getContractFactory('Box');
