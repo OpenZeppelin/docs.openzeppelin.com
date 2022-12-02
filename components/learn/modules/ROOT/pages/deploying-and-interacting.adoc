@@ -213,6 +213,33 @@ TIP: If you got a connection error, make sure you are running a <<local-blockcha
 NOTE: Remember that local blockchains **do not** persist their state throughout multiple runs! If you close your local blockchain process, you'll have to re-deploy your contracts.
 
 [[interacting-from-the-console]]
+
+== Deploying on Testnets and Ethereum Mainnet
+
+While deploying on a local blockchain has the forementioned benefits (e.g., it runs on your machine, needs no Internet access, mines blocks instantly, and doesn't require test Ether), sometimes deploying on testnets is beneficial for stress-testing how the external parties or conditions could interact with your smart contract. Should you need a testnet (likely Goerli), follow our https://docs.openzeppelin.com/learn/connecting-to-public-test-networks[Connecting to Public Test Networks] guide.
+
+Regardless if you test by deploying to your local blockchain or testnet, the next step is to deploy to Ethereum mainnet. Remember that doing so will cost real $ in the form of ETH because you're creating a block and therefore creating real gas costs. 
+
+In this case, you can use MetaMask. 
+
+1. First, you get your free private API key from a blockchain developer like https://docs.alchemy.com[Alchemy], https://infura.io[Infura], or https://moralis.io[Moralis]. 
+
+2. Second, in Metamask, you fill in the network, RPC URL, chain ID, currency symbol, and the block explorer URL. The selections for Ethereum Mainnet are below. The last is not necessary but makes tracking the deployment easier. 
+
+  - **Network:** Ethereum Mainnet
+  - **RPC URL:** https://eth-mainnet.g.alchemy.com/v2/private-api-key
+  - **Chain ID:** 1
+  - **Currency Symbol:** ETH
+  - **Block Explorer URL:** https://ethereum.polygonscan.com/
+
+Once you've filled out everything, you hit "enter". 
+
+3. Next, you connect MetMask and your RPC provider to your project. 
+
+4. Then, you need to update hardhat.config.js and compile the Polygon smart contract. As these steps are more intensive, https://docs.alchemy.com/docs/how-to-code-and-deploy-a-polygon-smart-contract[here's a tutorial] that shows Alchemy and Hardhat deploying a contract to mainnet. Substitute Polygon with Ethereum as you go through the tutorial. 
+
+5. Finally, you deploy the smart contract to Ethereum (step 12 in the above https://docs.alchemy.com/docs/how-to-code-and-deploy-a-polygon-smart-contract[tutorial])
+
 == Interacting from the Console
 
 With our `Box` contract <<deploying-a-smart-contract, deployed>>, we can start using it right away.
