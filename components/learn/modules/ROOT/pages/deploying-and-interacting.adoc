@@ -218,7 +218,7 @@ NOTE: Remember that local blockchains **do not** persist their state throughout 
 
 While deploying on a local blockchain has the forementioned benefits (e.g., it runs on your machine, needs no Internet access, mines blocks instantly, and doesn't require test Ether), sometimes deploying on testnets is beneficial for stress-testing how the external parties or conditions could interact with your smart contract. Should you need a testnet (likely Goerli), follow our https://docs.openzeppelin.com/learn/connecting-to-public-test-networks[Connecting to Public Test Networks] guide.
 
-Regardless if you test by deploying to your local blockchain or testnet, the next step is to deploy to Ethereum mainnet. Remember that doing so will cost real $ in the form of ETH because you're creating a block and therefore creating real gas costs. 
+Regardless if you test by deploying to your local blockchain or testnet, the next step is to deploy to Ethereum mainnet. Remember that doing so will cost real money in the form of ETH because you're creating a block and therefore creating real gas costs. 
 
 In this case, you can use MetaMask. 
 
