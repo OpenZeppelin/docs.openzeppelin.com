@@ -71,7 +71,7 @@ content:
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/nile
-      branches: release-v*
+      branches: [release-v*, docs-v*]
       start_path: docs
 ui:
   bundle:
