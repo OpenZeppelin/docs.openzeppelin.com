@@ -190,6 +190,16 @@ site:
         version: '1.x'
         displayVersion: '1.x'
       latestVersion: *latest_version_abc
+    nile:
+      name: nile
+      title: Nile
+      url: '#'
+      versions:
+      - &latest_version_abc
+        url: '#'
+        version: '0.12.x'
+        displayVersion: '0.12.x'
+      latestVersion: *latest_version_abc
 
 page:
   title: Welcome to OpenZeppelin Documentation!
