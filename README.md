@@ -15,4 +15,4 @@ To show it in the sidebar, add the `name` from the repo's `antora.yml` in
 [`navigation.hbs`](./ui/theme/partials/navigation.hbs#L17-L25), and add an svg icon
 inside the [`icons folder`](./ui/theme/images/icons) matching the name.
 
-Finally, add an entry for it inside the [`model.yml`](./ui/preview/model.yml) file for development purpose.
+Finally, add an entry for it inside the [`model.yml`](./ui/preview/model.yml) file, for UI development purposes.
