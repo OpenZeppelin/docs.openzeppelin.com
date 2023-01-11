@@ -1,7 +1,7 @@
 // TODO: rework the whole doc here!
 = Documentation
 
-Explore our guides and examples to build decentralized insurance products using Etherisc and the Generic Insurance Framework (_GIF_).    
+Explore our guides and examples to build decentralized insurance products using Etherisc and the **G**eneric **I**nsurance **F**ramework _(GIF)_.    
 
 [.card-section]
 == Explore using Etherisc
@@ -53,7 +53,7 @@ Etherisc security audits ..
 [.card-section]
 == Learn
 
-Comprehensive guides for every step of your development journey.
+Comprehensive guides for every step of your development journey. Soon(C)!!
 // TODO: Update "Learn" Section
 // include::learn::partial$cards.adoc[]
 
@@ -72,13 +72,15 @@ many of them based on real-life hacks! You can discuss your solutions or ask for
 // TODO: Update Careers
 === Careers
 
-Etherisc is growing. If you enjoy using our products or reading our audit reports, and have a genuine interest in protecting the open economy, 
-please check out our current https://openzeppelin.com/jobs/[job openings].
+Etherisc is growing. If you enjoy using our products or reading our audit reports, 
+and have a genuine interest in protecting the open economy, 
+please check out our jobs channel on our https://discord.gg/cVsgakVG4R[Discord]!
 
 // TODO: Update Questions
 == Questions?
 
-Join the Etherisc community in https://forum.openzeppelin.com/[our forum] to https://forum.openzeppelin.com/c/support/17[ask for help], as well as share your feedback or showcase what you have built with OpenZeppelin!
+Join the Etherisc community in our https://t.me/etherisc_community[Telegram channel] and our https://discord.gg/cVsgakVG4R[Discord], 
+as well as share your feedback or showcase what you have built with OpenZeppelin!
 
 // TODO: Update or discard "Share the Love"
 ////
