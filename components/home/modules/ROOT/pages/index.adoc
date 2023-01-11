@@ -1,12 +1,14 @@
+// TODO: rework the whole doc here!
 = Documentation
 
-Explore our guides and examples to integrate OpenZeppelin security products to all aspects of your Ethereum development and operations.    
+Explore our guides and examples to build decentralized insurance products using Etherisc and the Generic Insurance Framework (_GIF_).    
 
 [.card-section]
-== Explore using OpenZeppelin
+== Explore using Etherisc
 
-OpenZeppelin provides a complete suite of security products to build, manage, and inspect all aspects of software development and operations for Ethereum projects.
+Etherisc provides a complete suite of solutions to build, manage, and inspect decentralized insurance products.
 
+// TODO: Update primary card row
 [.card.card-primary.card-contracts]
 --
 xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#pass:q[A library of modular, reusable, and secure smart contracts, written in Solidity.]#]
@@ -22,6 +24,8 @@ xref:upgrades.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[A comprehensive s
 xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
 --
 
+////
+// TODO: Find topics for secondary card row
 [.card.card-secondary.card-subgraphs]
 --
 xref:subgraphs::index.adoc[[.card-title]#Subgraphs# [.card-body]#pass:q[Subgraphs to easily index the activity of contracts built with OpenZeppelin Contracts.]#]
@@ -36,34 +40,48 @@ xref:test-helpers::index.adoc[[.card-title]#Test Helpers# [.card-body]#pass:q[A 
 --
 https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [.card-body]#pass:q[A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.]#]
 --
+////
 
 === Security Audits
 
-OpenZeppelin security audits are trusted by leading organizations building decentralized systems. Browse through past public audits in our https://blog.openzeppelin.com/security-audits/[blog] and follow our https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] before going to production. To learn more about OpenZeppelin’s audit process and request an audit, please visit our https://openzeppelin.com/security-audits/[security audits site].
+Etherisc security audits ..
+// are trusted by leading organizations building decentralized systems. 
+// Browse through past public audits in our https://blog.openzeppelin.com/security-audits/[blog] and follow our https://blog.// openzeppelin.com/
+// follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] before going to production. 
+// To learn more about OpenZeppelin’s audit process and request an audit, please visit our https://openzeppelin.com/security-audits/[security audits site].
 
 [.card-section]
 == Learn
 
 Comprehensive guides for every step of your development journey.
+// TODO: Update "Learn" Section
+// include::learn::partial$cards.adoc[]
 
-include::learn::partial$cards.adoc[]
+// Check out https://forum.openzeppelin.com/c/general/guides-and-tutorials/23[the OpenZeppelin forum] for additional community-contributed guides!
 
-Check out https://forum.openzeppelin.com/c/general/guides-and-tutorials/23[the OpenZeppelin forum] for additional community-contributed guides!
-
+////
 === Ethernaut
 
-Learn more about security in Solidity contracts by playing https://ethernaut.openzeppelin.com/[Ethernaut]. Every level in Ethernaut is a smart contract waiting to be hacked, and teaches you a vulnerability by having you exploit it - many of them based on real-life hacks! You can discuss your solutions or ask for tips in https://forum.openzeppelin.com/c/security/ethernaut/30[our forum].
+Learn more about security in Solidity contracts by playing https://ethernaut.openzeppelin.com/[Ethernaut]. 
+Every level in Ethernaut is a smart contract waiting to be hacked, and teaches you a vulnerability by having you exploit it - 
+many of them based on real-life hacks! You can discuss your solutions or ask for tips in https://forum.openzeppelin.com/c/security/ethernaut/30[our forum].
+////
 
-== More from OpenZeppelin
+== More from Etherisc
 
+// TODO: Update Careers
 === Careers
 
-OpenZeppelin is growing. If you enjoy using our products or reading our audit reports, and have a genuine interest in protecting the open economy, please check out our current https://openzeppelin.com/jobs/[job openings].
+Etherisc is growing. If you enjoy using our products or reading our audit reports, and have a genuine interest in protecting the open economy, 
+please check out our current https://openzeppelin.com/jobs/[job openings].
 
+// TODO: Update Questions
 == Questions?
 
-Join the OpenZeppelin community in https://forum.openzeppelin.com/[our forum] to https://forum.openzeppelin.com/c/support/17[ask for help], as well as share your feedback or showcase what you have built with OpenZeppelin!
+Join the Etherisc community in https://forum.openzeppelin.com/[our forum] to https://forum.openzeppelin.com/c/support/17[ask for help], as well as share your feedback or showcase what you have built with OpenZeppelin!
 
+// TODO: Update or discard "Share the Love"
+////
 == Share the Love!
 
 If you are using OpenZeppelin contracts, tools, or libraries in your project, share the love with the rest of the community by adding a badge to your `README`! Let your audience know that your system is built with the most secure components available.
@@ -74,3 +92,4 @@ image::https://img.shields.io/badge/built%20with-OpenZeppelin-3677FF[built-with 
 ```markdown
 [![built-with openzeppelin](https://img.shields.io/badge/built%20with-OpenZeppelin-3677FF)](https://docs.openzeppelin.com/)
 ```
+////

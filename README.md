@@ -1,4 +1,4 @@
-[Deployment logs](https://app.netlify.com/sites/openzeppelin-docs/deploys)
+[Deployment logs](https://app.netlify.com/sites/etherisc-docs/deploys)
 
 ### Adding a new repo
 

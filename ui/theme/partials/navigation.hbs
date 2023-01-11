@@ -11,18 +11,20 @@
   <div class="nav-components">
     <h3 class="nav-title">Start here</h3>
     {{#each (pick site.components "ROOT, learn")}}
-      {{> navigation-component }}
+    {{> navigation-component }}
     {{/each}}
 
     <h3 class="nav-title">Our Products</h3>
+    <!-- TODO: adopt Etherisc products -->
     {{#each (pick site.components "defender, contracts, contracts-cairo")}}
-      {{> navigation-component }}
+    {{> navigation-component }}
     {{/each}}
-
+    <!--
     <h3 class="nav-title">More</h3>
     {{#each (pick site.components "upgrades-plugins, subgraphs, nile") }}
       {{> navigation-component }}
     {{/each}}
+-->
   </div>
 
   {{else}}
@@ -43,18 +45,18 @@
             <ul>
               <li>
                 {{#with latest}}
-                  <a href="{{{url}}}">{{displayVersion}}</a>
+                <a href="{{{url}}}">{{displayVersion}}</a>
                 {{/with}}
               </li>
             </ul>
             <p>Other versions</p>
             <ul>
               {{#each versions}}
-                {{#unless (eq this ../latest)}}
-                  <li>
-                    <a href="{{{url}}}">{{displayVersion}}</a>
-                  </li>
-                {{/unless}}
+              {{#unless (eq this ../latest)}}
+              <li>
+                <a href="{{{url}}}">{{displayVersion}}</a>
+              </li>
+              {{/unless}}
               {{/each}}
             </ul>
           </div>

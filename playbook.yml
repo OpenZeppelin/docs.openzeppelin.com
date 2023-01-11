@@ -1,78 +1,78 @@
 site:
-  title: OpenZeppelin Docs
-  url: https://docs.openzeppelin.com
+  title: Etherisc Docs
+  url: https://docs.etherisc.com
   start_page: ROOT::index.adoc
-  keys:
-    google_analytics: 'UA-85043059-1'
+  # keys:
+    # google_analytics: 'UA-XXXXXXXX-X'
 content:
   sources:
     - url: .
       branches: HEAD
       start_path: components/home
 
-    - url: .
-      branches: HEAD
-      start_path: components/learn
+    # - url: .
+    #   branches: HEAD
+    #   start_path: components/learn
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-contracts
+    - url: https://github.com/etherisc/gif-contracts
       branches: docs-v*
       start_path: docs
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-sdk
-      branches: docs-v*
-      start_path: packages/cli/docs
+    # - url: https://github.com/OpenZeppelin/openzeppelin-sdk
+    #   branches: docs-v*
+    #   start_path: packages/cli/docs
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-sdk
-      branches: docs-v*
-      start_path: packages/lib/docs
+    # - url: https://github.com/OpenZeppelin/openzeppelin-sdk
+    #   branches: docs-v*
+    #   start_path: packages/lib/docs
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-upgrades
-      branches: HEAD
-      start_path: docs
+    # - url: https://github.com/OpenZeppelin/openzeppelin-upgrades
+    #   branches: HEAD
+    #   start_path: docs
 
-    - url: https://github.com/OpenZeppelin/starter-kit
-      branches: HEAD # Starter Kit is unversioned
-      start_path: docs
+    # - url: https://github.com/OpenZeppelin/starter-kit
+    #   branches: HEAD # Starter Kit is unversioned
+    #   start_path: docs
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-test-environment
-      branches: docs-v*
-      start_path: docs
+    # - url: https://github.com/OpenZeppelin/openzeppelin-test-environment
+    #   branches: docs-v*
+    #   start_path: docs
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-test-helpers
-      branches: docs-v*
-      start_path: docs
+    # - url: https://github.com/OpenZeppelin/openzeppelin-test-helpers
+    #   branches: docs-v*
+    #   start_path: docs
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-gsn-provider
-      branches: docs-v*
-      start_path: docs
+    # - url: https://github.com/OpenZeppelin/openzeppelin-gsn-provider
+    #   branches: docs-v*
+    #   start_path: docs
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-gsn-helpers
-      branches: docs-v*
-      start_path: docs
+    # - url: https://github.com/OpenZeppelin/openzeppelin-gsn-helpers
+    #   branches: docs-v*
+    #   start_path: docs
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-network.js
-      branches: docs-v*
-      start_path: docs
+    # - url: https://github.com/OpenZeppelin/openzeppelin-network.js
+    #   branches: docs-v*
+    #   start_path: docs
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-contract-loader
-      branches: docs-v*
-      start_path: docs
+    # - url: https://github.com/OpenZeppelin/openzeppelin-contract-loader
+    #   branches: docs-v*
+    #   start_path: docs
 
-    - url: https://github.com/OpenZeppelin/defender-docs
-      branches: HEAD
-      start_path: docs
+    # - url: https://github.com/OpenZeppelin/defender-docs
+    #   branches: HEAD
+    #   start_path: docs
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-subgraphs
-      branches: HEAD
-      start_path: docs
+    # - url: https://github.com/OpenZeppelin/openzeppelin-subgraphs
+    #   branches: HEAD
+    #   start_path: docs
 
-    - url: https://github.com/OpenZeppelin/cairo-contracts
-      branches: release-v*
-      start_path: docs
+    # - url: https://github.com/OpenZeppelin/cairo-contracts
+    #   branches: release-v*
+    #   start_path: docs
 
-    - url: https://github.com/OpenZeppelin/nile
-      branches: release-v*
-      start_path: docs
+    # - url: https://github.com/OpenZeppelin/nile
+    #   branches: release-v*
+    #   start_path: docs
 ui:
   bundle:
     url: ./ui/theme
