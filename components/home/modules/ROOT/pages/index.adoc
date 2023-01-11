@@ -80,7 +80,7 @@ please check out our jobs channel on our https://discord.gg/cVsgakVG4R[Discord]!
 == Questions?
 
 Join the Etherisc community in our https://t.me/etherisc_community[Telegram channel] and our https://discord.gg/cVsgakVG4R[Discord], 
-as well as share your feedback or showcase what you have built with OpenZeppelin!
+as well as share your feedback or showcase what you have built with Etherisc and the GIF!
 
 // TODO: Update or discard "Share the Love"
 ////
