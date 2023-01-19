@@ -15,12 +15,12 @@
     {{/each}}
 
     <h3 class="nav-title">Our Products</h3>
-    {{#each (pick site.components "defender, contracts, contracts-cairo")}}
+    {{#each (pick site.components "defender, contracts")}}
       {{> navigation-component }}
     {{/each}}
 
     <h3 class="nav-title">More</h3>
-    {{#each (pick site.components "upgrades-plugins, subgraphs, nile") }}
+    {{#each (pick site.components "upgrades-plugins, contracts-cairo, nile, subgraphs") }}
       {{> navigation-component }}
     {{/each}}
   </div>
