@@ -17,7 +17,7 @@ How we organize the Etherisc documentation.
 * On each commit, the docs are automatically preprocessed and published.
 
 === Documentation Structure
-image::structure.jpg[Documentation Structure,500,link="assets/images/structure.jpg"]
+image::structure.jpg[Documentation Structure,500,link="_images/structure.jpg"]
 
 === Table of Contents
 . GIF
