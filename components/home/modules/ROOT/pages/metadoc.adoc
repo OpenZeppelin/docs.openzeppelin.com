@@ -16,6 +16,9 @@ How we organize the Etherisc documentation.
 * All solidity code is documented with https://docs.soliditylang.org/en/latest/natspec-format.html[NatSpec] and documentation is generated with https://github.com/OpenZeppelin/solidity-docgen[solidity-docgen] and (automagically) put in `<project>/docs/modules/api/…`
 * On each commit, the docs are automatically preprocessed and published.
 
+=== Documentation Structure
+image::structure.jpg[Documentation Structure,500]
+
 === Table of Contents
 . GIF
 .. Overview
@@ -55,6 +58,9 @@ How we organize the Etherisc documentation.
 
 . EGM Etherisc Governance Model
 .. …
+
+=== Git Branches
+(t.b.d)
 
 === Cross-linking between docs
 Antora offers the capability to cross-link between doc sources with the `xref` macro.
