@@ -1,0 +1,70 @@
+== docs.etherisc.com 
+
+How we organize the Etherisc documentation.
+
+
+=== Basic idea: 
+
+* Generally, we follow the documentation guidelines of https://openzeppelin.com[OpenZeppelin]. This means: 
+* In the repo `https://github.com/etherisc/docs.etherisc.com[github.com/etherisc/docs.etherisc.com]` we put all the general docs which are not specific for a certain code repository.
+** General information
+** Tutorials
+** Architecture…
+* In each code repo (e.g. `https://github.com/etherisc/gif-contracts[github.com/etherisc/gif-contracts]` etc) we create a folder `<project>/docs`.
+* The basic, manually created documentation which is specific for this code repo is put under 
+`<project>/docs/modules/ROOT/pages`
+* All solidity code is documented with https://docs.soliditylang.org/en/latest/natspec-format.html[NatSpec] and documentation is generated with https://github.com/OpenZeppelin/solidity-docgen[solidity-docgen] and (automagically) put in `<project>/docs/modules/api/…`
+* On each commit, the docs are automatically preprocessed and published.
+
+=== Table of Contents
+. GIF
+.. Overview
+... Architecture
+... Concepts
+.... Components
+.... Modules
+.... Services
+.. Core Contracts
+... …
+.. GIF Instances
+... …
+.. GIF Sandbox
+... …
+
+. Data Model
+.. Metadata
+.. Application
+.. Policy
+.. Claim
+.. Payout
+.. Oracle Request
+. Roles
+.. Instance Operator
+.. Product Owner
+.. Oracle Owner
+.. Risk Pool Keeper
+. Products
+. Oracles
+. Risk Pools
+.. Risk Pools
+.. Bundles
+.. Risk Pool Tokens
+. Fee Model
+
+. DIP Token
+
+. EGM Etherisc Governance Model
+.. …
+
+=== Cross-linking between docs
+Antora offers the capability to cross-link between doc sources with the `xref` macro.
+For details, see https://docs.antora.org/antora/latest/page/xref/[here]
+
+
+=== Tech stack
+* We use https://asciidoc.org/[AsciiDoc]
+* Here's a nice https://drive.google.com/file/d/1Y7VaiafvidX5CaX90gJz7t6HZqE-dJWq/view?usp=share_link[cheatsheet] with most of the basic commands
+* We use https://antora.org/[Antora] to publish the docs to https://docs.etherisc.com[docs.etherisc.com]
+* https://docs.etherisc.com[docs.etherisc.com] is hosted at https://netlify.com[netlify]
+* Netlify is integrated in our CI/CD workflow. Each code repo has a https://docs.netlify.com/configure-builds/build-hooks/[webhook] which is triggered on push and which will notify Netlify to re-generate the doc site.
+* We use the Openzeppelin docs template.
