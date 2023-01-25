@@ -2,6 +2,7 @@
 = Documentation
 
 Explore our guides and examples to build decentralized insurance products using Etherisc and the **G**eneric **I**nsurance **F**ramework _(GIF)_.    
+Peter Koch Edit
 
 [.card-section]
 == Explore using Etherisc
