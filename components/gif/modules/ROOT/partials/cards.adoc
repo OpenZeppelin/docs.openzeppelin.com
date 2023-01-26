@@ -52,3 +52,8 @@ xref:token-model.adoc[[.card-title]#Token Model# [.card-body]#pass:q[The token m
 --
 xref:governance-model.adoc[[.card-title]#Governance# [.card-body]#pass:q[The Etherisc Governance Model (EGM) defines the rules of the larger ecosystem and ensures the alignment of interest of all stakeholders.]#]
 --
+
+[.card.card-learn]
+--
+xref:gif-monitor.adoc[[.card-title]#GIF Monitor# [.card-body]#pass:q[The GIF Monitor serves as the central information hub to display in-depth data of all GIF instances, their products, oracles and riskpools.]#]
+--

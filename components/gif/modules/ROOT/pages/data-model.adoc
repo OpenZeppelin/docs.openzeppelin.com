@@ -1,0 +1,20 @@
+= Data Model
+
+== Overview
+
+== Metadata
+
+== Applications
+
+== Policies
+
+== Claims
+
+== Payouts
+
+== Oracle Request
+
+== Bundles
+
+== Risk Pools
+

@@ -2,6 +2,8 @@
 
 == Architecture
 
+image::architecture.jpg[Architecture,800,link="_images/architecture.jpg"]
+
 == Concepts
 
 === Components
@@ -9,3 +11,9 @@
 === Modules
 
 === Services
+
+== Coding Standards
+
+=== Error handling
+
+=== Upgradability

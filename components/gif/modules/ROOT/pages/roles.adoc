@@ -1,0 +1,10 @@
+= Roles 
+
+== Instance Operator
+
+== Product Owner
+
+== Oracle Owner
+
+== Risk Pool Keeper
+

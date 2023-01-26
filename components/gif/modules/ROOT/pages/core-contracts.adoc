@@ -4,8 +4,9 @@ Some blabla what core contracts are.
 
 == Organization
 
-The core contracts are organized in folders:
+The core contracts are organized in folders in the `gif-contracts` repo:
 
+ contracts
  ├── flows
  ├── modules
  ├── services

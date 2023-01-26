@@ -1,0 +1,23 @@
+= GIF Monitor
+
+== Overview
+
+== How it works
+
+== Menu Items
+
+=== Core
+
+==== GIF Instances
+
+==== Core Contracts
+
+==== Core Events
+
+=== Oracles
+
+=== Products
+
+=== Policies
+
+

@@ -10,3 +10,4 @@
 * xref:services.adoc[Services]
 * xref:token-model.adoc[Token Model]
 * xref:governance-model.adoc[Governance]
+* xref:gif-monitor.adoc[GIF Monitor]
