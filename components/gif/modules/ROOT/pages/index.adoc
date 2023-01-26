@@ -1,0 +1,16 @@
+= Generic Insurance Framework
+
+Comprehensive guides for every aspect of the Generic Insurance Framework.
+
+++++
+<div class="card-section">
+<div class="sectionbody">
+++++
+
+include::gif::partial$cards.adoc[]
+
+++++
+</div>
+</div>
+++++
+

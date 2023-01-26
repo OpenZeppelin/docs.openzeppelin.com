@@ -12,7 +12,7 @@ content:
 
     - url: .
       branches: HEAD
-      start_path: components/learn
+      start_path: components/gif
 ui:
   bundle:
     url: ./ui/theme

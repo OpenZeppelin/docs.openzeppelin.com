@@ -29,35 +29,41 @@ image::structure.jpg[Documentation Structure,500,link="_images/structure.jpg"]
 .... Services
 .. Core Contracts
 ... …
-.. GIF Instances
+.. Instances
 ... …
-.. GIF Sandbox
+.. Sandbox
 ... …
-
-. Data Model
-.. Metadata
-.. Application
-.. Policy
-.. Claim
-.. Payout
-.. Oracle Request
-. Roles
-.. Instance Operator
-.. Product Owner
-.. Oracle Owner
-.. Risk Pool Keeper
-. Products
-. Oracles
-. Risk Pools
-.. Risk Pools
-.. Bundles
-.. Risk Pool Tokens
-. Fee Model
-
-. DIP Token
-
-. EGM Etherisc Governance Model
+.. Global Registry
+... …
+.. Data Model
+... Metadata
+... Application
+... Policy
+... Claim
+... Payout
+... Oracle Request
+... Bundle
+.. Roles
+... Instance Operator
+... Product Owner
+... Oracle Owner
+... Risk Pool Keeper
+.. Components
+... Products
+... Oracles
+... Risk Pools
+.. Services
+... InstanceOperatorService
+... …
+.. Token Model
+... DIP Token
+... Risk Pool Tokens
+... Fee Model
+.. EGM - Etherisc Governance Model
+... …
+. Learn
 .. …
+
 
 === Git Branches
 (t.b.d)

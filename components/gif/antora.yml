@@ -1,0 +1,5 @@
+name: gif
+title: GIF
+version: ~
+nav:
+  - modules/ROOT/nav.adoc

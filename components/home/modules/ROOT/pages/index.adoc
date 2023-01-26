@@ -2,7 +2,6 @@
 = Documentation
 
 Explore our guides and examples to build decentralized insurance products using Etherisc and the **G**eneric **I**nsurance **F**ramework _(GIF)_.    
-Peter Koch Edit 02
 
 [.card-section]
 == Explore using Etherisc
@@ -12,7 +11,7 @@ Etherisc provides a complete suite of solutions to build, manage, and inspect de
 // TODO: Update primary card row
 [.card.card-primary.card-contracts]
 --
-xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#pass:q[A library of modular, reusable, and secure smart contracts, written in Solidity.]#]
+xref:gif::index.adoc[[.card-title]#GIF# [.card-body]#pass:q[The Generic Insurance Framework: A library of modular, reusable, and secure smart contracts, written in Solidity.]#]
 --
 
 [.card.card-primary.card-upgrades-js]
@@ -22,7 +21,7 @@ xref:upgrades.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[A comprehensive s
 
 [.card.card-primary.card-defender]
 --
-xref:nice try.adoc[[.card-title]#Defender# [.card-body]#pass:q[Peters Spielwiese to automate Ethereum operations.]#]
+xref:metadoc.adoc[[.card-title]#Documentation# [.card-body]#pass:q[Meta-Documentation of how we document stuff.]#]
 --
 
 ////

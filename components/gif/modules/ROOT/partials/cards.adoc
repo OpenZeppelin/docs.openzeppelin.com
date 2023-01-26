@@ -1,0 +1,54 @@
+[.card.card-learn]
+--
+xref:overview.adoc[[.card-title]#Overview# [.card-body]#pass:q[Introduction in the structure, concepts and architecture of the GIF.]#]
+--
+
+[.card.card-learn]
+--
+xref:core-contracts.adoc[[.card-title]#Core Contracts# [.card-body]#pass:q[The core contracts are the foundry for developing and operating insurance products.]#]
+--
+
+[.card.card-learn]
+--
+xref:instances.adoc[[.card-title]#Instances# [.card-body]#pass:q[Instances are deployments of the smart contracts which can run products, oracles and risk pools.]#]
+--
+
+[.card.card-learn]
+--
+xref:sandbox.adoc[[.card-title]#Sandbox# [.card-body]#pass:q[The sandbox allows you to get a working playground up and running in a few minutes.]#]
+--
+
+[.card.card-learn]
+--
+xref:registry.adoc[[.card-title]#Global registry# [.card-body]#pass:q[Certified instances are registered in a global registry. This creates trust and accountability for all stakeholders in the ecosystem.]#]
+--
+
+[.card.card-learn]
+--
+xref:data-model.adoc[[.card-title]#Data Model# [.card-body]#pass:q[The extensible and generic data model ensures consistency and auditability.]#]
+--
+
+[.card.card-learn]
+--
+xref:roles.adoc[[.card-title]#Roles# [.card-body]#pass:q[Roles allow a fine-grained access control and permission system which secures the system and guarantees accountability.]#]
+--
+
+[.card.card-learn]
+--
+xref:components.adoc[[.card-title]#Components# [.card-body]#pass:q[Components are the basic building blocks which enable composability and reusability.]#]
+--
+
+[.card.card-learn]
+--
+xref:services.adoc[[.card-title]#Services# [.card-body]#pass:q[Services provide generic functionalities for the lifecycle and operation of insurance products.]#]
+--
+
+[.card.card-learn]
+--
+xref:token-model.adoc[[.card-title]#Token Model# [.card-body]#pass:q[The token model provides the economic backbone of the ecosystem.]#]
+--
+
+[.card.card-learn]
+--
+xref:governance-model.adoc[[.card-title]#Governance# [.card-body]#pass:q[The Etherisc Governance Model (EGM) defines the rules of the larger ecosystem and ensures the alignment of interest of all stakeholders.]#]
+--

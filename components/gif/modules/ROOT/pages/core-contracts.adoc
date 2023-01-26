@@ -1,0 +1,130 @@
+= Core Contracts
+
+Some blabla what core contracts are.
+
+== Organization
+
+The core contracts are organized in folders:
+
+ ├── flows
+ ├── modules
+ ├── services
+ ├── shared
+ └── tokens
+ 
+== Contracts
+
+=== Flows
+// link:https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.8.1/contracts/token/ERC20/ERC20.sol[{github-icon},role=heading-link]
+
+Flows encapsulate the business logic which controls the life cycle of an insurance product.
+Currently we offer a very generic default flow 
+// TODO: insert link
+(`PolicyDefaultFlow`)
+which typically suits most products with a fixed policy period. 
+Special flows could be created for revolving policies, or policies without a fixed end date.
+
+A policy flow guarantees the overall consistency of all data objects during the lifecycle of 
+a process and maintains all state transistions. 
+
+[.contract-item]
+==== PolicyDefaultFlow.sol
+
+The default policy flow implements a standard policy lifecycle with application, underwriting, decline, expire, revoke functionality.
+
+=== Modules
+
+Modules encapsulate the functionality which operates on a certain data object. 
+Each module guarantees the internal consistency and validity of its data objects.
+Modules are not accessible from the outside. They are only accessed via service contracts.
+
+NOTE: All contracts whose name ends in `++...++Controller.sol` will be renamed in 
+`++...++Module.sol` in the next release.
+
+[.contract-item]
+==== AccessController.sol
+t.b.d.
+
+[.contract-item]
+==== BundleController.sol
+t.b.d.
+
+[.contract-item]
+==== ComponentController.sol
+t.b.d.
+
+[.contract-item]
+==== LicenseController.sol
+t.b.d.
+
+[.contract-item]
+==== PolicyController.sol
+t.b.d.
+
+[.contract-item]
+==== PoolController.sol
+t.b.d.
+
+[.contract-item]
+==== QueryModule.sol
+t.b.d.
+
+[.contract-item]
+==== RegistryController.sol
+t.b.d.
+
+[.contract-item]
+==== TreasuryModule.sol
+t.b.d.
+
+=== Services
+
+Services provide defined access points by which the data objects can be manipulated in
+a controlled way. 
+
+[.contract-item]
+==== ComponentOwnerService.sol
+
+[.contract-item]
+==== InstanceOperatorService.sol
+
+[.contract-item]
+==== InstanceService.sol
+
+[.contract-item]
+==== OracleService.sol
+
+[.contract-item]
+==== ProductService.sol
+
+[.contract-item]
+==== RiskpoolService.sol
+
+=== Tokens
+
+Tokens are used to represent ownership of investments in risk pools.
+The use of tokens allows the permissionless transfer of ownership.
+
+[.contract-item]
+==== BundleToken.sol
+
+[.contract-item]
+==== RiskpoolToken.sol
+
+=== Shared
+
+The following contracts provide some helper functionality or act as base classes,
+from which other contracts are derived.
+
+[.contract-item]
+==== CoreController.sol
+
+[.contract-item]
+==== CoreProxy.sol
+
+[.contract-item]
+==== TransferHelper.sol
+
+[.contract-item]
+==== WithRegistry.sol
+
