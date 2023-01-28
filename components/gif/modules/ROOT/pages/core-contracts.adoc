@@ -6,12 +6,12 @@ Some blabla what core contracts are.
 
 The core contracts are organized in folders in the `gif-contracts` repo:
 
- contracts
- ├── flows
- ├── modules
- ├── services
- ├── shared
- └── tokens
+ /contracts
+ ├── /flows
+ ├── /modules
+ ├── /services
+ ├── /shared
+ └── /tokens
  
 == Contracts
 
