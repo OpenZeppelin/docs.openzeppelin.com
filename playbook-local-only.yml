@@ -2,8 +2,8 @@ site:
   title: OpenZeppelin Docs
   url: https://docs.openzeppelin.com
   start_page: ROOT::index.adoc
-  keys:
-    google_analytics: 'UA-85043059-1'
+  #keys:
+  #  google_analytics: 'UA-85043059-1'
 content:
   sources:
     - url: .
