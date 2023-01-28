@@ -18,7 +18,7 @@ content:
     #   branches: HEAD
     #   start_path: components/learn
 
-    - url: https://github.com/etherisc/gif-contracts
+    - url: https://github.com/christoph2806/gif-contracts
       branches: docs-v*
       start_path: docs
 
