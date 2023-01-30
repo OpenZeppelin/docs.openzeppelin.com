@@ -1,5 +1,6 @@
 const hljs = require('highlight.js/lib/core');
 hljs.registerLanguage('markdown', require('highlight.js/lib/languages/markdown'));
+hljs.registerLanguage('asciidoc', require('highlight.js/lib/languages/asciidoc'));
 hljs.registerLanguage('javascript', require('highlight.js/lib/languages/javascript'));
 hljs.registerLanguage('typescript', require('highlight.js/lib/languages/typescript'));
 hljs.registerLanguage('json', require('highlight.js/lib/languages/json'));
