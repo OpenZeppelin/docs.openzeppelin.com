@@ -1,6 +1,15 @@
 = Components
 
 == Overview
+image::components.jpg[Components,800,link="_images/components.jpg"]
+Each GIF instance manages different components. A component is a specific smart contract with a certain core functionality. The components can represent different core objects. +
+The core objects are:
+
+* Products
+* Oracles
+* Risk pools
+
+All components and thus the objects they contain can assume identical states and have the same life cycle but can differ significantly in terms of lifespan.
 
 == Products
 

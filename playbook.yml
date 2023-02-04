@@ -14,9 +14,9 @@ content:
       branches: HEAD
       start_path: components/gif
 
-    # - url: .
-    #   branches: HEAD
-    #   start_path: components/learn
+    - url: .
+      branches: HEAD
+      start_path: components/learn
 
     - url: https://github.com/christoph2806/gif-contracts
       branches: docs-v*
