@@ -1,6 +1,5 @@
 <script src="{{@root.site.ui.url}}/dist/index.js"></script>
-
-{{#with (resolvePage page.srcPath component=page.component.name version=page.version module=page.module model=false)}}
+{{#with (resolvePage page.relativeSrcPath model=false)}}
 {{#unless (eq asciidoc.attributes.stem undefined)}}
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
