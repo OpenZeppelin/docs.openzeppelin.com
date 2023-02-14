@@ -1,1 +1,21 @@
 <script src="{{@root.site.ui.url}}/dist/index.js"></script>
+{{#with (resolvePage page.relativeSrcPath model=false)}}
+{{#unless (eq asciidoc.attributes.stem undefined)}}
+<script type="text/x-mathjax-config">
+window.MathJax = {
+  tex: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    tags: "none",
+  },
+  asciimath: {
+    delimiters: [["\\$", "\\$"]],
+  },
+  options: {
+    ignoreHtmlClass: "nostem|noasciimath",
+  },
+};
+</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+{{/unless}}
+{{/with}}
