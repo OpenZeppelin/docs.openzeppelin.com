@@ -1,9 +1,6 @@
 = Documentation
-:stem: latexmath
 
 Explore our guides and examples to integrate OpenZeppelin security products to all aspects of your Ethereum development and operations.    
-
-stem:[\sqrt{2} + \frac{a}{b}]
 
 [.card-section]
 == Explore using OpenZeppelin
