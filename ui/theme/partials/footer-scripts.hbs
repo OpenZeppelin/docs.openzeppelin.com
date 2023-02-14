@@ -1,1 +1,15 @@
 <script src="{{@root.site.ui.url}}/dist/index.js"></script>
+
+{{#with (resolvePage page.srcPath component=page.component.name version=page.version module=page.module model=false)}}
+{{#unless (eq asciidoc.attributes.stem undefined)}}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]], ignoreClass: "nostem|nolatexmath" },
+  asciimath2jax: { delimiters: [["\\$", "\\$"]], ignoreClass: "nostem|noasciimath" },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+{{/unless}}
+{{/with}}
