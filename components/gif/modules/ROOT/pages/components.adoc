@@ -1,7 +1,8 @@
 = Components
 
-== Overview
-image::components.jpg[Components,800,link="_images/components.jpg"]
+image::_images/instanceoperator.png[]
+
+== Concept of components
 Each GIF instance manages different components. A component is a specific smart contract with a certain core functionality. The components can represent different core objects. +
 The core objects are:
 
@@ -11,8 +12,44 @@ The core objects are:
 
 All components and thus the objects they contain can assume identical states and have the same life cycle but can differ significantly in terms of lifespan.
 
-== Products
+== Component roles
+Two roles can determine the life cycle of a component.
 
-== Oracles
+=== Component owner
+A Component owner can be an oracle owner, a product owner, or a risk pool keeper, depending on which core object he manages.
 
-== Risk Pools
+=== Instance operator
+The instance operator runs one or more GIF instances.
+
+== Lifecycle
+
+image::_images/components.jpg[]
+
+A component in the GIF is always in one of the following states: 
+
+* Created
+* Proposed
+* Declined
+* Active
+* Paused
+* Suspended
+* Archived
+
+The transition between these states and roles is described in the above diagram. The lifecycle of a component starts with its development and deployment on the blockchain. +
+The component owner can implement their requirements in the smart contract or use generic GIF components. +
+In the next step, the component is registered, approved, and activated by the instance operator in the GIF instance. The instance operator can also decline a component. +
+In the event of approval, the instance operator continues to check the technical and procedural details. The instance operator can also outsource the verification to an independent audit.
+|===
+|_Another condition is that the component owner must contribute a certain amount of DIP tokens to be allowed to operate in the GIF instance._
+|===
+If the component is active, it can be used until it is set to either suspended or paused. The difference between suspended and paused is that only the instance operator can suspend a component or resume it from suspended to active. The component owner can set a component to paused, and the component owner and the instance operator can unpause the component. +
+If the component is inactivated (pause, suspended) and not reactivated (resume, unpause), it is not deleted but archived. +
+For each component type (products, oracles, risk pools), we provide sample implementations that you can use as a starting point for your implementation. 
+
+
+== (Products)
+
+== (Oracles)
+
+== (Risk Pools)
+

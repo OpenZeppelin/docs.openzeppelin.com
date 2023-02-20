@@ -1,23 +1,152 @@
 = GIF Monitor
 
 == Overview
+The GIF monitor now provides a structured overview of all generic building blocks available in the GIF framework for creating and operating an insurance product. It is subdivided into '`Home,`' '`Core,`' '`Oracles,`' '`Products`' and '`Policies`' menu items. Drop-down menus take you to submenus and further down until to individual data fields and business transactions.
 
 == How it works
+The GIF monitor provides all information transparently and in real-time online. The information is provided from the blockchain and GIF framework. Clicking on '`Home,`' '`Products,`' and Policies`' takes you to the relevant sections where you can view more information. +
+Under the menu items '`Oracles,`' '`Products,`' and '`Policies`' are drop-down menus where you can access submenus and further on to the details. +
+If you click on '`Core/GIF Instances,`' the GIF Monitor provides an Overview of deployed GIF Instances on the blockchains. +
+Under the '`Oracles`' tab, the GIF monitor can view all available oracle types and oracles. +
+The '`Products`' tab contains all products already available on the platform. +
+Under '`Policies,`' you get access to all applications, policies, claims and payouts. +
+We integrated a search function in all areas where a search makes sense. You can return the overall view of the submenu from the search result by deleting the search term and searching again with no search term. +
+In the lower part of all areas, you can find the question, '`What do you see here?`' Here we have a short description of all the information available in the area.
+
+image::_images/GIFmenu.jpg[]
 
 == Menu Items
+The URL https://gif-monitor.etherisc.com/ takes you to the '`Home`' area of the GIF monitor. In the menu bar, you can choose from the menu items. +
 
 === Core
+The '`Core`' area is by far the most extensive. It displays the available GIF Instances, the GIF core contracts per instance and the events of these core contracts. The core area shows the complete core contracts that each user can use.
 
 ==== GIF Instances
+Here you find the blockchains the instances use, such as xDai or Ethereum. GIF is multichain capable. You can compare an instance with a marketplace where product and oracle owners can register. The bigger the marketplace, the more attractive it becomes for all participants. It makes more sense to connect to an existing instance as a product owner or oracle owner than to run your own instance. +
+By clicking on an instance, you will get detailed information like the instance ID, name, name of the blockchain, chain ID and status (active or not). Each instance is identified by its registry address. You can compare this with the residents’ registration office.
 
 ==== Core Contracts
+This section contains all 14 GIF core contracts. Each core contract provides essential functionality to a GIF Instance. +
+You can click on the contract name for all GIF core contracts to get to the contract details. Here you will see on which instance you are, the instance ID, the address on the blockchain (and a link to the blockchain explorer blockscout.com), the name of the core contract, and the detailed contract functionality described by its contract application binary (ABI) interface. +
+For more information regarding the ABI check the Contract ABI specificationSolidity interface. Further, the IPFS link details can be found in the chapter '`Where do we store our source code?`' and the release status. You will return to the main menu by pressing the '`OK`' button.
+
+===== In each GIF Instance, the following core contracts are available:
+* Instance Operator Service
+* Registry
+* RegistryController
+* License
+* LicenseController
+* Policy
+* PolicyController
+* Query
+* QueryController
+* ProductService
+* OracleOwnerService
+* OracleService
+* PolicyFlowDefault
+* Sandbox
+These core contracts can be divided into storage contracts, service contracts and PolicyFlow contracts.
+
+==== Storage contracts
+Storage contracts store general and personal data. They also provide essential accessor functions. Storage contracts use the delegator pattern, meaning the on-chain contract data is separated from the contract functionality. This provides a way to upgrade the contract functionality without touching the contract data.
+
+===== In each GIF Instance, the following storage contracts are available:
+* Registry Contract
+* Licence contract
+* Query Contract
+* Policy Contract
+
+==== Service contracts
+Service contracts provide functionalities that access and operate on data held in storage contracts.
+
+===== In each GIF Instance, the following service contracts are available:
+* InstanceOperatorService
+* ProductService
+* OracleService
+* OracleOwnerService
+
+==== PolicyFlow contracts
+PolicyFlow contracts contain the business functionality of a classic insurance policy. Depending on the product, PolicyFlow contracts vary.
+
+For example, one product may offer a renewal option and other products do not offer such an option and the contracts end automatically.
+
+Currently, we support the PolicyFlowDefault workflow, which covers a very wide range of products.
+
+* PolicyFlowDefault
+The blockchains the instances use, such as xDai or Ethereum. You can compare an instance with a marketplace where product and oracle owners can register. The bigger the marketplace, the more attractive it becomes for all participants. It makes more sense to connect to an existing instance as a product owner or oracle owner than to run your own instance.
 
 ==== Core Events
+Here the contract events of the GIF core contracts are displayed. Smart contracts create contract events during code execution and are permanently stored on the chain. Events are primarily used to document significant changes in the data of smart contracts, for example, the change of status. Check the Solidity documentation for a more detailed description of events.
+
+===== Events used in the GIF core contracts
+[cols="1,1"]
+|===
+|License LogNewProduct |A new product is created
+|License LogProductSetApproved |A new product has been approved
+|License LogProductSetPaused |A product has been paused = temporarily deactivated
+|Policy LogApplicationStateChanged |An application has changed state, e.g. from '`approved`' to '`underwritten`'
+|Policy LogNewApplication |A new application has been registered
+|Policy LogNewPolicy |A new policy has been created
+|Query LogOracleActivated |An oracle has been activated
+|Query LogOracleAssignedToOracleType |An oracle has been assigned to an oracle type
+|Query LogOracleProposed |A new oracle has been proposed
+|Query LogOracleProposedToOracleType |An oracle has been proposed to an oracle type
+|Query LogOracleResponded |An oracle has responded to a request
+|Query LogOracleTypeActivated |An oracle type has been activated
+|Query LogOracleTypeProposed |a new oracle type has been proposed
+|Registry LogContractRegistered |A core contract has been registered in the registry
+|===
 
 === Oracles
+The '`Oracle`' area of the GIF monitor displays the oracle types and available oracles.
+
+==== Oracle types
+The '`Oracle Types`' dialogue shows the available oracle types. An oracle type defines a whole class of oracles. It means the oracles that accept a defined input format and a defined callback format are grouped in an oracle type. For each oracle type several oracles from different providers may provide functionalities defined by the oracle type.
+
+In the oracle types, a product owner can search for suitable oracles. By clicking on an oracle type, you get the name, the status initialized, activated, the defined input format, the defined callback format, the number of active oracles, the number of assigned oracles and the index in the details.
+
+The input and callback formats serve abi.encode as defined in the ABI interface of Solidity
+
+==== Oracles
+You will find all oracles available on the platform in the '`Oracles dialogue.`' Here you can view all input and callback formats as a product owner. In addition, the appropriate oracle can be requested from the Oracle owners.
+
+By clicking on an oracle, the ID, the description, the oracle contract, the oracle owner and the active oracle types are displayed in the details.
+
 
 === Products
+In the '`Products area,`' all the framework's products are listed. By clicking on a product, the details are displayed. These are the name, the product ID, the owner, the address, which policy flow is used, the release and the status. +
 
 === Policies
+In the '`Policies`' area, you can find information on every phase of the life cycle of a policy. It starts with information about the product, metadata, application, policy, claim and payout. Depending on the policy's life cycle, more or fewer information blocks are displayed. +
+
+image::_images/policy01.png[]
+
+You can find information on which product the insured person has taken out containing the name, the product ID, the status, the release status, which PolicyFlow contract, the address of the owner and the policy address. The addresses are stored with links to blockscout.com. +
+
+image::_images/policy02.png[]
+
+For each request and policy, a business process is triggered that collects data needed for all phases of a policy. From the customer’s application to underwriting, claims processing and payout. The data that is required for all phases of a policy is called metadata. +
+You get an overview of the policy. When created and updated, the BP key (created by the owner. GIF only checks that the BPKey is unique) has a policy, an application, and how many claims and payouts.
+
+image::_images/policy03.png[]
+
+The first step in concluding a policy is the customer’s application. The client wants the insurance company to underwrite a risk against a premium payment. The application contains all the information for the underwriter. The underwriter checks the application, accepts it, or declines it. Possible application states are '`Applied,`' '`Revoked,`' '`Underwritten,`' and '`Declined.`'
+In this block, you find information when created, when updated, the state and the data (hashed data that can only be used by the person who created the data set). +
+
+image::_images/policy04.png[]
+
+If the underwriter accepts an application, it converts into a policy. The policies are either active or expired. If the policy is expired, no claims can be made. +
+
+image::_images/policy05.png[]
+
+The insured event has occurred and the policyholder assures the claims to him. The claim has thus been created. Possible claim states are '`Applied,`' '`Confirmed,`' '`Declined`' and '`Payout.`' +
+
+image::_images/policy06.png[]
+
+In the traditional insurance world, an insurance company employee or a complete specialist department decides whether the guaranteed sum is paid out. In the blockchain world, a smart contract decides and triggers the payout. One of two possible payout states is displayed: '`Expected`' and '`PaidOut.`'
+
+
+=== Where do we store our source code?
+The source code of the core contracts is stored using the Interplanetary File System Protocol (IPFS), a decentralized file-sharing platform. The IPFS provides a protocol and naming network for storing and sharing data. The content does the address of the content. So independent of where data is stored, it always has the same address. You can find the IPFS link in the details of each core contract.
 
 

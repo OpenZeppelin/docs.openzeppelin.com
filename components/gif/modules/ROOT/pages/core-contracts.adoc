@@ -1,7 +1,11 @@
 = Core Contracts
 
-Some blabla what core contracts are.
-5
+The core contracts are a collection of open source smart contracts that implement essential insurance product and policy lifecycle functions. This enables the modeling of a wide range of insurance types.
+
+The core contracts provide the generic functions for all sub-steps in the lifecycle of an insurance policy and thus enable an automated workflow.
+
+Core smart contracts are deployed and operated by an instance operator - a DAO or other legal entity. The instance operator publishes entry points to its instance of the GIF and registers actors. +
+
 == Organization
 
 The core contracts are organized in folders in the `gif-contracts` repo:
@@ -12,7 +16,7 @@ The core contracts are organized in folders in the `gif-contracts` repo:
  ├── /services
  ├── /shared
  └── /tokens
- 
+
 == Contracts
 
 === Flows
@@ -128,4 +132,290 @@ from which other contracts are derived.
 
 [.contract-item]
 ==== WithRegistry.sol
+
+== Extending Contracts
+Most Etherisc Contracts are expected to be used via inheritance: you will inherit from them when writing your contracts.
+This is the commonly found is syntax, like in the contract _MyToken_ is ERC20.
+
+NOTE: Unlike contracts, Solidity librarys are not inherited from and instead rely on the using for syntax.
+Etherisc Contracts has some librarys: most are in the Utils directory.
+
+=== Overriding
+Inheritance is often used to add the parent contract’s functionality to your own contract, but that’s not all it can do. You can also change how some parts of the parent behave using overrides.
+For example, imagine you want to change AccessControl so that _revokeRole_ can no longer be called. This can be achieved using overrides:
+
+INPUT GRAPHIK
+
+The old _revokeRole_ is then replaced by our override, and any calls to it will immediately revert. We cannot remove the function from the contract, but reverting on all calls is good enough.
+
+=== Calling _super_
+
+Sometimes you want to extend a parent’s behavior instead of outright changing it to something else. This is where _super_ comes in.
+
+The _super_ keyword will let you call functions defined in a parent contract, even if they are overridden. This mechanism can be used to add additional checks to a function, emit events, or otherwise add functionality as you see fit.
+
+TIP: For more information on how overrides work, head over to the official link:https://docs.soliditylang.org/en/latest/contracts.html#index-17[Solidity documentation].
+
+Here is a modified version of _AccessControl_ where _revokeRole_ cannot be used to revoke the DEFAULT_ADMIN_ROLE:
+
+INPUT GRAPHIK
+
+The _super.revokeRole_ statement at the end will invoke _AccessControl's_ original version of _revokeRole_, the same code that would’ve run if there were no overrides in place.
+
+=== Using hooks
+
+Sometimes, to extend a parent contract, you will need to override multiple related functions, which led to code duplication and an increased likelihood of bugs. +
+
+For example, consider implementing safe _ERC20_ transfers in the style of _IERC721Receiver_. You may think overriding transfer and _transferFrom_ would be enough, but what about __transfer_ and __mint?_ We introduced hooks to prevent you from dealing with these details.
+
+Hooks are simply functions that are called before or after some action. They provide a centralized point to hook into and extend the original behavior.
+
+Here’s how you would implement the _IERC721Receiver_ pattern in ERC20, using the __beforeTokenTransfer_ hook:
+
+INPUT GRAPHIK
+
+Using hooks leads to cleaner and safer code without relying on a deep understanding of the parent’s internals.
+
+=== Rules of hooks
+
+You should follow a few guidelines when writing code that uses hooks to prevent issues. They are straightforward, but do make sure you follow them:
+
+* Reapply the virtual attribute to the hook whenever you override a parent’s hook. That will allow child contracts to add more functionality to the hook.
+* Always call the parent’s hook in your override using super. This will ensure all hooks in the inheritance tree are called: contracts like _ERC20Pausable_ rely on this behavior.
+
+INPUT GRAPHIK
+
+That’s it! Enjoy simpler code using hooks!
+
+=== Security
+
+The maintainers of Etherisc Contracts are mainly concerned with the correctness and security of the code published in the library and the combinations of base contracts with the official extensions from the library. +
+
+Custom overrides, particularly hooks, may break critical assumptions and introduce vulnerabilities in otherwise secure code. While we ensure the contracts remain secure in the face of a wide range of customizations, this is done in a best-effort manner. While we try to document all critical assumptions, this should not be relied upon. Custom overrides should be carefully reviewed and checked against the source code of the contract they are customizing to understand their impact and guarantee their security fully. +
+
+The way functions interact internally should not be assumed to stay stable across library releases. For example, a function used in one context in a particular release may not be used in the same context in the next release. Contracts that override functions should revalidate their assumptions when updating the version of OpenZeppelin Contracts they are built on.
+
+
+== Using with upgrades
+
+If your contract is going to be deployed with upgradeability, such as using the Etherisc Upgrades Plugins, you will need to use the Upgradeable variant of Etherisc Contracts. +
+
+This variant is available as a separate package called XXXXXX, hosted in the repository Etherisc/xxxxxxx. +
+
+It follows all the rules for Writing Upgradeable Contracts: constructors are replaced by initializer functions, state variables are initialized in initializer functions, and we also check for storage incompatibilities across minor versions. +
+
+TIP: Etherisc provides a full suite of tools for deploying and securing upgradeable smart contracts. Check out the complete link:https://docs.soliditylang.org/en/latest/contracts.html#index-17[list of resources].
+
+=== Installation
+
+NEED SOME INPUT
+
+=== Usage
+The package replicates the structure of the main Etherisc Contracts package, but every file and contract has the suffix _Upgradeable_. +
+
+INPUT GRAPHIK
+
+Constructors are replaced by internal initializer functions following the naming convention __{ContractName}_init. Since these are internal, you must always define your own public initializer function and call the parent initializer of the contract you extend. +
+
+INPUT GRAPHIK
+
+CAUTION: Use with multiple inheritances requires special attention. See the section below titled Multiple Inheritance.
+
+Once this contract is set up and compiled, you can deploy it using the Upgrades Plugins. The following snippet shows an example deployment script using Hardhat.
+
+INPUT GRAPHIK
+
+=== Further notes
+
+==== Multiple inheritance
+
+The compiler, like constructors, does not linearize initializer functions. Because of this, each __{ContractName}_init function embeds the linearized calls to all parent initializers. Consequently, calling two of these init functions can initialize the same contract twice. +
+
+The function __{ContractName}_init_unchained found in every contract is the initializer function minus the calls to parent initializers and can be used to avoid the double initialization problem, but doing this manually is not recommended. We hope to be able to implement safety checks for this in future versions of the Upgrades Plugins. +
+
+==== Storage gaps
+
+You may notice that every contract includes a state variable named __gap. This empty reserved space in storage is put in place in Upgradeable contracts. It allows us to freely add new state variables in the future without compromising the storage compatibility with existing deployments. +
+
+It isn’t safe to simply add a state variable because it "shifts down" all of the state variables below in the inheritance chain. This makes the storage layouts incompatible, as explained in Writing Upgradeable Contracts. The size of the __gap array is calculated so that the amount of storage used by a contract always adds up to the same number (in this case 50 storage slots). +
+
+== Releases and stability
+
+=== New releases and API stability
+
+Developing smart contracts is hard, and a conservative approach toward dependencies is sometimes favored. However, it is also essential to stay on top of new releases: these may include bug fixes or deprecating old patterns in favor of newer and better practices. +
+
+Here we describe when you should expect new releases to come out and how this affects you as a user of Etherisc Contracts. +
+
+=== Release schedule
+
+OpenZeppelin Contracts follows a link:https://docs.soliditylang.org/en/latest/contracts.html#index-17[semantic versioning scheme].
+
+We aim for a new minor release every 1 or 2 months.
+
+=== Release candidates
+
+We publish a feature-frozen release candidate. The purpose of the release candidate is to allow the community to review the new code before the release. If fundamental problems are discovered, several more release candidates may be required. After a week of no changes to the release candidate, the new version is published. +
+
+=== API stability
+
+On the link:https://docs.soliditylang.org/en/latest/contracts.html#index-17[Etherisc contracts 2.0 release], we committed ourselves to keep a stable API. We aim to define more precisely what we understand by stable and API here, so library users can understand these guarantees and be confident their project won’t break unexpectedly. +
+
+In a nutshell, the API being stable means if your project is working today, it will continue to do so after a minor upgrade. New contracts and features will be added in minor releases, but only in a backward-compatible way. +
+
+=== Versioning scheme
+
+We follow link:https://semver.org/[SemVer], which means API breakage may occur between major releases (which don’t happen very often). +
+
+=== Solidity functions
+
+While the internal implementation of functions may change, their semantics and signature will remain the same. The domain of their arguments will not be less restrictive (e.g., if transferring a value of 0 is disallowed, it will remain disallowed), nor will general state restrictions be lifted (e.g., whenPaused modifiers). +
+
+Suppose new functions are added to a contract. In that case, it will be backward-compatible: their usage won’t be mandatory, and they won’t extend functionality in ways that may foreseeable break an application (e.g. an internal method may be added to make it easier to retrieve information that was already available). +
+
+=== internal
+
+This extends not only to _external_ and _public_ functions but also _internal_ ones: many contracts are meant to be used by inheriting them (e.g., _Pausable_, _PullPayment_, _AccessControl_) and are therefore used by calling these functions. Similarly, since all Etherisc contracts state variables are private, they can only be accessed this way (e.g., to create new _ERC20_ tokens, instead of manually modifying _totalSupply_ and _balances_, _mint should be called).
+
+_private_ functions have no guarantees on their behavior, usage, or existence.
+
+Finally, language limitations will force us to, e.g., make an _internal_ function that should be _private_ to implement features the way we want to. These cases will be well documented, and the regular stability guarantees won’t apply.
+
+=== Libraries
+
+Some of our Solidity libraries use _struct_ to handle internal data that should not be accessed directly (e.g., _Counter_). There’s an link:https://github.com/ethereum/solidity/issues/4637[open issue] in the Solidity repository requesting a language feature to prevent said access, but it looks like it won’t be implemented soon. Because of this, we will use leading underscores and mark said _struct_ to make it clear to the user that its contents and layout are not part of the API.
+
+=== Events
+
+No events will be removed, and their arguments won’t be changed in any way. New events may be added in later versions, and existing events may be emitted under new, reasonable circumstances (e.g., from 2.1 on, ERC20 also emits Approval on transferFrom calls).
+
+=== Drafts
+
+Some contracts implement EIPs still in Draft status recognizable by file name, such as utils/cryptography/draft-EIP712.sol. Due to their nature, we cannot guarantee their stability. Minor releases of Etherisc contracts may contain breaking changes, which will be duly announced in the changelog. Projects in production use the EIPs.
+
+=== Gas costs
+
+While attempts will generally be made to lower the gas costs of working with Etherisc contracts, there are no guarantees. In particular, users should not assume gas costs will not increase when upgrading library versions. +
+
+=== Bug fixes
+
+The API stability guarantees may need to be broken to fix a bug, and we will do so. However, this decision won’t be made lightly, and all options will be explored to make the change as non-disruptive as possible. When sufficient, contracts or functions which may result in unsafe behavior will be deprecated instead of removed (e.g., #1543 and #1550). +
+
+=== Solidity compiler version
+
+Starting on version 0.5.0, the Solidity team switched to a faster release cycle, with minor releases every few weeks (v0.5.0 was released on November 2018, and v0.5.5 on March 2019) and significant, breaking-change releases every couple of months (with v0.6.0 released on December 2019 and v0.7.0 on July 2020). Including the compiler version in OpenZeppelin Contract’s stability guarantees would therefore force the library to either stick to old compilers or release frequent major updates simply to keep up with newer Solidity releases. +
+
+Because of this, the minimum required Solidity compiler version is not part of the stability guarantees. Users may be required to upgrade their compiler when using newer versions of Contracts. Bug fixes will still be backported to past major releases so that all versions currently in use receive these updates. +
+
+You can read more about the rationale behind this, the other options we considered and why we went down this path here. +
+
+== Access Control
+
+Access control means who is allowed to do what. The access control of your contract may govern who can mint tokens, vote on proposals, freeze transfers, and many other things. Understanding how you implement it is essential, lest someone else link:https://blog.openzeppelin.com/on-the-parity-wallet-multisig-hack-405a8c12e8f7/[steals your system]. +
+
+=== Ownership and _ownable_
+
+The most common and essential form of access control is the concept of ownership: an account is the contract _owner_ and can do administrative tasks on it. This approach is perfectly reasonable for contracts that have a single administrative user. +
+
+Etherisc contracts provide link:https://blog.openzeppelin.com/on-the-parity-wallet-multisig-hack-405a8c12e8f7/[_Ownable_] for implementing ownership in your contracts. +
+
+INPUT GRAPHIK
+
+By default, the link:https://blog.openzeppelin.com/on-the-parity-wallet-multisig-hack-405a8c12e8f7/[_owner_] of an _Ownable_ contract is the account that deployed it, which is usually precisely what you want. +
+
+Ownable also lets you: +
+* _transferOwnership_ from the owner account to a new one, and
+* _renounceOwnership_ for the owner to relinquish this administrative privilege, a typical pattern after an initial stage with centralized administration is over.
+
+WARNING: Removing the owner altogether will mean that administrative tasks protected by _onlyOwner_ will no longer be callable!.
+
+Note that a contract can also be the owner of another one! This opens the door to using, for example, a link:https://gnosis-safe.io/[Gnosis Safe], an link:https://aragon.org/[Aragon DAO], or a custom contract you create.
+
+This way, you can use composability to add additional layers of access control complexity to your contracts. Instead of having a single regular Ethereum account (Externally Owned Account, or EOA) as the owner, you could use a 2-of-3 multisig run by your project leads, for example. Major projects in the space, such as link:https://makerdao.com/en/[MakerDAO], use systems similar to this one.
+
+=== Role-based access control
+
+While the simplicity of ownership can be helpful for simple systems or quick prototyping, different authorization levels are often needed. You may want an account to have permission to ban users from a system but not create new tokens. link:https://en.wikipedia.org/wiki/Role-based_access_control[Role-Based Access Control (RBAC)] offers flexibility in this regard. +
+
+We will define multiple roles. An account may have '`moderator,`' '`minter,`' or '`admin`' roles, which you will check for using _onlyOwner_. This check can be enforced through the _onlyRole_ modifier. Separately, you will be able to define rules for how accounts can be granted a role and revoked. +
+
+Most software uses role-based access control systems: some users are regular users, some may be supervisors or managers, and a few will often have administrative privileges. +
+
+=== Using _AccessControl_
+
+Etherisc contracts provides _AccessControl_ for implementing role-based access control. Its usage is straightforward: for each role that you want to define, you will create a new role identifier that is used to grant, revoke, and check if an account has that role. +
+
+Here’s a simple example of using _AccessControl_ in an ERC20 token to define a 'minter' role, which allows accounts that have it to create new tokens: +
+
+INPUT GRAPHIK
+
+NOTE: Make sure you fully understand how _AccessControl_ works before using it on your system, or copy-pasting the examples from this guide. +
+
+While straightforward and explicit, this isn’t anything we wouldn’t have been able to achieve with _Ownable_. Indeed, where _AccessControl_ shines is in scenarios where granular permissions are required, which can be implemented by defining multiple roles. +
+
+Let’s augment our ERC20 token example by also defining a '`burner`' role, which lets accounts destroy tokens, and by using the _onlyRole_ modifier: +
+
+INPUT GRAPHIK
+
+So clean! By splitting concerns this way, more granular permission levels may be implemented. Limiting what system components can do is known as the link:https://en.wikipedia.org/wiki/Principle_of_least_privilege[principle of least privilege] and is a good security practice. Note that each account may still have more than one role. +
+
+=== Granting and revoking roles
+
+The ERC20 token example above uses __grantRole_, a useful _internal_ function when programmatically assigning roles (such as during construction). But what if we later want to grant the '`minter`' role to additional accounts? +
+
+By default, accounts with a role cannot grant or revoke it from other accounts: all having a role does is make the _hasRole_ check pass. To grant and revoke roles dynamically, you will need help from the role’s admin.
+
+Every role has an associated admin role, which grants permission to call the _grantRole_ and _revokeRole_ functions. A role can be granted or revoked by using these functions if the calling account has the corresponding admin role. Multiple roles may have the same admin role to make management more effortless. A role’s admin can be the same role, which would cause accounts with that role to grant and revoke it. +
+
+This mechanism can create complex permission structures resembling organizational charts, but it also provides an easy way to manage more straightforward applications. _AccessControl_ includes a role called DEFAULT_ADMIN_ROLE, the default admin role for all roles. An account with this role will be able to manage any other role unless __setRoleAdmin_ is used to select a new admin role. +
+
+Let’s take a look at the ERC20 token example, this time taking advantage of the default admin role: +
+
+INPUT GRAPHIK
+
+Unlike the previous examples, no accounts are granted the '`minter`' or '`burner`' roles. However, because those roles`' admin role is the default admin role, and that role was granted to msg.sender, that same account can call _grantRole_ to give minting or burning permission and _revokeRole_ to remove it. +
+
+Dynamic role allocation is often a desirable property, for example, in systems where trust in a participant may vary over time. It can also be used to support use cases such as link:https://en.wikipedia.org/wiki/Know_your_customer[KYC], where the list of role-bearers may not be known up-front or may be prohibitively expensive to include in a single transaction. +
+
+=== Querying priviledged accounts
+
+Because accounts might grant and revoke roles dynamically, it is only sometimes possible to determine which accounts hold a particular role. This is important as it allows to prove specific properties about a system, such as that an administrative account is a multisig or a DAO or that a specific role has been removed from all users, effectively disabling any associated functionality.
+
+Under the hood, _AccessControl_ uses _EnumerableSet_, a more powerful variant of Solidity’s mapping type, which allows for crucial enumeration. _getRoleMemberCount_ can be used to retrieve the number of accounts that have a particular role, and _getRoleMember_ can then be called to get the address of each of these accounts. +
+
+INPUT GRAPHIK
+
+=== Delayed operation
+
+Access control is essential to prevent unauthorized access to critical functions. These functions may be used to mint tokens, freeze transfers, or perform an upgrade that completely changes the smart contract logic. While _Ownable_ and _AccessControl_ can prevent unauthorized access, they do not address the issue of a misbehaving administrator attacking their own system to the prejudice of their users. +
+
+This is the issue the _TimelockController_ is addressing.
+
+The _TimelockController_ is a proxy that is governed by proposers and executors. When set as the owner/admin/controller of a smart contract, it ensures that whichever the proposers`' order maintenance operation is subject to a delay. This delay protects the smart contract users by giving them time to review the maintenance operation and exit the system if they consider it is in their best interest to do so.
+
+=== Using TimelockController
+
+By default, the address deployed in the _TimelockController_ gets administration privileges over the timelock. This role grants the right to assign proposers, executors, and other administrators. +
+
+The first step in configuring the _TimelockController_ is to assign at least one proposer and one executor. These can be assigned during construction or later by anyone with the administrator role. These roles are not exclusive, meaning an account can have both roles. +
+
+Roles are managed using the _AccessControl_ interface and the bytes32 values for each role are accessible through the _ADMIN_ROLE_, _PROPOSER_ROLE_ and _EXECUTOR_ROLE_ constants. +
+
+There is an additional feature built on top of _AccessControl_: giving the executor role to _address(0)_ opens access to anyone to execute a proposal once the timelock has expired. This feature, while helpful, should be used with caution. +
+
+At this point, with both a proposer and an executor assigned, the timelock can perform operations. +
+
+An optional next step is for the deployer to renounce its administrative privileges and leave the timelock self-administered. If the deployer decides to do so, all further maintenance, including assigning new proposers/schedulers or changing the timelock duration, will have to follow the timelock workflow. This links the governance of the timelock to the governance of contracts attached to the timelock and enforces a delay in timelock maintenance operations. +
+
+WARNING: If the deployer renounces administrative rights in favor of the timelock itself, assigning new proposers or executors will require a timelocked operation. If the accounts in charge of these two roles become unavailable, the entire contract (and any contract it controls) becomes locked indefinitely. +
+
+With both the proposer and executor roles assigned and the timelock in charge of its administration, you can now transfer the ownership/control of any contract to the timelock. +
+
+TIP: A recommended configuration is to grant both roles to a secure governance contract such as a DAO or a multisig and the executor role to a few EOAs held by people helping with the maintenance operations. These wallets cannot take over control of the timelock, but they can help smoothen the workflow.
+
+=== Minimum delay
+
+Operations executed by the _TimelockController_ are not subject to a fixed delay but rather a minimum delay. Some significant updates might call for a longer delay. For example, if a delay of just a few days might be sufficient for users to audit a minting operation, it makes sense to use a delay of a few weeks, or even a few months, when scheduling a smart contract upgrade. +
+
+The minimum delay (accessible through the _getMinDelay_ method) can be updated by calling the _updateDelay_ function. Bear in mind that this function is only accessible by the timelock itself, meaning this maintenance operation must go through it.
 
