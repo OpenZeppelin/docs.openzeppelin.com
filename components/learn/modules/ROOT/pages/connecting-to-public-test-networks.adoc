@@ -193,6 +193,7 @@ Empty! This points to our next task: getting testnet funds so that we can send t
 === Funding the testnet account
 
 Most public testnets have a faucet: a site that will provide you with a small amount of test Ether for free. If you are on goerli, head to the https://goerlifaucet.com[Alchemy's free Goerli faucet] to get free testETH. Alternatively, you can also use https://faucet.metamask.io/[MetaMask's faucet] to ask for funds directly to your MetaMask accounts.
+ If you need test Ether on Sepolia, you can use https://www.infura.io/faucet[Infura's free Sepolia faucet] to get free testETH.
 
 Armed with a funded account, let's deploy our contracts to the testnet!
 
