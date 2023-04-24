@@ -13,6 +13,7 @@
     {{#if page.url}}
     <link rel="canonical" href="{{canonicalize page.url}}">
     {{/if}}
+    {{> head }}
     <link rel="stylesheet" href="{{@root.site.ui.url}}/dist/index.css">
     <title>{{#if page.title}}{{{page.title}}} - {{/if}}{{site.title}}</title>
     <meta name="twitter:card" content="summary">
@@ -26,14 +27,12 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{@root.site.ui.url}}/images/favicon-32x32.png"/>
     <link rel="icon" type="image/png" sizes="96x96" href="{{@root.site.ui.url}}/images/favicon-96x96.png"/>
     <link rel="icon" type="image/png" sizes="192x192"  href="{{@root.site.ui.url}}/images/favicon-192x192.png"/>
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700&display=swap"
-      rel="stylesheet">
-    {{> head }}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700&display=swap"/>
   </head>
   <body class="{{#if (in 'notoc' page.attributes)}}notoc{{/if}}">
+    {{> scripts-top}}
     {{> icons}}
     {{> main}}
-    {{> scripts}}
+    {{> scripts-bottom}}
   </body>
 </html>
