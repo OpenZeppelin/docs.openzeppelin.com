@@ -5,6 +5,11 @@ xref:learn::depeg-purchase.adoc[[.card-title]#Depeg Protection Tutorial# [.card-
 
 [.card.card-learn]
 --
+xref:learn::depeg-faq.adoc[[.card-title]#Depeg Protection FAQ# [.card-body]#pass:q[Frequently Asked Questions regarding Depeg Protection]#]
+--
+
+[.card.card-learn]
+--
 xref:learn::basics-gif.adoc[[.card-title]#Basics of the GIF Framework# [.card-body]#pass:q[Understanding the basic concepts of the GIF Framework.]#]
 --
 
