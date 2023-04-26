@@ -1,5 +1,17 @@
 [.card.card-learn]
 --
+xref:learn::depeg-purchase.adoc[[.card-title]#Depeg Protection Tutorial# [.card-body]#pass:q[Learn how to purchase depeg protection and stake into risk bundles.]#]
+--
+
+[.card.card-learn]
+--
+xref:learn::basics-gif.adoc[[.card-title]#Basics of the GIF Framework# [.card-body]#pass:q[Understanding the basic concepts of the GIF Framework.]#]
+--
+
+////
+
+[.card.card-learn]
+--
 xref:learn::setting-up-a-sandbox.adoc[[.card-title]#Setting Up a GIF Sandbox# [.card-body]#pass:q[How to set up a GIF Sandbox in minutes using docker.]#]
 --
 
@@ -17,3 +29,5 @@ xref:learn::deploying-and-interacting.adoc[[.card-title]#Deploying and Interacti
 --
 xref:learn::preparing-for-mainnet.adoc[[.card-title]#Preparing for Mainnet# [.card-body]#pass:q[All the boxes you need to check before taking your project to production on any EVM network.]#]
 --
+ 
+////

@@ -1,6 +1,6 @@
 = Learn
 
-Comprehensive guides for every step of your development journey.
+Comprehensive guides for every step of your journey in the Etherisc ecosystem.
 
 ++++
 <div class="card-section">

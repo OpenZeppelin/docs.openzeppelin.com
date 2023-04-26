@@ -1,5 +1,9 @@
 = Overview
 
+For a concise overview of the basic concepts see here: 
+
+xref:learn::basics-gif.adoc[Tutorial: Understanding the basic concepts of the GIF Framework.]
+
 == Architecture
 
 image::architecture.jpg[Architecture,800,link="_images/architecture.jpg"]

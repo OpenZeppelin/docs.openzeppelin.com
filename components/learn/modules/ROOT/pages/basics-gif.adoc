@@ -1,0 +1,257 @@
+= Basics about the GIF framework
+
+== Introduction
+
+Welcome to the first part of our new tutorial series. We would like to take you step by step to the topic of insurance in general and how to model insurance with the generic insurance framework (GIF). +
+First we will establish some definitions, functions and roles in order to have a common domain-oriented basis. 
+
+=== What is insurance?
+
+image::insured-insurer.png[Insured-Insurer]
+
+*Insurance* is a means of protection from financial loss. It is a form of risk management, primarily used to hedge against the risk of a contingent or uncertain loss. The loss associated with the risk may or may not be financial, but it must be reducible to financial terms.
+
+An insurance company takes over risks from a customer, often called the insured. Insurable risks  can be  events related to weather, like too much or too little rain, but also the delay of a booked flight or a classic car liability insurance. The insurance promises to compensate the insured in the event of a covered loss. In return, the insured (also called policyholder) pays a premium. If a claim occurs and is accepted by the insurance, the insurance creates a payout to reimburse the agreed financial amount.
+
+The insurance company can outsource all services, such as sales or data management, to other service providers. The only exception is the actual assumption of the risk. This risk must always remain with the insurance company.
+
+The exact legal requirements for insurance vary around the world. In most countries, an insurance company requires a state-issued license.
+
+=== What is an insurance policy?
+
+An insurance policy is the contract provided by the insurance to the insured that details conditions and circumstances under which the insurance does make payouts to cover losses of the insured that occurred from accepted claims.
+
+Let’s look at the lifecycle of a typical insurance policy. Such a lifecycle usually consists of the following chronologically listed sub-steps.
+
+* The customer makes an inquiry regarding an insurance policy. By taking out the insurance policy, he or she wants to protect himself or herself against a specific risk.
+* The insurance company examines the customer's application.
+* The application is accepted or rejected.
+* In case of rejection, the customer is informed, no further activities take place.
+* In case of acceptance, the contract comes to the "underwriter". The acceptance of the application is called "underwriting".
+* The insurance company commits itself with the "underwriting" to take over the risk of the customer and to transfer it to itself. It further undertakes to cover the loss if the insured event occurs.
+* The customer, for his part, undertakes to pay the premium.
+* Both declarations of obligation are documented in a contract. This contract is called the insurance policy.
+* If a claim occurs, the customer reports it to the insurance company.
+* The claim is checked by the insurance company and accepted or rejected.
+* In case of acceptance, the agreed insurance sum is paid out.
+
+It is easy to see at this point that the insurance business triggers a substantial amount of record keeping, and  many of the individual sub-steps in the classic insurance business require manual activities. For example, when a customer makes a claim, the insurance company has to manually check the details of the claim. This involves a lot of effort and thus incurring costs. 
+
+=== What is parametric insurance?
+
+Parametric insurances are insurances that cover the occurrence of predefined events instead of indemnifying actual losses incurred. 
+
+Parametric insurance policies correspond to agreements between the insurance and the insured where the insurance approves payouts to the insured when predefined triggering events occur.
+
+In parametric insurance loss events (the risks) are defined as functions of underlying indices or parameters that meet the criteria defined by the insurance product. Example indices/parameters include rainfall amounts, wind speeds for insurance linked to weather conditions. In the case of flight delay insurance the parameter/index can directly be derived from the difference of actual arrival time and the scheduled arrival time of an insured flight. To make parametric insurances feasible and attractive to all involved parties the underlying indices/parameters need to be transparent, reliable and trusted.
+
+Once such events occur, the insurance may directly calculate and trigger a payout to the insured without an often costly claims acceptance process.
+
+The big win of parametric insurance is their potential for efficiency and automation. Claims handling, one of the most complex and costly parts of the operation of an insurance business, can be reduced to a simple and fully automated process.
+
+=== What are the advantages of blockchain in insurance?
+
+image::advantage.png[Advantage of blockchain in insurance]
+
+There are a number of benefits that blockchain technology may provide to the insurance domain. Some of the advantages are directly linked to the foundations of blockchain technology. 
+
+* Transparency and accountability for records keeping. Information regarding policies, claims and payouts may be stored on-chain. Once on the chain, they can neither be deleted or changed without proper permission, and each time data is updated or adjusted, the original data is kept in the history. This means that for all data, a full audit trail is available and transparent.This is a clear security aspect and provides value to customers that are inexperienced with the insurance business and with low trust levels towards financial organisations.
+* Minimize friction and transaction costs for payment handling. On-chain handling of premium payments and claims payouts may be a substantial efficiency boost for the operation of an insurance business.
+* Create new markets/opportunities by opening risk pools. The transparent pooling of large numbers of insurance policies of a particular type provides the opportunity to open up this market to a wider audience. Participating in such risk pools allows investors to diversify their risk portfolios.
+
+Additional value may be provided by blockchain technology for the special case of parametric insurance.
+
+* Transparent and trusted handling of indices/parameters. Providing this central data in a trusted way to the blockchain world may be managed through oracle services that makes it very hard/too costly to feed manipulated index/parameter information into smart contracts implementing parametric insurance policies.
+* Huge efficiency gains with fully automated policies. Once the index/parameter feed is provided in a reliable way to policy contracts claims and payout handling may be fully automated for parametric insurances.
+* Immediate payouts. Running in a blockchain context and having automated claims/payout handling allows for near-real time payouts as no intermediate financial layers need to be taken into account.
+
+=== The Etherisc model
+
+In general, the Etherisc ecosystem is based on three pillars. Risk transfer market, regulatory framework and technical framework. +
+With the generic insurance framework (GIF) it is technically possible to model insurance policies individually.  +
+In each country, the legal and monetary frameworks differ from slightly until to seriously different. Etherisc therefore relies on cooperation with local teams and  offers its own insurance policies to a limited extent only.  Etherisc can support interested parties and help to guide the coordination process with the relevant agencies and ministries. +
+In the paragraphs below the pillars risk transfer market, legal framework and technical framework are introduced individually.
+
+=== The three pillars of the Etherisc ecosystem
+
+image::three-pillars.png[Three Pillars of the Etherisc Ecosystem,400]
+
+==== Risk transfer market
+
+image::pillar1.png[Risk Transfer Market,200]
+
+Raising capital to back the technical guarantees is done by investors. In other words, they are risk capital providers. In this process, investors will lock a certain amount of DIP tokens - this is also known as “staking”. The staked DIP tokens are a prerequisite to then be able to invest the actual risk capital in DIP or stablecoins - a cryptocurrency which is build in a way that it has a stable economic value, e.g. by pegging it to a fiat currency like USD. What is the reason for this? The community of DIP token holders created the entire Etherisc ecosystem. Therefore, we will demand that parties who profit from the ecosystem also own a share of it by owning and staking DIP tokens. This idea is borrowed from the space of cooperative enterprises, and it reflects the fact that the Etherisc ecosystem is a public good which needs to be protected from the “tragedy of the commons”.
+
+==== Legal framework
+
+image::pillar2.png[Legal framework,200]
+
+Insurance companies are highly regulated around the world for good reasons, to protect customers as well as investors. Regulation ensures, for example, that the policyholder actually receives the promised compensation in the event of an insurance claim. A great deal of legislation has been enacted for this purpose in most countries. With regard to jurisdiction, a general distinction can be made between the American, European and Anglo-Saxon regions. +
+
+
+The financial and organizational hurdles to establishing a new insurance company are correspondingly high. For specific countries like Germany, Etherisc offers a new legal model, where the legal claim is exchanged for a technical guarantee using blockchain and smart contracts. Thus, the provider - in this case Etherisc - is no longer subject to the legal and financial requirements of an insurance company. Still, for each project, product and jurisdiction, the legal framework has to be considered and the product owner is responsible for the proper implementation. The Etherisc team has accumulated a lot of experience in this field and is happy to share these insights with platform users.
+
+==== Technical framework
+
+image::pillar3.png[Technical framework,200]
+
+The GIF framework developed and maintained by Etherisc allows to model, deploy and operate insurance products based on blockchain in a decentralized and transparent way. +
+Using GIF, interested parties may quickly implement and securely operate their insurance products.
+
+
+
+=== What is GIF?
+
+image::gif-framework.png[The GIF]
+
+GIF is an acronym and means generic insurance framework. At its core, it consists of a collection of open-source smart contracts that implement basic functions of the lifecycle of insurance products and policies. Thus, GIF enables the modeling of a wide variety of insurance types.
+
+It is a basic implementation that can be used to create blockchain-based insurance applications.
+
+In order to be able to design insurance products quickly and easily, processing steps that run similarly in all products have been identified and made available as modules. Thus, only product-specific aspects such as pricing etc. need to be implemented for each product.
+
+GIF provides these generic functions for all sub-steps in the lifecycle of an insurance policy, thus enabling an automated workflow that controls the sequence of processing steps. In the next section, we will describe these functions and how they work in detail.
+
+=== GIF and GIF instances 
+
+image::gif-instance.png[The GIF]
+
+As introduced above, the GIF provides the means to model and implement specific insurance products and product specific policy handling based on open-source smart contracts. +
+To actually operate insurance products, including selling policies, collecting premiums, calculating trigger events and handling payouts, a complete execution environment is needed in addition to the smart contract collections that define products and policies. 
+
+This execution environment - also called GIF instance - may be seen as a comprehensive platform or marketplace in which GIF based insurance products are managed and operated. It is the intention that a GIF instance is shared over many different and independent organisations providing a wide array of various insurance products. 
+
+The picture below provides an overview of the stakeholder roles involved with a GIF instance.
+
+image::gif-components.png[The GIF]
+
+==== Stakeholder roles
+
+* **Insured/Customer** +
+The Insured / customer is the policyholder who wants to pass on his risk to the risk pools. He is a customer of the insurance company.
+
+* **Investor** +
+Investors have an interest to participate in risk pools to balance/diversify their risk portfolios. Investors provide collateral for risk pools in exchange for interest payments.
+
+* **Oracle owner** +
+The oracle owner provides oracles that interface between the blockchain smart contracts and data sources external to the blockchain. For example, in the case of flight delay insurance, the oracle informs the smart contract whether the flight landed in time, how much it was delayed or if it was completely cancelled. For weather index insurance, an oracle could provide historical and real-time weather data like rainfall, wind speed and the like.
+
+* **Product owner** +
+The product owner designs and operates one or more products. In the traditional insurance industry, this would be an insurance company or an MGA (managing general agent). Due to the multi-client capability, a product owner can make use of all oracles, which are located on the respective platform by the oracle owners.
+
+* **Risk pool keeper** +
+A risk pool keeper manages one or more risk pools. A risk pool is a smart contract which assigns (“pools”) a number of risks, represented by policy objects, to risk capital.  +
+Risk pools can collect collateral which is invested by risk investors. Risk investors allocate and lock DIP tokens and/or stable coins in the risk pool and receive a reward for binding their assets.This process is called “staking”. Losses are paid from the risk pool, therefore, the capital in the pool (to be more specific, the stablecoin part of the pool) is at risk. Investors can top up their investment in the risk pool and also withdraw their funds. However, before withdrawing their funds, the risks they have been bearing need to be expired or paid out.  +
+DIP tokens are used to link access to risk pools to investors who have also invested in the platform represented by this GIF instance. 
+
+* **Instance operator** +
+The GIF itself is a framework, i.e. a collection of open-source smart contracts. 
+Any complete deployment of this framework is called a “GIF instance”. 
+There will always be at least one complete instance of the GIF which is operated by the Etherisc project, but in principle, anybody can deploy a new GIF instance. 
+
+The instance operator is the key role which operates a specific GIF instance. 
+
+image::instance-operator.png[Instance Operator]
+
+The key responsibilities of the instance operator are the administration of products and oracles (as introduced above) and a few other basic actions. Any GIF instance is multi-client capable, which means that any number of product owners and oracle providers can be operated and administered on one GIF instance. Due to the different legal regulations for insurances worldwide, it can turn out that different GIF instances and  therefore several instance operators are required. 
+
+The instance operator is represented by an Ethereum address. Therefore, the instance operator could be a natural person owning the private key of that address, or a smart contract - either a multisig (a digital signature scheme that allows a group of people to sign a single document) or a DAO (decentralized autonomous organisation) structure. This enables a completely decentralized operation of any GIF instance. 
+
+One address can of course manage several independent GIF instances. +
+It is the dedicated goal of the Etherisc Project that control over all GIF instances will be handed over to DAOs which are controlled by the platform's stakeholders (customers, product owners, oracle owners and risk pool keepers).
+
+=== Generic lifecycle functions in GIF
+
+==== Core objects of the GIF framework
+
+Any instance of the GIF maintains collections of three basic objects: 
+
+* Products
+* Oracles
+* Risk pools
+
+Each of these objects has its own lifecycle, which we discuss in the next paragraphs. +
+These three basic objects are connected by the framework to execute the lifecycle of insurance policies, which are also maintained as objects in the framework.
+
+==== Product lifecycle
+
+image::product-lifecycle.png[The GIF]
+
+The product life cycle defines the stages a new product will undergo during its existence.  
+
+A product is a specific smart contract which implements the functionality of this product. The product can implement its own specific requirements,  or it can use the generic functionality of the GIF. 
+
+After the product is technically developed and deployed to the blockchain, it needs to be registered in the GIF instance. This action is typically integrated in the deployment process. 
+
+The GIF instance offers the following functions to the product owner for this:
+
+* `registerProduct` +
+After registering a product, it needs to be approved by the instance operator. The instance operator will check the details, such as check that there is no malicious code in the product contract, and may also impose other requirements needed for the product to be approved. 
+A possible and likely requirement is that the product owner stakes a certain amount of DIP tokens in a special contract, and then must be actively selling products and earning money on the platform. +
+Approval is made by the instance operator  using function 
+
+* `approveProduct` +
+After approval of the product, the product is active and can start selling policies. +
+Should there be a change in terms which imply a re-deployment of the product, the old product needs to be deactivated. For this, the GIF instance offers two functions:
+
+* `pauseProduct` +
+A product which shouldn't be sold anymore, or is defective, can be paused. 
+
+* `unpauseProduct` +
+This reverses the effect of `pauseProduct`. 
+
+==== Oracle lifecycle
+
+image::oracle-lifecycle.png[The GIF]
+
+Oracles form a vital part of the GIF framework, as they form the link between the blockchain based smart contracts and the index/parameter information necessary to operate real world insurance products.  
+
+Products can utilize product specific oracles, but they can also make use of generic oracles, which can in turn be implemented by many different parties.  
+
+To make this possible, we have introduced the notion of an “oracle type”. An oracle type is a signature of an oracle, which defines the inputs and outputs of the oracle.  
+
+For example, the FlightDelay ratings oracle type has one input parameter, the carrier/flight number combination, and one output parameter, an array of integers which represent the historical number of delays for different amounts of delays. 
+
+For each oracle type, there can be an arbitrary number of oracles implementing this service.  
+
+An oracle owner can propose oracles that they would like to offer (in case of the oracle owner) or use (in case of the product owner). The instance operator checks the suggested oracles and activates them after successfully checking. The instance operator can deactivate or remove the oracle as well, if necessary. 
+
+The following functions are available for oracles:
+
+* `proposeOracle` (oracle owner)
+* `activateOracle` (instance operator)
+* `deactivateOracle` (instance operator)
+* `removeOracle` (instance operator)
+
+==== Risk pool lifecycle
+
+image::riskpool-lifecycle.png[The GIF]
+
+The risk pool lifecycle will be described here as soon as the implementation is published.
+
+==== Policy lifecycle
+
+image::policy-lifecycle.png[The GIF]
+
+Independent of the specific product, each policy that is processed on the GIF instance has a lifecycle. Typically, a policy undergoes several state changes during the lifecycle. While any product designer could implement his own lifecycle (in our terminology, the life cycle is called “PolicyFlow”), the GIF offers a default lifecycle which should be sufficient for most use cases. This generic life cycle is called “PolicyFlowDefault”.  
+
+The “PolicyFlowDefault” lifecycle offers the following functions: 
+
+. `_newApplication` (to generate and store a new application from a customer)
+. `_underwrite` (to sign an application and create a new policy)
+. `_decline` (to reject an application)
+. `_newClaim` (to generate and store a new claim in case of loss)
+. `_confirmClaim` (to confirm a claim and create a payout)
+. `_declineClaim` (to reject a claim)
+. `_payout` (to confirm and initiate a payout)
+
+The names of these functions start with an underscore to indicate that they are internal functions that you can override in your product. For example, you are free to have the newApplication function in your contract and also use _newApplication in it.
+
+==== Payments
+
+The GIF instance is agnostic to the way payments are made. Therefore, we don’t offer specific functionality for this.  
+
+Pure crypto payments can be made directly to the product contract, while fiat payments need a fiat gateway and potentially an external banking or credit card infrastructure.  
+
+Information on how to implement fiat gateways can be requested from the core team.
+

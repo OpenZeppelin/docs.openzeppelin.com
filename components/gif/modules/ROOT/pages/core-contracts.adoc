@@ -1,6 +1,11 @@
 = Core Contracts
 
-Some blabla what core contracts are.
+The core contracts form an operating system for creating and executing insurance products. 
+
+For a concise overview of the basic concepts see here: 
+
+xref:learn::basics-gif.adoc[Tutorial: Understanding the basic concepts of the GIF Framework.]
+
 
 == Organization
 

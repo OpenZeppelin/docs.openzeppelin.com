@@ -1,0 +1,378 @@
+= Depeg Protection Tutorial
+
+== Introduction
+
+=== What is a stablecoin?
+
+Stablecoins, in other words, pegged cryptocurrency, is a coin, token, or asset on a blockchain tied to a currency issued by a government or bank. 
+
+Fiat-linked cryptocurrencies are considered examples of stablecoins. They were created to deal with extreme fluctuations. Most stablecoins are pegged to the US dollar. There are also stablecoins in EUR or GBP.
+
+image::depeg-1-trilemma.png[alt,600]
+
+Each stablecoin is designed to have a FIAT monetary value in reserve. Some are issued when the same amount of fiat money is deposited. Others use algorithms to stabilize their coins.
+
+Stablecoins stabilize their price by decreasing or increasing the overall amount of supply. The changes in token supply change the relative price of each token until it reaches the same price as the FIAT currency. 
+
+Stablecoins with collateral tokens, such as USDT and DAI, are mined and burned as needed, with the newly minted tokens backed by other digital assets. 
+
+Algorithmic stablecoins stabilize through smart contracts and other mechanisms that automatically adjust the supply of the stablecoin to maintain its peg to the underlying asset.
+
+=== What is a Depeg?
+
+A 'peg' is a fixed price for the exchange rate between two assets. This minimizes trading risks and provides planning security.
+
+In cryptocurrencies, a peg refers to stablecoins pegged to a FIAT currency.
+
+Depeg refers to the event of the FIAT-Peg exchange rate drifting apart. The stablecoin is no longer stable and loses value. Trust is lost, many people exchange into other stablecoins and the depegged stablecoin crashes.
+
+USDC, for example, is a fully reserved-backed stablecoin, meaning every USD Coin is backed by actual cash and short-dated United States treasuries. 
+
+Despite this, USDC issuers, Circle, announced 2023 on March 10 that USDC had depegged from the U.S. dollar, with around $3.3 billion of its $40 billion in USDC reserves stuck in the now defunct Silicon Valley Bank. 
+
+The bank — the 16th-largest in the U.S. — collapsed on March 10 and is one of the biggest bank failures in U.S. history. Given USDC's collateral influence, other stablecoins followed suit in de-pegging from the U.S. dollar.
+
+On March 11, the USDC-USD rate collapsed to 0.878874 cents. On March 13, the USDC was worth 0.99 cents again. Since then, the USDC has been stable. This scenario would have triggered a Depeg event in the smart contracts of our depeg protection product.
+
+This event occurred during our testing phase of the finalized Etherisc Depeg Protection web app. In our web app, you can protect USDC against a Depeg event. At the first moment, we were scared. Then came the conviction for having designed precisely the right product at the right time!
+
+== Purchasing depeg protection 
+
+You may be able to view a few things if you still need to connect your wallet, but we recommend connecting your wallet as a first step.
+
+You can protect your USDC against a Depeg event by buying a policy in the https://depeg.etherisc.com/[Etherisc Depeg protection web app]. The web app will show you all the risk bundles that match your request and select the risk bundle with the best conditions from your point of view.
+
+In the web app, you can also stake USDT as an investor. Each investor creates his risk bundle in the amount of the deposited token. Each investor can set his conditions, terms, etc., during the creation of the Bundle. Once created,  these conditions cannot be changed during the term of the risk bundle. 
+
+=== Apply for USDC Depeg Protection
+
+Connect your wallet with our https://depeg.etherisc.com[Etherisc Depeg protection web app] on the Ethereum mainnet and ensure your wallet holds a small amount of ETH to afford the transaction fees.
+
+'Apply for USDC Depeg protection' is the landing page in the web app. You can also access them by clicking the 'Depeg Protection' or the 'Apply' button. You can also click 'APPLY FOR NEW POLICY' in the upper right corner of the 'Policies' section. You can purchase a policy and protect your USDC against a Depeg case here.
+
++++<u>+++*Here are the input options:*+++</u>+++
+
+==== Protected wallet
+
+The field is filled with your wallet ID if you have logged in with your wallet. You can also enter another wallet ID and protect USDC. At the time of policy application, we do not check whether there are USDC in the wallet.
+
+So you can buy a policy without having USDC. However, you cannot bet on a Depeg. In the Depeg case, we check how many USDC you have in your protected wallet and payout according to the number. The maximum compensation you will get is the number of protected USDC in the policy. If the USDC balance on an actual Depeg is lower than the protected USDC, only the actual balance at Depeg time is covered. 
+
+You can purchase multiple policies for the same protected wallet holding USDC. The product will not compensate for more than the USDC balance at Depeg time, independent of how much protection you bought.
+
+We determine the number of USDC in the secured wallet using the https://docs.moralis.io/web3-data-api/evm/balance-api[Moralis balance API].
+
+==== Protected amount
+
+Here you enter the USDC volume you want to protect against a Depeg.
+
+* the minimum volume is 2,000 USDC
+* the maximum volume is 100,000 USDC. The maximum is also limited by the available risk capital in the selected risk bundle also limits the maximum.
+==== Coverage duration
+
+Here you enter the period for which your USDCs are protected.
+
+* the minimum period is 14 days
+* the maximum period is 120days; the maximum may be lower depending on the selected risk bundle
+==== Coverage until
+
+The field is automatically filled according to the 'Coverage duration.' By clicking on the calendar icon, you can set a different desired date by double-clicking.
+
+Once you have filled all fields, we will determine the risk bundles that match your specifications in a table. You can then select the risk bundle with the ideal parameters. The premium will be displayed.
+
+==== I would like Etherisc to submit the transaction and pay the fees on my behalf.
+
+Gas fees can sometimes be very high on the Ethereum mainnet. Therefore, we offer an option in which Etherisc submits the policy creation transaction and pays the gas fees.
+
+image::depeg-2-main.png[alt,600]
+
+*And this is how it works:*
+
+We accept the gas fees and submit the transaction by clicking this checkbox. You will receive the signature request, i.e., the request whether we may take the amount for the policy from your wallet.
+
+image::depeg-3-gasless.png[alt,600]
+
+You will find the following data in the request:
+
+image::depeg-4-message.png[alt,400]
+
+*ProtectedBalance* in the unit defined by USDC. So if you subtract six decimal places, you have your protected amount of USDC.
+
+*Duration* in seconds. Sum seconds/60(seconds)/60 (minutes)/24 (hours)=number of days.
+
+*Bundle ID*. The risk bundle you have selected to cover your USDC.
+
+*Signature ID*. This is a random string that we generate to make the transaction unique. We use the random string internally to ensure this application cannot be submitted multiple times.
+
+When you confirm the signature request, we generate a signature from all these values to make your application unique and tamper-proof.
+
+Your application will be forwarded to our backend and put into a transaction queue. The backend then submits these applications one after the other using an internal wallet. The gas fee is limited to 30 Gwei. 
+
+This means there is no guarantee that the transaction will go through immediately and it might take a while until gas costs return to values at or below 30 Gwei. In the 'Policies' section, you can see the current status.
+
+You take over the gas fee if you do not activate this checkbox. Taking over the gas fees gives you control over how quickly your protection becomes active.
+
+You can buy the policy by accepting our terms of service and then clicking 'BUY.'
+
+*This is how it continues when you take over the gas fees yourself:*
+
+image::depeg-5-withgas.png[alt,600]
+
+After that, you need to confirm the payment of the premium.
+
+image::depeg-6-awaiting.png[alt,600]
+
+image::depeg-7-permission.png[alt,600]
+
+Then you need to confirm your wallet.
+
+image::depeg-8-confirm.png[alt,600]
+
+image::depeg-9-waiting.png[alt,600]
+
+Then Etherisc will confirm the protection for you.
+
+image::depeg-10-confirmed.png[alt,600]
+
+=== Policies
+
+In this section, you can see all your policies. You can select in the top left corner of the table to have all your policies displayed or only the active ones. You can also create new policies by clicking on 'APPLY FOR NEW POLICY' in the top right corner of the table.
+
+=== Price
+
+image::depeg-11-price.png[alt,600]
+
+The red line marks the 0.995 US dollar limit.
+
+The green line marks the 0.999 US dollar limit. 
+
+The blue line shows the current USDC price. If the USDC price drops below 0.995 US dollar, the line will turn orange. If the USDC price does not recover above the 0.999 US dollar line within 24 hours, the Depeg case occurs and the line turns red.
+
+In the following chapter, you will find more information about the Depeg case.
+
+When you click the 'Price' Button, you can see the current rate of USDC against the US dollar. 
+
+If you click 'Reference pricefeed,' you will be redirected to our data source. We get our data from https://data.chain.link/ethereum/mainnet/stablecoins/usdc-usd[Chainlink].
+
+==== Data supply interval
+
+image::depeg-12-pricefeeds.png[alt,600]
+
+There are two types of data deliveries from Chainlink for updating the USDC rate. We aggregate this data and display it up to a maximum of one year in the past.
+
+* Heartbeat: a one-time regular daily data delivery
+* Deviation threshold: a data delivery when the deviation threshold of 0.25% of the USDC rate against the US dollar rate is exceeded.
+Sixteen oracles (smart contracts) send this data to Chainlink currently. At least eleven oracles must confirm and may deviate from each other by a maximum of 0.0001 USDC. Only then Chainlink outputs the averaged USDC rate.
+
+
+== How a depeg incident is handled
+
+=== States of the Depeg protection
+
+You can see three cases in the upper left section in the' Price' area. Stable, 'triggered at' and 'depegged.'
+
+=== The 'stable' state
+
+image::depeg-13-stable.png[alt,200]
+
+The USDC price is considered to be 'stable' as long it does not fall below the trigger level of 0.995 US dollar. 
+
+=== The 'triggered' state
+
+image::depeg-14-triggered.png[alt,200]
+
+A 'depeg event' is 'triggered' when the Chainlink USDC/USD price feed on the Ethereum Mainnet falls below 0.995 US dollar. In this case, the product smart contract is temporarily deactivated and policies can no longer be sold. This is to prevent that malicious actors could exploit the situation and buy cover in a situation where the risk is high.
+
+image::depeg-15-price-triggered.png[alt,600]
+
+=== The 'depegged' state
+
+image::depeg-16-depegged.png[alt,200]
+
+If the Chainlink USDC/USD price fails to recover over or equal to 0.999 within 24h, the product enters into a 'depegged' state. As for the 'triggered' scenario, policies can no longer be sold.
+
+The product is closed. As the policy owner, you can claim during a claim window of seven days. Once claimed, the policy is fulfilled with the Depeg and thus also terminated.
+
+=== The payout price
+
+The depeg payout price is defined by the latest chainlink USDC/USD available at the 'depegged at' event. The time of the depeg event is defined by the 'triggered at' event plus 24 hours.
+
+The depegged payout price is used for all calculations, regardless of when a policy holder made their claims. The maximum payout price is up to 20% of the value of your protected amount.
+
+An Example: The depegged payout price is 0.9. So, if you purchased protection for 10,000 USDC for a particular Mainnet wallet, you would receive 1,000 USDT (1 - 0.9) * 10,000) (assuming the USDC balance on your protected wallet is at least $10,000 USDC at the time of payout).
+
+=== How to claim?
+
+You can claim the amount due to you after the 'depegged' status is activated. To do this, connect to the web application via Metamask using your protected wallet. Then, click on your policy under 'Policies.' In your policy, you then click 'Claim.' Claiming from the protected wallet is your proof that you are the rightful owner of the protected wallet.
+
+Once a depeg event happens, you have a time window of seven days to create your claim. Create your claim as soon as possible.
+
+Using the https://docs.moralis.io/web3-data-api/evm/balance-api[Moralis Balance Api], the actual USDC balance of your protected wallet at the 'depegged at' event is determined and the amount of USDT due to you is transferred to your wallet.
+
+=== Why wait for 24hrs?
+
+The idea is that you should be flexible in deciding what to do. When the product enters the 'triggered' state, you can start thinking about how you see the situation. You have 24 hours to evaluate the market and the situation. After 24 hours, the product returns to the 'normal' state (when USDC goes back above 0.999) or goes into the 'depegged' state.
+
+Another critical point in introducing the 24 hours is that we want to avoid triggering a Depeg case too quickly.
+
+=== How long can I wait to claim?
+
+In the case of a depeg event, the policy holder has a grace period of seven days to create her/his claim.  If the policy holder creates a claim, the associated payout needs to be made before the bundle investor can pull out the remaining funds. Once the grace period is over, the bundle investor might close the policy and withdraw capital immediately, in which case no payout will happen. 
+
+== Staking USDT in risk bundles
+
+=== Create a risk bundle
+
+When you create a risk bundle, you start staking USDT. 
+
+==== Connect your wallet
+
+Connect your wallet with our https://depeg.etherisc.com[Etherisc Depeg protection web app] on the Ethereum mainnet and ensure your wallet holds a small amount of ETH to afford the transaction fees.
+
+==== Model your risk bundle
+
+To create a new risk bundle, click the 'Stake' button. You can enter the values and  conditions for your risk bundle in the form that now opens. Please note that the customer will later choose the most attractive risk bundle. It is a good idea to look at the already existing risk bundles, their conditions and 'utilization' given by the number of covered policies. Some variables already have a default value that you can change.
+
+image::depeg-17-create-bundle.png[alt,600]
+
++++<u>+++*Here are the input options:*+++</u>+++
+
+*Name*
+
+Choose an eye-catching and descriptive name for your risk pool.
+
+*Lifetime*
+
+How long should your risk bundle protect the USDC from a Depeg case? 
+
+* the minimum term is 14 days
+* the maximum term is 180 days
+*Open until*
+
+This field is automatically filled depending on the lifetime you entered.
+
+*Staked amount*
+
+How much USDT do you want to stake as a risk bundle for the period mentioned above?
+
+* the minimum investment is 2,500 USDT
+* the maximum investment is 10,000 USDT
+We will start with these amounts to gain experience. If our risk pool proves itself, we will adjust the amounts.
+
+*Minimum / Maximum protected amount*
+
+What is the minimum/maximum amount of USDC you want a policy to cover?
+
+* The 'minimum protected amount' cannot be less than 2000 USDT
+* The 'maximum protected amount' cannot exceed 100,000 USDT
+*Minimum coverage duration*
+
+How many days of coverage for policies do you want to permit?
+
+* The 'minimum coverage duration' can not be less than 14 days
+* The 'maximum coverage duration' can not exceed 90 days
+*Annual percentage return*
+
+Here you can set the percentage of annual interest that the DIP token investor will receive for his staked DIP token.
+
+* The 'annual percentage return' can not be less than 0,01 %
+* The 'annual percentage return' can not exceed 15 %
+From the perspective of policy holders, the annual percentage return you enter here will determine the net premium paid for a policy. On top of this net premium, the Depeg product adds a 5% fee to partially compensate the product owner and instance operator for their work and expenses.
+
+*Checkbox*
+
+You must agree to our terms of service if you want to create a risk bundle.
+
+If you entered all variables and agreed to our terms of service, you can now create the risk bundle by pressing the 'STAKE' button.
+
+The web app asks you to allow Etherisc to take the amount you want to stake from your wallet. 
+
+image::depeg-18-permission.png[alt,600]
+
+Afterward, the web app asks for permission to create the risk bundle.
+
+image::depeg-19-confirm.png[alt,600]
+
+
+Now you will receive a confirmation of the risk bundle creation in the form of a summary of the parameters. Technically, the risk bundle is an NFT (ERC 721).
+
+image::depeg-20-confirmation.png[alt,600]
+
+=== Manage your risk bundle
+
+You can also manage your risk bundles. Every change in a risk bundle is associated with minimal transaction costs.
+
++++<u>+++*Here are the input options:*+++</u>+++
+
+*Stake*
+
+You can add more USDT to your risk bundle.
+
+*Unstake*
+
+Unstake is possible if the balance exceeds the capital that is needed to cover the current policies. Otherwise, the button will not be displayed. You can unstake at most the amount 'Balance' - 'Locked capital.' If you unstake the maximum possible amount, you cannot sell any more policies from this risk bundle.
+
+*Lock*
+
+image::depeg-21-locked.png[alt,600]
+
+You will lock your risk bundle. You can sell no more policies. The existing policies continue to run normally.
+
+Please note: The 'State' Locked means the complete risk bundle is locked. The 'Locked capital' shows the amount for which policies already exist.
+
+*Unlock*
+
+The risk bundle is activated again. You can sell policies again.
+
+image::depeg-22-unlocked.png[alt,600]
+
+*Close*
+
+You have the possibility of closing the risk bundle before expiry. You can only close the risk bundle irrevocably when there are no more open policies in the risk bundle.
+
+image::depeg-23-close.png[alt,600]
+
+If you want to close a risk bundle before the 'Open until' date, you can lock it first and then close it after all policies covered by the risk bundle have been closed.
+
+*Burn*
+
+After closing the risk bundle, withdraw your USDT by clicking the first 'Unstake' button. After that, you enter the remaining amount and confirm with the second 'Unstake' button.
+
+image::depeg-24-burn.png[alt,600]
+
+Now you can burn the risk bundle. 
+
+image::depeg-25-burned.png[alt,600]
+
+The NFT is also burned in the process. The risk bundle is empty and no longer has an owner.
+
+image::depeg-26-nft-burned.png[alt,600]
+
+=== USDT staking rewards
+
+USDT rewards come from Depeg protection net premiums purchased against your risk bundle, minus claims. If no policies are sold, no rewards accumulate. When a Depeg event occurs and claims are paid, the claims are deducted from your reward. Depending on the depeg price, the collected net premium may not cover the claims. In this case, the missing amount of USDT is taken from your invested risk capital, 
+
+USDT staking rewards = net premiums - claims
+
+You can claim your rewards after the end of the risk bundle lifetime and when all policies associated with the risk bundle have been closed.
+
+=== How can I avoid high gas fees?
+
+If your wallet offers maximum gas fees for the transaction, you can set the price to a maximum of 25GWei, confirm the transaction, and take a nap. During our 'friends and family' period, we made some transactions with an upper limit of 25 GWei. The most extended duration was one day.
+
+== Activating capital through DIP staking (t.b.d)
+
+DIP staking is required to activate staked USDT, with 10 DIP tokens activating 1 USDT.  For example, if you create a risk bundle for 100k USDT and stake 500k DIP, you can sell policies for up to 50k USDT on that risk bundle. 
+
+The more $DIP are staked, the more capital is activated, the more policies can be purchased and thereby fees generated. Staked DIP tokens are not collateral used to pay out claims. Therefore they are not at risk, even if claims are paid out from the investors' capital.
+
+USDT and DIPs staking can be done from the same or different wallets.
+
+Find out more about DIP staking: coming soon!
+// [ADD LINK TO THE OTHER DOCUMENT OR MERGE THE TWO TOGETHER]
+
+
+
+
+
+

@@ -16,7 +16,7 @@ xref:gif::index.adoc[[.card-title]#GIF# [.card-body]#pass:q[The Generic Insuranc
 
 [.card.card-primary.card-upgrades-js]
 --
-xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#pass:q[The GIF contracts]#]
+xref:gif::core-contracts.adoc[[.card-title]#Contracts# [.card-body]#pass:q[The GIF contracts]#]
 --
 
 [.card.card-primary.card-defender]
@@ -42,20 +42,35 @@ https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [
 --
 ////
 
-=== Security Audits
+////
+== Security Audits
 
 Etherisc security audits ..
 // are trusted by leading organizations building decentralized systems. 
 // Browse through past public audits in our https://blog.openzeppelin.com/security-audits/[blog] and follow our https://blog.// openzeppelin.com/
 // follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] before going to production. 
 // To learn more about OpenZeppelin’s audit process and request an audit, please visit our https://openzeppelin.com/security-audits/[security audits site].
+////
 
 [.card-section]
 == Learn
 
-Comprehensive guides for every step of your development journey. Soon(C)!!
+Comprehensive guides for every step of your journey in the Etherisc ecosystem!
 // TODO: Update "Learn" Section
-// include::learn::partial$cards.adoc[]
+[.card.card-primary.card-contracts]
+--
+xref:learn::index.adoc[[.card-title]#Tutorials Overview# [.card-body]#pass:q[An overview of the growing number of available tutorials]#]
+--
+
+[.card.card-primary.card-upgrades-js]
+--
+xref:learn::depeg-purchase.adoc[[.card-title]#Depeg Protection Tutorial# [.card-body]#pass:q[Tutorial on how to purchase depeg protection and stake Tether in risk pools.]#]
+--
+
+[.card.card-primary.card-defender]
+--
+xref:learn::basics-gif.adoc[[.card-title]#Basics of the GIF Framework# [.card-body]#pass:q[Understanding the basic concepts of the GIF Framework.]#]
+--
 
 // Check out https://forum.openzeppelin.com/c/general/guides-and-tutorials/23[the OpenZeppelin forum] for additional community-contributed guides!
 
