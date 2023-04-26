@@ -1,0 +1,67 @@
+= FAQ Etherisc DIP staking
+
+== How to stake DIP?
+
+=== Step 1: Connect your wallet
+
+Before staking, you must ensure you are connected with your wallet with our https://staking.etherisc.com[Etherisc DIP staking app] on the Ethereum mainnet and have a small amount of ETH to afford the network fee. +
+Caution: Please ensure you know how to use non-custodial wallets like Metamask before staking your tokens. As a rule of thumb, never give anyone your seed phrase or private key and never interact with non-official websites.
+
+=== Step 2: Choose a bundle
+
+Click the ‘Stake DIP’ button. You get a list of active bundles. Select a bundle by clicking on the 'SELECT’ button.  +
+Alternatively, click 'STAKE' in the 'DIP staking' and 'My Stakes' areas on the right. +
+The bundles are single-asset pools and require DIP tokens. Stakers can acquire DIP tokens at several centralized and decentralized exchanges.
+
+=== Step 3: Stake your DIP tokens
+
+Enter the desired amount of DIP tokens, read and agree to the terms and conditions by checking the box and clicking the button ‘STAKE.’ +
+Note: You will be prompted to do an approved transaction each time. +
+Your deposit and rewards will be locked until the risk bundle expires. After the bundle's lifetime ends, you must actively unstake the DIPs. There is no automatic transfer to your wallet.
+
+== Single-sided / double-sided staking
+
+In the first release of our Etherisc DIP staking app, we will offer single-sided staking only. You can only stake DIP in the Etherisc DIP staking app. +
+We will inform you immediately when double-sided staking is possible.
+
+== I’ve staked tokens. Can I stake more?
+
+Of course! You can stake tokens as much as you like. You can reinvest in a bundle by clicking the 'My stakes' button or select another risk bundle by clicking the 'Stake DIP' button.
+
+== What are the rewards I will receive?
+
+The payout will be in DIP tokens. The reward rate is adjusted to market conditions. Please check the app for the current reward rate. The current reward rate applies to the payout.
+
+== Is there a minimum stake amount?
+
+The minimum amount is 5.000 DIP tokens in the Etherisc DIP staking app.
+
+== Is there a maximum stake amount?
+
+There is no maximum stake amount.
+
+== When will I start earning rewards?
+
+From the moment you make a deposit, your passive income begins.
+
+== When will I receive my rewards?
+
+You can claim your rewards after the end of the staking period. There is no automatic transfer to your wallet.
+
+== Is there a minimum lock duration?
+
+The minimum lock duration depends on the bundle lifetime you staked your DIP tokens in.
+
+== How can I unstake my DIP tokens?
+
+Just press the ‘Unstake DIP’ button. You will see all bundles in which unstaking is possible. The bundle needs to be expired or closed to unstake.
+
+== Where are the rewards coming from?  
+
+The Etherisc Foundation initially provided them. 
+
+== Are my staked DIP token at risk?
+
+No, the DIP tokens are not at risk. Even if there is a depeg, the DIP tokens are only used to unlock the capital in the risk bundles. In the case of a Depeg, the payout comes from the USDT.
+
+*What contract are the DIP tokens staked against?*

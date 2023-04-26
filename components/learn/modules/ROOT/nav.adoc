@@ -1,6 +1,7 @@
 * xref:index.adoc[Overview]
 * xref:depeg-purchase.adoc[Depeg Protection Tutorial]
 * xref:depeg-faq.adoc[Depeg Protection FAQ]
+* xref:staking-faq.adoc[Depeg Protection FAQ]
 * xref:basics-gif.adoc[Basics of the GIF Framework]
 // * xref:setting-up-a-sandbox.adoc[Setting up a GIF sandbox]
 // * xref:developing-products.adoc[Developing Products]

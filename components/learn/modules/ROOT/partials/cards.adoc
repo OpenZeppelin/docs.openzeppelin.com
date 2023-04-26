@@ -10,6 +10,11 @@ xref:learn::depeg-faq.adoc[[.card-title]#Depeg Protection FAQ# [.card-body]#pass
 
 [.card.card-learn]
 --
+xref:learn::staking-faq.adoc[[.card-title]#DIP Staking FAQ# [.card-body]#pass:q[Frequently Asked Questions regarding DIP Staking]#]
+--
+
+[.card.card-learn]
+--
 xref:learn::basics-gif.adoc[[.card-title]#Basics of the GIF Framework# [.card-body]#pass:q[Understanding the basic concepts of the GIF Framework.]#]
 --
 
