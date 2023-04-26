@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
+echo "$@"
+#set -o xtrace -o errexit
 
-set -o xtrace -o errexit
-
-log() {
-  echo "$*" >&2
-}
+#log() {
+#  echo "$*" >&2
+#}#
 
 if [ -n "${NETLIFY:+x}" ]; then
   : ${NETLIFY_BUILD_BASE="/opt/build"}
