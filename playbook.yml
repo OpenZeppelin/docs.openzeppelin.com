@@ -75,9 +75,9 @@ content:
       branches: release-v*
       start_path: docs
 
-    - url: https://github.com/OpenZeppelin/platform-docs
-      branches: HEAD
-      start_path: docs
+    # - url: https://github.com/OpenZeppelin/platform-docs
+    #   branches: HEAD
+    #   start_path: docs
 ui:
   bundle:
     url: ./ui/theme
