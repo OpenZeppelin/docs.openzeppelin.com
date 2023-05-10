@@ -3,7 +3,7 @@ site:
   url: https://docs.etherisc.com
   start_page: ROOT::index.adoc
   # keys:
-    # google_analytics: 'UA-XXXXXXXX-X'
+  # google_analytics: 'UA-XXXXXXXX-X'
 content:
   sources:
     - url: .
@@ -18,8 +18,8 @@ content:
       branches: HEAD
       start_path: components/learn
 
-    - url: https://github.com/christoph2806/gif-contracts
-      branches: docs-v*
+    - url: https://github.com/etherisc/gif-contracts
+      branches: feature/docs
       start_path: docs
 
     # - url: https://github.com/OpenZeppelin/openzeppelin-sdk
@@ -82,11 +82,11 @@ ui:
     url: ./ui/theme
 asciidoc:
   attributes:
-    idprefix: ''
+    idprefix: ""
 antora:
   extensions:
-    - require: './lunr-tokenizer'
-    - require: '@antora/lunr-extension'
+    - require: "./lunr-tokenizer"
+    - require: "@antora/lunr-extension"
       index_latest_only: true
 urls:
   html_extension_style: drop
