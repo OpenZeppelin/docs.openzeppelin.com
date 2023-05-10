@@ -21,7 +21,7 @@ xref:gif::core-contracts.adoc[[.card-title]#Contracts# [.card-body]#pass:q[The G
 
 [.card.card-primary.card-defender]
 --
-xref:metadoc.adoc[[.card-title]#Documentation# [.card-body]#pass:q[Meta-Documentation of how we document stuff.]#]
+xref:contracts::index.adoc[[.card-title]#Documentation# [.card-body]#pass:q[API-Documentation of the GIF contracts.]#]
 --
 
 ////
