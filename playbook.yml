@@ -23,7 +23,7 @@ content:
     #  start_path: docs
 
     - url: https://github.com/christoph2806/gif-contracts
-      branches: feature/docs2
+      branches: feature/docs
       start_path: docs
 
     # - url: https://github.com/OpenZeppelin/openzeppelin-sdk
