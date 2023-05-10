@@ -18,8 +18,12 @@ content:
       branches: HEAD
       start_path: components/learn
 
-    - url: https://github.com/etherisc/gif-contracts
-      branches: feature/docs
+    #- url: https://github.com/etherisc/gif-contracts
+    #  branches: feature/docs
+    #  start_path: docs
+
+    - url: https://github.com/christoph2806/gif-contracts
+      branches: feature/docs2
       start_path: docs
 
     # - url: https://github.com/OpenZeppelin/openzeppelin-sdk
