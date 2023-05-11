@@ -10,6 +10,11 @@ xref:learn::depeg-faq.adoc[[.card-title]#Depeg Protection FAQ# [.card-body]#pass
 
 [.card.card-learn]
 --
+xref:learn::dip-staking.adoc[[.card-title]#DIP Staking Tutorial# [.card-body]#pass:q[Learn how to stake your DIP token]#]
+--
+
+[.card.card-learn]
+--
 xref:learn::staking-faq.adoc[[.card-title]#DIP Staking FAQ# [.card-body]#pass:q[Frequently Asked Questions regarding DIP Staking]#]
 --
 

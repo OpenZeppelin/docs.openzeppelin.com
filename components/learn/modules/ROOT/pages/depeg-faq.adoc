@@ -120,3 +120,10 @@ Once the product enters the 'depegged' state, you have two options:
 ** You sell all your USDC at market conditions and suffer a loss
 ** Your loss will be covered exactly by the payout of the Etherisc Depeg protection in USDT
 * You wait and see. If USDC recovers, you can make a slight profit because you also get a payout in USDT, but USDC recovers
+
+=== What happens when USDT depegs?
+
+The Etherisc depeg protection app only protects your USDC against a Depeg event. The staked USDT are unprotected in the app. +
+If the USDT has a depeg event and the USDC follows up, it is depegged as well, then you, as a USDC depeg policyholder, will get a payout in the ratio 1 USDT = 1 USD. The depeg of the USDT is ignored. +
+If the USDT is depegged and the USDC is not, the Depeg app will not take action because there is no need. You have no reason to act as a USDC Depeg policyholder as well. As a USDT risk bundle holder, you can at most unstake the USDT not yet used to protect USDC and close the risk bundle.
+

@@ -1,0 +1,96 @@
+
+
+= The Etherisc DIP staking web app
+
+Welcome to the following tutorial on our Etherisc DIP staking web app. This web app works closely with the Etherisc Depeg protection web app. +
+We recommend you read the Etherisc Depeg protection tutorial. You will find all information about the Etherisc Depeg protection web app. Important information about the topics, Depeg, risk bundles, staking USDT in a risk bundle, USDC Depeg protection and much more.
+
+== Etherisc DIP staking
+
+Please start the https://staking.etherisc.com/[Etherisc DIP staking web app]. You may be able to view a few things if you still need to connect your wallet, but we recommend connecting your wallet as a first step. +
+You can stake your DIP token and get a bonus. The DIP token are not at risk. With staking DIP token, you unlock USDT token in the ratio of 1:10, which in the Etherisc Depeg web app policies can be concluded to protect against a Depeg at the stablecoin USDC.
+The URL https://staking.etherisc.com/ takes you to the '`DIP Staking`' area of the Etherisc DIP Staking web app. In the menu bar, you can choose from the following menu items.
+
+image::_images/dip-1-menubar.png[]
+
+=== ETHERISC
+
+You will be redirected to our https://etherisc.com/[homepage] if you click on our logo.
+
+=== DIP Staking
+
+When you start the web app, you will land in the '`DIP Staking`' area. All risk bundles are listed here.
+
+image::_images/dip-2-dipstaking.png[]
+
+In the upper left corner, you can refresh the list of risk bundles. 
+
+==== The table contents
+
+*Show only my stakes* +
+Activate this option only to show the risk bundles displayed in which you have DIP token staked. This filter is inactive by default, so we show you all risk bundles. +
+*Instance* +
+Here you can see the location of the GIF instance of the risk bundle. When hovering the mouse over an instance, the instance ID in the form of a hash is displayed.  +
+*Risk bundle* +
+Here you can see the name of the risk bundle. The risk bundle ID is displayed when hovering the mouse over the name. +
+*My staked amount* +
+Here you can see how many DIP token you have staked in the particular risk bundle with the currently connected wallet. You can see the total staked amount by hovering with the mouse over the individual amounts. +
+*Supported Capacity (Mine/Total)* +
+On the left, you can see the amount of USDT activated by your staked DIP token in USDT in the particular risk bundle. On the right, you will find the total amount of USDT activated overall stakes for this particular risk bundle. +
+*State* +
+There are four different states a risk bundle can have.
+
+* *Active: *The risk bundle is active. You can stake DIP token.
+* *Locked: *The owner of a risk bundle can lock it. The owner can unlock the locked risk bundle again. You can’t stake DIP token in a locked risk bundle.
+* *Closed: *The owner of a risk bundle can close it. You can’t stake DIP token in a closed risk bundle but can unstake your staked DIP tokens. Once closed, there is no possibility of activating the risk bundle again. A risk bundle can only be closed when all policies collateralized by this bundle have been closed.
+* *Expired: *The lifetime of the bundle has expired. You can no longer stake new DIP token but can still unstake them if you have staked them in this risk bundle.
+* *Burned: *All remaining risk capital, rewards and claims in USDT token are paid out and no more policies are running. 
+*Active until* +
+The end of the lifetime is displayed here. Once the bundle expires, you can unstake all your DIP tokens independent of the bundle's state. +
+*Usage* +
+Here you can see the usage of the risk bundle. Dots in three different colors display the usage of the risk bundle in the overview.
+
+* *Green dot: *The locked capital in the risk bundle is less than the total supported capital. You can stake DIP token and buy Depeg policies in the Etherisc Depeg protection web app.
+* *Orange dot: *The locked capital in the risk bundle reached 90% or more of the total supported capital. You can stake DIP token and buyDepeg policies in the Etherisc Depeg protection web app.
+* *Red dot: *The locked capital in the risk bundle reached 100% or more of the total supported capital. 
+When hovering the mouse over the dots, you will see the stake usage in percent, the locked capital in USDT and the total supported capital in USDT.  +
+You can sort the table by any information. Just click on the information. Default is sorted by 'Active until.’ You can recognize this by the small arrow to the right of the text.
+
+DETAILS
+On the table's far right, you can click '`DETAILS.`'
+
+image::_images/dip-3-details.png[]
+
+Here you will find detailed information about the risk bundle. The general information and personal information like '`My Supported Capital.`' +
+The buttons where you can act are highlighted in blue. +
+*STAKE* +
+You can start staking or stake more DIP token in this risk bundle.  +
+*UNSTAKE* +
+The '`UNSTAKE`' button in the screenshot is not active. You cannot unstake your DIP token in the example screen because the risk bundle is in the state '`Active.`' Unstaking is only available for expired risk bundles or in state '`Closed`' or '`Burned.`' +
+Please note: Your DIP token are not at risk. +
+*CLAIM REWARDS* +
+You can claim your rewards at any time during the lifetime of a risk bundle, but at the latest when you unstake the total amount of your staked DIP tokens for this bundle.
+
+=== Stakes
+
+This area is identical to the '`DIP Staking`' menu item. You can see all existing risk bundles.
+
+=== Stake DIP
+
+image::_images/dip-4-stakingdip.png[]
+
+In this area, you will only see the risk bundles in which you can stake DIP token. By clicking '`SELECT`' on the right, compare the conditions and terms and choose a risk bundle. You see all details of the risk bundle.
+the minimum volume is 5,000 DIP
+
+image::_images/dip-5-permission.png[]
+
+image::_images/dip-6-allowance.png[]
+
+image::_images/dip-7-allowance.png[]
+
+image::_images/dip-8-transaction.png[]
+
+=== Unstake DIP
+
+n this area, you can unstake your DIP token. Unstaking is only available on expired risk bundles or in states '`Closed`' or '`Burned.`'
+

@@ -64,4 +64,11 @@ The Etherisc Foundation initially provided them.
 
 No, the DIP tokens are not at risk. Even if there is a depeg, the DIP tokens are only used to unlock the capital in the risk bundles. In the case of a Depeg, the payout comes from the USDT.
 
-*What contract are the DIP tokens staked against?*
+== Can I stake DIP token on its own?
+
+Yes sure. You can stake your DIP token without staking USDT.
+
+== What happens to my staked DIP tokens if the owner terminates the risk bundle before the end?
+
+You can leave your DIP token in the risk bundle until the end of the actual lifetime. You will continue to receive your reward.
+
