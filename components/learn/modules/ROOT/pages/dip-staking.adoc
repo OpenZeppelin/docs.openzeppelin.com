@@ -76,7 +76,7 @@ You can claim your rewards at any time during the lifetime of a risk bundle, but
 This area is identical to the '`DIP Staking`' menu item. You can see all existing risk bundles.
 
 === Stake DIP
-
+test
 image::_images/dip-4-stakingdip.png[]
 
 In this area, you will only see the risk bundles in which you can stake DIP token. By clicking '`SELECT`' on the right, compare the conditions and terms and choose a risk bundle. You see all details of the risk bundle.
@@ -86,11 +86,11 @@ image::_images/dip-5-permission.png[]
 
 image::_images/dip-6-allowance.png[]
 
-image::_images/dip-7-allowance.png[]
+image::_images/dip-7-confirm.png[]
 
 image::_images/dip-8-transaction.png[]
 
 === Unstake DIP
 
-n this area, you can unstake your DIP token. Unstaking is only available on expired risk bundles or in states '`Closed`' or '`Burned.`'
+In this area, you can unstake your DIP token. Unstaking is only available on expired risk bundles or in states '`Closed`' or '`Burned.`'
 
