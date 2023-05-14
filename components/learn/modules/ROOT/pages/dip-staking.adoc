@@ -40,23 +40,24 @@ On the left, you can see the amount of USDT activated by your staked DIP token i
 *State* +
 There are four different states a risk bundle can have.
 
-* *Active: *The risk bundle is active. You can stake DIP token.
-* *Locked: *The owner of a risk bundle can lock it. The owner can unlock the locked risk bundle again. You can’t stake DIP token in a locked risk bundle.
-* *Closed: *The owner of a risk bundle can close it. You can’t stake DIP token in a closed risk bundle but can unstake your staked DIP tokens. Once closed, there is no possibility of activating the risk bundle again. A risk bundle can only be closed when all policies collateralized by this bundle have been closed.
-* *Expired: *The lifetime of the bundle has expired. You can no longer stake new DIP token but can still unstake them if you have staked them in this risk bundle.
-* *Burned: *All remaining risk capital, rewards and claims in USDT token are paid out and no more policies are running. 
+* Active: The risk bundle is active. You can stake DIP token.
+* Locked: The owner of a risk bundle can lock it. The owner can unlock the locked risk bundle again. You can’t stake DIP token in a locked risk bundle.
+* Closed: The owner of a risk bundle can close it. You can’t stake DIP token in a closed risk bundle but can unstake your staked DIP tokens. Once closed, there is no possibility of activating the risk bundle again. A risk bundle can only be closed when all policies collateralized by this bundle have been closed.
+* Expired: The lifetime of the bundle has expired. You can no longer stake new DIP token but can still unstake them if you have staked them in this risk bundle.
+* Burned: All remaining risk capital, rewards and claims in USDT token are paid out and no more policies are running. 
 *Active until* +
 The end of the lifetime is displayed here. Once the bundle expires, you can unstake all your DIP tokens independent of the bundle's state. +
 *Usage* +
 Here you can see the usage of the risk bundle. Dots in three different colors display the usage of the risk bundle in the overview.
 
-* *Green dot: *The locked capital in the risk bundle is less than the total supported capital. You can stake DIP token and buy Depeg policies in the Etherisc Depeg protection web app.
-* *Orange dot: *The locked capital in the risk bundle reached 90% or more of the total supported capital. You can stake DIP token and buyDepeg policies in the Etherisc Depeg protection web app.
-* *Red dot: *The locked capital in the risk bundle reached 100% or more of the total supported capital. 
+* Green dot: The locked capital in the risk bundle is less than the total supported capital. You can stake DIP token and buy Depeg policies in the Etherisc Depeg protection web app.
+* Orange dot: The locked capital in the risk bundle reached 90% or more of the total supported capital. You can stake DIP token and buyDepeg policies in the Etherisc Depeg protection web app.
+* Red dot: The locked capital in the risk bundle reached 100% or more of the total supported capital. +
+
 When hovering the mouse over the dots, you will see the stake usage in percent, the locked capital in USDT and the total supported capital in USDT.  +
 You can sort the table by any information. Just click on the information. Default is sorted by 'Active until.’ You can recognize this by the small arrow to the right of the text.
 
-DETAILS
+*DETAILS* +
 On the table's far right, you can click '`DETAILS.`'
 
 image::_images/dip-3-details.png[]

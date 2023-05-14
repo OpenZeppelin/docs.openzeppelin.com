@@ -67,13 +67,15 @@ We determine the number of USDC in the secured wallet using the https://docs.mor
 Here you enter the USDC volume you want to protect against a Depeg.
 
 * the minimum volume is 2,000 USDC
-* the maximum volume is 100,000 USDC. The maximum is also limited by the available risk capital in the selected risk bundle also limits the maximum.
+* the maximum volume is 100,000 USDC. The maximum is also limited by the available risk capital in the selected risk bundle also limits the maximum. +
+
 ==== Coverage duration
 
 Here you enter the period for which your USDCs are protected.
 
 * the minimum period is 14 days
-* the maximum period is 120days; the maximum may be lower depending on the selected risk bundle
+* the maximum period is 120 days; the maximum may be lower depending on the selected risk bundle +
+
 ==== Coverage until
 
 The field is automatically filled according to the 'Coverage duration.' By clicking on the calendar icon, you can set a different desired date by double-clicking.
