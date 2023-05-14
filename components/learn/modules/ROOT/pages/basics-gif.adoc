@@ -1,4 +1,4 @@
- = Basics about the GIF framework
+= Basics about the GIF framework
 
 == Introduction
 
