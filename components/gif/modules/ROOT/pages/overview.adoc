@@ -11,10 +11,63 @@ image::architecture.jpg[Architecture,800,link="_images/architecture.jpg"]
 == Concepts
 
 === Components
+A component is a specific smart contract with a particular core functionality. +
+A component can represent three different core objects:
+
+*Products
+*Oracle
+*Risk pools
+
+For each core object, we provide sample implementations that you can use as a baseline for your implementation. +
+The transition between these states and roles is described in the following diagram.
+
+image::_images/components.jpg[]
+
+All components and thus the objects they contain can assume identical states and have the same life cycle but differ significantly in their lifetime.
+
+States of a component: 
+
+* Created
+* Proposed
+* Declined
+* Active
+* Paused
+* Suspended
+* Archived
+
+If the component is active, it can be used until it is set to either suspended or paused. The difference between suspended and paused is that only the instance operator can suspend a component or resume it from suspended to active. The component owner can set a component to paused, and the component owner and the instance operator can unpause the component. +
+If the component is inactivated (pause, suspended) and not reactivated (resume, unpause), it is not deleted but archived. +
+
+==== Lifecycle
+
+The lifecycle of a component starts with its development and deployment in the blockchain. +
+You can implement your component requirements in the smart contract or use generic GIF components. +
+After that, the component is registered, approved, and activated by the instance operator in the GIF instance. 
+Then the instance operator checks the technical and procedural details. 
+The instance operator can also outsource the verification to an independent audit.
 
 === Modules
 
+A module represents a group of smart contracts, each containing at least one storage and controller contract. +
+A storage contract acts as a database for the core objects. A controller contract includes an implementation that helps to manage core objects in a storage contract. In its turn, a storage contract delegates methods and makes calls to a controller contract, which modifies the state of a storage contract. +
+
+We provide you with four generic modules that map the standard processes of insurances or protections:
+
+* policy module (manages applications, policies, claims, payouts, and metadata objects)
+* registry module (registers sets of the core contracts used in a policy flow lifecycle in release groups)
+* license module (manages products)
+* query module (manages queries made to oracles and delivers responses from them)
+
 === Services
+
+We provide you with six services:
+
+* InstanceOperatorService
+* InstanceService
+* OracleService
+* ProductService
+* RiskPoolService
+* ComponentOwnerService
 
 == Coding Standards
 
