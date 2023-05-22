@@ -2,4 +2,52 @@
 
 == What is a GIF Instance?
 
+
+A GIF (Generic Insurance Framework) instance is an autonomous, fully functional framework running on a blockchain. An instance operator operates the instance. This can be a natural person, a multisig or a DAO. +
+
+You can compare the GIF instance to a marketplace where players offer different products. The larger the marketplace is, the more attractive it becomes. Because of the large offer, more customers come to the market. +
+
+So it can be a good idea to join an existing instance as a product owner. +
+
+=== Technical role concept 
+
+GIF has implemented a role model. Each role can implement specific processes. +
+
+==== Instance operator
+
+The instance operator operates the platform, i.e., the framework. The instance operator administers the product owners and the oracle providers. GIF is multi-client capable, meaning that any number of product owners and oracle providers can be operated and administered on one platform. Due to different legal regulations, several instance operators are required.
+
+==== Risk pool keeper
+
+A risk pool keeper manages one or more risk pools. A risk pool is a smart contract that “pools” several risks, represented by policy objects, to risk capital. Risk pools collect collateral that investors invest in. 
+
+==== Oracle owner 
+
+The Oracle-owner provides oracles. Oracles provide the interface between blockchain smart contracts and the external internet with data. For example, in the case of flight delay insurance, an oracle informs the smart contract whether the flight took off on time, how much it was delayed, or was canceled entirely.
+
+==== Product owner
+
+The product owner designs and operates one or more products. In the classic sense, this would be an insurance company.
+
+== What is GIF?
+
+The Generic Insurance Framework consists at its core of a system of smart contracts that implement essential functions of the lifecycle of an insurance policy. GIF thus enables the modeling of a wide variety of insurance types. +
+It is a basic implementation that can be used to create blockchain-based applications, in this case, insurance. +
+To be able to design insurance products quickly and easily, processing steps that run the same in all products have been identified and already implemented. Thus, only specifications such as pricing etc., need to be adapted. +
+GIF provides these generic functions for all sub-steps in the lifecycle of an insurance policy and thus enables an automated workflow that controls the sequence of processing steps. +
+
+=== Generic lifecycle functions in GIF
+
+_register (each product has to be registered to get access to the GIF functionality)
+_newApplication (to generate and save a new application from a customer)
+_underwrite (to sign an application and create a new policy)
+_decline (to reject an application)
+_newClaim (to generate and store a new claim in case of a claim)
+_confirmClaim (to confirm a claim and create a payout)
+_declineClaim (to reject a claim)
+_payout (to confirm and initiate a payout)
+_request (to request data or actions from Oracle)
+_createRole (to create roles for actors) 
+_addRoleToAccount (to assign roles to actors) 
+
 == Instances operated by the Etherisc Project
