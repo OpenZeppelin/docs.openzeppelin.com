@@ -73,4 +73,7 @@ We provide you with six services:
 
 === Error handling
 
+Each error message is assigned a unique number so that when an error message is received, we immediately know where the error occurred and can react quickly.
+
 === Upgradability
+

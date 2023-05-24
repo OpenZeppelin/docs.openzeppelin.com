@@ -93,21 +93,27 @@ a controlled way.
 
 [.contract-item]
 ==== ComponentOwnerService.sol
+t.b.d.
 
 [.contract-item]
 ==== InstanceOperatorService.sol
+t.b.d.
 
 [.contract-item]
 ==== InstanceService.sol
+t.b.d.
 
 [.contract-item]
 ==== OracleService.sol
+t.b.d.
 
 [.contract-item]
 ==== ProductService.sol
+t.b.d.
 
 [.contract-item]
 ==== RiskpoolService.sol
+t.b.d.
 
 === Tokens
 
@@ -116,9 +122,11 @@ The use of tokens allows the permissionless transfer of ownership.
 
 [.contract-item]
 ==== BundleToken.sol
+t.b.d.
 
 [.contract-item]
 ==== RiskpoolToken.sol
+t.b.d.
 
 === Shared
 
@@ -127,16 +135,21 @@ from which other contracts are derived.
 
 [.contract-item]
 ==== CoreController.sol
+t.b.d.
 
 [.contract-item]
 ==== CoreProxy.sol
+t.b.d.
 
 [.contract-item]
 ==== TransferHelper.sol
+t.b.d.
 
 [.contract-item]
 ==== WithRegistry.sol
+t.b.d.
 
+////
 == Extending Contracts
 Most Etherisc Contracts are expected to be used via inheritance: you will inherit from them when writing your contracts.
 This is the commonly found is syntax, like in the contract _MyToken_ is ERC20.
@@ -422,4 +435,4 @@ TIP: A recommended configuration is to grant both roles to a secure governance c
 Operations executed by the _TimelockController_ are not subject to a fixed delay but rather a minimum delay. Some significant updates might call for a longer delay. For example, if a delay of just a few days might be sufficient for users to audit a minting operation, it makes sense to use a delay of a few weeks, or even a few months, when scheduling a smart contract upgrade. +
 
 The minimum delay (accessible through the _getMinDelay_ method) can be updated by calling the _updateDelay_ function. Bear in mind that this function is only accessible by the timelock itself, meaning this maintenance operation must go through it.
-
+////
