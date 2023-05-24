@@ -38,16 +38,37 @@ GIF provides these generic functions for all sub-steps in the lifecycle of an in
 
 === Generic lifecycle functions in GIF
 
-_register (each product has to be registered to get access to the GIF functionality)
-_newApplication (to generate and save a new application from a customer)
-_underwrite (to sign an application and create a new policy)
-_decline (to reject an application)
-_newClaim (to generate and store a new claim in case of a claim)
-_confirmClaim (to confirm a claim and create a payout)
-_declineClaim (to reject a claim)
-_payout (to confirm and initiate a payout)
-_request (to request data or actions from Oracle)
-_createRole (to create roles for actors) 
-_addRoleToAccount (to assign roles to actors) 
+* _register (each product has to be registered to get access to the GIF functionality)
+* _newApplication (to generate and save a new application from a customer)
+* _underwrite (to sign an application and create a new policy)
+* _decline (to reject an application)
+* _newClaim (to generate and store a new claim in case of a claim)
+* _confirmClaim (to confirm a claim and create a payout)
+* _declineClaim (to reject a claim)
+* _payout (to confirm and initiate a payout)
+* _request (to request data or actions from Oracle)
+* _createRole (to create roles for actors) 
+* _addRoleToAccount (to assign roles to actors) 
 
 == Instances operated by the Etherisc Project
+
+image::_images/two-layer.PNG[]
+
+The GIF instances are multi-chain ready for every blockchain that consists of two layers (consensus and execution layer). GIF instances only use the execution layer so we are independent of the consensus layer and therefore independent of the blockchain. +
+
+Currently, 4 GIF instances are productive:
+
+* Ethereum Mainnet: Depeg USDC Protection, USDT and DIP token staking
+* Avalanche: Lemonade Crypto Climate Coalition
+* Gnosis chain (xDai): Etherisc Flight Delay, Acre Africa
+* Polygon: Etherisc Train Delay / CSI Project
+
+Testnet-Deployments:
+
+* Mumbai: Etherisc Train Delay, VCM (Verity Care Management)
+* Görli: Depeg USDC Protection, USDT and DIP token staking
+* Gnosis chain (xDai) testnet: Etherisc flight delay
+* Fuji / Avalanche testnet: Lemonade Crypto Climate Coalition
+* Alfajores Celo: Acre Africa soil moisture
+
+Please contact us if you want to use any of our GIF instances on Gnosis (xDai), Polygon, Avalanche or Binance Smart Chain. We are curious about your plans and are happy to assist and support you. +
