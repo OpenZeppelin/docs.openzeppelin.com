@@ -77,3 +77,7 @@ Each error message is assigned a unique number so that when an error message is 
 
 === Upgradability
 
+Once a smart contract is stored on the blockchain, it can no longer be changed. +
+The implementation (smart contract) upgradeability in Solidity is achieved by working with two corresponding smart contracts, the implementation and the proxy. +
+Each deployed smart contract has an address. The proxy has two main functions. The proxy has the information on which address/implementation it should access and the state of the implementation. So it manages all the data but doesn't know what to do with it. The implementation processes the data and sends the result to the proxy. +
+If you now update an implementation, the updated implementation has a new address. This address is then communicated to the proxy.
