@@ -2,19 +2,59 @@
 
 == Overview
 
+Here you get an overview of the individual data models. The individual sections represent the complete process of creating a policy up to the termination, either by a claim and the payout or the end without a claim in chronological order.
+
+Here the complete process:
+
+* the customer inquires (application) about an insurance policy. By taking out the insurance policy, one wants to protect themself against a specific risk.
+* the insurance company examines the customer’s application.
+* the application is accepted or rejected.
+* in case of rejection, the customer is informed and no further activities occur.
+* in case of acceptance, the contract comes to the “underwriter.” The acceptance of the application is called “underwriting.”
+* the insurance company commits itself to the “underwriting” to take over the customer's risk and transfer it to itself. It further undertakes to cover the loss if the insured event occurs.
+* the customer, for his part, undertakes to pay the premium.
+* both declarations of obligation are documented in a contract. This contract is called the insurance policy.
+* if a claim occurs, the customer reports it to the insurance company.
+* the claim is checked by the insurance company and accepted or rejected.
+* in case of acceptance, the agreed insurance sum is paid out (payout).
+
 == Metadata
+
+image::_images/metadata-data.png[]
+
 
 == Applications
 
+image::_images/application-data.png[]
+
+
 == Policies
+
+image::_images/states-policies-data.png[]
+
+image::_images/policy-data.png[]
+
 
 == Claims
 
+image::_images/claim-data.png[]
+
+
 == Payouts
+
+image::_images/payout-data.png[]
+
 
 == Oracle Request
 
+t.b.d
+
 == Bundles
+
+image::_images/bundlestate-data.png[]
+
+image::_images/struct-bundle-data.png[]
 
 == Risk Pools
 
+image::_images/struct-pool-data.png[]
