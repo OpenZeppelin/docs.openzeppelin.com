@@ -20,29 +20,54 @@ Here the complete process:
 
 == Metadata
 
-image::_images/metadata-data.png[]
+Metadata or metainformation refers to structured data containing information about other resources. Metadata thus describes the actual data in a way. Metainformation becomes necessary when there are more significant amounts of data to manage.
 
+Here is a listing of our metadata:
+
+image::_images/data-metadata.png[]
+
+* the address of the owner of the smart contract
+* the product ID
+* state of the policy flow module
+* data
+* the date of creation
+ 
+When a new policy is created, metadata is entered first, i.e., before the application, it is determined who is the policy's owner (owner), to which product the policy belongs (productID) and a process ID is generated. +
+
+The process in Metadata, Application and Policy is linked to unique unique process ID, so you can tell exactly which steps have been completed.
 
 == Applications
 
-image::_images/application-data.png[]
+image::_images/data-application.png[]
 
+The application then specifies the insurance sum (sumInsuredAmount) and what amount of premium (premiumAmount) must be paid. Additional information is also entered to determine the insurance premium depending on the insurance type (data). +
+
+When the application is 'underwritten,' the insurance sum is reserved in the risk pool and the policy is generated. +
 
 == Policies
 
-image::_images/states-policies-data.png[]
+image::_images/data-states-policies.png[]
 
-image::_images/policy-data.png[]
+image::_images/data-policy.png[]
+
+The policy will then log how much premium you have already paid (premiumPaidAmount) and the total premium (premiumExpectedAmount). Here you will also find the outstanding claims (openClaimsCount) and the claims already paid out (claimsCount).
+The policy can only be closed when no more open claims exist. +
+
+Further information is the maximum amount of the payout (payoutMaxAmount) and how much has already been paid out (payoutAmount).
 
 
 == Claims
 
-image::_images/claim-data.png[]
+In the claim smart contracts, you can look up how much the policy owner has claimed and how much has been paid out. If the two amounts match, the claim is settled. +
+
+
+
+image::_images/data-claim.png[]
 
 
 == Payouts
 
-image::_images/payout-data.png[]
+image::_images/data-payout.png[]
 
 
 == Oracle Request
@@ -51,10 +76,10 @@ t.b.d
 
 == Bundles
 
-image::_images/bundlestate-data.png[]
+image::_images/data-bundlestate.png[]
 
-image::_images/struct-bundle-data.png[]
+image::_images/data-struct-bundle.png[]
 
 == Risk Pools
 
-image::_images/struct-pool-data.png[]
+image::_images/data-struct-pool.png[]
