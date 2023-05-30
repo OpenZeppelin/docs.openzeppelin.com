@@ -22,8 +22,6 @@ Here the complete process:
 
 Metadata or metainformation refers to structured data containing information about other resources. Metadata thus describes the actual data in a way. Metainformation becomes necessary when there are more significant amounts of data to manage.
 
-Here is a listing of our metadata:
-
 image::_images/data-metadata.png[]
 
 * the address of the owner of the smart contract
@@ -44,6 +42,13 @@ The application then specifies the insurance sum (sumInsuredAmount) and what amo
 
 When the application is 'underwritten,' the insurance sum is reserved in the risk pool and the policy is generated. +
 
+States of the application: +
+
+* applied
+* revoked
+* underwritten
+* declined
+
 == Policies
 
 image::_images/data-states-policies.png[]
@@ -51,34 +56,61 @@ image::_images/data-states-policies.png[]
 image::_images/data-policy.png[]
 
 The policy will then log how much premium you have already paid (premiumPaidAmount) and the total premium (premiumExpectedAmount). Here you will also find the outstanding claims (openClaimsCount) and the claims already paid out (claimsCount).
-The policy can only be closed when no more open claims exist. +
+The policy can be closed when no more open claims exist or the policy has expired. +
 
 Further information is the maximum amount of the payout (payoutMaxAmount) and how much has already been paid out (payoutAmount).
 
+States of the policy: +
+
+* active
+* expired
+* closed
 
 == Claims
 
-In the claim smart contracts, you can look up how much the policy owner has claimed and how much has been paid out. If the two amounts match, the claim is settled. +
-
-
+In the claim smart contracts, you can look up how much the policy owner has claimed (claimAmount) and how much has been paid out (paidAmount). If the two amounts match or the claim is declined, the claim can be closed. +
+Claims can only be created if the policy has the '`active status.`' +
 
 image::_images/data-claim.png[]
 
+States of the claim: +
+
+* applied
+* confirmed
+* declined
+* closed
 
 == Payouts
 
 image::_images/data-payout.png[]
 
+Each planned payout has a certain amount. With each payout, the claim amount increases. Only when the planned payouts have been paid out the claimed amount decreases and the paid amount increases. When the claim amount is equal to the paid amount, the claim can be closed. +
+
+States of the payout: +
+
+* expected 
+* paid out
 
 == Oracle Request
 
-t.b.d
+Here is defined which oracle is requested and the time intervals the request takes place. +
+With our depeg app, Chainlink already provides us with the USDC rates on-chain. +
 
 == Bundles
 
-image::_images/data-bundlestate.png[]
-
 image::_images/data-struct-bundle.png[]
+
+Every investor who wants to provide risk capital - he wants to stake stable coins - creates his own risk bundle in which he can also define the individual parameters such as maturity, minimum amount, etc.. Currently, USDT and our DIP token can be staked. +
+
+You can find detailed information in the https://docs.etherisc.com/learn/depeg-purchase.com[Depeg Protection Tutorial] and the https://docs.etherisc.com/learn/depeg-faq[Depeg Protection FAQ's].
+
+
+States of the bundle: +
+
+* active
+* locked
+* closed
+* burned
 
 == Risk Pools
 
