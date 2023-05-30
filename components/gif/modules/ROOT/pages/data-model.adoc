@@ -68,10 +68,12 @@ States of the policy: +
 
 == Claims
 
-In the claim smart contracts, you can look up how much the policy owner has claimed (claimAmount) and how much has been paid out (paidAmount). If the two amounts match or the claim is declined, the claim can be closed. +
-Claims can only be created if the policy has the '`active status.`' +
+
 
 image::_images/data-claim.png[]
+
+In the claim smart contracts, you can look up how much the policy owner has claimed (claimAmount) and how much has been paid out (paidAmount). If the two amounts match or the claim is declined, the claim can be closed. +
+Claims can only be created if the policy has the '`active status.`' +
 
 States of the claim: +
 
