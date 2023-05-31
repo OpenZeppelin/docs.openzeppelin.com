@@ -51,8 +51,6 @@ States of the application: +
 
 == Policies
 
-image::_images/data-states-policies.png[]
-
 image::_images/data-policy.png[]
 
 The policy will then log how much premium you have already paid (premiumPaidAmount) and the total premium (premiumExpectedAmount). Here you will also find the outstanding claims (openClaimsCount) and the claims already paid out (claimsCount).
@@ -67,8 +65,6 @@ States of the policy: +
 * closed
 
 == Claims
-
-
 
 image::_images/data-claim.png[]
 
@@ -102,10 +98,11 @@ With our depeg app, Chainlink already provides us with the USDC rates on-chain. 
 
 image::_images/data-struct-bundle.png[]
 
-Every investor who wants to provide risk capital - he wants to stake stable coins - creates his own risk bundle in which he can also define the individual parameters such as maturity, minimum amount, etc.. Currently, USDT and our DIP token can be staked. +
+Everybody who wants to provide risk capital creates his risk bundle by staking USDT stablecoins in the https://depeg.etherisc.com/stake[Etherisc Depeg Protection web app]. In your Risk bundle, you can set parameters like lifetime, minimum or maximum staked amount. +
+
+Each riek bundle has its own NFT (ERC721). +
 
 You can find detailed information in the https://docs.etherisc.com/learn/depeg-purchase.com[Depeg Protection Tutorial] and the https://docs.etherisc.com/learn/depeg-faq[Depeg Protection FAQ's].
-
 
 States of the bundle: +
 
@@ -117,3 +114,10 @@ States of the bundle: +
 == Risk Pools
 
 image::_images/data-struct-pool.png[]
+
+The risk pool bundles and manages the individual risk bundles. The risk pool provider defines the general conditions, such as the maximum total sum insured or the collateralization level.
+
+The risk pool has a unique ID and wallet in which the assets are managed. The risk pool can also issue its own risk pool tokens (ERC20), which can then be traded. The risk pool keeper can define how much must be deposited for collateral damage (collateralizatoinlevel1) and the maximum amount to which policies can be issued (sumOfSumInsuredCap). +
+
+The risk pool shows the aggregate sum insured of all existing policies (sumOfSumInsuredAtRisk), the balance (capital), the capital locked up in policies that have been completed but have yet to expire (lockedCapital), the total amount of funds (balance), when the risk pool was created (createdAt) and the date of the last update (updatedAt).
+
