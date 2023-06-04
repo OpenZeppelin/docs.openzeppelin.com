@@ -2,12 +2,14 @@
 
 == Overview
 
-* The Etherisc Governance Model (EGM) aims to create an effective self-regulatory mechanism for the Etherisc ecosystem. Etherisc considers a baseline of rules and procedures as necessary to ensure that: +
-  - The platform operates in a way that is consistent with the rules and recommendations of the Decentralized Insurance Platform (DIP) protocol. 
-  - Platform participants conduct business in the interest of the good of the commons while safeguarding the interests of customers and investors. +
-  - Market integrity is preserved, meaning no market abuse and all platform participants have equal access to accurate and transparent information.
-* Consistent with a decentralized infrastructure, the community should carry out regulation rather than a sole entity. Additionally, rules need to be enforceable to incentivize compliance. For rules to be enforceable, there must be an element of staking.
-* Beyond a smooth-functioning ecosystem being an end, the EGM will strengthen confidence in the Etherisc decentralized insurance platform and support growth and massive adoption.
+The Etherisc Governance Model (EGM) aims to create an effective self-regulatory mechanism for the Etherisc ecosystem. Etherisc considers a baseline of rules and procedures as necessary to ensure that: +
+
+* The platform operates in a way that is consistent with the rules and recommendations of the Decentralized Insurance Platform (DIP) protocol. 
+* Platform participants conduct business in the interest of the good of the commons while safeguarding the interests of customers and investors. +
+* Market integrity is preserved, meaning no market abuse and all platform participants have equal access to accurate and transparent information.
+
+Consistent with a decentralized infrastructure, the community should carry out regulation rather than a sole entity. Additionally, rules need to be enforceable to incentivize compliance. For rules to be enforceable, there must be an element of staking.
+Beyond a smooth-functioning ecosystem being an end, the EGM will strengthen confidence in the Etherisc decentralized insurance platform and support growth and massive adoption.
 
 == Core Values
 
