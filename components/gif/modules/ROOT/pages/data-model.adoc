@@ -117,7 +117,7 @@ image::_images/data-struct-pool.png[]
 
 The risk pool bundles and manages the individual risk bundles. The risk pool provider defines the general conditions, such as the maximum total sum insured or the collateralization level.
 
-The risk pool has a unique ID and wallet in which the assets are managed. The risk pool can also issue its own risk pool tokens (ERC20), which can then be traded. The risk pool keeper can define how much must be deposited for collateral damage (collateralizatoinlevel1) and the maximum amount to which policies can be issued (sumOfSumInsuredCap). +
+The risk pool has a unique ID and wallet in which the assets are managed. The risk pool can also issue its own risk pool token (ERC20), which can then be traded. The risk pool keeper can define how much must be deposited for collateral damage (collateralizatoinlevel1) and the maximum amount to which policies can be issued (sumOfSumInsuredCap). +
 
 The risk pool shows the aggregate sum insured of all existing policies (sumOfSumInsuredAtRisk), the balance (capital), the capital locked up in policies that have been completed but have yet to expire (lockedCapital), the total amount of funds (balance), when the risk pool was created (createdAt) and the date of the last update (updatedAt).
 

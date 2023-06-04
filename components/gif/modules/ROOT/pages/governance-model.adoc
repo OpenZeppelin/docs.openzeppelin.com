@@ -2,13 +2,140 @@
 
 == Overview
 
+* The Etherisc Governance Model (EGM) aims to create an effective self-regulatory mechanism for the Etherisc ecosystem. Etherisc considers a baseline of rules and procedures as necessary to ensure that: +
+  - The platform operates in a way that is consistent with the rules and recommendations of the Decentralized Insurance Platform (DIP) protocol. 
+  - Platform participants conduct business in the interest of the good of the commons while safeguarding the interests of customers and investors. +
+  - Market integrity is preserved, meaning no market abuse and all platform participants have equal access to accurate and transparent information.
+* Consistent with a decentralized infrastructure, the community should carry out regulation rather than a sole entity. Additionally, rules need to be enforceable to incentivize compliance. For rules to be enforceable, there must be an element of staking.
+* Beyond a smooth-functioning ecosystem being an end, the EGM will strengthen confidence in the Etherisc decentralized insurance platform and support growth and massive adoption.
+
 == Core Values
+
+Any system of rules requires a set of underlying principles and '`values.`' Both the set and the meaning of these values is necessary, to a certain extent, fuzzy and cannot be fully captured by any formal definition. +
+Some people would, e.g., emphasize other values not listed here, or put them in different words. However, these rules have been proven helpful in other contexts that rely on decentralization and collaboration. They serve as general guidelines to derive more precisely defined rules and requirements. +
+
+=== Respect +
+
+Each platform user, actor and stakeholder should respect and value diversity. We promote inclusiveness and treat others with tact, courtesy and respect. We abstain from and actively discourage discrimination in all forms. +
+
+=== Collaboration +
+
+The DIP is based on solid and voluntary partnerships. The platform will always encourage partnerships and cooperation. Each participant should be able to benefit from evolving partnerships. +
+
+=== Responsibility +
+
+Each participant shall act entirely on their responsibility, while the platform will provide any means to support this. All participants acknowledge their joint responsibility for the operations and development of the platform as a whole. +
+
+=== Trust +
+
+The platform encourages trustful behavior and will provide a safe environment for all participants. Each participant is committed to compliant behavior. Transparency is an essential element in trust-building. Therefore, we encourage transparency as much as possible without violating the justified needs for the protection of each platform participant. +
+
+=== Public good / commons +
+
+The platform, as a whole, serves the public good. It is a https://www.onthecommons.org/magazine/elinor-ostroms-8-principles-managing-commmons['`commons`'] in the senses of Elinor Ostrom and operated by the community of all participants. Therefore, the governance rules for the platform are based on the eight rules for successful commons coined by E. Ostrom. We discuss how the '`eight rules`' are implemented in the EGM and DIP protocol. +
 
 == Structure
 
+image::_images/governance-structure.png[]
+
+You will find the actors and participants described in the image above in the table below. The image is only a snapshot and more actors are added and others may be omitted. +
+
+[cols="1,1"]
+|===
+|Name |Short description
+
+|Decentralized Insurance Foundation
+|Development and promotion of the DIP protocol, funding of the development of the Generic Insurance Framework (GIF)
+
+|Kleros
+|Decentralized arbitration service and token curated registry
+
+|DAOstack
+|Software stack for DAOs including a library of governance protocols and interfaces for creating and managing DAOs
+
+|Mainnet
+|Example blockchain
+
+|Gnosis chain
+|Example blockchain
+
+|Avalanche
+|Example blockchain
+
+|Polygon
+|Example blockchain
+
+|===
+
+The four defining aspects of the EGM are as follows: +
+
+* Platform participants as the topmost authority
+* The Decentralized Insurance Foundation (DIF) as the non-profit, neutral link to the real-world institutions and legal systems
+* Certification of GIF instances as a market signaling mechanism to incentivize high standard of work
+* Dispute resolution via an independent arbitration board
+
+The platform's participants - be they insureds, product owners, or risk pool keepers - are the topmost authority of the platform. Their stake is represented by governance token (vDIP), minted against staking DIP token in a governance contract. Governance token (vDIP) are used for decision-making in all DAOs involved in the platform. +
+
+While addresses on blockchain protocols represent the platform participants, we need a link to the real world, connecting the on-chain infrastructure with legal entities in the real world. +
+
+In the real world, the topmost authority is the not-for-profit DIF, based in Zug, Switzerland, and regulated according to Swiss law. +
+
+The purpose of the DIF is defined in the notarial deed of the foundation and cannot be changed:
+
+_“The Foundation's purpose is promoting and developing new technologies and applications, especially in the fields of new open and decentralized software architectures mainly in the insurance field. A dominating but not exclusive focus is set on the promotion and development of the so-called DIP-protocol and the related technologies, as well as the promotion and support of applications using the DIP-protocol.”_ +
+
+Therefore, the only purpose of the foundation is to serve the community of participants in building and using the DIP protocol. The DIF is committed to strict neutrality. Therefore, the DIF will never engage in disputes between participants. For dispute resolution, the DIP platform will use existing mechanisms like, e.g., the Kleros arbitration board. The foundation council formally represents the DIF. +
+
+The main task of the DIF in the context of the technical DIP protocol is the certification of GIF instances on the different blockchains. On each blockchain, there can be multiple GIF instances. The rules for certification will be published. +
+The rules should be such that, if possible, there is no ambiguity in interpretation and that people with basic technical understanding and common sense can decide whether a particular GIF instance meets the requirements. +
+Requirements include technical stability (like contract audits), soundness, and legal compliance. Certified GIF instances are registered in a token curated registry. The concrete rules for certification of GIF instances are currently worked in progress. +
+Certification has no consequences - it’s just signaling “this GIF instance has undergone thorough scrutiny and due diligence and implements the rules and recommendations of the DIP protocol.” Thus, a certification will act as a strong differentiator in the market, and non-certification will be a red flag for both customers and investors. Self-regulation works. +
+An instance operator operates one or more GIF instances. An instance operator can be represented by an EOA (externally owned address), a multisig, or a DAO. It is recommended that the instance operator is represented by a DAO, the members of which are the stakeholders of this GIF instance. +
+Each GIF instance may send a delegate to the advisory board of the DIF. The advisory board shall interact with the foundation council and represent the interests of the GIF instances and its stakeholders with the foundation council. The advisory board and its decision-making processes are implemented as a DAO. +
+Each GIF instance (or the DAO representing it) can implement governance rules on a more granular level, e.g., rules to decide which products may be listed on the instance and which not, as long as these rules follow our core values and the other rules of the platform. +
+Each GIF instance needs to implement rules that ensure that the instance can participate in the funding of the EGM and the DIP protocol. +
+Disputes are resolved via an arbitration board. Possible disputes include, e.g., registration of a GIF instance in the TCR or disputes concerning insurance claims that cannot be resolved via smart contract logic (e.g., oracle malfunction). +
+
 == Funding
+
+The funding is only to cover costs, to be self-sustaining and not profit-oriented. But the infrastructure to maintain the EGM and the development and maintenance of the DIP protocol (especially the GIF framework) requires funding.
+Each GIF instance will therefore be required to: +
+
+* Stake a defined amount of DIP token in a governance staking contract
+* Pay a regular fee to cover the operational cost of the EGM
+
+The required stakes and fees are calculated based on the economic volume transacted on the particular instance. We will inform you as soon as we have the details. +
+
+In the event of rule violations, sanctions of varying severity may be imposed: +
+
+* Financial penalties for misbehaving members
+* Slashing of staked DIP token
+* Exclusion of participants from a GIF instance
+* Exclusion of a GIF instance from the token curated registry
+
+Part of the fees paid will be burned to create a slight deflationary effect on the DIP token.
 
 == Monetary Policy
 
+As a significant holder of DIP token (about 60% of the total supply of DIP token), the DIF is obligated to protect the interests of the DIP token holders. The treasury of the DIF is not counted in the circulating supply of DIP token. +
+The DIF may allocate grants or provide DIP token to incentivize developing and using the DIP protocol. These grants and incentives will increase the circulating supply and could therefore dilute the value of the DIP token. However, the DIF will always take care that grants and incentives are always related to the value created so that the DIP token does not experience unnecessary dilution. +
+
 == Commons
 
+Commons need to have clearly defined boundaries. In particular, who is entitled to access to what? Unless there’s a specified community of benefit, it becomes a free for all, and that’s not how commons work. +
+
+The “boundaries” are implemented by the token-curated registry for the GIF Instances and the registries for products, oracles and risk pools in the GIF instances themselves. +
+
+There is no one-size-fits-all approach to standard resource management. Local people and ecological needs dictate rules. The rules are always created at the lowest possible level. E.g., the top-level rules only govern GIF instances. More granular rules are implemented on lower levels and can vary for different GIF instances. +
+
+Participatory decision-making is vital. There are many ways to make it happen, but people will be more likely to follow the rules if they have a hand writing them. Participation is implemented by DAOs, which govern the GIF instances. Each GIF instance is a member of the advisory board of the DIF. +
+
+Commons must be monitored. Once rules have been set, communities need a way of checking that people are keeping them. Commons don’t run on goodwill but on accountability. The monitoring happens on two levels: The top level is given by the DIF, the token-curated registry of GIF instances and the arbitration board. On a lower level, the monitoring is given by the DAOs governing the individual GIF instances. +
+
+Sanctions for those who abuse the commons should be graduated. Ostrom observed that the best commons didn’t just ban people who broke the rules. That tended to create resentment. Instead, they had systems of warnings, fines, and informal reputational consequences in the community. There are different methods of sanctioning, each with a different severity level. +
+
+Conflict resolution should be easily accessible. When issues come up, resolving them should be informal, cheap and straightforward. That means anyone can take their problems for mediation, and nobody is shut out. Problems are solved rather than ignored because nobody wants to pay legal fees. This is implemented by the arbitration board, which offers dispute resolution on every level. +
+
+Commons need the right to organize. Your commons rules won’t count for anything if a higher local authority doesn’t recognize them as legitimate. This is implemented by the written rules which govern the DIF and which, in turn, govern the DAOs representing the different GIF Instances. +
+
+Commons work best when nested within more extensive networks. Some things can be managed locally, but some might need broader regional cooperation – for example, an irrigation network might depend on a river that others also draw on upstream. This is implemented by the hierarchical structure, the top of which is a legal foundation recognized by Swiss law. +
