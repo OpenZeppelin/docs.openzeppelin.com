@@ -1,0 +1,11 @@
+= The GIF sandbox
+
+The GIF sandbox is a place to experiment with the GIF framework.
+Running in a docker container, it contains a full deployment of the GIF
+in a ganache local blockchain instance, as well as a sample product which you 
+can modify or extend. 
+
+For further information, follow the link: 
+
+* xref:sandbox.adoc[The GIF sandbox - a place to learn and experiment]
+

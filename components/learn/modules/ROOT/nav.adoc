@@ -3,6 +3,7 @@
 * xref:depeg-faq.adoc[Depeg Protection FAQ]
 * xref:staking-faq.adoc[DIP Staking FAQ]
 * xref:basics-gif.adoc[Basics of the GIF Framework]
+* xref:sandbox.adoc[The GIF sandbox - a place to learn and experiment]
 // * xref:setting-up-a-sandbox.adoc[Setting up a GIF sandbox]
 // * xref:developing-products.adoc[Developing Products]
 // * xref:deploying-and-interacting.adoc[Deploying and interacting with the GIF]
