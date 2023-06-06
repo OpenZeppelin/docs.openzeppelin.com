@@ -7,5 +7,5 @@ can modify or extend.
 
 For further information, follow the link: 
 
-* xref:sandbox.adoc[The GIF sandbox - a place to learn and experiment]
+* xref:sandbox::sandbox.adoc[The GIF sandbox - a place to learn and experiment]
 

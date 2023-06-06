@@ -23,6 +23,11 @@ xref:learn::staking-faq.adoc[[.card-title]#DIP Staking FAQ# [.card-body]#pass:q[
 xref:learn::basics-gif.adoc[[.card-title]#Basics of the GIF Framework# [.card-body]#pass:q[Understanding the basic concepts of the GIF Framework.]#]
 --
 
+[.card.card-learn]
+--
+xref:learn::sandbox.adoc[[.card-title]#The GIF sandbox# [.card-body]#pass:q[Setting up and using the GIF sandbox - a place to learn and experiment.]#]
+--
+
 ////
 
 [.card.card-learn]
