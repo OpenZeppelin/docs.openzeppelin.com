@@ -28,7 +28,7 @@ content:
       start_path: docs
 
     - url: https://github.com/etherisc/gif-sandbox
-      branches: master
+      branches: main
       start_path: docs
 
 ui:
