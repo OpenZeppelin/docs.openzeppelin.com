@@ -2,14 +2,88 @@
 
 == Overview
 
+image::_images/services-modules.png[]
+
+The services supply the core contracts with data and ensure that only the authorized owners can supply the core contracts with data or query data. +
+https://github.com/etherisc/gif-contracts/tree/develop/contracts/modules[Here] in these modules, the core functionalities of the GIF are deposited from a technical view. Here you will find all functions. Access (access control), Bundles, Components, Licenses, Policies, (Risk) Pools, Queries (Oracles), Registries and the Treasuries (capital flow). +
+
+image::_images/services-services.png[]
+
+You will undoubtedly notice fewer services https://github.com/etherisc/gif-contracts/tree/develop/contracts/services[here] than in the modules and that the view has changed. +
+The services are tailored and aligned to the different roles. In the services are all information and functions that the role owner may use. Furthermore, the services also check whether the corresponding role wants to access the core contracts. +
+Either one has the role, in which case it continues, or one does not have access authorization, in which case it is rejected. +
+The idea behind this is that the users of the GIF never access the core contracts themselves but always go through the '`intermediate layer`' services. The services do not work according to the logic of the core contracts but according to the permissions of the existing roles. +
+
 == InstanceOperatorService
+
+The instance operator has vast powers, so the InstanceOperatorService.sol is extensive.
+
+=== Registry
+
+image::_images/services-instanceoperator-registry.png[]
+
+Here you, as an instance operator, can manage releases and contracts. He can create and activate a new release (prepareRelease). You can create new contracts (register) or remove them (deregister). Then you can register (registerInRelease) and deregister (deregisterInRelease) the contracts in the corresponding release.
+
+=== Access
+
+image::_images/services-instanceoperator-access.png[]
+
+Here you can administrate access management. You can create (createRole) or remove (invalidateRole) a participant (role). Once the role is created, you should check the component the new participant wants to deploy. If all this fits, you can grant the new participant (grantRole) or revoke the legitimation (revokeRole).
+
+=== Component
+
+image::_images/services-instanceoperator-component.png[]
+
+A component can be a product, risk pool or oracle. The component owner can request the implementation of his component. You, as an instance operator, can approve (approve), decline (decline), suspend (suspend), resume (resume) or archive (archive) the component.
+
+=== Service staking
+
+image::_images/services-instanceoperator-staking.png[]
+
+This functionality is still under development. We will inform you when we have a version here. You can then check if the component meets the requirements and then activate the component.
+
+=== Treasury
+
+image::_images/services-instanceoperator-treasury.png[]
+
+This is about money or tokens. If you get hacked, you can turn off the entire treasury (suspendTreasury) and re-enable it after fixing the cause (resumeTreasury). +
+You can include the wallet of the instance (setInstanceWallet), include the wallet of a risk pool (setRiskpoolWallet) and define the tokens that are accepted in a product (setProductToken). +
+As an instance operator, you can also set your premiums (setPremiumFees) and those of the investor (setCapitalFees). +
+
+image::_images/services-instanceoperator-treasury01.png[]
+
+As an instance operator, you can also define how the fees are divided on the component level (createFeeSpecification). What you get, what the component owner gets and any other fees, for example, to an oracle. +
 
 == InstanceService
 
+The instance service is not tuned to a specific role but to the complete instance. But you won't find a function that can change a state. All functions are queries to the instance. The service defines what information can be retrieved from an instance. Here there are also no permissions for who can query what. Everyone can retrieve all data. This is how open source works. +
+
+This is the convenient service to get, for example, as a product owner, information such as
+
+image::_images/services-instanceservice.png[]
+
+* how many claims (getClaim) has my product
+* how many payouts (getPayout) have I paid
+
+to be displayed. 
+
 == OracleService
+
+The oracle service is relatively manageable. It is merely a matter of retrieving information outside the blockchain and utilizing it on the blockchain.
 
 == ProductService
 
+t.b.d.
+
 == RiskPoolService
 
+t.b.d.
+
 == ComponentOwnerService
+
+image::_images/services-componentowner.png[]
+
+A Component Owner can be an Oracle Owner, a Product Owner, or a Risk Pool Keeper, depending on the core object it manages. +
+A component owner can propose (propose) his component. The instance operator registers, approve and activates the component. +
+Here the possibility of staking for the component owner is already built in (stake, withdraw). These are currently only placeholders. The evaluation of the process still needs to be finished. +
+As a component owner, you can pause (pause) your product if you don't want to run it anymore. You can reactivate (unpause) or archive (archive) the product when all liabilities and terms of the sold products have expired. An archived product cannot be reactivated. +
