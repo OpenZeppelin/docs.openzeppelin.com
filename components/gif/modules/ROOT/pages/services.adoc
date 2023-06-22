@@ -73,17 +73,25 @@ The oracle service is relatively manageable. It is merely a matter of retrieving
 
 == ProductService
 
-image::_images/services-instanceservice.png[]
+image::_images/services-product-premium.png[]
 
 In product service, the complete life cycle of a policy is mapped from registering the product to collecting the premiums and checking if the premium is paid in full.
 
-
+image::_images/services-product-policy.png[]
 
 In this section, you can see the functions of the individual life cycles of a policy, from revocation to acceptance of the policy or its rejection to expiration and termination.
 
+image::_images/services-product-claim.png[]
 
+In the event of a payout, a claim must first be received. The claim can be accepted or rejected. 
 
-In the event of a payout, a claim must first be received. The claim can be accepted or rejected. In the case of acceptance, the payment is made. In the event of a payout, partial amounts can be paid out once or several times up to the agreed sum insured.
+image::_images/services-product-payout.png[]
+
+In the case of acceptance, the payment is made. In the event of a payout, partial amounts can be paid out once or several times up to the agreed sum insured.
+
+image::_images/services-product-request.png[]
+
+Oracles provide the data required for a claim and payout. As the product owner, you define which oracle is to be used and how often the required data is requested.
 
 == RiskPoolService
 
