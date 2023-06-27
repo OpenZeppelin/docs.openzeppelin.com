@@ -75,27 +75,43 @@ The oracle service is relatively manageable. It is merely a matter of retrieving
 
 image::_images/services-product-premium.png[]
 
-In product service, the complete life cycle of a policy is mapped from registering the product to collecting the premiums and checking if the premium is paid in full.
+In product service, the complete life cycle of a policy is mapped from registering the product (newApplication)to collecting the premiums (collectPremium) and checking if the premium is paid in full (adjustPremiumInsured).
 
 image::_images/services-product-policy.png[]
 
-In this section, you can see the functions of the individual life cycles of a policy, from revocation to acceptance of the policy or its rejection to expiration and termination.
+In this section, you can see the functions of the individual life cycles of a policy, from revocation (revoke) to acceptance of the policy (underwrite) or its rejection (decline) to expiration (expire) and termination (close).
 
 image::_images/services-product-claim.png[]
 
-In the event of a payout, a claim must first be received. The claim can be accepted or rejected. 
+In the event of a payout, a claim must first be received (newClaim). The claim can be accepted (confirmClaim) or rejected (declineClaim). In both cases, the claim is closed afterwards (closeClaim).
 
 image::_images/services-product-payout.png[]
 
-In the case of acceptance, the payment is made. In the event of a payout, partial amounts can be paid out once or several times up to the agreed sum insured.
+In the case of acceptance, the payment is made (newPayout). In the event of a payout, partial amounts can be paid out once or several times up to the agreed sum insured (processPayout).
 
 image::_images/services-product-request.png[]
 
-Oracles provide the data required for a claim and payout. As the product owner, you define which oracle is to be used and how often the required data is requested.
+Oracles provide the data required for a claim and payout. As the product owner, you define which oracle is to be used and how often the required data is requested (request). You can cancel the data supply if you don't need it anymore (cancelRequest).
 
 == RiskPoolService
 
-t.b.d.
+image::_images/services-riskpool.png[]
+
+In the risk pool service, the complete functional scope of a risk pool is mapped. First, the risk pool must be registered (registerRiskpool) on the instance. After that, you can create new risk bundles (createBundle) and stake or (fundBundle) unstake (defundBundle) tokens.
+
+image::_images/services-riskpool-bundles.png[]
+
+As a risk bundle owner, you can lock (lockBundle) and unlock (unlockBundle) your risk bundle. If you want to end your risk bundle, you can close it (closeBundle). When the last policy is paid out or expired, you can burn (burnBundle) the ERC721 token minted when you opened your bundle.
+
+image::_images/services-riskpool-payout.png[]
+
+The following describes the functions related to a risk bundle and risk bundle owner, analogous to our Etherisc Depeg protection web app. You can write risk pool and risk pool keeper wherever risk bundle and risk bundle owner are written. This differs from product to product. +
+
+When a policy is taken out, it must be collateralized (collaterizePolicy) from the risk bundle. The premium flows into the risk bundle (processPremium) and if a claim is made, the amount is paid out (processPayout) of the risk bundle. +
+
+When a policy is closed, the logged funds are rereleased. As a risk bundle owner, you can decide whether the funds remain in the risk bundle and are used for new policies or taken out of the risk pool as profit (releasePolicy).
+
+As a risk pool keeper, you can also define the maximum number of active risk bundles in your risk pool (setMaximumNumberOfActiveBundles).
 
 == ComponentOwnerService
 
@@ -105,3 +121,4 @@ A Component Owner can be an Oracle Owner, a Product Owner, or a Risk Pool Keeper
 A component owner can propose (propose) his component. The instance operator registers, approve and activates the component. +
 Here the possibility of staking for the component owner is already built in (stake, withdraw). These are currently only placeholders. The evaluation of the process still needs to be finished. +
 As a component owner, you can pause (pause) your product if you don't want to run it anymore. You can reactivate (unpause) or archive (archive) the product when all liabilities and terms of the sold products have expired. An archived product cannot be reactivated. +
+As a risk pool keeper, you can also define the maximum number of active risk bundles in your risk pool.

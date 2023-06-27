@@ -2,12 +2,49 @@
 
 == Overview
 
+In the Etherisc ecosystem, all kinds of token can be used. However, for example, you want to avoid having a volatile token as a backup currency in a risk pool. Here you want to use stablecoins. This minimizes the risk and gives you planning security. +
+
+An NFT, which confirms the ownership of a risk bundle, can very well be volatile. This way, you can realize your profit. +
+
+If you have calculated your risk model to make a profit, then over time, the parts of the premiums in the risk bundle that have not been used to cover claims or general maintenance costs (instance operator, risk pool keeper, product owner and oracle owner) will accumulate. These can then be credited to the investor as profit distribution. +
+
+Sum premiums > Sum claims + costs +
+
+The costs incurred are paid to the instance operator, the product owner, the oracle owner, the risk pool keeper and the instance operator from the premiums. While the tokens in which the fees are paid can be freely determined for all participants except the instance operator, the instance operator is paid exclusively in DIP tokens. +
+
 == DIP Token
 
-== Risk Pool Tokens
+The DIP (Decentralized Insurance Token) token is the native token of Etherisc.
 
-== Bundle Tokens
+It started with the DIP Token Generating Event (TGE) - from Jun 23rd to July 25th, 2018. The supply is 1 Billion, hardcap was 30 Million USD. Only registered contributors were able to participate. During the TGE, 30 million DIP tokens were issued to registered contributors. The exchange rate for 1 DIP was 0.10 USD. +
+
+Each project must purchase a certain number of DIP tokens to secure production. The number varies per project, similar to a cooperative. A high-risk project to maximize profits must purchase more DIP tokens than a non-profit or scientific project. Ultimately, the DAO decides this. Each project receives voting rights proportionally to DIP token deposits. +
+
+== Risk Pool Token
+
+When the risk pool keeper creates the risk pool, he receives an NFT that secures the rights to the risk pool. The risk pool NFT cannot be sold or disposed of and therefore has no value. The risk pool keeper must buy DIP tokens to operate the risk pool on the instance. In return, the risk pool keeper will pick up a management fee. +
+
+== Bundle Token
+
+Now you create a risk bundle within the risk pool. The prerequisite for this is that you buy an amount of DIP tokens determined by the DAO depending on the risk and the amount of the risk bundle and pay in the tokens. You will also receive an NFT that secures your rights to the bundle. The value of the NFT at the beginning is equal to the value of the paid tokens. However, this value changes as soon as premiums have been paid so that a part of the token is also logged. Furthermore, payouts in the event of a claim or profit distributions may have taken place. The bundle NFT is tradable. +
 
 == Fees
 
+All involved parties can use fees for the use of the respective infrastructure. +
+
+The instance operator for providing the hardware and keeps the instance up and running and highly available. +
+
+The risk pool keeper and for keeping the risk pool highly performant. The risk pool keeper can also provide other services, such as booking all fees. +
+
+The product owner for providing the smart contracts and ensuring a smooth and error-free process. +
+
+The oracle owner for the correct and uninterrupted data supply of the smart contracts on the blockchain. +
+
+
 == Use of Permits
+
+To transfer ERC 20 token, you need two functions (transferFrom, approve) and each will cost you a gas fee. Those gas fees are high and If you are trading often on DEX, you will pay a lot of gas fees. +
+
+With the permit function, you do not need to call the approve function. You are approving the transaction by signing the transaction. This transaction is signed off-chain, so you are not paying gas fees. Front-end developers handle this part and derive the signature's v,r,s. +
+
+Permit () function allows anyone to authorize and swap a token in one transaction instead of two transactions. But this does not mean that you are saving half the gas fees. For example, if you paid ten wei gas fees for two transactions, now it will not be five wei because the permit function has more logic to implement. So the total gas fee will be between 5-10 wei. A permit is not about just saving the gas fee but delegating the transaction to another wallet so that the wallet will pay the transaction. That is called a gasless transaction. +
