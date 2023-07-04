@@ -26,11 +26,11 @@ Here you find the blockchains the instances use, such as xDai or Ethereum. GIF i
 By clicking on an instance, you will get detailed information like the instance ID, name, name of the blockchain, chain ID and status (active or not). Each instance is identified by its registry address. You can compare this with the residents’ registration office.
 
 ==== Core Contracts
-This section contains all 14 GIF core contracts. Each core contract provides essential functionality to a GIF Instance. +
+This section contains all 14 GIF core contracts. Each core contract provides essential functionality to a GIF instance. +
 You can click on the contract name for all GIF core contracts to get to the contract details. Here you will see on which instance you are, the instance ID, the address on the blockchain (and a link to the blockchain explorer blockscout.com), the name of the core contract, and the detailed contract functionality described by its contract application binary (ABI) interface. +
-For more information regarding the ABI check the Contract ABI specificationSolidity interface. Further, the IPFS link details can be found in the chapter '`Where do we store our source code?`' and the release status. You will return to the main menu by pressing the '`OK`' button.
+For more information regarding the ABI check the Contract ABI specification Solidity interface. Further, the IPFS link details can be found in the chapter '`Where do we store our source code?`' and the release status. You will return to the main menu by pressing the '`OK`' button.
 
-===== In each GIF Instance, the following core contracts are available:
+===== In each GIF instance, the following core contracts are available:
 * Instance Operator Service
 * Registry
 * RegistryController
@@ -50,7 +50,7 @@ These core contracts can be divided into storage contracts, service contracts an
 ==== Storage contracts
 Storage contracts store general and personal data. They also provide essential accessor functions. Storage contracts use the delegator pattern, meaning the on-chain contract data is separated from the contract functionality. This provides a way to upgrade the contract functionality without touching the contract data.
 
-===== In each GIF Instance, the following storage contracts are available:
+===== In each GIF instance, the following storage contracts are available:
 * Registry Contract
 * Licence contract
 * Query Contract
@@ -59,7 +59,7 @@ Storage contracts store general and personal data. They also provide essential a
 ==== Service contracts
 Service contracts provide functionalities that access and operate on data held in storage contracts.
 
-===== In each GIF Instance, the following service contracts are available:
+===== In each GIF instance, the following service contracts are available:
 * InstanceOperatorService
 * ProductService
 * OracleService
@@ -98,14 +98,7 @@ Here the contract events of the GIF core contracts are displayed. Smart contract
 |===
 
 === Oracles
-The '`Oracle`' area of the GIF monitor displays the oracle types and available oracles.
-
-==== Oracle types
-The '`Oracle Types`' dialogue shows the available oracle types. An oracle type defines a whole class of oracles. It means the oracles that accept a defined input format and a defined callback format are grouped in an oracle type. For each oracle type several oracles from different providers may provide functionalities defined by the oracle type.
-
-In the oracle types, a product owner can search for suitable oracles. By clicking on an oracle type, you get the name, the status initialized, activated, the defined input format, the defined callback format, the number of active oracles, the number of assigned oracles and the index in the details.
-
-The input and callback formats serve abi.encode as defined in the ABI interface of Solidity
+The '`Oracle`' area of the GIF monitor displays available oracles.
 
 ==== Oracles
 You will find all oracles available on the platform in the '`Oracles dialogue.`' Here you can view all input and callback formats as a product owner. In addition, the appropriate oracle can be requested from the Oracle owners.

@@ -98,9 +98,9 @@ With our depeg app, Chainlink already provides us with the USDC rates on-chain. 
 
 image::_images/data-struct-bundle.png[]
 
-Everybody who wants to provide risk capital creates his risk bundle by staking USDT stablecoins in the https://depeg.etherisc.com/stake[Etherisc Depeg Protection web app]. In your Risk bundle, you can set parameters like lifetime, minimum or maximum staked amount. +
+Everybody who wants to provide risk capital creates his risk bundle by staking USDT stablecoins in the https://depeg.etherisc.com/stake[Etherisc Depeg Protection web app]. In your risk bundle, you can set parameters like lifetime, minimum or maximum staked amount. +
 
-Each riek bundle has its own NFT (ERC721). +
+Each risk bundle has its own NFT (ERC721). +
 
 You can find detailed information in the https://docs.etherisc.com/learn/depeg-purchase.com[Depeg Protection Tutorial] and the https://docs.etherisc.com/learn/depeg-faq[Depeg Protection FAQ's].
 

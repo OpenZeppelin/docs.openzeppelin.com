@@ -117,7 +117,7 @@ As a risk pool keeper, you can also define the maximum number of active risk bun
 
 image::_images/services-componentowner.png[]
 
-A Component Owner can be an Oracle Owner, a Product Owner, or a Risk Pool Keeper, depending on the core object it manages. +
+A component owner can be an oracle owner, a product owner, or a risk pool keeper, depending on the core object it manages. +
 A component owner can propose (propose) his component. The instance operator registers, approve and activates the component. +
 Here the possibility of staking for the component owner is already built in (stake, withdraw). These are currently only placeholders. The evaluation of the process still needs to be finished. +
 As a component owner, you can pause (pause) your product if you don't want to run it anymore. You can reactivate (unpause) or archive (archive) the product when all liabilities and terms of the sold products have expired. An archived product cannot be reactivated. +

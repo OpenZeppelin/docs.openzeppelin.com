@@ -14,9 +14,9 @@ image::architecture.jpg[Architecture,800,link="_images/architecture.jpg"]
 A component is a specific smart contract with a particular core functionality. +
 A component can represent three different core objects:
 
-*Products
-*Oracle
-*Risk pools
+* Products
+* Oracle
+* Risk pools
 
 For each core object, we provide sample implementations that you can use as a baseline for your implementation. +
 The transition between these states and roles is described in the following diagram.

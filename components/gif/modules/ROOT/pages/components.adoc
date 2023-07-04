@@ -88,5 +88,6 @@ The following functions are available for oracles: +
 * removeOracle (instance operator)
 
 == Risk Pools
-t.b.d.
+
+The risk pools manage the individual risk bundles. The risk pool keeper can decide how many bundles may be present in the risk pool and how high the maximum volume of tokens may be. The risk pool keeper receives the risk pool NFT, which secures his ownership.
 

@@ -69,7 +69,7 @@ You will find the actors and participants described in the image above in the ta
 
 |===
 
-The four defining aspects of the EGM are as follows: +
+*The four defining aspects of the EGM are as follows:*
 
 * Platform participants as the topmost authority
 * The Decentralized Insurance Foundation (DIF) as the non-profit, neutral link to the real-world institutions and legal systems

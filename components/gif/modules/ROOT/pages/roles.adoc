@@ -4,7 +4,7 @@ image::_images/roles.png[]
 
 == Instance Operator
 
-Designs and runs one or more GIF framework, which is a collection of open-source smart contracts. Any complete deployment of this framework is called a '`GIF instance.`' +
+Designs and runs one or more GIF frameworks, which is a collection of open-source smart contracts. Any complete deployment of this framework is called a '`GIF instance.`' +
 There will always be at least one complete instance of the GIF, which is operated by the Etherisc project, but in principle, anybody can deploy a new GIF instance. +
 The key responsibilities of the instance operator are the administration of products and oracles (as introduced above) and a few other basic actions. +
 Any GIF instance is multi-client capable, which means that any number of product owners and oracle providers can be operated and administered on one GIF instance. Due to the different legal regulations for insurance worldwide, different GIF instances and several instance operators are required.

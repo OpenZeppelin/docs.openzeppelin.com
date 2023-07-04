@@ -8,7 +8,7 @@ An NFT, which confirms the ownership of a risk bundle, can very well be volatile
 
 If you have calculated your risk model to make a profit, then over time, the parts of the premiums in the risk bundle that have not been used to cover claims or general maintenance costs (instance operator, risk pool keeper, product owner and oracle owner) will accumulate. These can then be credited to the investor as profit distribution. +
 
-Sum premiums > Sum claims + costs +
+Sum premiums > sum claims + costs +
 
 The costs incurred are paid to the instance operator, the product owner, the oracle owner, the risk pool keeper and the instance operator from the premiums. While the tokens in which the fees are paid can be freely determined for all participants except the instance operator, the instance operator is paid exclusively in DIP tokens. +
 
@@ -16,7 +16,7 @@ The costs incurred are paid to the instance operator, the product owner, the ora
 
 The DIP (Decentralized Insurance Token) token is the native token of Etherisc.
 
-It started with the DIP Token Generating Event (TGE) - from Jun 23rd to July 25th, 2018. The supply is 1 Billion, hardcap was 30 Million USD. Only registered contributors were able to participate. During the TGE, 30 million DIP tokens were issued to registered contributors. The exchange rate for 1 DIP was 0.10 USD. +
+It started with the DIP Token Generating Event (TGE) - from Jun 23rd to July 25th, 2018. The supply is 1 billion, hardcap was 30 million USD. Only registered contributors were able to participate. During the TGE, 30 million DIP tokens were issued to registered contributors. The exchange rate for 1 DIP was 0.10 USD. +
 
 Each project must purchase a certain number of DIP tokens to secure production. The number varies per project, similar to a cooperative. A high-risk project to maximize profits must purchase more DIP tokens than a non-profit or scientific project. Ultimately, the DAO decides this. Each project receives voting rights proportionally to DIP token deposits. +
 
@@ -26,7 +26,9 @@ When the risk pool keeper creates the risk pool, he receives an NFT that secures
 
 == Bundle Token
 
-Now you create a risk bundle within the risk pool. The prerequisite for this is that you buy an amount of DIP tokens determined by the DAO depending on the risk and the amount of the risk bundle and pay in the tokens. You will also receive an NFT that secures your rights to the bundle. The value of the NFT at the beginning is equal to the value of the paid tokens. However, this value changes as soon as premiums have been paid so that a part of the token is also logged. Furthermore, payouts in the event of a claim or profit distributions may have taken place. The bundle NFT is tradable. +
+Now you create a risk bundle within the risk pool. The prerequisite for this is that you buy an amount of DIP tokens determined by the DAO depending on the risk and the amount of the risk bundle and pay in the tokens. You will also receive an NFT that secures your rights to the bundle. The value of the NFT at the beginning is equal to the value of the paid tokens. +
+
+However, this value changes as soon as premiums have been paid so that a part of the token is also logged. Furthermore, payouts in the event of a claim or profit distributions may have taken place. The bundle NFT is tradable. +
 
 == Fees
 
@@ -34,7 +36,7 @@ All involved parties can use fees for the use of the respective infrastructure. 
 
 The instance operator for providing the hardware and keeps the instance up and running and highly available. +
 
-The risk pool keeper and for keeping the risk pool highly performant. The risk pool keeper can also provide other services, such as booking all fees. +
+The risk pool keeper and for keeping the risk pool highly performant. The risk pool keeper can also provide other services, such as booking all fees for all participants. +
 
 The product owner for providing the smart contracts and ensuring a smooth and error-free process. +
 
