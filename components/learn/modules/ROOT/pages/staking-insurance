@@ -22,6 +22,7 @@ The principle of proof of work is based on the idea that miners bundle transacti
 
 Proof of work typically means that the miner must calculate a verifiable block hash that meets predefined criteria. For this, the miner needs to systematically repeat these calculations with different so-called nonce (number used once) values. These calculations make mining a very computation-intensive process that requires specialized hardware and a lot of electrical power. For this reason, miners often join together in mining pools. Once a block is created, the miner or mining pool receives the transaction fees of the transactions contained in the block and a block reward in the form of the native coin of the blockchain, for example Bitcoin. +
 
+
 Proof of work is currently the predominant consensus method used by most major blockchains, including Bitcoin, its variants and layer 2 blockchains. +
 
 There are a lot of disadvantages connected to proof of work, starting with its vast energy consumption and associated ecological footprint. Additionally, there is also a tendency towards a form of centralization because only big players have access to the required specialized hardware needed to process a block, with the added fact that there is a monopoly of manufacturers producing this hardware. +
