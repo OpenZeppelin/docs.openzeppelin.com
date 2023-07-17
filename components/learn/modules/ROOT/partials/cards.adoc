@@ -28,6 +28,11 @@ xref:learn::basics-gif.adoc[[.card-title]#Basics of the GIF Framework# [.card-bo
 xref:learn::sandbox.adoc[[.card-title]#The GIF sandbox# [.card-body]#pass:q[Setting up and using the GIF sandbox - a place to learn and experiment.]#]
 --
 
+[.card.card-learn]
+--
+xref:learn::staking-insurance.adoc[[.card-title]#Staking in risk pools# [.card-body]#pass:q[Staking as a fundamental building block for insurance.]#]
+--
+
 ////
 
 [.card.card-learn]
