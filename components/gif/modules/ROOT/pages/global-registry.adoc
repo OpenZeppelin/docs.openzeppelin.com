@@ -1,1 +1,18 @@
 = Global Registry
+
+The main objective of the global GIF registry is to provide a reliable information source to promote transparency, accountability and efficiency at the global level. +
+
+image::_images/repository-global.png[]
+
+The global registry is a decentralized database in the form of a smart contract that serves as a comprehensive directory for certified GIF instances. It acts as a trusted source of information and provides a global registry that can be read by all interested worldwide. You can find the global registry on the Ethereum mainnet. +
+
+The GIF instances are multi-chain capable, so each chain has a chain net registry (for example, Polygon).
+When an instance operator installs a DIP instance on a chain, it registers itself on the chain net registry. The global registry managers check the instance for malware and fraud. After the check, the global registry manager adds the instance to the global registry on the Ethereum mainnet. +
+
+This procedure ensures that the instance is updated with the latest technology. The audited entity is trustworthy, which is advantageous to all parties involved and provides planning security. +
+
+Investors and risk pool keepers can invest their tokens and stablecoins in a secure environment. +
+
+Oracle owners and product owners are assured of an executable, secure and highly available framework. This provides planning security. +
+
+The customers have the security that the purchased policies will be paid out in the event of a loss. +
