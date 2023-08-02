@@ -1,0 +1,34 @@
+/* hubspot banner styles */
+/* written in css to maintain precise alignment with https://github.com/OpenZeppelin/defender/blob/master/ui/src/styles/platform/hs-banner.css */
+/* !important is essential in this context to take precedent over default styles */
+div#hs-banner-parent div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner {
+    padding: var(--u2) !important;
+}
+
+div#hs-banner-parent div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner div#hs-eu-policy-wording {
+    margin-right: 0 !important;
+    margin-bottom: var(--u) !important;
+}
+
+div#hs-banner-parent div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner div#hs-eu-policy-wording p, 
+div#hs-banner-parent div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner p#hs-eu-cookie-disclaimer  {
+    line-height: 16px !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+div#hs-banner-parent div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner div#hs-eu-cookie-confirmation-buttons-area {
+    margin-top: var(--u) !important;
+    margin-right: 0 !important;
+}
+
+div#hs-banner-parent div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner button#hs-eu-confirmation-button, 
+div#hs-banner-parent div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner button#hs-eu-decline-button {
+    height: 30px !important;
+}
+
+@media (min-width: 751px) {
+    div#hs-banner-parent div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner p#hs-eu-cookie-disclaimer {
+        margin-right: 0 !important;
+    }
+}
