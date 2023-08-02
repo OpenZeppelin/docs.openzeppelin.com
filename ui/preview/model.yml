@@ -37,6 +37,17 @@ site:
         version: 'master'
         displayVersion: 'master'
       latestVersion: *latest_version_defender
+    platform:
+      &component_platform
+      name: platform
+      title: Platform
+      url: #
+      versions:
+      - &latest_version_platform
+        url: #
+        version: 'master'
+        displayVersion: 'master'
+      latestVersion: *latest_version_platform
     contracts:
       &component_contracts
       name: contracts

@@ -19,7 +19,13 @@ xref:upgrades.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[A comprehensive s
 
 [.card.card-primary.card-defender]
 --
-xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
+xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A suite of tools to automate your smart contracts operations.]#]
+--
+
+[.card.card-primary.card-platform]
+--
+// TODO: change this from Defender to OpenZeppelin Platform
+xref:defender::index.adoc[[.card-title]#Platform# [.card-body]#pass:q[An end-to-end solution to code, audit, deploy, and operate Web3 projects.]#]
 --
 
 [.card.card-secondary.card-test-helpers]
