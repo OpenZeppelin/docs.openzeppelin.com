@@ -5,17 +5,17 @@ xref:learn::depeg-purchase.adoc[[.card-title]#Depeg Protection Tutorial# [.card-
 
 [.card.card-learn]
 --
-xref:learn::depeg-faq.adoc[[.card-title]#Depeg Protection FAQ# [.card-body]#pass:q[Frequently Asked Questions regarding Depeg Protection]#]
+xref:learn::depeg-faq.adoc[[.card-title]#Depeg Protection FAQ# [.card-body]#pass:q[Frequently Asked Questions regarding Depeg Protection.]#]
 --
 
 [.card.card-learn]
 --
-xref:learn::dip-staking.adoc[[.card-title]#DIP Staking Tutorial# [.card-body]#pass:q[Learn how to stake your DIP token]#]
+xref:learn::dip-staking.adoc[[.card-title]#DIP Staking Tutorial# [.card-body]#pass:q[Learn how to stake your DIP token.]#]
 --
 
 [.card.card-learn]
 --
-xref:learn::staking-faq.adoc[[.card-title]#DIP Staking FAQ# [.card-body]#pass:q[Frequently Asked Questions regarding DIP Staking]#]
+xref:learn::staking-faq.adoc[[.card-title]#DIP Staking FAQ# [.card-body]#pass:q[Frequently Asked Questions regarding DIP Staking.]#]
 --
 
 [.card.card-learn]
@@ -32,8 +32,18 @@ xref:learn::sandbox.adoc[[.card-title]#The GIF sandbox# [.card-body]#pass:q[Sett
 --
 xref:learn::staking-insurance.adoc[[.card-title]#Staking in risk pools# [.card-body]#pass:q[Staking as a fundamental building block for insurance.]#]
 --
-
 ////
+
+[.card.card-learn]
+--
+xref:learn::whitepaper-en.adoc[[.card-title]#Whitepaper English# [.card-body]#pass:q[Our Whitepaper. Our strategy.]#]
+--
+
+[.card.card-learn]
+--
+xref:learn::whitepaper-fr.adoc[[.card-title]#Whitepaper Français# [.card-body]#pass:q[Notre Whitepaper. Notre stratégie.]#]
+--
+
 
 [.card.card-learn]
 --

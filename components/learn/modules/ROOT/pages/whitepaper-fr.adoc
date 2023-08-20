@@ -1,0 +1,834 @@
+= Remerciements +
+
+Les idées contenues dans ce document résultent de nombreuses discussions, en ligne et en personne, avec de brillants esprits du monde crypto-économique. L'équipe Etherisc tient à remercier tout particulièrement les personnes suivantes, qui ont apporté une valeur ajoutée considérable au projet : Ron Bernstein, Jake Brukhman, Alexander Bulkin, Alex Felix, William Mougayar, Micah Zoltu, à l'équipe actuelle, composée de Matthias Zimmermann, Jan Stockhausen, Michiel Berende, Hui Lin Chiew, Sebastian Schlitter, Peter Koch, Koenraad de Jonghe, Damian Groß, Felizitas Mussenbrock-Strauß, Lydia Mussenbrock et enfin tous les membres de notre canal telegram et de notre serveur discord qui nous ont fait part de leurs commentaires et critiques et nous ont encouragés à poursuivre notre voie. +
+
+= 1 A propos 
+
+== Histoire
+
+À la suite du hackathon de nov/déc 2016, l'équipe d'Etherisc a rédigé un livre blanc, qui a été rendu public dans sa version 0.3. Le but de ce hackathon était d'esquisser le cœur d'un marché d’assurance basé sur la blockchain. +
+
+Deux ans plus tard, nous avons publié la version 1.01 du livre blanc à l’occasion de la vente de tokens DIP ayant eût lieu du 23 juin au 25 juillet 2018. Le livre blanc de 2018 présentait les principales caractéristiques de l'écosystème, ainsi que quelques aspects importants du DIP token. Même s’il apparaissait que le token allait principalement servir au staking, beaucoup de détails devaient encore être réglés. +
+
+Nous n'avions également qu'une idée approximative de ce à quoi ressemblerait la structure de l’assurance. Immédiatement après la vente de token, nous avions commencé à mettre en œuvre la structure qui fût publié sous le nom de "GIF" (Generic Insurance Framework) en 2019. +
+
+== The elevator pitch
+
+Quelques grandes sociétés dominent le secteur de l'assurance. Ce secteur (pesant plusieurs milliards de dollars) s'est développé au point de devenir indispensable à notre économie moderne. Il peut pourtant se montrer inefficace, opaque, coûteux tout en offrant une expérience client de basse qualité. Affirmer que le secteur de l'assurance est ennuyeux et peu fiable est un lieu commun. +
+
+Lorsque les clients ont besoin d'aide, ils peuvent se battre en vain pour être remboursés par des sociétés dont les profits dépendent trop souvent du non-remboursement. +
+
+|===
+|_Etherisc a construit une plateforme d'applications d'assurance décentralisée qui peut être utilisée par quiconque souhaitant proposer une assurance : grandes et petites entreprises, groupes à but non lucratif ou encore startups insurtech._
+
+|===
+
+Dès le départ, afin d'encourager l'innovation dans le secteur des assurances, Etherisc a rendu son code source public. L'objectif d'Etherisc est de soutenir un écosystème en pleine croissance détenu et géré par la communauté d’utilisateurs. +
+
+Nous voulons créer des produits d'assurance qui soient transparents, équitables et accessibles tant pour les clients que pour les investisseurs. +
+
+Etherisc peut ainsi devenir la plateforme d'assurance la plus utilisée au monde, offrant une couverture à des millions de clients mal desservis. +
+
+La plateforme Etherisc est construite autour d'une architecture technique, basée sur la blockchain, appelée "GIF". GIF est un acronyme qui signifie "Generic Insurance Framework". Il se compose de smart contracts open-source qui mettent en œuvre des fonctions génériques de produits d'assurance et de cycle de vie des polices. Ainsi, le GIF développe un large panel d'assurances. Le GIF fonctionne sur une blockchain et peut fonctionner avec plusieurs blockchains et plusieurs occupants. +
+
+|===
+|_Le GIF est conçu pour accueillir des produits d'assurance paramétrique. L'assurance paramétrique couvre des sinistres prédéfinis dès qu'ils se produisent, avec des paiements prédéfinis, plutôt que de compenser les dommages réels. Des événements tels que les retards de vols, les sécheresses, les fortes pluies ou les dommages causés par les ouragans sont couverts._ +
+
+|===
+
+Dans l'assurance paramétrique, les sinistres (les risques) sont définis par des fonctions d'indices ou de paramètres sous-jacents qui répondent aux critères définis par le produit d'assurance. +
+
+Le GIF est open source, ce qui signifie que n'importe qui peut déployer sa propre instance GIF, modifier le code, etc. Cependant, nous pensons qu'une plateforme florissante a besoin de plus que quelques lignes de code.  +
+
+Par conséquent, toute instance GIF pourrait éventuellement être enregistrée dans un registre mondial qui est maintenu par une DAO, dans laquelle toutes les parties prenantes de la platform participeraient à la gouvernance. Les instances GIF enregistrées devraient se conformer à un ensemble de règles garantissant que les clients se sentent en sécurité lorsqu'ils interagissent avec une instance GIF enregistrée. Pour ce faire, des badges et des certificats seraient attribués aux instances GIF conformes. +
+
+Dans ce système, le natif DIP token (Decentralized Insurance Protocol) joue un rôle central. Chaque participant et chaque partie prenante est tenu de miser un certain nombre de DIP token. Par conséquent, le DIP token est un token utilitaire, dont le staking est l'utilité centrale. Le staking est nécessaire à la fois pour déployer des produits, des oracles et des risk pools, mais aussi pour investir dans ces risk pools. Le staking accordera également des droits de vote dans le modèle de gouvernance. +
+
+== Chapitres
+
+Ce livre blanc est une tentative de structuration de l'image globale de l'assurance décentralisée en fonction des nouvelles perspectives. Le document est structuré en 4 chapitres principaux :  +
+
+*Dans le chapitre deux*, nous exposons des données fondamentales et des inconvénients de l'assurance traditionnelle. Nous soulignons les avantages de la blockchain et du modèle décentralisé dans l'assurance et expliquons l'interaction entre clients, utilisateurs et entreprises. +
+
+*Le chapitre trois* présente la vision d’Etherisc de l'assurance, des polices et de l'assurance paramétrique. Nous définissons les trois piliers de l'écosystème Etherisc et abordons l'aspect technique du GIF (Generic Insurance Framework). Nous définissons le cycle de vie générique des fonctions GIF. A la fin du chapitre, nous présentons le GIF Monitor. +
+
+*Le chapitre quatre* présente le DIP token et la manière dont il est utilisé dans le staking d'Etherisc. Nous décrivons notre modèle de staking, l'interaction des différentes risk pools correspondants et les fonctions des différents token. Le chapitre se conclut sur le sujet des récompenses en crédits et des pertes de paiement. +
+
+*Le chapitre cinq* traite de l'EGM (Etherisc Governance Model). Le respect, le partenariat, la responsabilité, la confiance et les biens publics sont nos cinq valeurs cardinales. Nous traiterons ensuite de la structure de l'EGM, des participants et de leurs rôles. Des détails sur les sujets du global staking pool et de la politique monétaire complètent ensuite le livre blanc avec l'annexe. +
+
+*Le sixième* et dernier chapitre contient une liste de toutes les abréviations et définitions des termes les plus importants. +
+
+= 2 Analyse des paradigmes de base de l'assurance
+
+== 2.1 Aperçu	 
+
+Pour comprendre l'approche, les stratégies et les objectifs de (cette) assurance, il est important de se pencher sur une définition générale de ce qu'est et de ce que fait l'assurance : 
+
+|===
+|_"L'assurance est un moyen de protection contre les pertes financières dans lequel, en échange d'un droit appelé "prime", une partie accepte de garantir à une autre partie une indemnisation en cas de perte, de dommage ou de préjudice certain. C'est une forme de gestion des risques, principalement utilisée pour se couvrir contre le risque d'une perte éventuelle ou incertaine."footnote:[https://en.wikipedia.org/wiki/Insurance]_ +
+
+|===
+
+Il peut s'agir d'un contrat sous forme d'une police de protection financière. L'assuré est le titulaire de la police, tandis que l'assureur est la compagnie d'assurance.footnote:[https://paytm.com/blog/insurance/what-is-insurance-definition-benefits-and-types/] +
+
+Après avoir analysé les principes de base de l'assurance, comme la définition, et avoir développé un système de token sur la base de ces principes, nous pouvons maintenant analyser l'assurance et décomposer les coûts et les flux de capitaux en trois éléments : +
+
+*Valeur attendue du risque* +
+
+Qui est simplement la redistribution du capital en fonction des risques entre les participants. +
+
+*Coûts en capital pour les risques extrêmes* +
+
+Comme son nom l'indique, le capital des risk pools est exposé à un risque de perte et doit être conservé dans la pool de risques pendant une certaine période. Les fournisseurs de capital sont indemnisés pour ce risque. Cette compensation est calculée en fonction de la période de limitation et du risque assuré. +
+
+*Coûts de transaction* +
+
+Frais d'administration des polices d'assurance, par exemple, frais de gaz des réservations sur la blockchain, frais de réservation en cas de paiement en monnaie FIAT, frais pour les oracles, etc. +
+
+Nous soutenons que les compagnies d'assurance traditionnelles dominent ces blocs de construction et régissent ainsi le marché de l'assurance. Le GIF et la technologie blockchain sous-jacente offrent la possibilité de remplacer les processus ancrés des compagnies d'assurance traditionnelles par des structures décentralisées allégées utilisant des protocoles allégés standardisés et automatisés. Les token cartographient ainsi les flux de capitaux et de revenus. +
+
+La conclusion de cette analyse est que nous avons besoin de deux types de token. Le premier - le "DIP Token" - soutient la coordination et l'incitation économique des acteurs dans un système d'assurance décentralisé. +
+
+Le second type de token représente les risques - il ne s'agit pas d'un token unique mais d'une classe de token similaires, un pour chaque pool de risques, que nous appelons "token de pool de risques". +
+
+Dans un environnement distribué où de nombreux participants construisent des produits en collaboration, le protocol token sert de colle, de collatéral et de représentation de la valeur matérielle et immatérielle du réseau, tout comme l'Ether sert à garantir la stabilité de la blockchain Ethereum. +
+
+Au chapitre 4.1, nous détaillons le token du protocole DIP. Le chapitre 6 présente un exemple concret de l'utilisation du token dans un contexte d'assurance.
+
+== 2.2 Principes de l'assurance
+
+Nous allons expliquer le principe de l'assurance à l'aide d'un exemple. L'exemple est bien sûr simplifié et a pour seul but d'expliquer le principe. +
+
+Considérons l'assurance des propriétaires. Pour les clients, l'assurance concerne les probabilités de pertes, il serait donc intéressant de voir quelle est la probabilité d'un dommage. Une assurance habitation couvre généralement un certain nombre de dommages, notamment le feu, les catastrophes naturelles, l'eau et même la chute d'objets.footnote:[Allstate.com: What Perils Are Typically Covered By A Homeowners Insurance Policy?] +
+
+Mais il est difficile d'obtenir des statistiques réelles, car les compagnies d'assurance ne sont pas très transparentes sur ces données.footnote:[A quick market survey in Germany shows that you get a homeowners insurance for considerably less than 0.1% of the value. For simplicity, we’ll assume that the premium is 0.1% plain and we don’t take insurance taxes etc. into account.
+
+From the relation premium/value, we can easily estimate an upper bound for the probability. One of the most fundamental principles of insurance is that the expected losses should not surpass the collected premiums (“Risk loading” - cf. http://www.wiley.com/legacy/wileychi/eoas/pdfs/TAP027-.pdf). The expected losses are - simplified - number of policies multiplied with the probability of loss multiplied with the loss (which is equal to the value), and collected premiums are number of policies multiplied with premium per policy. It follows that the probability can be approximated by premium/value, which is lower than 0.1% in our market test.] 
+
+Nous supposerons que, concernant notre exemple, la probabilité de sinistre est de 0,1 %. +
+
+Dans notre exemple fictif, supposons que l'assurance n'ait pas encore été inventée. Dans ce monde fictif, Alice possède une maison. La maison vaut 100 000 dollars. La probabilité d'une catastrophe complète est de 0,1 % par an (soit un événement dévastateur sur 1 000 ans). Alice veut s'assurer qu'elle a accès à suffisamment de fonds pour acquérir une nouvelle maison en cas de catastrophe. Elle décide donc d'obtenir un prêt de 100 000 dollars et doit payer le remboursement (également appelé principal) et le taux d'intérêt.  +
+
+En outre, elle paie un taux d'intérêt d'environ 1 %, ce qui représente un coût annuel de 1 100 $ (prêt de 100 000 $ * taux d'intérêt de 1 % plus remboursement annuel de 100 $ = 1 100 $).  +
+
+Nous allons maintenant voir comment la mise en commun des risques dans le frameworkd'un régime d'assurance réduit considérablement ces coûts. 
+
+=== 2.2.1 Partager la valeur attendue du risque
+
+Supposons que 100.000 propriétaires de maison se regroupent dans une pool. Là encore, chacun paie une part de 100 $ ; ce montant est maintenant appelé "prime". Ils perçoivent un total de 10 000 000 $ en primes. Mais il y a maintenant une différence pour Alice, qui ne s'occupe que d'elle-même : en raison de la loi des grands nombresfootnote:[https://en.wikipedia.org/wiki/Law_of_large_numbers], avec une très forte probabilité, il n'y aura qu'une centaine d'incendies, causant un dommage d'environ 10 000 000 $ ! Et comme la somme de toutes les primes est également de 10 000 000 $, l'ensemble des dommages peut être payé avec les primes collectées, sans que chaque propriétaire de maison ait besoin de contracter un prêt. (Étant donné que les primes sont collectées au début de l'année et que toutes les maisons dont l'incendie est "prévu" ne brûlent pas toutes au début de l'année, mais sont plus ou moins réparties de manière égale sur l'année ou les années, il existe ce que l'on appelle un "flottantfootnote:[http://www.npr.org/sections/money/2010/03/warren_buffett_explains_the_ge.html]" de liquidité qui peut également générer un revenu important. Pour des raisons de simplicité, nous ne nous concentrerons pas sur cet effet dans cet article. +
+
+Ainsi, les coûts pour chaque propriétaire de maison individuelle sont maintenant réduits de 1 100 $ à 100 $ !
+
+Cette différence demande une explication économique. Examinons-la de plus près. Tout d'abord, si tous les propriétaires de maison suivaient l'exemple d'Alice, ils auraient besoin d'un prêt énorme, dont seule une infime partie de 0,1 % serait nécessaire en moyenne. Il est clair que fournir des liquidités inutilisées est coûteux. +
+
+|===
+|_La mutualisation des risques dans l'assurance optimise l'utilisation du capital, et les participants bénéficient d’une réduction des coûts, tout en évitant les difficultés conséquentes à l’obtention d’un prêt sans garantie !_
+
+|===
+
+Deuxièmement, si chacun ne se préoccupe que de lui-même, seule une infime partie des participants est frappée par la catastrophe et a la charge de rembourser réellement son prêt. Les autres peuvent rembourser sans perte, tant qu'ils n'ont pas besoin de protection. Dans une assurance collective, nous bénéficions de la solidarité : avec les primes, chacun paie pour les dommages des autres. +
+
+En résumé, une pool de risques offre trois avantages aux participants :
+
+. Construire une grande réserve de liquidités.
+. Accès garanti à ces liquidités en cas de sinistre.
+. Subventionnement mutuel des dommages.
+
+Une telle pool peut être conçue dans le seul but de bénéficier à ses participants et de ne réaliser aucun "profit". Si la pool génère des bénéfices, ceux-ci pourraient être redistribués aux participants, ce qui aurait pour effet de réduire à nouveau les primes à un niveau où aucun bénéfice n'est généré. Une telle assurance aurait un ratio de pertes de 100 %, car toutes les primes sont utilisées pour payer les pertes. +
+
+Il s’agit de l'effet de base du transfert de risques. Veuillez noter que l'effet augmente avec la taille de la pool. +
+
+Mais ce n’est pas tout. +
+
+=== 2.2.2 Partager les risques résiduels
+
+Selon les années, le nombre d’incendies varie. Pour tenir compte de ces variations, l'ensemble de la pool doit réunir un certain montant, par exemple 10 millions de dollars, pour couvrir le cas peu probable d'une explosion du nombre d’incendies au cours d'une année donnée. Supposons même que le taux d'intérêt pour ce capital soit particulièrement élevé, par exemple 20%. Le coût total de ce capital sera de 2 millions de dollars. Le taux d'intérêt pour le capital est une fonction du risque et du taux d'intérêt sans risque sur le marché des capitaux ; dans un marché efficace, le taux d'intérêt compensera le risque plus élevé par rapport à un investissement sans risque et contiendra également un bénéfice équitable. Grossièrement, c'est là que sont générés les bénéfices pour l’apport de capital dans une structure d'assurance. +
+
+Les coûts globaux de 2 millions de dollars seraient alors répartis entre tous les propriétaires de maisons, ce qui entraînerait un coût supplémentaire de 20 dollars par propriétaire de maison et par an ajouté à la prime. +
+
+Désormais, une protection contre les "risques résiduels" ou "black swan events" est également assurée, à un coût de 20 dollars par propriétaire de maison. Là encore, l'effet de diversification des risques augmente avec la taille de la pool. +
+
+Globalement, les participants paient maintenant 120 dollars par an pour leur assurance habitation. Le rapport sinistres-primes est alors réduit à 83 % en raison des coûts liés à la protection des risques extrêmes.footnote:[$100 for covering the risk against $120 premium => 100/120 loss ratio = 83%] +
+
+=== 2.2.3 Partage des coûts de transaction
+
+Pour inclure 100 000 personnes dans une pool, une structure professionnelle est nécessaire. Sinon, chaque participant devrait se coordonner, ce qui serait tout simplement impossible. Le fonctionnement de cette structure professionnelle ajoute des coûts de transaction à la prime. Il s’agit en fait de la raison d’être des compagnies d'assurance : 
+
+|===
+|_Elles permettent de réduire les coûts de transaction pour les participants à la pool, en créant une économie d'échelle et en coordonnant un très grand nombre de participants et d'employés.footnote:[The downside of this is the fact that inefficiencies tend to hide in the organization. The bigger the organization, the fewer the people doing real work (people at the “rim” of the organization) and the more people are needed in the center to organize the people at the rim (the “management”). Furthermore, to limit internal inefficiencies, companies need a plethora of control mechanisms (that’s the old style) or complicated incentive systems (that’s the more modern way)]_
+
+|===
+
+L'effet est considérable et permet la forme moderne d'assurance avec d’énormes quantités de clients et une capitalisation qui peut même couvrir des catastrophes mondiales comme les ouragans ou les tremblements de terre. Cependant, les coûts de transaction restants sont encore considérables : une étude récente de KPMG montre que l'impact sur le taux de sinistres est d'environ 66% en moyenne. +
+
+=== 2.2.4 Asymétrie de l'information
+
+La réduction des coûts de transaction s'accompagne d'une asymétrie de l'information, qui conduit à une nouvelle augmentation des coûts et à des profits incroyables pour les grandes compagnies d'assurance. +
+
+|===
+|_La collecte illimitée de données sur les clients et l'exploitation exclusive de ces données sont une conséquence de cette relation déséquilibrée._
+
+|===
+
+Elle crée un "avantage concurrentiel déloyal" pour les entreprises existantes : les entreprises disposant d’importantes bases de données peuvent proposer de meilleurs produits, et donc optimiser encore  davantage leurs bases de données. L'un des objectifs fondamentaux d'une plateforme d'assurance décentralisée est de perturber ce système, en rendant aux clients la propriété de leurs données.footnote:[https://assets.kpmg.com/content/dam/kpmg/au/pdf/2016/general-insurance-industry-review-2016.pdf] +
+
+=== 2.2.5 Résumé
+
+Les trois éléments décrits précédemment, à savoir la mutualisation des risques, le transfert des risques et une administration efficace, sont nécessaires. Il ne peut y avoir d'assurance sans chacun de ces éléments. +
+
+Pour les besoins de ce papier, je les appellerai:
+
+. valeur attendue du risque
+. coûts du capital pour les risques résiduels
+. coûts de transaction
+
+Comme vu précédemment, une communauté peut ne pas souhaiter générer de profit à partir du premier élément. Le deuxième élément donne lieu à des frais de risque pour le capital attribué dépendant de la structure du risque particulier : Ils sont généralement plus faibles si les risques sont individuels et non corrélés ; généralement plus élevés si les risques sont groupés ou corrélés. Le troisième dépend de la complexité du processus. Un "produit" d'assurance simple et hautement standardisé présente une complexité de transaction moindre qu'un produit plus compliqué et non standardisé. Cela se traduira par des coûts de transaction plus faibles. +
+
+Ces trois éléments sont totalement indépendants de la technologie, de l'environnement économique ou des monnaies sous-jacentes. Ils sont les éléments constitutifs basiques de tout système de partage des risques.footnote:[There is a fourth element - reinsurance. The purpose of reinsurance is to reduce the cost of risk diversification by categorizing and securitizing different risks. Reinsurance and “wholesale” risk transfer enabled by reinsurance adds another layer of complexity, and therefore we won’t discuss reinsurance in this paper.] +
+
+L'asymétrie de l'information, inhérente aux systèmes d'assurance traditionnels, constitue un autre aspect non souhaitable. +
+
+La répartition de la valeur attendue (élément 1) et des coûts en capital pour les risques extrêmes entre les participants (élément 2) est inévitable et n'est pas spécifique à une solution blockchain. Par conséquent, concentrons-nous sur le troisième élément. +
+
+|===
+|_En __utilisant la technologie blockchain, un nombre arbitraire de participants peut se coordonner sur une tâche économique sans la structure juridique d'une entreprise, avec des gains d’efficacité significatifs et une réduction des coûts de transaction._
+
+|===
+
+Les coûts de transaction sont également dû à un autre élément : les réglementations, qui sont jugées nécessaires pour protéger les clients dans un contexte de conflits d'intérêts. Les réglementations constituent une barrière à l'entrée très efficace pour les "concurrents". Alors que les compagnies d'assurance se plaignent souvent du poids des réglementations, elles n'ont en réalité pas grand intérêt à réduire ces charges, car elles découragent les nouveaux concurrents d'entrer sur le marché. +
+
+== 2.3	La blockchain aide à résoudre les problèmes de l'assurance traditionnelle
+
+Bien que le secteur actuel de l'assurance ait évolué au fil des siècles et qu'il soit optimisé à bien des égards, nous avons constaté qu'il présente de graves lacunes au détriment des clients. Nous décrirons certaines propriétés d'un système alternatif, qui pallie à ces défauts.
+
+Tout d'abord, un système alternatif devrait bien sûr offrir les ingrédients de base de tout système d'assurance : couverture des pertes attendues, couverture des risques extrêmes et couverture des coûts de transaction nécessaires. Il est évident que nous devons apporter de la capitalisation à un tel système et que nous avons besoin d'un système pour réduire les coûts de transaction au minimum. Les coûts de transaction ne peuvent pas être complètement éliminés. Mais les marchés ouverts se sont avérés être une solution à ces défis, et par conséquent, nous proposons une approche basée sur le marché avec deux composantes :
+
+* un marché ouvert pour la capitalisation des risques
+* un marché ouvert pour les services liés à l'assurance
+
+C'est là que la blockchain entre en jeu :
+
+|===
+|_Une solution décentralisée sur la blockchain met en œuvre ces marchés ouverts d'une manière qui résiste à la collusion et ne présente aucun point de défaillance unique. _
+
+|===
+
+Nous pouvons observer l'émergence de nombreuses places de marché de ce type pour différents domaines, comme le calcul, le stockage de fichiers, l'échange d'actifs ; et l'assurance n'est qu'un autre domaine à cet égard. +
+
+Plus précisément, la blockchain permet de résoudre certains des principaux problèmes qui font grimper les coûts dans les compagnies d'assurance traditionnelles :
+
+. Coûts de coordination ("de gestion"). 
+. Conflit d'intérêts entre les clients et l'entreprise.
+. Asymétrie d'information entre les clients et l'entreprise.
+. Accès restreint aux bénéfices des risk pools
+. Délai de commercialisation long 
+. Accès limité à certains marchés de capitaux (par ex. crypto) 
+
+*Avantage 1 :* +
+
+*Moins cher car les coûts de coordination sont faibles.* Dans les entreprises traditionnelles, vous avez deux types d'employés : le premier groupe effectue le travail réel, le second groupe coordonne l'ensemble du système. Plus une entreprise grandit, plus l'énergie circule dans le second groupe (comme dans un cercle, le premier groupe forme le bord du cercle, le second la surface ; plus le cercle est grand, moins les processus sont efficaces, et plus l'énergie circule dans la coordination des coordinateurs).  La blockchain permet de réduire ces coûts de coordination. Au lieu d'une troupe de gestionnaires, les "smart contracts"footnote:[Some blockchains, like Ethereum (which we use), enable programs (called “smart contracts”) that are uncensorable, immutable, and permanent. These smart contracts can interact with each other to perform a wide variety of actions, including financial and escrow transactions. This makes possible direct and transparent interactions between two parties who may be and may remain anonymous, that previously required a third-party intermediary to be effective. The term was originally coined by Nick Szabo, but in a slightly different meaning. Note: The above definition was thankfully supplied by Ron Bernstein, who was not successful in finding the original author - please contact us if you are the author.] agissent comme des plaques tournantes entre les agents au bord du système, et éliminent ainsi la plupart des coûts et de l'inefficacité de la gestion. +
+
+*Avantage 2 :* +
+
+*Plus transparent / indépendant / digne de confiance*. Dans une compagnie d'assurance traditionnelle, la compagnie "possède" l'ensemble du processus, y compris les tâches qui ont tendance à soulever des conflits d'intérêts entre le client et la compagnie. La gestion des sinistres en est un parfait exemple : Le gestionnaire de sinistres a pour objectif explicite de minimiser les paiements pour les dommages, car il est un employé du fournisseur d'assurance ! Bien sûr, il existe une guilde d'évaluateurs et d'experts "indépendants", mais qui les paie ? +
+La blockchain résout ce conflit d'intérêts en permettant l'intervention d'experts véritablement indépendants (qui peuvent par exemple être classés publiquement en fonction de leur réputation d'efficacité ou d'équité), et dont le travail est indépendant du fournisseur d'assurance, ainsi que transparent et vérifiable par l'ensemble de la communauté. +
+Il en va de même dans un autre domaine, où le conflit d'intérêts n'est (intentionnellement) pas évident ; considérons la conception de produits. Une compagnie d'assurance a un avantage considérable sur ses clients, car elle peut concevoir des produits d'une manière qui, peut-être injustement, maximise les revenus (ventes) et minimise les paiements (dépenses). +
+Par exemple, si un client attend le remboursement d'une police d'assurance qu'il a souscrite pour un "événement" particulier, mais que la compagnie d'assurance ne le lui verse pas parce qu'elle maintient que la police souscrite ne couvre pas réellement cet "événement", l'expérience du client est gravement compromise et la confiance entre les consommateurs et les compagnies d'assurance est érodée. +
+
+*Avantage 3 :* +
+
+*Plus transparent / équitable grâce aux smart contracts de la blockchain*. Les compagnies d'assurance traditionnelles collectent des données et des informations dans d'énormes bases de données privées, et les données ne sont rarement partagées. Cette asymétrie d'information est une source d'inefficacité et à l'origine de coûts de transaction élevés. +
+L'expérience des entreprises dans l'analyse de ces données est considérée comme l'un des principaux facteurs de différenciation sur le marché. Les décisions fondées sur ces données ne sont pas transparentes et difficiles à contester en raison du manque de visibilité des évaluations. +
+Dans un environnement basé sur la blockchain, cependant, toutes les données fondamentales et les décisions basées sur ces données sont transparentes et validées objectivement. +
+
+*Avantage 4 :* +
+
+*Accès démocratisé*. Les risk pools des compagnies d'assurance traditionnelles sont des instruments d'investissement intéressants. Cependant, ils ne sont pas accessibles au public et les bénéfices générés ne profitent qu'à un petit groupe d'investisseurs. +
+
+|===
+|_La blockchain démocratise l'accès aux risk pools en symbolisant les risques avec les "risk pool tokens,"_
+
+|===
+
+La blockchain démocratise l'accès aux risk pools en symbolisant les risques avec les "risk pool tokens,". +
+
+*Avantage 5 :* +
+
+*Flexibilité et évolutivité.* La composabilité est la capacité générale des components d'un système à être recombinés en structures plus grandes et à ce que la sortie de l'un soit l'entrée d'un autre. En termes simples, le meilleur exemple est le Lego, où chaque pièce peut être connectée à toutes les autres. Dans le domaine de la cryptographie, la composabilité est la capacité des applications décentralisées (dApps) et des DAO à se cloner et à s'intégrer efficacement les unes aux autres (composabilité syntaxique), et la capacité des components logiciels tels que les token et les messages à être interopérables entre eux (composabilité morphologique). +
+
+*Avantage 6 :* +
+
+*La blockchain permet une gestion plus efficace des garanties*. La création et la numérisation de token de garantie comme les stablecoins ou des actifs similaires et de nouvelles primitives financières comme le staking facilitent l'émergence de nouveaux marchés et de nouvelles possibilités. +
+
+== 2.4	Pourquoi l'assurance peut-elle bénéficier de la décentralisation
+
+=== 2.4.1 Pourquoi l'assurance est-elle un candidat à la décentralisation ?
+
+En tant qu'industrie de plusieurs milliards de dollars dominée par d'énormes sociétés, l'assurance est souvent confrontée à des obstacles tels que des réglementations strictes et des déséquilibres entre les incitations des entreprises et celles des consommateurs, qui font que le monde de l'assurance est souvent inefficace et coûteux. L'objectif ultime est d'éviter que les clients aient à se battre pour être remboursés par des compagnies dont les profits dépendent souvent de l'absence voulue de paiement. +
+Etherisc construit une plateforme pour des applications d'assurance décentralisées. La plateforme peut être utilisée par des entreprises, grandes et petites, des groupes à but non lucratif et des startups insurtech pour fournir de meilleurs produits et services. Nous souhaitons utiliser la technologie blockchain pour rendre l'assurance plus réactive, moins chère et plus transparente et ainsi démocratiser l'accès à l'investissement dans les produits d'assurance. 
+|===
+|_La blockchain peut fournir les moyens de supprimer les intermédiaires du marché grâce à une plateforme pair à pair, permettant ainsi à  l'assurance de revenir à ses racines de filet de sécurité sociétal._
+
+|===
+
+Nous incitons les nouveaux groupes à construire leurs propres risk pools et services d'assurance personnalisé sur la plateforme Etherisc. Le GIF permet de développer des polices d'assurance conformes et adaptées à l'économie émergente de la blockchain. Pour offrir une alternative aux systèmes d'assurance monolithiques traditionnels, nous pouvons identifier certaines nécessités et conséquences de la mise en œuvre d'un protocole d'assurance décentralisé. 
+
+=== 2.4.2 Propriétés de l'assurance décentralisée
+
+. L'éventail des assurances est immense et bien trop complexe pour être couvert par une seule application. Par conséquent, nous avons besoin d'un protocole et pas seulement d'une application (décentralisée). Certains outils sont nécessaires pour inciter les participants à l'utiliser. La promotion des “network effects"footnote:[Network effect is described as the effect that one user of a good or service has on the value of that product to other people. The classical example is the telephone: the more people use it, the more valuable the telephone is for all.] est un outil qui peut conduire à une base d'utilisateurs durable et croissante. 
+Une police peut couvrir un produit particulier, mais une seule police ne générera pas les effets de réseau pour créer plusieurs grandes risk pools similaires nécessaires afin de tirer parti de la "loi des grands nombres."
+
+. Un protocole d'assurance décentralisé peut remplacer partiellement ou totalement le modèle économique traditionnel de l'assurance.  Il y parvient grâce à l’atomisation des processus, à des procédures et des smart contracts autonomes et automatisés, à un ensemble de règles d'interaction entre les parties prenantes et à des smart contracts. Parallèlement,, un protocole permet une extension et une interprétation flexibles des règles de base.
+
+. Le développement et le fonctionnement d'un protocole nécessitent un financement. Même s’il est possible de réduire considérablement les coûts de coordination, les coûts de lancement du système persistent - par exemple, l'acquisition de licences, le développement de smart contracts, les audits, ainsi que les coûts pour les agents en "périphérie" du système que nous ne pouvons pas éliminer complètement. Nous devons donc trouver un moyen de collecter ces coûts auprès des clients finaux et de les répartir entre ces agents.
+
+. Nous avons également besoin d'un moyen de calculer et de répartir entre les clients la valeur attendue du risque et les coûts en capital pour couvrir les risques extrêmes. 
+
+== 2.5  Protocole	 
+
+=== 2.5.1 Propriétaire du protocole, gouvernance 
+
+En tant que structure ouverte, le protocole est un bien commun, il peut être utilisé et mis en œuvre par quiconque le souhaite. Nous veillerons à ce que les barrières à l'entrée soient aussi faibles que possible. Cependant, pour certaines parties du protocole, une certification sera nécessaire, afin de refléter les obligations et restrictions réglementaires. Nous avons créé une fondation basée en Suisse servant d’organe juridique. Cette fondation détient officiellement les droits de propriété intellectuelle du protocole et garantit que le protocole puisse être utilisé librement. Nous avons établi un processus d'amélioration continue du protocole, piloté par la communauté, similaire au processus EIP pour la plateforme Ethereum. +
+Le modèle de gouvernance Etherisc (EGM), son résumé et ses valeurs fondamentales, ainsi que d'autres sous-thèmes, seront développés au chapitre 5. 
+
+=== 2.5.2 Schéma des dynamiques de travail du protocole
+
+* Demande d'adhésion à une police
+Processus d'offre d'un produit et de demande d'adhésion
+* Souscription
+Processus d'acceptation d'une politique
+* Collecte des primes
+Processus de paiement, paiements ponctuels et réguliers
+* Soumission des demandes de remboursement
+	Processus de soumission d'une demande de remboursement, via oracle ou manuellement
+* Évaluation des sinistres
+Processus d'évaluation d'un sinistre, via un oracle ou manuellement. Un processus de vérification des sinistres permet au système de déterminer quelles polices sont légitimement réclamées et d’effectuer les paiements convenus aux demandeurs. Dans le cas de l'assurance paramétrique, ce processus fait référence à des flux de données sur les événements assurables et est (entièrement) automatisé.
+* Gestion de l'identité et confidentialité
+Processus de KYC et AML, dans le respect de la vie privée. Cela peut impliquer des blockchains privées ou le stockage de données hors off-chain.
+* Admission / Certification
+Admission des participants à offrir des produits et à exécuter certaines parties du protocole
+* Gestion des actifs
+Au fur et à mesure que les fonds affluent, nous devons utiliser de manière responsable les fonds qui ne sont pas immédiatement nécessaires
+
+== 2.6	Communauté de clients, d'utilisateurs et d'entreprises
+
+Le succès de la plateforme dépendra d'une communauté active d'utilisateurs et d'entreprises. Le modèle du token représente et maintient cette communauté, qui joue un rôle central dans la gestion des mesures incitatives. Grâce aux token, les clients peuvent "posséder" leur assurance. Ce modèle communautaire facilite le développement des futures mutuelles et des modèles d'assurance de pair à pair.
+|===
+|_Une communauté ne peut pas être construite de l'extérieur, elle doit se développer de l'intérieur. _
+
+|===
+
+Cependant, l'expérience montre qu'il existe certains critères de réussite pour les communautés. Le célèbre pionnier de l'open source http://hintjens.wikidot.com/blog:10[Pieter Hintjens], en a exposé quelques-uns que nous considérons comme utiles pour une discussion approfondie :
+
+. Qualité de la mission. Une communauté ne peut se développer qu'en poursuivant un objectif valable. Ce but doit être supra-individuel. 
+. Liberté d'accès. La communauté ne doit pas avoir de barrières ou de murs, elle doit accueillir les personnes de bonne volonté et encourager la participation.
+. Des règles claires. Si des règles sont nécessaires, elles doivent être soigneusement rédigées et évidentes.
+. Une autorité forte et neutre. Pour résoudre les conflits, une autorité forte mais neutre doit être mise en place. Un mécanisme de gouvernance peut être intégré à cette autorité.
+. La propriété proportionnelle. "Vous possédez ce que vous fabriquez"
+. Des espaces infinis. Un grand projet unique avec de nombreux propriétaires ne se développe pas aussi bien qu'une quantité de nombreux petits projets, chacun avec un ou deux propriétaires. Les communautés se développent mieux lorsque les membres superposent projet sur projet sans limite. 
+. Mesure du succès. Au sein de la communauté, votre voix est aussi forte que le nombre de personnes qui utilisent le projet que vous "possédez".
+. Outils et processus. De meilleurs outils signifient une communauté plus rapide et plus efficace. 
+. Liberté d'organisation. Les participants de la communauté identifient les problèmes, allouent les ressources et contrôlent le résultat, sans gestion descendante. 
+. Transparence. Le secret favorise l’émergence de l'incompétence, la transparence favorise la compétence. Plus le travail de l'organisation est public, mieux c'est. 
+. Absence de structures. "Chacun est propriétaire de ce qu'il fabrique" et soyez prêt à changer de domicile en cas de besoin. 
+. Participation évolutive. Il ne faut imposer aucune barrière à n’importe quel moment, mais il faut que ce soit de plus en plus difficile. Cela donne à la communauté l'impression d'être un jeu massivement multijoueur, où il y a toujours quelqu'un de meilleur que vous, et où vous n'avez qu'à essayer de le rattraper.
+
+
+= 3 GIF - Le Generic Insurance Framework
+
+Le GIF est constitué de blocs de construction intégrant la chaîne de valeur complète : l'assuré, l'assureur, l'investisseur et l'opérateur de l'instance. Tout d'abord, vous avez besoin de produits d'assurance que vous pouvez vendre. Les produits d'assurance ont un product owner qui conçoit les produits. Les produits d'assurance eux-mêmes sont issus de smart contracts.
+
+|===
+|_Les Oracles sont une partie essentielle du GIF pour la mise en œuvre de l'assurance paramétrique. Les Oracles fournissent les données nécessaires, par exemple les données de vol ou les données météorologiques, aux contrats d'une instance GIF._
+
+|===
+
+La pool de risque est également un smart contract gardant la trace de tous les détails du capital-risque, des montants versés en tant que polices et de toutes les sommes versées. +
+Une instance GIF relie ces rôles individuels et représente une entité exécutable complète définie par le GIF. Chaque instance est constituée de l'ensemble opérationnel de smart contracts GIF d'une blockchain. Différentes blockchains peuvent exécuter différentes instances.
+
+== 3.1 	Etherisc - les bases de l'assurance 
+
+Dans le chapitre "2.2 Principes de l'assurance", nous avons utilisé un exemple pratique pour illustrer la manière dont l'assurance est développée et fonctionne avec la participation de l'assuré. Dans ces chapitres, nous allons expliquer et définir l'assurance du point de vue d'Etherisc. 
+
+=== 3.1.1 Qu'est-ce que l'assurance ?
+
+
+|===
+|_L'assurance est un moyen de protection contre les pertes financières. Il s'agit d'une forme de gestion des risques dont le but premier est de se protéger contre le risque de perte possible ou incertaine._
+
+|===
+
+L'assurance est un moyen de protection contre les pertes financières. Il s'agit d'une forme de gestion des risques dont le but premier est de se protéger contre le risque de perte possible ou incertaine. La perte associée au risque peut être financière ou non, mais elle doit pouvoir être entendue en termes financiers.  +
+Une compagnie d'assurancefootnote:[ We use the term “company” here for easier reading. Of course, in DeFi/blockchain applications, a “company” can also be a DAO or a simple blockchain address (EOA)!] garantit les risques de l'assuré. Elle peut externaliser tous les services, tels que la vente ou la gestion des données, à d'autres prestataires de services. Seule la prise en charge effective du risque ne peut pas être déléguée. Ce risque doit toujours être assumé par la compagnie d'assurance. Par conséquent, la compagnie et ses clients doivent toujours avoir une comptabilité correcte des risques qu'ils couvrent et de la manière dont ils sont garantis. 
+
+|===
+|_Grâce aux smart contracts, cela peut se faire de manière transparente et vérifiable._
+
+|===
+
+=== 3.1.2 Qu'est-ce qu'une police d'assurance ?
+
+Une police d'assurance est un contrat fourni à l'assuré par la compagnie d'assurance définissant les conditions et les circonstances dans lesquelles la compagnie d'assurance garantira les pertes subies par l'assuré en raison de sinistres reconnus. Dans la finance traditionnelle, il s'agit généralement d'un contrat juridique. Ici, une police est simplement un ensemble de données stocké sur la blockchain et manipulé via des règles définies par un smart contract. +
+Examinons le cycle de vie d'une police d'assurance type. Ce cycle de vie se compose généralement des sous-étapes suivantes, classées par ordre chronologique.
+
+* Le client se renseigne sur une police d'assurance. Il veut se protéger contre un risque spécifique en souscrivant à une police d'assurance.
+* La compagnie d'assurance examine la demande du client.
+* La demande est acceptée ou rejetée.
+* En cas de rejet, le client est informé et aucune autre activité n'est entreprise.
+* En cas d'acceptation, le contrat revient au "souscripteur". L'acceptation de la proposition est appelée "souscription".
+* La compagnie d'assurance s'engage par la "souscription" à prendre en charge le risque du client et à le supporter. Elle s'engage en outre à couvrir le sinistre si l'événement assuré se produit.
+* Le client, quant à lui, s'engage à payer la prime.
+* Les deux déclarations d'obligation sont consignées dans un contrat. Ce contrat est appelé police d'assurance.
+* Si un sinistre survient, le client le signale à la compagnie d'assurance.
+* La demande est vérifiée par la compagnie d'assurance. Elle est alors acceptée ou rejetée.
+* En cas d'acceptation, la somme d'assurance convenue est versée.
+Il est facile de constater que le secteur classique des assurances génère une bureaucratie considérable et que de nombreuses sous-étapes nécessitent des activités manuelles. Par exemple, lorsqu'un client dépose une demande d'indemnisation, la compagnie d'assurance doit vérifier manuellement les détails de la demande. Cela implique du travail et, par conséquent, des coûts.
+
+=== 3.1.2 Qu'est-ce que l'assurance paramétrique ?
+
+L'assurance paramétrique est un accord entre la compagnie d'assurance et l'assuré qui couvre la survenance d'événements prédéfinis plutôt que d'examiner et d'indemniser manuellement les pertes réellement subies. +
+Les polices d'assurance paramétriques correspondent à des accords entre l'assurance et l'assuré dans lesquels l'assurance approuve les paiements à l'assuré lorsque des événements déclencheurs prédéfinis se produisent. +
+Dans l'assurance paramétrique, les sinistres (les risques) sont définis comme des fonctions d'indices ou de paramètres sous-jacents répondant aux critères définis par la police d'assurance. Par exemple, la quantité de pluie ou la vitesse du vent sont des paramètres pouvant être pris en compte dans un contrat d’assurance lié aux conditions météorologiques. Dans le cas d'une assurance portant sur les retards de vol, le paramètre pourrait être la différence entre l'heure d'arrivée réelle et l'heure d'arrivée prévue d'un vol assuré.
+|===
+|_Pour que l'assurance paramétrique soit réalisable et attrayante, les paramètres sous-jacents doivent être transparents, fiables et dignes de confiance._
+
+|===
+
+Lorsque de tels événements se produisent, l'assurance calcule et déclenche directement le versement d'une indemnité à l'assuré sans passer par une procédure d'acceptation des demandes d'indemnisation souvent coûteuse. +
+Le potentiel d'efficacité et d'automatisation constitue le grand avantage de l’assurance paramétrique. La gestion des sinistres, l'une des parties les plus complexes et les plus coûteuses de l'activité d'assurance, peut être réduite à un processus simple et entièrement automatisé.
+
+=== 3.1.3 Quels sont les avantages de la blockchain dans l'assurance ?
+
+La technologie de la blockchain peut améliorer le domaine de l'assurance sur plusieurs points. Certains de ces avantages sont directement liés aux fondements de cette technologie.
+
+* Transparence et responsabilité quant à la tenue des dossiers. Les informations concernant les polices, les sinistres et les paiements peuvent être stockées sur la blockchain. Une fois stockée, elles ne peuvent être ni supprimées ni modifiées sans autorisation spécifique, et chaque fois que les données sont mises à jour ou ajustées, les données originales sont conservées dans l'historique. Une piste d'audit complète est disponible et transparente pour toutes les données.
+* Réduire au minimum les frictions et les coûts de transaction pour le traitement des paiements. 
+* Créer de nouveaux marchés/opportunités en ouvrant les risk pools. La transparente mise en commun d'un grand nombre de polices d'assurance d'un type particulier offre la possibilité d'ouvrir ce marché à un public plus large. 
+* Ces nouveaux marchés offrent également la possibilité d'échanger des risques en petites quantités, appelées "risk pool token".
+La technologie de la blockchain peut apporter beaucoup de valeur, notamment pour l'assurance paramétrique.
+
+* La fourniture de ces données centrales de manière fiable à l’écosystème sera gérée par des services d’oracle, ce qui rendra très difficile et trop coûteux l'injection d'informations manipulées dans les smart contracts mettant en œuvre des polices d'assurance paramétriques.
+* Une fois que l'alimentation en paramètres sera fournie aux contrats d'assurance, l'assurance paramétrique automatisera entièrement le traitement des sinistres et des paiements.
+* Paiements immédiats. Le fait de fonctionner via la blockchain et de disposer d'un traitement automatisé des réclamations et des paiements permet d'effectuer des paiements quasiment en temps réel.
+
+== 3.2 Le modèle Etherisc
+
+=== 3.2.1 Les trois piliers de l'écosystème Etherisc
+
+image::_images/wp-three-pillars.png[]
+
+*Marché du transfert de risques* +
+La levée de fonds pour soutenir les garanties techniques est effectuée par les investisseurs. Les investisseurs bloquent une certaine quantité de  DIP token, également appelée "staking". Ces DIP token loqués sont une condition préalable pour pouvoir ensuite investir le capital-risque réel en DIP ou en stablecoins.  +
+La communauté des détenteurs de DIP token a créé l'ensemble de l'écosystème Etherisc. Par conséquent, nous demandons que les parties qui profitent de l'écosystème Mettent en jeu des DIP token. Cette idée est empruntée à l'espace des entreprises coopératives. Elle reflète le fait que l'écosystème Etherisc est un bien public qui doit être protégé de la https://en.wikipedia.org/wiki/Tragedy_of_the_commons["tragedy of the commons.”] +
+*Legal framework* +
+Les compagnies d'assurance sont fortement réglementées dans le monde entier pour de bonnes raisons, afin de protéger les clients et les investisseurs. Un grand nombre de lois ont été adoptées à cette fin dans la plupart des pays. En ce qui concerne la juridiction, une distinction générale peut être faite entre les régions américaine, européenne et anglo-saxonne. +
+Mais même au sein de ces régions, chaque pays a son framework juridique et monétaire propre. Etherisc s'engage auprès des régulateurs locaux pour aider à créer un environnement réglementaire efficace concernant l'assurance basée sur la blockchain. Etherisc soutient les parties intéressées et aide à guider le processus de coordination avec les agences et les ministères concernés. +
+Les obstacles financiers et organisationnels à la création d'une nouvelle compagnie d'assurance sont élevés. Pour des pays comme l'Allemagne, Etherisc propose un nouveau modèle juridique où la créance légale est échangée contre une garantie technique en utilisant la blockchain et les smart contracts. Ainsi, le prestataire - dans ce cas Etherisc - n'est plus soumis aux exigences juridiques et financières d'une compagnie d'assurance. Malgré tout, pour chaque projet, produit et juridiction, le framework juridique doit être pris en compte et le product owner est responsable de sa bonne mise en œuvre. L'équipe d'Etherisc a accumulé beaucoup d'expérience dans ce domaine et est heureuse de partager ces connaissances avec les utilisateurs de la plateforme. +
+*Technical framework* +
+Développé et maintenu par Etherisc, le Generic Insurance Framework (GIF) permet de modéliser, déployer et exploiter des produits d'assurance basés sur la blockchain de manière décentralisée et transparente. +
+Grâce au GIF, les parties intéressées peuvent rapidement mettre en œuvre et exploiter en toute sécurité leurs produits d'assurance.
+Avec le GIF, il est techniquement possible de modéliser des polices d'assurance individuelles.
+
+== 3.3 Qu'est-ce que le GIF ?
+
+image::_images/wp-gif.png[]
+
+GIF est un acronyme qui signifie "generic insurance framework". Il consiste essentiellement en une collection de smart contracts, dont le code source est libre d’accès; mettant en œuvre des fonctions génériques du cycle de vie des produits et des polices d'assurance.
+
+|===
+|_Ainsi, le GIF permet de modéliser une grande variété de types d'assurance._
+
+|===
+
+Les étapes de traitement qui se déroulent de manière similaire dans tous les produits ont été identifiées et mises à disposition sous forme de modules pour concevoir rapidement et facilement des produits d'assurance. Ainsi, seuls les aspects spécifiques au produit, tels que la tarification, etc., doivent être implémentés pour chaque produit.
+
+=== 3.3.1 GIF et instances GIF
+
+Pour exploiter les produits d'assurance, y compris la vente de polices, la collecte des primes, le calcul des événements déclencheurs et le traitement des paiements, un système d'exécution complet est nécessaire en plus des collections de smart contracts qui définissent les produits et les polices.
+Cet environnement d'exécution - appelé instance GIF - peut être considéré comme une plateforme ou une place de marché complète dans laquelle les produits d'assurance basés sur le GIF sont gérés et exploités. Notre objectif est que le GIF soit utilisé par de nombreux fournisseurs différents et indépendants offrant divers produits d'assurance. La figure ci-dessous donne un aperçu des rôles des parties prenantes impliquées dans une instance GIF.
+
+image::_images/wp-gif-instance.png[]
+
+=== 3.3.2 Les participants sur la platform
+
+*Assuré/Client* +
+L'assuré/client est le titulaire de la police qui souhaite transférer son risque aux risk pools. Les tiers peuvent proposer des passerelles de paiement et des intégrations qui suppriment la nécessité de posséder des crypto-monnaies pour le client final. +
+
+*Investor* +
+Les investisseurs souhaitent participer aux risk pools pour équilibrer/diversifier leurs portefeuilles de risques. Les investisseurs fournissent des garanties pour les risk pools en échange de paiements d'intérêts. +
+*Oracle Owner* +
+L'une des applications les plus prometteuses d'un espace d'assurance décentralisé est la façon dont les données sont collectées et gérées. Le oracle owner fournit des oracles qui font l'interface entre les smart contracts de la blockchain et les sources de données externes. Dans le cas d'une assurance contre les retards de vol, l'oracle informe le smart contract si le vol a atterri à temps, de combien il a été retardé ou s'il a été complètement annulé.  +
+
+*Product owner* +
+Le product owner conçoit et exploite un ou plusieurs produits. Il s'agit d'une compagnie d'assurance ou d'un AGG (agent général de gestion) dans le secteur traditionnel de l'assurance. Grâce à la capacité multi-client, un product owner peut utiliser tous les oracles situés sur les plateformes respectives des oracle owners.
+
+*Risk pool keeper* +
+
+Un gardien de pool de risque gère une ou plusieurs risk pools. 
+|===
+|_Une pool de risques est un smart contract qui regroupe plusieurs risques, représentés par des objets de politique, au capital-risque._
+
+|===
+
+Les risk pools collectent les garanties apportées par les fournisseurs de capital. Les pertes sont payées à partir de la  pool de risques. Par conséquent, le capital dans la pool est risqué (risque de pertes défaut). Les investisseurs peuvent compléter leurs investissements et également retirer leurs fonds.  +
+
+*Instance operator* +
+
+image::_images/wp-lifecycle-functions.png[]
+
+Tout déploiement complet d'une structure GIF est appelé "instance GIF". +
+ Il y aura toujours au moins une instance GIF complète exploitée par le projet Etherisc, mais en principe, n'importe qui peut déployer une nouvelle instance GIF. L'opérateur d'instance est le maillon crucial faisant fonctionner une instance GIF spécifique. +
+Les principales tâches de l'opérateur d'instance sont l'administration des produits et des oracles ainsi que quelques autres actions basiques. Toute instance GIF est capable de gérer plusieurs clients, ce qui signifie que plusieurs product owner et de fournisseurs d'oracles peuvent être exploités et administrés sur une instance GIF. +
+L'opérateur d'instance est représenté par une adresse Ethereum. L'opérateur de l'instance peut être une personne physique possédant la clé privée de cette adresse ou un smart contract - soit une structure multisig ou DAO. Ceci permet le fonctionnement entièrement décentralisé de toute instance GIF. Une adresse peut, bien entendu, gérer plusieurs instances GIF indépendantes.
+Le contrôle décentralisées des instances gif est l’objectif déclaré du projet Etherisc - soit par multisig, soit par des DAO avec leur propre structure de gouvernance - elles doivent également être contrôlées par les parties prenantes de la plateforme (clients, product owner, oracle owner et gardiens du pool de risques). Au chapitre 5, nous examinons la manière dont l'écosystème peut encourager ce développement.
+
+== 3.4 Fonctions génériques du cycle de vie dans le GIF
+
+=== 3.4.1 Concept de components
+
+Chaque instance de GIF gère différents components. Un composant est un smart contract spécifique doté d'une certaine fonctionnalité de base. Les components peuvent représenter différents objets de base. +
+Les objets principaux sont :
+
+* Products
+* Oracles
+* Risk pools
+Tous les components, et donc les objets qu'ils contiennent, peuvent prendre des états identiques et avoir le même cycle de vie, mais peuvent différer considérablement en termes de durée de vie.
+
+=== 3.4.2 Rôles et cycle de vie des components
+
+Deux rôles peuvent déterminer le cycle de vie d'un composant. +
+*Component owner* +
+Le component owner peut être le oracle owner, product owner ou risk pool keeper, selon l'objet central qu'il gère. +
+*Instance Operator* +
+L’instance operator exécute une ou plusieurs instances GIF.
+
+image::_images/wp-components.png[]
+
+*Un component du GIF est toujours dans l'un des états suivants : *
+
+* Created (Créé)
+* Proposed (Proposé)
+* Declined (Refusé)
+* Active (Actif)
+* Paused (En pause)
+* Suspended(Suspendu)
+* Afchived (Archivé)
+
+La transition entre ces états et les rôles par lesquels ils peuvent être déclenchés sont décrits dans le diagramme ci-dessus. Le cycle de vie d'un composant commence par son développement et son déploiement sur la blockchain. Le component owner peut mettre en œuvre ses exigences spécifiques dans le smart contract du composant ou utiliser la fonctionnalité générique des components GIF. À l'étape suivante, le composant est enregistré, approuvé et activé par l'opérateur d'instance dans l'instance GIF. L'opérateur d'instance peut également refuser un composant. Le composant est ensuite supprimé. +
+En cas d'approbation, l'opérateur de l'instance continue à vérifier les détails techniques et procéduraux. L'opérateur de l'instance peut également confier la vérification à un audit indépendant.
+
+|===
+|_Une autre condition impose au component owner de posséder un certain montant de DIP token pour être autorisé à fonctionner dans l'instance GIF___.__
+
+|===
+
+Si le composant est actif, il peut être utilisé jusqu'à ce qu'il soit suspendu ou mis en pause. Seul l'opérateur de l'instance peut suspendre un composant ou faire cesser la suspension alors que la mise en pause d’un composant ou la réactivation de ce composant peuvent être effectués par le component owner ou l’opérateur d’instance. Si le composant est inactivé (en pause, suspendu) et non réactivé (cessation pause ou suspension), il n'est pas supprimé mais archivé.
+Pour chaque type de composant (produits, oracles, risk pools), nous fournissons des exemples d'implémentation qui peuvent être utilisés comme point de départ.  
+
+=== 3.4.3 Cycle de vie de la police
+
+image::_images/wp-policy-lifecycle.png[]
+
+Indépendamment du produit spécifique, chaque police traitée sur l'instance GIF a un cycle de vie. En général, une police subit plusieurs changements d'état au cours de son cycle de vie. Bien que tout concepteur de produit puisse mettre en œuvre son propre cycle de vie (dans notre terminologie, le cycle de vie est appelé "PolicyFlow"), le GIF offre un cycle de vie par défaut qui devrait être suffisant pour la plupart des cas d'utilisation. Ce cycle de vie générique est appelé "PolicyFlowDefault". +
+*Le cycle de vie "PolicyFlowDefault" offre les fonctions suivantes :*
+
+* newApplication (pour générer et stocker une nouvelle application d'un client)
+* souscrire (pour signer une proposition et créer une nouvelle police)
+* refuser (rejeter une demande)
+* newClaim (pour générer et stocker un nouveau sinistre en cas de perte)
+* confirmClaim (pour confirmer une demande et créer un paiement)
+* declineClaim (pour rejeter une demande)
+* payout (pour confirmer et initier un dédommagement)
+
+=== 3.4.4 Paiements
+
+L'instance GIF est indifférente à la manière dont les paiements sont effectués. Les paiements en crypto peuvent être effectués directement sur le contrat du produit, tandis que les paiements en fiat nécessitent une passerelle fiat et une infrastructure bancaire ou de carte de crédit externe. L'équipe centrale peut demander des informations sur la façon de mettre en œuvre les passerelles fiat.
+
+== 3.5	Présentation du moniteur GIF
+
+Le système GIF est entièrement transparent pour les experts en blockchain, mais il peut être difficile à comprendre pour les non experts en blockchain. 
+|===
+|_C'est pourquoi nous avons développé le moniteur GIF pour donner à chacun un aperçu de ce qui se passe sur la blockchain d'une instance GIF._
+
+|===
+
+=== 3.5.1 Qu'est-ce que le moniteur GIF ?
+
+Le moniteur GIF fournit une vue d'ensemble structurée de tous les blocs de construction génériques disponibles dans le GIF pour créer et exploiter un produit d'assurance. Vous pouvez visualiser tous les événements et toutes les transactions commerciales de l'instance complète.  +
+Le moniteur GIF fournit toutes ces informations de manière transparente et en temps réel en ligne. Les informations sont lues à partir de la blockchain et du GIF. 
+
+=== 3.5.2 Éléments de menu
+
+L'URL https://gif-monitor.etherisc.com/ vous amène à la zone d'accueil du moniteur GIF. Dans la barre de menu, vous pouvez choisir parmi les éléments de menu suivants. +
+Dans la zone "Accueil", vous pouvez cliquer directement sur les éléments de menu de la barre de menu, puis sélectionner l'élément de menu correspondant dans le menu déroulant. +
+*Core* +
+La zone "Core" est de loin la plus étendue. Elle affiche les instances GIF disponibles, les contrats de base GIF par instance et les événements de ces contrats de base. La zone "Core" affiche l'ensemble des contrats de base que chaque utilisateur peut utiliser. +
+Vous trouverez ici les blockchains utilisées par les instances, telles que xDai ou Ethereum.  +
+En cliquant sur une instance, vous obtiendrez des informations détaillées comme l'ID de l'instance, le nom, le nom de la blockchain, l'ID de la blockchain et le statut (actif ou non). Chaque instance est identifiée par son adresse de registre. GIF est capable de fonctionner sur plusieurs blockchains et peut s'exécuter sur toutes les principales blockchains similaires à Ethereum.
+
+Dans cette section, vous trouverez les 14 contrats principaux (intelligents) du GIF. Chaque contrat de base fournit des fonctionnalités essentielles à une Instance GIF. +
+Vous pouvez cliquer sur le nom du contrat pour tous les contrats principaux du GIF afin d'accéder aux détails du contrat. Vous y verrez l'instance dans laquelle vous vous trouvez, l'ID de l'instance, l'adresse sur la blockchain, le nom du contrat principal et la fonctionnalité détaillée du contrat telle que décrite par l'interface ABI (Application Binary) du contrat.  +
+Les événements contractuels des contrats principaux du GIF sont affichés ici. +
+Les événements contractuels sont émis par les smart contract pendant l'exécution du code et stockés de façon permanente sur la chaîne. Les événements sont principalement utilisés pour documenter les changements significatifs dans les données des smart contracts, par exemple le changement de statut.  +
+*Oracles* +
+Les oracles disponibles sont affichés dans la zone "Oracle" du moniteur GIF. +
+Sur cette page, vous trouverez tous les oracles disponibles sur la plateforme. Vous pouvez consulter toutes les entrées et rappel dont disposent les  product owner. De plus, l'oracle concerné peut être sollicité aux oracle owner. +
+En cliquant sur un oracle, le moniteur GIF affiche les détails. +
+Bien entendu, des oracles individuels peuvent également être ajoutés sur demande. +
+*Products* +
+Dans la zone "Produits", tous les produits qui ont été créés dans le framework sont répertoriés. En cliquant sur un produit, les détails s'affichent.  +
+*Polices* +
+Dans le domaine des "polices", vous trouverez des informations sur chaque phase du cycle de vie d'une police. Cela commence par des informations sur le produit, les métadonnées, la proposition, la police, le sinistre et le paiement. En fonction du cycle de vie de la police, plus ou moins de blocs d'informations sont affichés.
+
+= 4 Assurance par token
+
+Vous pouvez tokeniser presque tout. Certaines choses ont moins de sens que d'autres. Nous sommes convaincus que l'assurance est un sujet de plus en plus brûlant autour de la tokenisation. 
+
+== 4.1	Le DIP token
+
+L'acronyme "DIP" signifie "Decentralized Insurance Protocol" et "Decentralized Insurance Platform". Le DIP est le token natif d'Etherisc émis par la "Decentralized Insurance Foundation" (DIF) basée à Zug/Suisse.  +
+Au cours de l'Etherisc DIP TGE (Token Generating Event), des DIP token ont été créés sur le réseau principal public Ethereum. Nous avons préféré utiliser ce terme plutôt que "ICO" ou "vente des token". +
+*Quelques faits sur l'Etherisc DIP TGE:*
+
+* Hardcap : 30 millions USD
+* Approvisionnement total : 1 milliard (10^9)DIP 
+* token distribués aux premiers investisseurs et pendant la TGE :
+*  300M DIP (= 30% de l'offre totale)
+* Prix TGE : 1 DIP = 0,10 USD
+* Seuls les contributeurs enregistrés ont pu participer au TGE Etherisc DIP
+Les participants (et non les clients) ont besoin de token pour rejoindre l'"écosystème" de la plateforme. En règle générale, toute personne qui souhaite utiliser la plateforme pour gagner de l'argent devra posséder et mettre en jeu un certain nombre de DIP token. Ces DIP token restent la propriété du participant et lui seront remboursés s'il a l'intention de quitter la plateforme, moyennant un certain délai de préavis.  +
+En fonction du service offert, un nombre différent de token est nécessaire pour utiliser la plateforme ou offrir des services sur la plateforme. Les services simples nécessitent un petit nombre de token, tandis que les services complexes ou critiques nécessitent davantage de token. La quantité de token qui doit être fournie comme enjeu dépend du dommage potentiel causé par la mauvaise conduite du participant ou la violation des conditions de la plateforme. La mise en jeu des DIP token est différente de la mise en jeu des actifs dans les risk pools, dont nous parlerons plus loin. +
+Les DIP token mis en jeu peuvent être " confisqués " en cas de mauvais comportement, par exemple en cas de violation de certaines conditions ou exigences. Les règles d'annulation seront publiées sur le site d'Etherisc. +
+À l'avenir, ces règles et paramètres serviront de base au contrôle de la plateforme. Le DIP token sert de garantie et de représentation de la valeur matérielle et immatérielle du réseau, comme les ressources financières servent à garantir les ressources opérationnelles d'une coopérative.
+
+== 4.2	Le modèle de staking Etherisc
+
+|===
+|Le staking est encore en version bêta - attendez-vous à ce que le modèle de staking Etherisc subisse des changements substantiels dans un avenir proche !_
+
+|===
+
+Dans l'écosystème Etherisc, le staking se présente sous deux formes différentes : 
+
+. Le premier type de staking consiste à staker des DIP token dans un "pool de staking global". Le premier type de staking garantit que les participants qui gagnent de l'argent en utilisant la platform “jouent leur peau”, et garantit également que les participants sont économiquement incités à se comporter conformément aux règles de la platform. 
+. Le deuxième type de staking consiste à staker des actifs cryptographiques, généralement des stablecoins, dans des risk pools. Ces actifs portent le risque de l’assurance. 
+
+=== 4.2.1 Staking pour les risk pools 
+
+Lorsque vous souscrivez une police d'assurance, vous attendez un paiement en cas de sinistre. Pour garantir qu'il y ait toujours assez de liquidités pour commencer ou continuer à vendre des polices et pour effectuer tous les paiements, nous prévoyons de mettre en place un système avec deux risk pools correspondantes. +
+Les deux risk pools correspondantes collecteront les primes pour toutes les polices vendues et les liquidités supplémentaires fournies par les investisseurs. Chaque risk pool bien conçue est soumise à un modèle actuariel pour le risque assuré et détermine ainsi une certaine probabilité de défaut pour chaque police. +
+Nous définissons le staking dans le contexte de l'assurance décentralisée comme suit :
+
+|===
+|_"Le processus consistant à attirer et à lier le capital des investisseurs à des risk pools spécifiques pour couvrir leurs risques extrêmes."_
+
+|===
+
+Les primes nettes (après déduction des coûts) provenant de l'achat de polices sont versées dans la risk pool, et les sinistres sont couverts par les fonds de la risk pool. L'investisseur choisit une option de placement en fonction de sa tolérance au risque et de la structure de son portefeuille.  +
+Il peut aussi choisir son investissement en fonction d'aspects éthiques tels que le respect de l'environnement, la neutralité climatique ou l'engagement social. Si nécessaire, il accepte un bénéfice moindre pour offrir une assurance aux petits agriculteurs, par exemple. Nous encouragerons toujours la mise en place de produits verts et équitables sur le GIF !
+
+=== 4.2.2 Risk pools ne nécessitant pas de confiance
+
+Pour qu'une risk pool sans confiance fonctionne, il faut mettre en œuvre des méthodes qui garantissent, de manière technique et transparente, que les intérêts des assurés et des investisseurs soient respectés. Pour l'assuré, cela signifie que nous pouvons prouver que la risk pool de risques sera toujours en mesure d'honorer ses demandes. +
+Pour les investisseurs, cela signifie qu'ils reçoivent une part équitable des bénéfices réalisés et qu'ils peuvent décider des risques auxquels ils exposent leurs fonds. Il devient donc nécessaire pour le système de fonctionner entièrement sur la blockchain. Sur la blockchain, le calcul est coûteux, nous devons donc faire en sorte que ces calculs soient efficaces. Pour atteindre cet objectif, nous prévoyons de mettre en place des "périodes" dans nos risk pools. La durée d'une période dépendra du produit. Pour chaque période, toutes les polices vendues seront traitées de la même manière. Cette étape réduit massivement la complexité. +
+4.2.3 L'idée de base des risk pools et des récompenses dans l'assurance +
+Le processus économique central de l'assurance, le transfert du risque entre les assurés et les investisseurs, est mis en œuvre dans le GIF par le biais de risk pools. +
+Bien que le modèle standard de risk pool comprenne toutes les fonctions de base pour le traitement des primes, des sinistres, des dépôts, des paiements et des retours, le modèle laisse un maximum de flexibilité aux risk pool keepers pour concevoir leur modèle économique afin d'attirer les assurés, les product owner et les investisseurs.
+
+=== 4.2.4 Fonctions essentielles d'une risk pool
+
+* Recevez des primes sous forme de tokens natifs ou stables.
+* Recevoir des dépôts d'investissement en token ou stable coins, conformément aux spécifications du risk pool keeper et du product owner.
+* Gérer les dépôts d'investissement. Un investisseur doit pouvoir connaître à tout moment l'état de son investissement.
+* Remboursement des sinistres en cas de perte.
+* Traitement des retraits d'investissement. Ce mécanisme est conçu de manière à ce que le capital-risque ne puisse être versé que lorsqu'il ne sert plus de garantie des contrats conclus. 
+* Processus de distribution des bénéfices. Une partie importante des primes versées est distribuée sous forme de bénéfices aux investisseurs en fonction du montant de l'investissement, de la période de dépôt et du risque pris.
+* Contrôle autonome des paramètres des risk pools. La taille des risk pools dépend de la demande pour le produit sous-jacent.  Nous fournirons des mécanismes permettant un contrôle autonome des paramètres des risk pools.
+
+== 4.3	Mise en œuvre des risk pools dans le GIF
+
+Les risk pools standards seront initialement constituées d'une primary risk pool (PRP). Des secondary risk pools (SRP) peuvent être créées en option. Cette combinaison de deux risk pools offre une flexibilité totale pour les produits d'assurance et les investisseurs.
+
+=== 4.3.1 Primary risk pool (PRP)
+
+Les primary risk pool (PRP) recevront les primes nettes (c'est-à-dire les primes brutes moins les coûts) payées par les assureurs en monnaies stables (par exemple USDC, dans cet exemple, ou xDai à Flight Delay) en échange des actifs mis en jeu par l'investisseur. Le PRP générera des NFT de pool de risque. +
+Un investisseur ne transfère pas son DIP token directement dans le PRP mais dans le SRP. Les DIP token déposés sont collectés et transférés au PRP à la fin d'une époque, et le PRP génère un nouveau risk pool NFT ; le propriétaire est le SRP. L'investisseur reçoit la valeur équivalente de sesDIP token déposés en risk pool tokens (RPT) frappés par le PRP.
+La global staking pool couvrira tous les risk pools primaires d'une instance GIF. Comparable à la réassurance, elle intervient si, par exemple, des black swan events entraînent l'insolvabilité d'une primary risk pool. Les investisseurs peuvent également mettre en jeu leurs token et leurs pièces stables dans la global staking pool.
+
+image::_images/wp-risk-pools.png[]
+
+=== 4.3.2 Risk Pool Token (RPT)
+
+Si l'investisseur place des actifs dans la primary risk pool, il reçoit un risk pool NFT faisant office de reçu. Alors que les NFT sont en principe négociables, nous prévoyons que les risk pool NFT ne seront pas liquides. Pour faciliter l'échange de risques, nous introduirons des trisk pool token (RPT) via des "secondary risk pools". Une secondary risk pool acquerra les NFTs du pool de risques primaire et les fractionnera. Les investisseurs peuvent investir dans une secondary risk pool et recevront des RPT (ERC-20) proportionnellement à leur part dans la secondary risk pool. De nouveaux RPT sont frappés lorsque de nouveaux capitaux sont déposés dans la risk pool. Pour chaque risk pool, des RPT spécifiques sont frappés.
+
+=== 4.3.3 Risk pool NFT
+
+Les NFT sont liés à un PRP spécifique et couvrent les risques des polices d'assurance individuelles. Les NFT restent dans le SRP et les RPT dans les portefeuilles des investisseurs. Lorsque toutes les polices liées à un NFT sont expirées et que tous les sinistres associés ont été payés, l'investisseur peut retirer tous les actifs associés au NFT.
+
+=== 4.3.4 Pourquoi des périodes ?
+
+Nous voulons que les investisseurs déposent et résilient leurs contrats aussi rapidement et efficacement que possible. Mais la protection des autres investisseurs et des assurés est également essentielle pour nous. Nous avons donc trouvé un compromis qui profite à toutes les parties, les périodes (Epochs).Les périodes réduisent massivement la complexité de calcul, un facteur limitant dans les smart contracts en raison des limites blocantes de gaz. Le concept de période permet d’exécuter chaque transaction avec un plafond de gaz fixe.
+
+=== 4.3.5 Staking sur une seule face/double face/multiple face
+
+Dans la première version de notre risk pool, nous proposerons uniquement le staking unilatéral (le risque est pris par un seul stablecoin). Cependant, vous devez miser un certain montant de DIP token dans la global staking pool par rapport au capital investi. Ce n'est donc que lorsque vous avez misé le montant de base en DIP token que vous pouvez apporter du capital-risque sous forme de stablecoins. À l'avenir, les investisseurs pourront miser différents actifs - pas seulement des stablecoins - en fonction des exigences du détenteur de la risk pool.
+
+=== 4.3.6 Récompenses en crédit et pertes de paiement
+
+La norme offerte par le framework de l’assurance générique est simple. Les primes sont ajoutées à la risk pool (après déduction des coûts) et augmentent la valeur des token de ladite risk pool. Les paiements sont effectués à partir de la risk pool et diminuent la valeur desdits token. +
+Lors d’une mise en œuvre standard, les bénéfices restent initialement dans la risk pool. Les bénéfices sont réalisés au moment où le capital peut être retiré de la risk pool. +
+Les investisseurs reçoivent leurs primes lors de la conclusion du contrat. Les primes versées par les assurés sont créditées proportionnellement dans le rapport capital risque personnel / capital risque total. Les remboursements éventuels en cas de sinistre sont répartis proportionnellement entre tous les fournisseurs de capital-risque qui ont contribué aux primes depuis le début du contrat.  +
+Ainsi, si vous avez deux investisseurs, l'investisseur 1 à 100.000 DIP, l'investisseur 2 à 50.000 DIP. Une assurance est souscrite avec une prime de 30 USDC. L'investisseur 1 reçoit l'équivalent de 20 USDC grâce au gain de prix de son RPT, l'investisseur 2 reçoit l'équivalent de 10 USDC. Les USDC restent dans le PRP. +
+Si une demande d'indemnisation est ensuite présentée à hauteur de 90 USDC sur cette police, les 90 USDC seront payés à partir du PRP. L'investisseur 1 perd l'équivalent de 60 USDC, l'investisseur 2 perd l'équivalent de 30 USDC.
+
+= 5 Modèle de gouvernance Etherisc (EGM)
+
+== 5.1	Résumé
+
+. L'objectif du modèle de gouvernance Etherisc (EGM) est de créer un mécanisme d'autorégulation efficace pour l'écosystème Etherisc. Etherisc considère qu'un socle de règles et de procédures est nécessaire pour garantir que :
+.. La plateforme fonctionne d'une manière conforme aux règles et recommandations du protocole de la Plateforme d'assurance décentralisée (DIP).
+.. Les participants à la plateforme mènent leurs activités dans l'intérêt du bien commun, tout en préservant les intérêts des clients et des investisseurs.
+.. L'intégrité du marché est préservée, ce qui signifie qu'il n'y a pas d'abus de marché et que tous les participants à la plateforme ont un accès égal à des informations précises et transparentes.
+. Conformément à une infrastructure décentralisée, la réglementation doit être assurée par la communauté plutôt que par une seule entité. De plus, les règles doivent être applicables afin d'inciter à leur respect. Pour que les règles soient applicables, il faut qu'il y ait un élément de staking.
+. Au-delà du bon fonctionnement de l'écosystème, qui est une fin en soi, l’EGM contribuera à renforcer la confiance dans le système d’assurance décentralisé Etherisc et à soutenir sa croissance et son adoption massive.
+
+== 5.2	Valeurs fondamentales
+
+Tout système de règles nécessite un ensemble de principes et de "valeurs" sous-jacent. L'ensemble et la signification de ces valeurs sont nécessairement, dans une certaine mesure, flous et ne peuvent être entièrement saisis par une définition formelle. +
+Certaines personnes pourraient, par exemple, mettre l'accent sur d'autres valeurs qui ne figurent pas dans cette liste, ou les formuler différemment. Cependant, ces règles se sont avérées utiles dans d'autres contextes reposant sur la décentralisation et la collaboration.  +
+Ces valeurs servent de lignes directrices générales dont dérivent des règles et des exigences plus précises. +
+*1. Respect * +
+Chaque utilisateur de la plateforme, acteur, partie prenante doit respecter et valoriser la diversité. Nous encourageons l'inclusion et traitons les autres avec tact, courtoisie et respect. Nous nous abstenons et décourageons activement la discrimination sous toutes ses formes.  +
+*2. Collaboration * +
+La platform d'assurance décentralisée est basée sur des partenariats solides et volontaires. La plateforme encouragera toujours les partenariats et la coopération. Chaque participant doit pouvoir bénéficier de l'évolution des partenariats. +
+*3. Responsabilité * +
+Chaque participant agit sous son entière responsabilité, tandis que la platform fournira tous les moyens nécessaires à cet effet. Tous les participants reconnaissent leur responsabilité commune pour le fonctionnement et le développement de la platform dans son ensemble. +
+*4. Confiance * +
+La platform encourage les comportements de confiance et offre un environnement sûr à tous les participants. Chaque participant s'engage à adopter un comportement conforme. La transparence est un élément important pour établir la confiance, c'est pourquoi nous encourageons la transparence autant que possible, sans violer les besoins justifiés de protection de chaque participant de la plateforme. +
+*5. Bien public / Commons * +
+La plateforme dans son ensemble sert le bien public. Il s'agit d'un "bien commun"footnote:[https://en.wikipedia.org/wiki/Elinor_Ostrom; see also https://www.onthecommons.org/magazine/elinor-ostroms-8-principles-managing-commmons] au sens d'Elinor Ostrom, exploité par la communauté de tous les participants. Par conséquent, les règles de gouvernance de la platform sont basées sur les huit règles pour des biens communs réussis, inventées par E. Ostrom. Dans le chapitre 5, nous discutons de la manière dont les "huit règles" sont mises en œuvre dans l'EGM et le protocole DIP.
+
+=== 5.3	Structure de haut niveau de l'EGM
+
+Dans l'image ci-dessous, un certain nombre d'acteurs/participants sont mentionnés, les noms mentionnés sont écrits à titre d'exemple et il se peut que d'autres acteurs et/ou blockchain soient ajoutés. Dans cette image, les acteurs suivants sont mentionnés.
+
+image::_images/wp-governance-model.png[]
+
+Name
+Short description
+Decentralized Insurance Foundation
+Development and promotion of the DIP-protocol, funding of the development of the Generic Insurance Framework (GIF)
+Kleros
+Decentralized arbitration service and Token Curated Registry
+DAOstack
+Software stack for DAOs including a library of governance protocols and interfaces for creating and managing DAOs
+Mainnet
+Example Blockchain
+Gnosis Chain
+Example Blockchain
+Avalanche
+Example Blockchain
+Polygon
+Example Blockchain
+
+. Les quatre aspects qui définissent l'EGM sont les suivants :
+.. Les participants à la plateforme forment l’autorité suprême
+.. La Fondation d'assurance décentralisée constitue un lien neutre et sans but lucratif avec les institutions et les systèmes juridiques du monde réel.
+..  La certification des instances GIF est un mécanisme de signalisation du marché pour inciter à un niveau de travail élevé.
+.. Le règlement des litiges a lieu via un conseil d'arbitrage indépendant
+. Les participants à la plateforme - qu'il s'agisse d'assurés, de créateurs de produits ou d'investisseurs - constituent l'autorité suprême de la plateforme. Leur participation est représentée par des token de gouvernance (vDIP), qui sont frappés contre la mise en jeu de DIP token dans un contrat de gouvernance. Les token de gouvernance (vDIP) sont utilisés pour la prise de décision dans toutes les DAO impliquées dans la plateforme.
+. Alors que les participants de la plateforme sont représentés par des adresses sur les protocoles de la blockchain, nous avons besoin d'un lien avec le monde réel reliant l'infrastructure on-chain aux entités juridiques du monde réel.
+. Dans le monde réel ("IRL"), l'autorité suprême est la Fondation d'assurance décentralisée (DIF) à but non lucratif, basée à Zoug, en Suisse, et régie par le droit suisse.
+. L'objet du DIF est défini dans l'acte notarié de la Fondation et ne peut être modifié : 
+|===
+|_“L'objectif de la Fondation est de promouvoir et de développer de nouvelles technologies et applications, notamment dans les domaines des nouvelles architectures logicielles ouvertes et décentralisées principalement dans le domaine des assurances. Un accent dominant, mais non exclusif, est mis sur la promotion et le développement du protocole DIP et des technologies associées, ainsi que sur la promotion et le soutien des applications utilisant le protocole DIP”_
+
+|===
+
+. Par conséquent, le seul but de la Fondation est de servir la communauté des participants à la construction et à l'utilisation du protocole DIP.
+. Le DIF s'engage à une stricte neutralité. Par conséquent, le DIF ne s'engagera jamais dans des litiges entre participants. Pour le règlement des différends, la plateforme DIP utilisera les mécanismes existants, comme par exemple le conseil d'arbitrage de Kleros.
+. Le DIF est officiellement représenté par le Conseil de fondation. 
+. La tâche principale du DIF dans le framework du protocole technique DIP est la certification des Instances GIF sur les différentes blockchains. Sur chaque blockchain, il peut y avoir plusieurs Instances GIF.
+Les règles de certification seront publiées. +
+Les règles doivent être telles que, si possible, sans ambiguïté dans leur interprétation. Les personnes ayant une compréhension technique de base et du bon sens doivent pouvoir décider si une Instance GIF particulière répond aux exigences. +
+Les exigences comprennent la stabilité technique (comme les audits de contrat) et la solidité, ainsi que la conformité juridique. Les Instances GIF certifiées sont enregistrées dans un registre (Token Curated Registry; TCR). +
+Les règles concrètes de certification des Instances GIF sont actuellement en cours d'élaboration.
+
+. La certification n'a aucune conséquence spécifique - elle signale simplement que "cette Instance GIF a fait l'objet d'un examen approfondi et d'une diligence raisonnable et qu'elle met en œuvre les règles et recommandations du protocole DIP".  Ainsi, nous nous attendons à ce qu'une certification soit un facteur de différenciation fort sur le marché et que la non-certification soit essentiellement un "drapeau rouge" pour les clients et les investisseurs. C'est ainsi que fonctionne l'autorégulation.
+Toutefois, à l'avenir, d'autres parties extérieures à l'écosystème du DIP pourraient lier l'accès à certains services à des certificats valides.
+
+. Chaque Instance GIF est gérée par un Opérateur d'Instance. Un opérateur d'instance peut être représenté par une EOA (adresse appartenant à l'extérieur), un multisig ou un DAO.
+Il est recommandé que l'opérateur d'instance soit représenté par un DAO, dont les membres sont les parties prenantes de cette Instance GIF.
+
+. Chaque Instance GIF peut envoyer un délégué dans le Conseil consultatif du DIF. 
+Le conseil consultatif interagit avec le conseil de fondation et représente les intérêts des Instances GIF et de ses parties prenantes auprès du conseil de fondation. Le conseil consultatif et ses processus de décision sont mis en œuvre en tant que DAO. 
+
+. Chaque instance GIF (ou le DAO qui la représente) peut mettre en œuvre des règles de gouvernance à un niveau plus granulaire, par exemple des règles pour décider quels produits peuvent être listés sur l'instance et lesquels ne le peuvent pas, tant que ces règles sont conformes à nos valeurs fondamentales et aux autres règles de la plateforme.
+. Chaque Instance GIF doit mettre en œuvre des règles qui garantissent que l'instance est en mesure de participer au financement de l'EGM et du protocole DIP en général.
+. Les litiges sont résolus par un conseil d'arbitrage.
+Parmi les litiges possibles, citons par exemple l'enregistrement d'une instance GIF dans le RCT, ou les litiges liés à des demandes d'indemnisation qui ne peuvent être résolus par la logique des smart contracts (par exemple, un dysfonctionnement de l'oracle). 
+
+== 5.4	Financement de l’EGM et du protocole DIP
+
+. L'infrastructure nécessaire au maintien de l'EGM, ainsi que le développement et la maintenance du protocole DIP (notamment le développement et la maintenance du GIF framework) nécessitent un financement. 
+. Le financement est destiné à couvrir uniquement les coûts, à être autonome et à ne pas avoir de but lucratif. 
+. Chaque Instance GIF devra donc :
+.. Miser un montant défini de DIP token dans un contrat de staking de gouvernance. 
+.. Payer une cotisation régulière pour couvrir les coûts opérationnels de l'EGM.
+. Le montant requis des enjeux et des frais est calculé sur la base du volume économique qui est négocié sur l'instance particulière.
+Le schéma exact sera publié en temps voulu.
+
+. En cas de violation des règles, des sanctions de gravité différente peuvent être appliquées aux participants qui se comportent mal : 
+.. Sanctions financières pour les membres qui se comportent mal
+.. Réduction des DIP token mis en jeu
+.. Exclusion de participants d'une Instance GIF
+.. Exclusion d'une Instance GIF du Registre des Tokens.
+. Une partie des frais payés sera brûlée pour créer un léger effet déflationniste sur le DIP token.
+
+== 5.5	Global staking pool
+
+. Le DIF gérera une global staking pool (GSP). Le GSP sera déployé sur le Mainnet d'Ethereum.
+. Le GSP a les objectifs suivants :
+.. Fournir une incitation économique au bon comportement
+.. Fournir un "puits" qui liera les DIP token
+.. Veiller à ce que les participants qui profitent de l'écosystème Etherisc “jouent leur peau” et des intérêts alignés avec l'ensemble du système.
+. Les participants à l'écosystème Etherisc sont censés mettre en jeu et bloquer une certaine quantité de DIP token dans le GSP :
+.. Les opérateurs d'Instance GIF doivent mettre en jeu et verrouiller des token pour chaque Instance GIF certifiée.
+.. Les product owner doivent mettre en jeu et verrouiller des token pour chaque produit déployé et approuvé sur une Instance GIF certifiée.
+.. Les fournisseurs Oracle doivent mettre en jeu et verrouiller les token pour chaque oracle déployé et approuvé sur une Instance GIF certifiée.
+.. Les gardiens de risk pools doivent mettre en jeu et verrouiller les token pour chaque risk pool déployée et approuvée sur une Instance GIF certifiée.
+.. Le staking dans le GSP est indépendant du staking dans les risk pools. Les investisseurs peuvent investir dans les risk pools sans avoir misé sur le GSP, et les règles définies dans ce chapitre ne leur sont pas appliquées.
+. Le montant à miser et à bloquer pour chaque groupe de participants sera publié sur le site Web d'Etherisc.
+. Le montant à miser et à bloquer sera en corrélation avec la valeur économique créée par le participant. Les KPIs exacts à prendre en compte et les formules de calcul du montant de DIP token à miser seront publiés sur le site d'Etherisc.
+. Les token mis en jeu dans le GSP peuvent être verrouillés par les metteurs en jeu à différentes fins :
+.. Pour une Instance GIF (nécessaire pour le fonctionnement d'une Instance GIF)
+.. Pour un produit (nécessaire au fonctionnement d'un produit)
+.. Pour un oracle (nécessaire au fonctionnement d'un oracle)
+.. Pour une risk pool de risques (nécessaire au fonctionnement d'une risk pool)
+.. À des fins spécifiques de gouvernance (facultatif, pour participer à des décisions spécifiques de gouvernance)
+. Pour atteindre chaque objectif, un "Lock Manager" a le pouvoir de verrouiller ou de déverrouiller les token. Initialement, les gestionnaires de verrouillage sont contrôlés par un multisig appartenant au Conseil de fondation de la Fondation d'assurance décentralisée. Après une période de test, le contrôle sur les gestionnaires de verrouillage peut être transféré à la DAO associée à la Fondation d'assurance décentralisée. 
+. Chaque participant qui a placé et verrouillé des DIP token se verra accorder des droits de vote généraux dans le modèle de gouvernance Etherisc. À des fins spécifiques, il peut être nécessaire de placer et de verrouiller des jtoken supplémentaires dans un gestionnaire de verrouillage de gouvernance. Pour chaque décision de gouvernance, les droits de vote sont calculés sur un snapshot du GSP à une certaine hauteur de bloc.
+. Le vote est effectué par Snapshot en utilisant une stratégie qui lit les tokens verrouillés dans le GSP à une certaine hauteur de bloc. 
+. Le code du GSP est publié dans le global staking repo du github d'etherisc.
+
+== 5.6	Politique monétaire du DIF
+
+. En tant que principal détenteur de DIP token (environ 60 % de l'offre totale de DIP token), le DIF est tenu de protéger les intérêts des détenteurs de DIP token. La trésorerie du DIF n'est pas comptabilisée dans l'offre en circulation des DIP token.
+. Le DIF peut allouer des subventions ou fournir des DIP token pour encourager le développement et l'utilisation du protocole DIP. Ces subventions et incitations augmenteront l'offre en circulation et pourraient donc conduire à une dilution de la valeur du DIP token. Cependant, le DIF veillera toujours à ce que les subventions et les incitations soient toujours en rapport avec la valeur créée, afin que le DIP token dans son ensemble ne subisse pas de dilution inutile.
+
+== 5.7	Annexe : Huit règles pour des biens communs réussis et comment appliquer ces règles dans le protocole du DIP
+
+. Les lieux communs doivent avoir des limites clairement définies. En particulier sur la question de l’accessibilité. À moins qu'il n'y ait une communauté précise, cela devient accessible à  tous, et ce n'est pas comme cela que les biens communs fonctionnent. Les "limites" sont mises en œuvre par le registre des tokens conservés pour les Instances GIF, et les registres des produits, des oracles et des risk pools dans les Instances GIF elles-mêmes.
+. Les règles doivent s'adapter aux circonstances locales. Il n'existe pas d'approche unique quant à la gestion des ressources communes. Les règles doivent être dictées par les populations locales et les besoins écologiques locaux. Les règles sont toujours créées selon le principe de subsidiarité. Par exemple, les règles de niveau supérieur régissent uniquement les instances GIF qui sont certifiées. Des règles plus granulaires sont mises en œuvre à des niveaux inférieurs et elles peuvent être différentes pour chaque Instance GIF, en fonction de leurs besoins.
+. La prise de décision participative est essentielle. Il existe toutes sortes de moyens d'y parvenir, mais les gens seront plus enclins à suivre les règles s'ils ont participé à leur rédaction. Il est nécessaire d’impliquer autant de personnes que possible dans la prise de décision.
+La participation est mise en œuvre par les DAO qui régissent les Instances GIF. Chaque Instance GIF est membre du Conseil consultatif du DIF et peut y représenter ses intérêts.
+
+. Les biens communs doivent être contrôlés. Une fois les règles établies, les communautés ont besoin d'un moyen de vérifier que les gens les respectent. Le fonctionnement des biens communs n’est pas basé sur la bonne volonté mais sur la responsabilité. Le contrôle se fait à deux niveaux : Le niveau supérieur est assuré par le DIF, le Token Curated Registry of GIF Instances et la commission d'arbitrage. À un niveau inférieur, le contrôle est assuré par les DAO qui régissent les instances GIF individuelles.
+. Les sanctions pour ceux qui abusent des biens communs devraient être graduelles. Ostrom a observé que les biens communs qui fonctionnent le mieux ne bannissent pas simplement les personnes qui enfreignent les règles. Cela avait tendance à créer du ressentiment. Ils avaient plutôt des systèmes d'avertissements et d'amendes, ainsi que des conséquences informelles sur la réputation de la communauté. Il existe différentes méthodes de sanction, chacune ayant un niveau de sévérité différent, voir chapitre 3. 
+. La résolution des conflits doit être facilement accessible. Lorsque des problèmes surgissent, leur résolution doit être informelle, peu coûteuse et directe. Cela signifie que tout le monde peut soumettre ses problèmes à la médiation et que personne n'est exclu. Les problèmes doivent être résolus plutôt qu’ignorés à cause des frais de justice. Ceci est mis en œuvre par le conseil d'arbitrage qui offre une résolution des conflits à tous les niveaux.
+. Les communs nécessitent le droit de s'organiser. Les règles communes ne compteront pas si une autorité locale supérieure ne reconnaît pas leur légitimité.
+Ceci est mis en œuvre par les règles écrites qui régissent le DIF et qui, à leur tour, régissent les DAO représentant les différentes instances du GIF. 
+Les biens communs fonctionnent mieux lorsqu'ils sont imbriqués dans des réseaux plus vastes. Certaines choses peuvent être gérées localement, mais d'autres peuvent nécessiter une coopération régionale plus large - par exemple, un réseau d'irrigation peut dépendre d'une rivière que d'autres utilisent également en amont. Ceci est mis en œuvre par la structure hiérarchique, au sommet de laquelle se trouve une fondation juridique reconnue par la loi suisse.
+
+= 6 Glossaire et abréviations
+
