@@ -101,4 +101,3 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 # Defender V2 -> Netlify
 /defender/v2 https://platform-docs-beta.netlify.app/platform/beta/ 200
 /defender/v2/* https://platform-docs-beta.netlify.app/platform/beta/:splat 200
-
