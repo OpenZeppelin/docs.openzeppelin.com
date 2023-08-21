@@ -266,20 +266,23 @@ In a blockchain environment, however, all fundamental data and the decisions bas
 
 === 2.4.1 Why is insurance a candidate for decentralization?
 
-As a multi-trillion dollar industry dominated by huge corporations, insurance is often confronted with obstacles such as strict regulations, and misalignments of company and consumer incentives, which led to the insurance world often being inefficient and expensive. The ultimate goal is to avoid cases like customers having to fight for reimbursement from companies whose profits often depend on avoiding paying out in a targeted manner. 
-Etherisc is building a platform for decentralized insurance applications. The platform can be used by corporates, large and small, not-for-profit groups and insurtech startups to provide better products and services. We aim to use blockchain technology to make insurance faster, cheaper and more transparent and democratize access to investing in insurance products. 
+As a multi-trillion dollar industry dominated by huge corporations, insurance is often confronted with obstacles such as strict regulations, and misalignments of company and consumer incentives, which led to the insurance world often being inefficient and expensive. The ultimate goal is to avoid cases like customers having to fight for reimbursement from companies whose profits often depend on avoiding paying out in a targeted manner. +
+
+Etherisc is building a platform for decentralized insurance applications. The platform can be used by corporates, large and small, not-for-profit groups and insurtech startups to provide better products and services. We aim to use blockchain technology to make insurance faster, cheaper and more transparent and democratize access to investing in insurance products. +
+
 |===
 |_Blockchain can provide the means to disintermediate the market with a peer-to-peer risk platform that helps insurance return to its roots as society’s safety net._
 
 |===
-We encourage  new groups building their own bespoke insurance risk pools and services on the platform. Etherisc framework enables fully-compliant and licensed insurance products for the emerging blockchain economy. To offer an alternative to traditional monolithic insurance systems, we can identify some requirements and consequences for implementing a decentralized insurance protocol. 
+
+We encourage new groups building their own bespoke insurance risk pools and services on the platform. Etherisc framework enables fully-compliant and licensed insurance products for the emerging blockchain economy. To offer an alternative to traditional monolithic insurance systems, we can identify some requirements and consequences for implementing a decentralized insurance protocol. +
 
 === 2.4.2 Properties of decentralized insurance
 
 . The range of insurance is huge and far too complex to be covered by a single application. Therefore, we need a protocol and not just a (decentralized) application. Some tools are needed to incentivize participants to use it. Promoting "network effects"footnote:[Network effect is described as the effect that one user of a good or service has on the value of that product to other people. The classical example is the telephone: the more people use it, the more valuable the telephone is for all.] is one tool that can lead to a sustainable and growing user base. +      
 A policy may cover a particular product, but a single policy will not generate the 	network effects to create multiple large pools of similar risks necessary to take 	advantage of the "law of large numbers."
 
-. A decentralized insurance protocol can partially or fully replace the traditional insurance business model.  It does this through disaggregation of end-to-end processes,  autonomous and automated smart contracts and procedures,   a set of interaction rules for stakeholders and  smart contracts . At the same time, a protocol allows for flexible extension and interpretation of the basic rules.
+. A decentralized insurance protocol can partially or fully replace the traditional insurance business model.  It does this through disaggregation of end-to-end processes, autonomous and automated smart contracts and procedures,   a set of interaction rules for stakeholders and  smart contracts . At the same time, a protocol allows for flexible extension and interpretation of the basic rules.
 
 . The development and operation of a protocol needs funding. Even if we can drastically reduce the coordination costs, there are still the costs for the initiation of the system - e.g. acquisition of licenses, development of smart contracts, audits, as well as costs for agents at the “rim” of the system which we cannot eliminate completely. Therefore we need a way to collect these costs from the ultimate customers and distribute them amongst these agents.
 
@@ -290,26 +293,28 @@ A policy may cover a particular product, but a single policy will not generate t
 === 2.5.1 Owner of the protocol, governance 
 
 As an open standard, the protocol is a common good, it can be used and implemented by whoever likes it. We will take care that the entry barriers are as low as possible. However, for some portions of the protocol, a certification will be necessary, to reflect regulatory obligations and restrictions. We have founded a swiss based foundation as a legal body, which formally holds the IP rights of the protocol and ensures that the protocol can be used freely. We established a continuous, community-driven protocol improvement process similar to the EIP process for the Ethereum Platform. +
-The Etherisc Governance Model (EGM), its abstract and core values as well as other subtopics will be further elaborated in Chapter No.5. 
+
+The Etherisc Governance Model (EGM), its abstract and core values as well as other subtopics will be further elaborated in Chapter No.5. +
 
 === 2.5.2 Outline of workflow elements of the protocol
 
-* Application for policy 
+* *Application for policy* + 
 Process of offering a product and applying
-* Underwriting
+* *Underwriting* +
 Process of accepting a policy
-* Collection of premiums
+* *Collection of premiums* +
 Payment process, one-time and regular payments
-* Submitting of claims
+* *Submitting of claims* +
 Process of submitting a claim, via oracle or manually
-* Claims assessment
+* *Claims assessment* +
 Process of assessing a claim, via oracle or manually. A claims verification process allows the system to determine which policies are legitimately claimed and to propagate agreed payments to claimants. In the case of parametric insurance, this process references data feeds about insurable events and is (fully) automated.
-* Identity Management & Privacy
+* *Identity Management & Privacy* +
 Process of KYC and AML, respecting privacy. This may involve private chains or off-chain storage of data.
-* Admission / Certification
+* *Admission / Certification* +
 Admission of participants to offer products and perform parts of the protocol
-* Asset Management
-As funds flow in, we have to responsibly use funds which are not immediately needed. 
+* *Asset Management* +
+As funds flow in, we have to responsibly use funds which are not immediately needed. +
+
 === 2.6 	Community of customers, users and companies
 
 The success of the platform will depend on a vivid community of users and companies. The token model reflects and supports this community. This community plays a central role in the realignment of incentives. Via tokens, customers can “own” their insurance. The community model facilitates the development of future mutuals and P2P-Insurance models.
@@ -319,32 +324,47 @@ The success of the platform will depend on a vivid community of users and compan
 |===
 However, experience shows that there are some success criteria for communities. Famous open source pioneer Pieter Hintjens, http://hintjens.com/blog:10[http://hintjens.com/blog:10] has drafted some which we consider to be helpful for an in-depth discussion:
 
-* Quality of mission. A community can only grow by pursuing a worthwhile goal. The goal must be super-individual. 
-* Freedom of access. The community should not have barriers or walls, it should welcome those of goodwill and encourage participation.
-* Well-written rules. If rules are necessary, they should be carefully written and obvious.
-* Strong neutral authority. To resolve conflicts, a strong but neutral authority should be in place, which can be incorporated by a governance mechanism.
-* Proportional ownership. "You own what you make"
-* Infinite spaces. A single large project with many owners does not scale as well as a collection of many small projects, each with one or two owners. Communities grow best when people layer project upon project without limit. 
-* Measurements of success. In the community, your voice is as loud as the number of people using the project you “own.”
-* Tools and processes. Much better tools means a faster, more efficient community. 
-* Freedom to organize. Let the community participants identify the problems, allocate the resources, and monitor success, precisely without top-down management. 
-* Transparency. Secrecy enables incompetence, and transparency promotes competence. The more public the organization’s work, the better. 
-* Unstructures. “Everyone owns what they make” and be prepared to move to a new home as and when needed. 
-Scalable participation. You want no barriers at any point, but it must get harder and harder. This makes the community feel like a massive multiplayer game, where there’s always someone better than you, and you just have to try to catch up.
+* *Quality of mission* +
+A community can only grow by pursuing a worthwhile goal. The goal must be super-individual. 
+* *Freedom of access* +
+The community should not have barriers or walls, it should welcome those of goodwill and encourage participation.
+* *Well-written rules* +
+If rules are necessary, they should be carefully written and obvious.
+* *Strong neutral authority* +
+To resolve conflicts, a strong but neutral authority should be in place, which can be incorporated by a governance mechanism.
+* *Proportional ownership* +
+"You own what you make"
+* *Infinite spaces* +
+A single large project with many owners does not scale as well as a collection of many small projects, each with one or two owners. Communities grow best when people layer project upon project without limit. 
+* *Measurements of success* +
+In the community, your voice is as loud as the number of people using the project you “own.”
+* *Tools and processes* +
+Much better tools means a faster, more efficient community. 
+* *Freedom to organize* +
+Let the community participants identify the problems, allocate the resources, and monitor success, precisely without top-down management. 
+* *Transparency* +
+Secrecy enables incompetence, and transparency promotes competence. The more public the organization’s work, the better. 
+* *Unstructures* +
+“Everyone owns what they make” and be prepared to move to a new home as and when needed. 
+* *Scalable participation* +
+You want no barriers at any point, but it must get harder and harder. This makes the community feel like a massive multiplayer game, where there’s always someone better than you, and you just have to try to catch up.
 
 = 3 GIF - The Generic Insurance Framework
 
-The GIF consists of building blocks that include the complete value chain: the insured, the insurer, the investor and the instance operator. First of all, you need insurance products that you can sell. The insurance products have a product owner who designs the products. The insurance products themselves are from smart contracts.
+The GIF consists of building blocks that include the complete value chain: the insured, the insurer, the investor and the instance operator. First of all, you need insurance products that you can sell. The insurance products have a product owner who designs the products. The insurance products themselves are from smart contracts. +
+
 |===
 |_Oracles are an essential part of the GIF for implementing parametric insurance. Oracles provide the necessary data, for example, flight or weather data, to the contracts in a GIF instance._
 
 |===
+
 The risk pool is also a smart contract that keeps track of all details of the risk capital, the amounts paid in as policies and all the amounts paid out. +
-A GIF instance connects these individual roles and represents a complete executable entity defined by the GIF. Each instance consists of a blockchain's operational set of GIF smart contracts. Different blockchains may run different instances.
+
+A GIF instance connects these individual roles and represents a complete executable entity defined by the GIF. Each instance consists of a blockchain's operational set of GIF smart contracts. Different blockchains may run different instances. +
 
 == 3.1 	Etherisc-basics about insurance 
 
-In the chapter '2.2 Principles of insurance', we used a practical example to illustrate how insurance is created and functions with the insured's participation. In these chapters, we will explain and define insurance from the perspective of Etherisc. 
+In the chapter '2.2 Principles of insurance', we used a practical example to illustrate how insurance is created and functions with the insured's participation. In these chapters, we will explain and define insurance from the perspective of Etherisc. +
 
 ==== 3.1.1 What is insurance?
 
@@ -352,15 +372,18 @@ In the chapter '2.2 Principles of insurance', we used a practical example to ill
 |_Insurance is a means of protection against financial loss. It is a form of risk management whose primary purpose is to protect against the risk of possible or uncertain loss._
 
 |===
-Insurance is a means of protection against financial loss. It is a form of risk management whose primary purpose is to protect against the risk of possible or uncertain loss. The loss associated with the risk may or may not be financial, but it must be reducible to financial terms.  +
-An insurance companyfootnote:[ We use the term “company” here for easier reading. Of course, in DeFi/blockchain applications, a “company” can also be a DAO or a simple blockchain address (EOA)!] underwrites the risks of the insured. The insurance company can outsource all services, such as sales or data management, to other service providers. The only exception is the actual assumption of risk. This risk must always remain with the insurance company. Therefore, the company and their customers always need to have a proper accounting on which risks they cover and how it is collateralized. 
+
+Insurance is a means of protection against financial loss. It is a form of risk management whose primary purpose is to protect against the risk of possible or uncertain loss. The loss associated with the risk may or may not be financial, but it must be reducible to financial terms. +
+
+An insurance companyfootnote:[ We use the term “company” here for easier reading. Of course, in DeFi/blockchain applications, a “company” can also be a DAO or a simple blockchain address (EOA)!] underwrites the risks of the insured. The insurance company can outsource all services, such as sales or data management, to other service providers. The only exception is the actual assumption of risk. This risk must always remain with the insurance company. Therefore, the company and their customers always need to have a proper accounting on which risks they cover and how it is collateralized. +
+
 |===
 |_Via smart contracts, this can be done in a transparent and auditable way._
 
 |===
 === 3.1.2 What is an insurance policy?
 
-An insurance policy is a contract provided to the insured by the insurance company that sets out the conditions and circumstances under which the insurance company will make payouts to cover losses incurred by the insured due to recognized claims. In TradFi, this is typically a legal contract. In our context, a policy is simply a dataset stored on blockchain and manipulated via defined rules by a smart contract.
+An insurance policy is a contract provided to the insured by the insurance company that sets out the conditions and circumstances under which the insurance company will make payouts to cover losses incurred by the insured due to recognized claims. In TradFi, this is typically a legal contract. In our context, a policy is simply a dataset stored on blockchain and manipulated via defined rules by a smart contract. +
 
 Let’s look at the lifecycle of a typical insurance policy. Such a lifecycle usually consists of the following chronologically listed sub-steps.
 
@@ -379,18 +402,20 @@ It is easy to see that the classic insurance business generates considerable bur
 
 === 3.1.3 What is parametric insurance?
 
-Parametric insurance is an agreement between the insurance company and the insured that covers the occurrence of predefined events rather than manually reviewing and compensating for actual losses incurred.
+Parametric insurance is an agreement between the insurance company and the insured that covers the occurrence of predefined events rather than manually reviewing and compensating for actual losses incurred. +
 
-Parametric insurance policies correspond to agreements between the insurance and the insured where the insurance approves payouts to the insured when predefined triggering events occur.
+Parametric insurance policies correspond to agreements between the insurance and the insured where the insurance approves payouts to the insured when predefined triggering events occur. +
 
-In parametric insurance, loss events (the risks) are defined as functions of underlying indices or parameters that meet the criteria defined by the insurance product. Example indices/parameters include rainfall amounts and wind speeds for insurance linked to weather conditions. In the case of flight delay insurance, the parameter/index can directly be derived from the difference between the actual arrival time and the scheduled arrival time of an insured flight.
+In parametric insurance, loss events (the risks) are defined as functions of underlying indices or parameters that meet the criteria defined by the insurance product. Example indices/parameters include rainfall amounts and wind speeds for insurance linked to weather conditions. In the case of flight delay insurance, the parameter/index can directly be derived from the difference between the actual arrival time and the scheduled arrival time of an insured flight. +
+
 |===
 |_To make parametric insurance feasible and attractive to all involved parties, the underlying indices/parameters must be transparent, reliable and trusted._
 
 |===
-Once such events occur, the insurance directly calculates and triggers a payout to the insured without an often costly claims acceptance process.
 
-The big win of parametric insurance is its potential for efficiency and automation. Claims handling, one of the most complex and costly parts of the insurance business, can be reduced to a simple and fully automated process.
+Once such events occur, the insurance directly calculates and triggers a payout to the insured without an often costly claims acceptance process. +
+
+The big win of parametric insurance is its potential for efficiency and automation. Claims handling, one of the most complex and costly parts of the insurance business, can be reduced to a simple and fully automated process. +
 
 === 3.1.4 What are the advantages of blockchain in insurance?
 
@@ -399,14 +424,16 @@ There are several benefits that blockchain technology can provide to the insuran
 * Transparency and accountability for record keeping. Information regarding policies, claims and payouts may be stored on-chain. Once on the chain, they can neither be deleted nor changed without proper permission, and each time data is updated or adjusted, the original data is kept in the history. An entire audit trail is available and transparent for all data.
 * Minimize friction and transaction costs for payment handling. 
 * Create new markets/opportunities by opening risk pools. The transparent pooling of large numbers of insurance policies of a particular type provides the opportunity to open up this market to a wider audience. 
-* These new markets also include the option to trade risks in small quantities, so called “Risk Pool Tokens”.
-Blockchain technology can provide a lot of value, especially for parametric insurance.
+* These new markets also include the option to trade risks in small quantities, so called “Risk Pool Tokens.” +
+
+Blockchain technology can provide a lot of value, especially for parametric insurance. +
 
 * Providing this central data in a trusted way to the blockchain world will be managed through oracle services, making it very hard/too costly to inject manipulated index/parameter information into smart contracts implementing parametric insurance policies.
 * Once the index/parameter feed is provided to policy contracts, parametric insurance will fully automate claims and payout handling.
-Immediate payouts. Running in a blockchain context and having automated claims/payout handling allows for near-real-time payouts.
+* Immediate payouts. Running in a blockchain context and having automated claims/payout handling allows for near-real-time payouts.
 
 == 3.2 The Etherisc model
+
 === 3.2.1 The three pillars of the Etherisc ecosystem
 
 image::_images/wp-three-pillars.png[]
@@ -414,35 +441,35 @@ image::_images/wp-three-pillars.png[]
 *Risk transfer market* +
 Raising capital to back the technical guarantees is done by investors. Investors will lock a certain amount of DIP tokens, also known as “staking.” The staked DIP tokens are a prerequisite to be then able to invest the actual risk capital in DIP or stablecoins.  +
 The community of DIP token holders created the entire Etherisc ecosystem. Therefore, we will demand that parties who profit from the ecosystem own a share by holding and staking DIP tokens. This idea is borrowed from the space of cooperative enterprises. It reflects that the Etherisc ecosystem is a public good that needs to be protected from the https://en.wikipedia.org/wiki/Tragedy_of_the_commons[“tragedy of the commons.”] +
+
 *Legal framework* +
-Insurance companies are highly regulated worldwide for good reasons, to protect customers and investors. A great deal of legislation has been enacted for this purpose in most countries. Concerning jurisdiction, a general distinction can be made between the American, European and Anglo-Saxon regions.
-
-But even within these regions, each country has different legal and monetary frameworks. Etherisc engages with local regulators to help create an efficient regulatory environment for blockchain based insurance. Etherisc supports interested parties and helps to guide the coordination process with the relevant agencies and ministries.
-
-The financial and organizational hurdles to establishing a new insurance company are high. For countries like Germany, Etherisc offers a new legal model where the legal claim is exchanged for a technical guarantee using blockchain and smart contracts. Thus, the provider — in this case Etherisc — is no longer subject to an insurance company's legal and financial requirements. Still, for each project, product and jurisdiction, the legal framework has to be considered and the product owner is responsible for the proper implementation. The Etherisc team has accumulated a lot of experience in this field and is happy to share these insights with platform users.
+Insurance companies are highly regulated worldwide for good reasons, to protect customers and investors. A great deal of legislation has been enacted for this purpose in most countries. Concerning jurisdiction, a general distinction can be made between the American, European and Anglo-Saxon regions. +
+But even within these regions, each country has different legal and monetary frameworks. Etherisc engages with local regulators to help create an efficient regulatory environment for blockchain based insurance. Etherisc supports interested parties and helps to guide the coordination process with the relevant agencies and ministries. +
+The financial and organizational hurdles to establishing a new insurance company are high. For countries like Germany, Etherisc offers a new legal model where the legal claim is exchanged for a technical guarantee using blockchain and smart contracts. Thus, the provider — in this case Etherisc — is no longer subject to an insurance company's legal and financial requirements. Still, for each project, product and jurisdiction, the legal framework has to be considered and the product owner is responsible for the proper implementation. The Etherisc team has accumulated a lot of experience in this field and is happy to share these insights with platform users. +
 
 *Technical framework* +
-
 Developed and maintained by Etherisc, the Generic Insurance Framework (GIF) allows to model, deploy and operate insurance products based on blockchain in a decentralized and transparent way. +
-Using the GIF, interested parties can quickly implement and securely operate their insurance products.
-With the GIF, it is technically possible to model insurance policies individually.
+Using the GIF, interested parties can quickly implement and securely operate their insurance products. +
+With the GIF, it is technically possible to model insurance policies individually. +
 
 == 3.3 What is the GIF?
 
 image::_images/wp-gif.png[]
 
-GIF is an acronym and means generic insurance framework. At its core, it consists of a collection of open-source smart contracts that implement generic functions of the lifecycle of insurance products and policies.
+GIF is an acronym and means generic insurance framework. At its core, it consists of a collection of open-source smart contracts that implement generic functions of the lifecycle of insurance products and policies. +
+
 |===
 |Thus, GIF enables the modeling of a wide variety of insurance types._
 
 |===
-Processing steps that run similarly in all products have been identified and made available as modules to design insurance products quickly and easily. Thus, only product-specific aspects, such as pricing, etc., need to be implemented for each product.
+
+Processing steps that run similarly in all products have been identified and made available as modules to design insurance products quickly and easily. Thus, only product-specific aspects, such as pricing, etc., need to be implemented for each product. +
 
 ==== 3.3.1 GIF and GIF instances
 
-To operate insurance products, including selling policies, collecting premiums, calculating trigger events and handling payouts, a complete execution environment is needed in addition to the smart contract collections that define products and policies.
+To operate insurance products, including selling policies, collecting premiums, calculating trigger events and handling payouts, a complete execution environment is needed in addition to the smart contract collections that define products and policies. +
 
-This execution environment — called a GIF instance — may be seen as a comprehensive platform or marketplace in which GIF-based insurance products are managed and operated. Our goal is for a GIF instance to be used by many different and independent providers offering various insurance products. The figure below provides an overview of the stakeholder roles involved with a GIF instance.
+This execution environment — called a GIF instance — may be seen as a comprehensive platform or marketplace in which GIF-based insurance products are managed and operated. Our goal is for a GIF instance to be used by many different and independent providers offering various insurance products. The figure below provides an overview of the stakeholder roles involved with a GIF instance. +
 
 image::_images/wp-gif-instance.png[]
 
@@ -450,30 +477,35 @@ image::_images/wp-gif-instance.png[]
 
 *Insured/Customer* +
 The insured / customer is the policyholder who wants to transfer his risk to the risk pools. Third parties can offer payment gateways and integrations which remove the necessity to own cryptocurrency from the end customer. +
+
 *Investor* +
 Investors are interested in participating in risk pools to balance/diversify their risk portfolios. Investors provide collateral for risk pools in return for interest payments. +
+
 *Oracle owner* +
-One of the most promising applications of a decentralized insurance space is the way data is collected and managed. The oracle owner provides oracles that interface between the blockchain smart contracts and external data sources. In the case of flight delay insurance, the oracle informs the smart contract whether the flight landed in time, how much it was delayed or if it was completely canceled.  +
+One of the most promising applications of a decentralized insurance space is the way data is collected and managed. The oracle owner provides oracles that interface between the blockchain smart contracts and external data sources. In the case of flight delay insurance, the oracle informs the smart contract whether the flight landed in time, how much it was delayed or if it was completely canceled. +
+
 *Product owner* +
-The product owner designs and operates one or more products. This would be an insurance company or an MGA (managing general agent) in the traditional insurance industry. Due to the multi-client capability, a product owner can use all oracles located on the respective platform by the oracle owners.
+The product owner designs and operates one or more products. This would be an insurance company or an MGA (managing general agent) in the traditional insurance industry. Due to the multi-client capability, a product owner can use all oracles located on the respective platform by the oracle owners. +
 
 *Risk pool keeper* +
-A risk pool keeper manages one or more risk pools. 
+A risk pool keeper manages one or more risk pools. +
+
 |===
 |_A risk pool is a smart contract that allocates (“pools”) several risks, represented by policy objects, to risk capital._
 
+
 |===
-Risk pools collect collateral that risk investors invest. Losses are paid from the risk pool. Therefore, the capital in the pool is at (default) risk. Investors can top up their investments and also withdraw their funds.  +
+Risk pools collect collateral that risk investors invest. Losses are paid from the risk pool. Therefore, the capital in the pool is at (default) risk. Investors can top up their investments and also withdraw their funds. +
+
 *Instance operator* +
 
 image::_images/wp-lifecycle-functions.png[]
 
-Any complete deployment of a GIF framework is called a “GIF instance.” 
-There will always be at least one complete instance of the GIF operated by the Etherisc project, but in principle, anybody can deploy a new GIF instance. The instance operator is the crucial role that operates a specific GIF instance.
+Any complete deployment of a GIF framework is called a “GIF instance.” There will always be at least one complete instance of the GIF operated by the Etherisc project, but in principle, anybody can deploy a new GIF instance. The instance operator is the crucial role that operates a specific GIF instance. +
 
-The primary tasks of the instance operator are the administration of products and oracles and a few other basic actions. Any GIF instance is multi-client capable, which means that any number of product owners and oracle providers can be operated and administered on one GIF instance.
+The primary tasks of the instance operator are the administration of products and oracles and a few other basic actions. Any GIF instance is multi-client capable, which means that any number of product owners and oracle providers can be operated and administered on one GIF instance. +
 
-The instance operator is represented by an Ethereum address. The instance operator can be a natural person owning the private key of that address or a smart contract — either a multisig or a DAO structure. This enables an entirely decentralized operation of any GIF instance. One address can, of course, manage several independent GIF instances.
+The instance operator is represented by an Ethereum address. The instance operator can be a natural person owning the private key of that address or a smart contract — either a multisig or a DAO structure. This enables an entirely decentralized operation of any GIF instance. One address can, of course, manage several independent GIF instances. +
 
 It is the declared goal of the Etherisc Project that GIF instances are controlled in a decentralized way - either by multisig or by DAOs with their own governance structure - and that they are controlled by the platform’s stakeholders (customers, product owners, oracle owners and risk pool keepers). In Chapter 5 we discuss how the ecosystem can incentivize this development.
 
@@ -492,18 +524,17 @@ All components and thus the objects they contain can assume identical states and
 
 === 3.4.2 Component roles and lifecycle
 
-
-Two roles can determine the life cycle of a component.
+Two roles can determine the life cycle of a component. +
 
 *Component owner* +
-A Component owner can be an oracle owner, a product owner, or a risk pool keeper, depending on which core object he manages.
+A Component owner can be an oracle owner, a product owner, or a risk pool keeper, depending on which core object he manages. +
 
 *Instance operator* +
-The instance operator runs one or more GIF instances.
+The instance operator runs one or more GIF instances. +
 
 image::_images/wp-components.png[]
 
-A component in the GIF is always in one of the following states: 
+*A component in the GIF is always in one of the following states:* 
 
 * Created
 * Proposed
@@ -514,23 +545,24 @@ A component in the GIF is always in one of the following states:
 * Archived
 
 The transition between these states and the roles which those can be triggered by are described in the above diagram. The lifecycle of a component starts with its development and deployment on the blockchain. The component owner can implement their specific requirements in the component's smart contract or use the generic functionality of the GIF components. In the next step, the component is registered, approved and activated by the instance operator in the GIF instance. The instance operator can also decline a component. The component is then deleted. +
-In the event of approval, the instance operator continues to check the technical and procedural details. The instance operator can also outsource the verification to an independent audit.
+In the event of approval, the instance operator continues to check the technical and procedural details. The instance operator can also outsource the verification to an independent audit. +
 
 |===
 |_Another condition is that the component owner must contribute a certain amount of DIP tokens to be allowed to operate in the GIF instance._
 
 |===
-If the component is active, it can be used until it is set to either suspended or paused. The difference between suspended and paused is that only the instance operator can suspend a component or resume it from suspended to active. The component owner can set a component to paused, the component owner and the instance operator can unpause the component. If the component is inactivated (pause, suspended) and not reactivated (resume, unpause), it is not deleted but archived.
 
-For each type of component (products, oracles, risk pools) we provide sample implementations which can be used as a starting point. 
+If the component is active, it can be used until it is set to either suspended or paused. The difference between suspended and paused is that only the instance operator can suspend a component or resume it from suspended to active. The component owner can set a component to paused, the component owner and the instance operator can unpause the component. If the component is inactivated (pause, suspended) and not reactivated (resume, unpause), it is not deleted but archived. +
+
+For each type of component (products, oracles, risk pools) we provide sample implementations which can be used as a starting point. +
 
 === 3.4.3 Policy lifecycle
 
 image::_images/wp-policy-lifecycle.png[]
 
-Independent of the specific product, each policy processed on the GIF instance has a lifecycle. Typically, a policy undergoes several state changes during the lifecycle. While any product designer could implement his own lifecycle (in our terminology, the life cycle is called “PolicyFlow”), the GIF offers a default lifecycle which should be sufficient for most use cases. This generic life cycle is called “PolicyFlowDefault.”
+Independent of the specific product, each policy processed on the GIF instance has a lifecycle. Typically, a policy undergoes several state changes during the lifecycle. While any product designer could implement his own lifecycle (in our terminology, the life cycle is called “PolicyFlow”), the GIF offers a default lifecycle which should be sufficient for most use cases. This generic life cycle is called “PolicyFlowDefault.” +
 
-The “PolicyFlowDefault” lifecycle offers the following functions:
+*The “PolicyFlowDefault” lifecycle offers the following functions:*
 
 * newApplication (to generate and store a new application from a customer)
 * underwrite (to sign an application and create a new policy)
@@ -542,7 +574,7 @@ The “PolicyFlowDefault” lifecycle offers the following functions:
 
 === 3.4.4 Payments
 
-The GIF instance is agnostic to the way payments are made. Pure crypto payments can be made directly to the product contract, while fiat payments need a fiat gateway and an external banking or credit card infrastructure. The core team can request information on how to implement fiat gateways.
+The GIF instance is agnostic to the way payments are made. Pure crypto payments can be made directly to the product contract, while fiat payments need a fiat gateway and an external banking or credit card infrastructure. The core team can request information on how to implement fiat gateways. +
 
 == 3.5 	Introducing the GIF monitor 
 
@@ -552,46 +584,44 @@ The GIF system is entirely transparent for blockchain experts, but it can be dif
 |_That's why we developed the GIF monitor to give everyone an overview of what's happening on the blockchain of a GIF instance._
 
 |===
+
 === 3.5.1 What is the GIF monitor?
 
-The GIF monitor provides a structured overview of all generic building blocks available in the GIF framework for creating and operating an insurance product. You can view all events and business transactions of the complete instance.  +
-The GIF monitor provides all this information transparently and in real-time online. The information is read from the blockchain and the GIF framework. 
+The GIF monitor provides a structured overview of all generic building blocks available in the GIF framework for creating and operating an insurance product. You can view all events and business transactions of the complete instance. +
+
+The GIF monitor provides all this information transparently and in real-time online. The information is read from the blockchain and the GIF framework. +
 
 === 3.5.2 Menu items
 
-The URL https://gif-monitor.etherisc.com/[https://gif-monitor.etherisc.com/] takes you to the ‘Home’ area of the GIF monitor. In the menu bar, you can choose from the following menu items.
+The URL https://gif-monitor.etherisc.com/[https://gif-monitor.etherisc.com/] takes you to the ‘Home’ area of the GIF monitor. In the menu bar, you can choose from the following menu items. +
 
-In the ‘Home’ area you can click directly on the menu items in the menu bar and then select the corresponding menu item in the drop-down menu.
+In the ‘Home’ area you can click directly on the menu items in the menu bar and then select the corresponding menu item in the drop-down menu. +
 
-*Core*
+*Core* +
+The ‘Core’ area is by far the most extensive area. It displays the available GIF instances, the GIF core contracts per instance and the events of these core contracts. The core area shows the complete core contracts that each user can use. +
 
-The ‘Core’ area is by far the most extensive area. It displays the available GIF instances, the GIF core contracts per instance and the events of these core contracts. The core area shows the complete core contracts that each user can use.
-
-Here you find the blockchains the instances use, such as xDai or Ethereum.  +
-By clicking on an instance, you will get detailed information like the instance ID, name, name of the blockchain, chain ID and status (active or not). Each instance is identified by its registry address. GIF is multi-chain capable and can run on all significant Ethereum-similar blockchains.
+Here you find the blockchains the instances use, such as xDai or Ethereum. By clicking on an instance, you will get detailed information like the instance ID, name, name of the blockchain, chain ID and status (active or not). Each instance is identified by its registry address. GIF is multi-chain capable and can run on all significant Ethereum-similar blockchains. +
 
 In this section you will find all 14 GIF core (smart) contracts. Each core contract provides essential functionality to a GIF Instance. +
-You can click on the contract name for all GIF core contracts to get to the contract details. Here you will see on which instance you are, the instance ID, the address on the blockchain, the name of the core contract, and the detailed contract functionality as described by its contract application binary (ABI) interface. 
+
+You can click on the contract name for all GIF core contracts to get to the contract details. Here you will see on which instance you are, the instance ID, the address on the blockchain, the name of the core contract, and the detailed contract functionality as described by its contract application binary (ABI) interface. +
 
 Here the contract events of the GIF core contracts are displayed. +
-Contract events are emitted by smart contracts during code execution and permanently stored on the chain. Events are primarily used to document significant changes in the data of the smart contracts, for example the change of status.
 
-*Oracles*
+Contract events are emitted by smart contracts during code execution and permanently stored on the chain. Events are primarily used to document significant changes in the data of the smart contracts, for example the change of status. +
 
-The available oracles are displayed in the ‘Oracle’ area of the GIF monitor.
+*Oracles* +
+The available oracles are displayed in the ‘Oracle’ area of the GIF monitor. +
 
 On this page, you will find all oracles available on the platform. Here you can view all input and callback formats as a product owner. In addition, the appropriate oracle can be requested from the Oracle owners. +
-By clicking on an oracle, the GIF monitor displays the details. +
 
-Of course, individual oracles can also be implemented on request.
+By clicking on an oracle, the GIF monitor displays the details. Of course, individual oracles can also be implemented on request.
 
-*Products*
+*Products* +
+In the ‘Products’ area, all products are listed that have been created in the framework. By clicking on a product, the details are displayed. +
 
-In the ‘Products’ area, all products are listed that have been created in the framework. By clicking on a product, the details are displayed. 
-
-*Policies*
-
-In the ‘policies’ area you can find information on every phase of the life cycle of a policy. Starting with information about the product, metadata, application, policy, claim and payout. Depending on the policy's life cycle, more or fewer information blocks are displayed.
+*Policies* +
+In the ‘policies’ area you can find information on every phase of the life cycle of a policy. Starting with information about the product, metadata, application, policy, claim and payout. Depending on the policy's life cycle, more or fewer information blocks are displayed. +
 
 = 4 Tokenizing Insurance
 
@@ -601,18 +631,20 @@ You can tokenize almost anything. Some things make less sense than others. We ar
 
 The acronym “DIP” stands for the “Decentralized Insurance Protocol” and the “Decentralized Insurance Platform”. DIP is the native token of Etherisc issued by the 'Decentralized Insurance Foundation' (DIF) based in Zug/Switzerland.  +
 During the Etherisc DIP TGE (Token Generating Event), DIP tokens have been created on the public Ethereum mainnet. We preferred using this term over “ICO'' or “token sale.” +
-*Quick facts about the Etherisc DIP **TGE*
 
-* Hardcap: 30 Million USD
-* Total Supply: 1 Billion (10^9)DIP 
-* Tokens distributed to early investors and during TGE: 
+*Quick facts about the Etherisc DIP TGE*
+
+* *Hardcap:* 30 Million USD
+* *Total Supply:* 1 Billion (10^9)DIP 
+* *Tokens distributed to early investors and during TGE:* 
 300M DIP (= 30% of total supply)
-* TGE price: 1 DIP = 0,10 USD
-* Only registered contributors were able to participate in the Etherisc DIP TGE.
-Participants (not customers) need tokens to join the platform's "ecosystem." As a rule of thumb, everybody who wants to use the platform to earn money, will need to own and stake a certain number of DIP tokens. These DIP tokens remain in the ownership of the participant, and will be reimbursed if the participant intends to leave the platform - albeit with a certain notice period.  +
+* *TGE price:* 1 DIP = 0,10 USD
+* *Only registered contributors* were able to participate in the Etherisc DIP TGE. +
+
+Participants (not customers) need tokens to join the platform's "ecosystem." As a rule of thumb, everybody who wants to use the platform to earn money, will need to own and stake a certain number of DIP tokens. These DIP tokens remain in the ownership of the participant, and will be reimbursed if the participant intends to leave the platform - albeit with a certain notice period. +
 Depending on the service offered, a different number of tokens are required to use the platform or offer services on the platform. Simple services require a small number of tokens, while complex or critical services require more tokens. The amount of tokens that must be provided as stake depends on the potential damage caused by participant misconduct or violation of the platform terms. The staking of DIP tokens is different from the staking of assets in risk pools, which we will discuss below. +
 Staked DIP tokens can be “slashed” in case of bad behavior, e.g. violation of certain terms or requirements. The slashing rules will be published on the Etherisc website. +
-In the future, these rules and parameters will be the basis for controlling the platform. The DIP token serves as collateral and a representation of the network's tangible and intangible value similar to the way financial resources serve to secure operating resources in a cooperative.
+In the future, these rules and parameters will be the basis for controlling the platform. The DIP token serves as collateral and a representation of the network's tangible and intangible value similar to the way financial resources serve to secure operating resources in a cooperative. +
 
 == 4.2 	The Etherisc Staking Model
 
@@ -620,7 +652,7 @@ In the future, these rules and parameters will be the basis for controlling the 
 |_Staking is still in beta - please expect that the Etherisc Staking Model may undergo substantial changes in the near future!_
 
 |===
-In the Etherisc ecosystem, staking comes in *two different flavors*: 
+In the Etherisc ecosystem, staking comes in *two different flavors:* 
 
 . The first type of staking is staking of DIP tokens in a “Global Staking Pool”. The first type of staking ensures that participants who earn money using the platform have “skin in the game”, and also ensures that participants are economically incentivized to behave compliant to the platform rules. 
 . The second type of staking is staking of crypto assets, typically stablecoins, in risk pools. These assets carry the insurance risk. 
@@ -628,24 +660,31 @@ In the Etherisc ecosystem, staking comes in *two different flavors*:
 === 4.2.1 Staking for Risk Pools 
 
 When you buy an insurance policy, you expect a payout in the event of a claim. To ensure that there is always enough liquidity to start or continue selling policies and to service all payouts, we plan to set up a system with two corresponding risk pools. +
+
 The two corresponding risk pools will collect premiums for all policies sold and additional liquidity provided by investors. Each well-designed risk pool is subject to an actuarial model for the insured risk and thus determines a certain probability of default for each policy. +
+
 We define staking in the decentralized insurance context as:
+
 |===
 |_"The process of attracting and binding capital from investors to specific risk pools to cover their tail risks." _
 
 |===
-Net premiums (after deduction of costs) from the purchase of policies are paid into the risk pool, and claims are covered from the funds of the risk pool. An investor chooses an investment option based on risk tolerance and portfolio structure.  +
-Alternatively, the investor selects his investment according to ethical aspects such as environmental friendliness, climate neutrality, or social commitment. If necessary, he accepts a lower profit to offer insurance to small farmers, for example. We will always encourage the implementation of green & fair products on the GIF!
+
+Net premiums (after deduction of costs) from the purchase of policies are paid into the risk pool, and claims are covered from the funds of the risk pool. An investor chooses an investment option based on risk tolerance and portfolio structure. +
+
+Alternatively, the investor selects his investment according to ethical aspects such as environmental friendliness, climate neutrality, or social commitment. If necessary, he accepts a lower profit to offer insurance to small farmers, for example. We will always encourage the implementation of green & fair products on the GIF! +
 
 === 4.2.2 Trustless Risk Pools
 
 For a trustless risk pool to function, methods must be implemented that technically and transparently guarantee that the interests of both the insured and investors are met. For the insured, this means that we can prove that the risk pool will always be able to fulfill claims. +
-For investors, this means they receive a fair share of the profits made and can decide for which risks they will engage with their funds. This results in the need for the system to run entirely on the blockchain. On blockchain, computation is expensive, so we need to keep these calculations efficient. To achieve this goal, we plan to implement "epochs" into our risk pools. The duration of an epoch will depend on the product. For each epoch, all policies sold will be treated the same. This step reduces the complexity massively.
+
+For investors, this means they receive a fair share of the profits made and can decide for which risks they will engage with their funds. This results in the need for the system to run entirely on the blockchain. On blockchain, computation is expensive, so we need to keep these calculations efficient. To achieve this goal, we plan to implement "epochs" into our risk pools. The duration of an epoch will depend on the product. For each epoch, all policies sold will be treated the same. This step reduces the complexity massively. +
 
 === 4.2.3 The basic idea of risk pools and rewards in insurance
 
 The core economic process of insurance, the transfer of risk between insureds and investors, is implemented in the GIF framework through risk pools. +
-While the standard risk pool template includes all the core functions for processing premiums, claims, deposits, payouts, and returns, the template leaves maximum flexibility for risk pool keepers to design their pool's economic model to appeal to insureds, product owners, and investors.
+
+While the standard risk pool template includes all the core functions for processing premiums, claims, deposits, payouts, and returns, the template leaves maximum flexibility for risk pool keepers to design their pool's economic model to appeal to insureds, product owners, and investors. +
 
 === 4.2.4 Core functions of a risk pool
 
@@ -655,43 +694,49 @@ While the standard risk pool template includes all the core functions for proces
 * Payout claims in case of loss.
 * Processing investment withdrawals. This mechanism is designed so that the risk capital can be paid out only when it no longer serves as a security of concluded policies. 
 * Process profit distribution. A significant part of the paid premiums is distributed as profit to the investors depending on the investment amount, the period of the deposit and the risk taken.
-Autonomous control of risk pool parameters. The size of risk pools depends on the demand for the underlying product.  We will provide mechanisms that allow autonomous control of risk pool parameters.
+* Autonomous control of risk pool parameters. The size of risk pools depends on the demand for the underlying product.  We will provide mechanisms that allow autonomous control of risk pool parameters.
 
 == 4.3 	Implementation of Risk Pools in the GIF
 
-The standard risk pools will initially consist of a primary risk pool (PRP). Optionally,  secondary risk pools (SRP) can be created. This combination of two risk pools provides complete flexibility for insurance products and investors.
+The standard risk pools will initially consist of a primary risk pool (PRP). Optionally,  secondary risk pools (SRP) can be created. This combination of two risk pools provides complete flexibility for insurance products and investors. +
 
 === 4.3.1 Primary Risk Pools (PRP)
 
 The primary risk pools (PRP) will receive the net premiums (i.e. gross premiums minus costs) paid by insurers in stablecoins (e.g. USDC, in this example, or xDai at Flight Delay). in exchange for assets staked by the investor The PRP will generate risk pool NFTs. +
-An investor will not transfer his DIP token directly into the PRP but into the SRP. The deposited DIP tokens are collected and transferred to the PRP at the end of an epoch, and the PRP generates a new risk pool NFT; the owner is the SRP. The investor receives the equivalent value of his deposited DIP tokens in risk pool tokens (RPT) minted by the SRP.
-The global staking pool will span all primary risk pools of a GIF instance. Comparable to reinsurance, the pool steps in if, for example, black swan events lead to the insolvency of a primary risk pool, then the parachute pool steps in. Investors can also stake their tokens and stable coins in the global staking pool.
+
+An investor will not transfer his DIP token directly into the PRP but into the SRP. The deposited DIP tokens are collected and transferred to the PRP at the end of an epoch, and the PRP generates a new risk pool NFT; the owner is the SRP. The investor receives the equivalent value of his deposited DIP tokens in risk pool tokens (RPT) minted by the SRP. +
+
+The global staking pool will span all primary risk pools of a GIF instance. Comparable to reinsurance, the pool steps in if, for example, black swan events lead to the insolvency of a primary risk pool, then the parachute pool steps in. Investors can also stake their tokens and stable coins in the global staking pool. +
 
 image::_images/wp-risk-pools.png[]
 
 === 4.3.2 Risk pool token
 
-If the investor stakes assets in the primary risk pool, he receives a risk pool NFT as a receipt. While NFTs are tradeable in principle, we expect the risk pool NFTs to be illiquid. To facilitate trading of risks, we will introduce fungible risk pool tokens (RPT) via so-called “Secondary Risk Pools”. A secondary risk pool will acquire the risk pool NFTs of the primary risk pool and fractionalize it. Investors can invest in a secondary risk pool and will receive fungible (ERC-20) risk pool tokens in proportion to his share in the secondary risk pool. New risk pool tokens are minted when new capital is deposited into the pool. For each pool, specific RPT are minted.
+If the investor stakes assets in the primary risk pool, he receives a risk pool NFT as a receipt. While NFTs are tradeable in principle, we expect the risk pool NFTs to be illiquid. To facilitate trading of risks, we will introduce fungible risk pool tokens (RPT) via so-called “Secondary Risk Pools”. A secondary risk pool will acquire the risk pool NFTs of the primary risk pool and fractionalize it. Investors can invest in a secondary risk pool and will receive fungible (ERC-20) risk pool tokens in proportion to his share in the secondary risk pool. New risk pool tokens are minted when new capital is deposited into the pool. For each pool, specific RPT are minted. +
 
 === 4.3.3 Risk pool NFT
 
-The NFTs are linked to a specific PRP and cover  risks of individual insurance policies. The NFTs remain in the SRP and the RPTs in the investors' wallets. When all policies linked to an NFT are expired and all associated claims have been paid out the investor can withdraw all assets associated with the NFT.
+The NFTs are linked to a specific PRP and cover  risks of individual insurance policies. The NFTs remain in the SRP and the RPTs in the investors' wallets. When all policies linked to an NFT are expired and all associated claims have been paid out the investor can withdraw all assets associated with the NFT. +
 
 === 4.3.4 Why Epochs?
 
-We want investors to deposit and terminate as quickly and efficiently as possible. But the protection of other investors and policyholders is also essential to us. So we have found a compromise that benefits all parties, the Epochs.Epochs massively reduce computational complexity, a limiting factor in smart contracts due to blocking gas limits. The epoch concept can execute every transaction with a fixed gas cap.
+We want investors to deposit and terminate as quickly and efficiently as possible. But the protection of other investors and policyholders is also essential to us. So we have found a compromise that benefits all parties, the Epochs.Epochs massively reduce computational complexity, a limiting factor in smart contracts due to blocking gas limits. The epoch concept can execute every transaction with a fixed gas cap. +
 
 === 4.3.5 Single-sided/double-sided/multi-sided staking
 
-In the first release of our risk pool, we will offer single-sided staking only (the risk is taken by a stablecoin only). However, you need to stake a certain amount of DIP tokens in the Global Staking Pool, in relation to the capital invested. So only when you have staked the base amount in DIP tokens can you contribute risk capital in the form stablecoins. In the future, investors will be able to stake different assets - not only stablecoins - depending on the requirements of the risk pool keeper in the risk pools.
+In the first release of our risk pool, we will offer single-sided staking only (the risk is taken by a stablecoin only). However, you need to stake a certain amount of DIP tokens in the Global Staking Pool, in relation to the capital invested. So only when you have staked the base amount in DIP tokens can you contribute risk capital in the form stablecoins. In the future, investors will be able to stake different assets - not only stablecoins - depending on the requirements of the risk pool keeper in the risk pools. +
 
 === 4.3.6 Credit rewards and payment losses
 
 The standard offered by the generic insurance framework is simple. Premiums are added to the risk pool (after deducting costs) and increase the value of the risk pool tokens. Payouts are paid from the pool and decrease the value of the risk pool tokens. +
+
 In the standard implementation, profits initially remain in the pool. Profits are realized the moment capital can be withdrawn from the pool. +
-Investors receive their premiums in the epoch in which the contract is concluded. The premiums paid by policyholders are credited proportionately in the ratio of personal risk capital / total risk capital. Any refunds in the event of a claim are shared proportionally by all risk capital providers who have contributed to the premiums since the policy's inception.  +
+
+Investors receive their premiums in the epoch in which the contract is concluded. The premiums paid by policyholders are credited proportionately in the ratio of personal risk capital / total risk capital. Any refunds in the event of a claim are shared proportionally by all risk capital providers who have contributed to the premiums since the policy's inception. +
+
 So if you have two investors, investor 1 has DIP 100,000 staked, investor 2 has DIP 50,000 staked. Insurance is taken out with a premium of USDC 30. Investor 1 receives the equivalent of 20 USDC through the price gain of his RPT, Investor 2 receives the equivalent of 10 USDC. The USDC remain in the PRP. +
-If a claim is then made at USDC 90 on that policy, the USDC 90 will be paid out of the PRP. Investor 1 loses the equivalent of 60 USDC, Investor 2 loses the equivalent of 30 USDC.
+
+If a claim is then made at USDC 90 on that policy, the USDC 90 will be paid out of the PRP. Investor 1 loses the equivalent of 60 USDC, Investor 2 loses the equivalent of 30 USDC. +
 
 = 5 Etherisc Governance Model (EGM)
 
@@ -711,20 +756,20 @@ Any system of rules requires a set of underlying principles and “values”. Bo
 Some people would e.g. emphasize other values not listed here, or put it in different words. However, these rules have been proven to be helpful in other contexts which rely on decentralization and collaboration.  +
 They serve as general guidelines to derive more precisely defined rules and requirements. 
 
-. *Respect*
+. *Respect* +
 Each platform user, actor, stakeholder should respect and value diversity. We promote inclusiveness and treat others with tact, courtesy and respect. We abstain from and actively discourage discrimination in all forms. 
-. *Collaboration *
+. *Collaboration* +
 The Decentralized Insurance Platform is based on strong, voluntary partnerships. The Platform will always encourage partnerships and cooperation. Each participant should be able to benefit from evolving partnerships.
-. *Responsibility*
+. *Responsibility* +
 Each participant shall act fully on his/her own responsibility, while the platform will provide any means to support this. All participants acknowledge their joint responsibility for the operations and development of the platform as a whole.
-. *Trust*
+. *Trust* +
 The platform encourages trustful behavior and will provide a safe environment for all participants. Each participant is committed to compliant behavior. Transparency is an important element in trust-building, therefore we encourage transparency as much as possible, without violating the justified needs for protection of each participant of the platform.
-. *Public good / Commons*
+. *Public good / Commons* +
 The platform as a whole serves the public good. It is a “commons”footnote:[https://en.wikipedia.org/wiki/Elinor_Ostrom; see also https://www.onthecommons.org/magazine/elinor-ostroms-8-principles-managing-commmons] in the sense of Elinor Ostrom and operated by the community of all participants. Therefore, the governance rules for the platform are based on the eight rules for successful commons, coined by E. Ostrom. In chapter 5, we discuss how the “eight rules” are implemented in the EGM and DIP Protocol.
 
 == 5.3 	High Level Structure of the EGM
 
-In the image below a number of actors/participants are mentioned, the names mentioned are written as an example and it may be that other actors and/or blockchains are added. In this image the following players are mentioned;
+In the image below a number of actors/participants are mentioned, the names mentioned are written as an example and it may be that other actors and/or blockchains are added. In this image the following players are mentioned. +
 
 image::_images/wp-governance-model.png[]
 
@@ -754,6 +799,7 @@ Example Blockchain
 . While the participants of the platform are represented by addresses on blockchain protocols, we need a link to the real world connecting the on-chain infrastructure with legal entities in the real world.
 . In the real world (“IRL”), the topmost authority is the not-for-profit Decentralized Insurance Foundation (DIF), based in Zug, Switzerland, and regulated according to Swiss Law.
 . The purpose of the DIF is defined in the notarial deed of the Foundation and cannot be changed: 
+
 |===
 |_“The Foundation's purpose is promoting and developing new technologies and applications, especially in the fields of new open and decentralized software architectures mainly in the insurance field. A dominating but not exclusive focus is set on the promotion and development of the so-called DIP-protocol and the related technologies, as well as the promotion and support of applications using the DIP-protocol.”_
 
@@ -820,10 +866,12 @@ The exact scheme will be published in time.
 . Each participant who has staked and locked DIP tokens will be granted general voting rights in the Etherisc Governance Model. For specific purposes, there may be the requirement to additional stake and lock tokens in a governance lock manager. For each governance decision, the voting rights are calculated on a snapshot of the GSP at a certain block height.
 . Voting is performed byhttps://snapshot.org/#/[ Snapshot voting] using a strategy which reads the locked tokens out of the GSP at a certain block height. 
 . The code of the GSP is published in the https://github.com/etherisc/global-staking[global staking repo] in the etherisc github.
+
 == 5.6 	Monetary policy of the DIF
 
 . As a major holder of DIP tokens (about 60% of the total supply of DIP tokens), the DIF is obligated to protect the interests of the DIP token holders. The treasury of the DIF is not counted in the circulating supply of DIP tokens.
 . The DIF may allocate grants or provide DIP tokens to incentivize the development and use of the DIP protocol. These grants and incentives will increase the circulating supply and could therefore lead to a dilution of the value of the DIP token. However, the DIF will always take care that grants and incentives are always in relation to the value created, so that the DIP token in total does not experience unnecessary dilution.
+
 == 5.7 	Appendix: Eight Rules for successful commons and how they are implemented in the DIP Protocol
 
 . Commons need to have clearly defined boundaries. In particular, who is entitled to access to what? Unless there’s a specified community of benefit, it becomes a free for all, and that’s not how commons work. The “boundaries” are implemented by the token curated registry for the GIF Instances, and the registries for products, oracles and risk pools in the GIF Instances itself.
@@ -836,7 +884,8 @@ Participation is implemented by the DAOs which govern the GIF Instances. Each GI
 This is implemented by the arbitration board which offers dispute resolution on every level.
 . Commons need the right to organize. Your commons rules won’t count for anything if a higher local authority doesn’t recognise them as legitimate.
 This is implemented by the written rules which govern the DIF and which in turn govern the DAOs representing the different GIF Instances. 
-Commons work best when nested within larger networks. Some things can be managed locally, but some might need wider regional cooperation – for example an irrigation network might depend on a river that others also draw on upstream. This is implemented by the hierarchical structure, the top of which is a legal foundation recognized by Swiss law.
+. Commons work best when nested within larger networks. Some things can be managed locally, but some might need wider regional cooperation – for example an irrigation network might depend on a river that others also draw on upstream. This is implemented by the hierarchical structure, the top of which is a legal foundation recognized by Swiss law.
 
-= 6 Glossary and abbreviations
+////
+= Glossary and abbreviations
 
