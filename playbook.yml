@@ -87,3 +87,4 @@ antora:
       index_latest_only: true
 urls:
   html_extension_style: drop
+  redirect_facility: netlify
