@@ -781,22 +781,32 @@ Dans l'image ci-dessous, un certain nombre d'acteurs/participants sont mentionn�
 
 image::_images/wp-governance-model.png[]
 
-Name
-Short description
-Decentralized Insurance Foundation
-Development and promotion of the DIP-protocol, funding of the development of the Generic Insurance Framework (GIF)
-Kleros
-Decentralized arbitration service and Token Curated Registry
-DAOstack
-Software stack for DAOs including a library of governance protocols and interfaces for creating and managing DAOs
-Mainnet
-Example Blockchain
-Gnosis Chain
-Example Blockchain
-Avalanche
-Example Blockchain
-Polygon
-Example Blockchain
+[cols="1,1"]
+|===
+|Name |Short description
+
+|Decentralized Insurance Foundation
+|Development and promotion of the DIP protocol, funding of the development of the Generic Insurance Framework (GIF)
+
+|Kleros
+|Decentralized arbitration service and token curated registry
+
+|DAOstack
+|Software stack for DAOs including a library of governance protocols and interfaces for creating and managing DAOs
+
+|Mainnet
+|Example blockchain
+
+|Gnosis chain
+|Example blockchain
+
+|Avalanche
+|Example blockchain
+
+|Polygon
+|Example blockchain
+
+|===
 
 . Les quatre aspects qui définissent l'EGM sont les suivants :
 .. Les participants à la plateforme forment l’autorité suprême

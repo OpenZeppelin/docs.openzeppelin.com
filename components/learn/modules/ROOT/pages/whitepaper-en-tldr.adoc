@@ -1,0 +1,83 @@
+
+= tl;dr
+
+= Whitepaper 2.0 tl:dr +
+== The current insurance industry isn’t working
+
+Giant corporations dominate a multi-trillion-dollar insurance industry. Insurance remains an indispensable part of the modern economy and is a critical society’s safety net. +
+However, the industry is not working for:
+
+* *customers:* +
+** *the insured:* when they need help the most, they can struggle to get reimbursed by corporations whose profits rely on investing customer premiums and not paying out claims. +
+** *the underinsured:* millions of people are missing out on life-changing insurance benefits because policies are too expensive, intransparent and inefficient. +
+
+* *insurance providers:* +
+* *wrestle with trading off shareholder (generate profits) and customer interests (pay out claims)*, making them marginally unattractive to both have high operational costs as they need to collect, analyze and store enormous. +
+* *customer/industry data sets in huge private silos* in proprietary ways new entrants face a high entry-barrier due to complex regulations, reducing the ability for disruptive innovation. +
+
+* *investors:* +
+** customer premiums (risk pools) are very attractive investment instruments, however, they remain inaccessible to most investors or customers themselves. +
+
+== Blockchain will revolutionize the insurance industry
+
+* *Blockchain smart contracts:* +
+** completely cut out many processes, radically reducing coordination (and therefore policy) costs. +
+** use pre-defined claims payout criteria and publicly available data (parametric insurance) to eliminate conflict of interest, human error and increase transparency/trust. +
+** can fully automate claims/payout handling resulting in near-real-time payouts. +
+
+* *Blockchain tokenization:* +
+** democratizes investment access to other customer premiums (risk pools) +
+** enables access to new investment vehicles and markets (including crypto), which are usually inaccessible to non-professional investors. +
+** allows customers to benefit from investment returns for their insurance premium. +
+
+== Etherisc is the future of insurance
+
+*Etherisc’s open-source blockchain platform is a growing ecosystem, benefiting for.* +
+
+* *customers:* who can easily access innovative, cheaper, faster, more transparent insurance. +
+* *insurance providers:* startups, large/small companies or non-profit groups can quickly and easily offer high-quality, innovative parametric peer-to-peer insurance products. +
+* *investors:* can benefit from a broad range of risk-based investment bundles (trustless risk pools), tailored to their risk/investment appetite. 
+
+== GIF (Generic Insurance Framework)
+
+*The Generic Insurance Framework (GIF) is the core of Etherisc’s multi-chain, multi-tenant decentralized insurance platform:* +
+
+* *open-source smart contracts* that implement generic insurance product and policy lifecycle functions across the complete value chain. +
+* *oracles* provide necessary data (e.g. flight or weather) 
+* *product-tailored end-to-end execution environments* (GIF instances) covering products, oraclesa nd risk pools. +
+
+*Etherisc offers insurance providers:* +
+
+* ready-to-use modules to quickly & easily design fully-compliant and licensed insurance products. +
+* a transparent, real-time, structured overview of all building blocks, events and transactions available in a GIF instance (GIF monitor). +
+* high-quality code audited by two independent reputable businesses 
+* a new legal model which removes most insurance company’s legal and financial requirements by exchanging a claim for a technical guarantee (certain countries only). +
+
+
+*Etherisc’s governance ensures that the protocol continues to improve and can be used freely.* +
+
+* Etherisc’s Swiss-based foundation (DIF) formally holds the IP rights of the protocol. +
+* DIP is Etherisc’s token, which participants need to join the ecosystem: Hardcap of 1 Billion (10^9)DIP, of which 30% (300M DIP) were distributed during 2016’s token generating event, the remainder is held in the DIF treasury. +
+* Use of the ecosystem is governed by the Etherisc Governance Model (EGM), bound by a set of rules and principles. +
+* GIF instances are certified by the DIF, registered in the token curated registry and set up as DAOs. +
+* Participants are required to stake their DIP tokens to be able to enact their EGM voting rights. +
+
+== Etherisc’s economic principles
+
+* development and maintenance of the platform, EGM and GIF instances are intended to be self-sustaining and not profit-oriented. +
+* whilst providing high-quality, competitive products for customers, each GIF instance is intended to generate profits for participants. +
+* participants need to stake their DIP tokens to be able to invest capital (staking stable coins) in primary risk pools. +
+** contain customer premiums and investment capital to cover tail risks +
+** claims are 100% collateralized (i.e. sufficient capital to pay out all claims) +
+** invested capital is at risk and can generate attractive returns depending on claims frequency/severity (e.g. no claims = high profit, high claims = no profit). +
+** staking assets in the risk pool mints an NFT, which is automatically purchased by a secondary risk pool, which fractionalizes it into ERC20 risk pool tokens (RPT). +
+** specific RPT are minted for each risk pool and tradable on the open market. +
+** any profits are paid out to token holders at the end of an ‘epoch’ through the increased value of their RPTs.
+** insurance providers also benefit from risk pool investments through staking. They must also pay a regular fee to cover the EGM's operational cost and stake in governance pools for voting rights. +
+
+== So what are you waiting for?
+
+A fair and truly decentralized ecosystem that protects the unprotected and welcomes everyone to be a part of it. Want to be part of an ecosystem of cheaper, faster and more transparent insurance? Join the revolution today and say hello to insurance 2.0!
+
+
+

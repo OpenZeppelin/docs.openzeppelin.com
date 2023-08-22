@@ -5,11 +5,6 @@ xref:overview.adoc[[.card-title]#Overview# [.card-body]#pass:q[Introduction in t
 
 [.card.card-learn]
 --
-xref:core-contracts.adoc[[.card-title]#Core Contracts# [.card-body]#pass:q[The core contracts are the foundry for developing and operating insurance products.]#]
---
-
-[.card.card-learn]
---
 xref:instances.adoc[[.card-title]#Instances# [.card-body]#pass:q[Instances are deployments of the smart contracts which can run products, oracles and risk pools.]#]
 --
 
@@ -56,4 +51,9 @@ xref:governance-model.adoc[[.card-title]#Governance# [.card-body]#pass:q[The Eth
 [.card.card-learn]
 --
 xref:gif-monitor.adoc[[.card-title]#GIF Monitor# [.card-body]#pass:q[The GIF Monitor serves as the central information hub to display in-depth data of all GIF instances, their products, oracles and riskpools.]#]
+--
+////
+[.card.card-learn]
+--
+xref:core-contracts.adoc[[.card-title]#Core Contracts# [.card-body]#pass:q[The core contracts are the foundry for developing and operating insurance products.]#]
 --
