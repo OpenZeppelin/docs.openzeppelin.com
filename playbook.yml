@@ -60,7 +60,9 @@ content:
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/defender-docs
-      branches: HEAD
+      branches: 
+        - docs-v*
+        - '!docs-v2'
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/openzeppelin-subgraphs
