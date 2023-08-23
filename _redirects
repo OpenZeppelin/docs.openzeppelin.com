@@ -100,6 +100,5 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 
 # Defender V2 -> Netlify
 /defender/v2 https://docs-v2--openzeppelin-defender.netlify.app 301
-/defender/v2/* https://docs-v2--openzeppelin-defender.netlify.app/:splat 301
+/defender/v2/* https://docs-v2--openzeppelin-defender.netlify.app/defender/v2/:splat 301
 /defender/* /defender/v1/:splat 301
-/defender /defender/v2 301
