@@ -99,4 +99,4 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 /upgrades-plugins/1.x/api-buidler-upgrades /upgrades-plugins/1.x/api-hardhat-upgrades 301
 
 # Defender V2 -> Netlify
-/defender/v2/* https://docs-v2--openzeppelin-defender.netlify.app/defender/v2/:splat 302
+https://docs.openzeppelin.com/defender/v2/* https://docs-v2--openzeppelin-defender.netlify.app/defender/v2/:splat 302
