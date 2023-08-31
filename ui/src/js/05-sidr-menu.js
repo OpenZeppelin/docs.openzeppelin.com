@@ -27,5 +27,5 @@
   });
 
   // The preinit class sets up collapsed states before JS executes to avoid flashing uncollapsed menu
-  document.querySelector('.nav-collapse-preinit')?.classList.toggle('nav-collapse-preinit');
+  document.querySelector('.nav-collapse-preinit')?.classList.remove('nav-collapse-preinit');
 })();
