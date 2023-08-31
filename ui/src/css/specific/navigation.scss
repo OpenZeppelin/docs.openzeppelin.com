@@ -6,10 +6,10 @@
   a {
     text-decoration: none;
     color: inherit;
+  }
 
-    &.nav-link-active {
-      color: var(--core-violet-4);
-    }
+  .nav-li-active > a {
+    color: var(--core-violet-4);
   }
 }
 
@@ -93,18 +93,25 @@
   opacity: .8;
 }
 
-button.collapse-toggle{
+button.collapse-toggle {
   cursor: pointer;
   padding: 0;
   border: none;
 
-  &.active ~ .collapsible-content {
-  display: none;
+  &.toggled {
+    img {
+      transform: rotate(-90deg);
+    }
+
+    ~ .collapsible-content {
+      display: none;
+    }
   }
 }
 
-.collapse-toggle.active img{
-  transform: rotate(-90deg);
+/* Collapse by default before JS runs and control is handed over to JS */
+body.sidebar-collapse-default .nav-collapse-preinit .nav-li:not(.nav-li-active-parent) > button.collapse-toggle ~ .collapsible-content {
+  display: none;
 }
 
 .close-menu-btn {
