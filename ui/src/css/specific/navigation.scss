@@ -110,7 +110,7 @@ button.collapse-toggle {
 }
 
 /* Collapse by default before JS runs and control is handed over to JS */
-body.collapse-default .nav-collapse-preinit .nav-li:not(.nav-li-active-parent) > button.collapse-toggle ~ .collapsible-content {
+body.sidebar-collapse-default .nav-collapse-preinit .nav-li:not(.nav-li-active-parent) > button.collapse-toggle ~ .collapsible-content {
   display: none;
 }
 

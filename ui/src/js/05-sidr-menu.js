@@ -14,7 +14,7 @@
     sidrPanel.classList.toggle('toggled');
   });
 
-  const isDefaultCollapsed = document.body.classList.contains('collapse-default');
+  const isDefaultCollapsed = document.body.classList.contains('sidebar-collapse-default');
   const collapseToggles = document.querySelectorAll('.collapse-toggle');
 
   collapseToggles.forEach(function (o) {
