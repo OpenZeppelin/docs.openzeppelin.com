@@ -18,15 +18,9 @@
   const collapseToggles = document.querySelectorAll('.collapse-toggle');
 
   collapseToggles.forEach(function (o) {
-    if (isDefaultCollapsed && !o.parentElement.classList.contains('nav-li-active-parent')) {
-      o.classList.toggle('toggled');
-    }
     const toggle = () => o.classList.toggle('toggled');
     o.addEventListener('click', toggle);
     const span = [...o.parentElement.children].find(c => c.matches('span.nav-link'));
     span?.addEventListener('click', toggle);
   });
-
-  // The preinit class sets up collapsed states before JS executes to avoid flashing uncollapsed menu
-  document.querySelector('.nav-collapse-preinit')?.classList.remove('nav-collapse-preinit');
 })();
