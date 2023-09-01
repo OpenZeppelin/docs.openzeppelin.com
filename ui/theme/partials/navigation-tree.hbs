@@ -7,7 +7,7 @@
     {{{content}}}
   </a>
   {{else}}
-  {{#if content}}<span>{{{content}}}</span>{{/if}}
+  {{#if content}}<span {{#if items}}class="nav-link"{{/if}}>{{{content}}}</span>{{/if}}
   {{/if}}
   {{!-- Nesting --}}
   {{#if items}}
