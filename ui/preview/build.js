@@ -81,12 +81,22 @@ async function makeTemplate() {
   return h.compile(layout);
 }
 
+// https://gitlab.com/antora/antora-ui-default/-/blob/bdf6484e46f41cff17238a7ef5aeae5368622d2c/gulp.d/tasks/build-preview-pages.js#L125-131
+
+function resolvePage (spec, context = {}) {
+  if (spec) return { pub: { url: resolvePageURL(spec) } }
+}
+
+function resolvePageURL (spec, context = {}) {
+  if (spec) return '/' + (spec = spec.split(':').pop()).slice(0, spec.lastIndexOf('.')) + '.html'
+}
+
 async function getUIModel() {
   const model = yaml.parse(await fs.readFile(path.join(previewDir, 'model.yml'), 'utf8'));
   const makeModel = page => {
     const [componentName, ...componentPage] = page.relativeSrcPath.split(path.sep);
     const component = model.site.components[componentName] ?? model.site.components.ROOT;
-    const url = path.join(componentName, ...componentPage)
+    const url = path.join('/', componentName, ...componentPage)
       .replace(path.extname(page.relativeSrcPath), '.html');
     const siteRootPath = path.relative(page.relativeSrcPath, '');
     const siteRootUrl = path.join(siteRootPath, 'index.html');
@@ -103,6 +113,7 @@ async function getUIModel() {
         component,
         componentVersion: component.latestVersion,
       },
+      resolvePage,
     };
   };
   return { makeModel, model };

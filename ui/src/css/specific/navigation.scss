@@ -6,10 +6,10 @@
   a {
     text-decoration: none;
     color: inherit;
+  }
 
-    &.nav-link-active {
-      color: var(--core-violet-4);
-    }
+  .nav-li-active > a {
+    color: var(--core-violet-4);
   }
 }
 
@@ -78,10 +78,9 @@
   font-size: 1rem;
 }
 
-.nav-li {
-  a:hover {
-    opacity: .8;
-  }
+.nav-link:hover {
+  opacity: .8;
+  cursor: pointer;
 }
 
 .nav-link code {
@@ -93,18 +92,20 @@
   opacity: .8;
 }
 
-button.collapse-toggle{
+button.collapse-toggle {
   cursor: pointer;
   padding: 0;
   border: none;
 
-  &.active ~ .collapsible-content {
-  display: none;
-  }
-}
+  &.toggled {
+    img {
+      transform: rotate(-90deg);
+    }
 
-.collapse-toggle.active img{
-  transform: rotate(-90deg);
+    ~ .collapsible-content {
+      display: none;
+    }
+  }
 }
 
 .close-menu-btn {

@@ -7,15 +7,23 @@ const fs = require('fs');
 const glob = require('glob');
 const sv = require('semver');
 
+const buildDir = 'build/site';
+
 // Get the names of all components.
-const components = glob.sync('sitemap-*.xml', { cwd: 'build/site' })
+const components = glob.sync('sitemap-*.xml', { cwd: buildDir })
   .map(c => c.match(/sitemap-(.*)\.xml/)[1]);
 
-let redirects = fs.readFileSync('_redirects');
+let redirects = [];
+
+if (fs.existsSync(`${buildDir}/_redirects`)) {
+  redirects.push(fs.readFileSync(`${buildDir}/_redirects`, 'utf8').trim());
+}
+
+redirects.push(fs.readFileSync('_redirects', 'utf8').trim());
 
 for (const comp of components) {
   // Get all the versions of this component.
-  const versions = glob.sync('*/', { cwd: `build/site/${comp}` })
+  const versions = glob.sync('*/', { cwd: `${buildDir}/${comp}` })
     // Remove trailing slash.
     .map(c => c.replace(/\/$/, ''))
     // Remove anything that doesn't look like a version.
@@ -28,8 +36,8 @@ for (const comp of components) {
 
   if (versions.length > 0) {
     const latest = versions[0];
-    redirects += `/${comp}/* /${comp}/${latest}/:splat 302\n`;
+    redirects.push(`/${comp}/* /${comp}/${latest}/:splat 302`);
   }
 }
 
-fs.writeFileSync('build/site/_redirects', redirects);
+fs.writeFileSync(`${buildDir}/_redirects`, redirects.join('\n') + '\n');

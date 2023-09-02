@@ -7,18 +7,20 @@
   const closeMenuButton = document.querySelector('.close-menu-btn');
 
   sidrToggle.addEventListener('click', function (e) {
-    sidrPanel.classList.toggle('active');
+    sidrPanel.classList.toggle('toggled');
   });
 
   closeMenuButton.addEventListener('click', function (e) {
-    sidrPanel.classList.toggle('active');
+    sidrPanel.classList.toggle('toggled');
   });
 
+  const isDefaultCollapsed = document.body.classList.contains('sidebar-collapse-default');
   const collapseToggles = document.querySelectorAll('.collapse-toggle');
 
   collapseToggles.forEach(function (o) {
-    o.addEventListener('click', function (e) {
-      this.classList.toggle('active');
-    });
+    const toggle = () => o.classList.toggle('toggled');
+    o.addEventListener('click', toggle);
+    const span = [...o.parentElement.children].find(c => c.matches('span.nav-link'));
+    span?.addEventListener('click', toggle);
   });
 })();

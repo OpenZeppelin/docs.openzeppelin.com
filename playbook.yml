@@ -60,7 +60,8 @@ content:
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/defender-docs
-      branches: HEAD
+      branches: 
+        - docs-v*
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/openzeppelin-subgraphs
@@ -68,7 +69,9 @@ content:
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/cairo-contracts
-      branches: release-v*
+      branches:
+        - release-v*
+        - '!release-v0.7.0-rc.0' # broken antora.yml
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/nile
@@ -87,3 +90,4 @@ antora:
       index_latest_only: true
 urls:
   html_extension_style: drop
+  redirect_facility: netlify
