@@ -13,7 +13,7 @@
 
 ==== Step 1: Connect your wallet
 
-Before staking, you must ensure you are connected with your wallet with the https://depeg.etherisc.com[Etherisc Depeg protection app] on the Ethereum mainnet and ensure your wallet holds a small amount of ETH to afford the transaction fees. +
+Before staking, you must ensure you are connected with your wallet with the https://depeg.etherisc.com[Etherisc depeg protection app] on the Ethereum mainnet and ensure your wallet holds a small amount of ETH to afford the transaction fees. +
 Caution: Please ensure you know how to use non-custodial wallets like Metamask before staking your tokens. As a rule of thumb, never give anyone your seed phrase or private key and never interact with non-official websites.
 
 ==== Step 2: Create a risk bundle
@@ -53,7 +53,7 @@ You'll get to the list of all risk bundles by clicking the 'Risk bundles' button
 
 === What rewards will I receive for my staked USDT?
 
-USDT rewards come from Depeg protection premiums purchased against your risk bundle, minus Etherisc fees. If no policies are sold, no rewards accumulate. If there is a depeg event and claims are paid, claims will be subtracted from your reward. Therefore your capital is at risk.
+USDT rewards come from depeg protection premiums purchased against your risk bundle, minus Etherisc fees. If no policies are sold, no rewards accumulate. If there is a depeg event and claims are paid, claims will be subtracted from your reward. Therefore your capital is at risk.
 
 === When will I receive my rewards?
 
@@ -70,7 +70,7 @@ The risk bundle lifetime describes how long new policies can be accepted/covered
 
 Your risk bundle will only be available with policies to purchase against it if there are sufficient DIP tokens staked to support the minimal sum insured.
 
-== Purchasing Depeg Protection
+== Purchasing depeg protection
 
 === How can I buy a policy?
 
@@ -92,11 +92,11 @@ Yes. When you complete the protection, you can enter any address in the 'Protect
 === Can I protect my USDC with multiple policies?
 
 If you have a USDC balance in your wallet which is higher than a single available risk bundle, you can protect your balance through multiple smaller policies. However, you are not able to protect the same USDC through multiple policies.   If there are several policies for the same wallet, the processing order of the claims will determine which policy gets how much of the payout covering this wallet. The order of processing is random and cannot be controlled by policyholders. +
-For example: you have a 500'000 USDC wallet that you'd like to protect and you can only find risk bundles that provide coverage up to 200'000 USDC. in this case you can buy 2x200'000 and 1x 100'000 coverage. In a Depeg situation a wallet can only lead to (accumulated) payouts up to the balance of the wallet. it doesn't matter how many policies are needed to cover the full balance.
+For example: you have a 500'000 USDC wallet that you'd like to protect and you can only find risk bundles that provide coverage up to 200'000 USDC. in this case you can buy 2x200'000 and 1x 100'000 coverage. In a depeg situation a wallet can only lead to (accumulated) payouts up to the balance of the wallet. it doesn't matter how many policies are needed to cover the full balance.
 
-== The Depeg case
+== The depeg case
 
-=== The definition of a Depeg event
+=== The definition of a depeg event
 
 The Depeg event is ‘triggered at’ when the Chainlink USDC/USD price feed on the Ethereum Mainnet falls below 0.995. If the Chainlink USDC/USD price fails to recover to 0.999 within 24h, the product changes into 'depegged' state. 
 
@@ -110,7 +110,7 @@ An Example: The depegged payout price is 0.9. So, if you purchased protection fo
 === Why wait for 24hrs?
 
 The idea is that you should be flexible in deciding what to do. When the product enters the 'triggered' state, you can start thinking about how you see the situation. You have 24 hours to evaluate the market and the situation. After 24 hours, the product either goes back to the 'normal' state (when USDC goes back above 0.999) or it goes into the 'depegged' state. +
-Another important point for us when implementing the 24-hour period was that we did not want to react too quickly in order not to trigger a Depeg case too0 hastily.
+Another important point for us when implementing the 24-hour period was that we did not want to react too quickly in order not to trigger a depeg case too hastily.
 
 === What happens in the ‘depegged’ state?
 
@@ -118,12 +118,12 @@ Once the product enters the 'depegged' state, you have two options:
 
 * You trigger a payout immediately and you get the gap paid in USDT.
 ** You sell all your USDC at market conditions and suffer a loss
-** Your loss will be covered exactly by the payout of the Etherisc Depeg protection in USDT
+** Your loss will be covered exactly by the payout of the Etherisc depeg protection in USDT
 * You wait and see. If USDC recovers, you can make a slight profit because you also get a payout in USDT, but USDC recovers
 
 === What happens when USDT depegs?
 
 The Etherisc depeg protection app only protects your USDC against a Depeg event. The staked USDT are unprotected in the app. +
 If the USDT has a depeg event and the USDC follows up, it is depegged as well, then you, as a USDC depeg policyholder, will get a payout in the ratio 1 USDT = 1 USD. The depeg of the USDT is ignored. +
-If the USDT is depegged and the USDC is not, the Depeg app will not take action because there is no need. You have no reason to act as a USDC Depeg policyholder as well. As a USDT risk bundle holder, you can at most unstake the USDT not yet used to protect USDC and close the risk bundle.
+If the USDT is depegged and the USDC is not, the depeg app will not take action because there is no need. You have no reason to act as a USDC depeg policyholder as well. As a USDT risk bundle holder, you can at most unstake the USDT not yet used to protect USDC and close the risk bundle.
 

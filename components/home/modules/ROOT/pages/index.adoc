@@ -59,7 +59,7 @@ Comprehensive guides for every step of your journey in the Etherisc ecosystem!
 // TODO: Update "Learn" Section
 [.card.card-primary.card-contracts]
 --
-xref:learn::index.adoc[[.card-title]#Tutorials Overview# [.card-body]#pass:q[An overview of the growing number of available tutorials]#]
+xref:learn::index.adoc[[.card-title]#Tutorials Overview# [.card-body]#pass:q[An overview of the growing number of available tutorials.]#]
 --
 
 [.card.card-primary.card-upgrades-js]
@@ -70,6 +70,26 @@ xref:learn::depeg-purchase.adoc[[.card-title]#Depeg Protection Tutorial# [.card-
 [.card.card-primary.card-defender]
 --
 xref:learn::basics-gif.adoc[[.card-title]#Basics of the GIF Framework# [.card-body]#pass:q[Understanding the basic concepts of the GIF Framework.]#]
+--
+
+[.card-section]
+== Whitepaper
+
+Our principles, our ethics, our strategies, our ideas and visions.
+
+[.card.card-primary.card-contracts]
+--
+xref:learn::whitepaper-en-tldr.adoc[[.card-title]#Whitepaper tl:dr# [.card-body]#pass:q[A summary of the Whitepaper]#]
+--
+
+[.card.card-primary.card-upgrades-js]
+--
+xref:learn::whitepaper-en.adoc[[.card-title]#Whitepaper English# [.card-body]#pass:q[Our Whitepaper. Our strategy.]#]
+--
+
+[.card.card-primary.card-defender]
+--
+xref:learn::whitepaper-fr.adoc[[.card-title]#Whitepaper Français# [.card-body]#pass:q[Notre Whitepaper. Notre stratégie.]#]
 --
 
 // Check out https://forum.openzeppelin.com/c/general/guides-and-tutorials/23[the OpenZeppelin forum] for additional community-contributed guides!

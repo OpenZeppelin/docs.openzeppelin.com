@@ -32,6 +32,8 @@ xref:learn::sandbox.adoc[[.card-title]#The GIF sandbox# [.card-body]#pass:q[Sett
 --
 xref:learn::staking-insurance.adoc[[.card-title]#Staking in risk pools# [.card-body]#pass:q[Staking as a fundamental building block for insurance.]#]
 --
+
+////
 [.card.card-learn]
 --
 xref:learn::whitepaper-en-tldr.adoc[[.card-title]#Whitepaper tl;dr# [.card-body]#pass:q[A summary of the Whitepaper.]#]
@@ -46,7 +48,7 @@ xref:learn::whitepaper-en.adoc[[.card-title]#Whitepaper English# [.card-body]#pa
 --
 xref:learn::whitepaper-fr.adoc[[.card-title]#Whitepaper Français# [.card-body]#pass:q[Notre Whitepaper. Notre stratégie.]#]
 --
-////
+
 
 [.card.card-learn]
 --

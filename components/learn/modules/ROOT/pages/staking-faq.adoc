@@ -62,7 +62,7 @@ The Etherisc Foundation initially provided them.
 
 == Are my staked DIP token at risk?
 
-No, the DIP tokens are not at risk. Even if there is a depeg, the DIP tokens are only used to unlock the capital in the risk bundles. In the case of a Depeg, the payout comes from the USDT.
+No, the DIP tokens are not at risk. Even if there is a depeg, the DIP tokens are only used to unlock the capital in the risk bundles. In the case of a depeg, the payout comes from the USDT.
 
 == Can I stake DIP token on its own?
 
