@@ -908,6 +908,78 @@ La participation est mise en œuvre par les DAO qui régissent les Instances GIF
 Ceci est mis en œuvre par les règles écrites qui régissent le DIF et qui, à leur tour, régissent les DAO représentant les différentes instances du GIF. 
 . Les biens communs fonctionnent mieux lorsqu'ils sont imbriqués dans des réseaux plus vastes. Certaines choses peuvent être gérées localement, mais d'autres peuvent nécessiter une coopération régionale plus large - par exemple, un réseau d'irrigation peut dépendre d'une rivière que d'autres utilisent également en amont. Ceci est mis en œuvre par la structure hiérarchique, au sommet de laquelle se trouve une fondation juridique reconnue par la loi suisse.
 
-////
 = 6 Glossaire et abréviations
 
+
+[options="header"]
+|====
+|Notion | Explanation / Definition
+| Black swan event | A rare but catastrophic event/ An event that comes as a surprise, has a major effect, and is often inappropriately rationalized after the fact with the benefit of hindsight 
+| Collateralization | The process of securing a loan with a valuable asset/ The use of a valuable asset as collateral to secure a loan
+| Component owner | A component owner manages one or more components
+| Core object | 
+| Decentralized insurance | Insurance which is run by a decentralized network
+| DIP token | Please have a look in the abbreviations
+| Ecosystem | 
+| Etherisc framework | 
+| Etherisc platform | Set of participants, stakeholders, rules, techniques, protocols, software system, smart contracts, which make up Etherisc as a whole
+| Float of liquidity | The average amount of liquidity which is not needed for claims
+| Generic Insurance Framework (GIF) | A library of modular, reusable, generic and secure smart contracts written in Solidity
+| GIF instance | Each complete deployment of a GIF is a GIF instance. It is autonomous and fully functional. Each GIF instance is a library of modular, reusable and secure smart contracts written in Solidity
+| Governance token | Governance token fall under the category of utility tokens. Our governance DIP token gives owners the right to vote on issues that determine the further development and operation of a GIF instance, risk pool, etc.
+| Instance operator | The instance operator is the crucial role that operates a specific GIF instance. The primary tasks of the instance operator are the administration of products and oracles and a few other basic actions
+| Insurance | A means of protection from financial loss/ A form of risk management, primarily used to hedge against the risk of a contingent or uncertain lossfootnote:[https://blog.etherisc.com/basics-about-the-gif-framework-68127be1ce2a]
+| Investor | Investors bring in risk capital in risk pools or risk bundles in return for intest payments
+| Long tail risks | High implausible risks represented by the “long tail” of the risk distribution curve
+| Oracle owner | An oracle owner runs one or more oracles in one or more GIF instances
+| P2P-insurance models | A small group of individuals with common interest who combine their premiums to insure against risks
+| Parametric insurance | Insurance where the claims process is data-driven
+| Premium | Amount of money to purchase an protection policy. (insurance deleted)
+| Product owner | A product owner manages one or more products
+| Protected | The policyholder. He transfers his risk to the risk pools or risk bundles
+| Protocol token | A token which secures or enables a protocol
+| Risk bundle fragment investor | Small investors teaming up to run a risk bundle
+| Risk bundle NFT | When a risk bundle owner creates a risk bundle, an NFT is created analog to the risk pool NFT that secures and documents the ownership of the risk bundle. Thus, the risk bundle owner has proof that it is his risk bundle and can sell the bundle
+| Risk bundle owner | A risk bundle owner manages one or more risk bundles
+| Risk fee | The return on risk capital in the risk bundles and risk pools
+| Risk pool | A smart contract that collects funds that are used to compensate for insurance claims
+| Risk pool keeper | A risk pool keeper manages one or more risk pools
+| Risk pool NFT | When a risk pool keeper creates a risk pool, an NFT is created that secures and documents the ownership of the risk pool. Thus, the risk pool keeper has the proof that it is his risk pool and thanks to the NFT, risk pools are tradable
+| Risk pool token | A class of similar tokens, one for each risk pool, which represent risks
+| Risk sharing system | Risk sharing is sharing an uncertain outcome, and thus the risk of the outcome, between two or more parties to cover the potential loss from an uncertain event
+| Smart contract | A smart contract is a self-executing program on the blockchain that automates the actions required in an agreement or contract. Once completed, the transactions are trackable and irreversible
+| Stable coin | A cryptocurrency designed to have a relatively stable price, typically through being pegged to a commodity or currency or having its supply regulated by an algorithm
+| Staking | The process of investors locking a certain amount of DIP tokens to raise capital backing the technical guarantees
+| Term | Explanation / Definition
+| The good of the commons | 
+| Tragedy of the commons | A social and political problem in which each individual is incentivized to act in a way that will ultimately be harmful to all individuals. According to Elinor Ostrom, this problem can be solved
+| Transaction costs | Costs to perform an economic transaction (not to be confused with transaction fees)
+| Transaction fees | The amount of gas you have to pay for the transfer of your token
+
+
+[cols="1,1"]
+|===
+|Name |Short description
+
+|Decentralized Insurance Foundation
+|Development and promotion of the DIP protocol, funding of the development of the Generic Insurance Framework (GIF)
+
+|Kleros
+|Decentralized arbitration service and token curated registry
+
+|DAOstack
+|Software stack for DAOs including a library of governance protocols and interfaces for creating and managing DAOs
+
+|Mainnet
+|Example blockchain
+
+|Gnosis chain
+|Example blockchain
+
+|Avalanche
+|Example blockchain
+
+|Polygon
+|Example blockchain
+
+|===
