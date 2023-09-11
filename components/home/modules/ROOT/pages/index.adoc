@@ -22,11 +22,6 @@ xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A secure p
 xref:upgrades.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[A comprehensive suite of contracts and tooling to deploy and manage upgradeable smart contracts.]#]
 --
 
-[.card.card-secondary.card-test-helpers]
---
-xref:test-helpers::index.adoc[[.card-title]#Test Helpers# [.card-body]#pass:q[A JavaScript library of common assertions for testing smart contracts.]#]
---
-
 [.card.card-secondary.card-solidity-docgen]
 --
 https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [.card-body]#pass:q[A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.]#]
