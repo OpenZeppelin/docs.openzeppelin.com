@@ -2,7 +2,7 @@
 {{#if content}}
 <li class="nav-li {{#if (eq url @root.page.url)}}nav-li-active{{/if}}">
   {{#if items}}
-  <button class="collapse-toggle {{#if (page-has-attribute 'sidebar-collapse-default')}}{{#unless (child-is-active)}}toggled{{/unless}}{{/if}}">
+  <button class="collapse-toggle {{#if (section-collapsed content)}}{{#unless (child-is-active)}}toggled{{/unless}}{{/if}}">
     <img src="{{@root.site.ui.url}}/images/icons/arrow.svg">
   </button>
   {{/if}}
