@@ -32,4 +32,4 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "script-src 'self' *.googletagmanager.com *.cloudfront.net js.hs-scripts.com;"
+    Content-Security-Policy = "script-src 'self' *.googletagmanager.com *.cloudfront.net js.hs-scripts.com *.openzeppelin.com *.netlify.app js.hs-analytics.net js.hubspot.com js.headleadflows.net js.hscollectedforms.net js.hs-banner.com;"
