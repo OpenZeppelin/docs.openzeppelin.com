@@ -28,3 +28,8 @@
   from = "/sdk/2.6/*"
   to = "/sdk/:splat"
   status = 302
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "script-src 'self' *.googletagmanager.com *.cloudfront.net js.hs-scripts.com;"
