@@ -28,8 +28,3 @@
   from = "/sdk/2.6/*"
   to = "/sdk/:splat"
   status = 302
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Security-Policy = "script-src 'self' *.googletagmanager.com *.cloudfront.net js.hs-scripts.com js.hsadspixel.net js.hsleadflows.net wizard.openzeppelin.com js.hs-analytics.net js.hubspot.com js.headleadflows.net js.hscollectedforms.net js.hs-banner.com;"
