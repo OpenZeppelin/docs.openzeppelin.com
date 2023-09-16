@@ -39,7 +39,12 @@
   }
 }
 
-.card-title, .card-body {
+.card-title {
+  display: flex;
+  vertical-align: center;
+}
+
+.card-body {
   display: block;
 }
 
@@ -168,7 +173,7 @@
   background-image: linear-gradient(-135deg, #00e1d4 0%, #00c7f2 100%);
 }
 
-.card-test-helpers { --card-icon: url(../images/icons/test-helpers.svg); }
+.card-contracts-cairo { --card-icon: url(../images/icons/contracts-cairo.svg); }
 .card-test-environment { --card-icon: url(../images/icons/test-environment.svg); }
 .card-network-js { --card-icon: url(../images/icons/network-js.svg); }
 .card-gsn-helpers { --card-icon: url(../images/icons/gsn-helpers.svg); }
