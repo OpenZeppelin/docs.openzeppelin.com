@@ -22,9 +22,9 @@ xref:upgrades.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[A comprehensive s
 xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A secure platform to automate Ethereum operations.]#]
 --
 
-[.card.card-secondary.card-test-helpers]
+[.card.card-secondary.card-contracts-cairo]
 --
-xref:test-helpers::index.adoc[[.card-title]#Test Helpers# [.card-body]#pass:q[A JavaScript library of common assertions for testing smart contracts.]#]
+xref:contracts-cairo::index.adoc[[.card-title]#Contracts for Cairo# [.card-body]#pass:q[A library for secure smart contract development written in Cairo for Starknet.]#]
 --
 
 [.card.card-secondary.card-solidity-docgen]
