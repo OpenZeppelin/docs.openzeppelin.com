@@ -7,9 +7,6 @@
 
 https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301!
 
-# Serve MathJax due to CSP
-/libs/mathjax/3.2.2/es5/tex-chtml.min.js https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js 200
-
 # Root pages were previously located here
 /openzeppelin/* /:splat 301
 
