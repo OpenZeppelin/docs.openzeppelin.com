@@ -3,7 +3,7 @@
   publish = "build/site"
 
 [build.processing]
-  skip_processing = true
+  skip_processing = false
 
 [[plugins]]
   package = "./plugins/receive-webhook"
