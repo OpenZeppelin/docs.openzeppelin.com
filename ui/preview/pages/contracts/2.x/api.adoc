@@ -1401,7 +1401,7 @@ This set of interfaces, contracts, and utilities are all related to the https://
 
 TIP: For an overview of ERC20 tokens and a walkthrough on how to create a token contract read our xref:ROOT:tokens.adoc#ERC20[ERC20 guide].
 
-There a few core contracts that implement the behavior specified in the EIP:
+There are a few core contracts that implement the behavior specified in the EIP:
 
 * {IERC20}: the interface all ERC20 implementations should conform to
 * {ERC20}: the base implementation of the ERC20 interface
@@ -1732,7 +1732,7 @@ Requirements:
 
 Moves tokens `amount` from `sender` to `recipient`.
 
-This is internal function is equivalent to {transfer}, and can be used to
+This internal function is equivalent to {transfer}, and can be used to
 e.g. implement automatic token fees, slashing mechanisms, etc.
 
 Emits a {Transfer} event.
@@ -1776,7 +1776,7 @@ Requirements
 
 Sets `amount` as the allowance of `spender` over the `owner`s tokens.
 
-This is internal function is equivalent to `approve`, and can be used to
+This internal function is equivalent to `approve`, and can be used to
 e.g. set automatic allowances for certain subsystems, etc.
 
 Emits an {Approval} event.
