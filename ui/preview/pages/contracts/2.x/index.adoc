@@ -25,7 +25,7 @@ To install the OpenZeppelin library, run the following in your Solidity project 
 $ npm install openzeppelin-solidity
 ----
 
-_OpenZeppelin features a stable API, which means your contracts won't break unexpectedly when upgrading to a newer minor version. You can read ṫhe details in our link:api-stability[API Stability] document._
+_OpenZeppelin features a stable API, which means your contracts won't break unexpectedly when upgrading to a newer minor version. You can read the details in our link:api-stability[API Stability] document._
 
 [[usage]]
 == Usage
