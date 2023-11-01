@@ -1,4 +1,9 @@
 <script src="{{@root.site.ui.url}}/dist/index.js"></script>
+<script>
+	window.onload = function() {
+		document.getElementById('copyright-date').innerHTML = new Date().getFullYear();
+	}
+</script>
 {{#with (resolvePage page.relativeSrcPath model=false)}}
 {{#unless (eq asciidoc.attributes.stem undefined)}}
 <script type="text/x-mathjax-config">
@@ -16,6 +21,7 @@ window.MathJax = {
   },
 };
 </script>
+
 {{!-- This script is whitelisted in the CSP and must be kept in sync with scripts/custom_headers.sh --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js" integrity="sha512-T8xxpazDtODy3WOP/c6hvQI2O9UPdARlDWE0CvH1Cfqc0TXZF6GZcEKL7tIR8VbfS/7s/J6C+VOqrD6hIo++vQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {{/unless}}
