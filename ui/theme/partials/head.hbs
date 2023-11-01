@@ -1,9 +1,11 @@
 {{#if site.keys.googleAnalytics}}
+<data id="ga-key" value="{{site.keys.googleAnalytics}}"></data>
 <script async src="https://www.googletagmanager.com/gtag/js?id={{site.keys.googleAnalytics}}"></script>
-<script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','{{site.keys.googleAnalytics}}')</script>
+<script src="{{@root.site.ui.url}}/vendor/google-analytics.js"></script>
 {{/if}}
 {{#if site.keys.gtm}}
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{site.keys.gtm}}');</script>
+<data id="gtm-key" value="{{site.keys.gtm}}" ></data>
+<script src="{{@root.site.ui.url}}/vendor/gtm.js"></script>
 <!-- End Google Tag Manager -->
 {{/if}}
