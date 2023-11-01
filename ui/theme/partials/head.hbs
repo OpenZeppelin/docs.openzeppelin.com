@@ -1,11 +1,11 @@
 {{#if site.keys.googleAnalytics}}
-<data id="ga-key" value="{{site.keys.googleAnalytics}}" />
+<data id="ga-key" value="{{site.keys.googleAnalytics}}"></data>
 <script async src="https://www.googletagmanager.com/gtag/js?id={{site.keys.googleAnalytics}}"></script>
 <script src="{{@root.site.ui.url}}/vendor/google-analytics.js"></script>
 {{/if}}
 {{#if site.keys.gtm}}
 <!-- Google Tag Manager -->
-<data id="gtm-key" value="{{site.keys.gtm}}" />
+<data id="gtm-key" value="{{site.keys.gtm}}" ></data>
 <script src="{{@root.site.ui.url}}/vendor/gtm.js"></script>
 <!-- End Google Tag Manager -->
 {{/if}}
