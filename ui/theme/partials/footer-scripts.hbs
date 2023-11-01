@@ -1,9 +1,4 @@
 <script src="{{@root.site.ui.url}}/dist/index.js"></script>
-<script>
-	window.onload = function() {
-		document.getElementById('copyright-date').innerHTML = new Date().getFullYear();
-	}
-</script>
 {{#with (resolvePage page.relativeSrcPath model=false)}}
 {{#unless (eq asciidoc.attributes.stem undefined)}}
 <script type="text/x-mathjax-config">
