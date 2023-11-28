@@ -2,7 +2,7 @@
 
 .card-section .sectionbody {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(calc(max(30%, 230px)), 1fr));
+  grid-template-columns: repeat(6, 1fr);
   grid-gap: 1rem;
 }
 
@@ -89,10 +89,6 @@
 
 /* styling product cards */
 
-.card-primary + .card-secondary {
-  grid-column-start: 1; /* show secondary cards in a separate line */
-}
-
 .card-primary a, .card-secondary a {
   box-shadow: 0 5px 10px 0 rgba(60, 60, 60, 0.1);
 
@@ -114,7 +110,7 @@
 }
 
 .card-primary a {
-  min-height: 17rem;
+  min-height: 14rem;
   color: white;
   position: relative;
   padding-top: 3em;
@@ -157,15 +153,17 @@
   }
 }
 
+.card-primary {
+  grid-column: span 3;
+}
+
+.card-secondary {
+  grid-column: span 2;
+}
 
 .card-contracts a {
   --card-icon: url(../images/contracts_white.svg);
   background-image: linear-gradient(45deg, #6746d6 0%, #a134d1 100%);
-}
-
-.card-upgrades-js a {
-  --card-icon: url(../images/sdk_white.svg);
-  background-image: linear-gradient(-134deg, #3677ff 0%, #1ecff7 100%);
 }
 
 .card-defender a {
@@ -173,6 +171,7 @@
   background-image: linear-gradient(-135deg, #00e1d4 0%, #00c7f2 100%);
 }
 
+.card-upgrades { --card-icon: url(../images/icons/upgrades-plugins.svg); }
 .card-contracts-cairo { --card-icon: url(../images/icons/contracts-cairo.svg); }
 .card-test-environment { --card-icon: url(../images/icons/test-environment.svg); }
 .card-network-js { --card-icon: url(../images/icons/network-js.svg); }
