@@ -14,7 +14,12 @@ xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#pass:q[A librar
 
 [.card.card-primary.card-defender]
 --
-xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A secure platform to code, audit, deploy, monitor, and operate your blockchain application.]#]
+xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A mission-critical developer security platform to code, audit, deploy, monitor, and operate blockchain applications.]#]
+--
+
+[.card.card-secondary.card-upgrades]
+--
+xref:upgrades.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[A comprehensive suite of contracts and tooling to deploy and manage upgradeable contracts on Ethereum.]#]
 --
 
 [.card.card-secondary.card-contracts-cairo]
