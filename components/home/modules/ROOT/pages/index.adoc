@@ -17,9 +17,9 @@ xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#pass:q[A librar
 xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A secure platform to code, audit, deploy, monitor, and operate your blockchain application.]#]
 --
 
-[.card.card-secondary.card-upgrades-js]
+[.card.card-secondary.card-contracts-cairo]
 --
-xref:upgrades.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[A comprehensive suite of contracts and tooling to deploy and manage upgradeable smart contracts.]#]
+xref:contracts-cairo::index.adoc[[.card-title]#Contracts for Cairo# [.card-body]#pass:q[A library for secure smart contract development written in Cairo for Starknet.]#]
 --
 
 [.card.card-secondary.card-solidity-docgen]

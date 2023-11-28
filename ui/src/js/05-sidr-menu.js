@@ -3,7 +3,6 @@
 
   const sidrToggle = document.querySelector('.sidr-toggle');
   const sidrPanel = document.querySelector('#sidr');
-  const mainContent = document.querySelector('.main');
   const closeMenuButton = document.querySelector('.close-menu-btn');
 
   sidrToggle.addEventListener('click', function (e) {
@@ -14,7 +13,6 @@
     sidrPanel.classList.toggle('toggled');
   });
 
-  const isDefaultCollapsed = document.body.classList.contains('sidebar-collapse-default');
   const collapseToggles = document.querySelectorAll('.collapse-toggle');
 
   collapseToggles.forEach(function (o) {

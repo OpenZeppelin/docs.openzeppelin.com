@@ -42,7 +42,7 @@ function processPayload({ repository, ref }) {
 
   const branchOrTag = branch || tag;
 
-  if (!(matchBranch(branch, source.branches) || match(tag, source.tags))) {
+  if (!(branch ? matchBranch(branch, source.branches) : match(tag, source.tags))) {
     return {
       error: 'not-content-source',
       message: `Update in ${repository.full_name}@${branchOrTag} that does not match a content source`,

@@ -3,7 +3,6 @@
 const { promisify } = require('util');
 const globAsync = require('glob');
 const glob = promisify(globAsync);
-const rimraf = promisify(require('rimraf'));
 const path = require('path');
 const fs = require('fs').promises;
 const asciidoctor = require('asciidoctor')();

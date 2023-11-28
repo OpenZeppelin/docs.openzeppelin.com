@@ -28,3 +28,7 @@ antora --stacktrace "$@"
 ## Redirections
 
 node scripts/latest-redirects.js
+
+## Headers
+
+sh scripts/custom_headers.sh

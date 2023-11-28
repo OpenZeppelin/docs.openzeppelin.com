@@ -68,11 +68,11 @@
     padding: var(--lg);
   }
 
-  .nav:not(.active) {
+  .nav:not(.toggled) {
     display: none;
   }
 
-  .nav.active ~ .main {
+  .nav.toggled ~ .main {
     display: none;
   }
 }
