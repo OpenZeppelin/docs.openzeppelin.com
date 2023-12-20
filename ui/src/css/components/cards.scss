@@ -1,12 +1,12 @@
 /* grid layout */
 
-.card-section .sectionbody {
+.card-section .sectionbody, .card-section .content {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(calc(max(30%, 230px)), 1fr));;
   grid-gap: 1rem;
 }
 
-.card-section-2col .sectionbody {
+.card-section-2col .sectionbody, .card-section-2col .content {
   grid-template-columns: repeat(auto-fill, minmax(calc(max(50% - 0.5rem, 250px)), 1fr));
 }
 
@@ -151,14 +151,6 @@
   &:hover {
     border-color: #dfdfe0;
   }
-}
-
-.card-primary {
-  grid-column: span 3;
-}
-
-.card-secondary {
-  grid-column: span 2;
 }
 
 .card-contracts a {
