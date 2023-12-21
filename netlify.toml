@@ -2,6 +2,9 @@
   command = "yarn build"
   publish = "build/site"
 
+[build.processing]
+  skip_processing = true
+
 [[plugins]]
   package = "./plugins/receive-webhook"
 
