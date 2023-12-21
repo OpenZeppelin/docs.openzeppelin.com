@@ -7,6 +7,8 @@ Explore our guides and examples to learn how to integrate OpenZeppelin security 
 
 OpenZeppelin provides a complete suite of security products to adopt security best practices from the first line of code all the way to running your decentralized application on-chain.
 
+[.card-section.card-section-2col]
+====
 [.card.card-primary.card-contracts]
 --
 xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#pass:q[A library of modular, reusable, and secure smart contracts, written in Solidity.]#]
@@ -16,6 +18,7 @@ xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#pass:q[A librar
 --
 xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A mission-critical developer security platform to code, audit, deploy, monitor, and operate blockchain applications.]#]
 --
+====
 
 [.card.card-secondary.card-upgrades]
 --
