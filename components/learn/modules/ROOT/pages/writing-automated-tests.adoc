@@ -81,12 +81,15 @@ const { expect } = require('chai');
 
 // Start test block
 describe('Box', function () {
+  let owner;
+
   before(async function () {
     this.Box = await ethers.getContractFactory('Box');
   });
 
   beforeEach(async function () {
-    this.box = await this.Box.deploy();
+    [owner] = await ethers.getSigners()
+    this.box = await this.Box.deploy(owner.address);
     await this.box.deployed();
   });
 
@@ -192,14 +195,14 @@ contract('Box', function ([ owner, other ]) {
   const value = new BN('42');
 
   beforeEach(async function () {
-    this.box = await Box.new({ from: owner });
+    this.box = await Box.new(owner, { from: owner });
   });
 
   it('retrieve returns a value previously stored', async function () {
     await this.box.store(value, { from: owner });
 
     // Use large integer comparisons
-    expect(await this.box.retrieve()).to.be.bignumber.equal(value);
+    expect((await this.box.retrieve()).toString()).to.equal(value.toString());
   });
 
   it('store emits an event', async function () {
@@ -213,7 +216,7 @@ contract('Box', function ([ owner, other ]) {
     // Test a transaction reverts
     await expectRevert(
       this.box.store(value, { from: other }),
-      'Ownable: caller is not the owner',
+      'OwnableUnauthorizedAccount("' + other + '")',
     );
   });
 });
