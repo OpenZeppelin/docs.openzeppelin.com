@@ -55,7 +55,7 @@ $ npx hardhat node
 
 Hardhat Network will print out its address, `http://127.0.0.1:8545`, along with a list of available accounts and their private keys.
 
-Keep in mind that every time you run Hardhat Network, it will create a brand new local blockchain - the state of previous runs is **not** preserved. This is fine for short-lived experiments, but it means that you will need to have a window open running Hardhat Network for the duration of these guides. 
+Keep in mind that every time you run Hardhat Network, it will create a brand new local blockchain - the state of previous runs is **not** preserved. This is fine for short-lived experiments, but it means that you will need to have a window open running Hardhat Network for the duration of these guides.
 
 TIP: Hardhat will always spin up an instance of **Hardhat Network** when no network is specified and there is no default network configured or the default network is set to `hardhat`.
 --
@@ -65,7 +65,7 @@ NOTE: You can also run an actual Ethereum node in _https://geth.ethereum.org/get
 [[deploying-a-smart-contract]]
 == Deploying a Smart Contract
 
-In the xref:developing-smart-contracts.adoc[Developing Smart Contracts guide] we set up our development environment.  
+In the xref:developing-smart-contracts.adoc[Developing Smart Contracts guide] we set up our development environment.
 
 If you don't already have this setup, please xref:setting-up-a-node-project.adoc#creating-a-project[create] and xref:developing-smart-contracts.adoc#setting-up-a-solidity-project[setup] the project and then xref:developing-smart-contracts.adoc#first-contract[create] and xref:developing-smart-contracts.adoc#compiling-solidity-source-code[compile] our Box smart contract.
 
@@ -75,7 +75,7 @@ With our project setup complete we're now ready to deploy a contract. We'll be d
 --
 Truffle uses https://www.trufflesuite.com/docs/truffle/getting-started/running-migrations[migrations] to deploy contracts.  Migrations consist of JavaScript files and a special Migrations contract to track migrations on-chain.
 
-We will create a JavaScript migration to deploy our Box contract.  We will save this file as `migrations/2_deploy.js`. 
+We will create a JavaScript migration to deploy our Box contract.  We will save this file as `migrations/2_deploy.js`.
 
 ```js
 // migrations/2_deploy.js
@@ -91,7 +91,7 @@ module.exports = async function (deployer) {
 --
 Hardhat doesn't currently have a native deployment system, instead we use https://hardhat.org/guides/deploying.html[scripts] to deploy contracts.
 
-We will create a script to deploy our Box contract.  We will save this file as `scripts/deploy.js`. 
+We will create a script to deploy our Box contract.  We will save this file as `scripts/deploy.js`.
 
 ```js
 // scripts/deploy.js
@@ -112,10 +112,10 @@ main()
   });
 ```
 
-We use https://github.com/ethers-io/ethers.js[ethers] in our script, so we need to install it and the https://hardhat.org/plugins/nomiclabs-hardhat-ethers.html[@nomiclabs/hardhat-ethers plugin].
+We use https://github.com/ethers-io/ethers.js[ethers] in our script, so we need to install it and the https://hardhat.org/plugins/nomiclabs-hardhat-ethers.html[@nomicfoundation/hardhat-ethers plugin].
 
 ```console
-$ npm install --save-dev @nomiclabs/hardhat-ethers ethers
+$ npm install --save-dev @nomicfoundation/hardhat-ethers ethers
 ```
 --
 
@@ -144,7 +144,7 @@ We need to add in our https://hardhat.org/config/[configuration] that we are usi
 
 ```js
 // hardhat.config.js
-require('@nomiclabs/hardhat-ethers');
+require("@nomicfoundation/hardhat-ethers");
 
 ...
 module.exports = {
@@ -330,7 +330,7 @@ TIP: To learn more about using the console, check out the https://hardhat.org/gu
 [[interacting-programmatically]]
 == Interacting programmatically
 
-The console is useful for prototyping and running one-off queries or transactions. However, eventually you will want to interact with your contracts from your own code.  
+The console is useful for prototyping and running one-off queries or transactions. However, eventually you will want to interact with your contracts from your own code.
 
 [.truffle]
 --
@@ -480,7 +480,7 @@ We can now use this JavaScript object to interact with our contract.
 [[calling-the-contract]]
 === Calling the contract
 
-Let's start by displaying the current value of the `Box` contract. 
+Let's start by displaying the current value of the `Box` contract.
 
 [.truffle]
 --
@@ -536,7 +536,7 @@ If this happens, simply <<local-blockchain, start the local blockchain>> and <<d
 
 [[sending-a-transaction]]
 === Sending a transaction
-We'll now send a transaction to `store` a new value in our Box. 
+We'll now send a transaction to `store` a new value in our Box.
 
 Let's store a value of `23` in our `Box`, and then use the code we had written before to display the updated value:
 
