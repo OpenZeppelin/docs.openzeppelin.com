@@ -29,15 +29,9 @@ function processPayload({ repository, ref }) {
     };
   }
 
-  console.log('Received webhook payload', { repository, ref });
-
   const { branch, tag } = parseRef(ref);
 
-  console.log('Parsed ref', { branch, tag });
-
   const source = getPlaybookSource(repository.full_name);
-
-  console.log('Playbook source', source);
 
   if (!source) {
     return {
@@ -47,10 +41,6 @@ function processPayload({ repository, ref }) {
   }
 
   const branchOrTag = branch || tag;
-
-  console.log('Branch or tag', branchOrTag);
-  console.log('Is branch', !!branch);
-  console.log('Branches', source.branches);
 
   if (!(branch ? matchBranch(branch, source.branches) : match(tag, source.tags))) {
     return {
