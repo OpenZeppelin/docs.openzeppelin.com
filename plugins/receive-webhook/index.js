@@ -93,6 +93,7 @@ function getPlaybookSource(repoFullName) {
 
 // Antora 3 uses HEAD to mean the default remote branch. We assume it's either master or main.
 function matchBranch(b, patterns) {
+  // patterns may be null
   if (!patterns) {
     patterns = [];
   }
@@ -104,6 +105,7 @@ function matchBranch(b, patterns) {
 }
 
 function match(str, patterns) {
+  // patterns may be null
   if (!patterns) {
     patterns = [];
   }
