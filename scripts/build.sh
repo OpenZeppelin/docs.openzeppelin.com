@@ -18,7 +18,6 @@ if [ -n "${NETLIFY:+x}" ]; then
   # TODO: can we use a local config?
   node_gyp_cache="$(yarn -s node-which node-gyp-cache)"
   yarn config set node_gyp "$node_gyp_cache"
-  npm config set node_gyp "$node_gyp_cache"
 fi
 
 ## Antora
