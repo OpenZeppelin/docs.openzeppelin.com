@@ -26,7 +26,7 @@ The first step after xref:setting-up-a-node-project#creating-a-project[creating 
 
 The most popular development framework for Ethereum is https://hardhat.org/[Hardhat], and we cover its most common use with https://docs.ethers.io/[ethers.js]. The next most popular is https://www.trufflesuite.com/truffle[Truffle] which uses https://web3js.readthedocs.io/[web3.js]. Each has their strengths and it is useful to be comfortable using all of them.
 
-In these guides we will show how to develop, test and deploy smart contracts using Truffle and Hardhat.  
+In these guides we will show how to develop, test and deploy smart contracts using Truffle and Hardhat.
 
 include::learn::partial$hardhat-truffle-toggle.adoc[]
 
@@ -316,6 +316,8 @@ contract Box is Ownable {
     uint256 private _value;
 
     event ValueChanged(uint256 value);
+
+    constuctor() Ownable(msg.sender) {}
 
     // The onlyOwner modifier restricts who can call the store function
     function store(uint256 value) public onlyOwner {

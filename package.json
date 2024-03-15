@@ -27,7 +27,6 @@
   "devDependencies": {
     "fgbg": "^0.1.5",
     "live-server": "^1.2.1",
-    "node-gyp-cache": "^0.2.0",
     "nodemon": "^2.0.6",
     "which": "^2.0.2"
   }
