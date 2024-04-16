@@ -31,7 +31,7 @@ xref:contracts-cairo::index.adoc[[.card-title]#Contracts for Cairo# [.card-body]
 --
 [.card.card-secondary.card-substrate-runtimes]
 --
-xref:substrate-runtimes::index.adoc[[.card-title]#test title# [.card-body]#pass:q[test body]#]
+xref:substrate-runtimes::index.adoc[[.card-title]#Substrate Runtimes# [.card-body]#pass:q[test body]#]
 --
 
 [.card.card-secondary.card-solidity-docgen]
