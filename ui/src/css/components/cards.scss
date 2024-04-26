@@ -10,12 +10,15 @@
   grid-template-columns: repeat(auto-fill, minmax(calc(max(50% - 0.5rem, 250px)), 1fr));
 }
 
-.card-section .sectionbody > :not(.card) {
+.card-section .sectionbody> :not(.card) {
   grid-column: 1 / -1;
 }
 
 .card {
-  .content, .paragraph, p {
+
+  .content,
+  .paragraph,
+  p {
     display: inline;
   }
 }
@@ -89,7 +92,8 @@
 
 /* styling product cards */
 
-.card-primary a, .card-secondary a {
+.card-primary a,
+.card-secondary a {
   box-shadow: 0 5px 10px 0 rgba(60, 60, 60, 0.1);
 
   &:hover {
@@ -115,7 +119,8 @@
   position: relative;
   padding-top: 3em;
   padding-bottom: 2em;
-  overflow: hidden; /* hide background image */
+  overflow: hidden;
+  /* hide background image */
 
   .card-title {
     font-size: 1.2em;
@@ -163,12 +168,42 @@
   background-image: linear-gradient(-135deg, #00e1d4 0%, #00c7f2 100%);
 }
 
-.card-upgrades { --card-icon: url(../images/icons/upgrades-plugins.svg); }
-.card-contracts-cairo { --card-icon: url(../images/icons/contracts-cairo.svg); }
-.card-test-environment { --card-icon: url(../images/icons/test-environment.svg); }
-.card-network-js { --card-icon: url(../images/icons/network-js.svg); }
-.card-gsn-helpers { --card-icon: url(../images/icons/gsn-helpers.svg); }
-.card-gsn-provider { --card-icon: url(../images/icons/gsn-provider.svg); }
-.card-contract-loader { --card-icon: url(../images/icons/contract-loader.svg); }
-.card-solidity-docgen { --card-icon: url(../images/icons/docgen.svg); }
-.card-subgraphs { --card-icon: url(../images/icons/subgraphs.svg); }
+.card-upgrades {
+  --card-icon: url(../images/icons/upgrades-plugins.svg);
+}
+
+.card-contracts-cairo {
+  --card-icon: url(../images/icons/contracts-cairo.svg);
+}
+
+.card-substrate-runtimes {
+  --card-icon: url(../images/icons/substrate-runtimes.svg);
+}
+
+.card-test-environment {
+  --card-icon: url(../images/icons/test-environment.svg);
+}
+
+.card-network-js {
+  --card-icon: url(../images/icons/network-js.svg);
+}
+
+.card-gsn-helpers {
+  --card-icon: url(../images/icons/gsn-helpers.svg);
+}
+
+.card-gsn-provider {
+  --card-icon: url(../images/icons/gsn-provider.svg);
+}
+
+.card-contract-loader {
+  --card-icon: url(../images/icons/contract-loader.svg);
+}
+
+.card-solidity-docgen {
+  --card-icon: url(../images/icons/docgen.svg);
+}
+
+.card-subgraphs {
+  --card-icon: url(../images/icons/subgraphs.svg);
+}

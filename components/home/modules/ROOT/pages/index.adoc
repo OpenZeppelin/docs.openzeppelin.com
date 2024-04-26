@@ -29,6 +29,10 @@ xref:upgrades.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[A comprehensive s
 --
 xref:contracts-cairo::index.adoc[[.card-title]#Contracts for Cairo# [.card-body]#pass:q[A library for secure smart contract development written in Cairo for Starknet.]#]
 --
+[.card.card-secondary.card-substrate-runtimes]
+--
+xref:substrate-runtimes::index.adoc[[.card-title]#Substrate Runtimes# [.card-body]#pass:q[A collection of runtime templates for parachain development on Polkadot.]#]
+--
 
 [.card.card-secondary.card-solidity-docgen]
 --
