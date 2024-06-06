@@ -32,7 +32,7 @@
     <div class="flex justify-justified nav-heading">
       <span class="">{{{./title}}}</span>
       <div class="component-version">
-        {{#if (and versions (eq this @root.page.component))}}
+        {{#if (and versions (eq this @root.page.component) (not (eq this.name "defender")))}}
         {{#unless (eq versions.length 1)}}
         <button class="flex align-center shrink btn btn-version" id="version-selector">
           {{@root.page.componentVersion.displayVersion}}
