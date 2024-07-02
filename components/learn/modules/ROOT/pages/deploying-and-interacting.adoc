@@ -100,7 +100,7 @@ async function main () {
   const Box = await ethers.getContractFactory('Box');
   console.log('Deploying Box...');
   const box = await Box.deploy();
-  await box.deployed();
+  await box.waitForDeployment();
   console.log('Box deployed to:', box.address);
 }
 
