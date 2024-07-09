@@ -101,7 +101,7 @@ async function main () {
   console.log('Deploying Box...');
   const box = await Box.deploy();
   await box.waitForDeployment();
-  console.log('Box deployed to:', box.target);
+  console.log('Box deployed to:', await box.getAddress());
 }
 
 main()
