@@ -100,8 +100,8 @@ async function main () {
   const Box = await ethers.getContractFactory('Box');
   console.log('Deploying Box...');
   const box = await Box.deploy();
-  await box.deployed();
-  console.log('Box deployed to:', box.address);
+  await box.waitForDeployment();
+  console.log('Box deployed to:', await box.getAddress());
 }
 
 main()
@@ -242,7 +242,7 @@ Welcome to Node.js v12.22.1.
 Type ".help" for more information.
 > const Box = await ethers.getContractFactory('Box');
 undefined
-> const box = await Box.attach('0x5FbDB2315678afecb367f032d93F642f64180aa3')
+> const box = Box.attach('0x5FbDB2315678afecb367f032d93F642f64180aa3')
 undefined
 ```
 --
@@ -469,7 +469,7 @@ An ethers contract instance is a JavaScript object that represents our contract 
 // Set up an ethers contract, representing our deployed Box instance
 const address = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
 const Box = await ethers.getContractFactory('Box');
-const box = await Box.attach(address);
+const box = Box.attach(address);
 ----
 
 NOTE: Make sure to replace the `address` with the one you got when deploying the contract, which may be different to the one shown here.
