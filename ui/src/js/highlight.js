@@ -5,6 +5,7 @@ hljs.registerLanguage('typescript', require('highlight.js/lib/languages/typescri
 hljs.registerLanguage('json', require('highlight.js/lib/languages/json'));
 hljs.registerLanguage('diff', require('highlight.js/lib/languages/diff'));
 hljs.registerLanguage('python', require('highlight.js/lib/languages/python'));
+hljs.registerLanguage('rust', require('highlight.js/lib/languages/rust'));
 hljs.registerLanguage('shell', require('highlight.js/lib/languages/shell'));
 hljs.registerLanguage('xml', require('highlight.js/lib/languages/xml'));
 require('highlightjs-solidity')(hljs);
