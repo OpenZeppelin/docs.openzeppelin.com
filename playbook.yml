@@ -81,7 +81,9 @@ content:
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/polkadot-runtime-templates
-      branches: v2
+      branches:
+        - v*
+        - '!v0.1' # initial version not published
       start_path: docs
 ui:
   bundle:
