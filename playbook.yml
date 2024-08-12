@@ -79,9 +79,11 @@ content:
     - url: https://github.com/OpenZeppelin/nile
       branches: release-v*
       start_path: docs
-    
-    - url: https://github.com/OpenZeppelin/polkadot-generic-runtime-template
-      branches: v1-after-audit # this is a temporary fixed branch, docs will migrate out of this repository and will have proper branches
+
+    - url: https://github.com/OpenZeppelin/polkadot-runtime-templates
+      branches:
+        - v*
+        - '!v0.1' # initial version not published
       start_path: docs
 ui:
   bundle:
