@@ -47,6 +47,30 @@
   color: var(--color-navbar-hover);
 }
 
+.navbar-button{
+  color: white;
+  padding: 6px 14px;
+  font-family: var(--heading);
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: inline-block;
+  border-radius: 100px;
+  letter-spacing: -0.02em;
+  transition: all 0.2s ease;
+  background: #4F56FA;
+  text-decoration: none;
+  text-transform: none;
+  border: 1px solid #EFEFEF;
+  text-align: center;
+  white-space: nowrap;
+  text-wrap: nowrap;
+}
+
+.navbar-button:hover {
+  background: #4349D4!important;
+  color: white;
+}
+
 .navbar-search-input {
   font-size: 1rem;
   background-color: var(--aluminum-1);
