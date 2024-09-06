@@ -85,6 +85,11 @@ content:
         - v*
         - '!v0.1' # initial version not published
       start_path: docs
+
+    - url: https://github.com/OpenZeppelin/rust-contracts-stylus
+      branches:
+        - v*
+      start_path: docs
 ui:
   bundle:
     url: ./ui/theme
