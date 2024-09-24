@@ -23,33 +23,9 @@ With that out of the way, let's get started!
 
 The first step after xref:setting-up-a-node-project#creating-a-project[creating a project] is to install a development tool.
 
-The most popular development framework for Ethereum is https://hardhat.org/[Hardhat], and we cover its most common use with https://docs.ethers.io/[ethers.js]. The next most popular is https://www.trufflesuite.com/truffle[Truffle] which uses https://web3js.readthedocs.io/[web3.js]. Each has their strengths and it is useful to be comfortable using all of them.
+The most popular development framework for Ethereum is https://hardhat.org/[Hardhat], and we cover its most common use with https://docs.ethers.io/[ethers.js]. The next most popular is https://github.com/foundry-rs/foundry[Foundry]. Each has their strengths and it is useful to be comfortable using all of them.
 
-In these guides we will show how to develop, test and deploy smart contracts using Truffle and Hardhat.
-
-include::learn::partial$hardhat-truffle-toggle.adoc[]
-
-[.truffle]
---
-To get started with Truffle we will install it in our xref:setting-up-a-node-project.adoc#creating-a-project[project directory].
-
-```console
-$ npm install --save-dev truffle
-```
-
-Once installed, we can initialize Truffle.  This will create an empty Truffle project in our project directory.
-
-```console
-$ npx truffle init
-
-Starting init...
-================
-
-> Copying project files to /home/openzeppelin/learn
-
-Init successful, sweet!
-```
---
+In these guides we will show how to develop, test and deploy smart contracts using Hardhat.
 
 [.hardhat]
 --
@@ -72,7 +48,7 @@ $ npx hardhat
 888    888 888  888 888    Y88b 888 888  888 888  888 Y88b.
 888    888 "Y888888 888     "Y88888 888  888 "Y888888  "Y888
 
-Welcome to Hardhat v2.2.1
+👷 Welcome to Hardhat v2.22.12 👷‍
 
 ✔ What do you want to do? · Create an empty hardhat.config.js
 Config file created
@@ -119,35 +95,6 @@ contract Box {
 
 The Ethereum Virtual Machine (EVM) cannot execute Solidity code directly: we first need to compile it into EVM bytecode.
 
-[.truffle]
---
-Our `Box.sol` contract uses Solidity 0.8 so we need to first https://truffleframework.com/docs/truffle/reference/configuration#compiler-configuration[configure Truffle to use an appropriate solc version].
-
-We specify a Solidity 0.8 solc version in our `truffle-config.js`.
-
-```js
-// truffle-config.js
-  ...
-
-  // Configure your compilers
-  compilers: {
-    solc: {
-      version: "0.8.4",    // Fetch exact version from solc-bin (default: truffle's version)
-      // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
-      // settings: {          // See the solidity docs for advice about optimization and evmVersion
-      //  optimizer: {
-      //    enabled: false,
-      //    runs: 200
-      //  },
-      //  evmVersion: "byzantium"
-      // }
-    }
-  },
-
-  ...
-```
---
-
 [.hardhat]
 --
 Our `Box.sol` contract uses Solidity 0.8 so we need to first https://hardhat.org/config/#solidity-configuration[configure Hardhat to use an appropriate solc version].
@@ -161,7 +108,7 @@ We specify a Solidity 0.8 solc version in our `hardhat.config.js`.
  * @type import('hardhat/config').HardhatUserConfig
  */
  module.exports = {
-  solidity: "0.8.4",
+  solidity: "0.8.24",
 };
 ```
 --
@@ -170,37 +117,11 @@ Compiling can then be achieved by running a single compile command:
 
 NOTE: If you're unfamiliar with the `npx` command, check out our xref:setting-up-a-node-project.adoc#using-npx[Node project setup guide].
 
-[.truffle]
---
-```console
-$ npx truffle compile
-
-Compiling your contracts...
-===========================
-✔ Fetching solc version list from solc-bin. Attempt #1
-✔ Downloading compiler. Attempt #1.
-> Compiling ./contracts/Box.sol
-> Compiling ./contracts/Migrations.sol
-> Artifacts written to /home/openzeppelin/learn/build/contracts
-> Compiled successfully using:
-   - solc: 0.8.4+commit.c7e474f2.Emscripten.clang
-```
-
-The https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#compile[`compile`] command will automatically look for all contracts in the `contracts` directory, and compile them using the Solidity compiler using the configuration in https://www.trufflesuite.com/docs/truffle/reference/configuration#compiler-configuration[`truffle-config.js`].
-
-You will notice a `build/contracts` directory was created: it holds the compiled artifacts (bytecode and metadata), which are .json files. It’s a good idea to add this directory to your `.gitignore`.
---
-
 [.hardhat]
 --
 ```console
 $ npx hardhat compile
-Solidity 0.8.4 is not fully supported yet. You can still use Hardhat, but some features, like stack traces, might not work correctly.
-
-Learn more at https://hardhat.org/reference/solidity-support"
-
-Compiling 1 file with 0.8.4
-Compilation finished successfully
+Compiled 1 Solidity file successfully (evm target: paris).
 ```
 
 The https://hardhat.org/guides/compile-contracts.html#compiling-your-contracts[`compile`] built-in task will automatically look for all contracts in the `contracts` directory, and compile them using the Solidity compiler using the configuration in https://hardhat.org/config/#solidity-configuration[`hardhat.config.js`].
@@ -285,7 +206,7 @@ Reusable modules and libraries are the cornerstone of great software. xref:contr
 
 Many of the contracts in the library are not standalone, that is, you're not expected to deploy them as-is. Instead, you will use them as a starting point to build your own contracts by adding features to them. Solidity provides _multiple inheritance_ as a mechanism to achieve this: take a look at the https://solidity.readthedocs.io/en/latest/contracts.html#inheritance[Solidity documentation] for more details.
 
-For example, the xref:contracts:api:ownership.adoc#Ownable[`Ownable`] contract marks the deployer account as the contract's owner, and provides a modifier called `onlyOwner`. When applied to a function, `onlyOwner` will cause all function calls that do not originate from the owner account to revert. Functions to xref:contracts:api:ownership.adoc#Ownable-transferOwnership-address-[transfer] and xref:contracts:api:ownership.adoc#Ownable-renounceOwnership--[renounce] ownership are also available.
+For example, the xref:contracts:api:access.adoc#Ownable[`Ownable`] contract marks the deployer account as the contract's owner, and provides a modifier called `onlyOwner`. When applied to a function, `onlyOwner` will cause all function calls that do not originate from the owner account to revert. Functions to xref:contracts:api:access.adoc#Ownable-transferOwnership-address-[transfer] and xref:contracts:api:access.adoc#Ownable-renounceOwnership--[renounce] ownership are also available.
 
 When used this way, inheritance becomes a powerful mechanism that allows for modularization, without forcing you to deploy and manage multiple contracts.
 
