@@ -1,6 +1,6 @@
 = Setting up a Node project
 
-New software industries often start out with every project sharing the same technology stack. The Ethereum ecosystem is no exception, and the language of choice is https://en.wikipedia.org/wiki/JavaScript[JavaScript]. All of the most used Ethereum libraries, including OpenZeppelin software, are written in JavaScript or one of its variants.
+New software industries often start out with every project sharing the same technology stack. The Ethereum ecosystem is no exception, and the language of choice is https://en.wikipedia.org/wiki/JavaScript[JavaScript]. Many Ethereum libraries, including OpenZeppelin software, are written in JavaScript or one of its variants.
 
 JavaScript code is traditionally run on a web browser as part of a website, but it can be also executed as a standalone process using https://nodejs.org[Node].
 
@@ -14,11 +14,11 @@ There are multiple ways to get Node on your machine: you can get it either via a
 
 TIP: If you are running Windows consider using https://docs.microsoft.com/en-us/windows/nodejs/setup-on-wsl2[Windows Subsystem for Linux] as much of the ecosystem is written for Linux.
 
-Once you're done, run `node --version` on a terminal to check your installation: any version of the 14.x or 16.x line should be compatible with most Ethereum software.
+Once you're done, run `node --version` on a terminal to check your installation: any https://nodejs.org/en/about/previous-releases[active or maintenance version] should be compatible with most Ethereum software.
 
 ```console
 $ node --version
-v16.17.1
+v20.17.0
 ```
 
 [[creating-a-project]]
@@ -49,22 +49,16 @@ There are two broads type of packages stored in the npm registry: _libraries_ an
 
 A third binary was included when installing node: https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner[`npx`]. This is used to run executables installed locally in your project.
 
-Whilst https://www.trufflesuite.com/truffle[Truffle] and https://hardhat.org/[Hardhat] can be installed globally we recommend installing locally in each project so that you can control the version on a project by project basis.
+Whilst https://hardhat.org/[Hardhat] can be installed globally we recommend installing locally in each project so that you can control the version on a project by project basis.
 
 For clarity we'll display the full command in our guides including `npx` so we don't get errors due to the binary not being in the system path:
 
 ```console
-$ truffle init
-truffle: command not found
-$ npx truffle init
-- Fetching solc version list from solc-bin. Attempt #1
-
-Starting init...
-================
-
-> Copying project files to ...
-
-Init successful, sweet!
+$ hardhat init
+hardhat: command not found
+$ npx hardhat init
+👷 Welcome to Hardhat v2.22.12 👷‍
+? What do you want to do? … 
 ```
 
 WARNING: Make sure you are inside your project's directory when running `npx`! Otherwise, it will download the full executable again just to run that command, which most of the time is _not_ what you want.
