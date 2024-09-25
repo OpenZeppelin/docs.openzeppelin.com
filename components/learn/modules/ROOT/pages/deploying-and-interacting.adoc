@@ -255,7 +255,7 @@ These accounts should match the ones displayed when you started the <<local-bloc
 
 [.hardhat]
 --
-In order to interact with the <<box-contract,`Box`>> contract we deployed, we'll use an https://docs.ethers.io/v6/api/contract/contract/[ethers contract instance].
+In order to interact with the <<box-contract,`Box`>> contract we deployed, we'll use an https://docs.ethers.org/v6/api/contract/[ethers contract instance].
 
 An ethers contract instance is a JavaScript object that represents our contract on the blockchain, which we can use to interact with our contract. To attach it to our deployed contract we need to provide the contract address.
 
