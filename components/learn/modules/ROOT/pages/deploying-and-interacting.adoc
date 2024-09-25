@@ -325,7 +325,7 @@ const value = await box.retrieve();
 console.log('Box value is', value.toString());
 ----
 
-NOTE: In a real-world application, you may want to https://docs.ethers.io/v6/api/contract/contract/#contract-estimateGas[estimate the gas] of your transactions, and check a https://etherscan.io/gastracker[gas price oracle] to know the optimal values to use on every transaction.
+NOTE: In a real-world application, you may want to https://docs.ethers.org/v6/api/contract/#BaseContractMethod-estimateGas[estimate the gas] of your transactions, and check a https://etherscan.io/gastracker[gas price oracle] to know the optimal values to use on every transaction.
 
 --
 We can now run the snippet, and check that the box's value is updated!
