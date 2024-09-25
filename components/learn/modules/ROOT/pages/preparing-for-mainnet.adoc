@@ -77,9 +77,9 @@ Additionally, you may define certain accounts to have special privileges in your
 [[admin-accounts]]
 === Admin accounts
 
-An _admin_ (short for _administrator_) account is one that has special privileges in your system. For example, an admin may have the power to xref:contracts/api/utils.adoc#Pausable[pause] a contract. If such an account were to fall in the hands of a malicious user, they could wreak havoc in your system.
+An _admin_ (short for _administrator_) account is one that has special privileges in your system. For example, an admin may have the power to xref:contracts:api:utils.adoc#Pausable[pause] a contract. If such an account were to fall in the hands of a malicious user, they could wreak havoc in your system.
 
-A good option for securing admin accounts is to use a special contract, such as a multisig, instead of a regular externally owned account. A _multisig_ is a contract that can execute any action, _as long as a predefined number of trusted members agree upon it_. https://safe.gnosis.io/multisig[Gnosis Safe] is a good multisig to use.
+A good option for securing admin accounts is to use a special contract, such as a multisig, instead of a regular externally owned account. A _multisig_ is a contract that can execute any action, _as long as a predefined number of trusted members agree upon it_. https://safe.global/wallet[Safe] is a good multisig to use.
 
 [[set-admin]]
 === Upgrades admin
