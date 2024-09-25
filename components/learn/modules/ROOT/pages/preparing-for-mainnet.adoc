@@ -27,24 +27,24 @@ Remember that audits do not ensure the absence of bugs, but having several exper
 [[verify-source-code]]
 == Verifying your source code
 
-Right after you deploy your contracts to mainnet, you should **verify their source code**. This process involves submitting the Solidity code to a third-party, such as https://etherscan.io/[Etherscan] or https://www.etherchain.org/[Etherchain], who will compile it and _verify_ that it matches the deployed assembly. This allows any user to view your contract code in a block explorer, and know that it corresponds to the assembly actually running at that address.
+Right after you deploy your contracts to mainnet, you should **verify their source code**. This process involves submitting the Solidity code to a third-party, such as https://etherscan.io/[Etherscan] or https://sourcify.dev/[Sourcify], who will compile it and _verify_ that it matches the deployed assembly. This allows any user to view your contract code such as in a block explorer, and know that it corresponds to the assembly actually running at that address.
 
 You can verify your contracts manually on the https://etherscan.io/verifyContract[Etherscan] website.
 
 [.hardhat]
 --
-You can also use https://hardhat.org/plugins/nomiclabs-hardhat-etherscan.html[Hardhat Etherscan plugin].
+You can also use https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify[hardhat-verify plugin].
 
 To do this, install the plugin:
 ```console
-npm install --save-dev @nomiclabs/hardhat-etherscan
+npm install --save-dev @nomicfoundation/hardhat-verify
 ```
 
 Update your hardhat configuration:
 ```js
 // hardhat.config.js
 const { etherscanApiKey, projectId, mnemonic } = require('./secrets.json');
-require("@nomiclabs/hardhat-etherscan");
+require("@nomicfoundation/hardhat-verify");
 ...
 module.exports = {
   networks: {
@@ -68,7 +68,7 @@ TIP: When you deploy an upgradeable contract the contract that the user interact
 [[key-management]]
 == Key management
 
-When working on mainnet you need to take special care to secure your private keys. The accounts you use to deploy and interact with your contracts will hold real Ether, which has real value and is a tempting target for hackers. Take every precaution to protect your keys, and consider using a https://docs.ethhub.io/using-ethereum/wallets/hardware/[hardware wallet] if necessary.
+When working on mainnet you need to take special care to secure your private keys. The accounts you use to deploy and interact with your contracts will hold real Ether, which has real value and is a tempting target for hackers. Take every precaution to protect your keys, and consider using a https://ethereum.org/en/security/#use-hardware-wallet[hardware wallet] if necessary.
 
 NOTE: Unlike on a testnet, you cannot get mainnet Ether from a faucet. You will need to head to an exchange to trade in other coins or fiat to get real Ether for deploying your contracts.
 
@@ -95,7 +95,7 @@ When you need to upgrade your contracts, we can use `prepareUpgrade` to validate
 
 It can be argued that admin accounts reflect that a project is not actually _decentralized_. After all, if an account can single-handedly change any contract in the system, we are not exactly creating a trustless environment.
 
-Here is where _governance_ comes in. In many cases there will be some operations in your project that require special privileges, from fine-tuning system parameters, to running full contract upgrades. You will need to choose how those actions will be decided upon: whether it is by a https://safe.gnosis.io/multisig[small group] of trusted developers, or by https://daostack.io/[public] https://aragon.org/[voting] of all project stakeholders.
+Here is where _governance_ comes in. In many cases there will be some operations in your project that require special privileges, from fine-tuning system parameters, to running full contract upgrades. You will need to choose how those actions will be decided upon: whether it is by a https://safe.global/wallet[small group] of trusted developers, or by xref:contracts::governance.adoc[public voting] of all project stakeholders.
 
 There is no right answer here. Which governance scheme you pick for your project will largely depend on what you are building and who your community is.
 
