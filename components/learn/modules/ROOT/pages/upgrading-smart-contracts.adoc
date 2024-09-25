@@ -34,7 +34,7 @@ Whenever you deploy a new contract using `deployProxy` in the xref:upgrades-plug
 
 . Deploy the implementation contract (our `Box` contract)
 . Deploy the proxy contract and run any initializer function.
-- The proxy deployment automatically deploys a `ProxyAdmin` contract (the admin for our proxy).
+- The proxy deployment automatically deploys a `ProxyAdmin` contract (the admin for our proxy) in the scenario below.
 
 Let's see how it works, by deploying an upgradeable version of our `Box` contract, using the same setup as when xref:deploying-and-interacting.adoc#deploying-a-smart-contract[we deployed earlier]:
 
@@ -237,8 +237,8 @@ _This section will be more theory-heavy than others: feel free to skip over it a
 When you create a new upgradeable contract instance, the xref:upgrades-plugins::index.adoc[OpenZeppelin Upgrades Plugins] actually deploys three contracts:
 
 . The contract you have written, which is known as the _implementation contract_ containing the _logic_.
-. A _ProxyAdmin_ to be the admin of the _proxy_.
 . A _proxy_ to the _implementation contract_, which is the contract that you actually interact with.
+. A _ProxyAdmin_ to be the admin of the _proxy_.
 
 Here, the _proxy_ is a simple contract that just _delegates_ all calls to an implementation contract. A _delegate call_ is similar to a regular call, except that all code is executed in the context of the caller, not of the callee. Because of this, a `transfer` in the implementation contract's code will actually transfer the proxy's balance, and any reads or writes to the contract storage will read or write from the proxy's own storage.
 
