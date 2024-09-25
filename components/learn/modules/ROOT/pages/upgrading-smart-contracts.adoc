@@ -34,7 +34,7 @@ Whenever you deploy a new contract using `deployProxy` in the xref:upgrades-plug
 
 . Deploy the implementation contract (our `Box` contract)
 . Deploy the proxy contract and run any initializer function.
-- The proxy deployment automatically deploy a `ProxyAdmin` contract (the admin for our proxy).
+- The proxy deployment automatically deploys a `ProxyAdmin` contract (the admin for our proxy).
 
 Let's see how it works, by deploying an upgradeable version of our `Box` contract, using the same setup as when xref:deploying-and-interacting.adoc#deploying-a-smart-contract[we deployed earlier]:
 
