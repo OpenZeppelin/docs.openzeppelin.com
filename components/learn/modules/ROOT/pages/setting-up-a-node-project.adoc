@@ -10,7 +10,7 @@ TIP: If you are already familiar with Node, npm and Git, feel free to skip this 
 
 == Installing Node
 
-There are multiple ways to get Node on your machine: you can get it either via a https://nodejs.org/en/download/package-manager/[package manager] or by downloading https://nodejs.org/en/download/[the installer] directly.
+There are multiple ways to get Node on your machine: you can get it either via a https://nodejs.org/en/download/package-manager/[package manager] or by downloading https://nodejs.org/en/download/prebuilt-installer[the installer] directly.
 
 TIP: If you are running Windows consider using https://docs.microsoft.com/en-us/windows/nodejs/setup-on-wsl2[Windows Subsystem for Linux] as much of the ecosystem is written for Linux.
 
