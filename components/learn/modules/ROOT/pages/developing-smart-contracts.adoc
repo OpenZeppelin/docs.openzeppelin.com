@@ -23,9 +23,9 @@ With that out of the way, let's get started!
 
 The first step after xref:setting-up-a-node-project#creating-a-project[creating a project] is to install a development tool.
 
-The most popular development framework for Ethereum is https://hardhat.org/[Hardhat], and we cover its most common use with https://docs.ethers.io/[ethers.js]. The next most popular is https://github.com/foundry-rs/foundry[Foundry]. Each has their strengths and it is useful to be comfortable using all of them.
+The most popular development frameworks for Ethereum are https://hardhat.org/[Hardhat] and https://github.com/foundry-rs/foundry[Foundry]. Each has their strengths and it is useful to be comfortable using all of them.
 
-In these guides we will show how to develop, test and deploy smart contracts using Hardhat.
+In these guides we will show how to develop, test and deploy smart contracts using Hardhat, and we cover its most common use with https://docs.ethers.io/[ethers.js].
 
 [.hardhat]
 --
