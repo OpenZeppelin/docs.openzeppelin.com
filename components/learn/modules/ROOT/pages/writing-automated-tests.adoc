@@ -8,8 +8,6 @@ We'll cover the following topics:
  * <<writing-unit-tests, Writing Unit Tests>>
  * <<performing-complex-assertions, Performing Complex Assertions>>
 
-include::learn::partial$hardhat-truffle-toggle.adoc[]
-
 == About testing
 
 There is a wide range of testing techniques, from xref:deploying-and-interacting.adoc#interacting-from-the-console[simple manual verifications] to complex end-to-end setups, all of them useful in their own way.
