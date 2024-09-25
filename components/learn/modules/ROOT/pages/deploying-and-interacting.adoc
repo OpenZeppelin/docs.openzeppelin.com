@@ -14,7 +14,7 @@ This guide will cover all you need to know to get you started using your contrac
 
 Before we begin, we first need an environment where we can deploy our contracts. The Ethereum blockchain (often called "mainnet", for "main network") requires spending real money to use it, in the form of Ether (its native currency). This makes it a poor choice when trying out new ideas or tools.
 
-To solve this, a number of "testnets" (for "test networks") exist: these include the Sepolia and Holesky blockchains. They work very similarly to mainnet, with one difference: you can get Ether for these networks for free, so that using them doesn't cost you a single cent. However, you will still need to deal with private key management, blocktimes in the range of 5 to 20 seconds, and actually getting this free Ether.
+To solve this, a number of "testnets" (for "test networks") exist: these include the Sepolia and Holesky blockchains. They work very similarly to mainnet, with one difference: you can get Ether for these networks for free, so that using them doesn't cost you a single cent. However, you will still need to deal with private key management, blocktimes of 12 seconds or more, and actually getting this free Ether.
 
 During development, it is a better idea to instead use a _local_ blockchain. It runs on your machine, requires no Internet access, provides you with all the Ether that you need, and mines blocks instantly. These reasons also make local blockchains a great fit for xref:writing-automated-tests.adoc#setting-up-a-testing-environment[automated tests].
 
