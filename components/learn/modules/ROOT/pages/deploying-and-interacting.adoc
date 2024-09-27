@@ -9,39 +9,16 @@ This guide will cover all you need to know to get you started using your contrac
  * <<interacting-from-the-console, Interacting from the Console>>
  * <<interacting-programmatically, Interacting Programmatically>>
 
-include::learn::partial$hardhat-truffle-toggle.adoc[]
-
 [[local-blockchain]]
 == Setting up a Local Blockchain
 
 Before we begin, we first need an environment where we can deploy our contracts. The Ethereum blockchain (often called "mainnet", for "main network") requires spending real money to use it, in the form of Ether (its native currency). This makes it a poor choice when trying out new ideas or tools.
 
-To solve this, a number of "testnets" (for "test networks") exist: these include the Sepolia, and Goerli blockchains. They work very similarly to mainnet, with one difference: you can get Ether for these networks for free, so that using them doesn't cost you a single cent. However, you will still need to deal with private key management, blocktimes in the range of 5 to 20 seconds, and actually getting this free Ether.
+To solve this, a number of "testnets" (for "test networks") exist: these include the Sepolia and Holesky blockchains. They work very similarly to mainnet, with one difference: you can get Ether for these networks for free, so that using them doesn't cost you a single cent. However, you will still need to deal with private key management, blocktimes of 12 seconds or more, and actually getting this free Ether.
 
 During development, it is a better idea to instead use a _local_ blockchain. It runs on your machine, requires no Internet access, provides you with all the Ether that you need, and mines blocks instantly. These reasons also make local blockchains a great fit for xref:writing-automated-tests.adoc#setting-up-a-testing-environment[automated tests].
 
 TIP: If you want to learn how to deploy and use contracts on a _public_ blockchain, like the Ethereum testnets, head to our xref:connecting-to-public-test-networks.adoc[Connecting to Public Test Networks] guide.
-
-[.truffle]
---
-The most popular local blockchain is https://github.com/trufflesuite/ganache-cli[Ganache]. To install it on your project, run:
-
-```console
-$ npm install --save-dev ganache-cli
-```
-
-Upon startup, Ganache will create a random set of unlocked accounts and give them Ether. In order to get the same addresses that will be used in this guide, you can start Ganache in deterministic mode:
-
-```console
-$ npx ganache-cli --deterministic
-```
-
-Ganache will print out a list of available accounts and their private keys, along with some blockchain configuration values. Most importantly, it will display its address, which we'll use to connect to it. By default, this will be `127.0.0.1:8545`.
-
-Keep in mind that every time you run Ganache, it will create a brand new local blockchain - the state of previous runs is **not** preserved. This is fine for short-lived experiments, but it means that you will need to have a window open running Ganache for the duration of these guides. Alternatively, you can run Ganache with the `--db` option, providing a directory to store its data in between runs.
-
-TIP: **Truffle** has a graphical version of `ganache-cli`, also called https://www.trufflesuite.com/ganache[Ganache].
---
 
 [.hardhat]
 --
@@ -60,7 +37,7 @@ Keep in mind that every time you run Hardhat Network, it will create a brand new
 TIP: Hardhat will always spin up an instance of **Hardhat Network** when no network is specified and there is no default network configured or the default network is set to `hardhat`.
 --
 
-NOTE: You can also run an actual Ethereum node in _https://geth.ethereum.org/getting-started/dev-mode[development] https://wiki.parity.io/Private-development-chain[mode]_. These are a bit more complex to set up, and not as flexible for testing and development, but are more representative of the real network.
+NOTE: You can also run an actual Ethereum node in _https://geth.ethereum.org/getting-started/dev-mode[development mode]_. These are a bit more complex to set up, and not as flexible for testing and development, but are more representative of the real network.
 
 [[deploying-a-smart-contract]]
 == Deploying a Smart Contract
@@ -71,25 +48,9 @@ If you don't already have this setup, please xref:setting-up-a-node-project.adoc
 
 With our project setup complete we're now ready to deploy a contract. We'll be deploying `Box`, from the xref:developing-smart-contracts.adoc#box-contract[Developing Smart Contracts] guide. Make sure you have a copy of xref:developing-smart-contracts.adoc#box-contract[Box] in `contracts/Box.sol`.
 
-[.truffle]
---
-Truffle uses https://www.trufflesuite.com/docs/truffle/getting-started/running-migrations[migrations] to deploy contracts.  Migrations consist of JavaScript files and a special Migrations contract to track migrations on-chain.
-
-We will create a JavaScript migration to deploy our Box contract.  We will save this file as `migrations/2_deploy.js`.
-
-```js
-// migrations/2_deploy.js
-const Box = artifacts.require('Box');
-
-module.exports = async function (deployer) {
-  await deployer.deploy(Box);
-};
-```
---
-
 [.hardhat]
 --
-Hardhat doesn't currently have a native deployment system, instead we use https://hardhat.org/guides/deploying.html[scripts] to deploy contracts.
+Hardhat uses either https://hardhat.org/hardhat-runner/docs/guides/deploying[declarative deployments] or https://hardhat.org/hardhat-runner/docs/advanced/scripts#writing-scripts-with-hardhat[scripts] to deploy contracts.
 
 We will create a script to deploy our Box contract.  We will save this file as `scripts/deploy.js`.
 
@@ -112,35 +73,16 @@ main()
   });
 ```
 
-We use https://github.com/ethers-io/ethers.js[ethers] in our script, so we need to install it and the https://hardhat.org/plugins/nomiclabs-hardhat-ethers.html[@nomicfoundation/hardhat-ethers plugin].
+We use https://github.com/ethers-io/ethers.js[ethers] in our script, so we need to install it and the https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers[@nomicfoundation/hardhat-ethers plugin].
 
 ```console
 $ npm install --save-dev @nomicfoundation/hardhat-ethers ethers
 ```
 --
 
-[.truffle]
---
-Before we deploy we need to configure the connection to ganache.  We need to add a development network for localhost and port 8545 which is what our local blockchain is using.
-
-```js
-// truffle-config.js
-module.exports = {
-...
-  networks: {
-...
-    development: {
-     host: "127.0.0.1",     // Localhost (default: none)
-     port: 8545,            // Standard Ethereum port (default: none)
-     network_id: "*",       // Any network (default: none)
-    },
-    ...
-```
---
-
 [.hardhat]
 --
-We need to add in our https://hardhat.org/config/[configuration] that we are using the `@nomiclabs/hardhat-ethers` plugin.
+We need to add in our https://hardhat.org/config/[configuration] that we are using the `@nomicfoundation/hardhat-ethers` plugin.
 
 ```js
 // hardhat.config.js
@@ -151,46 +93,6 @@ module.exports = {
 ...
 };
 ```
---
-[.truffle]
---
-Using the https://www.trufflesuite.com/docs/truffle/reference/truffle-commands#migrate[`migrate`] command, we can deploy the `Box` contract to the `development` network (<<local-blockchain, Ganache>>):
-
-```console
-$ npx truffle migrate --network development
-
-Compiling your contracts...
-===========================
-> Everything is up to date, there is nothing to compile.
-
-
-
-Starting migrations...
-======================
-> Network name:    'development'
-> Network id:      1619762548805
-> Block gas limit: 6721975 (0x6691b7)
-
-
-1_initial_migration.js
-======================
-
-   Deploying 'Migrations'
-   ----------------------
-...
-
-2_deploy.js
-===========
-
-   Deploying 'Box'
-   ---------------
-   > transaction hash:    0x25b0a326bfc9aa64be13efb5a4fb3f784ffa845c36d049547eeb0f78e0a3108d
-   > Blocks: 0            Seconds: 0
-   > contract address:    0xCfEB869F69431e42cdB54A4F4f105C19C080A601
-...
-```
-
-NOTE: Truffle will keep track of your deployed contracts, but it also displays their addresses when deploying (in our example, `0xCfEB869F69431e42cdB54A4F4f105C19C080A601`). These values will be useful when interacting with them programmatically.
 --
 
 [.hardhat]
@@ -217,17 +119,6 @@ NOTE: Remember that local blockchains **do not** persist their state throughout 
 
 With our `Box` contract <<deploying-a-smart-contract, deployed>>, we can start using it right away.
 
-[.truffle]
---
-We will use the https://www.trufflesuite.com/docs/truffle/getting-started/using-truffle-develop-and-the-console[Truffle console] to interact with our deployed `Box` contract on our local development network.
-
-```console
-$ npx truffle console --network development
-truffle(development)> const box = await Box.deployed();
-undefined
-```
---
-
 [.hardhat]
 --
 We will use the https://hardhat.org/guides/hardhat-console.html[Hardhat console] to interact with our deployed `Box` contract on our localhost network.
@@ -238,7 +129,7 @@ NOTE: It's important that we explicitly set the network for Hardhat to connect o
 
 ```console
 $ npx hardhat console --network localhost
-Welcome to Node.js v12.22.1.
+Welcome to Node.js v20.17.0.
 Type ".help" for more information.
 > const Box = await ethers.getContractFactory('Box');
 undefined
@@ -251,20 +142,6 @@ undefined
 ``Box``'s first function, `store`, receives an integer value and stores it in the contract storage. Because this function _modifies_ the blockchain state, we need to _send a transaction_ to the contract to execute it.
 
 We will send a transaction to call the `store` function with a numeric value:
-[.truffle]
---
-```console
-truffle(development)> await box.store(42)
-{ tx:
-   '0x5d4cc78f5d5eac3650214740728192ac760978e261962736289b10da0ec0ea43',
-...
-       event: 'ValueChanged',
-       args: [Result] } ] }
-```
-
-Notice how the transaction receipt also shows that `Box` emitted a `ValueChanged` event.
---
-
 [.hardhat]
 --
 ```console
@@ -279,33 +156,17 @@ Notice how the transaction receipt also shows that `Box` emitted a `ValueChanged
 === Querying state
 
 ``Box``'s other function is called `retrieve`, and it returns the integer value stored in the contract. This is a _query_ of blockchain state, so we don't need to send a transaction:
-[.truffle]
---
-```console
-truffle(development)> await box.retrieve()
-<BN: 2a>
-```
---
-
 [.hardhat]
 --
 ```console
 > await box.retrieve()
-BigNumber { _hex: '0x2a', _isBigNumber: true }
+42n
 ```
 --
 
 Because queries only read state and don't send a transaction, there is no transaction hash to report. This also means that using queries doesn't cost any Ether, and can be used for free on any network.
 
 NOTE: Our `Box` contract returns `uint256` which is too large a number for JavaScript so instead we get returned a big number object.  We can display the big number as a string using `(await box.retrieve()).toString()`.
-
-[.truffle]
---
-```console
-truffle(development)> (await box.retrieve()).toString()
-'42'
-```
---
 
 [.hardhat]
 --
@@ -317,11 +178,6 @@ truffle(development)> (await box.retrieve()).toString()
 
 
 
-[.truffle]
---
-TIP: To learn more about using the console, check out the https://www.trufflesuite.com/docs/truffle/getting-started/using-truffle-develop-and-the-console[Truffle documentation].
---
-
 [.hardhat]
 --
 TIP: To learn more about using the console, check out the https://hardhat.org/guides/hardhat-console.html[Hardhat documentation].
@@ -331,11 +187,6 @@ TIP: To learn more about using the console, check out the https://hardhat.org/gu
 == Interacting programmatically
 
 The console is useful for prototyping and running one-off queries or transactions. However, eventually you will want to interact with your contracts from your own code.
-
-[.truffle]
---
-In this section, we'll see how to interact with our contracts from JavaScript, and use https://www.trufflesuite.com/docs/truffle/getting-started/writing-external-scripts[Truffle to execute our script] with our Truffle configuration.
---
 
 [.hardhat]
 --
@@ -348,24 +199,6 @@ TIP: Keep in mind that there are many other JavaScript libraries available, and 
 === Setup
 
 Let's start coding in a new `scripts/index.js` file, where we'll be writing our JavaScript code, beginning with some boilerplate, including for https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function[writing async code].
-
-[.truffle]
---
-[source,js]
-----
-// scripts/index.js
-module.exports = async function main (callback) {
-  try {
-    // Our code will go here
-
-    callback(0);
-  } catch (error) {
-    console.error(error);
-    callback(1);
-  }
-};
-----
---
 
 [.hardhat]
 --
@@ -388,43 +221,17 @@ main()
 We can test our setup by asking the local node something, such as the list of enabled accounts:
 
 
-[.truffle]
---
-[source,js]
-----
-// Retrieve accounts from the local node
-const accounts = await web3.eth.getAccounts();
-console.log(accounts)
-----
---
-
 [.hardhat]
 --
 [source,js]
 ----
 // Retrieve accounts from the local node
-const accounts = await ethers.provider.listAccounts();
+const accounts = (await ethers.getSigners()).map(signer => signer.address);
 console.log(accounts);
 ----
 --
 
 NOTE: We won't be repeating the boilerplate code on every snippet, but make sure to always code _inside_ the `main` function we defined above!
-
-[.truffle]
---
-Run the code above using `truffle exec`, and check that you are getting a list of available accounts in response.
-
-[source,console]
-----
-$ npx truffle exec --network development ./scripts/index.js
-Using network 'development'.
-
-[ '0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1',
-  '0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0',
-...
-]
-----
---
 
 [.hardhat]
 --
@@ -446,21 +253,9 @@ These accounts should match the ones displayed when you started the <<local-bloc
 [[getting-a-contract-instance]]
 === Getting a contract instance
 
-[.truffle]
---
-In order to interact with the <<box-contract,`Box`>> contract we deployed, we'll use the Truffle contract abstraction, a JavaScript object that represents our contract on the blockchain.
-
-[source,js]
-----
-// Set up a Truffle contract, representing our deployed Box instance
-const Box = artifacts.require('Box');
-const box = await Box.deployed();
-----
---
-
 [.hardhat]
 --
-In order to interact with the <<box-contract,`Box`>> contract we deployed, we'll use an https://docs.ethers.io/v5/api/contract/contract/[ethers contract instance].
+In order to interact with the <<box-contract,`Box`>> contract we deployed, we'll use an https://docs.ethers.org/v6/api/contract/[ethers contract instance].
 
 An ethers contract instance is a JavaScript object that represents our contract on the blockchain, which we can use to interact with our contract. To attach it to our deployed contract we need to provide the contract address.
 
@@ -482,18 +277,6 @@ We can now use this JavaScript object to interact with our contract.
 
 Let's start by displaying the current value of the `Box` contract.
 
-[.truffle]
---
-We'll need to call the `retrieve()` public method of the contract, and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await[await] the response:
-
-[source,js]
-----
-// Call the retrieve() function of the deployed Box contract
-const value = await box.retrieve();
-console.log('Box value is', value.toString());
-----
---
-
 [.hardhat]
 --
 We'll need to call the read only `retrieve()` public method of the contract, and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await[await] the response:
@@ -506,17 +289,6 @@ console.log('Box value is', value.toString());
 ----
 --
 This snippet is equivalent to the <<querying-state, query>> we ran earlier from the console. Now, make sure everything is running smoothly by running the script again and checking the printed value:
-
-[.truffle]
---
-[source,console]
-----
-$ npx truffle exec --network development ./scripts/index.js
-Using network 'development'.
-
-Box value is 42
-----
---
 
 [.hardhat]
 --
@@ -540,22 +312,6 @@ We'll now send a transaction to `store` a new value in our Box.
 
 Let's store a value of `23` in our `Box`, and then use the code we had written before to display the updated value:
 
-[.truffle]
---
-
-[source,js]
-----
-// Send a transaction to store() a new value in the Box
-await box.store(23);
-
-// Call the retrieve() function of the deployed Box contract
-const value = await box.retrieve();
-console.log('Box value is', value.toString());
-----
-
-NOTE: In a real-world application, you may want to https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-estimategas[estimate the gas] of your transactions, and check a https://ethgasstation.info/[gas price oracle] to know the optimal values to use on every transaction.
---
-
 [.hardhat]
 --
 
@@ -569,21 +325,10 @@ const value = await box.retrieve();
 console.log('Box value is', value.toString());
 ----
 
-NOTE: In a real-world application, you may want to https://docs.ethers.io/v5/api/contract/contract/#contract-estimateGas[estimate the gas] of your transactions, and check a https://ethgasstation.info/[gas price oracle] to know the optimal values to use on every transaction.
+NOTE: In a real-world application, you may want to https://docs.ethers.org/v6/api/contract/#BaseContractMethod-estimateGas[estimate the gas] of your transactions, and check a https://etherscan.io/gastracker[gas price oracle] to know the optimal values to use on every transaction.
 
 --
 We can now run the snippet, and check that the box's value is updated!
-
-[.truffle]
---
-[source,console]
-----
-$ npx truffle exec --network development ./scripts/index.js
-Using network 'development'.
-
-Box value is 23
-----
---
 
 [.hardhat]
 --

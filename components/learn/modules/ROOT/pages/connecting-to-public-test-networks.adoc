@@ -12,16 +12,10 @@ In this guide, we will use our beloved xref:developing-smart-contracts.adoc#box-
 
 Remember that deploying to a public test network is a necessary step when developing an Ethereum project. They provide a safe environment for testing that closely mimics the main network - you don't want to take out your project for a test drive in a network where mistakes will cost you and your users money!
 
-include::learn::partial$hardhat-truffle-toggle.adoc[]
-
 [[testnet-list]]
 == Available testnets
 
-There are two test networks available for you to choose, each with their own characteristics:
-
-[horizontal]
-Sepolia:: A proof-of-stake network. This means validators explicitly stake capital in the form of ETH into a smart contract, which acts as collateral to be destroyed upon misbehavior. (id=11155111)
-Goerli:: Also a proof-of-stake network, compatible with both Geth and OpenEthereum clients, with 15-second block times. (id=5)
+There are a number of test networks available for you to choose, each with their own characteristics. The recommended network for testing decentralized applications and smart contracts is Sepolia. (id=11155111)
 
 NOTE: Each network is identified by a numeric ID. Local networks usually have a large random value, while id=1 is reserved for the main Ethereum network.
 
@@ -38,7 +32,7 @@ To connect our project to a public testnet, we will need to:
 [[accessing-a-testnet-node]]
 === Accessing a testnet node
 
-While you can spin up your own https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options[Geth] or https://openethereum.github.io/wiki/Chain-specification[OpenEthereum] node connected to a testnet, the easiest way to access a testnet is via a public node service such as https://alchemy.com/[Alchemy] or https://infura.io[Infura]. Alchemy and Infura provide access to public nodes for all testnets and the main network, via both free and paid plans.
+While you can spin up your own https://ethereum.org/en/developers/docs/nodes-and-clients/run-a-node/[Ethereum nodes] connected to a testnet, the easiest way to access a testnet is via a public node service such as https://alchemy.com/[Alchemy] or https://infura.io[Infura]. Alchemy and Infura provide access to public nodes for all testnets and the main network, via both free and paid plans.
 
 NOTE: We say a node is _public_ when it can be accessed by the general public, and manages no accounts. This means that it can reply to queries and relay signed transactions, but cannot sign transactions on its own.
 
@@ -66,47 +60,7 @@ Since we are using public nodes, we will need to sign all our transactions local
 
 NOTE: This part assumes you have already set up a project. If you haven't, head over to the guide on xref:developing-smart-contracts.adoc#setting-up-a-solidity-project[Setting up a Solidity project].
 
-[.truffle]
---
-Let's start by installing the https://github.com/trufflesuite/truffle/tree/master/packages/hdwallet-provider[@truffle/hdwallet-provider]:
-
-[source,console]
-----
-$ npm install --save-dev @truffle/hdwallet-provider
-----
---
-
-We need to update our configuration file with a new network connection to the testnet. Here we will use Goerli, but you can use whichever you want:
-[.truffle]
---
-[source,diff]
-----
-// truffle-config.js
-+const { alchemyApiKey, mnemonic } = require('./secrets.json');
-+const HDWalletProvider = require('@truffle/hdwallet-provider');
- 
- module.exports = {
-   ...
-   networks: {
-     development: {
-      ...
-     },
-+    goerli: {
-+      provider: () => new HDWalletProvider(
-+        mnemonic, `https://eth-goerli.alchemyapi.io/v2/${alchemyApiKey}`,
-+      ),
-+      network_id: 5,
-+      gasPrice: 10e9,
-+      skipDryRun: true,
-+    },
-   },
-   ...
- };
-----
-
-NOTE: See the `HDWalletProvider` https://github.com/trufflesuite/truffle/tree/master/packages/hdwallet-provider[documentation] for information on configuration options.
---
-
+We need to update our configuration file with a new network connection to the testnet. Here we will use Sepolia, but you can use whichever you want:
 [.hardhat]
 --
 [source,diff]
@@ -116,8 +70,8 @@ NOTE: See the `HDWalletProvider` https://github.com/trufflesuite/truffle/tree/ma
 ...
   module.exports = {
 +    networks: {
-+     goerli: {
-+       url: `https://eth-goerli.alchemyapi.io/v2/${alchemyApiKey}`,
++     sepolia: {
++       url: `https://eth-sepolia.g.alchemy.com/v2/${alchemyApiKey}`,
 +       accounts: { mnemonic: mnemonic },
 +     },
 +   },
@@ -139,45 +93,24 @@ Note in the first line that we are loading the project id and mnemonic from a `s
 
 TIP: Instead of a `secrets.json` file, you can use whatever secret-management solution you like for your project. A popular and simple option is to use https://github.com/motdotla/dotenv[`dotenv`] for injecting secrets as environment variables.
 
-We can now test out that this configuration is working by listing the accounts we have available for the goerli network. Remember that yours will be different, as they depend on the mnemonic you used.
-
-[.truffle]
---
-[source,console]
-----
-$ npx truffle console --network goerli
-truffle(goerli)> accounts
-[ '0xEce6999C6c5BDA71d673090144b6d3bCD21d13d4',
-  '0xC1310ade58A75E6d4fCb8238f9559188Ea3808f9',
-... ]
-----
---
+We can now test out that this configuration is working by listing the accounts we have available for the Sepolia network. Remember that yours will be different, as they depend on the mnemonic you used.
 
 [.hardhat]
 --
 [source,console]
 ----
-$ npx hardhat console --network goerli
-Welcome to Node.js v12.22.1.
+$ npx hardhat console --network sepolia
+Welcome to Node.js v20.17.0.
 Type ".help" for more information.
-> accounts = await ethers.provider.listAccounts()
+> accounts = (await ethers.getSigners()).map(signer => signer.address)
 [
-  '0xEce6999C6c5BDA71d673090144b6d3bCD21d13d4',
+  '0x6B1c3A2f2160a7Cb2ebc7Fc861b8dB71476C30E7',
   '0xC1310ade58A75E6d4fCb8238f9559188Ea3808f9',
 ...
 ]
 ----
 --
 We can also test the connection to the node, by querying our account balance.
-[.truffle]
---
-[source,console]
-----
-> await web3.eth.getBalance(accounts[0])
-'0'
-----
---
-
 [.hardhat]
 --
 [source,console]
@@ -192,8 +125,7 @@ Empty! This points to our next task: getting testnet funds so that we can send t
 [[finding-a-testnet-account]]
 === Funding the testnet account
 
-Most public testnets have a faucet: a site that will provide you with a small amount of test Ether for free. If you are on goerli, head to the https://goerlifaucet.com[Alchemy's free Goerli faucet] to get free testETH. Alternatively, you can also use https://faucet.metamask.io/[MetaMask's faucet] to ask for funds directly to your MetaMask accounts.
-If you need test Ether on Sepolia, you can use https://www.infura.io/faucet[Infura's free Sepolia faucet] to get free testETH.
+Most public testnets have a faucet: a site that will provide you with a small amount of test Ether for free. If you are on Sepolia, head to https://www.alchemy.com/faucets/ethereum-sepolia[Alchemy's free Sepolia faucet], https://www.infura.io/faucet[Infura's free Sepolia faucet], or https://cloud.google.com/application/web3/faucet/ethereum/sepolia[Google's free Sepolia faucet] to get free testETH.
 
 Armed with a funded account, let's deploy our contracts to the testnet!
 
@@ -202,74 +134,36 @@ Armed with a funded account, let's deploy our contracts to the testnet!
 
 With a project configured to work on a public testnet, we can now finally xref::deploying-and-interacting.adoc#deploying-a-smart-contract[deploy our `Box` contract]. The command here is exactly the same as if you were on your xref::deploying-and-interacting.adoc#local-blockchain[local development network], though it will take a few seconds to run as new blocks are mined.
 
-[.truffle]
---
-[source,console]
-----
-$ npx truffle migrate --network goerli
-...
-2_deploy.js
-===========
-
-   Deploying 'Box'
-   ---------------
-   > transaction hash:    0x56237c80fc5b562736d27dc12560241706849cebe01c46b7c080dad596a65f28
-   > Blocks: 0            Seconds: 6
-   > contract address:    0xA4D767f2Fba05242502ECEcb2Ae97232F7611353
-...
-----
---
-
 [.hardhat]
 --
 [source,console]
 ----
-$ npx hardhat run --network goerli scripts/deploy.js
+$ npx hardhat run --network sepolia scripts/deploy.js
 Deploying Box...
-Box deployed to: 0xD7fBC6865542846e5d7236821B5e045288259cf0
+Box deployed to: 0x1b99CCaCea0e4046db618770dEF72180F8138641
 ----
 --
 
 That's it! Your `Box` contract instance will be forever stored in the testnet, and publicly accessible to anyone. 
 
-You can see your contract on a block explorer such as https://etherscan.io/[Etherscan]. Remember to access the explorer on the testnet where you deployed your contract, such as https://goerli.etherscan.io[goerli.etherscan.io] for goerli.
-
-[.truffle]
---
-TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://goerli.etherscan.io/address/0xA4D767f2Fba05242502ECEcb2Ae97232F7611353[here].
---
+You can see your contract on a block explorer such as https://etherscan.io/[Etherscan]. Remember to access the explorer on the testnet where you deployed your contract, such as https://sepolia.etherscan.io[sepolia.etherscan.io] for Sepolia.
 
 [.hardhat]
 --
-TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://goerli.etherscan.io/address/0xD7fBC6865542846e5d7236821B5e045288259cf0[here].
+TIP: You can check out the contract we deployed in the example above, along with all transactions sent to it, https://sepolia.etherscan.io/address/0x1b99CCaCea0e4046db618770dEF72180F8138641[here].
 --
 
 You can also interact with your instance as you regularly would, either using the xref::deploying-and-interacting.adoc#interacting-from-the-console[console], or xref::deploying-and-interacting.adoc#interacting-programatically[programmatically].
 
-[.truffle]
---
-```console
-$ npx truffle console --network goerli
-truffle(goerli)> box = await Box.deployed()
-undefined
-truffle(goerli)> await box.store(42)
-{ tx:
-   '0x7d1a556b34fcb26855c6646669fc926738b05589591de6c7bb1f8773546817e7',
-...
-truffle(goerli)> (await box.retrieve()).toString()
-'42'
-```
---
-
 [.hardhat]
 --
 ```console
-$ npx hardhat console --network goerli
-Welcome to Node.js v12.22.1.
+$ npx hardhat console --network sepolia
+Welcome to Node.js v20.17.0.
 Type ".help" for more information.
 > const Box = await ethers.getContractFactory('Box');
 undefined
-> const box = await Box.attach('0xD7fBC6865542846e5d7236821B5e045288259cf0');
+> const box = await Box.attach('0x1b99CCaCea0e4046db618770dEF72180F8138641');
 undefined
 > await box.store(42);
 {
