@@ -68,12 +68,7 @@ content:
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/cairo-contracts
-      branches: ~
-      tags:
-        - v*
-        - '!v0.7.0-rc.0' # broken antora.yml
-        - '!v0.2.*' # no antora.yml
-        - '!v0.1.0' # no antora.yml
+      branches: release-v*
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/nile
