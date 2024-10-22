@@ -71,6 +71,7 @@ content:
       branches:
         - release-v*
         - '!release-v*-rc.*' # exclude release candidates
+        - '!release-v*-beta.*' # exclude beta releases
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/nile
