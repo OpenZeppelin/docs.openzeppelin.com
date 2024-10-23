@@ -72,7 +72,7 @@ content:
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/nile
-      branches: release-v*
+      branches: release-v0.*
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/polkadot-runtime-templates
