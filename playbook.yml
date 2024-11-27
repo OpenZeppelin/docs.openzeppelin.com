@@ -27,6 +27,10 @@ content:
       branches: docs-v*
       start_path: packages/lib/docs
 
+    - url: https://github.com/OpenZeppelin/openzeppelin-community-contracts
+      branches: HEAD
+      start_path: docs
+
     - url: https://github.com/OpenZeppelin/openzeppelin-upgrades
       branches: HEAD
       start_path: docs
@@ -79,7 +83,7 @@ content:
     - url: https://github.com/OpenZeppelin/polkadot-runtime-templates
       branches:
         - v*
-        - '!v0.1' # initial version not published
+        - "!v0.1" # initial version not published
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/rust-contracts-stylus
