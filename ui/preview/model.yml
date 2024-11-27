@@ -101,8 +101,8 @@ site:
       versions:
       - &latest_version_community_contracts
         url: '#'
-        version: '0.0.0-alpha.0'
-        displayVersion: '0.0.0-alpha.0'
+        version: '0.0.1'
+        displayVersion: '0.0.1'
       latestVersion: *latest_version_community_contracts
     upgrades:
       name: upgrades
