@@ -168,6 +168,10 @@
   background-image: linear-gradient(-135deg, #00e1d4 0%, #00c7f2 100%);
 }
 
+.card-community {
+  --card-icon: url(../images/icons/community-contracts.svg);
+}
+
 .card-upgrades {
   --card-icon: url(../images/icons/upgrades-plugins.svg);
 }
