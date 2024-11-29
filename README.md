@@ -21,8 +21,9 @@ Finally, add an entry for it inside the [`model.yml`](./ui/preview/model.yml) fi
 
 The contents of each repository under `sources` in `playbook.yml` are used as-is
 with no pre-processing. If the repository requires a pre-processing step, it must
-be done in the CI of that repository and the results pushed to a branch that should
-be then specified as the source in `playbook.yml`.
+be done in the CI of that repository and the results pushed to a branch (e.g., `docs`).
+This branch should then be specified as the source in `playbook.yml` instead of the
+source branch (e.g., `HEAD`).
 
 An example of a CI Github Action that pre-processes the `master` branch and
 pushes the result to the `docs-v*` branch can be found in the OpenZeppelin
