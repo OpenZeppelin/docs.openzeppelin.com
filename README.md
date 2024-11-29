@@ -17,17 +17,14 @@ inside the [`icons folder`](./ui/theme/images/icons) matching the name.
 
 Finally, add an entry for it inside the [`model.yml`](./ui/preview/model.yml) file, for UI development purposes.
 
-### Post-processing
+### Pre-processing
 
-Generally, each repository under the `sources` field in the `playbook.yml` file
-will use `HEAD` as the default branch. However, if the repository requires to
-execute a post-processing step, a specific branch can be specified.
+The contents of each repository under `sources` in `playbook.yml` are used as-is
+with no pre-processing. If the repository requires a pre-processing step, it must
+be done in the CI of that repository and the results pushed to a branch that should
+be then specified as the source in `playbook.yml`.
 
-This site will pull in the latest version of the `branches` field from the
-`playbook.yml` source repository (i.e. `content.sources[*].branches`). This
-can be used to point to a post-processed branch.
-
-An example of a CI Github Action that post-processes the `master` branch and
+An example of a CI Github Action that pre-processes the `master` branch and
 pushes the result to the `docs-v*` branch can be found in the OpenZeppelin
 Contracts [docs workflow](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/.github/workflows/docs.yml).
 This workflow creates an automated API reference for the Contracts library.
