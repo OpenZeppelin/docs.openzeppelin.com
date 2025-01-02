@@ -95,5 +95,8 @@ https://openzeppelin-docs.netlify.com/* https://docs.openzeppelin.com/:splat 301
 # buidler -> hardhat
 /upgrades-plugins/buidler-upgrades /upgrades-plugins/hardhat-upgrades 301
 /upgrades-plugins/api-buidler-upgrades /upgrades-plugins/api-hardhat-upgrades 301
-/upgrades-plugins/1.x/buidler-upgrades /upgrades-plugins/1.x/hardhat-upgrades 301
-/upgrades-plugins/1.x/api-buidler-upgrades /upgrades-plugins/1.x/api-hardhat-upgrades 301
+/upgrades-plugins/1.x/buidler-upgrades /upgrades-plugins/hardhat-upgrades 301
+/upgrades-plugins/1.x/api-buidler-upgrades /upgrades-plugins/api-hardhat-upgrades 301
+
+# Upgrades Plugins 1.x -> unversioned
+/upgrades-plugins/1.x/* /upgrades-plugins/:splat 301
