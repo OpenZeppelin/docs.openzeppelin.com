@@ -104,6 +104,16 @@ site:
         version: '0.0.1'
         displayVersion: '0.0.1'
       latestVersion: *latest_version_community_contracts
+    uniswap-hooks:
+      name: uniswap-hooks
+      title: Uniswap Hooks
+      url: '#'
+      versions:
+      - &latest_version_uniswap_hooks
+        url: '#'
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_uniswap_hooks
     upgrades:
       name: upgrades
       title: Upgrades

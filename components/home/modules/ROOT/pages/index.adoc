@@ -45,6 +45,11 @@ xref:contracts-stylus::index.adoc[[.card-title]#Contracts for Stylus# [.card-bod
 xref:substrate-runtimes::index.adoc[[.card-title]#Substrate Runtimes# [.card-body]#pass:q[A collection of runtime templates for parachain development on Polkadot.]#]
 --
 
+[.card.card-secondary.card-uniswap-hooks]
+--
+xref:uniswap-hooks::index.adoc[[.card-title]#Uniswap Hooks# [.card-body]#pass:q[A Solidity library for secure and modular Uniswap hooks.]#]
+--
+
 [.card.card-secondary.card-solidity-docgen]
 --
 https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [.card-body]#pass:q[A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.]#]

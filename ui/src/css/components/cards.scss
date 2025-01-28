@@ -1,12 +1,14 @@
 /* grid layout */
 
-.card-section .sectionbody, .card-section .content {
+.card-section .sectionbody,
+.card-section .content {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(calc(max(30%, 230px)), 1fr));;
+  grid-template-columns: repeat(auto-fill, minmax(calc(max(30%, 230px)), 1fr));
   grid-gap: 1rem;
 }
 
-.card-section-2col .sectionbody, .card-section-2col .content {
+.card-section-2col .sectionbody,
+.card-section-2col .content {
   grid-template-columns: repeat(auto-fill, minmax(calc(max(50% - 0.5rem, 250px)), 1fr));
 }
 
@@ -182,6 +184,10 @@
 
 .card-contracts-stylus {
   --card-icon: url(../images/icons/contracts-stylus.svg);
+}
+
+.card-uniswap-hooks {
+  --card-icon: url(../images/icons/starter-kits.svg);
 }
 
 .card-substrate-runtimes {
