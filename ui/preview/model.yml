@@ -111,8 +111,8 @@ site:
       versions:
       - &latest_version_stellar_contracts
         url: '#'
-        version: '1.x'
-        displayVersion: '1.x'
+        version: '0.1.x'
+        displayVersion: '0.1.x'
       latestVersion: *latest_version_stellar_contracts
     uniswap-hooks:
       name: uniswap-hooks
