@@ -47,7 +47,7 @@ xref:substrate-runtimes::index.adoc[[.card-title]#Substrate Runtimes# [.card-bod
 
 [.card.card-secondary.card-stellar-contracts]
 --
-xref:stellar-contracts::index.adoc[[.card-title]#Stellar Contracts# [.card-body]#pass:q[OpenZeppelin Contracts written in Rust for Stellar Soroban.]#]
+xref:stellar-contracts::index.adoc[[.card-title]#Stellar Contracts# [.card-body]#pass:q[A library for secure smart contract development written in Rust for Stellar Soroban.]#]
 --
 
 [.card.card-secondary.card-uniswap-hooks]
