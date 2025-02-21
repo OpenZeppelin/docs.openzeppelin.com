@@ -1,6 +1,6 @@
 = Documentation
 
-Explore our guides and examples to learn how to integrate OpenZeppelin security products with your project.    
+Explore our guides and examples to learn how to integrate OpenZeppelin security products with your project.
 
 [.card-section]
 == Explore using OpenZeppelin
@@ -43,6 +43,11 @@ xref:contracts-stylus::index.adoc[[.card-title]#Contracts for Stylus# [.card-bod
 [.card.card-secondary.card-substrate-runtimes]
 --
 xref:substrate-runtimes::index.adoc[[.card-title]#Substrate Runtimes# [.card-body]#pass:q[A collection of runtime templates for parachain development on Polkadot.]#]
+--
+
+[.card.card-secondary.card-stellar-contracts]
+--
+xref:stellar-contracts::index.adoc[[.card-title]#Stellar Contracts# [.card-body]#pass:q[A library for secure smart contract development written in Rust for Stellar Soroban.]#]
 --
 
 [.card.card-secondary.card-uniswap-hooks]

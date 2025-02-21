@@ -91,6 +91,11 @@ content:
         - v*
       start_path: docs
 
+    - url: https://github.com/OpenZeppelin/stellar-contracts
+      branches:
+        - release-v*
+      start_path: docs
+
     - url: https://github.com/OpenZeppelin/uniswap-hooks
       branches: HEAD
       start_path: docs
