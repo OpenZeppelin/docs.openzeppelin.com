@@ -20,7 +20,8 @@
     {{/each}}
 
     <h3 class="nav-title">More</h3>
-    {{#each (pick site.components "community-contracts, upgrades-plugins, contracts-cairo, contracts-stylus, substrate-runtimes, uniswap-hooks") }}
+    {{#each (pick site.components "community-contracts, upgrades-plugins, contracts-cairo, contracts-stylus,
+    substrate-runtimes, stellar-contracts, uniswap-hooks") }}
     {{> navigation-component }}
     {{/each}}
   </div>

@@ -3,8 +3,8 @@ site:
   url: https://docs.openzeppelin.com
   start_page: ROOT::index.adoc
   keys:
-    google_analytics: 'UA-85043059-1'
-    gtm: 'GTM-W9X5Q6F'
+    google_analytics: "UA-85043059-1"
+    gtm: "GTM-W9X5Q6F"
 content:
   sources:
     - url: .
@@ -91,6 +91,11 @@ content:
         - v*
       start_path: docs
 
+    - url: https://github.com/OpenZeppelin/stellar-contracts
+      branches:
+        - release-v*
+      start_path: docs
+
     - url: https://github.com/OpenZeppelin/uniswap-hooks
       branches: HEAD
       start_path: docs
@@ -99,11 +104,11 @@ ui:
     url: ./ui/theme
 asciidoc:
   attributes:
-    idprefix: ''
+    idprefix: ""
 antora:
   extensions:
-    - require: './lunr-tokenizer'
-    - require: '@antora/lunr-extension'
+    - require: "./lunr-tokenizer"
+    - require: "@antora/lunr-extension"
       index_latest_only: true
 urls:
   html_extension_style: drop

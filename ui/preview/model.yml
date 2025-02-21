@@ -104,6 +104,16 @@ site:
         version: '0.0.1'
         displayVersion: '0.0.1'
       latestVersion: *latest_version_community_contracts
+    stellar-contracts:
+      name: stellar-contracts
+      title: Stellar Contracts
+      url: '#'
+      versions:
+      - &latest_version_stellar_contracts
+        url: '#'
+        version: '1.x'
+        displayVersion: '1.x'
+      latestVersion: *latest_version_stellar_contracts
     uniswap-hooks:
       name: uniswap-hooks
       title: Uniswap Hooks
