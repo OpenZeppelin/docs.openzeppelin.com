@@ -37,6 +37,16 @@ site:
         version: 'master'
         displayVersion: 'master'
       latestVersion: *latest_version_defender
+    openzeppelin-relayer:
+      name: openzeppelin-relayer
+      title: OpenZeppelin Relayer
+      url: '#'
+      versions:
+      - &latest_version_relayer
+        url: '#'
+        version: '0.1.x'
+        displayVersion: '0.1.x'
+      latestVersion: *latest_version_relayer
     contracts:
       &component_contracts
       name: contracts
