@@ -10,9 +10,14 @@
 			<b>{{@root.page.component.title}}</b> is deprecated. We are no longer developing new features nor addressing issues. Read <a href="https://forum.openzeppelin.com/t/doubling-down-in-security/2712" target="_blank">here</a> for more info.
 			</div>
 		{{/if}}
-        {{#if page.title}}
-          <h1>{{{page.title}}}</h1>
-        {{/if}}
+		{{#unless (eq @root.page.componentVersion.version @root.page.component.latest.version)}}
+			<div class="article-banner">
+				You are not reading the current version of this documentation. <a href="{{@root.page.component.latest.url}}">{{@root.page.component.latest.version}}</a> is the current version.
+			</div>
+		{{/unless}}
+		{{#if page.title}}
+			<h1>{{{page.title}}}</h1>
+		{{/if}}
 		{{{page.contents}}}
                 <div class="article-navigation">
                 {{#if page.previous}}
