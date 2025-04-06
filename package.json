@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@antora/lunr-extension": "^1.0.0-alpha.8",
+    "@sntke/antora-mermaid-extension": "^0.0.6",
     "antora": "^3.0.0",
     "glob": "^7.1.4",
     "js-yaml": "^3.13.1",

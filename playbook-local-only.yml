@@ -28,11 +28,11 @@ content:
 
     # path to your repos on your local machine
     - url: ../../repos/openzeppelin-relayer
-      branches: change-name-for-antora
+      branches: add-release-workflow
       start_path: docs
     
     - url: ../../repos/openzeppelin-monitor
-      branches: change-name-for-antora
+      branches: add-release-workflow
       start_path: docs
 ui:
   bundle:
@@ -40,5 +40,12 @@ ui:
 asciidoc:
   attributes:
     idprefix: ''
+antora:
+  extensions:
+    - require: '@sntke/antora-mermaid-extension'
+      mermaid_library_url: https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs
+      script_stem: footer-scripts
+      mermaid_initialize_options:
+        start_on_load: true
 urls:
   redirect_facility: netlify
