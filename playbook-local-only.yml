@@ -17,23 +17,7 @@ content:
     - url: .
       branches: HEAD
       start_path: components/open-source-tools
-    
-    - url: https://github.com/OpenZeppelin/openzeppelin-contracts
-      branches: docs-v*
-      start_path: docs
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-sdk
-      branches: docs-v*
-      start_path: packages/cli/docs
-
-    # path to your repos on your local machine
-    - url: ../../repos/openzeppelin-relayer
-      branches: add-release-workflow
-      start_path: docs
-    
-    - url: ../../repos/openzeppelin-monitor
-      branches: add-release-workflow
-      start_path: docs
 ui:
   bundle:
     url: ./ui/theme
