@@ -108,7 +108,7 @@
     height: 1.2em;
     display: inline-block;
     vertical-align: middle;
-    margin-bottom: .6rem;
+    margin-right: .6rem;
   }
 
   &:hover {
@@ -252,7 +252,7 @@
   --card-icon: url(../images/icons/docgen.svg);
 }
 
-.card-oss {
+.card-open-source-tools {
   --card-icon: url(../images/icons/open-source-tools.svg);
 }
 
