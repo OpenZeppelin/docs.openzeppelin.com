@@ -18,6 +18,16 @@ content:
       branches: HEAD
       start_path: components/open-source-tools
 
+    - url: https://github.com/OpenZeppelin/openzeppelin-monitor
+      branches:
+        - release-v*
+      start_path: docs
+    
+    - url: https://github.com/OpenZeppelin/openzeppelin-relayer
+      branches:
+        - release-v*
+      start_path: docs
+
 ui:
   bundle:
     url: ./ui/theme
