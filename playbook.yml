@@ -15,6 +15,10 @@ content:
       branches: HEAD
       start_path: components/learn
 
+    - url: .
+      branches: HEAD
+      start_path: components/open-source-tools
+
     - url: https://github.com/OpenZeppelin/openzeppelin-contracts
       branches: docs-v*
       start_path: docs
@@ -99,6 +103,16 @@ content:
     - url: https://github.com/OpenZeppelin/uniswap-hooks
       branches: HEAD
       start_path: docs
+    
+    - url: https://github.com/OpenZeppelin/openzeppelin-monitor
+      branches:
+        - release-v*
+      start_path: docs
+    
+    - url: https://github.com/OpenZeppelin/openzeppelin-relayer
+      branches:
+        - release-v*
+      start_path: docs
 ui:
   bundle:
     url: ./ui/theme
@@ -110,6 +124,11 @@ antora:
     - require: './lunr-tokenizer'
     - require: '@antora/lunr-extension'
       index_latest_only: true
+    - require: '@sntke/antora-mermaid-extension'
+      mermaid_library_url: https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs
+      script_stem: footer-scripts
+      mermaid_initialize_options:
+        start_on_load: true
 urls:
   html_extension_style: drop
   redirect_facility: netlify

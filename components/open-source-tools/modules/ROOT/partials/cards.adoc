@@ -1,0 +1,9 @@
+[.card.card-oss.card-relayer]
+--
+xref:relayer::index.adoc[[.card-title]#OpenZeppelin Relayer# [.card-body]#pass:q[A relayer service enables interaction with blockchain networks through transaction submissions. It offers multi-chain support and an extensible architecture for adding new chains.]#]
+--
+
+[.card.card-oss.card-monitor]
+--
+xref:monitor::index.adoc[[.card-title]#OpenZeppelin Monitor# [.card-body]#pass:q[A blockchain monitoring service that watches for specific onchain activities and triggers notifications based on configurable conditions. It offers multi-chain support with configurable monitoring schedules, flexible trigger conditions, and an extensible architecture.]#]
+--

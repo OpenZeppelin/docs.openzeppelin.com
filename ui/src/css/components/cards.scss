@@ -92,6 +92,36 @@
   }
 }
 
+/* styling open source tools */
+
+.card-oss a {
+  border: solid 1px #cacbcc;
+  border-left: solid 3px #53536B;
+  color: var(--color-text-light);
+
+  .card-title::before {
+    content: "";
+    background-image: var(--card-icon);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1.2em;
+    height: 1.2em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .6rem;
+  }
+
+  &:hover {
+    border-color: #B8BFF4;
+    border-left-color: #4E5EE4;
+    box-shadow: 0 6px 12px 0 rgba(60, 60, 60, 0.09);
+
+    .card-title {
+      color: #4E5EE4;
+    }
+  }
+}
+
 /* styling product cards */
 
 .card-primary a,
@@ -220,6 +250,18 @@
 
 .card-solidity-docgen {
   --card-icon: url(../images/icons/docgen.svg);
+}
+
+.card-open-source-tools {
+  --card-icon: url(../images/icons/open-source-tools.svg);
+}
+
+.card-relayer {
+  --card-icon: url(../images/icons/openzeppelin-relayer.svg);
+}
+
+.card-monitor {
+  --card-icon: url(../images/icons/openzeppelin-monitor.svg);
 }
 
 .card-subgraphs {

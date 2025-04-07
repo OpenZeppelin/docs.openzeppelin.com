@@ -1206,6 +1206,11 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
+"@sntke/antora-mermaid-extension@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@sntke/antora-mermaid-extension/-/antora-mermaid-extension-0.0.6.tgz#1e674e74e53472a4bd45d0f8295b646152847e9b"
+  integrity sha512-c4L+JsJYQYq/R73h5yRdBBR1jVkVdhIm6yhRy1Y009IpvvYAQor3TIxwaFXnPNR2NyfSlXUpXHelkEHddmJMOw==
+
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@szmarczak/http-timer/-/http-timer-1.1.2.tgz#b1665e2c461a2cd92f4c1bbf50d5454de0d4b421"

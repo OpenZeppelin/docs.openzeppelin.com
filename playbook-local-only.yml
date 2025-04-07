@@ -13,11 +13,23 @@ content:
     - url: .
       branches: HEAD
       start_path: components/learn
+
+    - url: .
+      branches: HEAD
+      start_path: components/open-source-tools
+
 ui:
   bundle:
     url: ./ui/theme
 asciidoc:
   attributes:
     idprefix: ''
+antora:
+  extensions:
+    - require: '@sntke/antora-mermaid-extension'
+      mermaid_library_url: https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs
+      script_stem: footer-scripts
+      mermaid_initialize_options:
+        start_on_load: true
 urls:
   redirect_facility: netlify
