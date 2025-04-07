@@ -1,6 +1,6 @@
 = Open Source Tools
 
-List of open source tools supported by OpenZeppelin and their documentation.
+A collection of open source tools supported by OpenZeppelin and their documentation.
 
 ++++
 <div class="card-section">
