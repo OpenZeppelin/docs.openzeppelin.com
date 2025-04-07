@@ -5,7 +5,7 @@ Explore our guides and examples to learn how to integrate OpenZeppelin security 
 [.card-section]
 == Explore using OpenZeppelin
 
-OpenZeppelin provides a complete suite of security products to adopt security best practices from the first line of code all the way to running your decentralized application on-chain.
+OpenZeppelin provides a complete suite of security products to adopt security best practices from the first line of code all the way to running your decentralized application onchain.
 
 [.card-section.card-section-2col]
 ====
@@ -63,7 +63,7 @@ https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [
 
 [.card.card-secondary.card-oss]
 --
-xref:open-source-tools::index.adoc[[.card-title]#Open Source Tools# [.card-body]#pass:q[A collection of tools for blockchain developers including a relayer for transaction submission and a monitoring service for on-chain activities.]#]
+xref:open-source-tools::index.adoc[[.card-title]#Open Source Tools# [.card-body]#pass:q[A collection of tools for blockchain developers including a relayer for transaction submission and a monitoring service for onchain activities.]#]
 --
 
 
