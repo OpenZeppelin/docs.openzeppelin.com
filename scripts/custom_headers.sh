@@ -8,7 +8,7 @@ build_dir='build/site'
 MATHJAX_SRC="'sha512-T8xxpazDtODy3WOP/c6hvQI2O9UPdARlDWE0CvH1Cfqc0TXZF6GZcEKL7tIR8VbfS/7s/J6C+VOqrD6hIo++vQ=='"
 
 input_text="/*
-  Content-Security-Policy: script-src 'self' 'unsafe-inline' wizard.openzeppelin.com www.google-analytics.com www.googletagmanager.com $NETLIFY_IMAGES_CDN_DOMAIN $MATHJAX_SRC js.hs-scripts.com netlify-cdp-loader.netlify.app js.hsadspixel.net js.hsleadflows.net js.hs-analytics.net js.hubspot.com js.headleadflows.net js.hscollectedforms.net js.hs-banner.com no-cache.hubspot.com *.hs-sites.com static.hsappstatic.net *.usemessages.com *.hubspotusercontent00.net *.hubspot.net play.hubspotvideo.com cdn2.hubspot.net *.hscollectedforms.net *.hsleadflows.net *.hsforms.net *.hsforms.com *.hs-scripts.com *.hubspotfeedback.com feedback.hubapi.com;"
+  Content-Security-Policy: script-src 'self' 'unsafe-inline' wizard.openzeppelin.com www.google-analytics.com www.googletagmanager.com $NETLIFY_IMAGES_CDN_DOMAIN $MATHJAX_SRC js.hs-scripts.com netlify-cdp-loader.netlify.app js.hsadspixel.net js.hsleadflows.net js.hs-analytics.net js.hubspot.com js.headleadflows.net js.hscollectedforms.net js.hs-banner.com *.jsdelivr.net no-cache.hubspot.com *.hs-sites.com static.hsappstatic.net *.usemessages.com *.hubspotusercontent00.net *.hubspot.net play.hubspotvideo.com cdn2.hubspot.net *.hscollectedforms.net *.hsleadflows.net *.hsforms.net *.hsforms.com *.hs-scripts.com *.hubspotfeedback.com feedback.hubapi.com;"
 
 echo "$input_text" > "$build_dir/_headers"
 
