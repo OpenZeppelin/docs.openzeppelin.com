@@ -18,28 +18,11 @@ content:
       branches: HEAD
       start_path: components/open-source-tools
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-monitor
-      branches:
-        - release-v*
-      start_path: docs
-    
-    - url: https://github.com/OpenZeppelin/openzeppelin-relayer
-      branches:
-        - release-v*
-      start_path: docs
-
 ui:
   bundle:
     url: ./ui/theme
 asciidoc:
   attributes:
     idprefix: ''
-antora:
-  extensions:
-    - require: '@sntke/antora-mermaid-extension'
-      mermaid_library_url: https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs
-      script_stem: footer-scripts
-      mermaid_initialize_options:
-        start_on_load: true
 urls:
   redirect_facility: netlify
