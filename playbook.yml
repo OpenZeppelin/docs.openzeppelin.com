@@ -20,7 +20,9 @@ content:
       start_path: components/open-source-tools
 
     - url: https://github.com/OpenZeppelin/openzeppelin-contracts
-      branches: docs-v*
+      branches:
+        - docs-v*
+        - "!docs-v2*"
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/openzeppelin-sdk
@@ -78,6 +80,7 @@ content:
     - url: https://github.com/OpenZeppelin/cairo-contracts
       branches:
         - docs-v*
+        - "!docs-v0.*"
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/nile
@@ -87,6 +90,7 @@ content:
     - url: https://github.com/OpenZeppelin/polkadot-runtime-templates
       branches:
         - v*
+        - "!v({1..2})*"
         - "!v0.1" # initial version not published
       start_path: docs
 
@@ -132,4 +136,4 @@ antora:
 urls:
   html_extension_style: drop
   redirect_facility: netlify
-  latest_version_segment: latest
+  latest_version_segment: current
