@@ -132,3 +132,4 @@ antora:
 urls:
   html_extension_style: drop
   redirect_facility: netlify
+  latest_version_segment: latest
