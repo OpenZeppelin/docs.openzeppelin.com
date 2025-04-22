@@ -106,12 +106,12 @@ content:
     
     - url: https://github.com/OpenZeppelin/openzeppelin-monitor
       branches:
-        - release-v*
+        - docs-v*
       start_path: docs
     
     - url: https://github.com/OpenZeppelin/openzeppelin-relayer
       branches:
-        - release-v*
+        - docs-v*
       start_path: docs
 ui:
   bundle:
