@@ -41,7 +41,7 @@
           <div class="popover">
             <p>Current version</p>
             <ul>
-              <li>
+              <li tabindex="0">
                 {{#with latest}}
                 <a href="{{{url}}}">{{displayVersion}}</a>
                 {{/with}}
@@ -51,7 +51,7 @@
             <ul>
               {{#each versions}}
               {{#unless (eq this ../latest)}}
-              <li>
+              <li tabindex="0">
                 <a href="{{{url}}}">{{displayVersion}}</a>
               </li>
               {{/unless}}
