@@ -26,11 +26,6 @@ xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A mission-
 xref:community-contracts::index.adoc[[.card-title]#Community Contracts# [.card-body]#pass:q[A community-driven extension of our Solidity library.]#]
 --
 
-[.card.card-secondary.card-confidential]
---
-xref:confidential-contracts::index.adoc[[.card-title]#Confidential Contracts# [.card-body]#pass:q[A library inspired by the vanilla contracts library built from the ground up for integration with confidential coprocessors.]#]
---
-
 [.card.card-secondary.card-upgrades]
 --
 xref:upgrades.adoc[[.card-title]#Upgrades# [.card-body]#pass:q[A comprehensive suite of contracts and tooling to deploy and manage upgradeable contracts on Ethereum.]#]
@@ -59,6 +54,11 @@ xref:stellar-contracts::index.adoc[[.card-title]#Stellar Contracts# [.card-body]
 [.card.card-secondary.card-uniswap-hooks]
 --
 xref:uniswap-hooks::index.adoc[[.card-title]#Uniswap Hooks# [.card-body]#pass:q[A Solidity library for secure and modular Uniswap hooks.]#]
+--
+
+[.card.card-secondary.card-confidential]
+--
+xref:confidential-contracts::index.adoc[[.card-title]#Confidential Contracts# [.card-body]#pass:q[A library inspired by the vanilla contracts library built from the ground up for integration with confidential coprocessors.]#]
 --
 
 [.card.card-secondary.card-solidity-docgen]
