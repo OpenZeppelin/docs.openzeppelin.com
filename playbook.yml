@@ -35,10 +35,6 @@ content:
       branches: docs-v*
       start_path: docs
 
-    - url: https://github.com/OpenZeppelin/openzeppelin-confidential-contracts
-      branches: docs-v*
-      start_path: docs
-
     - url: https://github.com/OpenZeppelin/openzeppelin-upgrades
       branches: HEAD
       start_path: docs
@@ -106,6 +102,10 @@ content:
 
     - url: https://github.com/OpenZeppelin/uniswap-hooks
       branches: HEAD
+      start_path: docs
+
+    - url: https://github.com/OpenZeppelin/openzeppelin-confidential-contracts
+      branches: docs-v*
       start_path: docs
     
     - url: https://github.com/OpenZeppelin/openzeppelin-monitor
