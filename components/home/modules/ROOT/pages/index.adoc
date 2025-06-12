@@ -56,6 +56,11 @@ xref:stellar-contracts::index.adoc[[.card-title]#Stellar Contracts# [.card-body]
 xref:uniswap-hooks::index.adoc[[.card-title]#Uniswap Hooks# [.card-body]#pass:q[A Solidity library for secure and modular Uniswap hooks.]#]
 --
 
+[.card.card-secondary.card-confidential]
+--
+xref:confidential-contracts::index.adoc[[.card-title]#Confidential Contracts# [.card-body]#pass:q[A library inspired by the vanilla contracts library built from the ground up for integration with confidential coprocessors.]#]
+--
+
 [.card.card-secondary.card-solidity-docgen]
 --
 https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [.card-body]#pass:q[A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.]#]
