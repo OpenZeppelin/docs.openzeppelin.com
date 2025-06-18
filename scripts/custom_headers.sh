@@ -14,7 +14,7 @@ MERMAID_SHA="'sha256-ngwD7npzgdOyiiBYvC+uZflrJ6mr9Jvw+AuyKix4R18='"
 REDOC_SHA="'sha256-UtKaQiNjX0T26rJ88rmZNwOihZtkML3ZFDOrDLCbCH4='"
 
 input_text="/*
-  Content-Security-Policy: script-src 'self' wizard.openzeppelin.com www.google-analytics.com www.googletagmanager.com $NETLIFY_IMAGES_CDN_DOMAIN $MATHJAX_SRC $MERMAID_SHA $REDOC_SHA cdn.redocly.com js.hs-scripts.com netlify-cdp-loader.netlify.app js.hsadspixel.net js.hsleadflows.net js.hs-analytics.net js.hubspot.com js.headleadflows.net js.hscollectedforms.net js.hs-banner.com *.jsdelivr.net no-cache.hubspot.com *.hs-sites.com static.hsappstatic.net *.usemessages.com *.hubspotusercontent00.net *.hubspot.net play.hubspotvideo.com cdn2.hubspot.net *.hscollectedforms.net *.hsleadflows.net *.hsforms.net *.hsforms.com *.hs-scripts.com *.hubspotfeedback.com feedback.hubapi.com;"
+  Content-Security-Policy: script-src 'self' wizard.openzeppelin.com www.google-analytics.com www.googletagmanager.com $NETLIFY_IMAGES_CDN_DOMAIN $MATHJAX_SRC $MERMAID_SHA $REDOC_SHA cdn.redocly.com js.hs-scripts.com netlify-cdp-loader.netlify.app js.hsadspixel.net js.hsleadflows.net js.hs-analytics.net js.hubspot.com js.headleadflows.net js.hscollectedforms.net js.hs-banner.com *.jsdelivr.net no-cache.hubspot.com *.hs-sites.com static.hsappstatic.net *.usemessages.com *.hubspotusercontent00.net *.hubspot.net play.hubspotvideo.com cdn2.hubspot.net *.hscollectedforms.net *.hsleadflows.net *.hsforms.net *.hsforms.com *.hs-scripts.com *.hubspotfeedback.com feedback.hubapi.com; worker-src 'self' blob:;"
 
 echo "$input_text" > "$build_dir/_headers"
 
