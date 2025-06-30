@@ -14,9 +14,9 @@ OpenZeppelin provides a complete suite of security products to adopt security be
 xref:contracts::index.adoc[[.card-title]#Contracts# [.card-body]#pass:q[A library of modular, reusable, and secure smart contracts, written in Solidity.]#]
 --
 
-[.card.card-primary.card-defender]
+[.card.card-primary.card-open-source-tools]
 --
-xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A mission-critical developer security platform to code, audit, deploy, monitor, and operate blockchain applications.]#]
+xref:open-source-tools::index.adoc[[.card-title]#Open Source Tools# [.card-body]#pass:q[A collection of tools for blockchain developers including a relayer for transaction submission and a monitoring service for onchain activities.]#]
 --
 
 ====
@@ -66,9 +66,9 @@ xref:confidential-contracts::index.adoc[[.card-title]#Confidential Contracts# [.
 https://github.com/OpenZeppelin/solidity-docgen[[.card-title]#Solidity Docgen# [.card-body]#pass:q[A tool for automatically generating documentation based on the natspec comments of your Solidity contracts.]#]
 --
 
-[.card.card-secondary.card-open-source-tools]
+[.card.card-secondary.card-defender]
 --
-xref:open-source-tools::index.adoc[[.card-title]#Open Source Tools# [.card-body]#pass:q[A collection of tools for blockchain developers including a relayer for transaction submission and a monitoring service for onchain activities.]#]
+xref:defender::index.adoc[[.card-title]#Defender# [.card-body]#pass:q[A mission-critical developer security platform to code, audit, deploy, monitor, and operate blockchain applications.]#]
 --
 
 

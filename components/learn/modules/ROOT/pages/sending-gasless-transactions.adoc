@@ -1,6 +1,6 @@
 = Sending gasless transactions
 
-WARNING: This guide is now deprecated, as it uses GSNv1, which is no longer supported. Consider using https://docs.openzeppelin.com/defender/[Defender] for https://blog.openzeppelin.com/gasless-metatransactions-with-openzeppelin-defender/[setting up your own meta-transaction relayers] instead, or using GSNv2 from the https://opengsn.org/[OpenGSN] team for a decentralized solution.
+WARNING: This guide is now deprecated, as it uses GSNv1, which is no longer supported. Consider using GSNv2 from the https://opengsn.org/[OpenGSN] team for a decentralized solution.
 
 WARNING: This article is no longer maintained. Read https://forum.openzeppelin.com/t/doubling-down-in-security/2712[here] for more info.
 
@@ -35,7 +35,7 @@ This may sound strange at first, but paying for user onboarding is a very common
 
 Additionally, you can leverage the GSN in scenarios where your users pay you off-chain in advance (e.g. via credit card), with each GSN-call deducting from their balance on your system. The possibilities are endless!
 
-Furthermore, the GSN is set up in such a way where it’s in the relayers' best interest to serve your requests, and there are measures in place to penalize them if they misbehave. All of this happens automatically, so you can safely start using their services worry-free.
+Furthermore, the GSN is set up in such a way where it's in the relayers' best interest to serve your requests, and there are measures in place to penalize them if they misbehave. All of this happens automatically, so you can safely start using their services worry-free.
 
 TIP: You can learn more about how the GSN works in xref:gsn-provider::interacting-with-relayhub.adoc[Interacting With `RelayHub`].
 
