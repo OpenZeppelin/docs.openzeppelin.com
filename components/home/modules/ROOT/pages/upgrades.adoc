@@ -4,7 +4,6 @@ OpenZeppelin provides tooling for deploying and securing upgradeable smart contr
 
 * xref:upgrades-plugins::index.adoc[Upgrades Plugins] to deploy upgradeable contracts with automated security checks.
 * xref:contracts::upgradeable.adoc[Upgradeable Contracts] to build your contract using our Solidity components.
-* xref:defender::module/deploy.adoc[Defender] to manage upgrades in production and automate operations.
 
 Find all of our resources related to upgradeability below.
 
@@ -17,5 +16,4 @@ TIP: If you don't know where to start we suggest to start with xref:learn::upgra
 * xref:contracts:api:proxy.adoc[Proxy Contracts]: A complete list of all available proxy contracts and related utilities, with documentation relevant for low-level use without Upgrades Plugins.
 * https://blog.openzeppelin.com/the-state-of-smart-contract-upgrades[The State of Smart Contract Upgrades]: A survey of upgrade patterns, and good practices and recommendations for upgrades management and governance.
 * xref:contracts:api:proxy.adoc#transparent-vs-uups[Transparent vs UUPS Proxies]: Explaining the differences between the Transparent Proxy Pattern and the newly available UUPS Proxies.
-* https://docs.openzeppelin.com/defender/v2/tutorial/deploy[Deploy an upgrading via Multisig with Defender]: A tutorial on deploying and upgrading a smart contract in production secured by a multisig wallet, using Defender and the Hardhat Upgrades plugin.
 * https://forum.openzeppelin.com/t/uups-proxies-tutorial-solidity-javascript/7786[UUPS Proxies]: A tutorial on using the UUPS proxy pattern: what the Solidity code should look like, and how to use the Upgrades Plugins with this new proxy pattern.

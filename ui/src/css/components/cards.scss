@@ -9,15 +9,17 @@
 
 .card-section-2col .sectionbody,
 .card-section-2col .content {
-  grid-template-columns: repeat(auto-fill, minmax(calc(max(50% - 0.5rem, 250px)), 1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(calc(max(50% - 0.5rem, 250px)), 1fr)
+  );
 }
 
-.card-section .sectionbody> :not(.card) {
+.card-section .sectionbody > :not(.card) {
   grid-column: 1 / -1;
 }
 
 .card {
-
   .content,
   .paragraph,
   p {
@@ -59,7 +61,7 @@
   border-radius: var(--border-radius);
   color: inherit;
   text-decoration: none;
-  font-size: .9rem;
+  font-size: 0.9rem;
 
   .card-title {
     font-family: var(--heading);
@@ -74,20 +76,20 @@
 
 .card-learn a {
   border: solid 1px #cacbcc;
-  border-left: solid 3px #53536B;
+  border-left: solid 3px #53536b;
   color: var(--color-text-light);
 
   .card-title {
-    margin-bottom: .8rem;
+    margin-bottom: 0.8rem;
   }
 
   &:hover {
-    border-color: #B8BFF4;
-    border-left-color: #4E5EE4;
+    border-color: #b8bff4;
+    border-left-color: #4e5ee4;
     box-shadow: 0 6px 12px 0 rgba(60, 60, 60, 0.09);
 
     .card-title {
-      color: #4E5EE4;
+      color: #4e5ee4;
     }
   }
 }
@@ -96,11 +98,11 @@
 
 .card-oss a {
   border: solid 1px #cacbcc;
-  border-left: solid 3px #53536B;
+  border-left: solid 3px #53536b;
   color: var(--color-text-light);
 
   .card-title::before {
-    content: "";
+    content: '';
     background-image: var(--card-icon);
     background-repeat: no-repeat;
     background-size: contain;
@@ -108,16 +110,16 @@
     height: 1.2em;
     display: inline-block;
     vertical-align: middle;
-    margin-right: .6rem;
+    margin-right: 0.6rem;
   }
 
   &:hover {
-    border-color: #B8BFF4;
-    border-left-color: #4E5EE4;
+    border-color: #b8bff4;
+    border-left-color: #4e5ee4;
     box-shadow: 0 6px 12px 0 rgba(60, 60, 60, 0.09);
 
     .card-title {
-      color: #4E5EE4;
+      color: #4e5ee4;
     }
   }
 }
@@ -133,7 +135,7 @@
   }
 
   .card-title::before {
-    content: "";
+    content: '';
     background-image: var(--card-icon);
     background-repeat: no-repeat;
     background-size: contain;
@@ -141,7 +143,7 @@
     height: 1.2em;
     display: inline-block;
     vertical-align: middle;
-    margin-right: .6em;
+    margin-right: 0.6em;
   }
 }
 
@@ -165,19 +167,19 @@
     position: absolute;
     bottom: 30px;
     right: -20px;
-    content: "";
+    content: '';
     background-image: url(../images/cards.svg);
     background-repeat: no-repeat;
     background-size: contain;
   }
 
   &::after {
-    content: "Get started >";
+    content: 'Get started >';
     font-family: var(--heading);
     font-weight: var(--weight-bold);
-    font-size: .8em;
+    font-size: 0.8em;
     text-transform: uppercase;
-    letter-spacing: .05em;
+    letter-spacing: 0.05em;
   }
 }
 
@@ -195,9 +197,18 @@
   background-image: linear-gradient(45deg, #6746d6 0%, #a134d1 100%);
 }
 
-.card-defender a {
-  --card-icon: url(../images/defender_white.svg);
+.card-open-source-tools a {
+  --card-icon: url(../images/icons/open-source-tools.svg);
   background-image: linear-gradient(-135deg, #00e1d4 0%, #00c7f2 100%);
+
+  /* Custom adjustments for the open source tools icon as it's different from the other icons */
+  .card-title::before {
+    filter: brightness(0) invert(1);
+    height: 1.8em;
+    width: 1.8em;
+    margin-top: -7px;
+    margin-right: 0.4em;
+  }
 }
 
 .card-community {
@@ -206,6 +217,10 @@
 
 .card-confidential {
   --card-icon: url(../images/icons/confidential-contracts.svg);
+}
+
+.card-defender {
+  --card-icon: url(../images/icons/defender.svg);
 }
 
 .card-upgrades {

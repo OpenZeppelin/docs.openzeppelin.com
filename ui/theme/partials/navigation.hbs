@@ -15,12 +15,13 @@
     {{/each}}
 
     <h3 class="nav-title">Our Products</h3>
-    {{#each (pick site.components "defender, contracts, open-source-tools")}}
+    {{#each (pick site.components "contracts, open-source-tools")}}
     {{> navigation-component }}
     {{/each}}
 
     <h3 class="nav-title">More</h3>
-    {{#each (pick site.components "community-contracts, upgrades-plugins, contracts-cairo, contracts-stylus, substrate-runtimes, stellar-contracts, uniswap-hooks, confidential-contracts") }}
+    {{#each (pick site.components "community-contracts, upgrades-plugins, contracts-cairo, contracts-stylus,
+    substrate-runtimes, stellar-contracts, uniswap-hooks, confidential-contracts, defender") }}
     {{> navigation-component }}
     {{/each}}
   </div>
