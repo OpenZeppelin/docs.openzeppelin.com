@@ -180,7 +180,7 @@ button.collapse-toggle {
   width: 200px;
   max-height: 80vh;
   position: sticky;
-  top: 10vh;
+  top: 9vh;
   overflow-y: auto;
 
   @media (max-width: math.div($mobile-breakpoint * 2, 3)) {
