@@ -154,6 +154,16 @@ site:
         version: '0.x'
         displayVersion: '0.x'
       latestVersion: *latest_version_confidential_contracts
+    contracts-compact:
+      name: contracts-compact
+      title: Compact Contracts
+      url: '#'
+      versions:
+        - &latest_version_compact_contracts
+          url: '#' 
+          version: '0.0.1'
+          displayVersion: '0.0.1'
+      latestVersion: *latest_version_compact_contracts
     upgrades:
       name: upgrades
       title: Upgrades
