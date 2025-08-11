@@ -10,5 +10,5 @@ xref:monitor::index.adoc[[.card-title]#OpenZeppelin Monitor# [.card-body]#pass:q
 
 [.card.card-oss.card-contracts-ui-builder]
 --
-xref:contracts-ui-builder::index.adoc[[.card-title]#OpenZeppelin Contracts UI Builder# [.card-body]#pass:q[An open-source blockchain development tool that helps developers and non-developers create user-friendly interfaces for smart contract interaction by providing a chain-agnostic form builder that generates standalone "mini apps" without requiring backend infrastructure]#]
+xref:contracts-ui-builder::index.adoc[[.card-title]#OpenZeppelin Contracts UI Builder# [.card-body]#pass:q[An open-source blockchain development tool that helps developers and non-developers create user-friendly interfaces for smart contract interaction by providing a chain-agnostic form builder that generates standalone "mini apps" without requiring backend infrastructure.]#]
 --
