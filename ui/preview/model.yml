@@ -164,6 +164,16 @@ site:
           version: '0.0.1'
           displayVersion: '0.0.1'
       latestVersion: *latest_version_compact_contracts
+    contract-ui-builder:
+      name: contract-ui-builder
+      title: Contracts UI Builder
+      url: '#'
+      versions:
+        - &latest_version_contracts_ui_builder
+          url: '#'
+          version: '0.0.1'
+          displayVersion: '0.0.1'
+      latestVersion: *latest_version_contracts_ui_builder
     upgrades:
       name: upgrades
       title: Upgrades

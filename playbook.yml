@@ -121,6 +121,10 @@ content:
     - url: https://github.com/OpenZeppelin/compact-contracts
       branches: HEAD
       start_path: docs
+
+    - url: https://github.com/OpenZeppelin/contracts-ui-builder
+      branches: HEAD
+      start_path: docs
 ui:
   bundle:
     url: ./ui/theme
