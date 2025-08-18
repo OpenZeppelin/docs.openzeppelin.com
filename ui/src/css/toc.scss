@@ -1,9 +1,11 @@
 .toc-sidebar {
   font-size: .8em;
   opacity: .8;
+  overflow: visible;
 }
 
 .toc-menu {
+  margin-top: 1rem;
   border-width: 0 0 0 0.25rem;
 
   ul {
@@ -57,4 +59,102 @@
 
 .toc .toc-menu li a.toc-active {
   color: var(--core-violet-4);
+}
+
+.btn-llms-container {
+  display: flex;
+}
+
+.btn-chatgpt {
+  font-size: 0.85rem;
+  font-weight: var(--weight-medium);
+  min-height: 1.5rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid;
+  border-radius: 1rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+
+  &:hover,
+  &:focus {
+    color: var(--core-violet-4);
+    path {
+      fill: var(--core-violet-4);
+    }
+  }
+
+  span {
+    margin-left: 0.2rem;
+  }
+  
+  svg {
+    height: var(--md);
+    width: var(--md);
+  }
+}
+
+.btn-llms {
+  font-size: 0.85rem;
+  font-weight: var(--weight-medium);
+  min-height: 1.5rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid;
+  border-radius: 1rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  &::after{
+    display: inline-block;
+    content: url(../images/icons/chevron.svg);
+    width: .8rem;
+  }
+}
+
+.llms-popover-container {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 1;
+  border-left: 0;
+  margin-top: .5rem;
+
+  .btn-llms:focus + &,
+  &:focus-within {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.component-llm {
+  position: relative;
+}
+
+.btn-llm-popover {
+  text-align: start;
+  border: 0;
+  font-size: 0.8rem;
+  font-weight: var(--weight-medium);
+  min-height: 1.5rem;
+  padding: 0.2rem 0.5rem;
+  width: 15em;
+
+  & > .sub {
+    font-size: 0.6rem;
+    font-weight: var(--weight-light);
+  }
+
+  & > .icon {
+    margin-right: .3rem;
+  }
+
+  p {
+    padding: 0;
+  }
+}
+
+.popover.llm-popover {
+  width: 15em;
 }
