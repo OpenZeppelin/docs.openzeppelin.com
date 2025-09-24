@@ -122,7 +122,7 @@ content:
       branches: HEAD
       start_path: docs
 
-    - url: https://github.com/OpenZeppelin/contracts-ui-builder
+    - url: https://github.com/OpenZeppelin/ui-builder
       branches: HEAD
       start_path: docs
 ui:
