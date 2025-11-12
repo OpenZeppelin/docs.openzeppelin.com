@@ -3,8 +3,8 @@ site:
   url: https://docs.openzeppelin.com
   start_page: ROOT::index.adoc
   keys:
-    google_analytics: 'UA-85043059-1'
-    gtm: 'GTM-W9X5Q6F'
+    google_analytics: "UA-85043059-1"
+    gtm: "GTM-W9X5Q6F"
 content:
   sources:
     - url: .
@@ -107,19 +107,20 @@ content:
     - url: https://github.com/OpenZeppelin/openzeppelin-confidential-contracts
       branches: docs-v*
       start_path: docs
-    
+
     - url: https://github.com/OpenZeppelin/openzeppelin-monitor
       branches:
         - docs-v*
       start_path: docs
-    
+
     - url: https://github.com/OpenZeppelin/openzeppelin-relayer
       branches:
         - docs-v*
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/compact-contracts
-      branches: HEAD
+      branches:
+        - docs-v*
       start_path: docs
 
     - url: https://github.com/OpenZeppelin/ui-builder
@@ -130,13 +131,13 @@ ui:
     url: ./ui/theme
 asciidoc:
   attributes:
-    idprefix: ''
+    idprefix: ""
 antora:
   extensions:
-    - require: './lunr-tokenizer'
-    - require: '@antora/lunr-extension'
+    - require: "./lunr-tokenizer"
+    - require: "@antora/lunr-extension"
       index_latest_only: true
-    - require: '@sntke/antora-mermaid-extension'
+    - require: "@sntke/antora-mermaid-extension"
       mermaid_library_url: https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs
       script_stem: mermaid-scripts
       mermaid_initialize_options:
