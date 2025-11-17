@@ -34,7 +34,7 @@
       <span class="">{{{./title}}}</span>
       <div class="component-version">
         {{#if (and versions (eq this @root.page.component))}}
-        {{#unless (eq versions.length 1)}}
+        {{#unless (eq @root.page.componentVersion.displayVersion "default")}}
         <button class="flex align-center shrink btn btn-version" id="version-selector">
           {{@root.page.componentVersion.displayVersion}}
         </button>
@@ -48,6 +48,7 @@
                 {{/with}}
               </li>
             </ul>
+            {{#unless (eq versions.length 1)}}
             <p>Other versions</p>
             <ul>
               {{#each versions}}
@@ -58,6 +59,7 @@
               {{/unless}}
               {{/each}}
             </ul>
+            {{/unless}}
           </div>
         </div>
         {{/unless}}
