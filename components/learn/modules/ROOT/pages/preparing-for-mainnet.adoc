@@ -18,7 +18,7 @@ While security affects all of software development, security in smart contracts 
 
 With this in mind, security should be a primary concern at all stages of development. This means that **security is not something that you sprinkle on your project a week before you release**, but a guiding principle starting day one of your project.
 
-Review https://consensys.github.io/smart-contract-best-practices/[smart contract security best practices] as you begin coding, join the https://forum.openzeppelin.com/c/security/25[security discussions in our forum], and make sure to go through our https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] to ensure your project is healthy.
+Review https://consensysdiligence.github.io/smart-contract-best-practices/[smart contract security best practices] as you begin coding, join the https://forum.openzeppelin.com/c/security/25[security discussions in our forum], and make sure to go through our https://blog.openzeppelin.com/follow-this-quality-checklist-before-an-audit-8cc6a0e44845/[quality checklist] to ensure your project is healthy.
 
 Once you are done, it's a good time to request an audit with one or more auditing firms. You can https://openzeppelin.com/security-audits/[request an audit] from the OpenZeppelin Research Team - we are an experienced team with a https://blog.openzeppelin.com/security-audits/[long track record].
 
