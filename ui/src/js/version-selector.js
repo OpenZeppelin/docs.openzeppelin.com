@@ -3,4 +3,8 @@ window.addEventListener("load", function () {
   versionBtn?.addEventListener("click", function () {
     versionBtn.focus();
   });
+  const llmBtn = document.getElementById("llm-selector");
+  llmBtn?.addEventListener("click", function () {
+    llmBtn.focus();
+  });
 });
