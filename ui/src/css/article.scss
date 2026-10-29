@@ -39,6 +39,17 @@
     max-width: 100%;
   }
 
+  /* Long bare URLs in prose (e.g. ERC-1155 URI examples) overflow the
+   * content column and collide with the TOC; break them within the article. */
+  p, li, td, th {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  a {
+    overflow-wrap: anywhere;
+  }
+
   aside {
     background: var(--aluminum-1);
     border: 1px solid var(--aluminum-3);
