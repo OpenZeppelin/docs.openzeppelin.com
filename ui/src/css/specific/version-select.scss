@@ -19,7 +19,8 @@
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &.is-open {
     color: var(--core-violet-4);
   }
 
@@ -38,7 +39,9 @@
   z-index: 1;
   padding-top: .5em;
 
+  /* Safari does not keep :focus on a clicked <button>, so also key off .is-open. */
   .btn-version:focus + &,
+  .btn-version.is-open + &,
   &:focus-within {
     opacity: 1;
     pointer-events: auto;
